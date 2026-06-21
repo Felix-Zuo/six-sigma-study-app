@@ -6,10 +6,19 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_CONTENT_ROOT = REPO_ROOT / "apps" / "reader" / "public" / "content"
+EXPECTED_CHAPTERS = 33
+EXPECTED_PAGE_COUNT = 449
+EXPECTED_FIRST_STUDY_PAGE = 6
 
 
 def fail(message: str) -> None:
     raise SystemExit(f"content validation failed: {message}")
+
+
+def normalize_lookup_key(value: object) -> str:
+    return " ".join(
+        "".join(char.lower() if char.isalnum() or char == "σ" else " " for char in str(value)).split()
+    )
 
 
 def validate_legacy_lesson(path: Path, data: dict) -> None:
@@ -48,7 +57,7 @@ def validate_image_asset(block: dict) -> None:
         fail(f"image dimensions must be positive: {block.get('id')}")
 
 
-def validate_block(section_id: str, block: dict) -> None:
+def validate_block(section_id: str, block: dict, asset_ids: set[str] | None = None) -> None:
     if not block.get("id"):
         fail(f"block missing id in section {section_id}")
     kind = block.get("kind")
@@ -64,12 +73,14 @@ def validate_block(section_id: str, block: dict) -> None:
             fail(f"table block has no visible cells: {block.get('id')}")
     if kind == "image":
         validate_image_asset(block)
+        if asset_ids is not None and block["assetId"] not in asset_ids:
+            fail(f"image block references asset missing from chapter metadata: {block['assetId']}")
 
 
-def validate_assets(data: dict) -> None:
+def validate_assets(data: dict) -> set[str]:
     assets = data.get("assets", [])
     if assets is None:
-        return
+        return set()
     if not isinstance(assets, list):
         fail(f"assets must be an array in {data.get('id')}")
     seen_ids: set[str] = set()
@@ -84,27 +95,62 @@ def validate_assets(data: dict) -> None:
             fail(f"invalid asset type for {asset['id']}: {asset['type']}")
         if not isinstance(asset["page"], int) or asset["page"] < 1:
             fail(f"invalid asset page for {asset['id']}")
-        asset_path = PUBLIC_CONTENT_ROOT / str(asset["path"])
+        if data.get("pageStart") and data.get("pageEnd"):
+            if not (data["pageStart"] <= asset["page"] <= data["pageEnd"]):
+                fail(f"asset page outside chapter range for {asset['id']}: {asset['page']}")
+        asset_src = str(asset["path"])
+        if asset_src.startswith("/") or ".." in Path(asset_src).parts:
+            fail(f"unsafe asset path for {asset['id']}: {asset_src}")
+        asset_path = PUBLIC_CONTENT_ROOT / asset_src
         if not asset_path.exists():
             fail(f"asset file does not exist for {asset['id']}: {asset_path}")
+    return seen_ids
 
 
-def validate_section_lesson(path: Path, data: dict, quiet: bool = False) -> None:
+def validate_section_lesson(
+    path: Path,
+    data: dict,
+    quiet: bool = False,
+    global_section_ids: set[str] | None = None,
+    global_block_ids: set[str] | None = None,
+) -> None:
     for key in ["id", "chapter", "pageStart", "pageEnd", "title", "sections"]:
         if key not in data:
             fail(f"lesson missing {key}")
+    if not isinstance(data["pageStart"], int) or not isinstance(data["pageEnd"], int):
+        fail(f"chapter page range must be integers: {data.get('id')}")
+    if data["pageStart"] > data["pageEnd"]:
+        fail(f"chapter page range is inverted: {data.get('id')}")
     if not isinstance(data["sections"], list) or not data["sections"]:
         fail("sections must be a non-empty array")
+    lesson_title = data["title"]
+    if not isinstance(lesson_title, dict) or not lesson_title.get("en") or not lesson_title.get("zh"):
+        fail(f"chapter missing bilingual title: {data.get('id')}")
+    asset_ids = validate_assets(data)
     seen_ids: set[str] = set()
+    seen_block_ids: set[str] = set()
+    referenced_asset_ids: set[str] = set()
+    previous_page = data["pageStart"]
     for section in data["sections"]:
         for key in ["id", "page", "level", "title", "content"]:
             if key not in section:
                 fail(f"section missing {key}: {section!r}")
         if section["id"] in seen_ids:
             fail(f"duplicate section id: {section['id']}")
+        if global_section_ids is not None:
+            if section["id"] in global_section_ids:
+                fail(f"duplicate global section id: {section['id']}")
+            global_section_ids.add(section["id"])
         seen_ids.add(section["id"])
         if not isinstance(section["page"], int) or section["page"] < 1:
             fail(f"invalid page for section {section['id']}")
+        if not (data["pageStart"] <= section["page"] <= data["pageEnd"]):
+            fail(f"section page outside chapter range for {section['id']}: {section['page']}")
+        if section["page"] < previous_page:
+            fail(f"section pages must be nondecreasing in {data.get('id')}: {section['id']}")
+        previous_page = section["page"]
+        if not isinstance(section["level"], int) or section["level"] < 1:
+            fail(f"invalid section level for {section['id']}: {section['level']}")
         title = section["title"]
         if not title.get("en") or not title.get("zh"):
             fail(f"section missing bilingual title: {section['id']}")
@@ -114,16 +160,28 @@ def validate_section_lesson(path: Path, data: dict, quiet: bool = False) -> None
             if not isinstance(blocks, list) or not blocks:
                 fail(f"section {section['id']} missing {language} blocks")
             for block in blocks:
-                validate_block(section["id"], block)
-    validate_assets(data)
+                block_id = block.get("id")
+                if block_id in seen_block_ids:
+                    fail(f"duplicate block id in {data.get('id')}: {block_id}")
+                if global_block_ids is not None:
+                    if block_id in global_block_ids:
+                        fail(f"duplicate global block id: {block_id}")
+                    global_block_ids.add(block_id)
+                seen_block_ids.add(block_id)
+                validate_block(section["id"], block, asset_ids)
+                if block.get("kind") == "image":
+                    referenced_asset_ids.add(str(block["assetId"]))
+    unused_assets = asset_ids - referenced_asset_ids
+    if unused_assets:
+        fail(f"chapter assets not referenced by image blocks in {data.get('id')}: {sorted(unused_assets)[:5]}")
     if not quiet:
         print(f"ok: {path} ({len(data['sections'])} sections)")
 
 
-def validate_dictionary(path: Path, data: object) -> None:
+def validate_dictionary(path: Path, data: object, quiet: bool = False) -> None:
     if not isinstance(data, list) or not data:
         fail("dictionary must be a non-empty array")
-    seen_keys: set[str] = set()
+    seen_keys: dict[str, str] = {}
     for entry in data:
         if not isinstance(entry, dict):
             fail(f"dictionary entry is not an object: {entry!r}")
@@ -132,12 +190,67 @@ def validate_dictionary(path: Path, data: object) -> None:
                 fail(f"dictionary entry missing {key}: {entry!r}")
         if not isinstance(entry["lookupKeys"], list) or not entry["lookupKeys"]:
             fail(f"dictionary entry missing lookup keys: {entry['term']}")
-        for lookup_key in entry["lookupKeys"]:
-            normalized = str(lookup_key).strip().lower()
-            if normalized in seen_keys:
+        for lookup_key in [entry["term"], *entry["lookupKeys"]]:
+            normalized = normalize_lookup_key(lookup_key)
+            if not normalized:
+                fail(f"empty normalized lookup key: {entry['term']}")
+            if normalized in seen_keys and seen_keys[normalized] != entry["term"]:
                 fail(f"duplicate lookup key: {lookup_key}")
-            seen_keys.add(normalized)
-    print(f"ok: {path} ({len(data)} terms)")
+            seen_keys[normalized] = entry["term"]
+    if not quiet:
+        print(f"ok: {path} ({len(data)} terms)")
+
+
+def validate_manifest(path: Path, data: dict) -> None:
+    if data.get("pageCount") != EXPECTED_PAGE_COUNT:
+        fail(f"manifest pageCount must be {EXPECTED_PAGE_COUNT}: {data.get('pageCount')}")
+    chapters = data.get("chapters")
+    if not isinstance(chapters, list) or len(chapters) != EXPECTED_CHAPTERS:
+        fail(f"manifest must contain {EXPECTED_CHAPTERS} chapters")
+    previous_end = EXPECTED_FIRST_STUDY_PAGE - 1
+    seen_ids: set[str] = set()
+    for expected_chapter, chapter in enumerate(chapters, start=1):
+        for key in ["id", "chapter", "title", "pageStart", "pageEnd", "path"]:
+            if key not in chapter:
+                fail(f"manifest chapter missing {key}: {chapter!r}")
+        if chapter["id"] in seen_ids:
+            fail(f"duplicate manifest chapter id: {chapter['id']}")
+        seen_ids.add(chapter["id"])
+        if chapter["chapter"] != expected_chapter:
+            fail(f"manifest chapter sequence mismatch: expected {expected_chapter}, got {chapter['chapter']}")
+        if chapter["pageStart"] != previous_end + 1:
+            fail(f"manifest page range gap before chapter {chapter['chapter']}")
+        if chapter["pageStart"] > chapter["pageEnd"]:
+            fail(f"manifest inverted page range for chapter {chapter['chapter']}")
+        previous_end = chapter["pageEnd"]
+        chapter_path = path.parent / str(chapter["path"])
+        if not chapter_path.exists():
+            fail(f"manifest chapter path does not exist: {chapter_path}")
+    if previous_end != EXPECTED_PAGE_COUNT:
+        fail(f"manifest final page must be {EXPECTED_PAGE_COUNT}: {previous_end}")
+    print(f"ok: {path} ({len(chapters)} manifest chapters)")
+
+
+def validate_manual(path: Path, data: dict) -> None:
+    if data.get("pageCount") != EXPECTED_PAGE_COUNT:
+        fail(f"manual pageCount must be {EXPECTED_PAGE_COUNT}: {data.get('pageCount')}")
+    chapters = data.get("chapters")
+    if not isinstance(chapters, list) or len(chapters) != EXPECTED_CHAPTERS:
+        fail(f"manual must contain {EXPECTED_CHAPTERS} chapters")
+    validate_dictionary(path, data.get("dictionary"), quiet=True)
+    previous_end = EXPECTED_FIRST_STUDY_PAGE - 1
+    global_section_ids: set[str] = set()
+    global_block_ids: set[str] = set()
+    for expected_chapter, chapter in enumerate(chapters, start=1):
+        if chapter.get("chapter") != expected_chapter:
+            fail(f"manual chapter sequence mismatch: expected {expected_chapter}, got {chapter.get('chapter')}")
+        if chapter.get("pageStart") != previous_end + 1:
+            fail(f"manual page range gap before chapter {chapter.get('chapter')}")
+        validate_section_lesson(path, chapter, quiet=True, global_section_ids=global_section_ids, global_block_ids=global_block_ids)
+        previous_end = chapter["pageEnd"]
+    if previous_end != EXPECTED_PAGE_COUNT:
+        fail(f"manual final page must be {EXPECTED_PAGE_COUNT}: {previous_end}")
+    print(f"ok: {path} ({len(chapters)} manual chapters)")
 
 
 def validate_file(path: Path) -> None:
@@ -151,11 +264,9 @@ def validate_file(path: Path) -> None:
     elif isinstance(data, dict) and "chapters" in data:
         chapters = data["chapters"]
         if chapters and isinstance(chapters[0], dict) and "sections" in chapters[0]:
-            for chapter in chapters:
-                validate_section_lesson(path, chapter, quiet=True)
-            print(f"ok: {path} ({len(chapters)} manual chapters)")
+            validate_manual(path, data)
         else:
-            print(f"ok: {path} ({len(chapters)} manifest chapters)")
+            validate_manifest(path, data)
     else:
         fail(f"unrecognized content file: {path}")
 
