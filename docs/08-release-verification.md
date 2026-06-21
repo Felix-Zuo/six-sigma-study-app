@@ -6,8 +6,8 @@ This document records the current evidence that the Android study app is install
 
 - Repository: `https://github.com/Felix-Zuo/six-sigma-study-app`
 - Local path: `C:\findjob_sixsigma_app`
-- Latest verified implementation commit when this document was updated: `48f63e2`
-- Latest verified implementation GitHub Actions run: `27919503459`
+- Latest verified implementation commit when this document was updated: `7f5d2ec`
+- Latest verified implementation GitHub Actions run: `27919872550`
 - Release APK: `C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB: `C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab`
 
@@ -44,6 +44,14 @@ $tool = Get-ChildItem 'C:\android-sdk\build-tools' -Recurse -Filter apksigner.ba
 jarsigner -verify 'android/app/build/outputs/bundle/release/app-release.aab'
 ```
 
+PWA offline browser verification:
+
+```powershell
+# Serve the production build on 127.0.0.1:4175 and expose a clean Chrome
+# instance through CDP on 127.0.0.1:9333, then run:
+node scripts\qa-pwa-offline-cdp.mjs
+```
+
 ## Current Content Evidence
 
 - 33 chapters are generated into app content.
@@ -51,8 +59,16 @@ jarsigner -verify 'android/app/build/outputs/bundle/release/app-release.aab'
 - 174 reader sections are generated across the manual.
 - 470 deduplicated PNG figure/table/formula assets are bundled.
 - 69 offline dictionary entries are bundled, covering high-frequency Six Sigma, statistics, Minitab/chart, lean, software-command, and basic study words.
-- `manual.json`, `asset-manifest.json`, and all figure PNGs are present in both APK and AAB.
+- `manual.json`, `asset-manifest.json`, PWA shell files, hashed reader assets, and all figure PNGs are present in both APK and AAB.
+- Targeted APK/AAB package checks count 479 public runtime entries for the reader shell, manifest, service worker, manual, asset manifest, and figures.
 - Chapter 28 remains one section because its TOC-like headings are normal paragraphs, not reliable Word headings.
+
+## PWA Browser Offline QA
+
+- `node scripts\qa-pwa-offline-cdp.mjs`: passed against Vite preview on `127.0.0.1:4175` and clean headless Chrome CDP on `127.0.0.1:9333`.
+- Service worker cache: `six-sigma-study-v0.4.0`.
+- Online cache state: 479 entries, including `/`, `/index.html`, hashed JS/CSS shell assets, `content/manual.json`, `manifest.webmanifest`, and 470 figure assets.
+- Offline reload state: CDP network offline, cache-ignored reload rendered `Chapter 1: What is Six Sigma?`, 23 sections, service-worker controller present, and horizontal overflow 0.
 
 ## Android Runtime QA
 

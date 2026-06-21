@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 06:30 Asia/Shanghai
+Last updated: 2026-06-22 06:45 Asia/Shanghai
 
 ## Objective
 
@@ -19,10 +19,10 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest validated implementation commit: `48f63e2 Strengthen full manual content validation`
+- Latest validated implementation commit: `7f5d2ec Improve PWA offline shell caching`
 - Local worktree: expected clean after the state-sync commit that contains this note
-- Latest implementation GitHub Actions state: CI passed for `48f63e2` in run `27919503459`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 69-entry offline study dictionary, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Latest implementation GitHub Actions state: CI passed for `7f5d2ec` in run `27919872550`
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 69-entry offline study dictionary, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service worker with verified offline app-shell/figure caching for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
 
@@ -102,6 +102,8 @@ The final product must support full-manual offline reading, position-preserving 
 - Added selected-text study notes under `six-sigma-study:notes:v1`, including source language, chapter, page, section, editable note text, and delete actions.
 - Added a notes dock and notes bottom sheet, plus `scripts/qa-notes-cdp.mjs` for Android WebView selection/save/edit layout QA.
 - Strengthened `scripts/validate_content.py` with full-manual gates for 33 chapters, 449 pages, continuous chapter ranges, manifest paths, global duplicate section/block IDs, image block/asset metadata consistency, unsafe asset paths, asset page bounds, and reader-style dictionary lookup key uniqueness.
+- Improved the browser PWA service worker to pre-cache the production app shell from `index.html`, including Vite hashed JS/CSS assets, before caching the full figure asset manifest.
+- Added `scripts/qa-pwa-offline-cdp.mjs` to verify service-worker control, cache contents, offline reload behavior, and mobile horizontal overflow through Chrome CDP.
 
 ## Verification In Current Stage
 
@@ -378,6 +380,26 @@ The final product must support full-manual offline reading, position-preserving 
   - `npm run build`: passed
   - GitHub issue #6 updated with the new validator evidence
   - GitHub Actions CI for `48f63e2`: passed in run `27919503459`
+- PWA offline installation verification:
+  - `npm run build`: passed
+  - Vite preview served the production app at `http://127.0.0.1:4175/`
+  - Clean headless Chrome CDP ran on `http://127.0.0.1:9333/json`
+  - `node scripts\qa-pwa-offline-cdp.mjs`: passed
+  - Service worker cache: `six-sigma-study-v0.4.0`
+  - Online cache contents: 479 entries with `/`, `/index.html`, hashed JS/CSS shell assets, `content/manual.json`, `manifest.webmanifest`, and 470 figure assets
+  - Offline reload state: `Chapter 1: What is Six Sigma?`, 23 rendered sections, service-worker controller present, and horizontal overflow 0
+  - Local QA screenshot captured at `C:\findjob_sixsigma_app\qa\screenshots\pwa-offline-qa.png` and ignored by Git.
+  - `npm run lint:content`: passed
+  - `npm run typecheck`: passed
+  - `npm run build`: passed
+  - `npm run android:release-apk`: passed
+  - `npm run android:aab`: passed
+  - APK size: 37,326,351 bytes
+  - AAB size: 35,109,500 bytes
+  - APK/AAB package checks: 479 public runtime entries covering reader shell assets, PWA manifest/service worker, `manual.json`, `asset-manifest.json`, and 470 figure PNG files
+  - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
+  - AAB `jarsigner -verify`: verified with expected self-signed certificate warnings
+  - GitHub Actions CI for `7f5d2ec`: passed in run `27919872550`
 
 ## Known Limitations
 
@@ -396,7 +418,6 @@ The final product must support full-manual offline reading, position-preserving 
 
 - #2 Implement reader position-preserving language toggle
 - #6 Design full-manual conversion validator
-- #7 Add PWA offline installation support
 - #8 Expand offline English learner dictionary coverage
 
 ## Closed GitHub Work Items
@@ -405,6 +426,7 @@ The final product must support full-manual offline reading, position-preserving 
 - #3 Implement tap-to-lookup bottom sheet
 - #4 Seed curated Six Sigma terminology dictionary
 - #5 Persist vocabulary book locally
+- #7 Add PWA offline installation support
 
 ## Resume Protocol
 

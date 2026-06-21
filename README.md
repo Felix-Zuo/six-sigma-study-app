@@ -32,10 +32,10 @@ It intentionally does **not** commit the full manual DOCX/PDF/PNG assets. Those 
 
 - Android-first app: release APK and AAB build locally.
 - Full manual: all 33 chapters, 449 aligned study pages, 174 generated reader sections.
-- Offline runtime package: `manual.json`, 69-entry local study dictionary, local vocabulary store, and 470 bundled figure/table/formula PNG assets.
+- Offline runtime package: `manual.json`, 69-entry local study dictionary, local vocabulary store, PWA install cache, and 470 bundled figure/table/formula PNG assets.
 - Reader interactions: EN/ZH toggle with block-aware position restoration, table-of-contents search, persisted dark mode and font size controls, tap-to-lookup, phrase selection lookup, bottom-sheet explanations, local vocabulary save/status, due-based vocabulary review, vocabulary CSV export, and selected-text study notes.
 - Long chapter handling: English word buttons are mounted only near the viewport to avoid huge DOMs.
-- Latest verified implementation CI at the time of this note: `27919503459` on commit `48f63e2`.
+- Latest verified implementation CI at the time of this note: `27919872550` on commit `7f5d2ec`.
 
 See [Release Verification](docs/08-release-verification.md) for the current evidence matrix.
 
@@ -118,6 +118,8 @@ Build APK and AAB sequentially. Running both Android release scripts in parallel
 
 Current release package checks verify that both APK and AAB contain:
 
+- `index.html`, `manifest.webmanifest`, and `sw.js`
+- Vite hashed JS/CSS reader shell assets
 - `content/manual.json`
 - `content/assets/asset-manifest.json`
 - 470 figure PNG files
@@ -148,3 +150,13 @@ After launching the release APK and forwarding the app WebView CDP socket to `12
 ```powershell
 node scripts\qa-language-toggle-cdp.mjs
 ```
+
+## PWA Offline QA
+
+With the production build served by `vite preview` on `127.0.0.1:4175` and a clean Chrome instance exposed through CDP on `127.0.0.1:9333`, run:
+
+```powershell
+node scripts\qa-pwa-offline-cdp.mjs
+```
+
+The current passing run verified service-worker control, 479 cached runtime entries including 470 figures, offline reload rendering, 23 Chapter 1 sections, and 0 horizontal overflow.

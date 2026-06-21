@@ -59,6 +59,7 @@ Goal: make vocabulary learning useful.
 Goal: installable Android app first.
 
 - [x] add PWA manifest and service worker base
+- [x] browser PWA offline shell caching and CDP offline-reload QA
 - [x] wrap with Capacitor
 - [x] Android debug APK build
 - [x] bundle static reader assets into debug APK
