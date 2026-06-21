@@ -1,0 +1,156 @@
+[
+  {
+    "term": "Six Sigma",
+    "translation": "六西格玛",
+    "partOfSpeech": "term",
+    "isSixSigmaTerm": true,
+    "lookupKeys": [
+      "six",
+      "six sigma",
+      "6σ"
+    ],
+    "explanation": "一套以数据为基础的流程改进方法，也是一种统计质量目标；核心是减少变异、缺陷、返工和客户不满意。"
+  },
+  {
+    "term": "Sigma",
+    "translation": "西格玛",
+    "partOfSpeech": "noun",
+    "isSixSigmaTerm": true,
+    "lookupKeys": [
+      "sigma",
+      "σ"
+    ],
+    "explanation": "统计学中常用来表示标准差。六西格玛语境中，它常用于表达流程波动水平和质量表现。"
+  },
+  {
+    "term": "methodology",
+    "translation": "方法论",
+    "partOfSpeech": "noun",
+    "lookupKeys": [
+      "methodology",
+      "methodologies"
+    ],
+    "explanation": "一套有结构、有步骤的方法体系，不是单个技巧或工具。"
+  },
+  {
+    "term": "process",
+    "translation": "流程",
+    "partOfSpeech": "noun",
+    "isSixSigmaTerm": true,
+    "lookupKeys": [
+      "process",
+      "processes"
+    ],
+    "explanation": "把输入转化为输出的一系列活动。六西格玛改进通常围绕流程的测量、分析、改进和控制展开。"
+  },
+  {
+    "term": "variation",
+    "translation": "变异；波动",
+    "partOfSpeech": "noun",
+    "isSixSigmaTerm": true,
+    "lookupKeys": [
+      "variation"
+    ],
+    "explanation": "流程输出或执行方式中的差异。变异越大，缺陷、返工和客户体验不一致的风险通常越高。"
+  },
+  {
+    "term": "defect",
+    "translation": "缺陷",
+    "partOfSpeech": "noun",
+    "isSixSigmaTerm": true,
+    "lookupKeys": [
+      "defect",
+      "defects"
+    ],
+    "explanation": "未满足客户需求、规格要求或流程要求的输出。"
+  },
+  {
+    "term": "opportunity",
+    "translation": "出错机会；机会",
+    "partOfSpeech": "noun",
+    "isSixSigmaTerm": true,
+    "lookupKeys": [
+      "opportunity",
+      "opportunities"
+    ],
+    "explanation": "一次可能发生缺陷的机会。DPMO 等指标会把缺陷数放到机会数的语境里衡量。"
+  },
+  {
+    "term": "beta testing",
+    "translation": "Beta 测试",
+    "partOfSpeech": "phrase",
+    "lookupKeys": [
+      "beta",
+      "beta testing"
+    ],
+    "explanation": "在较小或较受控范围内试用新想法、产品或系统，先发现问题再扩大推广。"
+  },
+  {
+    "term": "DPMO",
+    "translation": "每百万机会缺陷数",
+    "partOfSpeech": "abbreviation",
+    "isSixSigmaTerm": true,
+    "lookupKeys": [
+      "dpmo",
+      "defects per million opportunities"
+    ],
+    "explanation": "Defects Per Million Opportunities，指每百万次机会中的缺陷数；数值越低，流程质量越高。"
+  },
+  {
+    "term": "yield",
+    "translation": "良率",
+    "partOfSpeech": "noun",
+    "isSixSigmaTerm": true,
+    "lookupKeys": [
+      "yield"
+    ],
+    "explanation": "符合要求的输出比例。第 1 章使用公式：（机会数 - 缺陷数）/ 机会数 × 100。"
+  },
+  {
+    "term": "Voice of the Customer",
+    "translation": "客户之声",
+    "partOfSpeech": "term",
+    "isSixSigmaTerm": true,
+    "lookupKeys": [
+      "voc",
+      "voice of the customer",
+      "customer"
+    ],
+    "explanation": "客户需求、抱怨、期望和偏好的系统化输入，用于帮助团队确定真正重要的质量要求。"
+  },
+  {
+    "term": "value stream",
+    "translation": "价值流",
+    "partOfSpeech": "term",
+    "isSixSigmaTerm": true,
+    "lookupKeys": [
+      "value",
+      "value stream",
+      "value streams"
+    ],
+    "explanation": "为了产生最终结果所需的所有活动、事项、人员和信息的序列，可用于识别浪费和改进机会。"
+  },
+  {
+    "term": "continuous process improvement",
+    "translation": "持续流程改进",
+    "partOfSpeech": "phrase",
+    "isSixSigmaTerm": true,
+    "lookupKeys": [
+      "continuous",
+      "continuous process improvement",
+      "improvement"
+    ],
+    "explanation": "持续寻找并优先处理流程中的改进机会，而不是把质量改进视为一次性项目。"
+  },
+  {
+    "term": "statistical control",
+    "translation": "统计受控",
+    "partOfSpeech": "term",
+    "isSixSigmaTerm": true,
+    "lookupKeys": [
+      "control",
+      "statistical control"
+    ],
+    "explanation": "流程波动处于可解释、可监控的状态。六西格玛改进后需要控制机制防止流程退回旧状态。"
+  }
+]

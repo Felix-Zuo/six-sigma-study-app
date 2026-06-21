@@ -16,19 +16,21 @@ Status: in progress
 
 Goal: prove the study loop on real content.
 
-- extract Chapter 1 into structured bilingual JSON
-- render Chapter 1 in mobile reader
-- English/Chinese toggle keeps position
-- word tap opens bottom sheet
-- curated Six Sigma terms for Chapter 1
-- local vocabulary save
-- phone viewport QA
+- [x] extract Chapter 1 into structured bilingual JSON
+- [x] render Chapter 1 in mobile reader
+- [x] English/Chinese toggle keeps position at section level
+- [x] word tap opens bottom sheet
+- [x] curated Six Sigma terms for Chapter 1
+- [x] local vocabulary save
+- [x] phone viewport QA
+- [ ] refine phrase selection QA on real mobile touch behavior
+- [ ] decide whether English table fragments should be rebuilt or stored as images
 
 ## Phase 2: Full Manual Content Package
 
 Goal: convert all 449 aligned pages into app content.
 
-- automate chapter extraction
+- generalize chapter extraction beyond Chapter 1
 - preserve figures/tables as optimized assets
 - generate all chapter JSON files
 - validate page/chapter mapping
@@ -63,4 +65,3 @@ Goal: comfortable long-session study.
 - page/chapter search
 - notes and highlights
 - performance profiling on real phone
-

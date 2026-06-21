@@ -8,6 +8,7 @@ build/
 coverage/
 .vite/
 devserver.log
+devserver*.log
 *.tsbuildinfo
 
 # Local environment
@@ -19,6 +20,11 @@ devserver.log
 content/raw/*
 content/processed/*
 !content/processed/manual.sample.json
+!content/processed/chapters/
+!content/processed/chapters/*.json
+!content/processed/dictionary/
+!content/processed/dictionary/*.json
+!content/processed/manifest.json
 *.pdf
 *.docx
 *.png

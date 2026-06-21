@@ -1,0 +1,18 @@
+{
+  "manual": "CSSC Six Sigma Black Belt Training Manual",
+  "version": "0.1.0",
+  "chapters": [
+    {
+      "id": "ch01",
+      "chapter": 1,
+      "title": {
+        "en": "Chapter 1: What is Six Sigma?",
+        "zh": "第一章：什么是六西格玛？"
+      },
+      "pageStart": 6,
+      "pageEnd": 13,
+      "path": "chapters/ch01.json"
+    }
+  ],
+  "dictionary": "dictionary/six-sigma-terms.json"
+}
