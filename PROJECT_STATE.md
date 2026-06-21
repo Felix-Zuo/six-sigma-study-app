@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 05:10 Asia/Shanghai
+Last updated: 2026-06-22 05:24 Asia/Shanghai
 
 ## Objective
 
@@ -19,10 +19,10 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest validated implementation commit: `fd75101 Document current release verification`
+- Latest validated implementation commit: `9230257 Add reader comfort controls`
 - Local worktree: expected clean after the state-sync commit that contains this note
-- Latest implementation GitHub Actions state: CI passed for `fd75101` in run `27917499780`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, section-preserving language toggle, persisted reading position across app restart, viewport-bound English word tokenization, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Latest implementation GitHub Actions state: CI passed for `9230257` in run `27917919176`
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, section-preserving language toggle, persisted reading position across app restart, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
 
@@ -82,6 +82,11 @@ The final product must support full-manual offline reading, position-preserving 
 - Updated phrase selection so selected phrases retain the actual source section and page from the DOM selection anchor instead of using the current active section as a proxy.
 - Phrase lookup now clears the text selection after opening the lookup bottom sheet, avoiding stale floating phrase-query controls.
 - Added `docs/08-release-verification.md` as the current APK/AAB, content, Android QA, CI, and known-gap evidence matrix.
+- Added persisted reader preferences under `six-sigma-study:reader-preferences:v1`.
+- Added dark mode across reader chrome, content cards, tables, figures, term notes, lookup sheets, table of contents, and vocabulary panels.
+- Added standard, large, and extra-large reader font controls from the sticky header.
+- Added long URL/reference wrapping so Chapter 1 source citations do not create page-level horizontal scroll at extra-large text size.
+- Updated Phase 5 roadmap tracking for long-session study comfort.
 
 ## Verification In Current Stage
 
@@ -211,6 +216,29 @@ The final product must support full-manual offline reading, position-preserving 
   - AAB content check: 470 figure PNG files, `base/assets/public/content/assets/asset-manifest.json`, and `base/assets/public/content/manual.json` are present
   - `apksigner verify --print-certs android\app\build\outputs\apk\release\app-release.apk`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
   - `jarsigner -verify android\app\build\outputs\bundle\release\app-release.aab`: verified with expected self-signed certificate warnings
+- Reader comfort verification:
+  - `npm run lint:content`: passed
+  - `npm run typecheck`: passed
+  - `npm run build`: passed
+  - `npm run android:release-apk`: passed
+  - Release APK install and relaunch on `emulator-5554`: passed
+  - Android WebView preference QA:
+    - app relaunch restored dark mode, extra-large text, and 22px reader text from `six-sigma-study:reader-preferences:v1`
+    - standard, large, and extra-large controls produced 18px, 20px, and 22px reader text
+    - dark mode changed app and body background to `rgb(17, 23, 29)` with no horizontal overflow
+  - Android WebView chapter QA in dark mode and extra-large text:
+    - Chapter 1: 23 sections, 2 images, 0 visible broken images across sampled scroll positions, 0 horizontal overflow after long-reference wrapping fix
+    - Chapter 7: 6 sections, 14 images, 0 visible broken images across sampled scroll positions, 0 horizontal overflow
+    - Chapter 26: 4 sections, 50 images, 0 visible broken images across sampled scroll positions, 0 horizontal overflow
+    - Chapter 33: 5 sections, 25 images, 0 visible broken images across sampled scroll positions, 0 horizontal overflow
+  - Local QA screenshot captured at `C:\findjob_sixsigma_app\qa\screenshots\reader-dark-xlarge-ch33.png` and ignored by Git.
+  - `npm run android:aab`: passed
+  - APK size: 37,318,723 bytes
+  - AAB size: 35,101,868 bytes
+  - APK/AAB package checks: 470 figure PNG files, `manual.json`, and `asset-manifest.json` are present
+  - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
+  - AAB `jarsigner -verify`: verified with expected self-signed certificate warnings
+  - GitHub Actions CI for `9230257`: passed in run `27917919176`
 
 ## Known Limitations
 
@@ -219,7 +247,7 @@ The final product must support full-manual offline reading, position-preserving 
 - Language position preservation is section-level, not sentence-level.
 - Phrase lookup works through WebView text selection and stores the selected phrase's source section/page; physical long-press QA on a real phone is still pending.
 - English tables in Chapter 1 are partly represented as Word paragraph fragments; Chinese tables render as semantic tables.
-- Long chapters now use viewport-bound English tokenization; deeper low-end-device profiling is still pending.
+- Long chapters now use viewport-bound English tokenization and reader comfort controls; deeper low-end-device profiling is still pending.
 - Detailed paragraph-level anchors still need refinement beyond current section-level restoration.
 - Figure assets now preserve DOCX-embedded originals, but full source-page-by-source-page visual comparison is not complete.
 - Some extracted table images are intentionally rendered as images; later passes can convert selected tables to semantic tables where fidelity allows.
@@ -248,7 +276,7 @@ After context compression or a new session, do this before making changes:
 
 ## Next Action
 
-Improve curated manual section mapping for normal-paragraph titles, phrase-selection QA, low-end-device performance profiling, and full-source visual comparison for extracted figures/tables.
+Improve curated manual section mapping for normal-paragraph titles, add page/chapter search, run physical-phone long-press QA, perform low-end-device performance profiling, and continue full-source visual comparison for extracted figures/tables.
 
 ## Constraints
 

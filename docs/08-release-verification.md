@@ -6,8 +6,8 @@ This document records the current evidence that the Android study app is install
 
 - Repository: `https://github.com/Felix-Zuo/six-sigma-study-app`
 - Local path: `C:\findjob_sixsigma_app`
-- Latest verified commit when this document was created: `5facc71`
-- Latest verified GitHub Actions run: `27917388255`
+- Latest verified implementation commit when this document was updated: `9230257`
+- Latest verified implementation GitHub Actions run: `27917919176`
 - Release APK: `C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB: `C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab`
 
@@ -62,6 +62,8 @@ Verified on local emulator `SixSigmaQA` / `emulator-5554`.
 - Chapter 21: source-TOC section anchors and figure presence.
 - Chapter 26: 50 figure images, EN/ZH section titles, no broken images, no horizontal overflow, bounded word-token count while scrolling.
 - Chapter 33: 25 figure images, EN/ZH switching, no broken images, no horizontal overflow, bounded word-token count.
+- Reader comfort controls: dark mode and standard/large/extra-large font sizes persist across app relaunch under `six-sigma-study:reader-preferences:v1`.
+- Extra-large dark-mode WebView QA: Chapters 1, 7, 26, and 33 had 0 horizontal overflow and 0 visible broken images across sampled scroll positions.
 - Native Android: service worker registration is skipped and CacheStorage is cleared to avoid stale APK upgrades.
 - Vocabulary: persisted in localStorage under `six-sigma-study:vocab:v1`.
 
