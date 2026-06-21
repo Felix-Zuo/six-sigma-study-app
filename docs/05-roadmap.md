@@ -18,7 +18,7 @@ Goal: prove the study loop on real content.
 
 - [x] extract Chapter 1 into structured bilingual JSON
 - [x] render Chapter 1 in mobile reader
-- [x] English/Chinese toggle keeps position at section level
+- [x] English/Chinese toggle keeps position at content-block level
 - [x] app restart restores last language/chapter/section
 - [x] word tap opens bottom sheet
 - [x] curated Six Sigma terms for Chapter 1
@@ -75,6 +75,7 @@ Goal: comfortable long-session study.
 - [x] font size controls with standard, large, and extra-large reading sizes
 - [x] long URL/reference wrapping so extra-large text does not create page-level horizontal scroll
 - [x] table-of-contents search by chapter title, section title, chapter number, and page number
+- [x] Android WebView QA for block-aware language position restoration
 - [ ] notes and highlights
 - [ ] performance profiling on real phone
 - [ ] low-end-device profiling for long image-heavy chapters

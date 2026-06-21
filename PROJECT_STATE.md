@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 05:43 Asia/Shanghai
+Last updated: 2026-06-22 05:56 Asia/Shanghai
 
 ## Objective
 
@@ -19,10 +19,10 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest validated implementation commit: `3d3aeda Add vocabulary review scheduling`
+- Latest validated implementation commit: `0200752 Preserve reader block on language toggle`
 - Local worktree: expected clean after the state-sync commit that contains this note
-- Latest implementation GitHub Actions state: CI passed for `3d3aeda` in run `27918381489`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, section-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Latest implementation GitHub Actions state: CI passed for `0200752` in run `27918692602`
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
 
@@ -93,6 +93,8 @@ The final product must support full-manual offline reading, position-preserving 
 - Added backward-compatible vocabulary migration for older localStorage records.
 - Added due/all vocabulary filters, due-count display, review summary counts, and `再记` / `认识` review actions.
 - Added simple spaced repetition intervals for remembered terms and next-day rescheduling for terms that need more review.
+- Replaced section-start language switching with block-aware scroll capture/restoration using the current visible content block and proportional block offset.
+- Added `scripts/qa-language-toggle-cdp.mjs` to run Android WebView CDP QA for Chapter 26 EN/ZH block-position preservation, horizontal overflow, and tap-to-lookup.
 
 ## Verification In Current Stage
 
@@ -288,16 +290,36 @@ The final product must support full-manual offline reading, position-preserving 
   - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
   - AAB `jarsigner -verify`: verified with expected self-signed certificate warnings
   - GitHub Actions CI for `3d3aeda`: passed in run `27918381489`
+- Language toggle block-position verification:
+  - `npm run typecheck`: passed
+  - `npm run build`: passed
+  - `npm run android:release-apk`: passed
+  - Release APK install and relaunch on `emulator-5554`: passed
+  - `node scripts\qa-language-toggle-cdp.mjs`: passed against WebView CDP forwarded from `webview_devtools_remote_10329`
+  - Android WebView QA on Chapter 26 page 325:
+    - starting English block index: 120
+    - after switching to Chinese: same section, block index 120, horizontal overflow 0
+    - after switching back to English: same section, block index 119, horizontal overflow 0
+    - tap-to-lookup still opened the bottom sheet after language round trip
+  - Local QA screenshot captured at `C:\findjob_sixsigma_app\qa\screenshots\language-toggle-block-qa.png` and ignored by Git.
+  - `npm run lint:content`: passed
+  - `npm run android:aab`: passed
+  - APK size: 37,320,771 bytes
+  - AAB size: 35,103,911 bytes
+  - APK/AAB package checks: 470 figure PNG files, `manual.json`, and `asset-manifest.json` are present
+  - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
+  - AAB `jarsigner -verify`: verified with expected self-signed certificate warnings
+  - GitHub Actions CI for `0200752`: passed in run `27918692602`
 
 ## Known Limitations
 
 - The release signing key is a local self-signed key for this project; store upload key policy and distribution channel are not finalized.
 - Chapters 2-33 now use source-TOC-guided section anchors where reliable Word headings exist, but chapters whose section titles are normal paragraphs need curated manual mapping before further splitting.
-- Language position preservation is section-level, not sentence-level.
+- Language position preservation is now block-aware and Android WebView verified on a long Chapter 26 section; sentence-exact restoration across every extracted paragraph remains a future refinement.
 - Phrase lookup works through WebView text selection and stores the selected phrase's source section/page; physical long-press QA on a real phone is still pending.
 - English tables in Chapter 1 are partly represented as Word paragraph fragments; Chinese tables render as semantic tables.
 - Long chapters now use viewport-bound English tokenization and reader comfort controls; deeper low-end-device profiling is still pending.
-- Detailed paragraph-level anchors still need refinement beyond current section-level restoration.
+- Detailed sentence-level anchors still need refinement beyond current block-level restoration.
 - Figure assets now preserve DOCX-embedded originals, but full source-page-by-source-page visual comparison is not complete.
 - Some extracted table images are intentionally rendered as images; later passes can convert selected tables to semantic tables where fidelity allows.
 

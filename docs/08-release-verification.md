@@ -6,8 +6,8 @@ This document records the current evidence that the Android study app is install
 
 - Repository: `https://github.com/Felix-Zuo/six-sigma-study-app`
 - Local path: `C:\findjob_sixsigma_app`
-- Latest verified implementation commit when this document was updated: `3d3aeda`
-- Latest verified implementation GitHub Actions run: `27918381489`
+- Latest verified implementation commit when this document was updated: `0200752`
+- Latest verified implementation GitHub Actions run: `27918692602`
 - Release APK: `C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB: `C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab`
 
@@ -62,6 +62,7 @@ Verified on local emulator `SixSigmaQA` / `emulator-5554`.
 - Chapter 21: source-TOC section anchors and figure presence.
 - Chapter 26: 50 figure images, EN/ZH section titles, no broken images, no horizontal overflow, bounded word-token count while scrolling.
 - Chapter 33: 25 figure images, EN/ZH switching, no broken images, no horizontal overflow, bounded word-token count.
+- Language toggle: Chapter 26 page 325 Android WebView CDP QA verified English block index 120 stays on Chinese block index 120, then returns to nearby English block index 119 with 0 horizontal overflow and tap-to-lookup still opening the bottom sheet.
 - Reader comfort controls: dark mode and standard/large/extra-large font sizes persist across app relaunch under `six-sigma-study:reader-preferences:v1`.
 - Extra-large dark-mode WebView QA: Chapters 1, 7, 26, and 33 had 0 horizontal overflow and 0 visible broken images across sampled scroll positions.
 - Table-of-contents search: local offline search matches English/Chinese chapter and section titles, chapter numbers, and page numbers; verified `Minitab`, `439`, and `价值流图` queries in Android WebView.
@@ -73,7 +74,7 @@ Verified on local emulator `SixSigmaQA` / `emulator-5554`.
 
 - The release key is local self-signed; final distribution/upload key policy is not decided.
 - Physical-device long-press selection QA is still pending; WebView Selection API QA passes.
-- Paragraph/sentence-level language switching is not fully implemented; current restoration is section/page/scroll based.
+- Block-aware language restoration is implemented and Android WebView verified; sentence-exact restoration across every extracted paragraph remains a future refinement.
 - Some chapters need curated section mapping where headings are normal paragraphs.
 - Full source-page-by-source-page visual comparison for figures/tables is not complete.
 - Some table images are intentionally preserved as images; selected tables can be converted to semantic tables later.

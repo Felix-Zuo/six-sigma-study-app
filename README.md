@@ -33,9 +33,9 @@ It intentionally does **not** commit the full manual DOCX/PDF/PNG assets. Those 
 - Android-first app: release APK and AAB build locally.
 - Full manual: all 33 chapters, 449 aligned study pages, 174 generated reader sections.
 - Offline runtime package: `manual.json`, local dictionary, local vocabulary store, and 470 bundled figure/table/formula PNG assets.
-- Reader interactions: EN/ZH toggle, section/page restoration, table-of-contents search, persisted dark mode and font size controls, tap-to-lookup, phrase selection lookup, bottom-sheet explanations, local vocabulary save/status, and due-based vocabulary review.
+- Reader interactions: EN/ZH toggle with block-aware position restoration, table-of-contents search, persisted dark mode and font size controls, tap-to-lookup, phrase selection lookup, bottom-sheet explanations, local vocabulary save/status, and due-based vocabulary review.
 - Long chapter handling: English word buttons are mounted only near the viewport to avoid huge DOMs.
-- Latest verified implementation CI at the time of this note: `27918381489` on commit `3d3aeda`.
+- Latest verified implementation CI at the time of this note: `27918692602` on commit `0200752`.
 
 See [Release Verification](docs/08-release-verification.md) for the current evidence matrix.
 
@@ -142,3 +142,9 @@ adb shell monkey -p com.findjob.sixsigmastudy -c android.intent.category.LAUNCHE
 ```
 
 Primary Android QA coverage currently focuses on Chapters 1, 7, 21, 26, and 33. Chapter 7 is used for section and phrase-selection checks; Chapters 26 and 33 are used for long, image-heavy chapter checks.
+
+After launching the release APK and forwarding the app WebView CDP socket to `127.0.0.1:9222`, run this targeted language-position QA:
+
+```powershell
+node scripts\qa-language-toggle-cdp.mjs
+```
