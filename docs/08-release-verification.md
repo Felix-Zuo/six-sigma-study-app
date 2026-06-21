@@ -6,8 +6,8 @@ This document records the current evidence that the Android study app is install
 
 - Repository: `https://github.com/Felix-Zuo/six-sigma-study-app`
 - Local path: `C:\findjob_sixsigma_app`
-- Latest verified implementation commit when this document was updated: `0200752`
-- Latest verified implementation GitHub Actions run: `27918692602`
+- Latest verified implementation commit when this document was updated: `8f5e22a`
+- Latest verified implementation GitHub Actions run: `27918946391`
 - Release APK: `C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB: `C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab`
 
@@ -50,6 +50,7 @@ jarsigner -verify 'android/app/build/outputs/bundle/release/app-release.aab'
 - 449 aligned study pages are represented in the manifest.
 - 174 reader sections are generated across the manual.
 - 470 deduplicated PNG figure/table/formula assets are bundled.
+- 69 offline dictionary entries are bundled, covering high-frequency Six Sigma, statistics, Minitab/chart, lean, software-command, and basic study words.
 - `manual.json`, `asset-manifest.json`, and all figure PNGs are present in both APK and AAB.
 - Chapter 28 remains one section because its TOC-like headings are normal paragraphs, not reliable Word headings.
 
@@ -69,6 +70,7 @@ Verified on local emulator `SixSigmaQA` / `emulator-5554`.
 - Native Android: service worker registration is skipped and CacheStorage is cleared to avoid stale APK upgrades.
 - Vocabulary: persisted in localStorage under `six-sigma-study:vocab:v1`; old vocabulary records migrate to include `reviewCount`, `correctStreak`, and `nextReviewAt`.
 - Vocabulary review: Android WebView QA verified adding a term from lookup, due-count display, due/all filters, `认识` scheduling, `再记` scheduling, and 0 horizontal overflow in the vocabulary panel.
+- Dictionary lookup: Android WebView QA verified a clicked word after EN/ZH round trip used a real dictionary entry (`to`) rather than the generic fallback explanation.
 
 ## Known Remaining Gaps
 
@@ -78,3 +80,4 @@ Verified on local emulator `SixSigmaQA` / `emulator-5554`.
 - Some chapters need curated section mapping where headings are normal paragraphs.
 - Full source-page-by-source-page visual comparison for figures/tables is not complete.
 - Some table images are intentionally preserved as images; selected tables can be converted to semantic tables later.
+- The local dictionary is a curated study seed, not a full general English learner dictionary yet.

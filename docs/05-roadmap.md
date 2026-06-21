@@ -46,9 +46,11 @@ Goal: convert all 449 aligned pages into app content.
 Goal: make vocabulary learning useful.
 
 - [x] phrase lookup
+- [x] expand offline study dictionary seed for high-frequency course terms
 - [x] review queue
 - [x] new/learning/mastered statuses
 - [x] spaced repetition scheduling
+- [ ] expand toward a full general English learner dictionary
 - [ ] export vocabulary CSV
 
 ## Phase 4: Native Packaging

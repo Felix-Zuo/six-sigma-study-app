@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 05:56 Asia/Shanghai
+Last updated: 2026-06-22 06:06 Asia/Shanghai
 
 ## Objective
 
@@ -19,10 +19,10 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest validated implementation commit: `0200752 Preserve reader block on language toggle`
+- Latest validated implementation commit: `8f5e22a Expand offline study dictionary`
 - Local worktree: expected clean after the state-sync commit that contains this note
-- Latest implementation GitHub Actions state: CI passed for `0200752` in run `27918692602`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Latest implementation GitHub Actions state: CI passed for `8f5e22a` in run `27918946391`
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 69-entry offline study dictionary, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
 
@@ -95,6 +95,8 @@ The final product must support full-manual offline reading, position-preserving 
 - Added simple spaced repetition intervals for remembered terms and next-day rescheduling for terms that need more review.
 - Replaced section-start language switching with block-aware scroll capture/restoration using the current visible content block and proportional block offset.
 - Added `scripts/qa-language-toggle-cdp.mjs` to run Android WebView CDP QA for Chapter 26 EN/ZH block-position preservation, horizontal overflow, and tap-to-lookup.
+- Expanded the generated offline dictionary from 16 to 69 entries covering high-frequency Six Sigma, statistics, Minitab/chart, lean, software-command, and basic study words.
+- Updated the Android WebView language-position QA script so tap-to-lookup fails if it falls back to the generic "not in dictionary" explanation.
 
 ## Verification In Current Stage
 
@@ -310,6 +312,23 @@ The final product must support full-manual offline reading, position-preserving 
   - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
   - AAB `jarsigner -verify`: verified with expected self-signed certificate warnings
   - GitHub Actions CI for `0200752`: passed in run `27918692602`
+- Offline dictionary expansion verification:
+  - `npm run extract:manual`: passed with 33 chapters, 4640 English blocks, and 4902 Chinese blocks
+  - Generated dictionary count: 69 terms and 164 normalized lookup entries with no duplicate lookup keys
+  - Runtime dictionaries in `content/processed/manual.json`, `apps/reader/public/content/manual.json`, `content/processed/dictionary/six-sigma-terms.json`, and `apps/reader/src/generated/six-sigma-terms.json` all include `Minitab` and `to`
+  - `npm run lint:content`: passed with 69 dictionary terms
+  - `npm run typecheck`: passed
+  - `npm run build`: passed
+  - `npm run android:release-apk`: passed
+  - Release APK install and relaunch on `emulator-5554`: passed
+  - `node scripts\qa-language-toggle-cdp.mjs`: passed and verified clicked word `to` shows translation `到；为了；对；不定式标记` with `usedFallback: false`
+  - `npm run android:aab`: passed
+  - APK size: 37,324,727 bytes
+  - AAB size: 35,107,864 bytes
+  - APK/AAB package checks: 470 figure PNG files, `manual.json`, and `asset-manifest.json` are present
+  - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
+  - AAB `jarsigner -verify`: verified with expected self-signed certificate warnings
+  - GitHub Actions CI for `8f5e22a`: passed in run `27918946391`
 
 ## Known Limitations
 
@@ -322,12 +341,14 @@ The final product must support full-manual offline reading, position-preserving 
 - Detailed sentence-level anchors still need refinement beyond current block-level restoration.
 - Figure assets now preserve DOCX-embedded originals, but full source-page-by-source-page visual comparison is not complete.
 - Some extracted table images are intentionally rendered as images; later passes can convert selected tables to semantic tables where fidelity allows.
+- The offline dictionary now covers common course and study words, but it is still a curated seed dictionary rather than a full general English learner dictionary.
 
 ## Open GitHub Work Items
 
 - #2 Implement reader position-preserving language toggle
 - #6 Design full-manual conversion validator
 - #7 Add PWA offline installation support
+- #8 Expand offline English learner dictionary coverage
 
 ## Closed GitHub Work Items
 
@@ -347,7 +368,7 @@ After context compression or a new session, do this before making changes:
 
 ## Next Action
 
-Improve curated manual section mapping for normal-paragraph titles, run physical-phone long-press QA, add notes/highlights or vocabulary CSV export, perform low-end-device performance profiling, and continue full-source visual comparison for extracted figures/tables.
+Improve curated manual section mapping for normal-paragraph titles, expand toward a fuller English learner dictionary, run physical-phone long-press QA, add notes/highlights or vocabulary CSV export, perform low-end-device performance profiling, and continue full-source visual comparison for extracted figures/tables.
 
 ## Constraints
 
