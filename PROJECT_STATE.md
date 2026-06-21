@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 03:04 Asia/Shanghai
+Last updated: 2026-06-22 03:08 Asia/Shanghai
 
 ## Objective
 
@@ -19,9 +19,9 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest validated implementation commit: `45c0ebf Add Capacitor Android debug build`
-- Local worktree: dirty with Android emulator QA fixes pending commit
-- Latest known GitHub Actions state: CI passed for `7f5c71c`
+- Latest validated implementation commit: `64f6d9e Fix Android sheet back behavior and mobile header`
+- Local worktree: expected clean after the state-sync commit that contains this note
+- Latest implementation GitHub Actions state: CI passed for `64f6d9e`
 - Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with section-preserving language toggle, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, PWA manifest/service worker base, and a Capacitor Android debug APK that runs on the local emulator.
 
 ## Completed In Current Stage
@@ -70,6 +70,7 @@ The final product must support full-manual offline reading, position-preserving 
 - GitHub Actions CI for `0e4b823`: passed
 - GitHub Actions CI for `45c0ebf`: passed
 - GitHub Actions CI for `7f5c71c`: passed
+- GitHub Actions CI for `64f6d9e`: passed
 - `npm run extract:manual`: passed
 - `npm run lint:content`: passed for 33 chapter files plus `manual.json`
 - `npm run typecheck`: passed
