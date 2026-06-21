@@ -32,10 +32,10 @@ It intentionally does **not** commit the full manual DOCX/PDF/PNG assets. Those 
 
 - Android-first app: release APK and AAB build locally.
 - Full manual: all 33 chapters, 449 aligned study pages, 174 generated reader sections.
-- Offline runtime package: `manual.json`, 69-entry local study dictionary, local vocabulary store, PWA install cache, and 470 bundled figure/table/formula PNG assets.
+- Offline runtime package: `manual.json`, 3952-entry offline learner dictionary, local vocabulary store, PWA install cache, and 470 bundled figure/table/formula PNG assets.
 - Reader interactions: EN/ZH toggle with block-aware position restoration, table-of-contents search, persisted dark mode and font size controls, tap-to-lookup, phrase selection lookup, bottom-sheet explanations, local vocabulary save/status, due-based vocabulary review, vocabulary CSV export, and selected-text study notes.
 - Long chapter handling: English word buttons are mounted only near the viewport to avoid huge DOMs.
-- Latest verified implementation CI at the time of this note: `27919872550` on commit `7f5d2ec`.
+- Latest verified implementation CI at the time of this note: `27920406057` on commit `cca06d3`.
 
 See [Release Verification](docs/08-release-verification.md) for the current evidence matrix.
 
@@ -54,6 +54,7 @@ npm run dev
 
 - `C:\findjob_sixsigma_sources\manual_en_aligned.docx`
 - `C:\findjob_sixsigma_sources\manual_zh_aligned.docx`
+- `C:\findjob_sixsigma_sources\ecdict.csv` for the ECDICT-derived offline learner dictionary subset
 
 The script generates structured content for all 33 chapters into `content/processed`, then copies the full manual package into `apps/reader/public/content/manual.json` for runtime loading. It also extracts DOCX-embedded figures and table screenshots, deduplicates them by content hash, and writes the app assets under `apps/reader/public/content/assets/`.
 
@@ -75,7 +76,7 @@ Current generated figure package:
 - `content/schemas`: app content contracts
 - `content/processed/chapters/ch01.json`: generated real Chapter 1 bilingual content
 - `content/processed/manual.json`: generated full-manual bilingual content package
-- `content/processed/dictionary/six-sigma-terms.json`: curated local terminology seed
+- `content/processed/dictionary/six-sigma-terms.json`: curated Six Sigma terms plus manual-scoped ECDICT learner dictionary subset
 - `content/processed/manual.sample.json`: small legacy sample lesson for UI development
 - `apps/reader/public/content/assets`: generated offline figure assets used by the app
 - `scripts`: validation and extraction tools
@@ -160,3 +161,14 @@ node scripts\qa-pwa-offline-cdp.mjs
 ```
 
 The current passing run verified service-worker control, 479 cached runtime entries including 470 figures, offline reload rendering, 23 Chapter 1 sections, and 0 horizontal overflow.
+
+## Dictionary QA
+
+The committed learner dictionary is generated from curated course terms plus an ECDICT subset scoped to words that appear in this manual.
+
+```powershell
+npm run build:dictionary
+node scripts\qa-dictionary-cdp.mjs
+```
+
+The current passing run verified 3952 runtime dictionary entries, 3860 ECDICT-derived entries, 5582/5673 single-word manual forms covered, real lookup UI for `both`, and curated hits for terms such as `COPQ`, `DMADV`, `poka-yoke`, `5S`, and `Anderson-Darling`.

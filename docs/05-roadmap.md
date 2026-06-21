@@ -51,7 +51,8 @@ Goal: make vocabulary learning useful.
 - [x] review queue
 - [x] new/learning/mastered statuses
 - [x] spaced repetition scheduling
-- [ ] expand toward a full general English learner dictionary
+- [x] expand to a manual-scoped offline English learner dictionary
+- [ ] refine remaining fallback tokens from proper names, OCR artifacts, URLs, and unusual compounds
 - [x] export vocabulary CSV
 
 ## Phase 4: Native Packaging

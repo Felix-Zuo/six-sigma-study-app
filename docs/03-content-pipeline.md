@@ -20,7 +20,7 @@ Generated app package:
 - `content/source/source_toc_sections.json` source table-of-contents metadata for section anchors
 - deduplicated figure assets under `apps/reader/public/content/assets/figures/`
 - `apps/reader/public/content/assets/asset-manifest.json`
-- term dictionary under `dictionary/six-sigma-terms.json` (implemented as Chapter 1 seed)
+- term and learner dictionary under `dictionary/six-sigma-terms.json`
 - manifest with page count and content paths
 
 ## Processing Steps
@@ -46,7 +46,7 @@ npm run extract:manual
 npm run lint:content
 ```
 
-The manual extractor reads the aligned English and Chinese DOCX files from `C:\findjob_sixsigma_sources`, builds all 33 chapters for pages 6-449, uses source table-of-contents metadata to split generic chapters into stable section anchors where Word headings exist, preserves Chinese semantic tables, keeps Chinese term-note sidebars, extracts DOCX-embedded figures/tables in body order, deduplicates them by content hash, and seeds 16 local terms for tap lookup.
+The manual extractor reads the aligned English and Chinese DOCX files from `C:\findjob_sixsigma_sources`, builds all 33 chapters for pages 6-449, uses source table-of-contents metadata to split generic chapters into stable section anchors where Word headings exist, preserves Chinese semantic tables, keeps Chinese term-note sidebars, extracts DOCX-embedded figures/tables in body order, deduplicates them by content hash, and builds the offline learner dictionary when `C:\findjob_sixsigma_sources\ecdict.csv` exists.
 
 Current generated content includes:
 
@@ -54,6 +54,7 @@ Current generated content includes:
 - 449 page manifest
 - 470 deduplicated PNG figure assets, about 31.7 MB total
 - 940 image blocks across English and Chinese content streams
+- 3952 offline dictionary entries: curated Six Sigma/course terms plus a manual-scoped ECDICT learner subset
 - `asset-manifest.json` for PWA figure pre-cache
 
 The Android runtime bundles these assets inside the APK/AAB. Native Android does not register the PWA service worker, so app upgrades are not blocked by stale browser caches.
@@ -77,6 +78,7 @@ The source PDF is copied locally to `C:\findjob_sixsigma_sources\source_manual.p
 - image blocks have valid asset IDs, dimensions, safe relative paths, existing files, and matching chapter asset metadata
 - chapter assets are referenced by image blocks and stay inside the chapter page range
 - dictionary lookup keys are normalized with the reader-style lookup shape and cannot collide across entries
+- production dictionary has at least 3000 entries and includes ECDICT-derived learner entries
 - APK/AAB package checks confirm all 470 figure assets are bundled
 - curated term references resolve
 - sample chapter opens on phone viewport without horizontal overflow

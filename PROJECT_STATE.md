@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 06:45 Asia/Shanghai
+Last updated: 2026-06-22 07:09 Asia/Shanghai
 
 ## Objective
 
@@ -19,10 +19,10 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest validated implementation commit: `7f5d2ec Improve PWA offline shell caching`
+- Latest validated implementation commit: `cca06d3 Expand offline learner dictionary coverage`
 - Local worktree: expected clean after the state-sync commit that contains this note
-- Latest implementation GitHub Actions state: CI passed for `7f5d2ec` in run `27919872550`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 69-entry offline study dictionary, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service worker with verified offline app-shell/figure caching for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Latest implementation GitHub Actions state: CI passed for `cca06d3` in run `27920406057`
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 3952-entry offline learner dictionary with curated Six Sigma terms first, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service worker with verified offline app-shell/figure caching for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
 
@@ -104,6 +104,12 @@ The final product must support full-manual offline reading, position-preserving 
 - Strengthened `scripts/validate_content.py` with full-manual gates for 33 chapters, 449 pages, continuous chapter ranges, manifest paths, global duplicate section/block IDs, image block/asset metadata consistency, unsafe asset paths, asset page bounds, and reader-style dictionary lookup key uniqueness.
 - Improved the browser PWA service worker to pre-cache the production app shell from `index.html`, including Vite hashed JS/CSS assets, before caching the full figure asset manifest.
 - Added `scripts/qa-pwa-offline-cdp.mjs` to verify service-worker control, cache contents, offline reload behavior, and mobile horizontal overflow through Chrome CDP.
+- Added `scripts/build_manual_dictionary.py` to build a manual-scoped offline English-Chinese learner dictionary from local `C:\findjob_sixsigma_sources\ecdict.csv` while preserving curated Six Sigma terms as the highest-priority layer.
+- Expanded curated course terminology with DMADV, DMADOV, COPQ, COQ, CTC, EWMA, 5S, poka-yoke, jidoka, RTY, FTY, OFAT, RACI, Anderson-Darling, and related chart/lean terms.
+- Generated 3952 committed dictionary entries: 92 curated course terms and 3860 ECDICT-derived learner entries.
+- Added ECDICT MIT license attribution in `THIRD_PARTY_NOTICES.md`.
+- Added browser CDP dictionary QA in `scripts/qa-dictionary-cdp.mjs` and lookup-sheet phonetic rendering for ECDICT entries.
+- Strengthened content validation so the production dictionary must contain at least 3000 entries and include ECDICT-derived learner entries.
 
 ## Verification In Current Stage
 
@@ -400,6 +406,26 @@ The final product must support full-manual offline reading, position-preserving 
   - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
   - AAB `jarsigner -verify`: verified with expected self-signed certificate warnings
   - GitHub Actions CI for `7f5d2ec`: passed in run `27919872550`
+- Manual-scoped offline learner dictionary verification:
+  - ECDICT source CSV kept outside Git at `C:\findjob_sixsigma_sources\ecdict.csv` (65,933,428 bytes)
+  - `npm run build:dictionary`: passed
+  - Dictionary generation stats: 6137 manual lookup candidates, 5848 covered candidates, 5673 single-word forms, 5582 covered single-word forms
+  - Runtime dictionary count: 3952 entries, including 3860 ECDICT-derived entries and 92 curated course-term entries
+  - Key curated hits verified: `COPQ`, `DMADV`, `DMADOV`, `poka-yoke`, `5S`, `Anderson-Darling`, `EWMA`, `CTC`, `CSSC`, `change management`
+  - `node scripts\qa-dictionary-cdp.mjs`: passed against Vite preview and clean Chrome CDP
+  - Browser QA clicked `both` in the reader and verified Chinese translation, phonetic text, explanation text, and horizontal overflow 0
+  - Local QA screenshot captured at `C:\findjob_sixsigma_app\qa\screenshots\dictionary-lookup-qa.png` and ignored by Git.
+  - `npm run lint:content`: passed with 3952 dictionary terms
+  - `npm run typecheck`: passed
+  - `npm run build`: passed
+  - `npm run android:release-apk`: passed
+  - `npm run android:aab`: passed
+  - APK size: 37,796,343 bytes
+  - AAB size: 35,579,485 bytes
+  - APK/AAB package checks: 479 public runtime entries covering reader shell assets, PWA manifest/service worker, `manual.json`, `asset-manifest.json`, and 470 figure PNG files
+  - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
+  - AAB `jarsigner -verify`: verified with expected self-signed certificate warnings
+  - GitHub Actions CI for `cca06d3`: passed in run `27920406057`
 
 ## Known Limitations
 
@@ -412,13 +438,12 @@ The final product must support full-manual offline reading, position-preserving 
 - Detailed sentence-level anchors still need refinement beyond current block-level restoration.
 - Figure assets now preserve DOCX-embedded originals, but full source-page-by-source-page visual comparison is not complete; issue #6 remains open for that deeper validation layer.
 - Some extracted table images are intentionally rendered as images; later passes can convert selected tables to semantic tables where fidelity allows.
-- The offline dictionary now covers common course and study words, but it is still a curated seed dictionary rather than a full general English learner dictionary.
+- The offline dictionary is manual-scoped, not a full arbitrary English dictionary; remaining fallback tokens are mostly proper names, OCR/formatting artifacts, URLs, and unusual compounds.
 
 ## Open GitHub Work Items
 
 - #2 Implement reader position-preserving language toggle
 - #6 Design full-manual conversion validator
-- #8 Expand offline English learner dictionary coverage
 
 ## Closed GitHub Work Items
 
@@ -427,6 +452,7 @@ The final product must support full-manual offline reading, position-preserving 
 - #4 Seed curated Six Sigma terminology dictionary
 - #5 Persist vocabulary book locally
 - #7 Add PWA offline installation support
+- #8 Expand offline English learner dictionary coverage
 
 ## Resume Protocol
 
@@ -439,7 +465,7 @@ After context compression or a new session, do this before making changes:
 
 ## Next Action
 
-Improve curated manual section mapping for normal-paragraph titles, expand toward a fuller English learner dictionary, run physical-phone long-press QA, add inline highlight rendering for saved notes, perform low-end-device performance profiling, and continue full-source visual comparison for extracted figures/tables.
+Improve curated manual section mapping for normal-paragraph titles, run physical-phone long-press QA, add inline highlight rendering for saved notes, review remaining dictionary fallback tokens, perform low-end-device performance profiling, and continue full-source visual comparison for extracted figures/tables.
 
 ## Constraints
 
