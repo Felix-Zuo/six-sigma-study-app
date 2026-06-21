@@ -557,6 +557,33 @@ h1 {
   font-size: 18px;
 }
 
+.vocabTools {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.vocabTools button {
+  min-height: 38px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 14px;
+  color: var(--accent-text);
+  background: var(--accent);
+  font-weight: 850;
+}
+
+.vocabTools button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.vocabTools small {
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
 .vocabFilters {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -734,6 +761,11 @@ h1 {
 
   .vocabItemActions select {
     grid-column: 1 / -1;
+  }
+
+  .vocabTools {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 

@@ -132,3 +132,42 @@ export function setTermStatus(term: SavedTerm, status: SavedTerm["status"], now 
     masteredAt: status === "new" ? undefined : term.masteredAt
   };
 }
+
+function csvCell(value: string | number | undefined): string {
+  const text = value === undefined ? "" : String(value);
+  return `"${text.replace(/"/g, '""')}"`;
+}
+
+export function savedTermsToCsv(terms: SavedTerm[]): string {
+  const headers = [
+    "term",
+    "translation",
+    "status",
+    "reviewCount",
+    "correctStreak",
+    "nextReviewAt",
+    "lastReviewedAt",
+    "savedAt",
+    "chapter",
+    "chapterTitle",
+    "page",
+    "sectionId",
+    "sourceText"
+  ];
+  const rows = terms.map((term) => [
+    term.term,
+    term.translation,
+    term.status,
+    term.reviewCount,
+    term.correctStreak,
+    term.nextReviewAt,
+    term.lastReviewedAt,
+    term.savedAt,
+    term.chapter,
+    term.chapterTitle,
+    term.page,
+    term.sectionId,
+    term.sourceText
+  ]);
+  return [headers, ...rows].map((row) => row.map(csvCell).join(",")).join("\r\n");
+}

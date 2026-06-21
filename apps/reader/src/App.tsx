@@ -5,6 +5,7 @@ import {
   isTermDue,
   loadSavedTerms,
   persistSavedTerms,
+  savedTermsToCsv,
   scheduleTermReview,
   setTermStatus,
   type SavedTerm
@@ -300,6 +301,7 @@ export function App() {
   const [showVocab, setShowVocab] = useState(false);
   const [tocQuery, setTocQuery] = useState("");
   const [vocabFilter, setVocabFilter] = useState<VocabFilter>("due");
+  const [vocabExportMessage, setVocabExportMessage] = useState("");
   const readerRef = useRef<HTMLElement | null>(null);
   const overlayRef = useRef<OverlayName | null>(null);
   const overlayHistoryRef = useRef(false);
@@ -767,6 +769,45 @@ export function App() {
     setSavedTerms((items) => items.map((item) => (item.id === id ? scheduleTermReview(item, outcome) : item)));
   }
 
+  async function exportSavedTermsCsv() {
+    if (savedTerms.length === 0) {
+      setVocabExportMessage("词本为空，暂无可导出的内容。");
+      return;
+    }
+
+    const csv = savedTermsToCsv(savedTerms);
+    const fileName = `six-sigma-vocab-${new Date().toISOString().slice(0, 10)}.csv`;
+    const file = new File([csv], fileName, { type: "text/csv;charset=utf-8" });
+
+    try {
+      if (navigator.canShare?.({ files: [file] }) && navigator.share) {
+        await navigator.share({
+          files: [file],
+          title: "Six Sigma Vocabulary",
+          text: "Six Sigma Study vocabulary export"
+        });
+        setVocabExportMessage("已打开分享/保存菜单。");
+        return;
+      }
+
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(csv);
+        setVocabExportMessage("已复制 CSV，可粘贴到表格或笔记。");
+        return;
+      }
+
+      const blobUrl = window.URL.createObjectURL(file);
+      const link = document.createElement("a");
+      link.href = blobUrl;
+      link.download = fileName;
+      link.click();
+      window.URL.revokeObjectURL(blobUrl);
+      setVocabExportMessage("已生成 CSV 下载。");
+    } catch {
+      setVocabExportMessage("导出未完成，请稍后重试。");
+    }
+  }
+
   function renderText(text: string, page: number, sectionId: string) {
     return (
       <InlineReaderText
@@ -1012,6 +1053,12 @@ export function App() {
             <span><strong>{dueTerms.length}</strong> 待复习</span>
             <span><strong>{learningCount}</strong> 学习中</span>
             <span><strong>{masteredCount}</strong> 已掌握</span>
+          </div>
+          <div className="vocabTools">
+            <button onClick={exportSavedTermsCsv} disabled={savedTerms.length === 0}>
+              导出 CSV
+            </button>
+            {vocabExportMessage && <small>{vocabExportMessage}</small>}
           </div>
           <div className="vocabFilters" role="tablist" aria-label="vocabulary filters">
             <button
