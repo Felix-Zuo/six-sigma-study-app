@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 03:24 Asia/Shanghai
+Last updated: 2026-06-22 03:27 Asia/Shanghai
 
 ## Objective
 
@@ -19,9 +19,9 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest validated implementation commit: `2212e9b Add signed Android release build workflow`
-- Local worktree: dirty with reading-position persistence pending commit
-- Latest implementation GitHub Actions state: CI passed for `2212e9b`
+- Latest validated implementation commit: `acc268a Persist reader position across restarts`
+- Local worktree: expected clean after the state-sync commit that contains this note
+- Latest implementation GitHub Actions state: CI passed for `acc268a`
 - Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with section-preserving language toggle, persisted reading position across app restart, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, PWA manifest/service worker base, a Capacitor Android debug APK that runs on the local emulator, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
@@ -78,6 +78,7 @@ The final product must support full-manual offline reading, position-preserving 
 - GitHub Actions CI for `7f5c71c`: passed
 - GitHub Actions CI for `64f6d9e`: passed
 - GitHub Actions CI for `2212e9b`: passed
+- GitHub Actions CI for `acc268a`: passed
 - `npm run extract:manual`: passed
 - `npm run lint:content`: passed for 33 chapter files plus `manual.json`
 - `npm run typecheck`: passed
