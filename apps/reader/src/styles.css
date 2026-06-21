@@ -372,11 +372,16 @@ h1 {
   word-break: break-word;
 }
 
-.phraseLookup {
+.selectionActions {
   position: fixed;
   left: 16px;
   bottom: 18px;
   z-index: 7;
+  display: flex;
+  gap: 8px;
+}
+
+.selectionActions button {
   height: 44px;
   padding: 0 14px;
   border: 1px solid var(--border-strong);
@@ -387,10 +392,10 @@ h1 {
   box-shadow: 0 12px 30px var(--panel-shadow);
 }
 
-.vocabDock {
+.vocabDock,
+.notesDock {
   position: fixed;
   right: 16px;
-  bottom: 18px;
   z-index: 7;
   display: flex;
   align-items: center;
@@ -405,12 +410,22 @@ h1 {
   box-shadow: 0 12px 30px var(--panel-shadow);
 }
 
-.vocabDock span {
+.vocabDock {
+  bottom: 18px;
+}
+
+.notesDock {
+  bottom: 72px;
+}
+
+.vocabDock span,
+.notesDock span {
   color: var(--text-muted);
   font-size: 13px;
 }
 
 .bottomSheet,
+.notesPanel,
 .vocabPanel,
 .tocPanel {
   position: fixed;
@@ -429,7 +444,8 @@ h1 {
   box-shadow: 0 -20px 44px var(--panel-shadow);
 }
 
-.vocabPanel {
+.vocabPanel,
+.notesPanel {
   max-height: 70vh;
 }
 
@@ -741,6 +757,72 @@ h1 {
   background: var(--accent);
 }
 
+.notesList {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.noteItem {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-muted);
+}
+
+.noteMeta,
+.noteActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.noteItem blockquote {
+  margin: 0;
+  padding-left: 10px;
+  border-left: 3px solid var(--accent);
+  color: var(--text);
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.noteItem textarea {
+  width: 100%;
+  min-height: 74px;
+  resize: vertical;
+  padding: 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--text);
+  background: var(--surface);
+  font: inherit;
+  line-height: 1.45;
+}
+
+.noteItem textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.noteActions small {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.noteActions button {
+  height: 34px;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  color: var(--accent-strong);
+  background: var(--surface);
+  font-weight: 800;
+}
+
 @media (max-width: 420px) {
   .topBar {
     grid-template-columns: 1fr;
@@ -767,6 +849,14 @@ h1 {
     align-items: flex-start;
     flex-direction: column;
   }
+
+  .selectionActions {
+    right: 16px;
+  }
+
+  .notesDock {
+    bottom: 68px;
+  }
 }
 
 @media (min-width: 760px) {
@@ -776,6 +866,7 @@ h1 {
   }
 
   .bottomSheet,
+  .notesPanel,
   .vocabPanel,
   .tocPanel {
     right: calc((100vw - 760px) / 2);

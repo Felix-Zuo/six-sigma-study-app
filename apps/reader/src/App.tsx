@@ -11,6 +11,7 @@ import {
   type SavedTerm
 } from "./lib/vocabStore";
 import { loadReaderPosition, persistReaderPosition } from "./lib/readerPositionStore";
+import { loadSavedNotes, persistSavedNotes, type SavedNote } from "./lib/noteStore";
 
 type Language = "en" | "zh";
 type ThemeMode = "light" | "dark";
@@ -81,9 +82,10 @@ type SelectedPhrase = {
   text: string;
   page: number;
   sectionId: string;
+  canLookup: boolean;
 };
 
-type OverlayName = "lookup" | "toc" | "vocab";
+type OverlayName = "lookup" | "toc" | "vocab" | "notes";
 type VocabFilter = "due" | "all";
 type LookupTextHandler = (text: string, page: number, sectionId: string, sourceText: string) => void;
 type TocSearchResult =
@@ -297,8 +299,10 @@ export function App() {
   const [activeLookup, setActiveLookup] = useState<ActiveLookup | null>(null);
   const [selectedPhrase, setSelectedPhrase] = useState<SelectedPhrase | null>(null);
   const [savedTerms, setSavedTerms] = useState<SavedTerm[]>(() => loadSavedTerms());
+  const [savedNotes, setSavedNotes] = useState<SavedNote[]>(() => loadSavedNotes());
   const [showToc, setShowToc] = useState(false);
   const [showVocab, setShowVocab] = useState(false);
+  const [showNotes, setShowNotes] = useState(false);
   const [tocQuery, setTocQuery] = useState("");
   const [vocabFilter, setVocabFilter] = useState<VocabFilter>("due");
   const [vocabExportMessage, setVocabExportMessage] = useState("");
@@ -364,6 +368,10 @@ export function App() {
   }, [savedTerms]);
 
   useEffect(() => {
+    persistSavedNotes(savedNotes);
+  }, [savedNotes]);
+
+  useEffect(() => {
     persistReaderPreferences(readerPreferences.theme, readerPreferences.textScale);
   }, [readerPreferences]);
 
@@ -409,8 +417,8 @@ export function App() {
   }, [activeChapterId, activeSectionId, language]);
 
   useEffect(() => {
-    overlayRef.current = activeLookup ? "lookup" : showToc ? "toc" : showVocab ? "vocab" : null;
-  }, [activeLookup, showToc, showVocab]);
+    overlayRef.current = activeLookup ? "lookup" : showToc ? "toc" : showVocab ? "vocab" : showNotes ? "notes" : null;
+  }, [activeLookup, showToc, showVocab, showNotes]);
 
   useEffect(() => {
     function handlePopState() {
@@ -537,7 +545,8 @@ export function App() {
         return;
       }
       const normalized = normalizeLookup(text);
-      if (!normalized.includes(" ")) {
+      const hasSelection = language === "zh" ? text.length >= 2 : normalized.length >= 2;
+      if (!hasSelection) {
         setSelectedPhrase(null);
         return;
       }
@@ -554,11 +563,16 @@ export function App() {
         return;
       }
 
-      setSelectedPhrase({ text, page: section.page, sectionId: section.id });
+      setSelectedPhrase({
+        text,
+        page: section.page,
+        sectionId: section.id,
+        canLookup: language === "en" && normalized.includes(" ")
+      });
     }
     document.addEventListener("selectionchange", handleSelectionChange);
     return () => document.removeEventListener("selectionchange", handleSelectionChange);
-  }, [lesson]);
+  }, [language, lesson]);
 
   if (loadError) {
     return (
@@ -598,6 +612,7 @@ export function App() {
     setActiveLookup(null);
     setShowToc(false);
     setShowVocab(false);
+    setShowNotes(false);
     setSelectedPhrase(null);
   }
 
@@ -628,6 +643,7 @@ export function App() {
     ensureOverlayHistory();
     setActiveLookup(null);
     setShowVocab(false);
+    setShowNotes(false);
     setShowToc(true);
   }
 
@@ -635,7 +651,16 @@ export function App() {
     ensureOverlayHistory();
     setActiveLookup(null);
     setShowToc(false);
+    setShowNotes(false);
     setShowVocab(true);
+  }
+
+  function openNotes() {
+    ensureOverlayHistory();
+    setActiveLookup(null);
+    setShowToc(false);
+    setShowVocab(false);
+    setShowNotes(true);
   }
 
   function selectChapter(chapterId: string) {
@@ -726,6 +751,7 @@ export function App() {
     ensureOverlayHistory();
     setShowToc(false);
     setShowVocab(false);
+    setShowNotes(false);
     setActiveLookup({ entry, page, sectionId, sourceText });
   }
 
@@ -736,6 +762,30 @@ export function App() {
     lookupText(selectedPhrase.text, selectedPhrase.page, selectedPhrase.sectionId, selectedPhrase.text);
     setSelectedPhrase(null);
     window.getSelection()?.removeAllRanges();
+  }
+
+  function saveSelectedNote() {
+    if (!selectedPhrase) {
+      return;
+    }
+
+    const now = new Date().toISOString();
+    const note: SavedNote = {
+      id: `note-${Date.now()}`,
+      text: selectedPhrase.text,
+      note: "",
+      language,
+      chapter: currentLesson.chapter,
+      chapterTitle: currentLesson.title.en,
+      page: selectedPhrase.page,
+      sectionId: selectedPhrase.sectionId,
+      savedAt: now,
+      updatedAt: now
+    };
+    setSavedNotes((items) => [note, ...items]);
+    setSelectedPhrase(null);
+    window.getSelection()?.removeAllRanges();
+    openNotes();
   }
 
   function saveActiveTerm() {
@@ -767,6 +817,24 @@ export function App() {
 
   function reviewSavedTerm(id: string, outcome: "again" | "remembered") {
     setSavedTerms((items) => items.map((item) => (item.id === id ? scheduleTermReview(item, outcome) : item)));
+  }
+
+  function updateSavedNote(id: string, noteText: string) {
+    setSavedNotes((items) =>
+      items.map((item) =>
+        item.id === id
+          ? {
+              ...item,
+              note: noteText,
+              updatedAt: new Date().toISOString()
+            }
+          : item
+      )
+    );
+  }
+
+  function deleteSavedNote(id: string) {
+    setSavedNotes((items) => items.filter((item) => item.id !== id));
   }
 
   async function exportSavedTermsCsv() {
@@ -966,13 +1034,17 @@ export function App() {
         ))}
       </section>
 
-      {language === "en" && selectedPhrase && (
-        <button
-          className="phraseLookup"
-          onClick={lookupSelectedPhrase}
-        >
-          查询选中短语
-        </button>
+      {selectedPhrase && (
+        <div className="selectionActions">
+          {language === "en" && selectedPhrase.canLookup && (
+            <button onClick={lookupSelectedPhrase}>
+              查短语
+            </button>
+          )}
+          <button onClick={saveSelectedNote}>
+            摘录
+          </button>
+        </div>
       )}
 
       {showToc && (
@@ -1039,6 +1111,11 @@ export function App() {
         <span>{dueTerms.length > 0 ? `待 ${dueTerms.length}` : `${savedTerms.length} 个`}</span>
       </button>
 
+      <button className="notesDock" aria-label="saved notes" onClick={openNotes}>
+        <strong>笔记</strong>
+        <span>{savedNotes.length} 条</span>
+      </button>
+
       {showVocab && (
         <section className="vocabPanel" aria-label="vocabulary book">
           <div className="sheetHandle" />
@@ -1099,6 +1176,44 @@ export function App() {
                       <option value="learning">学习中</option>
                       <option value="mastered">已掌握</option>
                     </select>
+                  </div>
+                </article>
+              ))}
+            </div>
+          )}
+        </section>
+      )}
+
+      {showNotes && (
+        <section className="notesPanel" aria-label="study notes">
+          <div className="sheetHandle" />
+          <div className="sheetHeader">
+            <div>
+              <p className="eyebrow">study notes</p>
+              <h2>笔记</h2>
+            </div>
+            <button className="closeButton" onClick={closeOverlayFromControl}>关闭</button>
+          </div>
+          {savedNotes.length === 0 ? (
+            <p className="emptyState">暂无笔记。选中正文后点击“摘录”即可保存。</p>
+          ) : (
+            <div className="notesList">
+              {savedNotes.map((item) => (
+                <article key={item.id} className="noteItem">
+                  <div className="noteMeta">
+                    <span>Ch. {item.chapter} · p. {item.page}</span>
+                    <span>{item.language === "zh" ? "中文" : "EN"}</span>
+                  </div>
+                  <blockquote>{item.text}</blockquote>
+                  <textarea
+                    value={item.note}
+                    onChange={(event) => updateSavedNote(item.id, event.target.value)}
+                    placeholder="写下理解、疑问或复习提示"
+                    aria-label={`note for ${item.text.slice(0, 24)}`}
+                  />
+                  <div className="noteActions">
+                    <small>{item.sectionId}</small>
+                    <button onClick={() => deleteSavedNote(item.id)}>删除</button>
                   </div>
                 </article>
               ))}
