@@ -1,12 +1,30 @@
-const CACHE_NAME = "six-sigma-study-v0.3.0";
+const CACHE_NAME = "six-sigma-study-v0.4.0";
 const CORE_ASSETS = [
-  "/",
-  "/index.html",
   "/manifest.webmanifest",
   "/icons/icon.svg",
   "/content/manual.json",
   "/content/assets/asset-manifest.json"
 ];
+
+async function cacheApplicationShell(cache) {
+  const response = await fetch("/index.html", { cache: "reload" });
+  if (!response.ok) {
+    throw new Error(`index preload failed: ${response.status}`);
+  }
+
+  const html = await response.clone().text();
+  await cache.put("/", response.clone());
+  await cache.put("/index.html", response);
+
+  const urls = new Set(CORE_ASSETS);
+  for (const match of html.matchAll(/(?:src|href)="([^"]+)"/g)) {
+    const url = new URL(match[1], self.location.origin);
+    if (url.origin === self.location.origin && url.pathname.startsWith("/assets/")) {
+      urls.add(url.pathname);
+    }
+  }
+  await cache.addAll([...urls]);
+}
 
 async function cacheFigureAssets(cache) {
   try {
@@ -28,7 +46,7 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
       .open(CACHE_NAME)
-      .then((cache) => cache.addAll(CORE_ASSETS).then(() => cacheFigureAssets(cache)))
+      .then((cache) => cacheApplicationShell(cache).then(() => cacheFigureAssets(cache)))
       .then(() => self.skipWaiting())
   );
 });
