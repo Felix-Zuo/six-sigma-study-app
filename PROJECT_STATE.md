@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 05:33 Asia/Shanghai
+Last updated: 2026-06-22 05:43 Asia/Shanghai
 
 ## Objective
 
@@ -19,10 +19,10 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest validated implementation commit: `6e0335b Add table of contents search`
+- Latest validated implementation commit: `3d3aeda Add vocabulary review scheduling`
 - Local worktree: expected clean after the state-sync commit that contains this note
-- Latest implementation GitHub Actions state: CI passed for `6e0335b` in run `27918135264`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, section-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Latest implementation GitHub Actions state: CI passed for `3d3aeda` in run `27918381489`
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, section-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
 
@@ -89,6 +89,10 @@ The final product must support full-manual offline reading, position-preserving 
 - Updated Phase 5 roadmap tracking for long-session study comfort.
 - Added table-of-contents search by English/Chinese chapter title, English/Chinese section title, chapter number, and page number.
 - Added direct navigation from search results to either whole chapters or specific section anchors.
+- Extended local vocabulary records with `reviewCount`, `correctStreak`, `lastReviewedAt`, `nextReviewAt`, and `masteredAt`.
+- Added backward-compatible vocabulary migration for older localStorage records.
+- Added due/all vocabulary filters, due-count display, review summary counts, and `再记` / `认识` review actions.
+- Added simple spaced repetition intervals for remembered terms and next-day rescheduling for terms that need more review.
 
 ## Verification In Current Stage
 
@@ -261,6 +265,29 @@ The final product must support full-manual offline reading, position-preserving 
   - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
   - AAB `jarsigner -verify`: verified with expected self-signed certificate warnings
   - GitHub Actions CI for `6e0335b`: passed in run `27918135264`
+- Vocabulary review scheduling verification:
+  - `npm run typecheck`: passed
+  - `npm run build`: passed
+  - `npm run lint:content`: passed
+  - `npm run android:release-apk`: passed
+  - Release APK install and relaunch on `emulator-5554`: passed
+  - Android WebView vocabulary QA:
+    - legacy localStorage vocabulary record without review fields migrated with `reviewCount`, `correctStreak`, and `nextReviewAt`
+    - tapping `Six Sigma` opened the lookup sheet and saved a new vocabulary record
+    - vocabulary dock showed due count after saving terms
+    - vocabulary panel summary showed 2 due terms before review
+    - `认识` changed one due term to `learning`, incremented `reviewCount`, set `correctStreak: 1`, and scheduled `nextReviewAt` in the future
+    - `再记` changed the other due term to `learning`, incremented `reviewCount`, reset `correctStreak: 0`, and scheduled `nextReviewAt` in the future
+    - after both actions, due queue showed the empty-state message and the all filter showed both stored terms
+    - vocabulary panel horizontal overflow remained 0
+  - Local QA screenshot captured at `C:\findjob_sixsigma_app\qa\screenshots\vocab-review-schedule.png` and ignored by Git.
+  - `npm run android:aab`: passed
+  - APK size: 37,320,403 bytes
+  - AAB size: 35,103,544 bytes
+  - APK/AAB package checks: 470 figure PNG files, `manual.json`, and `asset-manifest.json` are present
+  - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
+  - AAB `jarsigner -verify`: verified with expected self-signed certificate warnings
+  - GitHub Actions CI for `3d3aeda`: passed in run `27918381489`
 
 ## Known Limitations
 
@@ -298,7 +325,7 @@ After context compression or a new session, do this before making changes:
 
 ## Next Action
 
-Improve curated manual section mapping for normal-paragraph titles, run physical-phone long-press QA, add notes/highlights or vocabulary review scheduling, perform low-end-device performance profiling, and continue full-source visual comparison for extracted figures/tables.
+Improve curated manual section mapping for normal-paragraph titles, run physical-phone long-press QA, add notes/highlights or vocabulary CSV export, perform low-end-device performance profiling, and continue full-source visual comparison for extracted figures/tables.
 
 ## Constraints
 

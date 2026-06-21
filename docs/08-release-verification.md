@@ -6,8 +6,8 @@ This document records the current evidence that the Android study app is install
 
 - Repository: `https://github.com/Felix-Zuo/six-sigma-study-app`
 - Local path: `C:\findjob_sixsigma_app`
-- Latest verified implementation commit when this document was updated: `6e0335b`
-- Latest verified implementation GitHub Actions run: `27918135264`
+- Latest verified implementation commit when this document was updated: `3d3aeda`
+- Latest verified implementation GitHub Actions run: `27918381489`
 - Release APK: `C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB: `C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab`
 
@@ -66,7 +66,8 @@ Verified on local emulator `SixSigmaQA` / `emulator-5554`.
 - Extra-large dark-mode WebView QA: Chapters 1, 7, 26, and 33 had 0 horizontal overflow and 0 visible broken images across sampled scroll positions.
 - Table-of-contents search: local offline search matches English/Chinese chapter and section titles, chapter numbers, and page numbers; verified `Minitab`, `439`, and `价值流图` queries in Android WebView.
 - Native Android: service worker registration is skipped and CacheStorage is cleared to avoid stale APK upgrades.
-- Vocabulary: persisted in localStorage under `six-sigma-study:vocab:v1`.
+- Vocabulary: persisted in localStorage under `six-sigma-study:vocab:v1`; old vocabulary records migrate to include `reviewCount`, `correctStreak`, and `nextReviewAt`.
+- Vocabulary review: Android WebView QA verified adding a term from lookup, due-count display, due/all filters, `认识` scheduling, `再记` scheduling, and 0 horizontal overflow in the vocabulary panel.
 
 ## Known Remaining Gaps
 
