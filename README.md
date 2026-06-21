@@ -75,3 +75,16 @@ C:\findjob_sixsigma_app\android\app\build\outputs\apk\debug\app-debug.apk
 ```
 
 This debug APK is unsigned for release distribution. A release APK/AAB needs a signing key before it is suitable for sharing outside local testing.
+
+## Android Emulator QA
+
+The local QA emulator is named `SixSigmaQA`:
+
+```powershell
+$env:ANDROID_HOME = "C:\android-sdk"
+$env:ANDROID_SDK_ROOT = "C:\android-sdk"
+$env:PATH = "C:\android-sdk\emulator;C:\android-sdk\platform-tools;C:\android-sdk\cmdline-tools\latest\bin;$env:PATH"
+emulator -avd SixSigmaQA -no-window -gpu swiftshader_indirect -no-audio -no-boot-anim -no-snapshot
+adb install -r android\app\build\outputs\apk\debug\app-debug.apk
+adb shell monkey -p com.findjob.sixsigmastudy -c android.intent.category.LAUNCHER 1
+```

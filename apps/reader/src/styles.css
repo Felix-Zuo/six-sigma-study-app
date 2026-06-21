@@ -32,17 +32,21 @@ button {
   background: #f4f6f5;
 }
 
-.topBar {
+.readerChrome {
   position: sticky;
   top: 0;
   z-index: 5;
+  padding: 10px 0 10px;
+  background: rgba(244, 246, 245, 0.96);
+  backdrop-filter: blur(12px);
+}
+
+.topBar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  padding: 10px 0 12px;
-  background: rgba(244, 246, 245, 0.96);
-  backdrop-filter: blur(12px);
+  padding: 0 0 12px;
 }
 
 .eyebrow {
@@ -91,14 +95,10 @@ h1 {
 }
 
 .chapterRail {
-  position: sticky;
-  top: 68px;
-  z-index: 4;
   display: flex;
   gap: 6px;
   overflow-x: auto;
-  padding: 0 0 10px;
-  background: rgba(244, 246, 245, 0.96);
+  padding: 0;
   scrollbar-width: none;
 }
 
@@ -130,7 +130,7 @@ h1 {
 }
 
 .sectionBlock {
-  scroll-margin-top: 114px;
+  scroll-margin-top: 180px;
   min-width: 0;
   padding: 16px 14px;
   border: 1px solid #d9e1dd;

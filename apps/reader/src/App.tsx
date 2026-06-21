@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { App as CapacitorApp } from "@capacitor/app";
 import { normalizeLookup, tokenizeEnglish } from "./lib/tokenize";
 import { loadSavedTerms, persistSavedTerms, type SavedTerm } from "./lib/vocabStore";
 
@@ -52,6 +53,8 @@ type ActiveLookup = {
   sourceText: string;
 };
 
+type OverlayName = "lookup" | "toc" | "vocab";
+
 function buildTermIndex(entries: TermEntry[]) {
   const index = new Map<string, TermEntry>();
   for (const entry of entries) {
@@ -85,6 +88,8 @@ export function App() {
   const [showToc, setShowToc] = useState(false);
   const [showVocab, setShowVocab] = useState(false);
   const readerRef = useRef<HTMLElement | null>(null);
+  const overlayRef = useRef<OverlayName | null>(null);
+  const overlayHistoryRef = useRef(false);
 
   const lesson = manual?.chapters.find((chapter) => chapter.id === activeChapterId) ?? manual?.chapters[0];
   const activeSection = lesson?.sections.find((section) => section.id === activeSectionId) ?? lesson?.sections[0];
@@ -115,6 +120,53 @@ export function App() {
   useEffect(() => {
     persistSavedTerms(savedTerms);
   }, [savedTerms]);
+
+  useEffect(() => {
+    overlayRef.current = activeLookup ? "lookup" : showToc ? "toc" : showVocab ? "vocab" : null;
+  }, [activeLookup, showToc, showVocab]);
+
+  useEffect(() => {
+    function handlePopState() {
+      if (!overlayHistoryRef.current && !overlayRef.current) {
+        return;
+      }
+      overlayHistoryRef.current = false;
+      closeOverlay();
+    }
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
+  useEffect(() => {
+    let removed = false;
+    let listener: { remove: () => Promise<void> } | undefined;
+
+    CapacitorApp.addListener("backButton", ({ canGoBack }) => {
+      if (overlayRef.current) {
+        closeOverlayFromNativeBack();
+        return;
+      }
+
+      if (canGoBack) {
+        window.history.back();
+        return;
+      }
+
+      void CapacitorApp.exitApp();
+    }).then((handle) => {
+      if (removed) {
+        void handle.remove();
+        return;
+      }
+      listener = handle;
+    });
+
+    return () => {
+      removed = true;
+      void listener?.remove();
+    };
+  }, []);
 
   useEffect(() => {
     const root = readerRef.current;
@@ -189,6 +241,50 @@ export function App() {
   const currentLesson = lesson;
   const currentSection = activeSection;
 
+  function closeOverlay() {
+    setActiveLookup(null);
+    setShowToc(false);
+    setShowVocab(false);
+    setSelectedPhrase("");
+  }
+
+  function ensureOverlayHistory() {
+    if (!overlayHistoryRef.current && !overlayRef.current) {
+      window.history.pushState({ sixSigmaOverlay: true }, "", window.location.href);
+      overlayHistoryRef.current = true;
+    }
+  }
+
+  function closeOverlayFromControl() {
+    if (overlayHistoryRef.current) {
+      window.history.back();
+      return;
+    }
+    closeOverlay();
+  }
+
+  function closeOverlayFromNativeBack() {
+    closeOverlay();
+    if (overlayHistoryRef.current) {
+      overlayHistoryRef.current = false;
+      window.history.back();
+    }
+  }
+
+  function openToc() {
+    ensureOverlayHistory();
+    setActiveLookup(null);
+    setShowVocab(false);
+    setShowToc(true);
+  }
+
+  function openVocab() {
+    ensureOverlayHistory();
+    setActiveLookup(null);
+    setShowToc(false);
+    setShowVocab(true);
+  }
+
   function selectChapter(chapterId: string) {
     const nextLesson = currentManual.chapters.find((chapter) => chapter.id === chapterId);
     if (!nextLesson) {
@@ -196,14 +292,16 @@ export function App() {
     }
     setActiveChapterId(nextLesson.id);
     setActiveSectionId(nextLesson.sections[0].id);
-    setActiveLookup(null);
-    setShowToc(false);
+    closeOverlayFromControl();
     window.requestAnimationFrame(() => window.scrollTo({ top: 0 }));
   }
 
   function lookupText(text: string, page: number, sectionId: string, sourceText: string) {
     const key = normalizeLookup(text);
     const entry = termIndex.get(key) ?? lookupFallback(text);
+    ensureOverlayHistory();
+    setShowToc(false);
+    setShowVocab(false);
     setActiveLookup({ entry, page, sectionId, sourceText });
   }
 
@@ -300,39 +398,41 @@ export function App() {
 
   return (
     <main className="appShell">
-      <header className="topBar">
-        <div>
-          <p className="eyebrow">Page {currentSection.page} / {currentManual.pageCount}</p>
-          <h1>{currentLesson.title[language]}</h1>
-        </div>
-        <div className="headerActions">
-          <button className="tocButton" onClick={() => setShowToc(true)} aria-label="open table of contents">
-            目录
-          </button>
-          <button
-            className="modeButton"
-            onClick={() => setLanguage(language === "en" ? "zh" : "en")}
-            aria-label="switch reading language"
-          >
-            {language === "en" ? "中文" : "EN"}
-          </button>
-        </div>
-      </header>
+      <div className="readerChrome">
+        <header className="topBar">
+          <div>
+            <p className="eyebrow">Page {currentSection.page} / {currentManual.pageCount}</p>
+            <h1>{currentLesson.title[language]}</h1>
+          </div>
+          <div className="headerActions">
+            <button className="tocButton" onClick={openToc} aria-label="open table of contents">
+              目录
+            </button>
+            <button
+              className="modeButton"
+              onClick={() => setLanguage(language === "en" ? "zh" : "en")}
+              aria-label="switch reading language"
+            >
+              {language === "en" ? "中文" : "EN"}
+            </button>
+          </div>
+        </header>
 
-      <nav className="chapterRail" aria-label="chapter sections">
-        {currentLesson.sections.map((section) => (
-          <button
-            key={section.id}
-            className={section.id === activeSectionId ? "sectionPill active" : "sectionPill"}
-            onClick={() => {
-              setActiveSectionId(section.id);
-              document.querySelector(`[data-section-id="${section.id}"]`)?.scrollIntoView({ block: "start" });
-            }}
-          >
-            {section.page}
-          </button>
-        ))}
-      </nav>
+        <nav className="chapterRail" aria-label="chapter sections">
+          {currentLesson.sections.map((section) => (
+            <button
+              key={section.id}
+              className={section.id === activeSectionId ? "sectionPill active" : "sectionPill"}
+              onClick={() => {
+                setActiveSectionId(section.id);
+                document.querySelector(`[data-section-id="${section.id}"]`)?.scrollIntoView({ block: "start" });
+              }}
+            >
+              {section.page}
+            </button>
+          ))}
+        </nav>
+      </div>
 
       <section ref={readerRef} className="readerPanel" aria-label="manual reader">
         {currentLesson.sections.map((section) => (
@@ -367,7 +467,7 @@ export function App() {
               <p className="eyebrow">manual contents</p>
               <h2>目录</h2>
             </div>
-            <button className="closeButton" onClick={() => setShowToc(false)}>关闭</button>
+            <button className="closeButton" onClick={closeOverlayFromControl}>关闭</button>
           </div>
           <div className="tocList">
             {currentManual.chapters.map((chapter) => (
@@ -385,7 +485,7 @@ export function App() {
         </section>
       )}
 
-      <button className="vocabDock" aria-label="saved vocabulary" onClick={() => setShowVocab(true)}>
+      <button className="vocabDock" aria-label="saved vocabulary" onClick={openVocab}>
         <strong>词本</strong>
         <span>{savedTerms.length} 个</span>
       </button>
@@ -398,7 +498,7 @@ export function App() {
               <p className="eyebrow">local vocabulary</p>
               <h2>词本</h2>
             </div>
-            <button className="closeButton" onClick={() => setShowVocab(false)}>关闭</button>
+            <button className="closeButton" onClick={closeOverlayFromControl}>关闭</button>
           </div>
           {savedTerms.length === 0 ? (
             <p className="emptyState">暂无词条。英文模式下点击单词或查询短语后可加入词本。</p>
@@ -434,7 +534,7 @@ export function App() {
               <p className="eyebrow">Page {activeLookup.page}</p>
               <h2>{activeLookup.entry.term}</h2>
             </div>
-            <button className="closeButton" onClick={() => setActiveLookup(null)}>关闭</button>
+            <button className="closeButton" onClick={closeOverlayFromControl}>关闭</button>
           </div>
           <p className="translation">{activeLookup.entry.translation}</p>
           {activeLookup.entry.partOfSpeech && <p className="partOfSpeech">{activeLookup.entry.partOfSpeech}</p>}

@@ -56,6 +56,9 @@ Goal: installable Android app first.
 - [x] wrap with Capacitor
 - [x] Android debug APK build
 - [x] bundle static reader assets into debug APK
+- [x] emulator install/runtime smoke test
+- [x] native Android back button closes reader sheets
+- [x] debug reinstall preserves local vocabulary data
 - offline asset packaging
 - local data migration test
 - release signing setup

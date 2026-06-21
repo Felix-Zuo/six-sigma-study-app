@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 02:34 Asia/Shanghai
+Last updated: 2026-06-22 03:04 Asia/Shanghai
 
 ## Objective
 
@@ -20,9 +20,9 @@ The final product must support full-manual offline reading, position-preserving 
 
 - Branch: `main`
 - Latest validated implementation commit: `45c0ebf Add Capacitor Android debug build`
-- Local worktree: expected clean after the state-sync commit that contains this note
-- Latest known GitHub Actions state: CI passed for `45c0ebf`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with section-preserving language toggle, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, PWA manifest/service worker base, and a Capacitor Android debug APK build.
+- Local worktree: dirty with Android emulator QA fixes pending commit
+- Latest known GitHub Actions state: CI passed for `7f5c71c`
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with section-preserving language toggle, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, PWA manifest/service worker base, and a Capacitor Android debug APK that runs on the local emulator.
 
 ## Completed In Current Stage
 
@@ -55,6 +55,10 @@ The final product must support full-manual offline reading, position-preserving 
 - Added Capacitor 8 Android project with app id `com.findjob.sixsigmastudy`.
 - Built debug APK at `C:\findjob_sixsigma_app\android\app\build\outputs\apk\debug\app-debug.apk`.
 - Confirmed the debug APK bundles `content/manual.json`, `manifest.webmanifest`, and `sw.js`.
+- Installed Android Emulator 36.6.11 and Android 36 Google APIs x86_64 system image.
+- Created local AVD `SixSigmaQA` and installed the debug APK on `emulator-5554`.
+- Added native Android back-button handling through `@capacitor/app` so open sheets close before the app exits.
+- Reworked the sticky reader header so long chapter titles no longer clip the page rail.
 
 ## Verification In Current Stage
 
@@ -65,6 +69,7 @@ The final product must support full-manual offline reading, position-preserving 
 - GitHub Actions CI for `28f1a39`: passed
 - GitHub Actions CI for `0e4b823`: passed
 - GitHub Actions CI for `45c0ebf`: passed
+- GitHub Actions CI for `7f5c71c`: passed
 - `npm run extract:manual`: passed
 - `npm run lint:content`: passed for 33 chapter files plus `manual.json`
 - `npm run typecheck`: passed
@@ -75,6 +80,16 @@ The final product must support full-manual offline reading, position-preserving 
 - `npx cap sync android`: passed
 - `android\gradlew.bat assembleDebug`: passed
 - APK content check: `assets/public/content/manual.json`, `assets/public/manifest.webmanifest`, and `assets/public/sw.js` exist inside `app-debug.apk`
+- Android emulator QA:
+  - `adb install -r android\app\build\outputs\apk\debug\app-debug.apk`: passed
+  - First-screen Chapter 1 render: passed
+  - English tap-to-lookup for `Six Sigma`: passed
+  - Save-to-vocabulary and app relaunch persistence: passed
+  - Native Android back button closes lookup and TOC sheets before exiting: passed
+  - Chapter 7 English/Chinese visual check: passed
+  - Chapter 26 English/Chinese visual check: passed after sticky header fix
+  - Chapter 33 English/Chinese visual check: passed
+  - QA screenshots are local under `C:\findjob_sixsigma_app\qa\screenshots` and are not committed because PNG files are ignored.
 
 ## Known Limitations
 
@@ -84,7 +99,7 @@ The final product must support full-manual offline reading, position-preserving 
 - Phrase lookup UI exists through text selection, but needs real touch-device QA.
 - English tables in Chapter 1 are partly represented as Word paragraph fragments; Chinese tables render as semantic tables.
 - Long chapters can render thousands of clickable English tokens; add virtualization or lazy tokenization before final mobile polish.
-- No Android device or emulator is currently attached, so on-device install/runtime QA is still pending.
+- Reading position is not yet persisted across full app restart; it is preserved during language toggle and chapter/session navigation only.
 
 ## Open GitHub Work Items
 
@@ -110,7 +125,7 @@ After context compression or a new session, do this before making changes:
 
 ## Next Action
 
-Run on-device or emulator QA for the debug APK, then add release signing/AAB workflow and performance improvements for long chapters.
+Add release signing/AAB workflow, then improve detailed anchors and long-chapter performance.
 
 ## Constraints
 
