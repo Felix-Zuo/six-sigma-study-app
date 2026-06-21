@@ -1,6 +1,7 @@
 # Dependencies
 node_modules/
 .npm/
+__pycache__/
 
 # Build outputs
 dist/
