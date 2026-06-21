@@ -68,6 +68,7 @@ type ActiveLookup = {
 };
 
 type OverlayName = "lookup" | "toc" | "vocab";
+type LookupTextHandler = (text: string, page: number, sectionId: string, sourceText: string) => void;
 
 function buildTermIndex(entries: TermEntry[]) {
   const index = new Map<string, TermEntry>();
@@ -88,6 +89,87 @@ function lookupFallback(term: string): TermEntry {
     lookupKeys: [term],
     explanation: "该词或短语还没有进入本地词库。后续会接入更完整的离线词典和六西格玛术语库。"
   };
+}
+
+function InlineReaderText({
+  text,
+  page,
+  sectionId,
+  language,
+  onLookup
+}: {
+  text: string;
+  page: number;
+  sectionId: string;
+  language: Language;
+  onLookup: LookupTextHandler;
+}) {
+  const markerRef = useRef<HTMLSpanElement | null>(null);
+  const shouldLazyTokenize = language === "en" && text.trim().length > 0;
+  const [isNearViewport, setIsNearViewport] = useState(!shouldLazyTokenize);
+
+  useEffect(() => {
+    if (language !== "en") {
+      setIsNearViewport(false);
+      return;
+    }
+    if (!shouldLazyTokenize || typeof IntersectionObserver === "undefined") {
+      setIsNearViewport(true);
+      return;
+    }
+
+    setIsNearViewport(false);
+    const marker = markerRef.current;
+    if (!marker) {
+      setIsNearViewport(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry) {
+          setIsNearViewport(entry.isIntersecting);
+        }
+      },
+      { rootMargin: "900px 0px" }
+    );
+    observer.observe(marker);
+    return () => observer.disconnect();
+  }, [language, shouldLazyTokenize, text]);
+
+  const tokens = useMemo(() => {
+    if (language !== "en" || !isNearViewport) {
+      return [];
+    }
+    return tokenizeEnglish(text);
+  }, [language, text, isNearViewport]);
+
+  if (language !== "en") {
+    return <>{text}</>;
+  }
+
+  if (!isNearViewport) {
+    return <span ref={markerRef}>{text}</span>;
+  }
+
+  return (
+    <span ref={markerRef}>
+      {tokens.map((token) =>
+        token.kind === "word" ? (
+          <button
+            key={token.id}
+            className="wordToken"
+            onClick={() => onLookup(token.text, page, sectionId, text)}
+          >
+            {token.text}
+          </button>
+        ) : (
+          <span key={token.id}>{token.text}</span>
+        )
+      )}
+    </span>
+  );
 }
 
 export function App() {
@@ -398,27 +480,16 @@ export function App() {
     setSavedTerms((items) => items.map((item) => (item.id === id ? { ...item, status } : item)));
   }
 
-  function renderEnglishText(text: string, page: number, sectionId: string) {
-    return tokenizeEnglish(text).map((token) =>
-      token.kind === "word" ? (
-        <button
-          key={token.id}
-          className="wordToken"
-          onClick={() => lookupText(token.text, page, sectionId, text)}
-        >
-          {token.text}
-        </button>
-      ) : (
-        <span key={token.id}>{token.text}</span>
-      )
-    );
-  }
-
   function renderText(text: string, page: number, sectionId: string) {
-    if (language === "en") {
-      return renderEnglishText(text, page, sectionId);
-    }
-    return text;
+    return (
+      <InlineReaderText
+        text={text}
+        page={page}
+        sectionId={sectionId}
+        language={language}
+        onLookup={lookupText}
+      />
+    );
   }
 
   function renderBlock(block: ContentBlock, section: LessonSection) {
