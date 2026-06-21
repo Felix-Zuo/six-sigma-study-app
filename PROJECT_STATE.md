@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 04:00 Asia/Shanghai
+Last updated: 2026-06-22 04:21 Asia/Shanghai
 
 ## Objective
 
@@ -19,10 +19,10 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest validated implementation commit: `84e1623 Preserve manual figure assets in reader`
+- Latest validated implementation commit: `72a7426 Lazy tokenize reader text near viewport`
 - Local worktree: expected clean after the state-sync commit that contains this note
-- Latest implementation GitHub Actions state: CI passed for `84e1623`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with section-preserving language toggle, persisted reading position across app restart, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Latest implementation GitHub Actions state: local validation passed for `72a7426`; GitHub Actions verification pending push for this stage
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with section-preserving language toggle, persisted reading position across app restart, viewport-bound English word tokenization, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
 
@@ -74,6 +74,7 @@ The final product must support full-manual offline reading, position-preserving 
 - Added reader image rendering with responsive width and lazy loading.
 - Added PWA figure pre-cache from `asset-manifest.json`.
 - Disabled service-worker registration in native Android and added native CacheStorage cleanup so upgraded APKs do not keep stale PWA caches.
+- Added viewport-bound English tokenization: English text renders as plain text outside the reading viewport and becomes clickable word buttons only near the current scroll position, preventing long chapters from accumulating thousands of mounted button elements.
 
 ## Verification In Current Stage
 
@@ -143,6 +144,30 @@ The final product must support full-manual offline reading, position-preserving 
     - Chapter 26: 50 image elements, loaded visible figures, no broken images, no horizontal overflow
     - Chapter 33: 25 image elements, first figures load, no broken images, no horizontal overflow
   - Android screenshots are local under `C:\findjob_sixsigma_app\qa\screenshots` and are ignored by Git.
+- Long-chapter performance verification:
+  - `npm run typecheck`: passed
+  - `npm run build`: passed
+  - `npm run android:release-apk`: passed after fixing local `android\local.properties` with `sdk.dir=C\:\\android-sdk`
+  - Release APK install and relaunch on `emulator-5554`: passed
+  - Android WebView DOM QA for Chapter 26:
+    - native platform detection returned `android`
+    - service worker registrations: 0
+    - CacheStorage keys: empty
+    - 50 figure images, no broken images, no horizontal overflow
+    - top/middle/bottom scroll sampling kept mounted `.wordToken` elements bounded at about 189-346 instead of accumulating across the whole chapter
+    - tap-to-lookup opened the bottom sheet and save-to-vocabulary persisted to `six-sigma-study:vocab:v1`
+  - Android WebView DOM QA for Chapter 33:
+    - 25 figure images, no broken images, no horizontal overflow
+    - mounted `.wordToken` elements remained about 263 near the current viewport
+    - Chinese toggle changed the same chapter to Chinese text with 0 English word buttons; switching back restored English click targets
+  - `npm run android:aab`: passed
+  - APK size: 37,300,435 bytes
+  - AAB size: 35,083,577 bytes
+  - APK content check: 470 figure PNG files, `assets/public/content/assets/asset-manifest.json`, and `assets/public/content/manual.json` are present
+  - AAB content check: 470 figure PNG files, `base/assets/public/content/assets/asset-manifest.json`, and `base/assets/public/content/manual.json` are present
+  - `apksigner verify --print-certs android\app\build\outputs\apk\release\app-release.apk`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
+  - `jarsigner -verify android\app\build\outputs\bundle\release\app-release.aab`: verified with expected self-signed certificate warnings
+  - `npm run lint:content`: passed
 
 ## Known Limitations
 
@@ -151,7 +176,7 @@ The final product must support full-manual offline reading, position-preserving 
 - Language position preservation is section-level for Chapter 1 and chapter-level for generic chapters, not sentence-level.
 - Phrase lookup UI exists through text selection, but still needs real touch-device QA.
 - English tables in Chapter 1 are partly represented as Word paragraph fragments; Chinese tables render as semantic tables.
-- Long chapters can render thousands of clickable English tokens; add virtualization or lazy tokenization before final mobile polish.
+- Long chapters now use viewport-bound English tokenization; deeper low-end-device profiling is still pending.
 - Detailed paragraph-level anchors for Chapters 2-33 still need refinement beyond current chapter/section-level restoration.
 - Figure assets now preserve DOCX-embedded originals, but full source-page-by-source-page visual comparison is not complete.
 - Some extracted table images are intentionally rendered as images; later passes can convert selected tables to semantic tables where fidelity allows.
@@ -180,7 +205,7 @@ After context compression or a new session, do this before making changes:
 
 ## Next Action
 
-Improve detailed anchors, phrase-selection QA, long-chapter performance, and full-source visual comparison for extracted figures/tables.
+Improve detailed anchors, phrase-selection QA, low-end-device performance profiling, and full-source visual comparison for extracted figures/tables.
 
 ## Constraints
 
