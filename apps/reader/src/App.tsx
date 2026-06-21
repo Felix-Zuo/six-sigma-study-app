@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { App as CapacitorApp } from "@capacitor/app";
 import { normalizeLookup, tokenizeEnglish } from "./lib/tokenize";
 import { loadSavedTerms, persistSavedTerms, type SavedTerm } from "./lib/vocabStore";
+import { loadReaderPosition, persistReaderPosition } from "./lib/readerPositionStore";
 
 type Language = "en" | "zh";
 
@@ -77,9 +78,12 @@ function lookupFallback(term: string): TermEntry {
 }
 
 export function App() {
+  const initialPositionRef = useRef(loadReaderPosition());
   const [manual, setManual] = useState<ManualData | null>(null);
   const [loadError, setLoadError] = useState("");
-  const [language, setLanguage] = useState<Language>("en");
+  const [language, setLanguage] = useState<Language>(() =>
+    initialPositionRef.current.language === "zh" ? "zh" : "en"
+  );
   const [activeChapterId, setActiveChapterId] = useState("");
   const [activeSectionId, setActiveSectionId] = useState("");
   const [activeLookup, setActiveLookup] = useState<ActiveLookup | null>(null);
@@ -108,9 +112,25 @@ export function App() {
         return response.json() as Promise<ManualData>;
       })
       .then((data) => {
+        const savedPosition = initialPositionRef.current;
+        const initialChapter =
+          data.chapters.find((chapter) => chapter.id === savedPosition.chapterId) ?? data.chapters[0];
+        const initialSection =
+          initialChapter.sections.find((section) => section.id === savedPosition.sectionId) ??
+          initialChapter.sections[0];
         setManual(data);
-        setActiveChapterId(data.chapters[0].id);
-        setActiveSectionId(data.chapters[0].sections[0].id);
+        setActiveChapterId(initialChapter.id);
+        setActiveSectionId(initialSection.id);
+        window.requestAnimationFrame(() => {
+          if (
+            typeof savedPosition.scrollY === "number" &&
+            savedPosition.chapterId === initialChapter.id
+          ) {
+            window.scrollTo({ top: savedPosition.scrollY });
+            return;
+          }
+          document.querySelector(`[data-section-id="${initialSection.id}"]`)?.scrollIntoView({ block: "start" });
+        });
       })
       .catch((error: unknown) => {
         setLoadError(error instanceof Error ? error.message : "manual load failed");
@@ -120,6 +140,43 @@ export function App() {
   useEffect(() => {
     persistSavedTerms(savedTerms);
   }, [savedTerms]);
+
+  useEffect(() => {
+    if (!activeChapterId || !activeSectionId) {
+      return;
+    }
+    persistReaderPosition({
+      chapterId: activeChapterId,
+      sectionId: activeSectionId,
+      language,
+      scrollY: window.scrollY
+    });
+  }, [activeChapterId, activeSectionId, language]);
+
+  useEffect(() => {
+    if (!activeChapterId || !activeSectionId) {
+      return;
+    }
+    let timer: number | undefined;
+
+    function saveScrollPosition() {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        persistReaderPosition({
+          chapterId: activeChapterId,
+          sectionId: activeSectionId,
+          language,
+          scrollY: window.scrollY
+        });
+      }, 180);
+    }
+
+    window.addEventListener("scroll", saveScrollPosition, { passive: true });
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("scroll", saveScrollPosition);
+    };
+  }, [activeChapterId, activeSectionId, language]);
 
   useEffect(() => {
     overlayRef.current = activeLookup ? "lookup" : showToc ? "toc" : showVocab ? "vocab" : null;

@@ -19,6 +19,7 @@ Goal: prove the study loop on real content.
 - [x] extract Chapter 1 into structured bilingual JSON
 - [x] render Chapter 1 in mobile reader
 - [x] English/Chinese toggle keeps position at section level
+- [x] app restart restores last language/chapter/section
 - [x] word tap opens bottom sheet
 - [x] curated Six Sigma terms for Chapter 1
 - [x] local vocabulary save

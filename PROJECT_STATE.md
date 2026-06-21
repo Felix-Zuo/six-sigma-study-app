@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 03:18 Asia/Shanghai
+Last updated: 2026-06-22 03:24 Asia/Shanghai
 
 ## Objective
 
@@ -20,9 +20,9 @@ The final product must support full-manual offline reading, position-preserving 
 
 - Branch: `main`
 - Latest validated implementation commit: `2212e9b Add signed Android release build workflow`
-- Local worktree: expected clean after the state-sync commit that contains this note
+- Local worktree: dirty with reading-position persistence pending commit
 - Latest implementation GitHub Actions state: CI passed for `2212e9b`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with section-preserving language toggle, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, PWA manifest/service worker base, a Capacitor Android debug APK that runs on the local emulator, and locally signed release APK/AAB builds.
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with section-preserving language toggle, persisted reading position across app restart, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, PWA manifest/service worker base, a Capacitor Android debug APK that runs on the local emulator, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
 
@@ -64,6 +64,7 @@ The final product must support full-manual offline reading, position-preserving 
 - Generated local signing keystore at `C:\findjob_sixsigma_secrets\sixsigma-release.jks`.
 - Built release APK at `C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk`.
 - Built release AAB at `C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab`.
+- Added localStorage-backed reader position persistence for language, chapter, section, and scroll offset.
 
 ## Verification In Current Stage
 
@@ -103,6 +104,11 @@ The final product must support full-manual offline reading, position-preserving 
   - `apksigner verify --print-certs android\app\build\outputs\apk\release\app-release.apk`: passed
   - `jarsigner -verify -certs android\app\build\outputs\bundle\release\app-release.aab`: verified with expected self-signed certificate warnings
   - Release APK install and launch on `emulator-5554`: passed
+- Reading position restart QA:
+  - Entered Chapter 7 Chinese page 59 in the release APK
+  - Forced-stopped `com.findjob.sixsigmastudy`
+  - Relaunched via launcher intent
+  - App restored Chapter 7 Chinese page 59: passed
 
 ## Known Limitations
 
@@ -112,7 +118,7 @@ The final product must support full-manual offline reading, position-preserving 
 - Phrase lookup UI exists through text selection, but needs real touch-device QA.
 - English tables in Chapter 1 are partly represented as Word paragraph fragments; Chinese tables render as semantic tables.
 - Long chapters can render thousands of clickable English tokens; add virtualization or lazy tokenization before final mobile polish.
-- Reading position is not yet persisted across full app restart; it is preserved during language toggle and chapter/session navigation only.
+- Detailed paragraph-level anchors for Chapters 2-33 still need refinement beyond current chapter/section-level restoration.
 
 ## Open GitHub Work Items
 
