@@ -67,6 +67,12 @@ type ActiveLookup = {
   sourceText: string;
 };
 
+type SelectedPhrase = {
+  text: string;
+  page: number;
+  sectionId: string;
+};
+
 type OverlayName = "lookup" | "toc" | "vocab";
 type LookupTextHandler = (text: string, page: number, sectionId: string, sourceText: string) => void;
 
@@ -182,7 +188,7 @@ export function App() {
   const [activeChapterId, setActiveChapterId] = useState("");
   const [activeSectionId, setActiveSectionId] = useState("");
   const [activeLookup, setActiveLookup] = useState<ActiveLookup | null>(null);
-  const [selectedPhrase, setSelectedPhrase] = useState("");
+  const [selectedPhrase, setSelectedPhrase] = useState<SelectedPhrase | null>(null);
   const [savedTerms, setSavedTerms] = useState<SavedTerm[]>(() => loadSavedTerms());
   const [showToc, setShowToc] = useState(false);
   const [showVocab, setShowVocab] = useState(false);
@@ -357,15 +363,32 @@ export function App() {
       const text = selection?.toString().trim() ?? "";
       const anchorNode = selection?.anchorNode;
       if (!text || !anchorNode || !readerRef.current?.contains(anchorNode)) {
-        setSelectedPhrase("");
+        setSelectedPhrase(null);
         return;
       }
       const normalized = normalizeLookup(text);
-      setSelectedPhrase(normalized.includes(" ") ? text : "");
+      if (!normalized.includes(" ")) {
+        setSelectedPhrase(null);
+        return;
+      }
+
+      const anchorElement =
+        anchorNode.nodeType === Node.ELEMENT_NODE
+          ? (anchorNode as Element)
+          : anchorNode.parentElement;
+      const sectionNode = anchorElement?.closest<HTMLElement>("[data-section-id]");
+      const sectionId = sectionNode?.dataset.sectionId;
+      const section = lesson?.sections.find((candidate) => candidate.id === sectionId);
+      if (!section) {
+        setSelectedPhrase(null);
+        return;
+      }
+
+      setSelectedPhrase({ text, page: section.page, sectionId: section.id });
     }
     document.addEventListener("selectionchange", handleSelectionChange);
     return () => document.removeEventListener("selectionchange", handleSelectionChange);
-  }, []);
+  }, [lesson]);
 
   if (loadError) {
     return (
@@ -397,7 +420,7 @@ export function App() {
     setActiveLookup(null);
     setShowToc(false);
     setShowVocab(false);
-    setSelectedPhrase("");
+    setSelectedPhrase(null);
   }
 
   function ensureOverlayHistory() {
@@ -455,6 +478,15 @@ export function App() {
     setShowToc(false);
     setShowVocab(false);
     setActiveLookup({ entry, page, sectionId, sourceText });
+  }
+
+  function lookupSelectedPhrase() {
+    if (!selectedPhrase) {
+      return;
+    }
+    lookupText(selectedPhrase.text, selectedPhrase.page, selectedPhrase.sectionId, selectedPhrase.text);
+    setSelectedPhrase(null);
+    window.getSelection()?.removeAllRanges();
   }
 
   function saveActiveTerm() {
@@ -611,7 +643,7 @@ export function App() {
       {language === "en" && selectedPhrase && (
         <button
           className="phraseLookup"
-          onClick={() => lookupText(selectedPhrase, currentSection.page, currentSection.id, selectedPhrase)}
+          onClick={lookupSelectedPhrase}
         >
           查询选中短语
         </button>
