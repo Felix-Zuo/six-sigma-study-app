@@ -24,7 +24,8 @@ Goal: prove the study loop on real content.
 - [x] curated Six Sigma terms for Chapter 1
 - [x] local vocabulary save
 - [x] phone viewport QA
-- [ ] refine phrase selection QA on real mobile touch behavior
+- [x] verify phrase selection source page/section in Android WebView
+- [ ] verify phrase selection long-press behavior on a physical Android phone
 - [ ] decide whether English table fragments should be rebuilt or stored as images
 
 ## Phase 2: Full Manual Content Package
@@ -64,7 +65,7 @@ Goal: installable Android app first.
 - [x] offline app asset packaging for APK/AAB
 - [x] release APK signing setup
 - [x] release AAB build
-- local data migration test
+- [ ] local data migration test
 
 ## Phase 5: Polish
 

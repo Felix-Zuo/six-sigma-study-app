@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 05:01 Asia/Shanghai
+Last updated: 2026-06-22 05:10 Asia/Shanghai
 
 ## Objective
 
@@ -19,9 +19,9 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest validated implementation commit: `bf5a8d5 Track selected phrase source section`
+- Latest validated implementation commit: `5facc71 Record phrase selection CI pass`
 - Local worktree: expected clean after the state-sync commit that contains this note
-- Latest implementation GitHub Actions state: CI passed for `18be25d` in run `27917366161`
+- Latest implementation GitHub Actions state: CI passed for `5facc71` in run `27917388255`
 - Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, section-preserving language toggle, persisted reading position across app restart, viewport-bound English word tokenization, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
@@ -81,6 +81,7 @@ The final product must support full-manual offline reading, position-preserving 
 - Regenerated app content with 174 total sections across 33 chapters; Chapter 28 intentionally remains one section because its TOC-like titles are normal paragraphs rather than reliable Word headings.
 - Updated phrase selection so selected phrases retain the actual source section and page from the DOM selection anchor instead of using the current active section as a proxy.
 - Phrase lookup now clears the text selection after opening the lookup bottom sheet, avoiding stale floating phrase-query controls.
+- Added `docs/08-release-verification.md` as the current APK/AAB, content, Android QA, CI, and known-gap evidence matrix.
 
 ## Verification In Current Stage
 

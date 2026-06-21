@@ -24,9 +24,20 @@ Why:
 
 ## Repository Scope
 
-This repo contains product planning, app scaffolding, content schema, and pipeline scripts.
+This repo contains product planning, app scaffolding, content schema, pipeline scripts, generated app content, and the Capacitor Android shell.
 
 It intentionally does **not** commit the full manual DOCX/PDF/PNG assets. Those files stay local and are transformed into generated content packages.
+
+## Current Product State
+
+- Android-first app: release APK and AAB build locally.
+- Full manual: all 33 chapters, 449 aligned study pages, 174 generated reader sections.
+- Offline runtime package: `manual.json`, local dictionary, local vocabulary store, and 470 bundled figure/table/formula PNG assets.
+- Reader interactions: EN/ZH toggle, section/page restoration, tap-to-lookup, phrase selection lookup, bottom-sheet explanations, and local vocabulary save/status.
+- Long chapter handling: English word buttons are mounted only near the viewport to avoid huge DOMs.
+- Latest verified CI at the time of this note: `27917388255` on commit `5facc71`.
+
+See [Release Verification](docs/08-release-verification.md) for the current evidence matrix.
 
 ## Local Start
 
@@ -45,6 +56,12 @@ npm run dev
 - `C:\findjob_sixsigma_sources\manual_zh_aligned.docx`
 
 The script generates structured content for all 33 chapters into `content/processed`, then copies the full manual package into `apps/reader/public/content/manual.json` for runtime loading. It also extracts DOCX-embedded figures and table screenshots, deduplicates them by content hash, and writes the app assets under `apps/reader/public/content/assets/`.
+
+For source-TOC-guided section anchors, the local source PDF is copied to:
+
+- `C:\findjob_sixsigma_sources\source_manual.pdf`
+
+The derived metadata committed to the repo is `content/source/source_toc_sections.json`; the original PDF is not committed.
 
 Current generated figure package:
 
@@ -99,6 +116,18 @@ C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab
 
 Build APK and AAB sequentially. Running both Android release scripts in parallel can make Vite compete over the same `apps\reader\dist` directory.
 
+Current release package checks verify that both APK and AAB contain:
+
+- `content/manual.json`
+- `content/assets/asset-manifest.json`
+- 470 figure PNG files
+
+The local signing certificate SHA-256 currently used for release builds is:
+
+```text
+126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba
+```
+
 ## Android Emulator QA
 
 The local QA emulator is named `SixSigmaQA`:
@@ -111,3 +140,5 @@ emulator -avd SixSigmaQA -no-window -gpu swiftshader_indirect -no-audio -no-boot
 adb install -r android\app\build\outputs\apk\debug\app-debug.apk
 adb shell monkey -p com.findjob.sixsigmastudy -c android.intent.category.LAUNCHER 1
 ```
+
+Primary Android QA coverage currently focuses on Chapters 1, 7, 21, 26, and 33. Chapter 7 is used for section and phrase-selection checks; Chapters 26 and 33 are used for long, image-heavy chapter checks.
