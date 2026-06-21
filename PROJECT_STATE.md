@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 01:50 Asia/Shanghai
+Last updated: 2026-06-22 01:56 Asia/Shanghai
 
 ## Objective
 
@@ -19,9 +19,9 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest known pushed commit before current work: `d316501 Add CI validation workflow`
-- Local worktree: dirty with Chapter 1 extraction/app changes pending commit
-- Latest known GitHub Actions state: CI passed for `d316501`
+- Latest known pushed commit: `28f1a39 Ignore Python cache files`
+- Local worktree: clean after implementation commits
+- Latest known GitHub Actions state: CI passed for `28f1a39`
 - Current product state: React/Vite PWA reading real Chapter 1 content, with section-preserving language toggle, tap-to-lookup bottom sheet, curated Chapter 1 terminology, phrase-selection UI hook, and persistent local vocabulary book
 
 ## Completed In Current Stage
@@ -47,6 +47,7 @@ The final product must support full-manual offline reading, position-preserving 
 - `npm run typecheck`: passed
 - `npm run build`: passed
 - Mobile browser check at `http://127.0.0.1:5188/`: passed for first-screen render, English word lookup, save-to-vocabulary, Chinese toggle, term notes, and semantic table rendering
+- GitHub Actions CI for `28f1a39`: passed
 
 ## Known Limitations
 
@@ -58,13 +59,16 @@ The final product must support full-manual offline reading, position-preserving 
 
 ## Open GitHub Work Items
 
-- #1 Build Chapter 1 content extraction pipeline
 - #2 Implement reader position-preserving language toggle
+- #6 Design full-manual conversion validator
+- #7 Add PWA offline installation support
+
+## Closed GitHub Work Items
+
+- #1 Build Chapter 1 content extraction pipeline
 - #3 Implement tap-to-lookup bottom sheet
 - #4 Seed curated Six Sigma terminology dictionary
 - #5 Persist vocabulary book locally
-- #6 Design full-manual conversion validator
-- #7 Add PWA offline installation support
 
 ## Resume Protocol
 
