@@ -21,7 +21,7 @@ The final product must support full-manual offline reading, position-preserving 
 - Branch: `main`
 - Latest validated implementation commit: `72a7426 Lazy tokenize reader text near viewport`
 - Local worktree: expected clean after the state-sync commit that contains this note
-- Latest implementation GitHub Actions state: local validation passed for `72a7426`; GitHub Actions verification pending push for this stage
+- Latest implementation GitHub Actions state: CI passed for `4b6449b` in run `27916370687`
 - Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with section-preserving language toggle, persisted reading position across app restart, viewport-bound English word tokenization, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
