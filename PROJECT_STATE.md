@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 06:15 Asia/Shanghai
+Last updated: 2026-06-22 06:23 Asia/Shanghai
 
 ## Objective
 
@@ -19,10 +19,10 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest validated implementation commit: `c59e364 Add vocabulary CSV export`
+- Latest validated implementation commit: `f86d093 Add study notes from selected text`
 - Local worktree: expected clean after the state-sync commit that contains this note
-- Latest implementation GitHub Actions state: CI passed for `c59e364` in run `27919147810`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 69-entry offline study dictionary, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Latest implementation GitHub Actions state: CI passed for `f86d093` in run `27919359517`
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 69-entry offline study dictionary, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
 
@@ -99,6 +99,8 @@ The final product must support full-manual offline reading, position-preserving 
 - Updated the Android WebView language-position QA script so tap-to-lookup fails if it falls back to the generic "not in dictionary" explanation.
 - Added vocabulary CSV export with Web Share, clipboard, and download fallbacks.
 - Added `scripts/qa-vocab-export-cdp.mjs` to seed Android WebView vocabulary data, verify CSV escaping, and check the export panel layout.
+- Added selected-text study notes under `six-sigma-study:notes:v1`, including source language, chapter, page, section, editable note text, and delete actions.
+- Added a notes dock and notes bottom sheet, plus `scripts/qa-notes-cdp.mjs` for Android WebView selection/save/edit layout QA.
 
 ## Verification In Current Stage
 
@@ -353,6 +355,22 @@ The final product must support full-manual offline reading, position-preserving 
   - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
   - AAB `jarsigner -verify`: verified with expected self-signed certificate warnings
   - GitHub Actions CI for `c59e364`: passed in run `27919147810`
+- Study notes verification:
+  - `npm run typecheck`: passed
+  - `npm run build`: passed
+  - `npm run android:release-apk`: passed
+  - Release APK install and relaunch on `emulator-5554`: passed
+  - `node scripts\qa-notes-cdp.mjs`: passed
+  - Android WebView QA selected Chinese text in Chapter 1 page 6, saved it as a note, verified `language: zh`, `page: 6`, and `sectionId: data-driven-processes`, edited the note text, and confirmed horizontal overflow 0
+  - Local QA screenshot captured at `C:\findjob_sixsigma_app\qa\screenshots\notes-panel-qa.png` and ignored by Git.
+  - `npm run lint:content`: passed
+  - `npm run android:aab`: passed
+  - APK size: 37,326,123 bytes
+  - AAB size: 35,109,276 bytes
+  - APK/AAB package checks: 470 figure PNG files, `manual.json`, and `asset-manifest.json` are present
+  - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
+  - AAB `jarsigner -verify`: verified with expected self-signed certificate warnings
+  - GitHub Actions CI for `f86d093`: passed in run `27919359517`
 
 ## Known Limitations
 
@@ -392,7 +410,7 @@ After context compression or a new session, do this before making changes:
 
 ## Next Action
 
-Improve curated manual section mapping for normal-paragraph titles, expand toward a fuller English learner dictionary, run physical-phone long-press QA, add notes/highlights, perform low-end-device performance profiling, and continue full-source visual comparison for extracted figures/tables.
+Improve curated manual section mapping for normal-paragraph titles, expand toward a fuller English learner dictionary, run physical-phone long-press QA, add inline highlight rendering for saved notes, perform low-end-device performance profiling, and continue full-source visual comparison for extracted figures/tables.
 
 ## Constraints
 
