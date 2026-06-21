@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 04:21 Asia/Shanghai
+Last updated: 2026-06-22 04:52 Asia/Shanghai
 
 ## Objective
 
@@ -19,10 +19,10 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest validated implementation commit: `72a7426 Lazy tokenize reader text near viewport`
+- Latest validated implementation commit: `2d794f7 Sectionize generic chapters from source TOC`
 - Local worktree: expected clean after the state-sync commit that contains this note
-- Latest implementation GitHub Actions state: CI passed for `4b6449b` in run `27916370687`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with section-preserving language toggle, persisted reading position across app restart, viewport-bound English word tokenization, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Latest implementation GitHub Actions state: local validation passed for `2d794f7`; GitHub Actions verification pending push for this stage
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, section-preserving language toggle, persisted reading position across app restart, viewport-bound English word tokenization, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
 
@@ -75,6 +75,10 @@ The final product must support full-manual offline reading, position-preserving 
 - Added PWA figure pre-cache from `asset-manifest.json`.
 - Disabled service-worker registration in native Android and added native CacheStorage cleanup so upgraded APKs do not keep stale PWA caches.
 - Added viewport-bound English tokenization: English text renders as plain text outside the reading viewport and becomes clickable word buttons only near the current scroll position, preventing long chapters from accumulating thousands of mounted button elements.
+- Added `scripts/extract_source_toc.py` to derive source table-of-contents section metadata from the local source PDF.
+- Added `content/source/source_toc_sections.json` with 33 source chapters and 142 source TOC sections.
+- Updated full-manual extraction so Chapters 2-33 use source-TOC-guided section anchors where matching Word headings exist.
+- Regenerated app content with 174 total sections across 33 chapters; Chapter 28 intentionally remains one section because its TOC-like titles are normal paragraphs rather than reliable Word headings.
 
 ## Verification In Current Stage
 
@@ -168,16 +172,36 @@ The final product must support full-manual offline reading, position-preserving 
   - `apksigner verify --print-certs android\app\build\outputs\apk\release\app-release.apk`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
   - `jarsigner -verify android\app\build\outputs\bundle\release\app-release.aab`: verified with expected self-signed certificate warnings
   - `npm run lint:content`: passed
+- Source-TOC sectionization verification:
+  - `scripts/extract_source_toc.py`: passed with 33 source chapters and 142 source sections
+  - `npm run extract:manual`: passed with 33 chapters, 4640 English blocks, and 4902 Chinese blocks
+  - `npm run lint:content`: passed with 174 generated sections across the manual
+  - `npm run typecheck`: passed
+  - `npm run build`: passed
+  - Android release APK WebView QA:
+    - Chapter 7: 6 sections, 14 figures, no broken images, no horizontal overflow
+    - Chapter 21: 5 sections, 1 figure, no broken images, no horizontal overflow
+    - Chapter 26: 4 sections, 50 figures, no broken images, no horizontal overflow; English and Chinese section titles verified
+    - Chapter 33: 5 sections, 25 figures, no broken images, no horizontal overflow
+    - Ch26 language toggle verified: Chinese mode has 0 `.wordToken` buttons; English mode restores viewport-bound word buttons
+  - `npm run android:release-apk`: passed
+  - `npm run android:aab`: passed
+  - APK size: 37,317,623 bytes
+  - AAB size: 35,100,761 bytes
+  - APK content check: 470 figure PNG files, `assets/public/content/assets/asset-manifest.json`, and `assets/public/content/manual.json` are present
+  - AAB content check: 470 figure PNG files, `base/assets/public/content/assets/asset-manifest.json`, and `base/assets/public/content/manual.json` are present
+  - `apksigner verify --print-certs android\app\build\outputs\apk\release\app-release.apk`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
+  - `jarsigner -verify android\app\build\outputs\bundle\release\app-release.aab`: verified with expected self-signed certificate warnings
 
 ## Known Limitations
 
 - The release signing key is a local self-signed key for this project; store upload key policy and distribution channel are not finalized.
-- Chapters 2-33 are connected as chapter-level sections; detailed subsection/page anchors still need refinement.
-- Language position preservation is section-level for Chapter 1 and chapter-level for generic chapters, not sentence-level.
+- Chapters 2-33 now use source-TOC-guided section anchors where reliable Word headings exist, but chapters whose section titles are normal paragraphs need curated manual mapping before further splitting.
+- Language position preservation is section-level, not sentence-level.
 - Phrase lookup UI exists through text selection, but still needs real touch-device QA.
 - English tables in Chapter 1 are partly represented as Word paragraph fragments; Chinese tables render as semantic tables.
 - Long chapters now use viewport-bound English tokenization; deeper low-end-device profiling is still pending.
-- Detailed paragraph-level anchors for Chapters 2-33 still need refinement beyond current chapter/section-level restoration.
+- Detailed paragraph-level anchors still need refinement beyond current section-level restoration.
 - Figure assets now preserve DOCX-embedded originals, but full source-page-by-source-page visual comparison is not complete.
 - Some extracted table images are intentionally rendered as images; later passes can convert selected tables to semantic tables where fidelity allows.
 
@@ -205,7 +229,7 @@ After context compression or a new session, do this before making changes:
 
 ## Next Action
 
-Improve detailed anchors, phrase-selection QA, low-end-device performance profiling, and full-source visual comparison for extracted figures/tables.
+Improve curated manual section mapping for normal-paragraph titles, phrase-selection QA, low-end-device performance profiling, and full-source visual comparison for extracted figures/tables.
 
 ## Constraints
 
