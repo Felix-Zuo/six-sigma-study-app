@@ -36,7 +36,7 @@ It intentionally does **not** commit the full manual DOCX/PDF/PNG assets. Those 
 - Reader interactions: EN/ZH toggle with block-aware position restoration, table-of-contents search, persisted dark mode and font size controls, tap-to-lookup, phrase selection lookup, bottom-sheet explanations, local vocabulary save/status, due-based vocabulary review, vocabulary CSV export, and selected-text study notes.
 - Page anchors: every generated content block carries a page anchor, and both English and Chinese content streams cover pages 6-449.
 - Long chapter handling: English word buttons are mounted only near the viewport to avoid huge DOMs.
-- Latest verified implementation CI at the time of this note: `27920637568` on commit `365fe1a`.
+- Latest verified implementation CI at the time of this note: `27921587212` on commit `0a25113`.
 
 See [Release Verification](docs/08-release-verification.md) for the current evidence matrix.
 

@@ -19,9 +19,9 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest validated implementation commit: `365fe1a Add full-manual language toggle sweep QA`
+- Latest validated implementation commit: `0a25113 Add source coverage validation`
 - Local worktree: expected clean after the state-sync commit that contains this note
-- Latest implementation GitHub Actions state: CI passed for `365fe1a` in run `27920637568`
+- Latest implementation GitHub Actions state: CI passed for `0a25113` in run `27921587212`
 - Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 3952-entry offline learner dictionary with curated Six Sigma terms first, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service worker with verified offline app-shell/figure caching for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
@@ -481,7 +481,7 @@ The final product must support full-manual offline reading, position-preserving 
 
 ## Open GitHub Work Items
 
-- #6 Design full-manual conversion validator
+- None
 
 ## Closed GitHub Work Items
 
@@ -492,6 +492,7 @@ The final product must support full-manual offline reading, position-preserving 
 - #7 Add PWA offline installation support
 - #8 Expand offline English learner dictionary coverage
 - #2 Implement reader position-preserving language toggle
+- #6 Design full-manual conversion validator
 
 ## Resume Protocol
 

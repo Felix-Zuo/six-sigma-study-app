@@ -6,8 +6,8 @@ This document records the current evidence that the Android study app is install
 
 - Repository: `https://github.com/Felix-Zuo/six-sigma-study-app`
 - Local path: `C:\findjob_sixsigma_app`
-- Latest verified implementation commit when this document was updated: `365fe1a`
-- Latest verified implementation GitHub Actions run: `27920637568`
+- Latest verified implementation commit when this document was updated: `0a25113`
+- Latest verified implementation GitHub Actions run: `27921587212`
 - Release APK: `C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB: `C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab`
 
