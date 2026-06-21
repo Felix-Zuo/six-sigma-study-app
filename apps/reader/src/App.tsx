@@ -1,7 +1,14 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { App as CapacitorApp } from "@capacitor/app";
 import { normalizeLookup, tokenizeEnglish } from "./lib/tokenize";
-import { loadSavedTerms, persistSavedTerms, type SavedTerm } from "./lib/vocabStore";
+import {
+  isTermDue,
+  loadSavedTerms,
+  persistSavedTerms,
+  scheduleTermReview,
+  setTermStatus,
+  type SavedTerm
+} from "./lib/vocabStore";
 import { loadReaderPosition, persistReaderPosition } from "./lib/readerPositionStore";
 
 type Language = "en" | "zh";
@@ -76,6 +83,7 @@ type SelectedPhrase = {
 };
 
 type OverlayName = "lookup" | "toc" | "vocab";
+type VocabFilter = "due" | "all";
 type LookupTextHandler = (text: string, page: number, sectionId: string, sourceText: string) => void;
 type TocSearchResult =
   | { kind: "chapter"; chapter: Lesson }
@@ -101,6 +109,14 @@ function loadReaderPreferences(): { theme: ThemeMode; textScale: TextScale } {
 
 function persistReaderPreferences(theme: ThemeMode, textScale: TextScale): void {
   window.localStorage.setItem(readerPreferencesKey, JSON.stringify({ theme, textScale }));
+}
+
+function formatNextReview(term: SavedTerm): string {
+  if (isTermDue(term)) {
+    return "今天待复习";
+  }
+  const date = new Date(term.nextReviewAt);
+  return `下次 ${date.getMonth() + 1}/${date.getDate()}`;
 }
 
 function normalizeTocQuery(value: string): string {
@@ -268,6 +284,7 @@ export function App() {
   const [showToc, setShowToc] = useState(false);
   const [showVocab, setShowVocab] = useState(false);
   const [tocQuery, setTocQuery] = useState("");
+  const [vocabFilter, setVocabFilter] = useState<VocabFilter>("due");
   const readerRef = useRef<HTMLElement | null>(null);
   const overlayRef = useRef<OverlayName | null>(null);
   const overlayHistoryRef = useRef(false);
@@ -277,6 +294,13 @@ export function App() {
   const activeSection = lesson?.sections.find((section) => section.id === activeSectionId) ?? lesson?.sections[0];
   const termIndex = useMemo(() => buildTermIndex(manual?.dictionary ?? []), [manual]);
   const tocResults = useMemo(() => buildTocSearchResults(manual, tocQuery), [manual, tocQuery]);
+  const dueTerms = useMemo(() => savedTerms.filter((item) => isTermDue(item)), [savedTerms]);
+  const visibleSavedTerms = useMemo(() => {
+    const source = vocabFilter === "due" ? dueTerms : savedTerms;
+    return [...source].sort((a, b) => Date.parse(a.nextReviewAt) - Date.parse(b.nextReviewAt));
+  }, [dueTerms, savedTerms, vocabFilter]);
+  const learningCount = savedTerms.filter((item) => item.status === "learning").length;
+  const masteredCount = savedTerms.filter((item) => item.status === "mastered").length;
   const savedSet = useMemo(
     () => new Set(savedTerms.map((item) => normalizeLookup(item.term))),
     [savedTerms]
@@ -630,8 +654,9 @@ export function App() {
     if (!activeLookup || savedSet.has(normalizeLookup(activeLookup.entry.term))) {
       return;
     }
+    const now = new Date();
     const saved: SavedTerm = {
-      id: `${normalizeLookup(activeLookup.entry.term)}-${Date.now()}`,
+      id: `${normalizeLookup(activeLookup.entry.term)}-${now.getTime()}`,
       term: activeLookup.entry.term,
       translation: activeLookup.entry.translation,
       chapter: currentLesson.chapter,
@@ -639,14 +664,21 @@ export function App() {
       page: activeLookup.page,
       sectionId: activeLookup.sectionId,
       sourceText: activeLookup.sourceText,
-      savedAt: new Date().toISOString(),
-      status: "new"
+      savedAt: now.toISOString(),
+      status: "new",
+      reviewCount: 0,
+      correctStreak: 0,
+      nextReviewAt: now.toISOString()
     };
     setSavedTerms((items) => [saved, ...items]);
   }
 
   function updateSavedStatus(id: string, status: SavedTerm["status"]) {
-    setSavedTerms((items) => items.map((item) => (item.id === id ? { ...item, status } : item)));
+    setSavedTerms((items) => items.map((item) => (item.id === id ? setTermStatus(item, status) : item)));
+  }
+
+  function reviewSavedTerm(id: string, outcome: "again" | "remembered") {
+    setSavedTerms((items) => items.map((item) => (item.id === id ? scheduleTermReview(item, outcome) : item)));
   }
 
   function renderText(text: string, page: number, sectionId: string) {
@@ -877,7 +909,7 @@ export function App() {
 
       <button className="vocabDock" aria-label="saved vocabulary" onClick={openVocab}>
         <strong>词本</strong>
-        <span>{savedTerms.length} 个</span>
+        <span>{dueTerms.length > 0 ? `待 ${dueTerms.length}` : `${savedTerms.length} 个`}</span>
       </button>
 
       {showVocab && (
@@ -890,25 +922,51 @@ export function App() {
             </div>
             <button className="closeButton" onClick={closeOverlayFromControl}>关闭</button>
           </div>
+          <div className="vocabSummary">
+            <span><strong>{dueTerms.length}</strong> 待复习</span>
+            <span><strong>{learningCount}</strong> 学习中</span>
+            <span><strong>{masteredCount}</strong> 已掌握</span>
+          </div>
+          <div className="vocabFilters" role="tablist" aria-label="vocabulary filters">
+            <button
+              className={vocabFilter === "due" ? "active" : ""}
+              onClick={() => setVocabFilter("due")}
+            >
+              待复习
+            </button>
+            <button
+              className={vocabFilter === "all" ? "active" : ""}
+              onClick={() => setVocabFilter("all")}
+            >
+              全部
+            </button>
+          </div>
           {savedTerms.length === 0 ? (
             <p className="emptyState">暂无词条。英文模式下点击单词或查询短语后可加入词本。</p>
+          ) : visibleSavedTerms.length === 0 ? (
+            <p className="emptyState">当前没有到期词条。切换到“全部”可以查看完整词本。</p>
           ) : (
             <div className="vocabList">
-              {savedTerms.map((item) => (
+              {visibleSavedTerms.map((item) => (
                 <article key={item.id} className="vocabItem">
                   <div>
                     <strong>{item.term}</strong>
                     <span>{item.translation}</span>
-                    <small>Ch. {item.chapter} · p. {item.page}</small>
+                    <small>Ch. {item.chapter} · p. {item.page} · 复习 {item.reviewCount} 次</small>
+                    <small>{formatNextReview(item)}</small>
                   </div>
-                  <select
-                    value={item.status}
-                    onChange={(event) => updateSavedStatus(item.id, event.target.value as SavedTerm["status"])}
-                  >
-                    <option value="new">新词</option>
-                    <option value="learning">学习中</option>
-                    <option value="mastered">已掌握</option>
-                  </select>
+                  <div className="vocabItemActions">
+                    <button onClick={() => reviewSavedTerm(item.id, "again")}>再记</button>
+                    <button className="primary" onClick={() => reviewSavedTerm(item.id, "remembered")}>认识</button>
+                    <select
+                      value={item.status}
+                      onChange={(event) => updateSavedStatus(item.id, event.target.value as SavedTerm["status"])}
+                    >
+                      <option value="new">新词</option>
+                      <option value="learning">学习中</option>
+                      <option value="mastered">已掌握</option>
+                    </select>
+                  </div>
                 </article>
               ))}
             </div>

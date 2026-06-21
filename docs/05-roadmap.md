@@ -45,11 +45,11 @@ Goal: convert all 449 aligned pages into app content.
 
 Goal: make vocabulary learning useful.
 
-- phrase lookup
-- review queue
-- new/learning/known statuses
-- spaced repetition scheduling
-- export vocabulary CSV
+- [x] phrase lookup
+- [x] review queue
+- [x] new/learning/mastered statuses
+- [x] spaced repetition scheduling
+- [ ] export vocabulary CSV
 
 ## Phase 4: Native Packaging
 

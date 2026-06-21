@@ -77,7 +77,12 @@ type VocabRecord = {
     paragraphId: string;
     sentence: string;
   };
-  status: "new" | "learning" | "known";
+  status: "new" | "learning" | "mastered";
+  reviewCount: number;
+  correctStreak: number;
+  nextReviewAt: string;
+  lastReviewedAt?: string;
+  masteredAt?: string;
   createdAt: string;
   reviewedAt?: string;
 };
