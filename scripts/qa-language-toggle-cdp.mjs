@@ -186,10 +186,15 @@ async function main() {
   await sleep(500);
   const lookupState = await evalPage(`(() => {
     const sheet = document.querySelector(".bottomSheet[aria-label='word explanation']");
+    const translation = sheet?.querySelector(".translation")?.textContent?.trim() ?? null;
+    const explanation = sheet?.querySelector(".explanation")?.textContent?.trim() ?? null;
     return {
       clickedWord: ${JSON.stringify(clickedWord)},
       sheetOpen: Boolean(sheet),
       sheetTitle: sheet?.querySelector("h2")?.textContent?.trim() ?? null,
+      translation,
+      explanation,
+      usedFallback: translation === "待完善" || Boolean(explanation?.includes("还没有进入本地词库")),
       saveButton: sheet?.querySelector(".saveButton")?.textContent?.trim() ?? null,
       bottom: sheet ? Math.round(sheet.getBoundingClientRect().bottom) : null,
       viewportHeight: window.innerHeight
@@ -209,7 +214,8 @@ async function main() {
     before.horizontalOverflow <= 1 &&
     afterZh.horizontalOverflow <= 1 &&
     afterEn.horizontalOverflow <= 1 &&
-    lookupState.sheetOpen;
+    lookupState.sheetOpen &&
+    !lookupState.usedFallback;
 
   console.log(
     JSON.stringify(
