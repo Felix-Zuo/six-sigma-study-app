@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 06:23 Asia/Shanghai
+Last updated: 2026-06-22 06:30 Asia/Shanghai
 
 ## Objective
 
@@ -19,9 +19,9 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest validated implementation commit: `f86d093 Add study notes from selected text`
+- Latest validated implementation commit: `48f63e2 Strengthen full manual content validation`
 - Local worktree: expected clean after the state-sync commit that contains this note
-- Latest implementation GitHub Actions state: CI passed for `f86d093` in run `27919359517`
+- Latest implementation GitHub Actions state: CI passed for `48f63e2` in run `27919503459`
 - Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 69-entry offline study dictionary, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
@@ -101,6 +101,7 @@ The final product must support full-manual offline reading, position-preserving 
 - Added `scripts/qa-vocab-export-cdp.mjs` to seed Android WebView vocabulary data, verify CSV escaping, and check the export panel layout.
 - Added selected-text study notes under `six-sigma-study:notes:v1`, including source language, chapter, page, section, editable note text, and delete actions.
 - Added a notes dock and notes bottom sheet, plus `scripts/qa-notes-cdp.mjs` for Android WebView selection/save/edit layout QA.
+- Strengthened `scripts/validate_content.py` with full-manual gates for 33 chapters, 449 pages, continuous chapter ranges, manifest paths, global duplicate section/block IDs, image block/asset metadata consistency, unsafe asset paths, asset page bounds, and reader-style dictionary lookup key uniqueness.
 
 ## Verification In Current Stage
 
@@ -371,6 +372,12 @@ The final product must support full-manual offline reading, position-preserving 
   - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
   - AAB `jarsigner -verify`: verified with expected self-signed certificate warnings
   - GitHub Actions CI for `f86d093`: passed in run `27919359517`
+- Full-manual validator verification:
+  - `npm run lint:content`: passed with strengthened checks for chapter count, page count, page continuity, manifest paths, duplicate IDs, missing bilingual titles/text, image asset consistency, and dictionary lookup uniqueness
+  - `npm run typecheck`: passed
+  - `npm run build`: passed
+  - GitHub issue #6 updated with the new validator evidence
+  - GitHub Actions CI for `48f63e2`: passed in run `27919503459`
 
 ## Known Limitations
 
@@ -381,7 +388,7 @@ The final product must support full-manual offline reading, position-preserving 
 - English tables in Chapter 1 are partly represented as Word paragraph fragments; Chinese tables render as semantic tables.
 - Long chapters now use viewport-bound English tokenization and reader comfort controls; deeper low-end-device profiling is still pending.
 - Detailed sentence-level anchors still need refinement beyond current block-level restoration.
-- Figure assets now preserve DOCX-embedded originals, but full source-page-by-source-page visual comparison is not complete.
+- Figure assets now preserve DOCX-embedded originals, but full source-page-by-source-page visual comparison is not complete; issue #6 remains open for that deeper validation layer.
 - Some extracted table images are intentionally rendered as images; later passes can convert selected tables to semantic tables where fidelity allows.
 - The offline dictionary now covers common course and study words, but it is still a curated seed dictionary rather than a full general English learner dictionary.
 

@@ -70,10 +70,13 @@ The source PDF is copied locally to `C:\findjob_sixsigma_sources\source_manual.p
 
 ## Quality Gates
 
-- chapter page starts match the 449-page print edition
+- full manual has 33 chapters, `pageCount` 449, first study page 6, and continuous chapter page ranges
+- manifest chapter paths resolve to generated chapter JSON files
 - no empty English or Chinese paragraph pair
-- no duplicated paragraph IDs
-- image blocks have valid asset IDs, dimensions, safe relative paths, and existing files
+- no duplicated section IDs or block IDs inside chapters or across `manual.json`
+- image blocks have valid asset IDs, dimensions, safe relative paths, existing files, and matching chapter asset metadata
+- chapter assets are referenced by image blocks and stay inside the chapter page range
+- dictionary lookup keys are normalized with the reader-style lookup shape and cannot collide across entries
 - APK/AAB package checks confirm all 470 figure assets are bundled
 - curated term references resolve
 - sample chapter opens on phone viewport without horizontal overflow
