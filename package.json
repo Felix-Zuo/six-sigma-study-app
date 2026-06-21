@@ -9,8 +9,15 @@
     "dev": "npm --workspace apps/reader run dev",
     "build": "npm --workspace apps/reader run build",
     "typecheck": "npm --workspace apps/reader run typecheck",
+    "android:sync": "npm run build && npx cap sync android",
+    "android:apk": "npm run android:sync && cd android && gradlew.bat assembleDebug",
     "extract:ch01": "python scripts/extract_chapter_content.py",
     "extract:manual": "python scripts/extract_manual_content.py",
     "lint:content": "python scripts/validate_content.py content/processed"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^8.4.1",
+    "@capacitor/cli": "^8.4.1",
+    "@capacitor/core": "^8.4.1"
   }
 }

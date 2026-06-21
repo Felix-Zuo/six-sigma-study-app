@@ -53,10 +53,12 @@ Goal: make vocabulary learning useful.
 Goal: installable Android app first.
 
 - [x] add PWA manifest and service worker base
-- wrap with Capacitor
-- Android build
+- [x] wrap with Capacitor
+- [x] Android debug APK build
+- [x] bundle static reader assets into debug APK
 - offline asset packaging
 - local data migration test
+- release signing setup
 
 ## Phase 5: Polish
 

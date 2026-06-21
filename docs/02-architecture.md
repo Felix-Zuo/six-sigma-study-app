@@ -9,10 +9,11 @@ flowchart TD
   B --> D["Optimized figure assets"]
   C --> E["Reader PWA"]
   D --> E
-  E --> F["Lookup engine"]
-  F --> G["Six Sigma term dictionary"]
-  F --> H["General English dictionary"]
-  E --> I["Local vocabulary store"]
+  E --> F["Capacitor Android wrapper"]
+  E --> G["Lookup engine"]
+  G --> H["Six Sigma term dictionary"]
+  G --> I["General English dictionary"]
+  E --> J["Local vocabulary store"]
 ```
 
 ## App Layers
@@ -58,14 +59,14 @@ flowchart TD
 ## Package Boundaries
 
 - `apps/reader`: UI and runtime
+- `android`: Capacitor Android shell and Gradle project
 - `content`: generated content contracts and local samples
 - `scripts`: extraction and validation tools
 - `docs`: product and architecture decisions
 
 ## Technical Decisions
 
-- PWA first, native wrapper later.
+- PWA-first reader runtime with Capacitor Android packaging.
 - Content as generated JSON + image assets.
 - Curated terminology first, general dictionary second.
 - Local-first data; no account required for MVP.
-

@@ -13,13 +13,13 @@ The goal is not to make a static PDF viewer. The app should turn the manual into
 
 ## Current Decision
 
-Use a PWA-first architecture with a later Capacitor wrapper for native Android/iOS packaging.
+Use a PWA-first reader runtime wrapped with Capacitor for native Android packaging.
 
 Why:
 
 - The reader needs clickable inline text; web DOM spans make this easier and more precise than native text layout.
-- The first usable product can run on phones immediately through a browser and can be added to the home screen.
-- The same codebase can later be wrapped with Capacitor for APK/TestFlight packaging.
+- The first usable product can run through a browser during development and the same codebase now builds a local Android debug APK.
+- Capacitor keeps the Android packaging path close to the web reader while preserving a future route to iOS/TestFlight.
 - Manual data can stay local-first, with optional sync added later.
 
 ## Repository Scope
@@ -56,3 +56,22 @@ The script generates structured content for all 33 chapters into `content/proces
 - `content/processed/manual.sample.json`: small legacy sample lesson for UI development
 - `scripts`: validation and extraction tools
 - `docs`: PRD, architecture, roadmap, research, and ADRs
+
+## Android Build
+
+Local Android SDK path used for the first debug build:
+
+```powershell
+$env:ANDROID_HOME = "C:\android-sdk"
+$env:ANDROID_SDK_ROOT = "C:\android-sdk"
+$env:PATH = "C:\android-sdk\platform-tools;C:\android-sdk\cmdline-tools\latest\bin;$env:PATH"
+npm run android:apk
+```
+
+Debug APK output:
+
+```text
+C:\findjob_sixsigma_app\android\app\build\outputs\apk\debug\app-debug.apk
+```
+
+This debug APK is unsigned for release distribution. A release APK/AAB needs a signing key before it is suitable for sharing outside local testing.
