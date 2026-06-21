@@ -35,7 +35,7 @@ It intentionally does **not** commit the full manual DOCX/PDF/PNG assets. Those 
 - Offline runtime package: `manual.json`, 3952-entry offline learner dictionary, local vocabulary store, PWA install cache, and 470 bundled figure/table/formula PNG assets.
 - Reader interactions: EN/ZH toggle with block-aware position restoration, table-of-contents search, persisted dark mode and font size controls, tap-to-lookup, phrase selection lookup, bottom-sheet explanations, local vocabulary save/status, due-based vocabulary review, vocabulary CSV export, and selected-text study notes.
 - Long chapter handling: English word buttons are mounted only near the viewport to avoid huge DOMs.
-- Latest verified implementation CI at the time of this note: `27920406057` on commit `cca06d3`.
+- Latest verified implementation CI at the time of this note: `27920637568` on commit `365fe1a`.
 
 See [Release Verification](docs/08-release-verification.md) for the current evidence matrix.
 

@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 07:09 Asia/Shanghai
+Last updated: 2026-06-22 07:17 Asia/Shanghai
 
 ## Objective
 
@@ -19,9 +19,9 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest validated implementation commit: `cca06d3 Expand offline learner dictionary coverage`
+- Latest validated implementation commit: `365fe1a Add full-manual language toggle sweep QA`
 - Local worktree: expected clean after the state-sync commit that contains this note
-- Latest implementation GitHub Actions state: CI passed for `cca06d3` in run `27920406057`
+- Latest implementation GitHub Actions state: CI passed for `365fe1a` in run `27920637568`
 - Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 3952-entry offline learner dictionary with curated Six Sigma terms first, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service worker with verified offline app-shell/figure caching for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
@@ -110,6 +110,7 @@ The final product must support full-manual offline reading, position-preserving 
 - Added ECDICT MIT license attribution in `THIRD_PARTY_NOTICES.md`.
 - Added browser CDP dictionary QA in `scripts/qa-dictionary-cdp.mjs` and lookup-sheet phonetic rendering for ECDICT entries.
 - Strengthened content validation so the production dictionary must contain at least 3000 entries and include ECDICT-derived learner entries.
+- Added `scripts/qa-language-toggle-sweep-cdp.mjs` to sample one comparable section/block in every chapter and verify EN -> ZH -> EN position restoration across the full manual.
 
 ## Verification In Current Stage
 
@@ -426,23 +427,32 @@ The final product must support full-manual offline reading, position-preserving 
   - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
   - AAB `jarsigner -verify`: verified with expected self-signed certificate warnings
   - GitHub Actions CI for `cca06d3`: passed in run `27920406057`
+- Full-manual language toggle sweep verification:
+  - `node --check scripts\qa-language-toggle-sweep-cdp.mjs`: passed
+  - `npm run lint:content`: passed
+  - `npm run typecheck`: passed
+  - `npm run build`: passed
+  - `node scripts\qa-language-toggle-sweep-cdp.mjs`: passed against Vite preview and clean Chrome CDP
+  - Sweep sample count: 33 chapters
+  - Result: 0 failures; every sample stayed in the same section through EN -> ZH -> EN, block index remained within tolerance, and horizontal overflow stayed 0
+  - Local QA screenshot captured at `C:\findjob_sixsigma_app\qa\screenshots\language-toggle-sweep-qa.png` and ignored by Git.
+  - GitHub Actions CI for `365fe1a`: passed in run `27920637568`
 
 ## Known Limitations
 
 - The release signing key is a local self-signed key for this project; store upload key policy and distribution channel are not finalized.
 - Chapters 2-33 now use source-TOC-guided section anchors where reliable Word headings exist, but chapters whose section titles are normal paragraphs need curated manual mapping before further splitting.
-- Language position preservation is now block-aware and Android WebView verified on a long Chapter 26 section; sentence-exact restoration across every extracted paragraph remains a future refinement.
+- Language position preservation is block-aware, Android WebView verified on a long Chapter 26 section, and browser-sweep verified across all 33 chapters; exact sentence-level semantic pairing is not separately modeled.
 - Phrase lookup works through WebView text selection and stores the selected phrase's source section/page; physical long-press QA on a real phone is still pending.
 - English tables in Chapter 1 are partly represented as Word paragraph fragments; Chinese tables render as semantic tables.
 - Long chapters now use viewport-bound English tokenization and reader comfort controls; deeper low-end-device profiling is still pending.
-- Detailed sentence-level anchors still need refinement beyond current block-level restoration.
+- Detailed sentence-level anchors can be added later if the content model gains sentence IDs; current accepted behavior is section/block-level restoration.
 - Figure assets now preserve DOCX-embedded originals, but full source-page-by-source-page visual comparison is not complete; issue #6 remains open for that deeper validation layer.
 - Some extracted table images are intentionally rendered as images; later passes can convert selected tables to semantic tables where fidelity allows.
 - The offline dictionary is manual-scoped, not a full arbitrary English dictionary; remaining fallback tokens are mostly proper names, OCR/formatting artifacts, URLs, and unusual compounds.
 
 ## Open GitHub Work Items
 
-- #2 Implement reader position-preserving language toggle
 - #6 Design full-manual conversion validator
 
 ## Closed GitHub Work Items
@@ -453,6 +463,7 @@ The final product must support full-manual offline reading, position-preserving 
 - #5 Persist vocabulary book locally
 - #7 Add PWA offline installation support
 - #8 Expand offline English learner dictionary coverage
+- #2 Implement reader position-preserving language toggle
 
 ## Resume Protocol
 

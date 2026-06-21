@@ -81,6 +81,7 @@ Goal: comfortable long-session study.
 - [x] long URL/reference wrapping so extra-large text does not create page-level horizontal scroll
 - [x] table-of-contents search by chapter title, section title, chapter number, and page number
 - [x] Android WebView QA for block-aware language position restoration
+- [x] full-manual browser sweep for EN/ZH position restoration
 - [x] selected-text study notes
 - [ ] inline highlight rendering for saved notes
 - [ ] performance profiling on real phone
