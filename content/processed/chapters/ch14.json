@@ -26,11 +26,13 @@
           {
             "id": "ch14-s01-analyze-en-001",
             "kind": "paragraph",
+            "page": 134,
             "text": "If the chapter on the measure phase seemed especially long, it’s because the phase itself is long and requires a great deal of work. Without a strong measure phase, the team cannot move on to analyze data and make data-based decisions that drive improve and control phases. Analyze phases also require a lot of work, but that work is usually performed by Black Belts and Green Belts, who report findings to the Six Sigma team and ask for feedback about analysis and verification of analysis."
           },
           {
             "id": "ch14-s01-analyze-en-002",
             "kind": "paragraph",
+            "page": 134,
             "text": "In this chapter, we’ll discuss a number of tools that might be used by Six Sigma teams during the analyze phase, but we’ll also reference other chapters and units. Units 4, 5, 7 and 8 provide in-depth information about the statistical tools referenced throughout this chapter."
           }
         ],
@@ -38,16 +40,19 @@
           {
             "id": "ch14-s01-analyze-zh-001",
             "kind": "paragraph",
+            "page": 134,
             "text": "如果关于测量阶段的章节看起来特别长，那是因为该阶段本身很长并且需要大量工作。如果没有强有力的衡量阶段，团队就无法继续分析数据并做出基于数据的决策来推动改进和控制阶段。分析阶段也需要大量工作，但这些工作通常由黑带人员和绿带人员执行，他们向六西格玛团队报告结果，并要求分析和验证分析的反馈。"
           },
           {
             "id": "ch14-s01-analyze-zh-002",
             "kind": "paragraph",
+            "page": 134,
             "text": "在本章中，我们将讨论六西格玛团队在分析阶段可能使用的一些工具，但我们也会参考其他章节和单元。第 4、5、7 和 8 单元提供了有关本章引用的统计工具的深入信息。"
           },
           {
             "id": "ch14-s01-analyze-zh-003",
             "kind": "heading",
+            "page": 134,
             "text": "根本原因分析"
           }
         ]
@@ -66,21 +71,25 @@
           {
             "id": "ch14-s02-root-cause-analysis-en-001",
             "kind": "paragraph",
+            "page": 134,
             "text": "One of the fundamental activities of the analyze phase performed by the entire team with help from identified subject matter experts is the root cause analysis. Root cause analysis is used to identify root causes for problems or defects when a team has reached the analyze phase without a clear idea of primary causation. Some of the tools described for identifying root causes in this chapter could be used in either define or measure phases at the discretion of the Black Belt leading the team; the FEMA described in Chapter 13 on measure could likewise be used in the analyze phase as part of root cause analysis."
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-002",
             "kind": "heading",
+            "page": 134,
             "text": "The Cause and Effect, or Fishbone, Diagram"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-003",
             "kind": "paragraph",
+            "page": 134,
             "text": "A popular method for brainstorming and analyzing causation in a process is the fishbone diagram. The fishbone diagram can be completed by a single Six Sigma expert, but it typically has more value when it is completed by the entire Six Sigma team. The diagram lets teams concentrate on a brainstorming process that generates ideas about possible problem causes, organizes those possibilities in a logical way, and lets teams visualize the information to identify priorities, trends, and relationships between ideas. When used as a team activity, the fishbone diagram encourages participation and input from all team members, which increases the chance of laying the foundational work for a viable and original solution."
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-004",
             "kind": "paragraph",
+            "page": 134,
             "text": "The cause and effect diagram is called the fishbone diagram because you begin with what looks like a simple drawing of a fish skeleton. Reference the diagram below and follow the instructions to create a fishbone diagram as part of a team brainstorming exercise. You can also use these instructions now to practice a fishbone diagram based on a process or problem you have experience with."
           },
           {
@@ -88,32 +97,38 @@
             "kind": "image",
             "assetId": "fig-cb818bf841fd3656",
             "src": "assets/figures/fig-cb818bf841fd3656.png",
+            "page": 134,
             "width": 1191,
             "height": 489
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-006",
             "kind": "paragraph",
+            "page": 134,
             "text": "1. Sketch a basic fishbone shape on a whiteboard or large flipchart. Write a summarized version of the problem where the fish head should be. Note: You don’t have to conduct a fishbone diagram only on the problem statement from the define phase. Teams might also conduct the diagram on a specific defect or issue found during the define or measure phase. For example, if the problem statement discusses the amount of waste in a restaurant, the team might have discovered during the measure phase that bread is being thrown away at a rate higher than all other food items. One of the activities handled in the analyze phase might be a fishbone diagram specifically about the reason for so much bread waste. 2. Draw a fish spine and four major connectors. Label each connector as People, Process, Materials, and Procedure. Some Black Belts also include two other major connectors: Equipment and Environment. 3. Explain the categories of the fishbone diagram to the team. Note that there are some places, especially with particular processes, where the various categories will overlap. Some ideas generated by the team as they complete the fishbone diagram might fit in more than one category, and that’s okay."
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-007",
             "kind": "paragraph",
+            "page": 134,
             "text": "a. People references anyone who carries out or interacts with a process. b. Process or machine refers to the process by which inputs become outputs. c. Procedure or method refers to the way things are done, whether by written documents or unwritten rules. d. Materials are the inputs, such as raw goods, into the process. e. Equipment includes the technology or machines required to handle the work. f. Environment is the immediate area surrounding the process. 4. Begin with each category on the fishbone diagram, asking the team how something in that category might be responsible for a problem or defect. 5. Use sticky notes to write down ideas and place them on the fishbone diagram so you can move ideas around later. You can also write directly on the diagram. 6. Couple cause-and-effect brainstorming with the 5 Whys exercise described in Chapter 6. For each branch of the fishbone diagram, ask “Why?” at least five times to ensure the most granular detail possible. 7. Once the team has run out of ideas for the first category, repeat steps 4 through 6 for all other categories."
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-008",
             "kind": "paragraph",
+            "page": 134,
             "text": "8. Take some time as a team to review the diagram, discussing the placement of potential causes, and moving them to appropriate categories and subsections to create an organized visual representation. 9. Remove or cross-out causes that don’t prove to be valid after initial discussion. 10. As a team, decide which root causes seem most likely or highest priority. Circle those causes as high-priority possibilities for further investigation."
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-009",
             "kind": "heading",
+            "page": 134,
             "text": "Cause and Effect Brainstorm Example"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-010",
             "kind": "paragraph",
+            "page": 134,
             "text": "To provide a better idea of how a fishbone diagram works, consider the example image below and we’ll walk through how the team came up with the information recorded on the procedure/method line of this diagram."
           },
           {
@@ -121,187 +136,224 @@
             "kind": "image",
             "assetId": "fig-eb36f5ec4fbd82e1",
             "src": "assets/figures/fig-eb36f5ec4fbd82e1.png",
+            "page": 134,
             "width": 1190,
             "height": 424
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-012",
             "kind": "paragraph",
+            "page": 134,
             "text": "The team above was working to solve a problem of burnt cakes in a food-service bakery. When discussing the method by which the cakes are being baked, the team first came up the with the reason that the cakes were being baked at inconsistent times. Perhaps, suggested one team member, staff weren’t paying attention and were leaving cakes in the oven too long. The idea was written down."
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-013",
             "kind": "paragraph",
+            "page": 134,
             "text": "The instructions for baking cakes are vague, said another team member – this time, a subject matter expert from the bakery. “Why?” asked the team. The subject matter expert responded that the instructions in the bakery don’t take various types of cakes into account, leaving staff guessing about bake times for some cakes. Further “Why?” questions helped the team determine that new cakes were added to the menu without the overall instructions for bakery staff being updated."
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-014",
             "kind": "paragraph",
+            "page": 134,
             "text": "After digging deeper into the inconsistent baking times, the team again asked themselves how methods could be responsible for burnt cakes. Someone suggested that the temperature in the oven was too hot, and the team tied that suggestion to the same root cause as the inconsistent bake times. Upon final review, someone noted that the suggestion that staff not paying attention was a cause wasn’t valid, because the bakery was equipped with alarms that sounded when baking time was done. The team crossed that idea off the diagram."
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-015",
             "kind": "paragraph",
+            "page": 134,
             "text": "In this case, the Six Sigma team might prioritize the fact that instructions are not available for all types of items being prepared in the bakery. Because this would likely be a simple and common-sense improvement to make, the Black Belt might even assign someone to begin working on the improve"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-016",
             "kind": "paragraph",
+            "page": 134,
             "text": "phase as soon as the cause was verified. Many times, the root cause is not as obvious and the solution for the cause even less obvious, requiring additional analysis and validation before moving forward."
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-017",
             "kind": "heading",
+            "page": 135,
             "text": "Root Cause Verification Matrix"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-018",
             "kind": "paragraph",
+            "page": 135,
             "text": "Once teams identify possible root causes, they must verify that the causes are valid. Root cause verification can be completed via a variety of methods, including statistical analysis, design of experiments, logical questioning, observing a process, gathering additional data, analyzing data via graphical representation, and mapping processes at a more granular level than accomplished in the define phase. While this chapter touches briefly on statistical analysis and graphical representation, those topics, as well as experiments and process mapping, are covered in later units."
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-019",
             "kind": "paragraph",
+            "page": 135,
             "text": "Whatever method is used to validate root cause assumptions, the Six Sigma team should document it. Documentation regarding root cause verification is usually completed on a matrix that includes the problem, possible root causes, the verification method, why the verification method was chosen, results of the verification, and, in some cases, whether a senior Six Sigma leader, such as a Master Black Belt, agrees. A template for such a matrix is included below, but teams can also create similar documents in Excel or Word."
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-020",
             "kind": "heading",
+            "page": 135,
             "text": "Verified? Notes"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-021",
             "kind": "heading",
+            "page": 135,
             "text": "Problem"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-022",
             "kind": "heading",
+            "page": 135,
             "text": "Possible Root Causes"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-023",
             "kind": "heading",
+            "page": 135,
             "text": "Method of Verification"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-024",
             "kind": "heading",
+            "page": 135,
             "text": "Reason for Verification Method"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-025",
             "kind": "paragraph",
+            "page": 135,
             "text": "The root cause verification matrix for the burnt cake example might be completed as follows:"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-026",
             "kind": "heading",
+            "page": 135,
             "text": "Reason for Verification Method"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-027",
             "kind": "heading",
+            "page": 135,
             "text": "Verified? Notes"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-028",
             "kind": "heading",
+            "page": 135,
             "text": "Problem"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-029",
             "kind": "heading",
+            "page": 135,
             "text": "Possible Root Causes"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-030",
             "kind": "heading",
+            "page": 135,
             "text": "Method of Verification"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-031",
             "kind": "paragraph",
+            "page": 135,
             "text": "Yes"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-032",
             "kind": "heading",
+            "page": 135,
             "text": "Temperature"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-033",
             "kind": "paragraph",
+            "page": 136,
             "text": "too hot"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-034",
             "kind": "paragraph",
+            "page": 136,
             "text": "Allows team to visually determine whether temperatures exceed requirements at any point during bake process"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-035",
             "kind": "paragraph",
+            "page": 136,
             "text": "Cakes in the Delaware bakery are coming"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-036",
             "kind": "paragraph",
+            "page": 136,
             "text": "Run chart of temperature against required temperature"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-037",
             "kind": "paragraph",
+            "page": 136,
             "text": "Yes"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-038",
             "kind": "paragraph",
+            "page": 136,
             "text": "Bake times inconsistent"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-039",
             "kind": "paragraph",
+            "page": 136,
             "text": "Box plot of bake times per type of cake"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-040",
             "kind": "paragraph",
+            "page": 136,
             "text": "out burnt 10 percent of the time."
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-041",
             "kind": "paragraph",
+            "page": 136,
             "text": "Provides visual representation of the variation per cake type; bake times should not vary widely by cake, so the boxes should be flat; lets teams determine if certain cake types are more of a problem."
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-042",
             "kind": "paragraph",
+            "page": 136,
             "text": "Yes"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-043",
             "kind": "heading",
+            "page": 136,
             "text": "Process"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-044",
             "kind": "paragraph",
+            "page": 136,
             "text": "observation"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-045",
             "kind": "heading",
+            "page": 136,
             "text": "Instructions"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-046",
             "kind": "paragraph",
+            "page": 136,
             "text": "not provided to staff"
           },
           {
             "id": "ch14-s02-root-cause-analysis-en-047",
             "kind": "paragraph",
+            "page": 136,
             "text": "Easy way to determine if bakery staff have the instructions necessary to complete work without defects"
           }
         ],
@@ -309,6 +361,7 @@
           {
             "id": "ch14-s02-root-cause-analysis-zh-001",
             "kind": "termNote",
+            "page": 134,
             "rows": [
               [
                 "术语说明 Root Cause（根本原因）：真正驱动问题发生的原因；解决它才能防止问题反复出现。"
@@ -319,16 +372,19 @@
           {
             "id": "ch14-s02-root-cause-analysis-zh-002",
             "kind": "paragraph",
+            "page": 134,
             "text": "整个团队在确定的主题专家的帮助下执行的分析阶段的基本活动之一是根本原因分析。当团队进入分析阶段但不清楚主要原因时，根本原因分析用于识别问题或缺陷的根本原因。本章中描述的用于识别根本原因的一些工具可以由领导团队的黑带自行决定用于定义或测量阶段；第 13 章中关于措施的 FEMA 描述同样可以用于分析阶段，作为根本原因分析的一部分。"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-003",
             "kind": "heading",
+            "page": 134,
             "text": "因果图或鱼骨图"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-004",
             "kind": "termNote",
+            "page": 134,
             "rows": [
               [
                 "术语说明 Fishbone / Ishikawa（鱼骨图）：按类别梳理潜在原因的根因分析工具。"
@@ -339,11 +395,13 @@
           {
             "id": "ch14-s02-root-cause-analysis-zh-005",
             "kind": "paragraph",
+            "page": 134,
             "text": "集思广益和分析过程中的因果关系的一种流行方法是鱼骨图。鱼骨图可以由一个六西格玛高手完成，但是当整个六西格玛团队完成时，它通常具有更大的价值。该图让团队专注于集思广益的过程，该过程产生有关可能的问题原因的想法，以逻辑方式组织这些可能性，并让团队可视化信息以确定优先级、趋势和想法之间的关系。当用作团队活动时，鱼骨图鼓励所有团队成员的参与和投入，这增加了为可行且原创的解决方案奠定基础工作的机会。"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-006",
             "kind": "paragraph",
+            "page": 134,
             "text": "因果图称为鱼骨图，因为您从看起来像鱼骨架的简单绘图开始。 参考下图并按照说明创建鱼骨图，作为团队头脑风暴练习的一部分。您现在还可以使用这些说明，根据您遇到过的流程或问题来练习鱼骨图。"
           },
           {
@@ -351,22 +409,26 @@
             "kind": "image",
             "assetId": "fig-cb818bf841fd3656",
             "src": "assets/figures/fig-cb818bf841fd3656.png",
+            "page": 134,
             "width": 1191,
             "height": 489
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-008",
             "kind": "paragraph",
+            "page": 134,
             "text": "1. 在白板或大活动挂图上画出基本的鱼骨形状。写出鱼头应该在哪里的问题的总结版本。注意：您不必仅对定义阶段的问题陈述进行鱼骨图。团队还可以针对定义或测量阶段发现的特定缺陷或问题绘制图表。例如，如果问题陈述讨论餐厅的浪费量，团队可能在测量阶段发现面包的丢弃率高于所有其他食品。分析阶段处理的活动之一可能是鱼骨图，专门说明大量面包浪费的原因。 2. 画出鱼刺和四个主要连接器。将每个连接器标记为人员、流程、材料和程序。一些黑带人员还包括另外两个主要连接器：设备和环境。 3. 向团队解释鱼骨图的类别。请注意，在某些地方，特别是在特定流程中，各种类别会重叠。团队在完成鱼骨图时产生的一些想法可能适合多个类别，这没关系。"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-009",
             "kind": "paragraph",
+            "page": 134,
             "text": "a.人们指的是执行流程或与流程交互的任何人。 b.过程或机器是指输入变成输出的过程。 c.程序或方法是指完成事情的方式，无论是通过书面文件还是不成文的规则。 d.材料是流程的输入，例如原材料。 e.设备包括处理工作所需的技术或机器。 f.环境是过程周围的直接区域。 4. 从鱼骨图上的每个类别开始，询问团队该类别中的某些内容如何可能导致问题或缺陷。 5. 使用便利贴写下想法并将其放在鱼骨图上，以便以后可以移动想法。也可以直接在图上书写。 6. 将因果头脑风暴与第 6 章中描述的 5 个为什么练习结合起来。对于鱼骨图的每个分支，问“为什么？”至少五次以确保尽可能详细的细节。 7. 一旦团队耗尽了第一个类别的想法，就对所有其他类别重复步骤 4 到 6。"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-010",
             "kind": "termNote",
+            "page": 134,
             "rows": [
               [
                 "术语说明 5 Whys（五个为什么）：连续追问原因，帮助从表面症状深入到根本原因。"
@@ -377,16 +439,19 @@
           {
             "id": "ch14-s02-root-cause-analysis-zh-011",
             "kind": "paragraph",
+            "page": 134,
             "text": "8. 花一些时间作为一个团队来审查图表，讨论潜在原因的位置，并将它们移至适当的类别和小节以创建有组织的视觉表示。 9. 删除或划掉经过初步讨论后证明无效的原因。 10. 作为一个团队，决定哪些根本原因最有可能或最优先。将这些原因圈出，作为进一步调查的高优先级可能性。"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-012",
             "kind": "heading",
+            "page": 134,
             "text": "因果头脑风暴示例"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-013",
             "kind": "paragraph",
+            "page": 134,
             "text": "为了更好地了解鱼骨图的工作原理，请考虑下面的示例图像，我们将逐步介绍团队如何得出记录在该图的过程/方法行上的信息。"
           },
           {
@@ -394,47 +459,56 @@
             "kind": "image",
             "assetId": "fig-eb36f5ec4fbd82e1",
             "src": "assets/figures/fig-eb36f5ec4fbd82e1.png",
+            "page": 134,
             "width": 1190,
             "height": 424
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-015",
             "kind": "paragraph",
+            "page": 134,
             "text": "上述团队正在努力解决一家食品服务面包店的蛋糕烧焦问题。在讨论蛋糕的烘焙方法时，团队首先提出了蛋糕烘焙时间不一致的原因。一位团队成员表示，也许是工作人员没有注意，将蛋糕放在烤箱里的时间太长了。这个想法被写下来了。"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-016",
             "kind": "paragraph",
+            "page": 135,
             "text": "另一位团队成员（这次是面包店的主题专家）表示，烘焙蛋糕的说明含糊不清。 “为什么？”团队问道。该主题专家回应说，面包店的说明没有考虑到各种类型的蛋糕，导致工作人员猜测某些蛋糕的烘烤时间。进一步“为什么？”这些问题帮助团队确定新蛋糕已添加到菜单中，但面包店工作人员的总体说明并未更新。"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-017",
             "kind": "paragraph",
+            "page": 135,
             "text": "在深入研究不一致的烘焙时间后，团队再次问自己，方法是如何导致蛋糕烧焦的。有人建议烤箱内的温度太高，团队将该建议与烘烤时间不一致的根本原因联系起来。经过最终审查，有人指出，工作人员不注意是原因的说法并不成立，因为面包店配备了烘烤时间结束时响起的警报。团队把这个想法从图表中划掉了。"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-018",
             "kind": "paragraph",
+            "page": 135,
             "text": "在这种情况下，六西格玛团队可能会优先考虑以下事实：面包店中准备的所有类型的物品都无法获得说明。 因为这可能是一个简单且常识性的改进，黑带甚至可能会指派专人开始进行改进"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-019",
             "kind": "paragraph",
+            "page": 135,
             "text": "原因查明后立即进入阶段。很多时候，根本原因并不那么明显，解决方案也不太明显，需要在继续之前进行额外的分析和验证。"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-020",
             "kind": "heading",
+            "page": 135,
             "text": "根本原因验证矩阵"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-021",
             "kind": "paragraph",
+            "page": 135,
             "text": "一旦团队确定了可能的根本原因，他们必须验证这些原因是否有效。根本原因验证可以通过多种方法完成，包括统计分析、实验设计、逻辑提问、观察过程、收集附加数据、通过图形表示分析数据，以及比定义阶段更精细地映射过程。虽然本章简要介绍了统计分析和图形表示，但这些主题以及实验和流程图将在后面的单元中介绍。"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-022",
             "kind": "termNote",
+            "page": 135,
             "rows": [
               [
                 "术语说明 DOE（实验设计）：系统安排实验以识别因素、水平和交互作用对结果的影响。"
@@ -445,116 +519,139 @@
           {
             "id": "ch14-s02-root-cause-analysis-zh-023",
             "kind": "paragraph",
+            "page": 135,
             "text": "无论使用什么方法来验证根本原因假设，六西格玛团队都应该记录下来。有关根本原因验证的文件通常是在一个矩阵上完成的，其中包括问题、可能的根本原因、验证方法、为什么选择验证方法、验证结果，以及在某些情况下，六西格玛高级领导（例如黑带大师）是否同意。下面包含了此类矩阵的模板，但团队也可以在 Excel 或 Word 中创建类似的文档。"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-024",
             "kind": "heading",
+            "page": 135,
             "text": "已验证？注释"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-025",
             "kind": "heading",
+            "page": 135,
             "text": "问题"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-026",
             "kind": "heading",
+            "page": 135,
             "text": "可能的根本原因"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-027",
             "kind": "heading",
+            "page": 135,
             "text": "验证方法"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-028",
             "kind": "heading",
+            "page": 135,
             "text": "原因 验证方法"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-029",
             "kind": "paragraph",
+            "page": 135,
             "text": "烧焦的蛋糕示例的根本原因验证矩阵可能如下完成："
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-030",
             "kind": "heading",
+            "page": 135,
             "text": "原因 验证方法"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-031",
             "kind": "heading",
+            "page": 136,
             "text": "已验证？注释"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-032",
             "kind": "heading",
+            "page": 136,
             "text": "问题"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-033",
             "kind": "heading",
+            "page": 136,
             "text": "可能的根本原因"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-034",
             "kind": "heading",
+            "page": 136,
             "text": "验证方法"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-035",
             "kind": "heading",
+            "page": 136,
             "text": "是的"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-036",
             "kind": "heading",
+            "page": 136,
             "text": "温度"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-037",
             "kind": "paragraph",
+            "page": 136,
             "text": "太热了"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-038",
             "kind": "paragraph",
+            "page": 136,
             "text": "允许团队直观地确定烘烤过程中任何时刻的温度是否超出要求"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-039",
             "kind": "paragraph",
+            "page": 136,
             "text": "特拉华面包店的蛋糕来了"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-040",
             "kind": "paragraph",
+            "page": 136,
             "text": "温度与所需温度的运行图"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-041",
             "kind": "heading",
+            "page": 136,
             "text": "是的"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-042",
             "kind": "paragraph",
+            "page": 136,
             "text": "烘烤时间不一致"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-043",
             "kind": "paragraph",
+            "page": 136,
             "text": "每种蛋糕的烘烤时间箱线图"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-044",
             "kind": "paragraph",
+            "page": 136,
             "text": "10% 的时间都烧坏了。"
           },
           {
             "id": "ch14-s02-root-cause-analysis-zh-045",
             "kind": "paragraph",
+            "page": 136,
             "text": "提供每种蛋糕类型变化的视觉表示；烘烤时间不应因蛋糕而异，因此盒子应平坦；让团队确定某些蛋糕类型是否更成问题。"
           }
         ]
@@ -573,21 +670,25 @@
           {
             "id": "ch14-s03-graphical-analysis-en-001",
             "kind": "paragraph",
+            "page": 137,
             "text": "Six Sigma experts and teams can use a variety of graphical analysis tools to help generate ideas about root causes or understand how inputs and outputs really impact each other. Some of those graphical analysis tools require statistical analysis software, and those will be covered in later chapters. In this section, we’ll look at a few graphical representations you can create easily with Excel."
           },
           {
             "id": "ch14-s03-graphical-analysis-en-002",
             "kind": "heading",
+            "page": 137,
             "text": "Pareto Chart"
           },
           {
             "id": "ch14-s03-graphical-analysis-en-003",
             "kind": "paragraph",
+            "page": 137,
             "text": "The first graphical tool for validating root causes is the Pareto chart, which was covered in chapter 5. Chapter 5 discussed the Pareto Principle, or 80/20 rule, which says that 20 percent of the causes lead to 80 percent of the results. Because of this, a Pareto chart is a good starting point for root cause brainstorming – teams can start with the few inputs or attributes accounting for the bulk of the Pareto chart. Just as you can “drill down” using the fishbone diagram, asking deeper and deeper “Why?” questions, you can drill down using a Pareto chart."
           },
           {
             "id": "ch14-s03-graphical-analysis-en-004",
             "kind": "paragraph",
+            "page": 137,
             "text": "Consider the Pareto chart illustrating reasons for medical claims denials from Chapter 5."
           },
           {
@@ -595,27 +696,32 @@
             "kind": "image",
             "assetId": "fig-1423b7f9f99e6051",
             "src": "assets/figures/fig-1423b7f9f99e6051.png",
+            "page": 137,
             "width": 1191,
             "height": 616
           },
           {
             "id": "ch14-s03-graphical-analysis-en-006",
             "kind": "paragraph",
+            "page": 137,
             "text": "In this case, the team might decide to concentrate on the top two claims denial reasons: duplicate claim and timely filing. The team could use various methods for digging deeper into root causes for these two claims denial reasons. They might perform a fishbone diagram to discover why duplicate claims are being generated. To understand the timely filing problem, teams might gather additional data for graphical analysis."
           },
           {
             "id": "ch14-s03-graphical-analysis-en-007",
             "kind": "paragraph",
+            "page": 137,
             "text": "Timely filing means that the claim was not originally filed with an insurance company prior to the deadline for claims submission. Different insurance companies have various timely filing requirements, and the countdown usually starts at the time of service to the patient or the time of discharge from a facility. The team might want to understand which payers are denying claims for timely filing, so they collect data as follows on how many timely filing denials are associated with each payer. Because Pareto analysis is concerned with the top few, you can lump the many others together in a single entry and, for the purposes of the Pareto analysis, ignore them. A medical provider might bill claims to dozens of providers; including every provider on the data table and Pareto chart would be a waste of both time and space for this particular exercise."
           },
           {
             "id": "ch14-s03-graphical-analysis-en-008",
             "kind": "paragraph",
+            "page": 138,
             "text": "Payer Denials A 3512 B 2779 C 1575 D 1142 E 945 F 847 G 702 H 502 Others 1241"
           },
           {
             "id": "ch14-s03-graphical-analysis-en-009",
             "kind": "paragraph",
+            "page": 138,
             "text": "Converted to a basic Pareto chart, the data is illustrated in the graph below."
           },
           {
@@ -623,37 +729,44 @@
             "kind": "image",
             "assetId": "fig-d44e699a764d3ca0",
             "src": "assets/figures/fig-d44e699a764d3ca0.png",
+            "page": 138,
             "width": 1077,
             "height": 640
           },
           {
             "id": "ch14-s03-graphical-analysis-en-011",
             "kind": "paragraph",
+            "page": 138,
             "text": "It’s easy to see from the graph that the bulk of the problem is with payers A and B; perhaps these companies have shorter timely filing guidelines than the other companies or billing staff is unaware of the proper timely filing requirements for those payers. Six Sigma teams can begin asking questions specific to these payers as they continue analyzing data and discovering root causes."
           },
           {
             "id": "ch14-s03-graphical-analysis-en-012",
             "kind": "heading",
+            "page": 138,
             "text": "Box Plots"
           },
           {
             "id": "ch14-s03-graphical-analysis-en-013",
             "kind": "paragraph",
+            "page": 138,
             "text": "Box plots are another graphical representation that can be handled with Excel. In later chapters on statistical analysis, we’ll cover how box plots can be related to hypothesis testing and other analysis. When differences between distributions are marked, however, or when outliers are fairly obvious within data, the image of a box plot tells its own story without requiring advanced statistical knowledge."
           },
           {
             "id": "ch14-s03-graphical-analysis-en-014",
             "kind": "paragraph",
+            "page": 139,
             "text": "Box plots are often called Box-and-Whisker graphs. To understand how to read a box plot, consider the data table and graph below. The data table shows the time in minutes in which various runners completed a one-mile race. The results are divided into the categories Children and Adults."
           },
           {
             "id": "ch14-s03-graphical-analysis-en-015",
             "kind": "paragraph",
+            "page": 139,
             "text": "Children Adults 9.9 4.1 10.2 4.1 11.6 4.5 12.7 4.6 13.8 4.7 13.4 7.5 13.4 8.3 13.9 8.9"
           },
           {
             "id": "ch14-s03-graphical-analysis-en-016",
             "kind": "paragraph",
+            "page": 139,
             "text": "15.2 9.7 15.8 9.8 15.7 10.1 16.2 11.6 16.7 13.5 18.9 13.7 19.4 14.8 20.1 14.9 29 15"
           },
           {
@@ -661,77 +774,92 @@
             "kind": "image",
             "assetId": "fig-35dec91594f56052",
             "src": "assets/figures/fig-35dec91594f56052.png",
+            "page": 139,
             "width": 1190,
             "height": 695
           },
           {
             "id": "ch14-s03-graphical-analysis-en-018",
             "kind": "paragraph",
+            "page": 139,
             "text": "The above image shows a box plot of the data table, generated in Excel. Even without further explanation, you can likely tell that the children completed the race on average slower than the adults. The blue box, which represents the children, is shorter than the orange box, indicating that the middle 50 percent of children completed the mile-long run in times that had less variation than that of the middle 50 percent of adults. To understand how this conclusion was arrived at, we’ll take a look at all the elements of a box plot."
           },
           {
             "id": "ch14-s03-graphical-analysis-en-019",
             "kind": "paragraph",
+            "page": 139,
             "text": "A box plot begins with the upper and lower hinge – the top and bottom of the box. The top represents the 75th percentile; the bottom represents the 25th percentile of the data. The line within the box represents the 50th percentile. Within the box are the 50 percent of data points between the 25th and 75th percentiles."
           },
           {
             "id": "ch14-s03-graphical-analysis-en-020",
             "kind": "paragraph",
+            "page": 140,
             "text": "Each box plot receives upper and lower whiskers indicating the range of most of the other data within a set. In this case, Excel creates whiskers that extend to the top and bottom of a range barring any"
           },
           {
             "id": "ch14-s03-graphical-analysis-en-021",
             "kind": "paragraph",
+            "page": 140,
             "text": "statistical outliers. Some statistical analysis software or methodologies use other methods to create the whiskers with very similar results."
           },
           {
             "id": "ch14-s03-graphical-analysis-en-022",
             "kind": "paragraph",
+            "page": 140,
             "text": "Finally, since all plot points must be represented on a box plot graph, outliers are indicated with dots. You’ll see a blue dot above the children’s box, representing the data point of 29 minutes. That particular point is a statistical outlier; Six Sigma teams who note outliers on box plots should consider the data that is shown as an outlier. If an explanation can be found for the outlier, it can be ignored. For example, if the child who took 29 minutes to complete the mile was much younger than the other children or was walking with an injury, the data point is explained and can be excluded from further analysis."
           },
           {
             "id": "ch14-s03-graphical-analysis-en-023",
             "kind": "paragraph",
+            "page": 140,
             "text": "In addition to calling out outliers, box plots let you compare two distributions graphically to see if, as in the above example, there are obvious differences between the data sets. Box plots are useful in comparing how various attributes impact a process. Six Sigma teams might compare process results for different operators, different times of day, different teams, or using different inputs. It’s important when comparing data in this fashion to only alter one attribute or input; otherwise, you won’t be able to tell what the cause of any difference between data sets was if a statistical difference does seem likely on a box plot."
           },
           {
             "id": "ch14-s03-graphical-analysis-en-024",
             "kind": "paragraph",
+            "page": 140,
             "text": "Use some information for a work process you are familiar with, or use the sample data provided, to create box plots in Excel following the steps provided below."
           },
           {
             "id": "ch14-s03-graphical-analysis-en-025",
             "kind": "paragraph",
+            "page": 140,
             "text": "A department manager believes that the staff on her teams would be more productive if they were able to work with two computer monitors. Because outfitting an entire department with dual monitors would be costly, the manager’s boss requires some proof that her assumption is correct. The manager equips a few stations with dual monitors and lets different team members work at the stations. She records the amount of work done within hourly increments at stations that have dual monitors as well as stations that have single monitors. Her data is featured in the table below."
           },
           {
             "id": "ch14-s03-graphical-analysis-en-026",
             "kind": "heading",
+            "page": 140,
             "text": "One"
           },
           {
             "id": "ch14-s03-graphical-analysis-en-027",
             "kind": "heading",
+            "page": 141,
             "text": "Monitor"
           },
           {
             "id": "ch14-s03-graphical-analysis-en-028",
             "kind": "paragraph",
+            "page": 141,
             "text": "Two Monitors 9 10 8 4 4 9 7 7 2 8 6 7 1 9 8 9 5 14 4 10 3 12 7 7 9 9 5 4 1 9"
           },
           {
             "id": "ch14-s03-graphical-analysis-en-029",
             "kind": "paragraph",
+            "page": 141,
             "text": "5 7 6 8 7 14 4 13 2 10 9 12 5 12 4 8 8 6 2 10"
           },
           {
             "id": "ch14-s03-graphical-analysis-en-030",
             "kind": "paragraph",
+            "page": 141,
             "text": "Create a box plot of the information in the manager’s data table."
           },
           {
             "id": "ch14-s03-graphical-analysis-en-031",
             "kind": "paragraph",
+            "page": 141,
             "text": "1. Copy the data from the table above into Excel. 2. Highlight all of the data cells, including the header row. 3. Click Insert > Statistic Chart > More Statistical Charts"
           },
           {
@@ -739,12 +867,14 @@
             "kind": "image",
             "assetId": "fig-63416ae7a8ced3be",
             "src": "assets/figures/fig-63416ae7a8ced3be.png",
+            "page": 141,
             "width": 1191,
             "height": 482
           },
           {
             "id": "ch14-s03-graphical-analysis-en-033",
             "kind": "paragraph",
+            "page": 142,
             "text": "4. Select Box and Whisker and click OK."
           },
           {
@@ -752,12 +882,14 @@
             "kind": "image",
             "assetId": "fig-d1d488b8201d1119",
             "src": "assets/figures/fig-d1d488b8201d1119.png",
+            "page": 142,
             "width": 1191,
             "height": 1065
           },
           {
             "id": "ch14-s03-graphical-analysis-en-035",
             "kind": "paragraph",
+            "page": 142,
             "text": "5. Using normal Excel chart editing functions, edit the title and data labels of your chart as desired."
           },
           {
@@ -765,17 +897,20 @@
             "kind": "image",
             "assetId": "fig-5b15684ff9f6a08d",
             "src": "assets/figures/fig-5b15684ff9f6a08d.png",
+            "page": 142,
             "width": 1082,
             "height": 640
           },
           {
             "id": "ch14-s03-graphical-analysis-en-037",
             "kind": "paragraph",
+            "page": 142,
             "text": "While a Six Sigma Black Belt would be able to back up the conclusion with hypothesis testing or other analytics, the manager might get her request for monitors approved with nothing more than this box plot. It’s easy to see that the second monitor did increase production capability for staff. Another thing worth noting is that the distributions for each of the boxes and whiskers is similar, which is somewhat expected. High producers are still going to produce the most, and low producers are still going to produce less than high produces, even if everyone is producing slightly more with the new set-up."
           },
           {
             "id": "ch14-s03-graphical-analysis-en-038",
             "kind": "paragraph",
+            "page": 142,
             "text": "Note that the two examples used in this chapter used data sets that were different enough to be visually noticeable on a box plot. This isn’t always the case, which is why box plots and other graphical representations are often only the starting point for analysis."
           }
         ],
@@ -783,46 +918,55 @@
           {
             "id": "ch14-s03-graphical-analysis-zh-001",
             "kind": "heading",
+            "page": 137,
             "text": "工艺流程"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-002",
             "kind": "paragraph",
+            "page": 137,
             "text": "观察"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-003",
             "kind": "heading",
+            "page": 137,
             "text": "使用说明"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-004",
             "kind": "paragraph",
+            "page": 137,
             "text": "不提供给工作人员"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-005",
             "kind": "paragraph",
+            "page": 137,
             "text": "确定面包店工作人员是否有完成无缺陷工作所需的指示的简单方法"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-006",
             "kind": "heading",
+            "page": 137,
             "text": "图形分析"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-007",
             "kind": "paragraph",
+            "page": 137,
             "text": "六西格玛的专家和团队可以使用各种图形分析工具来帮助产生有关根本原因的想法或了解输入和输出如何真正相互影响。其中一些图形分析工具需要统计分析软件，这些将在后面的章节中介绍。在本节中，我们将介绍一些可以使用 Excel 轻松创建的图形表示形式。"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-008",
             "kind": "heading",
+            "page": 137,
             "text": "帕累托图"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-009",
             "kind": "termNote",
+            "page": 137,
             "rows": [
               [
                 "术语说明 Pareto（帕累托）：按影响大小排序，常用于找出“少数关键原因”。"
@@ -833,11 +977,13 @@
           {
             "id": "ch14-s03-graphical-analysis-zh-010",
             "kind": "paragraph",
+            "page": 138,
             "text": "第一个用于验证根本原因的图形工具是帕累托图，它在第 5 章中进行了介绍。第 5 章讨论了帕累托原理，或 80/20 规则，该规则表示 20% 的原因导致 80% 的结果。因此，帕累托图是根本原因头脑风暴的良好起点——团队可以从占帕累托图大部分的少数输入或属性开始。就像你可以使用鱼骨图“向下钻取”一样，越来越深入地问“为什么？”问题，您可以使用帕累托图进行深入分析。"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-011",
             "kind": "paragraph",
+            "page": 138,
             "text": "考虑第 5 章中说明拒绝医疗索赔原因的帕累托图。"
           },
           {
@@ -845,27 +991,32 @@
             "kind": "image",
             "assetId": "fig-1423b7f9f99e6051",
             "src": "assets/figures/fig-1423b7f9f99e6051.png",
+            "page": 138,
             "width": 1191,
             "height": 616
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-013",
             "kind": "paragraph",
+            "page": 138,
             "text": "在这种情况下，团队可能会决定专注于索赔被拒绝的两个最重要原因：重复索赔和及时提交。该团队可以使用各种方法来深入挖掘这两个索赔被拒绝的根本原因。他们可能会执行鱼骨图来发现为什么会生成重复的索赔。为了了解及时归档问题，团队可能会收集额外的数据进行图形分析。"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-014",
             "kind": "paragraph",
+            "page": 138,
             "text": "及时提交意味着索赔最初并未在索赔提交截止日期之前向保险公司提出。不同的保险公司有不同的及时归档要求，倒计时通常从为患者提供服务或出院时开始。 该团队可能想了解哪些付款人拒绝及时提交索赔，因此他们收集以下数据，了解与每个付款人相关的及时提交拒绝的数量。由于帕累托分析关注的是前几个，因此您可以将许多其他项集中在一个条目中，并且出于帕累托分析的目的，忽略它们。一家医疗服务提供者可能会向数十家服务提供者收取理赔费用；对于这个特定的练习来说，将每个提供商都包含在数据表和帕累托图中会浪费时间和空间。"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-015",
             "kind": "paragraph",
+            "page": 138,
             "text": "付款人拒绝 A 3512 B 2779 C 1575 D 1142 E 945 F 847 G 702 H 502 其他 1241"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-016",
             "kind": "paragraph",
+            "page": 138,
             "text": "转换为基本帕累托图后，数据如下图所示。"
           },
           {
@@ -873,27 +1024,32 @@
             "kind": "image",
             "assetId": "fig-d44e699a764d3ca0",
             "src": "assets/figures/fig-d44e699a764d3ca0.png",
+            "page": 138,
             "width": 1077,
             "height": 640
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-018",
             "kind": "paragraph",
+            "page": 139,
             "text": "从图中很容易看出，大部分问题出在付款人 A 和 B 身上；也许这些公司的及时申报指南比其他公司更短，或者计费人员不知道这些付款人的适当及时申报要求。 六西格玛团队可以在继续分析数据和发现根本原因的同时，开始询问这些付款人的具体问题。"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-019",
             "kind": "heading",
+            "page": 139,
             "text": "箱线图"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-020",
             "kind": "paragraph",
+            "page": 139,
             "text": "箱线图是另一种可以用 Excel 处理的图形表示形式。在后面有关统计分析的章节中，我们将介绍箱形图如何与假设检验和其他分析相关。然而，当分布之间的差异被标记出来时，或者当数据中的异常值相当明显时，箱形图的图像就会讲述自己的故事，而无需高级的统计知识。"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-021",
             "kind": "termNote",
+            "page": 139,
             "rows": [
               [
                 "术语说明 Hypothesis Test（假设检验）：用样本数据判断某个统计假设是否有足够证据被拒绝。"
@@ -904,16 +1060,19 @@
           {
             "id": "ch14-s03-graphical-analysis-zh-022",
             "kind": "paragraph",
+            "page": 139,
             "text": "箱线图通常称为箱须图。要了解如何阅读箱线图，请考虑下面的数据表和图表。数据表显示了不同跑步者完成一英里比赛的时间（以分钟为单位）。结果分为儿童和成人类别。"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-023",
             "kind": "heading",
+            "page": 139,
             "text": "儿童 成人 9.9 4.1 10.2 4.1 11.6 4.5 12.7 4.6 13.8 4.7 13.4 7.5 13.4 8.3 13.9 8.9"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-024",
             "kind": "paragraph",
+            "page": 139,
             "text": "15.2 9.7 15.8 9.8 15.7 10.1 16.2 11.6 16.7 13.5 18.9 13.7 19.4 14.8 20.1 14.9 29 15"
           },
           {
@@ -921,47 +1080,56 @@
             "kind": "image",
             "assetId": "fig-35dec91594f56052",
             "src": "assets/figures/fig-35dec91594f56052.png",
+            "page": 139,
             "width": 1190,
             "height": 695
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-026",
             "kind": "paragraph",
+            "page": 140,
             "text": "上图显示了在 Excel 中生成的数据表的箱线图。即使没有进一步的解释，您也可以看出孩子们完成比赛的平均速度比成年人慢。 代表儿童的蓝色框比橙色框短，表明中间 50% 的儿童完成一英里长跑的时间比中间 50% 的成人的变化要小。为了理解这个结论是如何得出的，我们将看一下箱形图的所有元素。"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-027",
             "kind": "paragraph",
+            "page": 140,
             "text": "箱形图从上铰链和下铰链（盒子的顶部和底部）开始。顶部代表第 75 个百分位；底部代表数据的第 25 个百分位。方框内的线代表第 50 个百分位数。框中包含第 25 个百分位数和第 75 个百分位数之间的 50% 的数据点。"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-028",
             "kind": "paragraph",
+            "page": 140,
             "text": "每个箱线图都有上下须线，指示一组内大多数其他数据的范围。在这种情况下，Excel 创建的须线延伸到范围的顶部和底部，禁止任何"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-029",
             "kind": "paragraph",
+            "page": 140,
             "text": "统计异常值。一些统计分析软件或方法使用其他方法来创建具有非常相似结果的晶须。"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-030",
             "kind": "paragraph",
+            "page": 140,
             "text": "最后，由于所有绘图点都必须在箱形图上表示，因此异常值用点表示。您会在儿童框上方看到一个蓝点，代表 29 分钟的数据点。该特定点是统计异常值； 在箱线图上标注异常值的六西格玛团队应考虑显示为异常值的数据。如果可以找到异常值的解释，则可以忽略它。例如，如果用 29 分钟完成一英里的孩子比其他孩子年轻得多，或者走路时受伤，则对数据点进行解释，并可以将其排除在进一步分析之外。"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-031",
             "kind": "paragraph",
+            "page": 140,
             "text": "除了标出异常值之外，箱线图还可以让您以图形方式比较两个分布，以查看数据集之间是否存在明显差异（如上例所示）。箱线图可用于比较各种属性如何影响过程。 六西格玛团队可能会比较不同操作员、一天中不同时间、不同团队或使用不同输入的流程结果。以这种方式比较数据时，仅更改一个属性或输入非常重要；否则，如果箱线图上确实存在统计差异，您将无法判断数据集之间存在差异的原因是什么。"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-032",
             "kind": "paragraph",
+            "page": 140,
             "text": "使用您熟悉的工作流程的一些信息，或使用提供的示例数据，按照下面提供的步骤在 Excel 中创建箱线图。"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-033",
             "kind": "termNote",
+            "page": 140,
             "rows": [
               [
                 "术语说明 Sample / Sampling（样本/抽样）：从总体中选取部分数据进行分析；样本应尽量代表总体。"
@@ -972,36 +1140,43 @@
           {
             "id": "ch14-s03-graphical-analysis-zh-034",
             "kind": "paragraph",
+            "page": 141,
             "text": "一位部门经理认为，如果她的团队的员工能够使用两台计算机显示器工作，他们的工作效率将会更高。由于为整个部门配备双显示器成本高昂，因此经理的老板需要一些证据来证明她的假设是正确的。经理为几个工作站配备了双显示器，并让不同的团队成员在这些工作站上工作。她记录了具有双显示器的工作站和具有单显示器的工作站以每小时增量完成的工作量。她的数据如下表所示。"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-035",
             "kind": "heading",
+            "page": 141,
             "text": "一"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-036",
             "kind": "heading",
+            "page": 141,
             "text": "监视器"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-037",
             "kind": "heading",
+            "page": 141,
             "text": "两台显示器 9 10 8 4 4 9 7 7 2 8 6 7 1 9 8 9 5 14 4 10 3 12 7 7 9 9 5 4 1 9"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-038",
             "kind": "paragraph",
+            "page": 141,
             "text": "5 7 6 8 7 14 4 13 2 10 9 12 5 12 4 8 8 6 2 10"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-039",
             "kind": "paragraph",
+            "page": 141,
             "text": "创建经理数据表中信息的箱线图。"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-040",
             "kind": "paragraph",
+            "page": 141,
             "text": "1. 将上表中的数据复制到 Excel 中。 2. 突出显示所有数据单元格，包括标题行。 3. 单击“插入”>“统计图表”>“更多统计图表”"
           },
           {
@@ -1009,12 +1184,14 @@
             "kind": "image",
             "assetId": "fig-63416ae7a8ced3be",
             "src": "assets/figures/fig-63416ae7a8ced3be.png",
+            "page": 141,
             "width": 1191,
             "height": 482
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-042",
             "kind": "paragraph",
+            "page": 142,
             "text": "4. 选择“盒子和晶须”，然后单击“确定”。"
           },
           {
@@ -1022,12 +1199,14 @@
             "kind": "image",
             "assetId": "fig-d1d488b8201d1119",
             "src": "assets/figures/fig-d1d488b8201d1119.png",
+            "page": 142,
             "width": 1191,
             "height": 1065
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-044",
             "kind": "paragraph",
+            "page": 142,
             "text": "5. 使用普通的 Excel 图表编辑功能，根据需要编辑图表的标题和数据标签。"
           },
           {
@@ -1035,27 +1214,32 @@
             "kind": "image",
             "assetId": "fig-5b15684ff9f6a08d",
             "src": "assets/figures/fig-5b15684ff9f6a08d.png",
+            "page": 142,
             "width": 1082,
             "height": 640
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-046",
             "kind": "paragraph",
+            "page": 142,
             "text": "虽然六西格玛黑带能够通过假设检验或其他分析来支持结论，但经理可能只需要这个箱形图就可以批准她对监视器的请求。很容易看出第二台显示器确实提高了员工的生产能力。另一件值得注意的事情是，每个盒子和晶须的分布是相似的，这在某种程度上是预期的。高生产商的产量仍将最多，而低生产商的产量仍将低于高生产商，即使每个人在新设置下生产的产量略有增加。"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-047",
             "kind": "paragraph",
+            "page": 142,
             "text": "请注意，本章中使用的两个示例使用的数据集差异很大，可以在箱线图上直观地看到。情况并非总是如此，这就是为什么箱线图和其他图形表示通常只是分析的起点。"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-048",
             "kind": "heading",
+            "page": 142,
             "text": "统计分析"
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-049",
             "kind": "paragraph",
+            "page": 142,
             "text": "由于统计分析将在以后的几个单元中介绍，因此本节列出了一些常见的统计分析工具及其定义。"
           }
         ]
@@ -1074,56 +1258,67 @@
           {
             "id": "ch14-s04-statistical-analysis-en-001",
             "kind": "paragraph",
+            "page": 143,
             "text": "Because statistical analysis is covered in several future units, this section lists some common statistical analysis tools with definitions."
           },
           {
             "id": "ch14-s04-statistical-analysis-en-002",
             "kind": "heading",
+            "page": 143,
             "text": "Hypothesis Testing"
           },
           {
             "id": "ch14-s04-statistical-analysis-en-003",
             "kind": "paragraph",
+            "page": 143,
             "text": "Hypothesis testing lets Six Sigma experts draw conclusions about the population based on statistical analysis performed on a sample. Because the conclusions are based on samples and not the entire population, there is always some risk of error. You might have seen or heard poll results given with a plus/minus in the result: “60 percent, plus or minus 2 percentage points, would vote for the candidate today.” That plus/minus is the value for the error risk."
           },
           {
             "id": "ch14-s04-statistical-analysis-en-004",
             "kind": "paragraph",
+            "page": 143,
             "text": "In statistical analysis, the risk that a sample doesn’t offer a good representation of the population is known as the alpha-risk and the beta-risk. Using information about the sample and alpha and beta risks,"
           },
           {
             "id": "ch14-s04-statistical-analysis-en-005",
             "kind": "paragraph",
+            "page": 143,
             "text": "statisticians calculate what is called the p-value. The p-value is a probability estimate that tells statisticians how likely an assumption or conclusion drawn on sample data will be incorrect."
           },
           {
             "id": "ch14-s04-statistical-analysis-en-006",
             "kind": "paragraph",
+            "page": 143,
             "text": "Statistical software removes a lot of the manual calculations from the process of setting up and running hypothesis tests. With Minitab, for example, Six Sigma experts can conduct hypothesis tests on prepared data with a few mouse clicks. They do have to know which types of hypothesis tests to use in which situations."
           },
           {
             "id": "ch14-s04-statistical-analysis-en-007",
             "kind": "heading",
+            "page": 143,
             "text": "Correlation and Regression Analysis"
           },
           {
             "id": "ch14-s04-statistical-analysis-en-008",
             "kind": "paragraph",
+            "page": 143,
             "text": "Regression and correlation analysis helps Six Sigma experts understand how variables within a process might be related. Regression analysis helps teams define the relationship between one independent variable – possibly an input – and one dependent variable – possibly an output. Does the temperature in the oven have a relationship to whether the cake is baked correctly, and how close are the two things related? Does the number of hours a person works have an impact on his or her productivity – can the team show a correlation between lower production as employees approach the end of a shift? These are the types of questions that regression analysis can answer."
           },
           {
             "id": "ch14-s04-statistical-analysis-en-009",
             "kind": "paragraph",
+            "page": 143,
             "text": "To work with regression analysis, both of the variables being studied have to be in numerical format. To conduct a regression analysis regarding the relationship between oven temperature and whether a cake is baked correctly, a Six Sigma team baked cakes at varying temperatures and rated them numerically on “doneness.” A rating of 1 indicated the cake hardly cooked at all; a rating of 5 indicated a perfectly baked cake. At 10, the cake was completely burned. The temperatures and corresponding ratings are seen in the data table below."
           },
           {
             "id": "ch14-s04-statistical-analysis-en-010",
             "kind": "paragraph",
+            "page": 143,
             "text": "Oven Temperature Doneness of Cake 200 1 225 1.2 250 2.2 275 2.4 300 4 325 5 350 5.2 375 6.2 400 8 425 8.9 450 9.5 475 10"
           },
           {
             "id": "ch14-s04-statistical-analysis-en-011",
             "kind": "paragraph",
+            "page": 143,
             "text": "Using this data, the team creates a scatter diagram with a trend line, as seen below."
           },
           {
@@ -1131,27 +1326,32 @@
             "kind": "image",
             "assetId": "fig-540d3f7632973164",
             "src": "assets/figures/fig-540d3f7632973164.png",
+            "page": 143,
             "width": 908,
             "height": 561
           },
           {
             "id": "ch14-s04-statistical-analysis-en-013",
             "kind": "paragraph",
+            "page": 143,
             "text": "Just looking at this graph, you can tell that a relationship does exist. The data plots are gathered tightly around the trend line, which indicates that as temperature rises so does the doneness of the cake."
           },
           {
             "id": "ch14-s04-statistical-analysis-en-014",
             "kind": "heading",
+            "page": 143,
             "text": "Design of Experiments"
           },
           {
             "id": "ch14-s04-statistical-analysis-en-015",
             "kind": "paragraph",
+            "page": 143,
             "text": "Correlation and regression analysis doesn’t always provide the information a team needs to determine relationships between variables, especially when those relationships are complex, or multiple variables are present. Because the analyze phase sets the stage for the improve phase, teams have to be as certain as possible in their analytical conclusions before they decide on solutions for implementation. A design of experiments can provide the more granular details and analysis required for that level of certainty."
           },
           {
             "id": "ch14-s04-statistical-analysis-en-016",
             "kind": "paragraph",
+            "page": 143,
             "text": "Design of experiments, or DoE, is performed via statistical analysis software such as Minitab. Teams can set up experiments for one factor or multiple factors."
           }
         ],
@@ -1159,11 +1359,13 @@
           {
             "id": "ch14-s04-statistical-analysis-zh-001",
             "kind": "paragraph",
+            "page": 143,
             "text": "假设检验让六西格玛专家根据对样本进行的统计分析得出有关总体的结论。由于结论是基于样本而不是整个总体，因此总是存在一定的错误风险。您可能已经看到或听到过带有正/负的民意调查结果：“60%，正负 2 个百分点，今天会投票给候选人。”该正/负就是错误风险的值。"
           },
           {
             "id": "ch14-s04-statistical-analysis-zh-002",
             "kind": "termNote",
+            "page": 143,
             "rows": [
               [
                 "术语说明 Population（总体）：研究对象的全部集合；实际项目中常通过样本推断总体。"
@@ -1174,16 +1376,19 @@
           {
             "id": "ch14-s04-statistical-analysis-zh-003",
             "kind": "paragraph",
+            "page": 143,
             "text": "在统计分析中，样本不能很好地代表总体的风险称为 α 风险和 β 风险。使用有关样本以及 alpha 和 beta 风险的信息，"
           },
           {
             "id": "ch14-s04-statistical-analysis-zh-004",
             "kind": "paragraph",
+            "page": 143,
             "text": "统计学家计算所谓的 p 值。 p 值是一种概率估计，它告诉统计学家根据样本数据得出的假设或结论不正确的可能性有多大。"
           },
           {
             "id": "ch14-s04-statistical-analysis-zh-005",
             "kind": "termNote",
+            "page": 143,
             "rows": [
               [
                 "术语说明 p-value（p 值）：在原假设成立时观察到当前或更极端结果的概率；常用于判断显著性。"
@@ -1194,16 +1399,19 @@
           {
             "id": "ch14-s04-statistical-analysis-zh-006",
             "kind": "paragraph",
+            "page": 143,
             "text": "统计软件消除了设置和运行假设检验过程中的大量手动计算。例如，使用 Minitab，六西格玛专家只需点击几下鼠标即可对准备好的数据进行假设检验。他们必须知道在哪种情况下使用哪种类型的假设检验。"
           },
           {
             "id": "ch14-s04-statistical-analysis-zh-007",
             "kind": "heading",
+            "page": 143,
             "text": "相关性和回归分析"
           },
           {
             "id": "ch14-s04-statistical-analysis-zh-008",
             "kind": "termNote",
+            "page": 143,
             "rows": [
               [
                 "术语说明 Correlation（相关）：描述两个变量共同变化的程度，不直接证明因果关系。"
@@ -1214,6 +1422,7 @@
           {
             "id": "ch14-s04-statistical-analysis-zh-009",
             "kind": "termNote",
+            "page": 143,
             "rows": [
               [
                 "术语说明 Regression（回归）：用模型估计变量之间的关系，并预测响应变量。"
@@ -1224,26 +1433,31 @@
           {
             "id": "ch14-s04-statistical-analysis-zh-010",
             "kind": "paragraph",
+            "page": 143,
             "text": "回归和相关分析帮助六西格玛专家了解流程中的变量如何相关。回归分析帮助团队定义一个自变量（可能是输入）和一个因变量（可能是输出）之间的关系。烤箱内的温度与蛋糕是否正确烘烤有关系吗？两者的关系有多密切？一个人的工作时数是否会影响他或她的生产力？团队能否显示出员工临近轮班结束时生产力下降之间的相关性？这些是回归分析可以回答的问题类型。"
           },
           {
             "id": "ch14-s04-statistical-analysis-zh-011",
             "kind": "paragraph",
+            "page": 143,
             "text": "为了进行回归分析，所研究的两个变量都必须采用数字格式。为了对烤箱温度与蛋糕烘焙是否正确之间的关系进行回归分析，六西格玛团队在不同的温度下烘焙蛋糕，并对蛋糕的“熟度”进行数字评分。 1 分表示蛋糕根本没有煮熟； 5 分表示蛋糕烘焙完美。 10点的时候，蛋糕完全烧焦了。 温度和相应的额定值见下面的数据表。"
           },
           {
             "id": "ch14-s04-statistical-analysis-zh-012",
             "kind": "paragraph",
+            "page": 143,
             "text": "烤箱温度 蛋糕熟度 200 1 225 1.2 250 2.2 275 2.4 300 4 325 5 350 5.2 375 6.2 400 8 425 8.9 450 9.5 475 10"
           },
           {
             "id": "ch14-s04-statistical-analysis-zh-013",
             "kind": "paragraph",
+            "page": 143,
             "text": "使用这些数据，团队创建了带有趋势线的散点图，如下所示。"
           },
           {
             "id": "ch14-s04-statistical-analysis-zh-014",
             "kind": "termNote",
+            "page": 143,
             "rows": [
               [
                 "术语说明 Scatter Diagram（散点图）：展示两个变量之间关系的图形；相关不等于因果。"
@@ -1256,27 +1470,32 @@
             "kind": "image",
             "assetId": "fig-540d3f7632973164",
             "src": "assets/figures/fig-540d3f7632973164.png",
+            "page": 143,
             "width": 908,
             "height": 561
           },
           {
             "id": "ch14-s04-statistical-analysis-zh-016",
             "kind": "paragraph",
+            "page": 143,
             "text": "只要看一下这张图，您就可以看出确实存在某种关系。数据图紧密聚集在趋势线周围，这表明随着温度升高，蛋糕的熟度也会升高。"
           },
           {
             "id": "ch14-s04-statistical-analysis-zh-017",
             "kind": "heading",
+            "page": 143,
             "text": "实验设计"
           },
           {
             "id": "ch14-s04-statistical-analysis-zh-018",
             "kind": "paragraph",
+            "page": 143,
             "text": "相关性和回归分析并不总能提供团队确定变量之间关系所需的信息，尤其是当这些关系复杂或存在多个变量时。由于分析阶段为改进阶段奠定了基础，因此团队在决定实施解决方案之前必须尽可能确定其分析结论。实验设计可以提供该确定性级别所需的更精细的细节和分析。"
           },
           {
             "id": "ch14-s04-statistical-analysis-zh-019",
             "kind": "paragraph",
+            "page": 143,
             "text": "实验设计 (DOE) 通过 Minitab 等统计分析软件进行。团队可以针对一个因素或多个因素设置实验。"
           }
         ]
@@ -1295,6 +1514,7 @@
           {
             "id": "ch14-s05-analyze-tollgate-checklist-en-001",
             "kind": "paragraph",
+            "page": 144,
             "text": "o Primary root causes have been identified. o Team has prioritized root causes. o Champion or sponsor agrees with team priorities moving into the improve phase. o Where possible, root cause assumptions are backed by statistical data. o Relationships between variables within a process are understood. o Where possible, variable relationships have been confirmed with statistical analysis."
           }
         ],
@@ -1302,6 +1522,7 @@
           {
             "id": "ch14-s05-analyze-tollgate-checklist-zh-001",
             "kind": "paragraph",
+            "page": 144,
             "text": "o 主要根本原因已确定。 o 团队已优先考虑根本原因。 o 冠军或发起人同意进入改进阶段的团队优先事项。 o 在可能的情况下，根本原因假设有统计数据支持。 o 理解流程中变量之间的关系。 o 在可能的情况下，变量关系已通过统计分析得到确认。"
           }
         ]
@@ -1321,7 +1542,7 @@
       "id": "fig-35dec91594f56052",
       "type": "table-image",
       "path": "assets/figures/fig-35dec91594f56052.png",
-      "page": 137,
+      "page": 139,
       "width": 1190,
       "height": 695
     },
@@ -1337,7 +1558,7 @@
       "id": "fig-5b15684ff9f6a08d",
       "type": "table-image",
       "path": "assets/figures/fig-5b15684ff9f6a08d.png",
-      "page": 137,
+      "page": 142,
       "width": 1082,
       "height": 640
     },
@@ -1345,7 +1566,7 @@
       "id": "fig-63416ae7a8ced3be",
       "type": "table-image",
       "path": "assets/figures/fig-63416ae7a8ced3be.png",
-      "page": 137,
+      "page": 141,
       "width": 1191,
       "height": 482
     },
@@ -1361,7 +1582,7 @@
       "id": "fig-d1d488b8201d1119",
       "type": "table-image",
       "path": "assets/figures/fig-d1d488b8201d1119.png",
-      "page": 137,
+      "page": 142,
       "width": 1191,
       "height": 1065
     },
@@ -1369,7 +1590,7 @@
       "id": "fig-d44e699a764d3ca0",
       "type": "table-image",
       "path": "assets/figures/fig-d44e699a764d3ca0.png",
-      "page": 137,
+      "page": 138,
       "width": 1077,
       "height": 640
     },

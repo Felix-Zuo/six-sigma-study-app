@@ -26,26 +26,31 @@
           {
             "id": "ch22-s01-sample-size-en-001",
             "kind": "paragraph",
+            "page": 262,
             "text": "Accuracy in inferential statistics requires that you have the right sample size. A retail company with thousands of customers would never make a major product decision based on feedback from five people, and Six Sigma teams should never make decisions based on statistical analysis when the sample size is not big enough to create an acceptable margin of error."
           },
           {
             "id": "ch22-s01-sample-size-en-002",
             "kind": "paragraph",
+            "page": 262,
             "text": "To understand the importance of sample size, we’ll first review some important notes about sampling as related to inferential statistics."
           },
           {
             "id": "ch22-s01-sample-size-en-003",
             "kind": "paragraph",
+            "page": 262,
             "text": "Six Sigma teams take samples because they want to determine information about a population. With some exceptions, it is very difficult, very expensive, or impossible to run statistical calculations on the entire population of data. However, when we sample the population and draw inferences from those samples about means, proportions, or variances, there is always some risk of error. Some level of uncertainty will always exist when we draw conclusions about a population from sample data. In many cases, a larger sample size helps reduce the uncertainty of our conclusions."
           },
           {
             "id": "ch22-s01-sample-size-en-004",
             "kind": "paragraph",
+            "page": 262,
             "text": "The uncertainty associated with sampling is defined by something called the Confidence Interval, which is also called the margin of error in some applications. You’ve likely read or seen survey or poll results reported with a margin of error: The fans are 93 percent in favor of the new team colors, +/- 2 percent. The margin of error in that particularly survey was 2 percent, or 0.02."
           },
           {
             "id": "ch22-s01-sample-size-en-005",
             "kind": "paragraph",
+            "page": 262,
             "text": "In chapter 21, we discussed hypothesis testing and we set our alpha value at 0.05, which means we were at least 95 percent confident in choosing to reject or not reject the null hypothesis. We can make our hypothesis tests even more accurate by defining power and sample size for our data – particularly when we are pulling the data ourselves and can choose how many samples to take."
           },
           {
@@ -53,6 +58,7 @@
             "kind": "image",
             "assetId": "fig-7083c0b322617391",
             "src": "assets/figures/fig-7083c0b322617391.png",
+            "page": 262,
             "width": 1241,
             "height": 453
           }
@@ -61,6 +67,7 @@
           {
             "id": "ch22-s01-sample-size-zh-001",
             "kind": "termNote",
+            "page": 262,
             "rows": [
               [
                 "术语说明 Sample / Sampling（样本/抽样）：从总体中选取部分数据进行分析；样本应尽量代表总体。"
@@ -71,21 +78,25 @@
           {
             "id": "ch22-s01-sample-size-zh-002",
             "kind": "paragraph",
+            "page": 262,
             "text": "推论统计的准确性要求您拥有正确的样本量。一家拥有数千名客户的零售公司永远不会根据五个人的反馈做出重大产品决策，而六西格玛团队也不应该在样本量不足以产生可接受的误差范围时根据统计分析做出决策。"
           },
           {
             "id": "ch22-s01-sample-size-zh-003",
             "kind": "paragraph",
+            "page": 262,
             "text": "为了了解样本量的重要性，我们首先回顾一下与推论统计相关的抽样的一些重要注意事项。"
           },
           {
             "id": "ch22-s01-sample-size-zh-004",
             "kind": "paragraph",
+            "page": 262,
             "text": "六西格玛团队采集样本是因为他们想要确定有关种群的信息。除了一些例外，对整个数据群进行统计计算是非常困难、非常昂贵或不可能的。然而，当我们对总体进行抽样并从这些样本中得出关于均值、比例或方差的推论时，总是存在一些错误的风险。当我们从样本数据中得出关于总体的结论时，总会存在一定程度的不确定性。在许多情况下，更大的样本量有助于减少我们结论的不确定性。"
           },
           {
             "id": "ch22-s01-sample-size-zh-005",
             "kind": "termNote",
+            "page": 262,
             "rows": [
               [
                 "术语说明 Population（总体）：研究对象的全部集合；实际项目中常通过样本推断总体。"
@@ -96,16 +107,19 @@
           {
             "id": "ch22-s01-sample-size-zh-006",
             "kind": "paragraph",
+            "page": 262,
             "text": "与采样相关的不确定性由置信区间定义，在某些应用中也称为误差幅度。您可能读过或看到过有误差范围的调查或民意调查结果：93% 的球迷支持新球队颜色，+/- 2%。该调查的误差幅度为 2%，即 0.02。"
           },
           {
             "id": "ch22-s01-sample-size-zh-007",
             "kind": "paragraph",
+            "page": 262,
             "text": "在第 21 章中，我们讨论了假设检验，并将 alpha 值设置为 0.05，这意味着我们至少有 95% 的信心选择拒绝或不拒绝原假设。我们可以通过定义数据的功效和样本量来使我们的假设检验更加准确——特别是当我们自己提取数据并可以选择要采集的样本数量时。"
           },
           {
             "id": "ch22-s01-sample-size-zh-008",
             "kind": "termNote",
+            "page": 262,
             "rows": [
               [
                 "术语说明 Hypothesis Test（假设检验）：用样本数据判断某个统计假设是否有足够证据被拒绝。"
@@ -118,12 +132,14 @@
             "kind": "image",
             "assetId": "fig-7083c0b322617391",
             "src": "assets/figures/fig-7083c0b322617391.png",
+            "page": 262,
             "width": 1241,
             "height": 453
           },
           {
             "id": "ch22-s01-sample-size-zh-010",
             "kind": "heading",
+            "page": 262,
             "text": "假设检验错误的回顾"
           }
         ]
@@ -142,61 +158,73 @@
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-001",
             "kind": "paragraph",
+            "page": 263,
             "text": "The concept of hypothesis testing errors is key to selecting sample sizes for various hypothesis testing. The two types of errors were introduced in Chapter 21, but warrant a quick review before moving on with sample size calculations."
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-002",
             "kind": "heading",
+            "page": 263,
             "text": "Type I Error"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-003",
             "kind": "paragraph",
+            "page": 263,
             "text": "A Type I error occurs when you reject the null hypothesis during a hypothesis test when, in fact, the null hypothesis is true. You might reject the null hypothesis that the mean of the sample is statistically the same as the hypothesized mean, deciding instead that the sample mean is statistically greater than the hypothesized mean. If the sample mean is, in fact, statistically the same as the hypothesized mean, you have a Type I error."
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-004",
             "kind": "paragraph",
+            "page": 263,
             "text": "Type I error risks are denoted by alpha."
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-005",
             "kind": "paragraph",
+            "page": 263,
             "text": "As stated in chapter 21, the Type I error is also called the producer risk. In a manufacturing environment, if the null hypothesis is true but it is rejected due to a Type I error, then material that is within specification (material that is statistically the same as the target) will be rejected. This is a producer risk – it causes waste, extra cost, and lower employee morale."
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-006",
             "kind": "heading",
+            "page": 263,
             "text": "Type II Error"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-007",
             "kind": "paragraph",
+            "page": 263,
             "text": "A Type II error occurs when you accept the null hypothesis when it is, in fact, not true. If you accept the hypothesis that the sample mean is statistically the same as the hypothesized mean when, in fact, the sample mean is statistically greater than the hypothesized mean, then you have a Type II error."
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-008",
             "kind": "paragraph",
+            "page": 263,
             "text": "Type II error risks are denoted by beta."
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-009",
             "kind": "paragraph",
+            "page": 263,
             "text": "As stated in chapter 21, the Type II error is also called the consumer risk. In a manufacturing environment, if the null hypothesis is false but it is accepted anyway due to a Type II error, then material that is not within specification (material that is not statistically the same as the target) is accepted. That means product that doesn’t meet target is passed onto the consumer. That is a consumer risk – it could cause returns, unsatisfied customers, poor brand reputation."
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-010",
             "kind": "paragraph",
+            "page": 263,
             "text": "The appropriate sample size can reduce the risk of either type of error."
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-011",
             "kind": "paragraph",
+            "page": 263,
             "text": "What Information is Required for Choosing Sample Size?"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-012",
             "kind": "paragraph",
+            "page": 263,
             "text": "To perform sample size calculations – or have Minitab perform them for you – certain information and assumptions are required."
           },
           {
@@ -204,167 +232,200 @@
             "kind": "image",
             "assetId": "fig-37176996347d8f77",
             "src": "assets/figures/fig-37176996347d8f77.png",
+            "page": 263,
             "width": 1083,
             "height": 317
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-014",
             "kind": "heading",
+            "page": 263,
             "text": "Standard"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-015",
             "kind": "paragraph",
+            "page": 263,
             "text": "deviation"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-016",
             "kind": "heading",
+            "page": 263,
             "text": "Type of Data"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-017",
             "kind": "paragraph",
+            "page": 263,
             "text": "Discrete or continuous?"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-018",
             "kind": "heading",
+            "page": 263,
             "text": "Type of Test"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-019",
             "kind": "paragraph",
+            "page": 263,
             "text": "Which hypothesis test are you using (see Chapter 21 for selecting the right test)"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-020",
             "kind": "paragraph",
+            "page": 263,
             "text": "Before you can move onto calculating sample size, some practical considerations must be made with regard to alpha, beta, and delta. In our review of Type I and Type II errors, we covered the difference between producer and consumer risks, but that breakdown doesn’t work in all organizations or with all hypothesis tests."
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-021",
             "kind": "paragraph",
+            "page": 263,
             "text": "Because the outcome of your hypothesis tests are going to be used to make real-world decisions, you have to truly understand what the test and its outcomes means for the business, employee, and consumer. That real-world understanding helps you set appropriate Alpha and Beta values."
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-022",
             "kind": "heading",
+            "page": 263,
             "text": "Questions to Ask About Alpha, Beta, and Delta Values"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-023",
             "kind": "paragraph",
+            "page": 263,
             "text": "In most cases, you can set the alpha value at 0.05. However, in specific experiments, accuracy is extremely important. In medical or drug trials, for example, alpha values could be set to 0.99 or 0.999, making it very unlikely that a researcher would accept an alternative hypothesis (that a drug caused a change, for example) if it was not correct."
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-024",
             "kind": "paragraph",
+            "page": 264,
             "text": "When selecting alpha, Six Sigma teams should ask:"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-025",
             "kind": "paragraph",
+            "page": 264,
             "text": "- What are the costs associated with an unnecessary change if the team makes a mistake in rejecting the null hypothesis?"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-026",
             "kind": "paragraph",
+            "page": 264,
             "text": "o In a manufacturing environment, what are the costs with rejecting materials that actually fit specifications? o In a non-manufacturing environment, what are the costs associated with accepting the hypothesis that change did occur?"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-027",
             "kind": "paragraph",
+            "page": 264,
             "text": " Are there dangers or costs associated with concluding that a statistical change occurred? What are they?"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-028",
             "kind": "paragraph",
+            "page": 264,
             "text": "When selecting a beta value, Six Sigma teams should ask:"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-029",
             "kind": "paragraph",
+            "page": 264,
             "text": "- What is the potential costs of a Type II error if the team makes a mistake in not rejecting the null hypothesis?"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-030",
             "kind": "paragraph",
+            "page": 264,
             "text": "o What is the potential damage or cost if defective materials are passed to the customer? If a defective spoon is passed along, the ultimate cost might be minimal compared to a defective piece of medical equipment or car engine. o Are there costs associated with lost time or resources in correcting a problem that comes from a Type II error?"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-031",
             "kind": "paragraph",
+            "page": 264,
             "text": "When selecting a value for delta, Six Sigma teams should ask:"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-032",
             "kind": "paragraph",
+            "page": 264,
             "text": "- How small does the difference have to be before it becomes practically insignificant to the customer? In a pizza restaurant, for example, a customer who orders a 14-inch pizza is going to care if he or she receives a 12-inch pizza. If the pizza that is delivered measures 13.9 inches, the customer is unlikely to care."
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-033",
             "kind": "paragraph",
+            "page": 264,
             "text": "- What is the smallest delta that provides the best chance at exposing all benefits or information but is not so small as to be unfeasible. Working at smaller delta values means larger sample sizes or smaller measurement requirements, which take time to gather. - Ultimately, Six Sigma teams should ask themselves: what margin of error is tolerable in results? The type of test you are running, the decisions you are making, and the processes you are dealing with help you make this determination."
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-034",
             "kind": "paragraph",
+            "page": 264,
             "text": "The delta, or critical difference, should always be based on business needs. It is helpful in Minitab to express the delta in terms of sigma, or standard deviation. We want to detect differences of .5 σ or 2 σ, for example."
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-035",
             "kind": "heading",
+            "page": 264,
             "text": "Guidelines for Setting Various Numbers When Calculating Sample Size"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-036",
             "kind": "paragraph",
+            "page": 264,
             "text": "While values for various factors in sample size calculations should be guided by the business needs and purposes of the test, here are some guidelines Six Sigma teams can follow for baseline values or if no other information or needs are present."
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-037",
             "kind": "heading",
+            "page": 264,
             "text": "When Testing Means for Continuous Data"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-038",
             "kind": "paragraph",
+            "page": 264,
             "text": "If you have some information about the population, including standard deviation:"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-039",
             "kind": "paragraph",
+            "page": 264,
             "text": "- Set alpha at 0.05. - Set beta at 0.10 or 0.20 (which will give you a power of 0.90 or 0.80 – a power of 0.90 is less likely to produce a Type II error than a power of 0.80, but it will also require a much larger sample size in most cases). - Set delta with absolute values as required by business needs or, more often in Minitab, as a function of standard deviation (.5 σ, 1 σ, and 2 σ.)"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-040",
             "kind": "heading",
+            "page": 264,
             "text": "When Testing Variance for Continuous Data"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-041",
             "kind": "paragraph",
+            "page": 264,
             "text": "- Set alpha at 0.05. - Set beta at 0.10 or 0.20 (which will give you a power of 0.90 or 0.80 – a power of 0.90 is less likely to produce a Type II error than a power of 0.80, but it will also require a much larger sample size in most cases). - Set delta greater than 1 and according to business needs, or, more often in Minitab, as a function of standard deviation (.5 σ, 1 σ, and 2 σ.) -"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-042",
             "kind": "heading",
+            "page": 264,
             "text": "When Testing Proportions for Discrete/Binomial Data"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-043",
             "kind": "paragraph",
+            "page": 264,
             "text": "If you have some information about the population, including standard deviation:"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-044",
             "kind": "paragraph",
+            "page": 264,
             "text": "- Set alpha at 0.05. - Set beta at 0.10 or 0.20 (which will give you a power of 0.90 or 0.80 – a power of 0.90 is less likely to produce a Type II error than a power of 0.80, but it will also require a much larger sample size in most cases). - Set delta logically according to business needs, or, more often in Minitab, as a function of standard deviation (.5 σ, 1 σ, and 2 σ.)"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-en-045",
             "kind": "paragraph",
+            "page": 264,
             "text": "Note: General sampling on an unknown population, also called survey sampling, requires a different approach to sample-size calculation. Typically, you begin by setting alpha to 0.05, beta to 0.5, and delta to a proportion in keeping with a standard deviation of 1. This provides an initial sample size so you can better understand the population, but you might have to do additional sampling based on the statistics calculated from your first sample."
           }
         ],
@@ -372,61 +433,73 @@
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-001",
             "kind": "paragraph",
+            "page": 263,
             "text": "假设检验误差的概念是为各种假设检验选择样本量的关键。这两种类型的错误在第 21 章中介绍过，但在继续样本量计算之前需要快速回顾一下。"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-002",
             "kind": "heading",
+            "page": 263,
             "text": "I 类错误"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-003",
             "kind": "paragraph",
+            "page": 263,
             "text": "当您在假设检验期间拒绝原假设，而实际上原假设为真时，就会出现 I 类错误。 您可能会拒绝样本均值在统计上与假设均值相同的零假设，而是决定样本均值在统计上大于假设均值。事实上，如果样本均值在统计上与假设均值相同，则存在 I 类错误。"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-004",
             "kind": "paragraph",
+            "page": 263,
             "text": "I 类错误风险用 alpha 表示。"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-005",
             "kind": "paragraph",
+            "page": 263,
             "text": "正如第 21 章所述，I 类错误也称为生产者风险。在制造环境中，如果原假设为真，但由于 I 类错误而被拒绝，则符合规格的材料（统计上与目标相同的材料）将被拒绝。这是生产者风险——它会导致浪费、额外成本和员工士气下降。"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-006",
             "kind": "heading",
+            "page": 263,
             "text": "II 类错误"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-007",
             "kind": "paragraph",
+            "page": 263,
             "text": "当您接受原假设而事实上它并不成立时，就会出现 II 类错误。如果您接受样本均值在统计上与假设均值相同的假设，而实际上样本均值在统计上大于假设均值，则您会出现 II 类错误。"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-008",
             "kind": "paragraph",
+            "page": 263,
             "text": "II 类错误风险用 beta 表示。"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-009",
             "kind": "paragraph",
+            "page": 263,
             "text": "正如第 21 章所述，II 类错误也称为消费者风险。在制造环境中，如果原假设为假，但由于 II 类错误而无论如何都被接受，则不符合规格的材料（在统计上与目标不同的材料）将被接受。这意味着不符合目标的产品将转嫁给消费者。这是一种消费者风险——它可能会导致退货、客户不满意、品牌声誉不佳。"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-010",
             "kind": "paragraph",
+            "page": 263,
             "text": "适当的样本量可以降低任一类型错误的风险。"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-011",
             "kind": "paragraph",
+            "page": 263,
             "text": "选择样本量需要哪些信息？"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-012",
             "kind": "paragraph",
+            "page": 263,
             "text": "要执行样本量计算（或让 Minitab 为您执行这些计算），需要某些信息和假设。"
           },
           {
@@ -434,117 +507,140 @@
             "kind": "image",
             "assetId": "fig-37176996347d8f77",
             "src": "assets/figures/fig-37176996347d8f77.png",
+            "page": 263,
             "width": 1083,
             "height": 317
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-014",
             "kind": "heading",
+            "page": 263,
             "text": "标准型"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-015",
             "kind": "paragraph",
+            "page": 263,
             "text": "偏差"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-016",
             "kind": "heading",
+            "page": 263,
             "text": "数据类型"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-017",
             "kind": "paragraph",
+            "page": 263,
             "text": "离散还是连续？"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-018",
             "kind": "heading",
+            "page": 263,
             "text": "测试类型"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-019",
             "kind": "paragraph",
+            "page": 263,
             "text": "您使用哪种假设检验（请参阅第 21 章选择正确的检验）"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-020",
             "kind": "paragraph",
+            "page": 263,
             "text": "在开始计算样本量之前，必须对 alpha、beta 和 delta 进行一些实际考虑。 在我们对第一类和第二类错误的审查中，我们涵盖了生产者风险和消费者风险之间的差异，但这种细分并不适用于所有组织或所有假设检验。"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-021",
             "kind": "paragraph",
+            "page": 263,
             "text": "由于假设检验的结果将用于做出现实世界的决策，因此您必须真正了解测试及其结果对企业、员工和消费者意味着什么。这种对现实世界的理解可以帮助您设置适当的 Alpha 和 Beta 值。"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-022",
             "kind": "heading",
+            "page": 263,
             "text": "关于 Alpha、Beta 和 Delta 值的问题"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-023",
             "kind": "paragraph",
+            "page": 263,
             "text": "大多数情况下，您可以将 alpha 值设置为 0.05。但在具体实验中，准确性极其重要。例如，在医学或药物试验中，α 值可以设置为 0.99 或 0.999，这使得研究人员不太可能接受不正确的替代假设（例如，药物引起变化）。"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-024",
             "kind": "paragraph",
+            "page": 263,
             "text": "在选择alpha时，六西格玛团队应该问："
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-025",
             "kind": "paragraph",
+            "page": 264,
             "text": "- 如果团队在拒绝零假设方面犯了错误，那么与不必要的变更相关的成本是多少？"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-026",
             "kind": "paragraph",
+            "page": 264,
             "text": "o 在制造环境中，拒绝实际符合规格的材料的成本是多少？ o 在非制造环境中，接受变革确实发生的假设相关的成本是多少？"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-027",
             "kind": "paragraph",
+            "page": 264,
             "text": "▪ 得出统计数据发生变化的结论是否存在相关的危险或成本？这些是什么？"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-028",
             "kind": "paragraph",
+            "page": 264,
             "text": "在选择 Beta 值时，六西格玛团队应询问："
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-029",
             "kind": "paragraph",
+            "page": 264,
             "text": "- 如果团队在不拒绝零假设方面犯了错误，那么第二类错误的潜在成本是多少？"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-030",
             "kind": "paragraph",
+            "page": 264,
             "text": "o 如果有缺陷的材料被传递给客户，潜在的损害或成本是多少？如果有缺陷的勺子被传递，与有缺陷的医疗设备或汽车发动机相比，最终的成本可能是最小的。 o 纠正 II 类错误引起的问题是否会因时间或资源损失而产生成本？"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-031",
             "kind": "paragraph",
+            "page": 264,
             "text": "在选择 delta 值时，六西格玛团队应询问："
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-032",
             "kind": "paragraph",
+            "page": 264,
             "text": "- 差异必须小到什么程度才会对客户变得几乎无关紧要？例如，在一家披萨餐厅，订购 14 英寸披萨的顾客会关心他或她是否收到 12 英寸披萨。如果送来的披萨尺寸为 13.9 英寸，顾客不太可能在意。"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-033",
             "kind": "paragraph",
+            "page": 264,
             "text": "- 提供展示所有好处或信息的最佳机会但又不至于小到不可行的最小增量是多少。使用较小的增量值意味着较大的样本量或较小的测量要求，这需要时间来收集。 - 最终，六西格玛团队应该问自己：结果中可以容忍的误差范围是多少？您正在运行的测试类型、您正在做出的决定以及您正在处理的流程可以帮助您做出此决定。"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-034",
             "kind": "paragraph",
+            "page": 264,
             "text": "增量或关键差异应始终基于业务需求。在 Minitab 中，用 sigma 或标准差来表示 delta 很有帮助。例如，我们想要检测 0.5 σ 或 2 σ 的差异。"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-035",
             "kind": "termNote",
+            "page": 264,
             "rows": [
               [
                 "术语说明 Standard Deviation（标准差）：衡量数据离散程度的统计量；标准差越大，波动越明显。"
@@ -555,16 +651,19 @@
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-036",
             "kind": "heading",
+            "page": 264,
             "text": "计算样本量时设置各种数字的指南"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-037",
             "kind": "paragraph",
+            "page": 264,
             "text": "虽然样本量计算中各种因素的值应以业务需求和测试目的为指导，但六西格玛团队可以遵循以下一些准则来获取基线值或在没有其他信息或需求的情况下。"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-038",
             "kind": "termNote",
+            "page": 264,
             "rows": [
               [
                 "术语说明 Baseline（基线）：改进前的当前表现水平，是后续比较改进效果的参照。"
@@ -575,46 +674,55 @@
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-039",
             "kind": "heading",
+            "page": 264,
             "text": "当测试连续数据的方法时"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-040",
             "kind": "paragraph",
+            "page": 264,
             "text": "如果您有一些有关总体的信息，包括标准差："
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-041",
             "kind": "paragraph",
+            "page": 264,
             "text": "- 将 alpha 设置为 0.05。 - 将 beta 设置为 0.10 或 0.20（这将为您提供 0.90 或 0.80 的幂 - 0.90 的幂比 0.80 的幂更不可能产生 II 类错误，但在大多数情况下也需要更大的样本量）。 - 根据业务需求将 delta 设置为绝对值，或者在 Minitab 中更常见的是，将 delta 设置为标准差的函数（0.5 σ、1 σ 和 2 σ）。"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-042",
             "kind": "heading",
+            "page": 264,
             "text": "测试连续数据的方差时"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-043",
             "kind": "paragraph",
+            "page": 264,
             "text": "- 将 alpha 设置为 0.05。 - 将 beta 设置为 0.10 或 0.20（这将为您提供 0.90 或 0.80 的幂 - 0.90 的幂比 0.80 的幂更不可能产生 II 类错误，但在大多数情况下也需要更大的样本量）。 - 根据业务需求将 delta 设置为大于 1，或者在 Minitab 中更常见的是，将其设置为标准差的函数（0.5 σ、1 σ 和 2 σ。）-"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-044",
             "kind": "heading",
+            "page": 264,
             "text": "测试离散/二项式数据的比例时"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-045",
             "kind": "paragraph",
+            "page": 264,
             "text": "如果您有一些有关总体的信息，包括标准差："
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-046",
             "kind": "paragraph",
+            "page": 264,
             "text": "- 将 alpha 设置为 0.05。 - 将 beta 设置为 0.10 或 0.20（这将为您提供 0.90 或 0.80 的幂 - 0.90 的幂比 0.80 的幂更不可能产生 II 类错误，但在大多数情况下也需要更大的样本量）。 - 根据业务需求逻辑设置增量，或者更常见的是在 Minitab 中设置为标准差的函数（0.5 σ、1 σ 和 2 σ）。"
           },
           {
             "id": "ch22-s02-a-review-of-hypothesis-testing-errors-zh-047",
             "kind": "paragraph",
+            "page": 264,
             "text": "注意：对未知总体的一般抽样（也称为调查抽样）需要采用不同的方法来计算样本量。通常，您首先将 alpha 设置为 0.05，将 beta 设置为 0.5，将 delta 设置为与标准差 1 保持一致的比例。这提供了初始样本大小，以便您可以更好地了解总体，但您可能需要根据第一个样本计算的统计数据进行额外采样。"
           }
         ]
@@ -633,96 +741,115 @@
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-en-001",
             "kind": "paragraph",
+            "page": 265,
             "text": "Just as there were numerous hypothesis tests to cover a range of data types and questions, there are numerous sample size calculations – all of which can be performed in Minitab. Review the list below to determine what type of calculation to perform when determining sample size for various hypothesis tests."
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-en-002",
             "kind": "paragraph",
+            "page": 265,
             "text": "1-Sample T Test Sample Size Calculation"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-en-003",
             "kind": "paragraph",
+            "page": 265,
             "text": "- Means testing - Comparing to a target value - You already have sample statistics about the population"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-en-004",
             "kind": "paragraph",
+            "page": 265,
             "text": "1-Sample Z Test Sample Size Calculation"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-en-005",
             "kind": "paragraph",
+            "page": 265,
             "text": "- Means testing - Comparing to a target - You do not have sample statistics about the population (standard deviation is not known)"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-en-006",
             "kind": "paragraph",
+            "page": 265,
             "text": "2-Sample T Test Sample Size Calculation"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-en-007",
             "kind": "paragraph",
+            "page": 265,
             "text": "- Means testing - Comparing means from two sets of data"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-en-008",
             "kind": "paragraph",
+            "page": 265,
             "text": "2-Sample Variance Test Sample Size Calculation"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-en-009",
             "kind": "paragraph",
+            "page": 265,
             "text": "- Variance testing - Comparing variance from two sets of data"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-en-010",
             "kind": "paragraph",
+            "page": 265,
             "text": "1-Sample Variance Test Sample Size Calculation"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-en-011",
             "kind": "paragraph",
+            "page": 265,
             "text": "- Variance testing - Comparing variance of one data set to a target"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-en-012",
             "kind": "paragraph",
+            "page": 265,
             "text": "1-Sample Proportion Test Sample Size Calculation"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-en-013",
             "kind": "paragraph",
+            "page": 265,
             "text": "- Proportion testing (rate, x per y) - Comparing rate of one data set to a target"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-en-014",
             "kind": "paragraph",
+            "page": 265,
             "text": "2-Sample Proportion Test Sample Size Calculation"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-en-015",
             "kind": "paragraph",
+            "page": 265,
             "text": "- Proportion testing (rate, x per y) - Comparing rate from two sets of data"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-en-016",
             "kind": "heading",
+            "page": 265,
             "text": "Analysis of Variance (ANOVA) Sample Size Calculation"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-en-017",
             "kind": "paragraph",
+            "page": 265,
             "text": "- Means testing - More than 2 sets of data - Only one factor for x"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-en-018",
             "kind": "heading",
+            "page": 265,
             "text": "Design of Experiment (DOE) Sample Size Calculation"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-en-019",
             "kind": "paragraph",
+            "page": 265,
             "text": "- Means testing - More than 2 sets of data - More than one factor for x"
           }
         ],
@@ -730,86 +857,103 @@
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-zh-001",
             "kind": "paragraph",
+            "page": 265,
             "text": "正如有大量的假设检验涵盖一系列数据类型和问题一样，也有大量的样本量计算 - 所有这些都可以在 Minitab 中执行。查看下面的列表以确定在确定各种假设检验的样本量时要执行的计算类型。"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-zh-002",
             "kind": "heading",
+            "page": 265,
             "text": "1-样本 T 检验样本量计算"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-zh-003",
             "kind": "paragraph",
+            "page": 265,
             "text": "- 经济状况调查 - 与目标值比较 - 您已经拥有有关人口的样本统计数据"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-zh-004",
             "kind": "heading",
+            "page": 265,
             "text": "1-样本 Z 测试样本大小计算"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-zh-005",
             "kind": "paragraph",
+            "page": 265,
             "text": "- 经济状况调查 - 与目标比较 - 您没有关于人口的样本统计数据（标准差未知）"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-zh-006",
             "kind": "heading",
+            "page": 265,
             "text": "2-样本 T 检验样本量计算"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-zh-007",
             "kind": "paragraph",
+            "page": 265,
             "text": "- 经济状况调查 - 比较两组数据的平均值"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-zh-008",
             "kind": "heading",
+            "page": 265,
             "text": "2 样本方差检验样本量计算"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-zh-009",
             "kind": "paragraph",
+            "page": 265,
             "text": "- 方差测试 - 比较两组数据的方差"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-zh-010",
             "kind": "heading",
+            "page": 265,
             "text": "1-样本方差测试样本量计算"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-zh-011",
             "kind": "paragraph",
+            "page": 265,
             "text": "- 方差测试 - 将一个数据集的方差与目标进行比较"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-zh-012",
             "kind": "heading",
+            "page": 265,
             "text": "1-样本比例测试样本量计算"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-zh-013",
             "kind": "paragraph",
+            "page": 265,
             "text": "- 比例测试（比率，x/y） - 将一个数据集的比率与目标进行比较"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-zh-014",
             "kind": "heading",
+            "page": 265,
             "text": "2样本比例测试样本量计算"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-zh-015",
             "kind": "paragraph",
+            "page": 265,
             "text": "- 比例测试（比率，x/y） - 比较两组数据的比率"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-zh-016",
             "kind": "heading",
+            "page": 265,
             "text": "方差分析（ANOVA）(ANOVA) 样本量计算"
           },
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-zh-017",
             "kind": "termNote",
+            "page": 265,
             "rows": [
               [
                 "术语说明 ANOVA（方差分析）：比较多个组均值差异是否显著的统计方法。"
@@ -820,6 +964,7 @@
           {
             "id": "ch22-s03-sample-size-calculations-choosing-the-right-method-zh-018",
             "kind": "paragraph",
+            "page": 265,
             "text": "- 经济情况调查 - 超过 2 组数据 - x 只有一个因素"
           }
         ]
@@ -838,11 +983,13 @@
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-001",
             "kind": "paragraph",
+            "page": 266,
             "text": "To understand more about running and analyzing sample size tests in Minitab, we’ll walk through the process for most of the test types above."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-002",
             "kind": "paragraph",
+            "page": 266,
             "text": "To find the Power and Sample Size calculation tools in Minitab, select Stat > Power and Sample Size"
           },
           {
@@ -850,17 +997,20 @@
             "kind": "image",
             "assetId": "fig-b51018aa3d6700aa",
             "src": "assets/figures/fig-b51018aa3d6700aa.png",
+            "page": 266,
             "width": 873,
             "height": 822
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-004",
             "kind": "paragraph",
+            "page": 266,
             "text": "First, let’s look at the 1-Sample Z power and sample size calculation. Remember, you would use this calculation in conducting survey sampling for means testing, especially if you don’t know the standard deviation for the process or population. This calculation provides you with a “jumping off point” – a sample size that provides you some relevant information that is as accurate as you define and that you can use as a basis for future sampling."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-005",
             "kind": "paragraph",
+            "page": 266,
             "text": "Selecting the 1-Sample Z calculation from the menu brings up the following dialogue box."
           },
           {
@@ -868,27 +1018,32 @@
             "kind": "image",
             "assetId": "fig-abbc98f756431e5e",
             "src": "assets/figures/fig-abbc98f756431e5e.png",
+            "page": 266,
             "width": 665,
             "height": 516
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-007",
             "kind": "paragraph",
+            "page": 266,
             "text": "Minitab lets you calculate sample sizes or back into power values if a sample size is fixed, which is why it asks you to fill in only two of the three first values."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-008",
             "kind": "paragraph",
+            "page": 266,
             "text": "Because we don’t yet know much about our data, we leave sample size blank and provide several parameters for differences and power values for Minitab. This causes Minitab to provide a number of answers – one for each difference and power value combination – so we can make a more viable decision about sample size."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-009",
             "kind": "paragraph",
+            "page": 266,
             "text": "In this case, we’ve set the differences at .5 σ, 1 σ, and 2 σ. We’ve set power values at 0.8 and 0.9 (or, beta to either 0.2 or 0.1 respectively). Standard deviation for this first pass is assumed to be 1; if we had information about standard deviation, we could run a more precise calculation or use the 1-Sample T Test calculation."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-010",
             "kind": "paragraph",
+            "page": 267,
             "text": "If you click options, you can change the confidence level or alternative hypothesis (to a greater or less than scenario)."
           },
           {
@@ -896,62 +1051,74 @@
             "kind": "image",
             "assetId": "fig-b50c6adc6c314523",
             "src": "assets/figures/fig-b50c6adc6c314523.png",
+            "page": 267,
             "width": 605,
             "height": 297
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-012",
             "kind": "paragraph",
+            "page": 267,
             "text": "In this case, we’re leaving the options as is."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-013",
             "kind": "paragraph",
+            "page": 267,
             "text": "After we click OK on the Power and Sample Size box, Minitab returns the following information."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-014",
             "kind": "paragraph",
+            "page": 267,
             "text": "Power and Sample Size 1-Sample Z Test Testing mean = null (versus ≠ null) Calculating power for mean = null + difference α = 0.05 Assumed standard deviation = 1 Sample Target Difference Size Power Actual Power 0.5 32 0.8 0.807430 0.5 43 0.9 0.906375 1.0 8 0.8 0.807430 1.0 11 0.9 0.912556 2.0 2 0.8 0.807430 2.0 3 0.9 0.933727"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-015",
             "kind": "paragraph",
+            "page": 267,
             "text": "The data table returned by Minitab shows us the required sample size for each difference and target power. You can see that for the lowest difference and highest target power, the sample size required is only 43. But to determine a difference of 1 σ at a target power of 0.9, you only need 11 in the sample size."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-016",
             "kind": "paragraph",
+            "page": 267,
             "text": "Here, the team has to make a business-centric decision. Perhaps samples are easy and inexpensive to capture, so the team selects the maximum sample size. But if each sample takes an hour to obtain and costs the company $26, then the team might make the call to select a smaller sample size."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-017",
             "kind": "paragraph",
+            "page": 267,
             "text": "Again, it is important to note with this particular test that more sampling might be required to draw further conclusions."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-018",
             "kind": "paragraph",
+            "page": 267,
             "text": "Sample Calculations for a 1-Sample T Test"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-019",
             "kind": "paragraph",
+            "page": 268,
             "text": "To see the 1-Sample T Test sample calculation in action, let’s revisit a problem from Chapter 21."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-020",
             "kind": "paragraph",
+            "page": 268,
             "text": "An agriculture company growing corn produced an average of 168 bushels of corn per acre each year for five years. The standard deviation is 2.2 bushels. The company made a change to its seeding process in an attempt to increase the yield of its fields. Did the seeding change result in a statistically different outcome in yield per acre?"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-021",
             "kind": "paragraph",
+            "page": 268,
             "text": "How many acres would the company need to sample to determine if the new process made a difference? This could help the company know how many acres to plant with the new seed process."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-022",
             "kind": "paragraph",
+            "page": 268,
             "text": "To generate data for this problem, select the 1-Sample T calculation from the Power and Sample Size menu in Minitab."
           },
           {
@@ -959,12 +1126,14 @@
             "kind": "image",
             "assetId": "fig-db70d811b282f46d",
             "src": "assets/figures/fig-db70d811b282f46d.png",
+            "page": 268,
             "width": 663,
             "height": 514
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-024",
             "kind": "paragraph",
+            "page": 268,
             "text": "For this calculation, enter the differences as a multiple of standard deviation, the power values as desired, and the standard deviation provided in the data."
           },
           {
@@ -972,42 +1141,50 @@
             "kind": "image",
             "assetId": "fig-58a29a72f6068fa6",
             "src": "assets/figures/fig-58a29a72f6068fa6.png",
+            "page": 268,
             "width": 687,
             "height": 435
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-026",
             "kind": "paragraph",
+            "page": 268,
             "text": "Change the alternative hypothesis to greater than. The company wants to determine whether the yield of the new process is greater than the average yield of the old process."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-027",
             "kind": "paragraph",
+            "page": 269,
             "text": "After you click OK, and then OK again, Minitab generates the following set of information."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-028",
             "kind": "paragraph",
+            "page": 269,
             "text": "Power and Sample Size 1-Sample t Test Testing mean = null (versus > null) Calculating power for mean = null + difference α = 0.05 Assumed standard deviation = 2.2 Sample Target Difference Size Power Actual Power"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-029",
             "kind": "paragraph",
+            "page": 269,
             "text": "0.5 122 0.8 0.802721 0.5 168 0.9 0.901296 1.0 32 0.8 0.807760 1.0 43 0.9 0.900995 2.0 9 0.8 0.800109 2.0 12 0.9 0.903589"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-030",
             "kind": "paragraph",
+            "page": 269,
             "text": "We can see from the above table that the company would have to plant 168 acres to achieve a target power of 0.9 and be able to discern differences of 0.5 standard deviations. That’s a lot of acreage to plant with an experimental seeding process. The company might weigh its options and resources and decide, instead, to plant 43 or 32 acres. By planting 43 acres, the company can detect differences as low as one standard deviation at 0.9 target power. Given that the standard deviation is assumed to be 2.2 bushels, that is still a relatively small detection range, and the company saves a ton of money by planting over 100 fewer acres for the test."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-031",
             "kind": "paragraph",
+            "page": 269,
             "text": "Backing into target power What if the agriculture company didn’t have a choice regarding the number of acres it could plant for a test? Finances, resources, or corporate leadership might collude to decide that the test could be run on a total of 18 acres – and only 18 acres."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-032",
             "kind": "paragraph",
+            "page": 269,
             "text": "Minitab can take the information about the test and calculate the target power. The test is run the same way, but sample size is entered and power values are left blank."
           },
           {
@@ -1015,12 +1192,14 @@
             "kind": "image",
             "assetId": "fig-0c0c4884ad493a30",
             "src": "assets/figures/fig-0c0c4884ad493a30.png",
+            "page": 269,
             "width": 661,
             "height": 516
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-034",
             "kind": "paragraph",
+            "page": 269,
             "text": "Power and Sample Size 1-Sample t Test Testing mean = null (versus > null) Calculating power for mean = null + difference α = 0.05 Assumed standard deviation = 2.2 Sample Difference Size Power 0.5 18 0.236131 1.0 18 0.581637 2.0 18 0.979934"
           },
           {
@@ -1028,37 +1207,44 @@
             "kind": "image",
             "assetId": "fig-8a089fd79d6b4f33",
             "src": "assets/figures/fig-8a089fd79d6b4f33.png",
+            "page": 269,
             "width": 1311,
             "height": 270
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-036",
             "kind": "paragraph",
+            "page": 270,
             "text": "Sample Calculations for a 1-Sample Proportion Test"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-037",
             "kind": "paragraph",
+            "page": 270,
             "text": "Proportion tests are a bit different for two major reasons:"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-038",
             "kind": "paragraph",
+            "page": 270,
             "text": "- Proportion tests are run using attribute data. Attribute data almost always requires a larger sample size for accurate results than continuous data does. - Because you are dealing with attributes – and rates – you don’t need to provide any information about population parameters such as sigma levels or standard deviation."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-039",
             "kind": "paragraph",
+            "page": 270,
             "text": "To calculate the sample size required for accurate 1-Sample Proportion hypothesis testing, you simply set alpha and beta and enter the proportions for both the null and alternative hypothesis."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-040",
             "kind": "paragraph",
+            "page": 270,
             "text": "Let’s consider a real-world example to better understand the calculations in Minitab."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-041",
             "kind": "paragraph",
+            "page": 270,
             "text": "A grocery store chain discovers it has a problem with prices being entered correctly into the system when product is placed in the store or prices are updated. In population sampling, the store found that approximately 8 percent of the prices are entered incorrectly. The store provided ½ of the employees who do pricing entry with new scanners to attempt to mitigate the problem. Before the store commits to a full-time lease on the new equipment for all employees, it wants to confirm that the new scanners bring the error-rate down by 5 percent – to 3 percent or less."
           },
           {
@@ -1066,17 +1252,20 @@
             "kind": "image",
             "assetId": "fig-6b7d12779fbf85ea",
             "src": "assets/figures/fig-6b7d12779fbf85ea.png",
+            "page": 270,
             "width": 762,
             "height": 514
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-043",
             "kind": "paragraph",
+            "page": 270,
             "text": "Select the 1-Proportion calculation from the Power and Sample Size menu in Minitab. The comparison proportion is entered as 1 – the probability of failure for a single trial. In this case, 1 – 0.03, since the company wants to reduce the error rate to 3 percent."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-044",
             "kind": "paragraph",
+            "page": 270,
             "text": "The hypothesized proportion is entered as 1 – the probability of a failure for a single trial, or 1 – 0.08, since the original process had an 8 percent failure rate."
           },
           {
@@ -1084,67 +1273,80 @@
             "kind": "image",
             "assetId": "fig-b4308d094a34bc0b",
             "src": "assets/figures/fig-b4308d094a34bc0b.png",
+            "page": 271,
             "width": 683,
             "height": 439
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-046",
             "kind": "paragraph",
+            "page": 271,
             "text": "Under options, select “greater than” as the alternative hypothesis."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-047",
             "kind": "paragraph",
+            "page": 271,
             "text": "Click OK and then OK, and Minitab generates the information seen below."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-048",
             "kind": "paragraph",
+            "page": 271,
             "text": "Power and Sample Size Test for One Proportion Testing p = 0.92 (versus > 0.92) α = 0.05 Sample Target Comparison p Size Power Actual Power 0.97 140 0.8 0.802942 0.97 177 0.9 0.900362"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-049",
             "kind": "paragraph",
+            "page": 271,
             "text": "To run a valid 1-Proportion test, the company needs to gather between 140 and 177 data samples."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-050",
             "kind": "paragraph",
+            "page": 271,
             "text": "Sample Size Calculations for a 2-Sample T Test"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-051",
             "kind": "paragraph",
+            "page": 271,
             "text": "Consider again the 2-Sample T test problem from the last chapter:"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-052",
             "kind": "paragraph",
+            "page": 271,
             "text": "Two attorneys practicing in the same law firm are turning in very different amounts of billable hours, even though the partners note that the two lawyers have similar caseloads. One partner hypothesizes that Attorney A’s legal staff is taking too long to handle some tasks; because the firm bills at a certain time for administrative-style tasks regardless of how long those tasks take, if legal staff is taking too long for such tasks, they are spending time on work that can’t be billed for."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-053",
             "kind": "paragraph",
+            "page": 272,
             "text": "To test the theory, data is gathered about the time legal staff spends on tasks. Specifically, a team looks at time spent on three tasks for which the legal staff is allowed to bill 15 minutes each: certain types of simple administrative phone, copying, or filing tasks. The following data is collected."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-054",
             "kind": "paragraph",
+            "page": 272,
             "text": "Minutes Spent on Quarter-Hour Tasks Attorney A's Team Attorney B's Team 10 8 8 7 15 10 16 12 17 18 5 6 8 9 16 12 12 11 11 11 8 9 9 8 15 14 17 15 22 16"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-055",
             "kind": "paragraph",
+            "page": 272,
             "text": "25 12 30 19 2 8 9 12 4 6 5 8 7 11 8 12 12 13 13 15 15 17 16 13 18 15 19 15 20 12 22 21 25 32 15 18 14 11"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-056",
             "kind": "paragraph",
+            "page": 272,
             "text": "For the purposes of this problem, the firm team collected a sample of 34 data elements from each team. But is that enough to provide a strong conclusion in the 2-Sample T Test?"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-057",
             "kind": "paragraph",
+            "page": 272,
             "text": "First, let’s look at the sample size calculations given what we know of the data in question. The standard deviation of the data is 5.83, and we want to test whether the mean for Attorney A’s team is greater than the mean for Attorney B’s team. We would set up a 2-Sample T Test in Minitab as pictured below."
           },
           {
@@ -1152,6 +1354,7 @@
             "kind": "image",
             "assetId": "fig-4af2a851190983b6",
             "src": "assets/figures/fig-4af2a851190983b6.png",
+            "page": 272,
             "width": 661,
             "height": 509
           },
@@ -1160,32 +1363,38 @@
             "kind": "image",
             "assetId": "fig-162e3719ed55649b",
             "src": "assets/figures/fig-162e3719ed55649b.png",
+            "page": 272,
             "width": 689,
             "height": 434
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-060",
             "kind": "paragraph",
+            "page": 272,
             "text": "Minitab generates the following information:"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-061",
             "kind": "paragraph",
+            "page": 272,
             "text": "Power and Sample Size 2-Sample t Test Testing mean 1 = mean 2 (versus >) Calculating power for mean 1 = mean 2 + difference α = 0.05 Assumed standard deviation = 5.83 Sample Target Difference Size Power Actual Power 0.5 1682 0.8 0.800045 0.5 2330 0.9 0.900079 1.0 421 0.8 0.800038 1.0 583 0.9 0.900075 2.0 106 0.8 0.800820 2.0 147 0.9 0.901369 The sample size is for each group."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-062",
             "kind": "paragraph",
+            "page": 273,
             "text": "You can see above, the minimal sample size – for each group – that Minitab calculates is 106, and that is for a difference of 2 with target power of 0.8. While a 2-Sample T test can be run on the data set provided above – and we did, in fact, run that test in chapter 21 – the likelihood of a type II error for that test was fairly high."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-063",
             "kind": "paragraph",
+            "page": 273,
             "text": "Just how high was the likelihood for an error running the 2-Sample T test with a sample size of 34 for each group? Minitab can tell us that answer."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-064",
             "kind": "paragraph",
+            "page": 273,
             "text": "Instead of entering power values in the power and sample size dialog box, enter the sample size of 34 and click OK."
           },
           {
@@ -1193,27 +1402,32 @@
             "kind": "image",
             "assetId": "fig-54b1caa31e2bf9db",
             "src": "assets/figures/fig-54b1caa31e2bf9db.png",
+            "page": 273,
             "width": 657,
             "height": 515
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-066",
             "kind": "paragraph",
+            "page": 273,
             "text": "Power and Sample Size 2-Sample t Test Testing mean 1 = mean 2 (versus >) Calculating power for mean 1 = mean 2 + difference α = 0.05 Assumed standard deviation = 5.83 Sample Difference Size Power 0.5 34 0.097685 1.0 34 0.172364 2.0 34 0.403259"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-067",
             "kind": "paragraph",
+            "page": 273,
             "text": "The highest power for a sample size of 34 given this data is 0.40, which means a beta of 0.60 – more than 50 percent chance of a Type II error in the hypothesis test. In this particular case, before the firm makes any decisions, they should gather a larger sample of data."
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-068",
             "kind": "heading",
+            "page": 273,
             "text": "A Reminder Regarding Random Samples"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-en-069",
             "kind": "paragraph",
+            "page": 273,
             "text": "Before moving on from sample size calculations, it’s worth noting again the importance of random sampling. Even if you perform a calculation to determine an appropriate sample size – and you choose to ere on the side of caution by sampling at the largest count size returned by Minitab – you can draw the wrong inferences because the sample was not random."
           }
         ],
@@ -1221,6 +1435,7 @@
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-001",
             "kind": "termNote",
+            "page": 266,
             "rows": [
               [
                 "术语说明 DOE（实验设计）：系统安排实验以识别因素、水平和交互作用对结果的影响。"
@@ -1231,21 +1446,25 @@
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-002",
             "kind": "paragraph",
+            "page": 266,
             "text": "- 经济情况调查 - 超过 2 组数据 - x 的因素超过一个"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-003",
             "kind": "heading",
+            "page": 266,
             "text": "在 Minitab 中运行和分析样本量检验"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-004",
             "kind": "paragraph",
+            "page": 266,
             "text": "为了了解有关在 Minitab 中运行和分析样本量检验的更多信息，我们将逐步完成上述大多数检验类型的过程。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-005",
             "kind": "paragraph",
+            "page": 266,
             "text": "要在 Minitab 中查找功效和样本量计算工具，请选择统计 > 功效和样本量"
           },
           {
@@ -1253,17 +1472,20 @@
             "kind": "image",
             "assetId": "fig-b51018aa3d6700aa",
             "src": "assets/figures/fig-b51018aa3d6700aa.png",
+            "page": 266,
             "width": 873,
             "height": 822
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-007",
             "kind": "paragraph",
+            "page": 266,
             "text": "首先，我们来看看 1-Sample Z power 和样本量的计算。请记住，您将在进行经济状况调查的调查抽样时使用此计算，尤其是在您不知道过程或总体的标准差的情况下。此计算为您提供了一个“起点”——一个样本大小，可为您提供一些与您定义的一样准确的相关信息，并且您可以将其用作未来抽样的基础。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-008",
             "kind": "paragraph",
+            "page": 266,
             "text": "从菜单中选择 1-Sample Z 计算将弹出以下对话框。"
           },
           {
@@ -1271,27 +1493,32 @@
             "kind": "image",
             "assetId": "fig-abbc98f756431e5e",
             "src": "assets/figures/fig-abbc98f756431e5e.png",
+            "page": 266,
             "width": 665,
             "height": 516
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-010",
             "kind": "paragraph",
+            "page": 266,
             "text": "Minitab 允许您计算样本大小，或者如果样本大小固定，则返回功效值，这就是为什么它要求您仅填写前三个值中的两个。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-011",
             "kind": "paragraph",
+            "page": 267,
             "text": "由于我们对数据还不太了解，因此我们将样本大小留空，并为 Minitab 提供多个差异参数和功效值。这使得 Minitab 提供许多答案（每个差异和功效值组合都有一个答案），以便我们可以就样本大小做出更可行的决定。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-012",
             "kind": "paragraph",
+            "page": 267,
             "text": "在本例中，我们将差异设置为 0.5 σ、1 σ 和 2 σ。我们将功效值设置为 0.8 和 0.9（或者将 beta 分别设置为 0.2 或 0.1）。假设第一遍的标准差为 1；如果我们有有关标准差的信息，我们可以进行更精确的计算或使用 1-Sample T 检验计算。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-013",
             "kind": "paragraph",
+            "page": 267,
             "text": "如果单击选项，您可以更改置信水平或备择假设（大于或小于场景）。"
           },
           {
@@ -1299,62 +1526,74 @@
             "kind": "image",
             "assetId": "fig-b50c6adc6c314523",
             "src": "assets/figures/fig-b50c6adc6c314523.png",
+            "page": 267,
             "width": 605,
             "height": 297
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-015",
             "kind": "paragraph",
+            "page": 267,
             "text": "在这种情况下，我们将保留选项不变。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-016",
             "kind": "paragraph",
+            "page": 267,
             "text": "在我们单击功效和样本大小框上的确定后，Minitab 将返回以下信息。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-017",
             "kind": "paragraph",
+            "page": 267,
             "text": "功效和样本量 1-样本 Z 检验 检验均值 = null（与 ≠ null） 计算功效 均值 = null + 差值 α = 0.05 假设标准差 = 1 样本目标差值大小功效 实际功效 0.5 32 0.8 0.807430 0.5 43 0.9 0.906375 1.0 8 0.8 0.807430 1.0 11 0.9 0.912556 2.0 2 0.8 0.807430 2.0 3 0.9 0.933727"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-018",
             "kind": "paragraph",
+            "page": 267,
             "text": "Minitab 返回的数据表向我们显示了每个差异和目标功效所需的样本量。您可以看到，对于最低差异和最高目标功效，所需的样本量仅为 43。但要在目标功效为 0.9 时确定 1 σ 的差异，则仅需要 11 个样本量。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-019",
             "kind": "paragraph",
+            "page": 267,
             "text": "在这里，团队必须做出以业务为中心的决策。也许样本采集起来既简单又便宜，因此团队选择了最大样本量。但如果每个样本需要一个小时才能获取，并且公司花费 26 美元，那么团队可能会决定选择较小的样本量。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-020",
             "kind": "paragraph",
+            "page": 268,
             "text": "再次强调，在这个特定的测试中，可能需要更多的采样才能得出进一步的结论。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-021",
             "kind": "heading",
+            "page": 268,
             "text": "1 样本 T 检验的示例计算"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-022",
             "kind": "paragraph",
+            "page": 268,
             "text": "为了了解 1-Sample T 检验样本计算的实际效果，让我们回顾一下第 21 章中的一个问题。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-023",
             "kind": "paragraph",
+            "page": 268,
             "text": "一家种植玉米的农业公司五年来平均每英亩生产 168 蒲式耳玉米。标准偏差为 2.2 蒲式耳。 该公司改变了播种流程，试图提高田地的产量。播种量的变化是否导致每英亩产量出现统计上不同的结果？"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-024",
             "kind": "paragraph",
+            "page": 268,
             "text": "公司需要取样多少英亩才能确定新工艺是否产生影响？这可以帮助公司了解采用新种子工艺种植多少英亩土地。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-025",
             "kind": "paragraph",
+            "page": 268,
             "text": "要生成此问题的数据，请从 Minitab 的功效和样本量菜单中选择 1-样本 T 计算。"
           },
           {
@@ -1362,12 +1601,14 @@
             "kind": "image",
             "assetId": "fig-db70d811b282f46d",
             "src": "assets/figures/fig-db70d811b282f46d.png",
+            "page": 268,
             "width": 663,
             "height": 514
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-027",
             "kind": "paragraph",
+            "page": 268,
             "text": "对于此计算，请输入标准差倍数的差值、所需的功效值以及数据中提供的标准差。"
           },
           {
@@ -1375,42 +1616,50 @@
             "kind": "image",
             "assetId": "fig-58a29a72f6068fa6",
             "src": "assets/figures/fig-58a29a72f6068fa6.png",
+            "page": 268,
             "width": 687,
             "height": 435
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-029",
             "kind": "paragraph",
+            "page": 269,
             "text": "将备择假设更改为大于。该公司想要确定新工艺的良率是否大于旧工艺的平均良率。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-030",
             "kind": "paragraph",
+            "page": 269,
             "text": "单击“确定”，然后再次单击“确定”后，Minitab 会生成以下信息集。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-031",
             "kind": "paragraph",
+            "page": 269,
             "text": "功效和样本量 1-样本 t 检验 测试均值 = null（与 > null） 计算功效 均值 = null + 差值 α = 0.05 假设标准差 = 2.2 样本目标差值大小 功效 实际功效"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-032",
             "kind": "paragraph",
+            "page": 269,
             "text": "0.5 122 0.8 0.802721 0.5 168 0.9 0.901296 1.0 32 0.8 0.807760 1.0 43 0.9 0.900995 2.0 9 0.8 0.800109 2.0 12 0.9 0.903589"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-033",
             "kind": "paragraph",
+            "page": 269,
             "text": "从上表中我们可以看出，该公司需要种植 168 英亩才能实现 0.9 的目标功效，并能够辨别 0.5 个标准差的差异。通过实验播种过程可以种植大量面积。该公司可能会权衡其选择和资源，然后决定种植 43 或 32 英亩的土地。通过种植 43 英亩的土地，该公司可以在 0.9 的目标功效下检测低至 1 个标准偏差的差异。鉴于标准偏差假设为 2.2 蒲式耳，这仍然是一个相对较小的检测范围，该公司通过减少 100 多英亩的测试种植面积节省了大量资金。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-034",
             "kind": "paragraph",
+            "page": 269,
             "text": "返回目标功率 如果农业公司无法选择可以种植用于测试的英亩数怎么办？财务、资源或公司领导层可能会串通决定该测试可以在总共 18 英亩的土地上进行——而且只有 18 英亩。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-035",
             "kind": "paragraph",
+            "page": 269,
             "text": "Minitab 可以获取有关检验的信息并计算目标功效。测试以相同的方式运行，但输入样本大小并将功效值留空。"
           },
           {
@@ -1418,12 +1667,14 @@
             "kind": "image",
             "assetId": "fig-0c0c4884ad493a30",
             "src": "assets/figures/fig-0c0c4884ad493a30.png",
+            "page": 269,
             "width": 661,
             "height": 516
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-037",
             "kind": "paragraph",
+            "page": 269,
             "text": "功效和样本量 1-样本 t 检验 检验均值 = 零（与 > 零） 计算功效 均值 = 零 + 差值 α = 0.05 假设标准差 = 2.2 样本差值大小 功效 0.5 18 0.236131 1.0 18 0.581637 2.0 18 0.979934"
           },
           {
@@ -1431,27 +1682,32 @@
             "kind": "image",
             "assetId": "fig-8a089fd79d6b4f33",
             "src": "assets/figures/fig-8a089fd79d6b4f33.png",
+            "page": 270,
             "width": 1311,
             "height": 270
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-039",
             "kind": "heading",
+            "page": 270,
             "text": "1-样本比例检验的计算示例"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-040",
             "kind": "paragraph",
+            "page": 270,
             "text": "比例测试略有不同，主要有两个原因："
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-041",
             "kind": "paragraph",
+            "page": 270,
             "text": "- 使用属性数据运行比例测试。与连续数据相比，属性数据几乎总是需要更大的样本量才能获得准确的结果。 - 因为您正在处理属性和比率，所以不需要提供有关总体参数的任何信息，例如西格玛水平或标准差。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-042",
             "kind": "termNote",
+            "page": 270,
             "rows": [
               [
                 "术语说明 Sigma level（西格玛水平）：衡量过程缺陷率的尺度；水平越高，单位机会中产生缺陷的概率越低。"
@@ -1462,16 +1718,19 @@
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-043",
             "kind": "paragraph",
+            "page": 270,
             "text": "要计算准确的 1 样本比例假设检验所需的样本量，您只需设置 alpha 和 beta 并输入原假设和备择假设的比例。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-044",
             "kind": "paragraph",
+            "page": 270,
             "text": "让我们考虑一个现实世界的示例，以更好地理解 Minitab 中的计算。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-045",
             "kind": "paragraph",
+            "page": 270,
             "text": "一家连锁杂货店发现，当产品放入商店或更新价格时，价格无法正确输入系统。在总体抽样中，商店发现大约 8% 的价格输入错误。该商店为 1/2 负责定价输入的员工配备了新扫描仪，以试图缓解该问题。在商店承诺为所有员工全职租赁新设备之前，它希望确认新扫描仪将错误率降低了 5%，即 3% 或更低。"
           },
           {
@@ -1479,17 +1738,20 @@
             "kind": "image",
             "assetId": "fig-6b7d12779fbf85ea",
             "src": "assets/figures/fig-6b7d12779fbf85ea.png",
+            "page": 270,
             "width": 762,
             "height": 514
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-047",
             "kind": "paragraph",
+            "page": 271,
             "text": "从 Minitab 的功效和样本量菜单中选择 1-比例计算。比较比例输入为 1——单次试验失败的概率。在本例中，为 1 – 0.03，因为公司希望将错误率降低到 3%。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-048",
             "kind": "paragraph",
+            "page": 271,
             "text": "假设的比例输入为 1 – 单次试验失败的概率，或 1 – 0.08，因为原始过程的失败率为 8%。"
           },
           {
@@ -1497,67 +1759,80 @@
             "kind": "image",
             "assetId": "fig-b4308d094a34bc0b",
             "src": "assets/figures/fig-b4308d094a34bc0b.png",
+            "page": 271,
             "width": 683,
             "height": 439
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-050",
             "kind": "paragraph",
+            "page": 271,
             "text": "在选项下，选择“大于”作为备择假设。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-051",
             "kind": "paragraph",
+            "page": 271,
             "text": "单击“确定”，然后单击“确定”，Minitab 将生成如下所示的信息。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-052",
             "kind": "paragraph",
+            "page": 271,
             "text": "某一比例测试的功效和样本量测试 p = 0.92（对比 > 0.92） α = 0.05 样本目标比较 p 大小功效 实际功效 0.97 140 0.8 0.802942 0.97 177 0.9 0.900362"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-053",
             "kind": "paragraph",
+            "page": 271,
             "text": "要运行有效的 1-比例测试，该公司需要收集 140 到 177 个数据样本。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-054",
             "kind": "heading",
+            "page": 271,
             "text": "2 样本 T 检验的样本量计算"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-055",
             "kind": "paragraph",
+            "page": 271,
             "text": "再次考虑上一章中的 2 样本 T 检验问题："
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-056",
             "kind": "paragraph",
+            "page": 272,
             "text": "尽管合伙人指出，在同一家律师事务所执业的两名律师的计费时间相差很大，但两位律师的案件量相似。一位合伙人推测 A 律师的法律人员处理某些任务的时间太长；因为公司会在特定时间对行政类任务进行计费，无论这些任务需要多长时间，如果法律人员在此类任务上花费的时间太长，他们就会将时间花在无法计费的工作上。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-057",
             "kind": "paragraph",
+            "page": 272,
             "text": "为了检验该理论，收集了有关法律人员执行任务的时间的数据。具体来说，团队会查看三项任务所花费的时间，法律人员可以为每项任务计费 15​​ 分钟：某些类型的简单管理电话、复印或归档任务。收集以下数据。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-058",
             "kind": "paragraph",
+            "page": 272,
             "text": "一刻钟任务花费的分钟数 律师 A 的团队 律师 B 的团队 10 8 8 7 15 10 16 12 17 18 5 6 8 9 16 12 12 11 11 11 8 9 9 8 15 14 17 15 22 16"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-059",
             "kind": "paragraph",
+            "page": 272,
             "text": "25 12 30 19 2 8 9 12 4 6 5 8 7 11 8 12 12 13 13 15 15 17 16 13 18 15 19 15 20 12 22 21 25 32 15 18 14 11"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-060",
             "kind": "paragraph",
+            "page": 272,
             "text": "为了解决这个问题，公司团队从每个团队收集了 34 个数据元素的样本。但这足以在 2 样本 T 检验中提供强有力的结论吗？"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-061",
             "kind": "paragraph",
+            "page": 272,
             "text": "首先，根据我们对相关数据的了解，我们来看看样本量的计算。数据的标准差是 5.83，我们想要测试律师 A 团队的均值是否大于律师 B 团队的均值。我们将在 Minitab 中设置 2 样本 T 检验，如下图所示。"
           },
           {
@@ -1565,6 +1840,7 @@
             "kind": "image",
             "assetId": "fig-4af2a851190983b6",
             "src": "assets/figures/fig-4af2a851190983b6.png",
+            "page": 272,
             "width": 661,
             "height": 509
           },
@@ -1573,32 +1849,38 @@
             "kind": "image",
             "assetId": "fig-162e3719ed55649b",
             "src": "assets/figures/fig-162e3719ed55649b.png",
+            "page": 272,
             "width": 689,
             "height": 434
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-064",
             "kind": "paragraph",
+            "page": 272,
             "text": "Minitab 生成以下信息："
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-065",
             "kind": "paragraph",
+            "page": 273,
             "text": "功效和样本量 2-样本 t 检验 检验均值 1 = 均值 2（与 >） 计算均值 1 的功效 = 均值 2 + 差值 α = 0.05 假设标准差 = 5.83 样本目标差值大小功效 实际功效 0.5 1682 0.8 0.800045 0.5 2330 0.9 0.900079 1.0 421 0.8 0.800038 1.0 583 0.9 0.900075 2.0 106 0.8 0.800820 2.0 147 0.9 0.901369 样本量针对每组。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-066",
             "kind": "paragraph",
+            "page": 273,
             "text": "您可以在上面看到，Minitab 计算的每组的最小样本量为 106，即差异为 2，目标功效为 0.8。虽然可以在上面提供的数据集上运行 2 样本 T 检验（事实上，我们在第 21 章中运行过该检验），但该检验出现 II 类错误的可能性相当高。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-067",
             "kind": "paragraph",
+            "page": 273,
             "text": "每组样本量为 34 时，运行 2 样本 T 检验时出错的可能性有多高？ Minitab 可以告诉我们这个答案。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-068",
             "kind": "paragraph",
+            "page": 273,
             "text": "不要在功效和样本量对话框中输入功效值，而是输入样本量 34，然后单击“确定”。"
           },
           {
@@ -1606,27 +1888,32 @@
             "kind": "image",
             "assetId": "fig-54b1caa31e2bf9db",
             "src": "assets/figures/fig-54b1caa31e2bf9db.png",
+            "page": 273,
             "width": 657,
             "height": 515
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-070",
             "kind": "paragraph",
+            "page": 273,
             "text": "功效和样本量 2-样本 t 检验 检验均值 1 = 均值 2（与 >） 计算均值 1 的功效 = 均值 2 + 差值 α = 0.05 假设标准差 = 5.83 样本差值大小 功效 0.5 34 0.097685 1.0 34 0.172364 2.0 34 0.403259"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-071",
             "kind": "paragraph",
+            "page": 273,
             "text": "给定此数据时，样本量为 34 的最高功效为 0.40，这意味着 beta 值为 0.60——假设检验中出现 II 类错误的可能性超过 50%。在这种特殊情况下，公司在做出任何决定之前，应该收集更大的数据样本。"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-072",
             "kind": "heading",
+            "page": 273,
             "text": "关于随机样本的提醒"
           },
           {
             "id": "ch22-s04-running-and-analyzing-sample-size-tests-in-minitab-zh-073",
             "kind": "paragraph",
+            "page": 273,
             "text": "在继续样本量计算之前，值得注意的是随机抽样的重要性。即使您执行计算以确定适当的样本量（并且您选择谨慎起见，以 Minitab 返回的最大计数大小进行采样），您也可能会得出错误的推论，因为样本不是随机的。"
           }
         ]
@@ -1638,7 +1925,7 @@
       "id": "fig-0c0c4884ad493a30",
       "type": "figure",
       "path": "assets/figures/fig-0c0c4884ad493a30.png",
-      "page": 266,
+      "page": 269,
       "width": 661,
       "height": 516
     },
@@ -1646,7 +1933,7 @@
       "id": "fig-162e3719ed55649b",
       "type": "figure",
       "path": "assets/figures/fig-162e3719ed55649b.png",
-      "page": 266,
+      "page": 272,
       "width": 689,
       "height": 434
     },
@@ -1662,7 +1949,7 @@
       "id": "fig-4af2a851190983b6",
       "type": "figure",
       "path": "assets/figures/fig-4af2a851190983b6.png",
-      "page": 266,
+      "page": 272,
       "width": 661,
       "height": 509
     },
@@ -1670,7 +1957,7 @@
       "id": "fig-54b1caa31e2bf9db",
       "type": "figure",
       "path": "assets/figures/fig-54b1caa31e2bf9db.png",
-      "page": 266,
+      "page": 273,
       "width": 657,
       "height": 515
     },
@@ -1678,7 +1965,7 @@
       "id": "fig-58a29a72f6068fa6",
       "type": "figure",
       "path": "assets/figures/fig-58a29a72f6068fa6.png",
-      "page": 266,
+      "page": 268,
       "width": 687,
       "height": 435
     },
@@ -1686,7 +1973,7 @@
       "id": "fig-6b7d12779fbf85ea",
       "type": "figure",
       "path": "assets/figures/fig-6b7d12779fbf85ea.png",
-      "page": 266,
+      "page": 270,
       "width": 762,
       "height": 514
     },
@@ -1702,7 +1989,7 @@
       "id": "fig-8a089fd79d6b4f33",
       "type": "table-image",
       "path": "assets/figures/fig-8a089fd79d6b4f33.png",
-      "page": 266,
+      "page": 269,
       "width": 1311,
       "height": 270
     },
@@ -1718,7 +2005,7 @@
       "id": "fig-b4308d094a34bc0b",
       "type": "figure",
       "path": "assets/figures/fig-b4308d094a34bc0b.png",
-      "page": 266,
+      "page": 271,
       "width": 683,
       "height": 439
     },
@@ -1726,7 +2013,7 @@
       "id": "fig-b50c6adc6c314523",
       "type": "figure",
       "path": "assets/figures/fig-b50c6adc6c314523.png",
-      "page": 266,
+      "page": 267,
       "width": 605,
       "height": 297
     },
@@ -1742,7 +2029,7 @@
       "id": "fig-db70d811b282f46d",
       "type": "figure",
       "path": "assets/figures/fig-db70d811b282f46d.png",
-      "page": 266,
+      "page": 268,
       "width": 663,
       "height": 514
     }

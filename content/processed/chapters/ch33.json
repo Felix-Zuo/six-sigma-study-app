@@ -26,61 +26,73 @@
           {
             "id": "ch33-s01-what-is-value-stream-mapping-en-001",
             "kind": "paragraph",
+            "page": 439,
             "text": "Value stream mapping is similar, but in some ways different, to process mapping. Value stream mapping is a tool perfected by lean manufacturing and works best in processes that are manufacturing, delivery, shipping, or factory oriented. However, value stream mapping can be useful in a variety of other industries if the Six Sigma expert understands the purpose of the exercise and how to translate the method into his or her process."
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-en-002",
             "kind": "paragraph",
+            "page": 439,
             "text": "What is Value Stream Mapping?"
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-en-003",
             "kind": "paragraph",
+            "page": 439,
             "text": "Value stream mapping is a pictorial representation, including the addition of numerical data, of the value stream of product or ideas. When used properly, value stream mapping provides Six Sigma teams with the big picture of a process, lets teams understand what the process looks like today, helps teams create a vision for improving a process, and links the flow of materials, people, and information in one image. A value stream map also helps break down communication barriers because the symbology used tends to be similar or at least intuitive; as such, it makes it easier for teams and support staff to understand where waste – or muda – is occurring in a process."
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-en-004",
             "kind": "heading",
+            "page": 439,
             "text": "Evaluating the Seven Flows"
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-en-005",
             "kind": "paragraph",
+            "page": 439,
             "text": "A value stream map is one of the few tools that truly captures all of the flow that occurs in a process. It’s possible to capture some information about all of the major seven flows on a value stream map, though most value stream maps concentrate most on raw material, parts, and products than on the other four types of flow. The seven types of flow are:"
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-en-006",
             "kind": "listItem",
+            "page": 439,
             "text": "People"
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-en-007",
             "kind": "listItem",
+            "page": 439,
             "text": "Raw material"
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-en-008",
             "kind": "listItem",
+            "page": 439,
             "text": "Parts"
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-en-009",
             "kind": "listItem",
+            "page": 439,
             "text": "Products"
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-en-010",
             "kind": "listItem",
+            "page": 439,
             "text": "Equipment"
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-en-011",
             "kind": "listItem",
+            "page": 439,
             "text": "Information"
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-en-012",
             "kind": "listItem",
+            "page": 439,
             "text": "Engineering"
           }
         ],
@@ -88,66 +100,79 @@
           {
             "id": "ch33-s01-what-is-value-stream-mapping-zh-001",
             "kind": "paragraph",
+            "page": 439,
             "text": "价值流图与流程图相似，但在某些方面有所不同。价值流图是一种通过精益制造完善的工具，在制造、交付、运输或工厂导向的流程中效果最佳。然而，如果六西格玛专家了解练习的目的以及如何将该方法转化为他或她的流程，那么价值流图可以在其他各种行业中发挥作用。"
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-zh-002",
             "kind": "paragraph",
+            "page": 439,
             "text": "什么是价值流图？"
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-zh-003",
             "kind": "paragraph",
+            "page": 439,
             "text": "价值流图是产品或创意价值流的图形表示，包括添加数字数据。如果使用得当，价值流图可以为六西格玛团队提供流程的全局图景，让团队了解当前的流程是什么样子，帮助团队制定改进流程的愿景，并将物料流、人员流和信息流链接到一个图像中。价值流图还有助于打破沟通障碍，因为所使用的符号系统往往是相似的或至少是直观的；因此，它使团队和支持人员更容易了解流程中何处出现浪费（或 Muda）。"
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-zh-004",
             "kind": "heading",
+            "page": 439,
             "text": "评估七种流程"
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-zh-005",
             "kind": "paragraph",
+            "page": 439,
             "text": "价值流图是真正捕获流程中发生的所有流程的少数工具之一。尽管大多数价值流图主要集中在原材料、零件和产品上，而不是其他四种类型的流，但可以在价值流图上捕获有关所有主要七种流的一些信息。七种流类型是："
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-zh-006",
             "kind": "listItem",
+            "page": 439,
             "text": "人"
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-zh-007",
             "kind": "listItem",
+            "page": 439,
             "text": "原料"
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-zh-008",
             "kind": "listItem",
+            "page": 439,
             "text": "零件"
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-zh-009",
             "kind": "listItem",
+            "page": 439,
             "text": "产品展示"
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-zh-010",
             "kind": "listItem",
+            "page": 439,
             "text": "设备"
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-zh-011",
             "kind": "listItem",
+            "page": 439,
             "text": "信息"
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-zh-012",
             "kind": "listItem",
+            "page": 439,
             "text": "工程"
           },
           {
             "id": "ch33-s01-what-is-value-stream-mapping-zh-013",
             "kind": "heading",
+            "page": 439,
             "text": "价值流图符号系统"
           }
         ]
@@ -166,6 +191,7 @@
           {
             "id": "ch33-s02-value-stream-map-symbology-en-001",
             "kind": "paragraph",
+            "page": 439,
             "text": "Value stream maps use different symbols than most process maps do, and the symbols tend to be more specific. For example, if the value stream involves the delivery of goods via truck, the map includes an actual picture of a truck – usually with a text indication of how many times the shipments occur in a given period."
           },
           {
@@ -173,17 +199,20 @@
             "kind": "image",
             "assetId": "fig-2def07031037a8c3",
             "src": "assets/figures/fig-2def07031037a8c3.png",
+            "page": 439,
             "width": 216,
             "height": 225
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-003",
             "kind": "paragraph",
+            "page": 439,
             "text": "The image above indicates one truck shipment per week. A number of other common value stream map symbols are included below. You can download common symbols for Excel from www.lean.org/ common/display/?o=866 to create value stream maps in Excel. You can also use a value stream map software to create a map."
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-004",
             "kind": "paragraph",
+            "page": 439,
             "text": "Note that value stream mapping doesn’t require the use of these exact symbols, especially if you are using the concept of value stream mapping in an industry where such symbols are less useful. You could use the value stream concept to map the workflow in an emergency room department, for example, where different symbols would make more sense. Consider these symbols as a starting point."
           },
           {
@@ -191,12 +220,14 @@
             "kind": "image",
             "assetId": "fig-5326581609a9408f",
             "src": "assets/figures/fig-5326581609a9408f.png",
+            "page": 439,
             "width": 235,
             "height": 286
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-006",
             "kind": "paragraph",
+            "page": 439,
             "text": "The manufacturing process box indicates a specific action in the production process. The name of the action goes in the top part of the box – in this case, “press.” In the bottom, you can put text notes or illustrations as desired. One common use of the bottom section of the process box is indicating how much time occurs during that particular step."
           },
           {
@@ -204,12 +235,14 @@
             "kind": "image",
             "assetId": "fig-688503e8871341ba",
             "src": "assets/figures/fig-688503e8871341ba.png",
+            "page": 439,
             "width": 243,
             "height": 276
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-008",
             "kind": "paragraph",
+            "page": 439,
             "text": "Outside sources are either suppliers or customers. Use this shape to indicate when inputs come from outside the organization or process or when outputs go to the end customer of the process."
           },
           {
@@ -217,52 +250,62 @@
             "kind": "image",
             "assetId": "fig-c537335a19521b54",
             "src": "assets/figures/fig-c537335a19521b54.png",
+            "page": 439,
             "width": 239,
             "height": 306
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-010",
             "kind": "paragraph",
+            "page": 439,
             "text": "Data boxes are important because they house the analytical meat of the value stream map. Common information recorded in data boxes include:"
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-011",
             "kind": "listItem",
+            "page": 440,
             "text": "Cycle Time, or C/T. Cycle time is the time it takes for the process as a whole – or a step within the process – to complete one iteration."
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-012",
             "kind": "listItem",
+            "page": 440,
             "text": "Changeover Time, C/T. Changeover time is the time it takes for a change in shift, tools, or other resources in the process or a single step within the process."
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-013",
             "kind": "listItem",
+            "page": 440,
             "text": "Number of operators"
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-014",
             "kind": "listItem",
+            "page": 440,
             "text": "Number of shifts"
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-015",
             "kind": "listItem",
+            "page": 440,
             "text": "Time worked in a shift"
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-016",
             "kind": "listItem",
+            "page": 440,
             "text": "First-pass yield quality"
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-017",
             "kind": "listItem",
+            "page": 440,
             "text": "Batch sizes"
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-018",
             "kind": "listItem",
+            "page": 440,
             "text": "Takt time, which is the rate at which products must be finished to meet the demand of the customer. Takt time for an individual step in the process might be seen as the time in which the step needs to be finished to keep from slowing down the process."
           },
           {
@@ -270,12 +313,14 @@
             "kind": "image",
             "assetId": "fig-34733ffccdf7bf50",
             "src": "assets/figures/fig-34733ffccdf7bf50.png",
+            "page": 440,
             "width": 237,
             "height": 231
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-020",
             "kind": "paragraph",
+            "page": 440,
             "text": "The inventory box indicates that inventory usually stacks up at a certain point in the process. It is usually coupled with text that says how much inventory is available in amount, time, or both. You might note that there are 100 pieces of inventory regularly at that point in the process. You might note that there are two-day’s worth of inventory at that point in the process; you could note both."
           },
           {
@@ -283,17 +328,20 @@
             "kind": "image",
             "assetId": "fig-b14b136c35251476",
             "src": "assets/figures/fig-b14b136c35251476.png",
+            "page": 441,
             "width": 278,
             "height": 151
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-022",
             "kind": "paragraph",
+            "page": 441,
             "text": "A push arrow indicates that something – either product or information – is pushed from one part of the process to another part of the process. The push arrow means the product or information is generated by that part of the process regardless of the need for it in the downstream parts of the process."
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-023",
             "kind": "paragraph",
+            "page": 441,
             "text": "The opposite of a push arrow would be a pull indicator, which means that downstream processes pull inventory, parts, or information as needed from upstream locations."
           },
           {
@@ -301,12 +349,14 @@
             "kind": "image",
             "assetId": "fig-e5fa8d755aaa0481",
             "src": "assets/figures/fig-e5fa8d755aaa0481.png",
+            "page": 441,
             "width": 267,
             "height": 188
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-025",
             "kind": "paragraph",
+            "page": 441,
             "text": "The finished goods arrow indicates that the output of the process is being pushed or delivered to the customer – whether that customer is internal, external, or another process."
           },
           {
@@ -314,12 +364,14 @@
             "kind": "image",
             "assetId": "fig-d356279bba8da826",
             "src": "assets/figures/fig-d356279bba8da826.png",
+            "page": 441,
             "width": 275,
             "height": 192
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-027",
             "kind": "paragraph",
+            "page": 441,
             "text": "The FIFO arrow indicates that this part of the process features a first-in, first-out sequence, which is important in some processes. Consider processes that deal with food ingredients; if a recipe in a manufacturing plant calls for milk, then the operators should pull the oldest (still good) milk from storage first to keep from wasting product that goes bad while in inventory."
           },
           {
@@ -327,12 +379,14 @@
             "kind": "image",
             "assetId": "fig-f602286d2c19ebfc",
             "src": "assets/figures/fig-f602286d2c19ebfc.png",
+            "page": 441,
             "width": 297,
             "height": 311
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-029",
             "kind": "paragraph",
+            "page": 441,
             "text": "The supermarket is an area in the process where small amounts of inventory are stored. Downstream processes can stock as needed from the supermarket instead of stocking from the larger inventory supply, which might be more difficult to access. An upstream process feeds the supermarket, ensuring enough inventory is stocked. An example of a supermarket might be seen in a large office. One team might have a drawer where supplies, such as paper, pens, paperclips, and staples, are kept. The team can pull from that drawer instead of requisitioning from the larger stock room or from the actual office supply store every time supplies are needed."
           },
           {
@@ -340,12 +394,14 @@
             "kind": "image",
             "assetId": "fig-6f26585c486abb7c",
             "src": "assets/figures/fig-6f26585c486abb7c.png",
+            "page": 441,
             "width": 224,
             "height": 215
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-031",
             "kind": "paragraph",
+            "page": 442,
             "text": "The physical pull symbol indicates that product or materials have to be physically pulled from the previous step, station, or supermarket to the next step."
           },
           {
@@ -353,12 +409,14 @@
             "kind": "image",
             "assetId": "fig-23858ed54ac1f89a",
             "src": "assets/figures/fig-23858ed54ac1f89a.png",
+            "page": 442,
             "width": 282,
             "height": 306
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-033",
             "kind": "paragraph",
+            "page": 442,
             "text": "The move-by-forklift symbol is self-explanatory, though not always necessary in every process. You might, however, have a symbol for other types of movement, such as move by hand cart or conveyor belt. The only time you need to include specifications about how items are moved is when those details might become important to the process analysis."
           },
           {
@@ -366,12 +424,14 @@
             "kind": "image",
             "assetId": "fig-cfc58badc39f860e",
             "src": "assets/figures/fig-cfc58badc39f860e.png",
+            "page": 442,
             "width": 280,
             "height": 288
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-035",
             "kind": "paragraph",
+            "page": 442,
             "text": "This is also a self-explanatory symbol and also not necessary in every process. You might, instead, have train, plane, or even bike shipments listed on your value stream map."
           },
           {
@@ -379,12 +439,14 @@
             "kind": "image",
             "assetId": "fig-c5fa9c5b15350e9d",
             "src": "assets/figures/fig-c5fa9c5b15350e9d.png",
+            "page": 442,
             "width": 378,
             "height": 161
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-037",
             "kind": "paragraph",
+            "page": 442,
             "text": "The type of information indicated by the straight manual flow arrow is typically communicated via memos, face-to-face speaking, phone calls, and reports. The manual information arrow might be accompanied by notes regarding the type of information and the frequency with which it is delivered."
           },
           {
@@ -392,12 +454,14 @@
             "kind": "image",
             "assetId": "fig-41ac1d74b25046b9",
             "src": "assets/figures/fig-41ac1d74b25046b9.png",
+            "page": 442,
             "width": 348,
             "height": 148
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-039",
             "kind": "paragraph",
+            "page": 442,
             "text": "The crooked electronic info flow arrow indicates information that is electronic in nature, such as information communication via Internet, portals, EDI, and automated reporting systems. The type of data and the frequency with which it is delivered can also be included with this symbol."
           },
           {
@@ -405,12 +469,14 @@
             "kind": "image",
             "assetId": "fig-7a663ef682374ea2",
             "src": "assets/figures/fig-7a663ef682374ea2.png",
+            "page": 442,
             "width": 351,
             "height": 252
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-041",
             "kind": "paragraph",
+            "page": 443,
             "text": "The withdrawal Kanban shape indicates that there is a Kanban card or signal at that process step. The Kanban card instructs the operator at that particular step to withdraw inventory from a supermarket or other stock location."
           },
           {
@@ -418,12 +484,14 @@
             "kind": "image",
             "assetId": "fig-9ad3dca1a9485ddd",
             "src": "assets/figures/fig-9ad3dca1a9485ddd.png",
+            "page": 443,
             "width": 350,
             "height": 233
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-043",
             "kind": "paragraph",
+            "page": 443,
             "text": "The production Kanban shape indicates that a production Kanban card or signal is located at that part of the process. This card tells the operator to produce a certain number of parts to feed a process that is downstream."
           },
           {
@@ -431,12 +499,14 @@
             "kind": "image",
             "assetId": "fig-459659267385a395",
             "src": "assets/figures/fig-459659267385a395.png",
+            "page": 443,
             "width": 216,
             "height": 323
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-045",
             "kind": "paragraph",
+            "page": 443,
             "text": "The safety stock icon indicates that a “just-in-case” storage of inventory exists at this point in the process. Safety stock is not like a supermarket – it is not intended to be a permanent storage of inventory. Instead, it is a temporary storage of inventory that reduces the chance that downtime or other issues upstream will keep all the downstream processes from occurring. For example, in a fast food restaurant, someone stocks the cup and drink dispenser each morning. These stocks are not meant to be the permanent storage for those items, but a smaller number of items are kept at hand so employees can quickly supply drinks to consumers."
           },
           {
@@ -444,12 +514,14 @@
             "kind": "image",
             "assetId": "fig-11277b784c664083",
             "src": "assets/figures/fig-11277b784c664083.png",
+            "page": 443,
             "width": 209,
             "height": 169
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-047",
             "kind": "paragraph",
+            "page": 443,
             "text": "The operator shape indicates a human operator or employee within the process. You don’t have to include the operator shape in every diagram where people are – in some cases, the nature of the value stream map allows readers to assume people are part of the process. However, if automated processes are included amid people-powered processes, this symbol can be used for clarity where needed."
           },
           {
@@ -457,12 +529,14 @@
             "kind": "image",
             "assetId": "fig-087853416c8a31b9",
             "src": "assets/figures/fig-087853416c8a31b9.png",
+            "page": 443,
             "width": 381,
             "height": 256
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-en-049",
             "kind": "paragraph",
+            "page": 443,
             "text": "The schedule box is simply a text box that lets you note how work, orders, or other parts of the process are scheduled. You can couple the box along with arrows to show that orders are sent weekly, for example, or that a production schedule for staff is created each month."
           }
         ],
@@ -470,11 +544,13 @@
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-001",
             "kind": "paragraph",
+            "page": 439,
             "text": "价值流图使用与大多数流程图不同的符号，并且符号往往更具体。例如，如果价值流涉及通过卡车运送货物，则地图包含卡车的实际图片 - 通常带有文本指示在给定时期内发生了多少次运输。"
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-002",
             "kind": "termNote",
+            "page": 439,
             "rows": [
               [
                 "术语说明 Process Map（流程图）：把流程步骤、流向和责任可视化，帮助识别断点和浪费。"
@@ -487,17 +563,20 @@
             "kind": "image",
             "assetId": "fig-2def07031037a8c3",
             "src": "assets/figures/fig-2def07031037a8c3.png",
+            "page": 439,
             "width": 216,
             "height": 225
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-004",
             "kind": "paragraph",
+            "page": 439,
             "text": "上图显示每周一卡车发货。下面包括许多其他常见的价值流图符号。您可以从 www.lean.org/common/display/?o=866 下载 Excel 的常用符号，以在 Excel 中创建价值流图。 您还可以使用价值流图软件来创建地图。"
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-005",
             "kind": "paragraph",
+            "page": 439,
             "text": "请注意，价值流映射不需要使用这些精确的符号，特别是当您在此类符号不太有用的行业中使用价值流映射的概念时。例如，您可以使用价值流概念来绘制急诊室部门的工作流程，其中不同的符号更有意义。将这些符号视为起点。"
           },
           {
@@ -505,12 +584,14 @@
             "kind": "image",
             "assetId": "fig-5326581609a9408f",
             "src": "assets/figures/fig-5326581609a9408f.png",
+            "page": 439,
             "width": 235,
             "height": 286
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-007",
             "kind": "paragraph",
+            "page": 439,
             "text": "制造过程框表示生产过程中的具体动作。操作的名称位于框的顶部 - 在本例中为“按”。在底部，您可以根据需要放置文字注释或插图。流程框底部的一个常见用途是指示在该特定步骤中发生了多少时间。"
           },
           {
@@ -518,12 +599,14 @@
             "kind": "image",
             "assetId": "fig-688503e8871341ba",
             "src": "assets/figures/fig-688503e8871341ba.png",
+            "page": 439,
             "width": 243,
             "height": 276
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-009",
             "kind": "paragraph",
+            "page": 439,
             "text": "外部来源是供应商或客户。使用此形状来指示输入何时来自组织或流程外部，或者输出何时到达流程的最终客户。"
           },
           {
@@ -531,52 +614,62 @@
             "kind": "image",
             "assetId": "fig-c537335a19521b54",
             "src": "assets/figures/fig-c537335a19521b54.png",
+            "page": 439,
             "width": 239,
             "height": 306
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-011",
             "kind": "paragraph",
+            "page": 439,
             "text": "数据框很重要，因为它们包含价值流图的分析内容。数据框中记录的常见信息包括："
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-012",
             "kind": "listItem",
+            "page": 440,
             "text": "周期时间，或 C/T。周期时间是整个流程（或流程中的一个步骤）完成一次迭代所需的时间。"
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-013",
             "kind": "listItem",
+            "page": 440,
             "text": "转换时间，C/T。转换时间是指流程中班次、工具或其他资源或流程中单个步骤发生变化所需的时间。"
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-014",
             "kind": "listItem",
+            "page": 440,
             "text": "操作人员数量"
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-015",
             "kind": "listItem",
+            "page": 440,
             "text": "班次数量"
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-016",
             "kind": "listItem",
+            "page": 440,
             "text": "时间轮班工作"
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-017",
             "kind": "listItem",
+            "page": 440,
             "text": "一次合格率质量"
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-018",
             "kind": "listItem",
+            "page": 440,
             "text": "批量大小"
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-019",
             "kind": "listItem",
+            "page": 440,
             "text": "节拍时间，即为满足客户需求而必须完成产品的速度。流程中单个步骤的节拍时间可能被视为需要完成该步骤以避免减慢流程的时间。"
           },
           {
@@ -584,12 +677,14 @@
             "kind": "image",
             "assetId": "fig-34733ffccdf7bf50",
             "src": "assets/figures/fig-34733ffccdf7bf50.png",
+            "page": 440,
             "width": 237,
             "height": 231
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-021",
             "kind": "paragraph",
+            "page": 440,
             "text": "库存框表示库存通常会在流程中的某个时刻堆积起来。它通常与说明可用库存数量、时间或两者兼而有之的文本结合在一起。您可能会注意到，流程中此时经常有 100 件库存。您可能会注意到，在此过程中，此时有两天的库存量；你可以同时注意两者。"
           },
           {
@@ -597,17 +692,20 @@
             "kind": "image",
             "assetId": "fig-b14b136c35251476",
             "src": "assets/figures/fig-b14b136c35251476.png",
+            "page": 441,
             "width": 278,
             "height": 151
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-023",
             "kind": "paragraph",
+            "page": 441,
             "text": "推箭头表示某些东西（产品或信息）从流程的一个部分推到流程的另一部分。推箭头表示产品或信息由流程的该部分生成，而不管流程的下游部分是否需要它。"
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-024",
             "kind": "paragraph",
+            "page": 441,
             "text": "与推箭头相反的是拉指示器，这意味着下游流程根据需要从上游位置拉库存、零件或信息。"
           },
           {
@@ -615,12 +713,14 @@
             "kind": "image",
             "assetId": "fig-e5fa8d755aaa0481",
             "src": "assets/figures/fig-e5fa8d755aaa0481.png",
+            "page": 441,
             "width": 267,
             "height": 188
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-026",
             "kind": "paragraph",
+            "page": 441,
             "text": "成品箭头表示流程的输出正在推送或交付给客户 - 无论该客户是内部、外部还是其他流程。"
           },
           {
@@ -628,12 +728,14 @@
             "kind": "image",
             "assetId": "fig-d356279bba8da826",
             "src": "assets/figures/fig-d356279bba8da826.png",
+            "page": 441,
             "width": 275,
             "height": 192
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-028",
             "kind": "paragraph",
+            "page": 441,
             "text": "FIFO 箭头表示这部分流程具有先进先出的顺序，这在某些流程中很重要。考虑处理食品成分的流程；如果制造工厂的配方需要牛奶，那么操作员应该首先从存储中取出最旧的（仍然是好的）牛奶，以防止浪费在库存期间变质的产品。"
           },
           {
@@ -641,12 +743,14 @@
             "kind": "image",
             "assetId": "fig-f602286d2c19ebfc",
             "src": "assets/figures/fig-f602286d2c19ebfc.png",
+            "page": 441,
             "width": 297,
             "height": 311
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-030",
             "kind": "paragraph",
+            "page": 441,
             "text": "超市是流程中存放少量库存的区域。下游流程可以根据需要从超市进行库存，而不是从较大的库存供应中进行库存，因为后者可能更难以获取。上游流程为超市提供原料，确保有足够的库存。超市的例子可以在大型办公室中看到。一个团队可能有一个抽屉，用来存放纸张、笔、回形针和订书钉等用品。每次需要用品时，团队可以从抽屉中取出，而不是从更大的储藏室或实际的办公用品商店申请。"
           },
           {
@@ -654,12 +758,14 @@
             "kind": "image",
             "assetId": "fig-6f26585c486abb7c",
             "src": "assets/figures/fig-6f26585c486abb7c.png",
+            "page": 441,
             "width": 224,
             "height": 215
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-032",
             "kind": "paragraph",
+            "page": 442,
             "text": "物理拉动符号表示产品或材料必须从上一个步骤、站点或超市物理拉动到下一步。"
           },
           {
@@ -667,12 +773,14 @@
             "kind": "image",
             "assetId": "fig-23858ed54ac1f89a",
             "src": "assets/figures/fig-23858ed54ac1f89a.png",
+            "page": 442,
             "width": 282,
             "height": 306
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-034",
             "kind": "paragraph",
+            "page": 442,
             "text": "叉车移动符号是不言自明的，但在每个过程中并不总是必需的。但是，您可能有其他类型移动的符号，例如用手推车或传送带移动。您唯一需要包含有关如何移动项目的规范的时候是这些细节可能对流程分析变得很重要的时候。"
           },
           {
@@ -680,12 +788,14 @@
             "kind": "image",
             "assetId": "fig-cfc58badc39f860e",
             "src": "assets/figures/fig-cfc58badc39f860e.png",
+            "page": 442,
             "width": 280,
             "height": 288
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-036",
             "kind": "paragraph",
+            "page": 442,
             "text": "这也是一个不言自明的符号，也不是每个过程中都必需的。相反，您的价值流地图上可能会列出火车、飞机甚至自行车运输。"
           },
           {
@@ -693,12 +803,14 @@
             "kind": "image",
             "assetId": "fig-c5fa9c5b15350e9d",
             "src": "assets/figures/fig-c5fa9c5b15350e9d.png",
+            "page": 442,
             "width": 378,
             "height": 161
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-038",
             "kind": "paragraph",
+            "page": 442,
             "text": "直接手动流程箭头指示的信息类型通常通过备忘录、面对面讲话、电话和报告进行传达。手动信息箭头可能附有有关信息类型及其传递频率的注释。"
           },
           {
@@ -706,12 +818,14 @@
             "kind": "image",
             "assetId": "fig-41ac1d74b25046b9",
             "src": "assets/figures/fig-41ac1d74b25046b9.png",
+            "page": 442,
             "width": 348,
             "height": 148
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-040",
             "kind": "paragraph",
+            "page": 442,
             "text": "弯曲的电子信息流箭头表示本质上是电子的信息，例如通过互联网、门户、EDI和自动报告系统进行的信息通信。该符号还可以包含数据类型及其传送频率。"
           },
           {
@@ -719,17 +833,20 @@
             "kind": "image",
             "assetId": "fig-7a663ef682374ea2",
             "src": "assets/figures/fig-7a663ef682374ea2.png",
+            "page": 442,
             "width": 351,
             "height": 252
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-042",
             "kind": "paragraph",
+            "page": 443,
             "text": "提款看板形状表明该流程步骤有看板卡或信号。看板卡指示操作员在该特定步骤从超市或其他库存地点提取库存。"
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-043",
             "kind": "termNote",
+            "page": 443,
             "rows": [
               [
                 "术语说明 Kanban（看板）：用可视化信号控制工作流、库存或任务状态。"
@@ -742,12 +859,14 @@
             "kind": "image",
             "assetId": "fig-9ad3dca1a9485ddd",
             "src": "assets/figures/fig-9ad3dca1a9485ddd.png",
+            "page": 443,
             "width": 350,
             "height": 233
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-045",
             "kind": "paragraph",
+            "page": 443,
             "text": "生产看板形状表明生产看板卡或信号位于流程的该部分。该卡告诉操作员生产一定数量的零件来供给下游流程。"
           },
           {
@@ -755,12 +874,14 @@
             "kind": "image",
             "assetId": "fig-459659267385a395",
             "src": "assets/figures/fig-459659267385a395.png",
+            "page": 443,
             "width": 216,
             "height": 323
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-047",
             "kind": "paragraph",
+            "page": 443,
             "text": "安全库存图标表示流程中此时存在“以防万一”的库存存储。安全库存不像超市——它的目的不是永久储存库存。相反，它是库存的临时存储，可以减少上游停机或其他问题导致所有下游流程发生的可能性。例如，在一家快餐店，有人每天早上都会储备杯子和饮水机。这些库存并不是为了永久存储这些物品，而是保留少量物品，以便员工可以快速向消费者提供饮料。"
           },
           {
@@ -768,12 +889,14 @@
             "kind": "image",
             "assetId": "fig-11277b784c664083",
             "src": "assets/figures/fig-11277b784c664083.png",
+            "page": 443,
             "width": 209,
             "height": 169
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-049",
             "kind": "paragraph",
+            "page": 443,
             "text": "操作员形状表示流程中的操作员或员工。您不必在每个人员所在的图表中都包含运算符形状 - 在某些情况下，价值流图的性质允许读者假设人员是流程的一部分。但是，如果自动化流程包含在人员驱动的流程中，则可以在需要时使用此符号以保持清晰。"
           },
           {
@@ -781,12 +904,14 @@
             "kind": "image",
             "assetId": "fig-087853416c8a31b9",
             "src": "assets/figures/fig-087853416c8a31b9.png",
+            "page": 443,
             "width": 381,
             "height": 256
           },
           {
             "id": "ch33-s02-value-stream-map-symbology-zh-051",
             "kind": "paragraph",
+            "page": 443,
             "text": "计划框只是一个文本框，可让您记录如何计划工作、订单或流程的其他部分。例如，您可以将该框与箭头结合起来，以显示每周发送订单，或者每月为员工创建一个生产计划。"
           }
         ]
@@ -805,26 +930,31 @@
           {
             "id": "ch33-s03-value-stream-mapping-tips-en-001",
             "kind": "paragraph",
+            "page": 444,
             "text": "Creating a value stream map is very different from creating a process map. One point of value stream mapping is that it forces you to really experience the process, which means that committee-creation of value stream maps isn’t going to provide the best outcome. The entire team can get involved in value stream mapping, if you as the Six Sigma expert think that is valuable, but the best results often come when everyone starts with their own individual value stream map. This is also a good process for the Six Sigma experts in a team, because it forces each one to view the process individually."
           },
           {
             "id": "ch33-s03-value-stream-mapping-tips-en-002",
             "kind": "paragraph",
+            "page": 444,
             "text": "While you can use the icons above and numerous software programs to create a final copy of your value stream map, use paper and pencil for your first drafts. This lets you record information as you walk through the process, changing it quickly as you go."
           },
           {
             "id": "ch33-s03-value-stream-mapping-tips-en-003",
             "kind": "paragraph",
+            "page": 444,
             "text": "When creating process maps, you often concentrate on the process, the employees, and the requirements. When creating value stream maps, you should always concentrate most on the customer and the product."
           },
           {
             "id": "ch33-s03-value-stream-mapping-tips-en-004",
             "kind": "paragraph",
+            "page": 444,
             "text": "Physically walk the process whenever possible instead of sitting at a computer or working with a brainstorming session. Some experts recommend walking the process backwards; others say start at the beginning – find a method that works best for you. Don’t try to map every single part of the process, especially if you are mapping a large-scale production process. Instead, follow the major raw materials through to the outputs. If you put all the processes on a single map, it becomes too hard to read and you lose the value of the tool."
           },
           {
             "id": "ch33-s03-value-stream-mapping-tips-en-005",
             "kind": "paragraph",
+            "page": 444,
             "text": "While you might eventually create a value stream map of a desired future state, start by mapping the way things are. Even if you see they aren’t working, record the actual process. Use real-time data for the value stream map whenever possible. For example, don’t use historical production and changeover times; when you walk the process, use a stopwatch to record your own observations."
           }
         ],
@@ -832,26 +962,31 @@
           {
             "id": "ch33-s03-value-stream-mapping-tips-zh-001",
             "kind": "paragraph",
+            "page": 444,
             "text": "创建价值流图与创建流程图有很大不同。价值流图的一点是它迫使你真正体验这个过程，这意味着委员会创建的价值流图不会提供最好的结果。整个团队都可以参与价值流图绘制，如果你作为六西格玛专家认为这是有价值的，但最好的结果往往是当每个人都从自己的个人价值流图开始时。对于团队中的六西格玛专家来说，这也是一个很好的流程，因为它迫使每个人都单独查看流程。"
           },
           {
             "id": "ch33-s03-value-stream-mapping-tips-zh-002",
             "kind": "paragraph",
+            "page": 444,
             "text": "虽然您可以使用上面的图标和许多软件程序来创建价值流图的最终副本，但请使用纸和铅笔来绘制初稿。这使您可以在整个过程中记录信息，并在过程中快速更改它。"
           },
           {
             "id": "ch33-s03-value-stream-mapping-tips-zh-003",
             "kind": "paragraph",
+            "page": 444,
             "text": "创建流程图时，您通常会关注流程、员工和需求。创建价值流图时，您应该始终最关注客户和产品。"
           },
           {
             "id": "ch33-s03-value-stream-mapping-tips-zh-004",
             "kind": "paragraph",
+            "page": 444,
             "text": "尽可能亲自走动这个过程，而不是坐在电脑前或进行头脑风暴。一些专家建议倒着走这个过程；其他人说从头开始——找到最适合你的方法。不要尝试绘制流程的每个部分，尤其是在绘制大规模生产流程时。相反，要跟踪主要原材料直至产出。如果将所有流程放在一张地图上，就会变得难以阅读，并且会失去该工具的价值。"
           },
           {
             "id": "ch33-s03-value-stream-mapping-tips-zh-005",
             "kind": "paragraph",
+            "page": 444,
             "text": "虽然您最终可能会创建所需未来状态的价值流图，但首先要绘制事物的现状。即使您发现它们不起作用，也要记录实际过程。尽可能使用实时数据来绘制价值流图。例如，不要使用历史生产和转换时间；当你走这个过程时，用秒表记录你自己的观察结果。"
           }
         ]
@@ -870,81 +1005,97 @@
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-001",
             "kind": "paragraph",
+            "page": 444,
             "text": "Begin value stream mapping by selecting the product family or process you are concerned with. In a manufacturing environment, you might select product type C and only concern yourself with that product. For example, a toy factory might make dolls, doll houses, and toy cars, but the Six Sigma team"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-002",
             "kind": "paragraph",
+            "page": 444,
             "text": "might only be concerned with doll houses. In fact, the Six Sigma team might only be concerned with the doors that are made for the doll houses – you decide what scope of value stream map makes sense for your project."
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-003",
             "kind": "paragraph",
+            "page": 444,
             "text": "Next, collect as much relevant data on the current state of the process as possible. Do this by walking the process and taking notes, reviewing actual data, and speaking with subject matter experts."
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-004",
             "kind": "heading",
+            "page": 444,
             "text": "Create a Value Stream Map Drawing"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-005",
             "kind": "paragraph",
+            "page": 444,
             "text": "To create an example of a value stream map while going through the following steps, we’ll consider a simple real-world example. In our example, a factory makes crayons. The Six Sigma team is concerned with the process that makes the 8-pack of primary colored crayons."
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-006",
             "kind": "paragraph",
+            "page": 444,
             "text": "The value stream map will need to include information such as:"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-007",
             "kind": "listItem",
+            "page": 444,
             "text": "The suppliers of raw goods (wax, dye, and paper)"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-008",
             "kind": "listItem",
+            "page": 444,
             "text": "Wax melting"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-009",
             "kind": "listItem",
+            "page": 444,
             "text": "Dye addition"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-010",
             "kind": "listItem",
+            "page": 444,
             "text": "Pouring into molds to create crayon shapes"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-011",
             "kind": "listItem",
+            "page": 445,
             "text": "Inspection points"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-012",
             "kind": "listItem",
+            "page": 445,
             "text": "Wrapping crayons with appropriate paper"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-013",
             "kind": "listItem",
+            "page": 445,
             "text": "Packing crayons into boxes of eight"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-014",
             "kind": "listItem",
+            "page": 445,
             "text": "Shipping to final customer -- in this case, retail stores"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-015",
             "kind": "paragraph",
+            "page": 445,
             "text": "1. Begin with the major process steps in the value stream. These are indicated by process boxes and are joined in a left-to-right line by the appropriate arrows – often by push arrows. For our example process, let’s assume a few basic process steps:"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-016",
             "kind": "paragraph",
+            "page": 445,
             "text": "a. The wax is melted and dye is added b. Wax is poured into molds c. Molds are emptied d. Inspection occurs e. Shaped crayons are wrapped with matching colored paper f. Crayons are packed in boxes g. Shipping"
           },
           {
@@ -952,27 +1103,32 @@
             "kind": "image",
             "assetId": "fig-1bf387b14d2ddd11",
             "src": "assets/figures/fig-1bf387b14d2ddd11.png",
+            "page": 445,
             "width": 1191,
             "height": 301
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-018",
             "kind": "paragraph",
+            "page": 445,
             "text": "Above, you can see a rough sketch of the process part of the value stream map. Kanban cards or signals tell employees when to pull wax and dye from the supermarket inventory. (The signal might be a light that the previous batch has been processed and the machines have returned to process start"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-019",
             "kind": "paragraph",
+            "page": 445,
             "text": "parameters). The employees add the ingredients and start the first piece of the process, which is automated after the initial ingredient measurements. The wax is melted, the dye is mixed in, the colored wax is poured into molds, and the mold sets for 10 minutes before crayons are emptied to the inspection station."
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-020",
             "kind": "paragraph",
+            "page": 446,
             "text": "You’ll note that the arrows connecting the first processes are different, because we want to show that they are automated and the process simply runs together unless someone intervenes in that batch. The rest of the processes have push arrows, because inspection, paper addition, and packing don’t operate on a batch process and work as long as inventory is flowing through."
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-021",
             "kind": "paragraph",
+            "page": 446,
             "text": "2. Add the important aspects from outside of the process, including process controls, supplies, customers, and shipments."
           },
           {
@@ -980,12 +1136,14 @@
             "kind": "image",
             "assetId": "fig-cedee8a9c47faeca",
             "src": "assets/figures/fig-cedee8a9c47faeca.png",
+            "page": 446,
             "width": 1191,
             "height": 540
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-023",
             "kind": "paragraph",
+            "page": 446,
             "text": "3. Add data boxes for each part of the process."
           },
           {
@@ -993,12 +1151,14 @@
             "kind": "image",
             "assetId": "fig-42ecab2ab755961f",
             "src": "assets/figures/fig-42ecab2ab755961f.png",
+            "page": 446,
             "width": 1000,
             "height": 809
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-025",
             "kind": "paragraph",
+            "page": 446,
             "text": "4. Add inventory signals and any other information you think would be pertinent for the value stream map. For example, in reviewing the crayon process used in the example, the Six Sigma expert might note that inventory builds up before the packing process because it is slower than the inspection and paper-wrapping process. That could be indicated with an inventory signal and text."
           },
           {
@@ -1006,12 +1166,14 @@
             "kind": "image",
             "assetId": "fig-625161e8f584d61b",
             "src": "assets/figures/fig-625161e8f584d61b.png",
+            "page": 446,
             "width": 666,
             "height": 531
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-027",
             "kind": "paragraph",
+            "page": 446,
             "text": "You can also add controls for the process. In this case, the retailer places orders one month ahead for how many boxes it will need each week in the next month. The crayon-making company creates a monthly forecast, but orders once a week from suppliers. Suppliers deliver in multiple batches a week. Production control manages every part of the process with scheduling to keep up with the demands of the retailers."
           },
           {
@@ -1019,12 +1181,14 @@
             "kind": "image",
             "assetId": "fig-414f00dddd311cbf",
             "src": "assets/figures/fig-414f00dddd311cbf.png",
+            "page": 446,
             "width": 1191,
             "height": 526
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-029",
             "kind": "paragraph",
+            "page": 446,
             "text": "Finally, add a timeline at the bottom that notes the time it takes for a single item to process through the enter process, breaking the time into value added and non-value added."
           },
           {
@@ -1032,47 +1196,56 @@
             "kind": "image",
             "assetId": "fig-7079da63d8a8479e",
             "src": "assets/figures/fig-7079da63d8a8479e.png",
+            "page": 447,
             "width": 1191,
             "height": 386
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-031",
             "kind": "paragraph",
+            "page": 447,
             "text": "In the above example, the yellow portions are value added. They represent time that the product is actually being made or changed. The white portions are the setup, lead times, and inventory wait times – and this particular process is for a single color of crayons and doesn’t take into account any time spent preparing machines for changing colors."
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-032",
             "kind": "paragraph",
+            "page": 447,
             "text": "You can add up the times to see that the total process time is 194 minutes or 3.23 hours."
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-033",
             "kind": "paragraph",
+            "page": 447,
             "text": "The value added time is 19 minutes, so the team can assume there is definitely waste that can be removed from this process."
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-034",
             "kind": "paragraph",
+            "page": 447,
             "text": "Remember, value stream maps aren’t supposed to be formal documents – they are working pictures of the process to help you and the rest of a Six Sigma team better understand the process and related challenges. So, you can add as much or as little information as you think is necessary. You can also come back and add information later if needed. The first draft of a value stream map, whether using pen and paper or a computer program, is probably going to be messy, and that’s okay. In fact, that’s a sign that you are doing it right. You can always make a clean, final copy for inclusion in presentations and training documents if desired."
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-035",
             "kind": "paragraph",
+            "page": 447,
             "text": "What Do You Do with Value Stream Maps?"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-036",
             "kind": "paragraph",
+            "page": 447,
             "text": "Value stream mapping is a helpful tool for all of the DMAIC phases. During Define, value stream mapping as an activity forces you to become involved with the process at a physical and daily level, which can boost your understanding of the process you are working to improve. It also provides the entire team with another visual that helps when discussing the process and the problem. A good value stream map lets the team visualize exactly where the process and problem might occur with respect to overall production."
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-037",
             "kind": "paragraph",
+            "page": 447,
             "text": "Creating a value stream map means you’ve already conducted some measurement, creating a foundation for the Measure phase. The value stream map also points to measurement and data collection points that can be further used in Measure, though teams should never limit themselves to just the first types of information gathered in value stream mapping."
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-en-038",
             "kind": "paragraph",
+            "page": 447,
             "text": "During Analyze, value stream maps are a tool that helps teams brainstorm and identify root causes or problem points in a process, and you can use the initial value stream map to identify activity or resources that don’t provide value – those that create muda in the process. Finally, during Improve, teams can begin creating a future state value stream map, building off the old map and using the information and solutions they have come up with through the DMAIC process. By putting those solutions on paper in the form of a value stream map, teams can better understand where issues might arise and alter solutions appropriately to reduce the number of issues experienced during implementation and beyond."
           }
         ],
@@ -1080,16 +1253,19 @@
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-001",
             "kind": "paragraph",
+            "page": 444,
             "text": "通过选择您关心的产品系列或流程来开始价值流图绘制。在制造环境中，您可以选择产品类型 C 并且只关心该产品。例如，玩具厂可能生产娃娃、娃娃屋、玩具车，但六西格玛团队"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-002",
             "kind": "paragraph",
+            "page": 444,
             "text": "可能只关心玩具屋。 事实上，六西格玛团队可能只关心为娃娃屋制作的门——您可以决定价值流图的哪个范围对您的项目有意义。"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-003",
             "kind": "termNote",
+            "page": 444,
             "rows": [
               [
                 "术语说明 Scope（项目范围）：说明改进项目包括什么、不包括什么，避免目标扩张。"
@@ -1100,71 +1276,85 @@
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-004",
             "kind": "paragraph",
+            "page": 444,
             "text": "接下来，收集尽可能多的有关流程当前状态的相关数据。通过走遍整个过程并做笔记、审查实际数据以及与主题专家交谈来做到这一点。"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-005",
             "kind": "heading",
+            "page": 444,
             "text": "创建价值流图"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-006",
             "kind": "paragraph",
+            "page": 444,
             "text": "为了在执行以下步骤时创建价值流图示例，我们将考虑一个简单的现实示例。在我们的示例中，一家工厂生产蜡笔。六西格玛团队负责8支装原色蜡笔的制作过程。"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-007",
             "kind": "paragraph",
+            "page": 444,
             "text": "价值流图需要包括以下信息："
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-008",
             "kind": "listItem",
+            "page": 444,
             "text": "原材料供应商（蜡、染料和纸张）"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-009",
             "kind": "listItem",
+            "page": 444,
             "text": "蜡熔"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-010",
             "kind": "listItem",
+            "page": 444,
             "text": "染料添加"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-011",
             "kind": "listItem",
+            "page": 444,
             "text": "倒入模具中以形成蜡笔形状"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-012",
             "kind": "listItem",
+            "page": 445,
             "text": "检查点"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-013",
             "kind": "listItem",
+            "page": 445,
             "text": "用合适的纸包裹蜡笔"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-014",
             "kind": "listItem",
+            "page": 445,
             "text": "将蜡笔装入八盒中"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-015",
             "kind": "listItem",
+            "page": 445,
             "text": "运送给最终客户——在本例中为零售店"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-016",
             "kind": "paragraph",
+            "page": 445,
             "text": "1. 从价值流中的主要流程步骤开始。这些由流程框指示，并通过适当的箭头（通常是推动箭头）连接在从左到右的线上。对于我们的示例流程，我们假设几个基本流程步骤："
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-017",
             "kind": "paragraph",
+            "page": 445,
             "text": "a.蜡熔化并添加染料 b．将蜡倒入模具中 C.模具被清空 d．检查发生 e. f. 形状蜡笔用相配的彩色纸包裹。蜡笔装在盒子 g 中。运输"
           },
           {
@@ -1172,27 +1362,32 @@
             "kind": "image",
             "assetId": "fig-1bf387b14d2ddd11",
             "src": "assets/figures/fig-1bf387b14d2ddd11.png",
+            "page": 445,
             "width": 1191,
             "height": 301
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-019",
             "kind": "paragraph",
+            "page": 445,
             "text": "在上面，您可以看到价值流图的流程部分的粗略草图。看板卡或信号告诉员工何时从超市库存中取出蜡和染料。 （该信号可能是一个指示灯，表明前一批已处理完毕，并且机器已返回到处理开始状态"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-020",
             "kind": "paragraph",
+            "page": 445,
             "text": "参数）。员工添加成分并开始流程的第一部分，该流程在初始成分测量后自动完成。蜡熔化，混合染料，将彩色蜡倒入模具中，模具固定 10 分钟，然后将蜡笔清空到检查站。"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-021",
             "kind": "paragraph",
+            "page": 445,
             "text": "您会注意到，连接第一个流程的箭头是不同的，因为我们想表明它们是自动化的，并且流程只是一起运行，除非有人干预该批次。其余流程都有推动箭头，因为检查、纸张添加和包装不会在批处理流程中运行，并且只要库存在流动就可以工作。"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-022",
             "kind": "paragraph",
+            "page": 446,
             "text": "2. 添加流程外部的重要方面，包括流程控制、供应、客户和发货。"
           },
           {
@@ -1200,12 +1395,14 @@
             "kind": "image",
             "assetId": "fig-cedee8a9c47faeca",
             "src": "assets/figures/fig-cedee8a9c47faeca.png",
+            "page": 446,
             "width": 1191,
             "height": 540
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-024",
             "kind": "paragraph",
+            "page": 446,
             "text": "3. 为流程的每个部分添加数据框。"
           },
           {
@@ -1213,12 +1410,14 @@
             "kind": "image",
             "assetId": "fig-42ecab2ab755961f",
             "src": "assets/figures/fig-42ecab2ab755961f.png",
+            "page": 446,
             "width": 1000,
             "height": 809
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-026",
             "kind": "paragraph",
+            "page": 446,
             "text": "4. 添加库存信号以及您认为与价值流图相关的任何其他信息。例如，在审查示例中使用的蜡笔流程时，六西格玛专家可能会注意到库存在包装流程之前就已积累，因为它比检查和包装流程慢。这可以通过库存信号和文本来指示。"
           },
           {
@@ -1226,12 +1425,14 @@
             "kind": "image",
             "assetId": "fig-625161e8f584d61b",
             "src": "assets/figures/fig-625161e8f584d61b.png",
+            "page": 446,
             "width": 666,
             "height": 531
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-028",
             "kind": "paragraph",
+            "page": 446,
             "text": "您还可以为流程添加控件。在这种情况下，零售商提前一个月下订单，确定下个月每周需要多少个盒子。这家蜡笔制造公司每月都会进行预测，但每周都会向供应商订购一次。供应商每周分多批交货。生产控制通过调度来管理流程的每个部分，以满足零售商的需求。"
           },
           {
@@ -1239,12 +1440,14 @@
             "kind": "image",
             "assetId": "fig-414f00dddd311cbf",
             "src": "assets/figures/fig-414f00dddd311cbf.png",
+            "page": 446,
             "width": 1191,
             "height": 526
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-030",
             "kind": "paragraph",
+            "page": 446,
             "text": "最后，在底部添加一个时间线，记录单个项目通过输入过程进行处理所需的时间，将时间分为增值时间和非增值时间。"
           },
           {
@@ -1252,42 +1455,50 @@
             "kind": "image",
             "assetId": "fig-7079da63d8a8479e",
             "src": "assets/figures/fig-7079da63d8a8479e.png",
+            "page": 446,
             "width": 1191,
             "height": 386
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-032",
             "kind": "paragraph",
+            "page": 447,
             "text": "在上面的例子中，黄色部分是增值的。它们代表产品实际制造或更改的时间。白色部分是设置、交货时间和库存等待时间——这个特定的过程是针对单色蜡笔的，没有考虑到准备机器改变颜色所花费的任何时间。"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-033",
             "kind": "paragraph",
+            "page": 447,
             "text": "您可以将时间相加，发现总处理时间为 194 分钟或 3.23 小时。"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-034",
             "kind": "paragraph",
+            "page": 447,
             "text": "增值时间为 19 分钟，因此团队可以假设这个过程中肯定存在可以消除的浪费。"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-035",
             "kind": "paragraph",
+            "page": 447,
             "text": "请记住，价值流图不应该是正式文件——它们是流程的工作图片，可以帮助您和六西格玛团队的其他成员更好地理解流程和相关挑战。 因此，您可以根据需要添加尽可能多或尽可能少的信息。如果需要，您也可以稍后返回并添加信息。价值流图的初稿，无论是使用笔和纸还是计算机程序，可能会很混乱，但这没关系。事实上，这表明你做得对。如果需要，您始终可以制作一份干净的最终副本，以便包含在演示文稿和培训文档中。"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-036",
             "kind": "paragraph",
+            "page": 447,
             "text": "您如何使用价值流图？"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-037",
             "kind": "paragraph",
+            "page": 447,
             "text": "价值流图是适用于所有 DMAIC 阶段的有用工具。在定义过程中，价值流图作为一项活动迫使您在实际和日常层面上参与该流程，这可以增进您对正在努力改进的流程的理解。它还为整个团队提供了另一种视觉效果，有助于讨论流程和问题。良好的价值流图可以让团队准确地直观地看到整个生产中可能发生流程和问题的位置。"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-038",
             "kind": "termNote",
+            "page": 447,
             "rows": [
               [
                 "术语说明 DMAIC：定义、测量、分析、改进、控制；适用于改进已有流程。"
@@ -1298,16 +1509,19 @@
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-039",
             "kind": "paragraph",
+            "page": 447,
             "text": "创建价值流图意味着您已经进行了一些测量，为测量阶段奠定了基础。价值流图还指出了可以在测量中进一步使用的测量和数据收集点，尽管团队永远不应该将自己局限于价值流图中收集的第一类信息。"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-040",
             "kind": "paragraph",
+            "page": 447,
             "text": "在分析过程中，价值流图是一种工具，可以帮助团队集思广益并识别流程中的根本原因或问题点，您可以使用初始价值流图来识别不提供价值的活动或资源 - 那些在流程中创造 Muda 的活动或资源。最后，在改进期间，团队可以开始创建未来状态价值流图，构建旧地图并使用他们通过 DMAIC 流程提出的信息和解决方案。通过将这些解决方案以价值流图的形式写在纸上，团队可以更好地了解可能出现问题的位置，并适当地更改解决方案，以减少实施期间及之后遇到的问题数量。"
           },
           {
             "id": "ch33-s04-value-stream-mapping-steps-zh-041",
             "kind": "termNote",
+            "page": 447,
             "rows": [
               [
                 "术语说明 Root Cause（根本原因）：真正驱动问题发生的原因；解决它才能防止问题反复出现。"
@@ -1331,16 +1545,19 @@
           {
             "id": "ch33-s05-tips-for-creating-a-future-state-value-stream-map-en-001",
             "kind": "paragraph",
+            "page": 448,
             "text": "1. Use the current-state value stream map and all other information gathered and analyzed to identify as many sources of waste in the process as possible. 2. Categorize waste into two types: those that are the result of remote locations, machinery, and product designs which are all necessary elements to the end product and those that are not the result of these things. 3. Concentration on the second type of waste and create a future state value stream map that removes them all. 4. Review the future state map to ensure processes can flow appropriately. Ask yourself questions such as:"
           },
           {
             "id": "ch33-s05-tips-for-creating-a-future-state-value-stream-map-en-002",
             "kind": "paragraph",
+            "page": 448,
             "text": "a. What is the Takt time required at each station to meet overall demands, and is each step in the process capable of meeting that Takt time? If not, the team might need to address steps that are not capable. b. How will production be scheduled? Usually, there is a specific part of the process that controls the production schedule. Ultimately, the best and most optimal control is by the customer (The customer needs 100 per day, so the process should make 100 per day). However, there are times when a specific part of the process is only capable of X units per time period, and the team is unable to change that capability because of resource or other restraints. If the process is not controlled by this “pacemaker step,” then inventory is going to build up before it. c. Is batch processing needed, or can it be removed? d. What process changes and improvements are required to implement the future state value stream? Sometimes, machinery changes, staffing changes, or capital investments are required, and these aren’t always possible. Before moving forward with future-state plans, Six Sigma teams have to make sure resources will be approved and available."
           },
           {
             "id": "ch33-s05-tips-for-creating-a-future-state-value-stream-map-en-003",
             "kind": "paragraph",
+            "page": 449,
             "text": "As with anything in Lean and Six Sigma processes, the value stream map isn’t a requirement. In fact, one of the cardinal rules of value stream mapping is not to map just to map. Yes, a finished and polished map looks nice – and can be especially impressive in presentations or documents when other people in the organization are not fully familiar with the tool. However, if creating a value stream map isn’t going to help a Six Sigma team through any of the DMAIC phases or if the process involved simply doesn’t lend itself to mapping in this fashion, then skip this tool. A Six Sigma expert should always be aware that muda can creep into any process – and that includes the process of evaluating and improving something. If you’re creating a value stream map without reason, then you are creating muda of overproduction."
           }
         ],
@@ -1348,16 +1565,19 @@
           {
             "id": "ch33-s05-tips-for-creating-a-future-state-value-stream-map-zh-001",
             "kind": "paragraph",
+            "page": 448,
             "text": "1. 使用当前状态价值流图以及收集和分析的所有其他信息来识别流程中尽可能多的浪费源。 2. 将废物分为两类： 那些是远程位置、机械和产品设计的结果，这些都是最终产品的必要元素，而那些则不是这些因素的结果。 3. 专注于第二种浪费，并创建未来状态价值流图，将其全部消除。 4. 检查未来状态图以确保流程能够正常进行。问自己一些问题，例如："
           },
           {
             "id": "ch33-s05-tips-for-creating-a-future-state-value-stream-map-zh-002",
             "kind": "paragraph",
+            "page": 448,
             "text": "a.满足总体需求所需的每个工位的节拍时间是多少？流程中的每个步骤是否能够满足该节拍时间？如果没有，团队可能需要解决不具备能力的步骤。 b.生产将如何安排？通常，流程中有一个特定部分来控制生产计划。最终，最好、最优化的控制是由客户进行的（客户每天需要 100 个，因此流程应该每天生产 100 个）。然而，有时流程的特定部分每个时间段只能处理 X 个单位，并且由于资源或其他限制，团队无法更改该功能。如果这个过程不受这个“起搏器步骤”的控制，那么库存就会在它之前积累起来。 c.是否需要批处理，或者可以删除它吗？ d.实施未来状态价值流需要哪些流程改变和改进？有时，需要更换机器、更换人员或进行资本投资，但这些并不总是可行。在推进未来状态计划之前，六西格玛团队必须确保资源获得批准并可用。"
           },
           {
             "id": "ch33-s05-tips-for-creating-a-future-state-value-stream-map-zh-003",
             "kind": "paragraph",
+            "page": 449,
             "text": "与精益和六西格玛流程中的任何内容一样，价值流图不是必需的。事实上，价值流映射的基本规则之一不是仅仅为了映射而映射。是的，经过精心设计的地图看起来不错，并且当组织中的其他人不完全熟悉该工具时，在演示文稿或文档中尤其令人印象深刻。但是，如果创建价值流图无法帮助六西格玛团队完成任何 DMAIC 阶段，或者所涉及的流程根本不适合以这种方式进行映射，那么请跳过此工具。六西格玛专家应该始终意识到，muda 可以渗透到任何过程中，包括评估和改进某些事物的过程。如果你毫无理由地创建价值流图，那么你就是在制造生产过剩的泥潭。"
           }
         ]
@@ -1369,7 +1589,7 @@
       "id": "fig-087853416c8a31b9",
       "type": "figure",
       "path": "assets/figures/fig-087853416c8a31b9.png",
-      "page": 439,
+      "page": 443,
       "width": 381,
       "height": 256
     },
@@ -1377,7 +1597,7 @@
       "id": "fig-11277b784c664083",
       "type": "formula-image",
       "path": "assets/figures/fig-11277b784c664083.png",
-      "page": 439,
+      "page": 443,
       "width": 209,
       "height": 169
     },
@@ -1385,7 +1605,7 @@
       "id": "fig-1bf387b14d2ddd11",
       "type": "table-image",
       "path": "assets/figures/fig-1bf387b14d2ddd11.png",
-      "page": 444,
+      "page": 445,
       "width": 1191,
       "height": 301
     },
@@ -1393,7 +1613,7 @@
       "id": "fig-23858ed54ac1f89a",
       "type": "figure",
       "path": "assets/figures/fig-23858ed54ac1f89a.png",
-      "page": 439,
+      "page": 442,
       "width": 282,
       "height": 306
     },
@@ -1409,7 +1629,7 @@
       "id": "fig-34733ffccdf7bf50",
       "type": "figure",
       "path": "assets/figures/fig-34733ffccdf7bf50.png",
-      "page": 439,
+      "page": 440,
       "width": 237,
       "height": 231
     },
@@ -1417,7 +1637,7 @@
       "id": "fig-414f00dddd311cbf",
       "type": "table-image",
       "path": "assets/figures/fig-414f00dddd311cbf.png",
-      "page": 444,
+      "page": 446,
       "width": 1191,
       "height": 526
     },
@@ -1425,7 +1645,7 @@
       "id": "fig-41ac1d74b25046b9",
       "type": "formula-image",
       "path": "assets/figures/fig-41ac1d74b25046b9.png",
-      "page": 439,
+      "page": 442,
       "width": 348,
       "height": 148
     },
@@ -1433,7 +1653,7 @@
       "id": "fig-42ecab2ab755961f",
       "type": "table-image",
       "path": "assets/figures/fig-42ecab2ab755961f.png",
-      "page": 444,
+      "page": 446,
       "width": 1000,
       "height": 809
     },
@@ -1441,7 +1661,7 @@
       "id": "fig-459659267385a395",
       "type": "figure",
       "path": "assets/figures/fig-459659267385a395.png",
-      "page": 439,
+      "page": 443,
       "width": 216,
       "height": 323
     },
@@ -1457,7 +1677,7 @@
       "id": "fig-625161e8f584d61b",
       "type": "figure",
       "path": "assets/figures/fig-625161e8f584d61b.png",
-      "page": 444,
+      "page": 446,
       "width": 666,
       "height": 531
     },
@@ -1473,7 +1693,7 @@
       "id": "fig-6f26585c486abb7c",
       "type": "figure",
       "path": "assets/figures/fig-6f26585c486abb7c.png",
-      "page": 439,
+      "page": 441,
       "width": 224,
       "height": 215
     },
@@ -1481,7 +1701,7 @@
       "id": "fig-7079da63d8a8479e",
       "type": "table-image",
       "path": "assets/figures/fig-7079da63d8a8479e.png",
-      "page": 444,
+      "page": 447,
       "width": 1191,
       "height": 386
     },
@@ -1489,7 +1709,7 @@
       "id": "fig-7a663ef682374ea2",
       "type": "figure",
       "path": "assets/figures/fig-7a663ef682374ea2.png",
-      "page": 439,
+      "page": 442,
       "width": 351,
       "height": 252
     },
@@ -1497,7 +1717,7 @@
       "id": "fig-9ad3dca1a9485ddd",
       "type": "figure",
       "path": "assets/figures/fig-9ad3dca1a9485ddd.png",
-      "page": 439,
+      "page": 443,
       "width": 350,
       "height": 233
     },
@@ -1505,7 +1725,7 @@
       "id": "fig-b14b136c35251476",
       "type": "formula-image",
       "path": "assets/figures/fig-b14b136c35251476.png",
-      "page": 439,
+      "page": 441,
       "width": 278,
       "height": 151
     },
@@ -1521,7 +1741,7 @@
       "id": "fig-c5fa9c5b15350e9d",
       "type": "formula-image",
       "path": "assets/figures/fig-c5fa9c5b15350e9d.png",
-      "page": 439,
+      "page": 442,
       "width": 378,
       "height": 161
     },
@@ -1529,7 +1749,7 @@
       "id": "fig-cedee8a9c47faeca",
       "type": "table-image",
       "path": "assets/figures/fig-cedee8a9c47faeca.png",
-      "page": 444,
+      "page": 446,
       "width": 1191,
       "height": 540
     },
@@ -1537,7 +1757,7 @@
       "id": "fig-cfc58badc39f860e",
       "type": "figure",
       "path": "assets/figures/fig-cfc58badc39f860e.png",
-      "page": 439,
+      "page": 442,
       "width": 280,
       "height": 288
     },
@@ -1545,7 +1765,7 @@
       "id": "fig-d356279bba8da826",
       "type": "figure",
       "path": "assets/figures/fig-d356279bba8da826.png",
-      "page": 439,
+      "page": 441,
       "width": 275,
       "height": 192
     },
@@ -1553,7 +1773,7 @@
       "id": "fig-e5fa8d755aaa0481",
       "type": "figure",
       "path": "assets/figures/fig-e5fa8d755aaa0481.png",
-      "page": 439,
+      "page": 441,
       "width": 267,
       "height": 188
     },
@@ -1561,7 +1781,7 @@
       "id": "fig-f602286d2c19ebfc",
       "type": "figure",
       "path": "assets/figures/fig-f602286d2c19ebfc.png",
-      "page": 439,
+      "page": 441,
       "width": 297,
       "height": 311
     }

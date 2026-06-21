@@ -26,6 +26,7 @@
           {
             "id": "ch05-s01-basic-six-sigma-concepts-en-001",
             "kind": "paragraph",
+            "page": 38,
             "text": "In the last chapter, we covered some of the major concepts associated with Lean. In this chapter, we’ll look at some of the major concepts of the Six Sigma methodology. These, along with the concepts introduced in Chapter 1, are some of the building blocks used in improvement projects and statistical process control."
           }
         ],
@@ -33,11 +34,13 @@
           {
             "id": "ch05-s01-basic-six-sigma-concepts-zh-001",
             "kind": "paragraph",
+            "page": 38,
             "text": "在上一章中，我们介绍了与精益相关的一些主要概念。在本章中，我们将探讨六西格玛方法论的一些主要概念。这些以及第一章中介绍的概念是改进项目和统计过程控制中使用的一些构建块。"
           },
           {
             "id": "ch05-s01-basic-six-sigma-concepts-zh-002",
             "kind": "termNote",
+            "page": 38,
             "rows": [
               [
                 "术语说明 SPC（统计过程控制）：用统计方法监控过程表现，区分普通波动和异常信号。"
@@ -48,6 +51,7 @@
           {
             "id": "ch05-s01-basic-six-sigma-concepts-zh-003",
             "kind": "heading",
+            "page": 38,
             "text": "标准差"
           }
         ]
@@ -66,31 +70,37 @@
           {
             "id": "ch05-s02-standard-deviation-en-001",
             "kind": "paragraph",
+            "page": 38,
             "text": "The driving goal of Six Sigma is to reduce defects. By reducing defects, teams can increase productivity, decrease overall costs, increase customer satisfaction, and create maximum profit. One idea inherent in the Six Sigma methodology is that variance is the root of many defects."
           },
           {
             "id": "ch05-s02-standard-deviation-en-002",
             "kind": "paragraph",
+            "page": 38,
             "text": "For example, if an oven heats to exactly 350 degrees in five minutes and stays at that temperature until it is turned off, it is less likely to burn cookies. If a cook measures each ingredient exactly, he or she is more likely to turn out cookies that consistently taste good. Add variation in the process, and consistency is lost. When consistency is lost, defects are introduced. If the oven doesn’t maintain an exact temperature all the time, the cookies might burn. If the cook puts in a cup of sugar instead of a cup and a half, the cookies might not be sweet enough. Variation makes for inconsistent quality."
           },
           {
             "id": "ch05-s02-standard-deviation-en-003",
             "kind": "paragraph",
+            "page": 38,
             "text": "It’s important to note that removing variation alone doesn’t always improve quality. What if the cook set the oven to 400 degrees all the time and only used half a cup of sugar for each batch? The process has no variation, and neither do the results. The cookies will always be bland and burnt."
           },
           {
             "id": "ch05-s02-standard-deviation-en-004",
             "kind": "paragraph",
+            "page": 38,
             "text": "Six Sigma process improvement teams usually take a two-step approach to improvements. First, they have to determine if the process is functional. In the cookie example, does the recipe work at all? Is there even a recipe? Once the team determines there is a workable recipe, they make improvements to remove the variation that causes outputs to deviate from the result intended by the recipe."
           },
           {
             "id": "ch05-s02-standard-deviation-en-005",
             "kind": "paragraph",
+            "page": 38,
             "text": "The statistical measure used by teams to understand variation in a process is known as standard deviation. Standard deviation is represented in math by the lower case Greek letter Sigma – the σ you saw in Chapter 1."
           },
           {
             "id": "ch05-s02-standard-deviation-en-006",
             "kind": "paragraph",
+            "page": 38,
             "text": "Standard deviation measures the distance between data points and the mean of all data. A large standard deviation means an overall wide spread of points; a smaller standard deviation means a closely clustered set of points."
           },
           {
@@ -98,22 +108,26 @@
             "kind": "image",
             "assetId": "fig-d1aa2da553b7202a",
             "src": "assets/figures/fig-d1aa2da553b7202a.png",
+            "page": 38,
             "width": 979,
             "height": 532
           },
           {
             "id": "ch05-s02-standard-deviation-en-008",
             "kind": "paragraph",
+            "page": 38,
             "text": "The image above provides a graphical representation of deviation. Imagine the vertical axis is a measure of time and the horizontal axis is a measure of temperature. The center line in each image represents the mean temperature. You can see that the temperature over time varies much more in the figure on the right."
           },
           {
             "id": "ch05-s02-standard-deviation-en-009",
             "kind": "heading",
+            "page": 38,
             "text": "Calculating Standard Deviation for Population Data"
           },
           {
             "id": "ch05-s02-standard-deviation-en-010",
             "kind": "paragraph",
+            "page": 38,
             "text": "Standard deviation is a statistical concept. The formula for standard deviation when dealing with data of the entire population is:"
           },
           {
@@ -121,6 +135,7 @@
             "kind": "image",
             "assetId": "fig-c0f94523a380d90e",
             "src": "assets/figures/fig-c0f94523a380d90e.png",
+            "page": 38,
             "width": 408,
             "height": 198
           },
@@ -129,127 +144,152 @@
             "kind": "image",
             "assetId": "fig-053ac60316e84d06",
             "src": "assets/figures/fig-053ac60316e84d06.png",
+            "page": 38,
             "width": 1152,
             "height": 373
           },
           {
             "id": "ch05-s02-standard-deviation-en-013",
             "kind": "paragraph",
+            "page": 38,
             "text": "You would use this formula if you have all the data elements of a population and not just a random sampling of data elements. For example, if you wanted to find out what the deviation was in the size of pizzas made, you could ask staff to measure each pizza before serving it. You would have the data for the entire population of pizzas for the day, so you could use the equation above. However, if you wanted to calculate standard deviation when you have sample data, you would use the equation from the next section."
           },
           {
             "id": "ch05-s02-standard-deviation-en-014",
             "kind": "paragraph",
+            "page": 38,
             "text": "If you’re new to statistics, the equation for standard deviation looks complicated. We’ll break it down and run through some exercises on calculating standard deviation manually, but in practice, you will usually use a statistical software tool to make this calculation automatically."
           },
           {
             "id": "ch05-s02-standard-deviation-en-015",
             "kind": "paragraph",
+            "page": 38,
             "text": "For our explanation, we’ll use a data set from a teacher. She wants to find the standard deviation of scores on the latest test. The scores from her class of 15 students are:"
           },
           {
             "id": "ch05-s02-standard-deviation-en-016",
             "kind": "paragraph",
+            "page": 39,
             "text": "67, 68, 73, 74, 81, 85, 88, 88, 90, 90, 90, 93, 94, 98, 99"
           },
           {
             "id": "ch05-s02-standard-deviation-en-017",
             "kind": "paragraph",
+            "page": 39,
             "text": "1. Calculate the mean."
           },
           {
             "id": "ch05-s02-standard-deviation-en-018",
             "kind": "paragraph",
+            "page": 39,
             "text": "To begin the standard deviation calculation, you need to know the mean for the population. The mean is"
           },
           {
             "id": "ch05-s02-standard-deviation-en-019",
             "kind": "paragraph",
+            "page": 39,
             "text": "represented mathematically by the Greek letter mu, or μ. Mean is calculated by adding all of the numbers and dividing that sum by the number of items in a data set. In this case, there are 15 items."
           },
           {
             "id": "ch05-s02-standard-deviation-en-020",
             "kind": "paragraph",
+            "page": 39,
             "text": "67 + 68 + 73 + 74 + 81 + 85 + 88 + 88 + 90 + 90 + 90 + 93 + 94 + 98 + 99 = 1278"
           },
           {
             "id": "ch05-s02-standard-deviation-en-021",
             "kind": "paragraph",
+            "page": 39,
             "text": "1193/15 = 85.2"
           },
           {
             "id": "ch05-s02-standard-deviation-en-022",
             "kind": "paragraph",
+            "page": 39,
             "text": "2. Subtract the mean and square it."
           },
           {
             "id": "ch05-s02-standard-deviation-en-023",
             "kind": "paragraph",
+            "page": 39,
             "text": "The formula calls for you to take each number in the data set, subtract the mean from it, and square the result. The first number is 67, so:"
           },
           {
             "id": "ch05-s02-standard-deviation-en-024",
             "kind": "paragraph",
+            "page": 39,
             "text": "67 – 85.2 = -18.2"
           },
           {
             "id": "ch05-s02-standard-deviation-en-025",
             "kind": "paragraph",
+            "page": 39,
             "text": "-18.2 * -18.2 = 331.24"
           },
           {
             "id": "ch05-s02-standard-deviation-en-026",
             "kind": "paragraph",
+            "page": 39,
             "text": "If you apply that concept to all 15 numbers, you end up with a list of results:"
           },
           {
             "id": "ch05-s02-standard-deviation-en-027",
             "kind": "paragraph",
+            "page": 39,
             "text": "331.24 295.84 148.84 125.44 17.64 0.04 7.84 7.84 23.04 23.04 23.04"
           },
           {
             "id": "ch05-s02-standard-deviation-en-028",
             "kind": "paragraph",
+            "page": 39,
             "text": "60.84 77.44 163.84 190.44 3. Find the mean of the results. The rest of the formula under the square root sign simply tells you to add up all the numbers you just calculated and divide by N, where N is the number of items in your data set. Or, to put it another way, you need to find the mean of the new numbers you just calculated. The sum of the numbers above is 1496.4. 1496.4 / 15 = 99.76 This new number, 99.76, is called the variance. 4. Find the square root of the variance. The standard deviation is the square root of the variance. In this case, the square root of 99.76, which is 9.987. The standard deviation for the test scores is 9.987."
           },
           {
             "id": "ch05-s02-standard-deviation-en-029",
             "kind": "heading",
+            "page": 39,
             "text": "Calculating Standard Deviation with Sample Data"
           },
           {
             "id": "ch05-s02-standard-deviation-en-030",
             "kind": "paragraph",
+            "page": 40,
             "text": "While statistics based on total population data are always more accurate than those based on sample data, you’ll probably work from sample data more often. It just becomes too expensive or even impossible to get population data for many elements. Sometimes, the data is measuring events or states over time, which means population data doesn’t exist. For example, if you wanted to understand temperature fluctuations in a warehouse, you might record the temperature at a certain location every ten minutes. After several days, you have sufficient sample data to analyze. Other examples of sample data include:"
           },
           {
             "id": "ch05-s02-standard-deviation-en-031",
             "kind": "listItem",
+            "page": 40,
             "text": "A random sample of reasons for denied medical claims"
           },
           {
             "id": "ch05-s02-standard-deviation-en-032",
             "kind": "listItem",
+            "page": 40,
             "text": "Measurements for river height taken three times per day for a month"
           },
           {
             "id": "ch05-s02-standard-deviation-en-033",
             "kind": "paragraph",
+            "page": 40,
             "text": "The formula for standard deviation based on sample data is:"
           },
           {
             "id": "ch05-s02-standard-deviation-en-034",
             "kind": "paragraph",
+            "page": 40,
             "text": "𝑁"
           },
           {
             "id": "ch05-s02-standard-deviation-en-035",
             "kind": "paragraph",
+            "page": 40,
             "text": "𝑆= ඩ 1 𝑁−1 ෍(𝑥𝑖−𝑥̅)2"
           },
           {
             "id": "ch05-s02-standard-deviation-en-036",
             "kind": "paragraph",
+            "page": 40,
             "text": "𝑖=1"
           },
           {
@@ -257,22 +297,26 @@
             "kind": "image",
             "assetId": "fig-75ed8e98a327993b",
             "src": "assets/figures/fig-75ed8e98a327993b.png",
+            "page": 40,
             "width": 1151,
             "height": 373
           },
           {
             "id": "ch05-s02-standard-deviation-en-038",
             "kind": "paragraph",
+            "page": 40,
             "text": "Since mu is the mean of population data, it’s been replaced in this formula with x-bar, which is the average of the data points in your sample. Sigma has been replaced with s, but the only mathematical difference is that you divide by N-1 instead of N to get the variance as a way to make up for some of the accuracy lost in using a sampling."
           },
           {
             "id": "ch05-s02-standard-deviation-en-039",
             "kind": "paragraph",
+            "page": 40,
             "text": "Using the same data from the population example above, let’s assume that the 15 grades the teacher had were a random sampling from all of her classes. The only difference in the math would come in the second to last step, where we divide by 14 instead of 15, so:"
           },
           {
             "id": "ch05-s02-standard-deviation-en-040",
             "kind": "paragraph",
+            "page": 40,
             "text": "1496.4 / 14 = 106.885 The square root of 106.885 is 10.338, which would be the standard deviation for the sample."
           },
           {
@@ -280,27 +324,32 @@
             "kind": "image",
             "assetId": "fig-f41a219d0468ab33",
             "src": "assets/figures/fig-f41a219d0468ab33.png",
+            "page": 40,
             "width": 1155,
             "height": 318
           },
           {
             "id": "ch05-s02-standard-deviation-en-042",
             "kind": "heading",
+            "page": 40,
             "text": "Standard Deviation in Excel"
           },
           {
             "id": "ch05-s02-standard-deviation-en-043",
             "kind": "paragraph",
+            "page": 40,
             "text": "Admittedly, if you’re calculating standard deviation by hand, it’s a lot of arithmetic. Luckily, once the statistical concepts behind the numbers are understood, statistical analysis software, such as Excel and Minitab, can be used to accurately crunch numbers. Standard deviation is automatically calculated in most statistical analysis software programs by clicking a button after you enter your data sets. The standard deviation is also calculated automatically by such software programs when you initiate other calculations that require standard deviation. We’ll look at some of these functions more in-depth in the chapters on using Excel add-ons and Minitab for statistical analysis."
           },
           {
             "id": "ch05-s02-standard-deviation-en-044",
             "kind": "paragraph",
+            "page": 40,
             "text": "In the meantime, you can quickly calculate standard deviation in Excel using the standard deviation function. To do so:"
           },
           {
             "id": "ch05-s02-standard-deviation-en-045",
             "kind": "paragraph",
+            "page": 41,
             "text": "1. Enter your data set in a column"
           },
           {
@@ -308,17 +357,20 @@
             "kind": "image",
             "assetId": "fig-d3e4512e01d6ed45",
             "src": "assets/figures/fig-d3e4512e01d6ed45.png",
+            "page": 41,
             "width": 220,
             "height": 407
           },
           {
             "id": "ch05-s02-standard-deviation-en-047",
             "kind": "paragraph",
+            "page": 41,
             "text": "2. In a new cell, enter =STDEV()"
           },
           {
             "id": "ch05-s02-standard-deviation-en-048",
             "kind": "paragraph",
+            "page": 41,
             "text": "3. Select the cells with data you want to calculate standard deviation for."
           },
           {
@@ -326,12 +378,14 @@
             "kind": "image",
             "assetId": "fig-6265d83140d1378e",
             "src": "assets/figures/fig-6265d83140d1378e.png",
+            "page": 41,
             "width": 273,
             "height": 167
           },
           {
             "id": "ch05-s02-standard-deviation-en-050",
             "kind": "paragraph",
+            "page": 41,
             "text": "4. Hit enter"
           },
           {
@@ -339,42 +393,50 @@
             "kind": "image",
             "assetId": "fig-07d2aedfa5a6b353",
             "src": "assets/figures/fig-07d2aedfa5a6b353.png",
+            "page": 41,
             "width": 205,
             "height": 223
           },
           {
             "id": "ch05-s02-standard-deviation-en-052",
             "kind": "paragraph",
+            "page": 41,
             "text": "Note: The formula in Excel calculates a sample standard deviation using the N-1 math, which means you can use this formula for samples and not for populations."
           },
           {
             "id": "ch05-s02-standard-deviation-en-053",
             "kind": "paragraph",
+            "page": 41,
             "text": "Why Calculate Standard Deviation?"
           },
           {
             "id": "ch05-s02-standard-deviation-en-054",
             "kind": "paragraph",
+            "page": 41,
             "text": "Standard deviation gives you an idea of how much variation actually exists in a process while taking outliers somewhat into account. In the example of the grades from above, the sample standard deviation indicates that most of the grades are going to fall within 10.33 points on either side of the average."
           },
           {
             "id": "ch05-s02-standard-deviation-en-055",
             "kind": "paragraph",
+            "page": 41,
             "text": "That tells the teacher that students have a fairly wide performance on her test. If the results were an average score of 90 with a standard deviation of 3, he or she might assume that students in class were"
           },
           {
             "id": "ch05-s02-standard-deviation-en-056",
             "kind": "paragraph",
+            "page": 41,
             "text": "learning and retaining the knowledge as expected. If the average score was 64 with a standard deviation of 2, then he or she might assume students in class were not retaining the knowledge as expected or there was some issue with the test structure. Both of these situations indicate a small variance in the way students are performing, which points to the success or problem being tied to the class, the teaching, or the test."
           },
           {
             "id": "ch05-s02-standard-deviation-en-057",
             "kind": "paragraph",
+            "page": 41,
             "text": "On the other hand, if the average score was 60 with a standard deviation of 30, then some students were performing very well while others were performing poorly. This might indicate to the teacher that some students are falling behind. If he or she took samples from several classes, he or she might investigate and realize that the lowest scores were mostly from one class, which could indicate that he or she forgot to adequately cover a certain concept in that class."
           },
           {
             "id": "ch05-s02-standard-deviation-en-058",
             "kind": "paragraph",
+            "page": 41,
             "text": "Standard deviation alone serves as a pointer for where to investigate within the process for problems or solutions. Another reason to calculate it is because it is involved in many of the other statistical processes we cover in later chapters. Standard deviation becomes an important concept in both analysis and statistical process control and often serves as the starting point for further Statistical Six Sigma analysis."
           }
         ],
@@ -382,6 +444,7 @@
           {
             "id": "ch05-s02-standard-deviation-zh-001",
             "kind": "termNote",
+            "page": 38,
             "rows": [
               [
                 "术语说明 Standard Deviation（标准差）：衡量数据离散程度的统计量；标准差越大，波动越明显。"
@@ -392,31 +455,37 @@
           {
             "id": "ch05-s02-standard-deviation-zh-002",
             "kind": "paragraph",
+            "page": 38,
             "text": "六西格玛的驱动目标是减少缺陷。通过减少缺陷，团队可以提高生产力、降低总体成本、提高客户满意度并创造最大利润。六西格玛方法论中固有的一个想法是，差异是许多缺陷的根源。"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-003",
             "kind": "paragraph",
+            "page": 38,
             "text": "例如，如果烤箱在五分钟内精确加热到 350 度，并保持在该温度直到关闭，则烧焦饼干的可能性较小。如果厨师准确地测量每种成分，他或她更有可能制作出味道始终如一的美味饼干。在过程中增加变化，就会失去一致性。当失去一致性时，就会引入缺陷。如果烤箱不能始终保持准确的温度，饼干可能会烧焦。如果厨师放了一杯糖而不是一杯半，饼干可能不够甜。变化导致质量不一致。"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-004",
             "kind": "paragraph",
+            "page": 38,
             "text": "值得注意的是，仅消除变异并不总能提高质量。如果厨师始终将烤箱设置为 400 度，并且每批只使用半杯糖怎么办？过程没有变化，结果也没有变化。饼干总是乏味且烧焦。"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-005",
             "kind": "paragraph",
+            "page": 38,
             "text": "六西格玛流程改进团队通常采取两步法进行改进。首先，他们必须确定该流程是否正常运行。在饼干的例子中，这个食谱真的有用吗？有食谱吗？一旦团队确定存在可行的配方，他们就会进行改进，以消除导致输出偏离配方预期结果的变化。"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-006",
             "kind": "paragraph",
+            "page": 38,
             "text": "团队用来了解过程变化的统计度量称为标准偏差。标准差在数学中用小写希腊字母 Sigma 表示——您在第 1 章中看到的 σ。"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-007",
             "kind": "paragraph",
+            "page": 38,
             "text": "标准差衡量数据点之间的距离和所有数据的平均值。标准差大意味着点总体分布广泛； 较小的标准差意味着一组紧密聚集的点。"
           },
           {
@@ -424,22 +493,26 @@
             "kind": "image",
             "assetId": "fig-d1aa2da553b7202a",
             "src": "assets/figures/fig-d1aa2da553b7202a.png",
+            "page": 38,
             "width": 979,
             "height": 532
           },
           {
             "id": "ch05-s02-standard-deviation-zh-009",
             "kind": "paragraph",
+            "page": 38,
             "text": "上图提供了偏差的图形表示。想象一下，垂直轴是时间的度量，水平轴是温度的度量。每幅图像的中心线代表平均温度。您可以在右图中看到温度随时间的变化更大。"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-010",
             "kind": "heading",
+            "page": 38,
             "text": "计算总体数据的标准差"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-011",
             "kind": "termNote",
+            "page": 38,
             "rows": [
               [
                 "术语说明 Population（总体）：研究对象的全部集合；实际项目中常通过样本推断总体。"
@@ -450,6 +523,7 @@
           {
             "id": "ch05-s02-standard-deviation-zh-012",
             "kind": "paragraph",
+            "page": 38,
             "text": "标准差是一个统计概念。处理总体数据时的标准差公式为："
           },
           {
@@ -457,6 +531,7 @@
             "kind": "image",
             "assetId": "fig-c0f94523a380d90e",
             "src": "assets/figures/fig-c0f94523a380d90e.png",
+            "page": 38,
             "width": 408,
             "height": 198
           },
@@ -465,17 +540,20 @@
             "kind": "image",
             "assetId": "fig-053ac60316e84d06",
             "src": "assets/figures/fig-053ac60316e84d06.png",
+            "page": 38,
             "width": 1152,
             "height": 373
           },
           {
             "id": "ch05-s02-standard-deviation-zh-015",
             "kind": "paragraph",
+            "page": 38,
             "text": "如果您拥有总体的所有数据元素而不仅仅是数据元素的随机抽样，则可以使用此公式。例如，如果您想了解制作的披萨尺寸的偏差有多大，您可以要求工作人员在提供披萨之前测量每个披萨的尺寸。您将获得当天所有披萨的数据，因此您可以使用上面的等式。但是，如果您想在有样本数据时计算标准差，则可以使用下一节中的公式。"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-016",
             "kind": "termNote",
+            "page": 38,
             "rows": [
               [
                 "术语说明 Sample / Sampling（样本/抽样）：从总体中选取部分数据进行分析；样本应尽量代表总体。"
@@ -486,116 +564,139 @@
           {
             "id": "ch05-s02-standard-deviation-zh-017",
             "kind": "paragraph",
+            "page": 39,
             "text": "如果您是统计学新手，标准差方程看起来会很复杂。我们将对其进行分解并进行一些手动计算标准差的练习，但在实践中，您通常会使用统计软件工具来自动进行此计算。"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-018",
             "kind": "paragraph",
+            "page": 39,
             "text": "为了进行解释，我们将使用老师提供的数据集。她想要找到最新测试分数的标准差。她班上 15 名学生的成绩是："
           },
           {
             "id": "ch05-s02-standard-deviation-zh-019",
             "kind": "paragraph",
+            "page": 39,
             "text": "67, 68, 73, 74, 81, 85, 88, 88, 90, 90, 90, 93, 94, 98, 99"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-020",
             "kind": "paragraph",
+            "page": 39,
             "text": "1. 计算平均值。"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-021",
             "kind": "paragraph",
+            "page": 39,
             "text": "要开始计算标准差，您需要知道总体的平均值。平均值是"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-022",
             "kind": "paragraph",
+            "page": 39,
             "text": "在数学上用希腊字母 mu 或 μ 表示。平均值是通过将所有数字相加并将总和除以数据集中的项目数来计算的。在本例中，有 15 个项目。"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-023",
             "kind": "paragraph",
+            "page": 39,
             "text": "67 + 68 + 73 + 74 + 81 + 85 + 88 + 88 + 90 + 90 + 90 + 93 + 94 + 98 + 99 = 1278"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-024",
             "kind": "paragraph",
+            "page": 39,
             "text": "1193/15 = 85.2"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-025",
             "kind": "paragraph",
+            "page": 39,
             "text": "2. 减去平均值并平方。"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-026",
             "kind": "paragraph",
+            "page": 39,
             "text": "该公式要求您获取数据集中的每个数字，从中减去平均值，并对结果求平方。第一个数字是 67，所以："
           },
           {
             "id": "ch05-s02-standard-deviation-zh-027",
             "kind": "paragraph",
+            "page": 39,
             "text": "67 – 85.2 = -18.2"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-028",
             "kind": "paragraph",
+            "page": 39,
             "text": "-18.2 * -18.2 = 331.24"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-029",
             "kind": "paragraph",
+            "page": 39,
             "text": "如果您将该概念应用于所有 15 个数字，您最终会得到一个结果列表："
           },
           {
             "id": "ch05-s02-standard-deviation-zh-030",
             "kind": "paragraph",
+            "page": 39,
             "text": "331.24 295.84 148.84 125.44 17.64 0.04 7.84 7.84 23.04 23.04 23.04"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-031",
             "kind": "paragraph",
+            "page": 39,
             "text": "60.84 77.44 163.84 190.44 3. 求结果的平均值。平方根符号下的公式的其余部分只是告诉您将刚刚计算的所有数字相加并除以 N，其中 N 是数据集中的项目数。或者，换句话说，您需要找到刚刚计算的新数字的平均值。上述数字的总和是 1496.4。 1496.4 / 15 = 99.76 这个新数字 99.76 称为方差。 4. 求方差的平方根。标准差是方差的平方根。在本例中，99.76 的平方根为 9.987。测试分数的标准差为 9.987。"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-032",
             "kind": "heading",
+            "page": 40,
             "text": "使用样本数据计算标准差"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-033",
             "kind": "paragraph",
+            "page": 40,
             "text": "虽然基于总人口数据的统计数据总是比基于样本数据的统计数据更准确，但您可能会更频繁地使用样本数据。获取许多元素的人口数据变得过于昂贵，甚至不可能。有时，数据是随着时间的推移测量事件或状态，这意味着人口数据不存在。例如，如果您想了解仓库中的温度波动，您可能每十分钟记录一次特定位置的温度。几天后，您就有了足够的样本数据可供分析。样本数据的其他示例包括："
           },
           {
             "id": "ch05-s02-standard-deviation-zh-034",
             "kind": "listItem",
+            "page": 40,
             "text": "拒绝医疗索赔原因的随机样本"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-035",
             "kind": "listItem",
+            "page": 40,
             "text": "一个月内每天测量三次河流高度"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-036",
             "kind": "paragraph",
+            "page": 40,
             "text": "基于样本数据的标准差的公式为："
           },
           {
             "id": "ch05-s02-standard-deviation-zh-037",
             "kind": "paragraph",
+            "page": 40,
             "text": "𝑁"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-038",
             "kind": "paragraph",
+            "page": 40,
             "text": "𝑆= ඩ 1 𝑁−1 ෍(𝑥𝑖−𝑥̅)2"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-039",
             "kind": "paragraph",
+            "page": 40,
             "text": "𝑖=1"
           },
           {
@@ -603,17 +704,20 @@
             "kind": "image",
             "assetId": "fig-75ed8e98a327993b",
             "src": "assets/figures/fig-75ed8e98a327993b.png",
+            "page": 40,
             "width": 1151,
             "height": 373
           },
           {
             "id": "ch05-s02-standard-deviation-zh-041",
             "kind": "paragraph",
+            "page": 40,
             "text": "由于 mu 是总体数据的平均值，因此在此公式中将其替换为 x-bar，即样本中数据点的平均值。 Sigma 已替换为 s，但唯一的数学差异是除以 N-1 而不是 N 来获得方差，以此弥补使用采样时损失的一些精度。"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-042",
             "kind": "termNote",
+            "page": 40,
             "rows": [
               [
                 "术语说明 X-Bar Chart（均值图）：监控样本均值随时间变化的控制图。"
@@ -624,11 +728,13 @@
           {
             "id": "ch05-s02-standard-deviation-zh-043",
             "kind": "paragraph",
+            "page": 40,
             "text": "使用上面人口示例中的相同数据，我们假设老师的 15 个成绩是从她所有班级中随机抽样的。 数学上的唯一区别在于倒数第二步，我们除以 14 而不是 15，因此："
           },
           {
             "id": "ch05-s02-standard-deviation-zh-044",
             "kind": "paragraph",
+            "page": 40,
             "text": "1496.4 / 14 = 106.885 106.885 的平方根是 10.338，这将是样本的标准差。"
           },
           {
@@ -636,27 +742,32 @@
             "kind": "image",
             "assetId": "fig-f41a219d0468ab33",
             "src": "assets/figures/fig-f41a219d0468ab33.png",
+            "page": 40,
             "width": 1155,
             "height": 318
           },
           {
             "id": "ch05-s02-standard-deviation-zh-046",
             "kind": "heading",
+            "page": 40,
             "text": "Excel 中的标准差"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-047",
             "kind": "paragraph",
+            "page": 40,
             "text": "诚然，如果您手动计算标准差，则需要进行大量算术运算。幸运的是，一旦理解了数字背后的统计概念，就可以使用 Excel 和 Minitab 等统计分析软件来准确地处理数字。在大多数统计分析软件程序中，输入数据集后单击按钮即可自动计算标准差。当您启动需要标准差的其他计算时，此类软件程序也会自动计算标准差。我们将在有关使用 Excel 插件和 Minitab 进行统计分析的章节中更深入地介绍其中一些函数。"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-048",
             "kind": "paragraph",
+            "page": 41,
             "text": "同时，您可以使用Excel中的标准差函数快速计算标准差。为此："
           },
           {
             "id": "ch05-s02-standard-deviation-zh-049",
             "kind": "paragraph",
+            "page": 41,
             "text": "1. 在列中输入您的数据集"
           },
           {
@@ -664,17 +775,20 @@
             "kind": "image",
             "assetId": "fig-d3e4512e01d6ed45",
             "src": "assets/figures/fig-d3e4512e01d6ed45.png",
+            "page": 41,
             "width": 220,
             "height": 407
           },
           {
             "id": "ch05-s02-standard-deviation-zh-051",
             "kind": "paragraph",
+            "page": 41,
             "text": "2. 在新单元格中，输入 =STDEV()"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-052",
             "kind": "paragraph",
+            "page": 41,
             "text": "3. 选择包含要计算标准差的数据的单元格。"
           },
           {
@@ -682,12 +796,14 @@
             "kind": "image",
             "assetId": "fig-6265d83140d1378e",
             "src": "assets/figures/fig-6265d83140d1378e.png",
+            "page": 41,
             "width": 273,
             "height": 167
           },
           {
             "id": "ch05-s02-standard-deviation-zh-054",
             "kind": "heading",
+            "page": 41,
             "text": "4. 按回车键"
           },
           {
@@ -695,42 +811,50 @@
             "kind": "image",
             "assetId": "fig-07d2aedfa5a6b353",
             "src": "assets/figures/fig-07d2aedfa5a6b353.png",
+            "page": 41,
             "width": 205,
             "height": 223
           },
           {
             "id": "ch05-s02-standard-deviation-zh-056",
             "kind": "paragraph",
+            "page": 41,
             "text": "注意：Excel 中的公式使用 N-1 数学计算样本标准差，这意味着您可以将此公式用于样本而不是总体。"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-057",
             "kind": "paragraph",
+            "page": 41,
             "text": "为什么要计算标准差？"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-058",
             "kind": "paragraph",
+            "page": 41,
             "text": "标准偏差可以让您了解过程中实际存在多少变化，同时在一定程度上考虑异常值。在上面的成绩示例中，样本标准差表明大多数成绩将落在平均值两侧的 10.33 分之内。"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-059",
             "kind": "paragraph",
+            "page": 41,
             "text": "这告诉老师学生在她的测试中表现相当广泛。如果结果是平均分 90 分，标准差为 3，他或她可能会认为班上的学生是"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-060",
             "kind": "paragraph",
+            "page": 41,
             "text": "按预期学习并保留知识。如果平均分数为 64，标准差为 2，那么他或她可能会认为课堂上的学生没有按预期保留知识，或者测试结构存在一些问题。 这两种情况都表明学生的表现存在微小差异，这表明成功或问题与课程、教学或测试有关。"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-061",
             "kind": "paragraph",
+            "page": 41,
             "text": "另一方面，如果平均分是 60，标准差是 30，那么有些学生表现很好，而另一些学生表现很差。这可能向老师表明有些学生落后了。如果他或她从多个班级中抽取样本，他或她可能会调查并意识到最低分数大部分来自一个班级，这可能表明他或她忘记充分涵盖该班级中的某个概念。"
           },
           {
             "id": "ch05-s02-standard-deviation-zh-062",
             "kind": "paragraph",
+            "page": 41,
             "text": "标准偏差本身可以作为在流程中调查问题或解决方案的位置的指针。计算它的另一个原因是因为它涉及我们在后面的章节中介绍的许多其他统计过程。标准差成为分析和统计过程控制中的重要概念，并且常常作为进一步统计六西格玛分析的起点。"
           }
         ]
@@ -749,156 +873,187 @@
           {
             "id": "ch05-s03-the-pareto-principle-en-001",
             "kind": "paragraph",
+            "page": 42,
             "text": "The Pareto principle, also called the 80/20 rule, says that 20 percent of the causes lead to 80 percent of the effects. This there is also called the law of the vital few: the vital few inputs drive the majority of the outputs."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-002",
             "kind": "paragraph",
+            "page": 42,
             "text": "The Pareto principle was first suggested by a management consultant named Joseph Juran. Juran named the principle for Vilfredo Pareto, an economist in Italy who wrote that 20 percent of the nation’s people owned 80 percent of its land. The principle has become common in various circles. Business professionals commonly state that 80 percent of sales come from 20 percent of customers, and volunteer organizations usually operate with 20 percent of the people doing 80 percent of the work."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-003",
             "kind": "paragraph",
+            "page": 42,
             "text": "The principle is critical to Six Sigma not because causes and effects line up nicely via an 80/20 breakdown, but because it almost universally applies that a few inputs create more impact than all of the other inputs. Individuals seeking to reduce defects can almost always identify three to four inputs that, if improved, will create dramatic impact on the outcome. While resources, costs, and difficulty of improvements also play a role in solution selections, understanding which inputs or root causes are high on a Pareto chart let project teams determine where improvements will make the biggest impact to the bottom line."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-004",
             "kind": "paragraph",
+            "page": 42,
             "text": "The Pareto principle is best displayed using a Pareto chart, which is a graphical representation of data elements – usually inputs or causes – in a ranked bar chart. Unlike a regular bar chart, the bars are arranged in order of height, with the highest on the left and the lowest on the right. Statistical software used to create such charts adds formatting and other elements automatically, but you can also create a basic Pareto chart in Excel."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-005",
             "kind": "paragraph",
+            "page": 42,
             "text": "To illustrate the Pareto principle, we’ll look at a common situation involving defects in the medical field—specifically in the process for submitting medical claims. Payers often deny claims, and they do so for a variety of reasons. When claims are denied, provider offices have to rework, resubmit, or appeal the denials. Some denial reasons are not appealable, which means the provider’s office loses the revenue associated with the claim."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-006",
             "kind": "paragraph",
+            "page": 42,
             "text": "We’ll imagine a medical office that is experiencing a cash flow problem because of claim denials. The office gathers data about the denials and creates a Pareto chart so the team can see where the bulk of the denials are coming from. The data is listed below, followed by a basic Pareto chart created in Excel."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-007",
             "kind": "paragraph",
+            "page": 42,
             "text": "Reasons for Denying Medical Claims Reason Count Duplicate claim 18012 Timely Filing 13245 No beneficiary found 10215 Claim lacks information 4548 Service not covered 2154 Medical necessity 1423 Date of service issue 526"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-008",
             "kind": "paragraph",
+            "page": 42,
             "text": "Reasons for claim denials"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-009",
             "kind": "paragraph",
+            "page": 42,
             "text": "35.9%"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-010",
             "kind": "paragraph",
+            "page": 42,
             "text": "26.4%"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-011",
             "kind": "paragraph",
+            "page": 42,
             "text": "20.4%"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-012",
             "kind": "paragraph",
+            "page": 42,
             "text": "9.1%"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-013",
             "kind": "paragraph",
+            "page": 42,
             "text": "4.3% 2.8% 1.0%"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-014",
             "kind": "heading",
+            "page": 42,
             "text": "Duplicate claim Timely Filing No beneficiary"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-015",
             "kind": "heading",
+            "page": 42,
             "text": "Service not"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-016",
             "kind": "paragraph",
+            "page": 43,
             "text": "Date of service"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-017",
             "kind": "paragraph",
+            "page": 43,
             "text": "Claim lacks information"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-018",
             "kind": "heading",
+            "page": 43,
             "text": "Medical"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-019",
             "kind": "paragraph",
+            "page": 43,
             "text": "necessity"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-020",
             "kind": "paragraph",
+            "page": 43,
             "text": "found"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-021",
             "kind": "paragraph",
+            "page": 43,
             "text": "covered"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-022",
             "kind": "paragraph",
+            "page": 43,
             "text": "issue"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-023",
             "kind": "paragraph",
+            "page": 43,
             "text": "From the Pareto chart, you can see that the top three denial reasons account for 80 percent of the denied claims. An experienced billing team could tell you three things just from looking at this data:"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-024",
             "kind": "paragraph",
+            "page": 43,
             "text": "1. The office has muda of rework. They are sending a large percentage of claims more than one time. 2. The office has an efficiency problem. Almost a fourth of their claims are not making it to the payer prior to timely filing deadlines."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-025",
             "kind": "paragraph",
+            "page": 43,
             "text": "3. The office has an insurance verification problem, because a fifth of their claims are being sent with information that doesn’t match anything on the payer’s end."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-026",
             "kind": "paragraph",
+            "page": 43,
             "text": "Addressing duplicate claims is important because it reduces rework and could enhance the office’s relationship with insurance companies. However, the team might choose to work on the timely filing problem first because timely filing denials are final, which means the office is losing the revenue associated with all those claims. Filing claims on time is not difficult in many cases, given the fact that most payers allow months or even a year for claims to be filed, so this could be an “easy” win for the team. A Pareto chart often uncovers low-hanging fruit in this manner."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-027",
             "kind": "heading",
+            "page": 43,
             "text": "Creating a Basic Pareto Chart in Excel"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-028",
             "kind": "paragraph",
+            "page": 43,
             "text": "If you don’t have statistical software, you can create a basic Pareto chart like the one above in Excel. Use the claims denial data or data of your own to practice making a Pareto chart."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-029",
             "kind": "paragraph",
+            "page": 43,
             "text": "1. Create a column for the data labels. Pareto charts work well when you have quantifiable causes for a defect or other effect. In the example, the data labels are the reason for the denial. No matter what type of data you are using, enter it in order from largest to smallest for Pareto chart purposes. 2. Create a column for count. Enter the total for each cause in that column. 3. Create a column for cumulative count. This column provides a running total. You can calculate the numbers manually or using Excel. In the data table below, you would set C3 = B3. In C4, you would enter the formula =C3+B4. You can drag that formula down and Excel will change the references for each cell so you get =C4+B5, =C5+B6…and so forth. 4. Create a column for percent. In the data table below, the formula for D3 is =B3/$C$9. Cell C9 has the total of all denials, so we want to divide each individual denial total by C9. The dollar signs in the formula let you copy it into each lower cell. The first reference will change, moving to the next line, but the dollar signs tell Excel to keep the C9 reference for each calculation. The final result is a table that looks like this:"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-030",
             "kind": "paragraph",
+            "page": 44,
             "text": "Reason Count Cumulative Percent Duplicate claim 18012 18012 35.9% Timely Filing 13245 31257 26.4% No beneficiary found 10215 41472 20.4% Claim lacks information 4548 46020 9.1% Service not covered 2154 48174 4.3% Medical necessity 1423 49597 2.8% Date of service issue 526 50123 1.0%"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-031",
             "kind": "paragraph",
+            "page": 44,
             "text": "5. To create the Pareto chart, highlight the information in both the Reason and Percent column and select Insert  Chart  Bar chart."
           },
           {
@@ -906,6 +1061,7 @@
             "kind": "image",
             "assetId": "fig-a95aa32401429f20",
             "src": "assets/figures/fig-a95aa32401429f20.png",
+            "page": 44,
             "width": 717,
             "height": 584
           },
@@ -914,12 +1070,14 @@
             "kind": "image",
             "assetId": "fig-e5fce825420d3a60",
             "src": "assets/figures/fig-e5fce825420d3a60.png",
+            "page": 44,
             "width": 1191,
             "height": 356
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-034",
             "kind": "paragraph",
+            "page": 44,
             "text": "6. The bar chart will be created automatically. Select Add Chart Element  Trendline, and add either an exponential or linear trendline."
           },
           {
@@ -927,12 +1085,14 @@
             "kind": "image",
             "assetId": "fig-ce77ffe6b953fefd",
             "src": "assets/figures/fig-ce77ffe6b953fefd.png",
+            "page": 44,
             "width": 668,
             "height": 1101
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-036",
             "kind": "paragraph",
+            "page": 44,
             "text": "7. Select Add Chart Element  Data Labels, and select the format of data label you prefer for your chart."
           },
           {
@@ -940,327 +1100,392 @@
             "kind": "image",
             "assetId": "fig-61198dbcff1c1858",
             "src": "assets/figures/fig-61198dbcff1c1858.png",
+            "page": 44,
             "width": 668,
             "height": 891
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-038",
             "kind": "heading",
+            "page": 44,
             "text": "Use of Pareto Charts"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-039",
             "kind": "paragraph",
+            "page": 44,
             "text": "Pareto charts are helpful analytical tools when you need to analyze frequencies or causes of problems. They also help narrow an approach for a problem that has many causes or is too broad to address in a single improvement project. Like the claims denials example above, you can find a single cause to work on that can yield large results across the entire process."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-040",
             "kind": "paragraph",
+            "page": 44,
             "text": "Pareto charts are also helpful when communicating information about causes to others, especially those outside of the Six Sigma process. Although Pareto charts are a powerful analytical tool, they also represent complex data in a visual format that is familiar to most anyone. Business professionals know how to read a bar chart, and putting the chart in order only makes it easier for individuals to see the true causes behind issues. For this reason, many Six Sigma experts regularly include Pareto charts when presenting to business leaders and others, especially if the data might be considered surprising or need visual reinforcement."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-041",
             "kind": "paragraph",
+            "page": 44,
             "text": "Voice of the Customer Voice of the Customer, or VOC, is a foundational concept in many quality programs. The goal of quality is to make a better, more consistent product. One of the ways you know you’ve reached this goal is that your customers will be more consistently satisfied. The only way to reach this goal is to seek feedback from the customer, making VOC data critical to collect before, during, and after improvement projects."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-042",
             "kind": "paragraph",
+            "page": 44,
             "text": "Successful VOC programs are proactive and constant in their desire for feedback, and technology makes it possible to seek customer feedback in numerous ways. Some methods for capturing feedback include:"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-043",
             "kind": "listItem",
+            "page": 44,
             "text": "Surveys via telephone, mail, email, or online"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-044",
             "kind": "listItem",
+            "page": 44,
             "text": "Focus groups in person or online"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-045",
             "kind": "listItem",
+            "page": 45,
             "text": "Interviews"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-046",
             "kind": "listItem",
+            "page": 45,
             "text": "Beta or user testing"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-047",
             "kind": "listItem",
+            "page": 45,
             "text": "Feedback forms"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-048",
             "kind": "listItem",
+            "page": 45,
             "text": "Customer complaints"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-049",
             "kind": "listItem",
+            "page": 45,
             "text": "Social media or site interaction"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-050",
             "kind": "listItem",
+            "page": 45,
             "text": "Reviews"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-051",
             "kind": "listItem",
+            "page": 45,
             "text": "Forums"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-052",
             "kind": "paragraph",
+            "page": 45,
             "text": "The VOC can be sought as a means to clarify needs and desires, clarify specific problems with a process, or as a regular part of improvement, customer service, and marketing agendas."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-053",
             "kind": "heading",
+            "page": 45,
             "text": "Building a VOC Campaign"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-054",
             "kind": "paragraph",
+            "page": 45,
             "text": "Asking the right questions, in the right way, helps you create powerful VOC campaigns that provide useable data for Six Sigma teams. We’ll talk about two specific types of VOC campaigns in this section: general customer feedback and specific customer feedback."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-055",
             "kind": "heading",
+            "page": 45,
             "text": "General Feedback"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-056",
             "kind": "paragraph",
+            "page": 45,
             "text": "General customer feedback is often obtained through feedback forms, customer complaint records, and passive information gathering via websites or social media. Through such methods, organizations are usually testing general waters to get a temperature reading: are customers happy overall, dissatisfied overall, and is there any direction as to the cause of customer feelings?"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-057",
             "kind": "paragraph",
+            "page": 45,
             "text": "Pick up a feedback form in any fast food restaurant or access the online survey usually linked to on a receipt and you’ll get a good idea of the type of information sought in general VOC campaigns."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-058",
             "kind": "paragraph",
+            "page": 45,
             "text": "Kroger, a grocery store chain in the United States, includes a link to a survey on most of its receipts. The survey first asks for the date, time, and an entry code from the receipt. This helps the company know where and when a person shopped so they can attribute feedback to the right location and staff."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-059",
             "kind": "paragraph",
+            "page": 46,
             "text": "Next, the Kroger survey asks in which areas of the store a person shopped. The rest of the survey asks specific questions about each area of the store a person visited, including:"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-060",
             "kind": "listItem",
+            "page": 46,
             "text": "What was the overall satisfaction with the store?"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-061",
             "kind": "listItem",
+            "page": 46,
             "text": "What was the customer’s satisfaction with:"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-062",
             "kind": "paragraph",
+            "page": 46,
             "text": "o Employee friendliness o Prices o Service o Cleanliness o Items being available o Weekly specials o Ease of movement o Quality of brands"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-063",
             "kind": "paragraph",
+            "page": 46,
             "text": "o Check out times"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-064",
             "kind": "listItem",
+            "page": 46,
             "text": "Whether the shopper is likely to recommend the store to another person in the next 30 days."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-065",
             "kind": "paragraph",
+            "page": 46,
             "text": "These questions are designed to gauge general customer feelings on critical quality elements for the store. Understanding your critical to quality factors, or CTQs, is important to designing a strong VOC campaign. We’ll cover CTQs more in depth in Chapter 8."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-066",
             "kind": "paragraph",
+            "page": 46,
             "text": "General VOC feedback is often used as a smoke alarm. A smoke alarm is designed to alert individuals in a business, home, or other building that the possibility of a fire exists. Smoke alarms are set at a sensitive level, so they go off when smoke is present and people within the building can take action. Often, the alarm and early action saves lives and can even reduce damage associated with a potential fire."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-067",
             "kind": "paragraph",
+            "page": 46,
             "text": "VOC data can work the same way. If numbers change suddenly in a certain area, an organization knows to look deeper into the issue. It’s an indicator that a problem could exist; early investigation and action can help prevent problems from becoming bigger or more costly. For example, if a certain Kroger store always scored high in cleanliness, and the numbers dropped consistently across a month, then store management might need to revisit maintenance and cleaning training."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-068",
             "kind": "paragraph",
+            "page": 46,
             "text": "Results from general VOC feedback are also used in some organizations as an indicator of quality for certain employees. Sales and services staff are often rewarded financially and in other ways for high customer satisfaction scores. This also increases employee drive and satisfaction."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-069",
             "kind": "heading",
+            "page": 46,
             "text": "Specific Feedback"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-070",
             "kind": "paragraph",
+            "page": 46,
             "text": "Sometimes, organizations want feedback that is specific to a problem, product, or idea. The same tools used in general feedback campaigns can be used in specific campaigns, but you can also tailor the VOC tool to the need. If you want feedback about a new app, you could use a beta test. If you want to test a product, idea, or marketing campaign, an in-person or online focus group might be best."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-071",
             "kind": "paragraph",
+            "page": 46,
             "text": "For specific feedback, you have to ask specific questions. This is especially true if you are seeking additional information or clarification of general feedback. For example, if Kroger did see a problem with ratings on cleanliness, it might want more information about how and where customers note uncleanliness. Without additional feedback, managers might have staff mopping the floors more when customers really felt the store was dirty because of a lack of lighting or because shelves were stocked in a sloppy manner."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-072",
             "kind": "heading",
+            "page": 46,
             "text": "Selecting the Right VOC Tools"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-073",
             "kind": "paragraph",
+            "page": 46,
             "text": "Getting the right type of feedback—and keeping costs and timelines within budget—requires selecting the right VOC tool for your project. The table below rates each tool on relative cost and provides some brief pros and cons."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-074",
             "kind": "heading",
+            "page": 47,
             "text": "Tool"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-075",
             "kind": "heading",
+            "page": 47,
             "text": "Cost Benefits Disadvantages"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-076",
             "kind": "paragraph",
+            "page": 47,
             "text": "Feedback form Low -Gathers a lot of data from many sources"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-077",
             "kind": "paragraph",
+            "page": 47,
             "text": "-An individual must decide to leave feedback, skewing results to people who feel strongly one way or the other"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-078",
             "kind": "paragraph",
+            "page": 47,
             "text": "-Can be geared toward numeric data for easier analysis"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-079",
             "kind": "paragraph",
+            "page": 47,
             "text": "-Requires a lot of labor hours"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-080",
             "kind": "paragraph",
+            "page": 47,
             "text": "Survey via phone High -Can randomly select, which allows you to draw conclusions for the entire population"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-081",
             "kind": "paragraph",
+            "page": 47,
             "text": "-Customers may be annoyed by unwanted phone calls"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-082",
             "kind": "paragraph",
+            "page": 47,
             "text": "Survey via mail Medium -Can randomly select, which allows you to draw conclusions for the entire population."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-083",
             "kind": "paragraph",
+            "page": 47,
             "text": "-The customer must send it back for it to count. Because many people won’t do so, you have to send more surveys to get a statistical sampling."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-084",
             "kind": "paragraph",
+            "page": 47,
             "text": "-Lower cost alternative to phone or in-person surveys."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-085",
             "kind": "paragraph",
+            "page": 47,
             "text": "Social media Low -Ongoing ability to seek feedback."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-086",
             "kind": "paragraph",
+            "page": 47,
             "text": "-Requires an established social media following."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-087",
             "kind": "paragraph",
+            "page": 47,
             "text": "-Ability to ask questions on the fly."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-088",
             "kind": "paragraph",
+            "page": 48,
             "text": "-Relies on followers and fans, which means you are asking for feedback from people who already favor your brand in some way."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-089",
             "kind": "paragraph",
+            "page": 48,
             "text": "-Possibly the least expensive option for VOC."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-090",
             "kind": "paragraph",
+            "page": 48,
             "text": "Focus groups in person High -Lets moderators seek more in-depth answers or feedback immediately"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-091",
             "kind": "paragraph",
+            "page": 48,
             "text": "-Limits data pool to local customers or those willing to travel. -Can’t use data to make assumptions about the general population. -Customers may be less inclined to be honest when face-to-face with surveyors"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-092",
             "kind": "paragraph",
+            "page": 48,
             "text": "-Can’t use data to make assumptions about general population."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-093",
             "kind": "paragraph",
+            "page": 48,
             "text": "Focus groups online Low -Lets moderators seek more in-depth answers or feedback immediately -Doesn’t require travel"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-094",
             "kind": "paragraph",
+            "page": 48,
             "text": "and you can access customers across the globe"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-095",
             "kind": "paragraph",
+            "page": 48,
             "text": "-Takes time and requires experienced users or testers."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-096",
             "kind": "paragraph",
+            "page": 48,
             "text": "User or beta testing High -Provides feedback about a specific produce, service, or process."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-097",
             "kind": "heading",
+            "page": 48,
             "text": "The Likert Scale"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-098",
             "kind": "paragraph",
+            "page": 48,
             "text": "When designing your own VOC tool, keep in mind how you intend to use the information gained. If you want to input data into statistical analysis software to test hypothesis or create visual charts, then you need to ask questions that yield actual data points that can be analyzed using statistics. A popular way to do this is with a Likert Scale."
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-099",
             "kind": "paragraph",
+            "page": 48,
             "text": "Using a Likert Scale, you would frame all questions so they are answered via a 5-point ranking. The ranking can be any number of things, but most commonly is some variation of:"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-100",
             "kind": "heading",
+            "page": 48,
             "text": "- Strongly agree - Agree - Neutral - Disagree - Strongly disagree"
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-101",
             "kind": "paragraph",
+            "page": 48,
             "text": "The answers are coded with numbers when data is entered into statistical software. For example, an answer of strongly agree might be coded as 10. Agree would be 7, neutral 5, disagree 3, and strongly disagree 1. By using numerical data, you can easily create charts and graphs and run more in-depth statistical analysis, which is covered in future chapters."
           }
         ],
@@ -1268,6 +1493,7 @@
           {
             "id": "ch05-s03-the-pareto-principle-zh-001",
             "kind": "termNote",
+            "page": 42,
             "rows": [
               [
                 "术语说明 Pareto（帕累托）：按影响大小排序，常用于找出“少数关键原因”。"
@@ -1278,21 +1504,25 @@
           {
             "id": "ch05-s03-the-pareto-principle-zh-002",
             "kind": "paragraph",
+            "page": 42,
             "text": "帕累托原则，也称为 80/20 规则，指出 20% 的原因导致 80% 的结果。这也被称为少数重要法则：少数重要的投入驱动大部分的产出。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-003",
             "kind": "paragraph",
+            "page": 42,
             "text": "帕累托原则最初是由一位名叫约瑟夫·朱兰（Joseph Juran）的管理顾问提出的。朱兰以意大利经济学家维尔弗雷多·帕累托 (Vilfredo Pareto) 的名字命名了这一原理，帕累托写道，该国 20% 的人拥有全国 80% 的土地。这一原则已在各个圈子中变得普遍。商业专业人士通常表示，80% 的销售额来自 20% 的客户，而志愿者组织通常由 20% 的人完成 80% 的工作。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-004",
             "kind": "paragraph",
+            "page": 42,
             "text": "这一原则对六西格玛至关重要，不是因为因果关系通过 80/20 细分很好地排列在一起，而是因为它几乎普遍适用，即少数投入比所有其他投入产生的影响更大。寻求减少缺陷的个人几乎总是可以识别出三到四个输入，如果加以改进，将对结果产生巨大影响。 虽然资源、成本和改进难度也在解决方案选择中发挥着作用，但了解帕累托图上哪些输入或根本原因较高，可以让项目团队确定哪些改进将对利润产生最大影响。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-005",
             "kind": "termNote",
+            "page": 42,
             "rows": [
               [
                 "术语说明 Root Cause（根本原因）：真正驱动问题发生的原因；解决它才能防止问题反复出现。"
@@ -1303,141 +1533,169 @@
           {
             "id": "ch05-s03-the-pareto-principle-zh-006",
             "kind": "paragraph",
+            "page": 42,
             "text": "帕累托原理最好使用帕累托图来显示，帕累托图是数据元素（通常是输入或原因）在排名条形图中的图形表示。与常规条形图不同，条形图按高度顺序排列，最高的在左侧，最低的在右侧。用于创建此类图表的统计软件会自动添加格式和其他元素，但您也可以在 Excel 中创建基本帕累托图。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-007",
             "kind": "paragraph",
+            "page": 42,
             "text": "为了说明帕累托原则，我们将看一下涉及医疗领域缺陷的常见情况，特别是在提交医疗索赔的过程中。付款人经常出于各种原因拒绝索赔。当索赔被拒绝时，提供商办公室必须重新处理、重新提交或对拒绝提出上诉。有些拒绝原因不可上诉，这意味着提供商的办公室会损失与索赔相关的收入。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-008",
             "kind": "paragraph",
+            "page": 42,
             "text": "我们想象一下，一家医疗机构因索赔被拒而面临现金流问题。该办公室收集有关否认的数据并创建帕累托图，以便团队可以了解大部分否认的来源。下面列出了数据，后面是在 Excel 中创建的基本帕累托图。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-009",
             "kind": "paragraph",
+            "page": 42,
             "text": "拒绝医疗索赔的原因 原因计数 重复索赔 18012 及时提交 13245 未找到受益人 10215 索赔缺乏信息 4548 服务不承保 2154 医疗必需品 1423 服务发出日期 526"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-010",
             "kind": "paragraph",
+            "page": 42,
             "text": "索赔被拒绝的原因"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-011",
             "kind": "paragraph",
+            "page": 42,
             "text": "35.9%"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-012",
             "kind": "paragraph",
+            "page": 42,
             "text": "26.4%"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-013",
             "kind": "paragraph",
+            "page": 42,
             "text": "20.4%"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-014",
             "kind": "paragraph",
+            "page": 42,
             "text": "9.1%"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-015",
             "kind": "paragraph",
+            "page": 42,
             "text": "4.3% 2.8% 1.0%"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-016",
             "kind": "heading",
+            "page": 43,
             "text": "重复索赔 及时提交 无受益人"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-017",
             "kind": "heading",
+            "page": 43,
             "text": "服务不行"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-018",
             "kind": "paragraph",
+            "page": 43,
             "text": "服务日期"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-019",
             "kind": "paragraph",
+            "page": 43,
             "text": "索赔缺乏信息"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-020",
             "kind": "heading",
+            "page": 43,
             "text": "医疗"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-021",
             "kind": "paragraph",
+            "page": 43,
             "text": "必要性"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-022",
             "kind": "paragraph",
+            "page": 43,
             "text": "发现"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-023",
             "kind": "paragraph",
+            "page": 43,
             "text": "覆盖"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-024",
             "kind": "paragraph",
+            "page": 43,
             "text": "问题"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-025",
             "kind": "paragraph",
+            "page": 43,
             "text": "从帕累托图中，您可以看到前三个拒绝原因占被拒绝索赔的 80%。经验丰富的计费团队只需查看这些数据就可以告诉您三件事："
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-026",
             "kind": "paragraph",
+            "page": 43,
             "text": "1、办公室有返工现象。他们多次发送很大比例的索赔。 2. 办公室存在效率问题。近四分之一的索赔没有在及时提交截止日期之前发送给付款人。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-027",
             "kind": "paragraph",
+            "page": 43,
             "text": "3. 该办公室存在保险验证问题，因为他们发送的索赔中有五分之一的信息与付款人端的任何内容都不匹配。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-028",
             "kind": "paragraph",
+            "page": 43,
             "text": "解决重复索赔很重要，因为它可以减少返工，并可以增强办公室与保险公司的关系。然而，该团队可能会选择首先解决及时提交问题，因为及时提交拒绝是最终的，这意味着该办公室正在损失与所有这些索赔相关的收入。在许多情况下，按时提交索赔并不困难，因为大多数付款人允许数月甚至一年的时间提出索赔，因此这对团队来说可能是一个“轻松”的胜利。帕累托图经常以这种方式揭示容易实现的目标。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-029",
             "kind": "heading",
+            "page": 43,
             "text": "在 Excel 中创建基本帕累托图"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-030",
             "kind": "paragraph",
+            "page": 43,
             "text": "如果您没有统计软件，您可以创建一个基本的帕累托图，如上面在 Excel 中的图表。使用索赔否认数据或您自己的数据来练习制作帕累托图。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-031",
             "kind": "paragraph",
+            "page": 44,
             "text": "1. 为数据标签创建一列。当缺陷或其他影响有可量化的原因时，帕累托图会发挥很好的作用。在示例中，数据标签是拒绝的原因。无论您使用什么类型的数据，都请按从大到小的顺序输入数据，以用于帕累托图。 2. 创建一个计数列。在该列中输入每个原因的总计。 3. 创建累计计数列。此列提供运行总计。您可以手动或使用 Excel 计算数字。在下面的数据表中，您可以设置 C3 = B3。在 C4 中，您将输入公式 =C3+B4。您可以将该公式向下拖动，Excel 将更改每个单元格的引用，以便您得到 =C4+B5、=C5+B6...等等。 4. 创建百分比列。在下面的数据表中，D3的公式为=B3/$C$9。单元格 C9 包含所有拒绝的总数，因此我们要将每个单独的拒绝总数除以 C9。公式中的美元符号可让您将其复制到每个较低的单元格中。第一个引用将发生变化，移至下一行，但美元符号告诉 Excel 为每次计算保留 C9 引用。最终结果是一个如下所示的表格："
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-032",
             "kind": "paragraph",
+            "page": 44,
             "text": "原因数 累计百分比 重复索赔 18012 18012 35.9% 及时提交 13245 31257 26.4% 未找到受益人 10215 41472 20.4% 索赔缺乏信息 4548 46020 9.1% 服务未涵盖 2154 48174 4.3% 医疗必要性 1423 49597 2.8% 服务发出日期 526 50123 1.0%"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-033",
             "kind": "paragraph",
+            "page": 44,
             "text": "5. 要创建帕累托图，请突出显示原因和百分比列中的信息，然后选择插入 → 图表 → 条形图。"
           },
           {
@@ -1445,6 +1703,7 @@
             "kind": "image",
             "assetId": "fig-a95aa32401429f20",
             "src": "assets/figures/fig-a95aa32401429f20.png",
+            "page": 44,
             "width": 717,
             "height": 584
           },
@@ -1453,12 +1712,14 @@
             "kind": "image",
             "assetId": "fig-e5fce825420d3a60",
             "src": "assets/figures/fig-e5fce825420d3a60.png",
+            "page": 44,
             "width": 1191,
             "height": 356
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-036",
             "kind": "paragraph",
+            "page": 44,
             "text": "6. 条形图将自动创建。选择添加图表元素 → 趋势线，然后添加指数或线性趋势线。"
           },
           {
@@ -1466,12 +1727,14 @@
             "kind": "image",
             "assetId": "fig-ce77ffe6b953fefd",
             "src": "assets/figures/fig-ce77ffe6b953fefd.png",
+            "page": 44,
             "width": 668,
             "height": 1101
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-038",
             "kind": "paragraph",
+            "page": 44,
             "text": "7. 选择添加图表元素 → 数据标签，然后选择您喜欢的图表数据标签格式。"
           },
           {
@@ -1479,72 +1742,86 @@
             "kind": "image",
             "assetId": "fig-61198dbcff1c1858",
             "src": "assets/figures/fig-61198dbcff1c1858.png",
+            "page": 44,
             "width": 668,
             "height": 891
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-040",
             "kind": "heading",
+            "page": 44,
             "text": "帕累托图的使用"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-041",
             "kind": "paragraph",
+            "page": 44,
             "text": "当您需要分析问题的频率或原因时，帕累托图是有用的分析工具。它们还有助于缩小解决具有多种原因或过于广泛而无法在单个改进项目中解决的问题的方法。就像上面的索赔拒绝示例一样，您可以找到一个可以在整个过程中产生巨大结果的单一原因来解决。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-042",
             "kind": "paragraph",
+            "page": 44,
             "text": "帕累托图在向他人传达有关原因的信息时也很有帮助，尤其是那些六西格玛过程之外的人。尽管帕累托图是一种强大的分析工具，但它们也以大多数人熟悉的可视化格式表示复杂的数据。商业专业人士知道如何阅读条形图，将图表按顺序排列只会让个人更容易看到问题背后的真正原因。出于这个原因，许多六西格玛专家在向企业领导者和其他人演示时经常使用帕累托图，特别是当数据可能被认为令人惊讶或需要视觉强化时。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-043",
             "kind": "paragraph",
+            "page": 44,
             "text": "客户之声（VOC） 客户之声（VOC）或VOC，是许多质量计划的基本概念。质量的目标是生产更好、更一致的产品。您知道自己已实现此目标的方法之一是您的客户将更加满意。实现这一目标的唯一方法是寻求客户的反馈，因此 VOC 数据对于改进项目之前、期间和之后的收集至关重要。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-044",
             "kind": "paragraph",
+            "page": 44,
             "text": "成功的 VOC 项目积极主动且始终如一地渴望获得反馈，而技术使得以多种方式寻求客户反馈成为可能。捕获反馈的一些方法包括："
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-045",
             "kind": "listItem",
+            "page": 44,
             "text": "通过电话、信件、电子邮件或在线进行调查"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-046",
             "kind": "listItem",
+            "page": 45,
             "text": "面对面或在线焦点小组"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-047",
             "kind": "listItem",
+            "page": 45,
             "text": "采访"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-048",
             "kind": "listItem",
+            "page": 45,
             "text": "Beta 版或用户测试"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-049",
             "kind": "listItem",
+            "page": 45,
             "text": "反馈表"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-050",
             "kind": "listItem",
+            "page": 45,
             "text": "客户投诉"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-051",
             "kind": "listItem",
+            "page": 45,
             "text": "社交媒体或网站互动"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-052",
             "kind": "termNote",
+            "page": 45,
             "rows": [
               [
                 "术语说明 Interaction（交互作用）：一个因素的效果会随另一个因素水平不同而变化。"
@@ -1555,86 +1832,103 @@
           {
             "id": "ch05-s03-the-pareto-principle-zh-053",
             "kind": "listItem",
+            "page": 45,
             "text": "评论"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-054",
             "kind": "listItem",
+            "page": 45,
             "text": "论坛"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-055",
             "kind": "paragraph",
+            "page": 45,
             "text": "VOC 可以作为澄清需求和愿望、澄清流程中的具体问题的一种手段，也可以作为改进、客户服务和营销议程的常规部分。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-056",
             "kind": "heading",
+            "page": 45,
             "text": "开展 VOC 活动"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-057",
             "kind": "paragraph",
+            "page": 45,
             "text": "以正确的方式提出正确的问题，可以帮助您创建强大的 VOC 活动，为六西格玛团队提供可用的数据。我们将在本节中讨论两种特定类型的 VOC 活动：一般客户反馈和特定客户反馈。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-058",
             "kind": "heading",
+            "page": 45,
             "text": "一般反馈"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-059",
             "kind": "paragraph",
+            "page": 45,
             "text": "一般客户反馈通常是通过反馈表、客户投诉记录以及通过网站或社交媒体收集的被动信息获得的。通过这些方法，组织通常会测试总体情况以获取温度读数：客户总体满意、总体不满意，以及客户感受的原因有什么方向吗？"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-060",
             "kind": "paragraph",
+            "page": 45,
             "text": "在任何一家快餐店拿起一份反馈表或访问收据上通常链接的在线调查，您就会很好地了解一般 VOC 活动中寻求的信息类型。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-061",
             "kind": "paragraph",
+            "page": 46,
             "text": "美国杂货连锁店克罗格 (Kroger) 提供了一个针对其大部分收据进行的调查的链接。调查首先要求提供日期、时间和收据中的输入代码。这有助于公司了解人们在何时何地购物，以便他们可以将反馈归因于正确的地点和员工。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-062",
             "kind": "paragraph",
+            "page": 46,
             "text": "接下来，克罗格调查询问人们在商店的哪些区域购物。调查的其余部分询问有关人们访问过的商店每个区域的具体问题，包括："
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-063",
             "kind": "listItem",
+            "page": 46,
             "text": "对商店的总体满意度如何？"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-064",
             "kind": "listItem",
+            "page": 46,
             "text": "客户对什么感到满意："
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-065",
             "kind": "paragraph",
+            "page": 46,
             "text": "o 员工友好度 o 价格 o 服务 o 清洁度 o 物品供应 o 每周特价 o 出行方便 o 品牌质量"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-066",
             "kind": "paragraph",
+            "page": 46,
             "text": "o 退房时间"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-067",
             "kind": "listItem",
+            "page": 46,
             "text": "购物者是否有可能在未来 30 天内向其他人推荐该商店。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-068",
             "kind": "paragraph",
+            "page": 46,
             "text": "这些问题旨在评估一般顾客对商店关键质量要素的感受。了解关键质量特性（CTQ）因素或 CTQ 对于设计强大的 VOC 活动非常重要。我们将在第 8 章中更深入地介绍 CTQ。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-069",
             "kind": "termNote",
+            "page": 46,
             "rows": [
               [
                 "术语说明 CTQ（关键质量特性）：把客户需求转化为可测量的质量要求。"
@@ -1645,181 +1939,217 @@
           {
             "id": "ch05-s03-the-pareto-principle-zh-070",
             "kind": "paragraph",
+            "page": 46,
             "text": "一般VOC反馈常被用作烟雾报警器。烟雾报警器旨在提醒企业、家庭或其他建筑物中的人员存在发生火灾的可能性。烟雾警报器设置在敏感水平，因此当存在烟雾并且建筑物内的人员可以采取行动时，烟雾警报器就会响起。通常，警报和早期行动可以挽救生命，甚至可以减少与潜在火灾相关的损失。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-071",
             "kind": "paragraph",
+            "page": 46,
             "text": "VOC 数据可以以同样的方式工作。如果某个领域的数字突然发生变化，组织就会知道要更深入地研究这个问题。它表明可能存在问题；及早调查和采取行动有助于防止问题变得更大或成本更高。例如，如果某家克罗格商店在清洁度方面始终得分很高，并且该数字在一个月内持续下降，那么商店管理层可能需要重新审视维护和清洁培训。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-072",
             "kind": "paragraph",
+            "page": 46,
             "text": "一些组织还使用一般 VOC 反馈的结果作为某些员工的质量指标。销售和服务人员通常会因客户满意度高而获得经济和其他方式的奖励。这也提高了员工的动力和满意度。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-073",
             "kind": "heading",
+            "page": 46,
             "text": "具体反馈"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-074",
             "kind": "paragraph",
+            "page": 46,
             "text": "有时，组织需要针对特定问题、产品或想法的反馈。一般反馈活动中使用的相同工具可以用于特定活动，但您也可以根据需要定制 VOC 工具。如果您需要有关新应用程序的反馈，可以使用 Beta 测试。如果您想测试产品、想法或营销活动，面对面或在线焦点小组可能是最好的选择。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-075",
             "kind": "paragraph",
+            "page": 46,
             "text": "对于具体的反馈，您必须提出具体的问题。如果您正在寻求其他信息或一般反馈的澄清，则尤其如此。例如，如果克罗格确实发现清洁度评级存在问题，它可能需要更多有关顾客如何以及在何处注意到不清洁的信息。如果没有额外的反馈，当顾客因为缺乏照明或货架上的物品杂乱而确实觉得商店很脏时，经理可能会让员工更多地擦地板。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-076",
             "kind": "heading",
+            "page": 47,
             "text": "选择正确的 VOC 工具"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-077",
             "kind": "paragraph",
+            "page": 47,
             "text": "获得正确类型的反馈并将成本和时间表控制在预算范围内需要为您的项目选择正确的 VOC 工具。下表根据相对成本对每种工具进行了评级，并提供了一些简要的优缺点。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-078",
             "kind": "heading",
+            "page": 47,
             "text": "工具"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-079",
             "kind": "heading",
+            "page": 47,
             "text": "成本 优点 缺点"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-080",
             "kind": "paragraph",
+            "page": 47,
             "text": "反馈表低 - 从多个来源收集大量数据"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-081",
             "kind": "paragraph",
+            "page": 47,
             "text": "- 个人必须决定留下反馈，将结果偏向于有强烈感觉的人"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-082",
             "kind": "paragraph",
+            "page": 47,
             "text": "-可以针对数字数据以便于分析"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-083",
             "kind": "paragraph",
+            "page": 47,
             "text": "-需要大量的工时"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-084",
             "kind": "paragraph",
+            "page": 47,
             "text": "通过电话调查高 - 可以随机选择，这使您可以对整个人群得出结论"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-085",
             "kind": "paragraph",
+            "page": 47,
             "text": "- 顾客可能会因骚扰电话而烦恼"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-086",
             "kind": "paragraph",
+            "page": 47,
             "text": "通过邮件进行调查 中等 - 可以随机选择，这使您可以对整个人群得出结论。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-087",
             "kind": "paragraph",
+            "page": 47,
             "text": "- 客户必须将其寄回才算计数。因为很多人不会这样做，所以你必须发送更多调查来获得统计抽样。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-088",
             "kind": "paragraph",
+            "page": 47,
             "text": "- 电话或现场调查的成本更低。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-089",
             "kind": "paragraph",
+            "page": 47,
             "text": "社交媒体 低 - 持续寻求反馈的能力。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-090",
             "kind": "paragraph",
+            "page": 47,
             "text": "-需要已建立的社交媒体关注者。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-091",
             "kind": "paragraph",
+            "page": 48,
             "text": "- 能够即时提问。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-092",
             "kind": "paragraph",
+            "page": 48,
             "text": "-依赖追随者和粉丝，这意味着您正在向那些已经以某种方式支持您的品牌的人寻求反馈。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-093",
             "kind": "paragraph",
+            "page": 48,
             "text": "-可能是 VOC 最便宜的选择。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-094",
             "kind": "paragraph",
+            "page": 48,
             "text": "现场焦点小组高 - 让主持人立即寻求更深入的答案或反馈"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-095",
             "kind": "paragraph",
+            "page": 48,
             "text": "-将数据池限制为本地客户或愿意出差的客户。 - 不能使用数据对一般人群做出假设。 - 客户在与测量员面对面时可能不太愿意诚实"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-096",
             "kind": "paragraph",
+            "page": 48,
             "text": "- 不能使用数据对一般人群做出假设。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-097",
             "kind": "paragraph",
+            "page": 48,
             "text": "在线焦点小组 低 -让主持人立即寻求更深入的答案或反馈 -不需要出差"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-098",
             "kind": "paragraph",
+            "page": 48,
             "text": "您可以接触到全球各地的客户"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-099",
             "kind": "paragraph",
+            "page": 48,
             "text": "-需要时间并且需要有经验的用户或测试人员。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-100",
             "kind": "paragraph",
+            "page": 48,
             "text": "用户或 beta 测试 高 - 提供有关特定产品、服务或流程的反馈。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-101",
             "kind": "heading",
+            "page": 48,
             "text": "李克特量表"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-102",
             "kind": "paragraph",
+            "page": 48,
             "text": "在设计您自己的 VOC 工具时，请记住您打算如何使用所获得的信息。如果您想将数据输入统计分析软件来检验假设或创建可视化图表，那么您需要提出一些问题来产生可以使用统计进行分析的实际数据点。一种流行的方法是使用李克特量表。"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-103",
             "kind": "paragraph",
+            "page": 48,
             "text": "使用李克特量表，您可以构建所有问题，以便通过 5 分排名来回答它们。排名可以是任意数量的，但最常见的是以下一些变化："
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-104",
             "kind": "heading",
+            "page": 48,
             "text": "- 非常同意 - 同意 - 中立 - 不同意 - 非常不同意"
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-105",
             "kind": "paragraph",
+            "page": 48,
             "text": "当数据输入统计软件时，答案会用数字编码。例如，强烈同意的答案可能编码为 10。同意为 7，中立为 5，不同意为 3，强烈不同意为 1。通过使用数值数据，您可以轻松创建图表和图形并运行更深入的统计分析，这将在以后的章节中介绍。"
           }
         ]
@@ -1838,191 +2168,229 @@
           {
             "id": "ch05-s04-basic-metrics-en-001",
             "kind": "paragraph",
+            "page": 49,
             "text": "We introduced some ideas about Six Sigma metrics in Chapter 1 when we talked about sigma level and defects per million opportunities, or DPMO. Metrics are extremely utilized when applying Six Sigma to processes and improvements, requiring that anyone working in a Six Sigma environment be familiar with them."
           },
           {
             "id": "ch05-s04-basic-metrics-en-002",
             "kind": "heading",
+            "page": 49,
             "text": "Defects per Million Opportunities"
           },
           {
             "id": "ch05-s04-basic-metrics-en-003",
             "kind": "paragraph",
+            "page": 49,
             "text": "Many Six Sigma metrics come with an equation, just like standard deviation. For example, the equation for DPMO is:"
           },
           {
             "id": "ch05-s04-basic-metrics-en-004",
             "kind": "paragraph",
+            "page": 49,
             "text": "(number of defects in a sample/opportunities for a defect in the sample) * 1,000,000"
           },
           {
             "id": "ch05-s04-basic-metrics-en-005",
             "kind": "paragraph",
+            "page": 49,
             "text": "For example, if a mail-order retailer examines quality of the order process, it might sample forms entered by customer service representatives. If each form has 10 fields, then there are 10 opportunities for an error on each form. If the retailer reviews 90 forms, then there are 10 * 90, or 900, total opportunities for errors."
           },
           {
             "id": "ch05-s04-basic-metrics-en-006",
             "kind": "paragraph",
+            "page": 49,
             "text": "During the review, the retailer finds 2 errors, or defects. To calculate DPMO, the math would be as follows:"
           },
           {
             "id": "ch05-s04-basic-metrics-en-007",
             "kind": "paragraph",
+            "page": 49,
             "text": "(2/900) * 1,000,000 = 2,222 defects per million opportunities."
           },
           {
             "id": "ch05-s04-basic-metrics-en-008",
             "kind": "heading",
+            "page": 49,
             "text": "Defects per Unit"
           },
           {
             "id": "ch05-s04-basic-metrics-en-009",
             "kind": "paragraph",
+            "page": 49,
             "text": "DPU is a measure of how many defects there are in relation to the number of units tested. DPU is concerned with total defects, and one unit could have more than one defect. The formula for DPU is:"
           },
           {
             "id": "ch05-s04-basic-metrics-en-010",
             "kind": "paragraph",
+            "page": 49,
             "text": "Number of defects found / number of units in the sample"
           },
           {
             "id": "ch05-s04-basic-metrics-en-011",
             "kind": "paragraph",
+            "page": 49,
             "text": "For example, if a publisher printed 1,000 books and pulled out 50 books for quality checks, it might be looking for the following defects:"
           },
           {
             "id": "ch05-s04-basic-metrics-en-012",
             "kind": "paragraph",
+            "page": 49,
             "text": "- Incorrect printing - Incorrect alignment - Missing pages - A loose spine - Torn cover"
           },
           {
             "id": "ch05-s04-basic-metrics-en-013",
             "kind": "paragraph",
+            "page": 49,
             "text": "Out of 50 books, the publisher discovers:"
           },
           {
             "id": "ch05-s04-basic-metrics-en-014",
             "kind": "paragraph",
+            "page": 50,
             "text": "- 3 books are missing pages - 1 book is missing pages and has a torn cover - 2 books have loose spines - 1 book has incorrect printing and incorrect alignment"
           },
           {
             "id": "ch05-s04-basic-metrics-en-015",
             "kind": "paragraph",
+            "page": 50,
             "text": "There are 9 total errors, as two books had two defects each."
           },
           {
             "id": "ch05-s04-basic-metrics-en-016",
             "kind": "paragraph",
+            "page": 50,
             "text": "The DPU is calculated by dividing defects by number of units sampled. In this case, 9/50 = 0.18."
           },
           {
             "id": "ch05-s04-basic-metrics-en-017",
             "kind": "paragraph",
+            "page": 50,
             "text": "DPU provides an average level of quality—it tells you how many defects on average each unit can be expected to have. In this case, that is 0.18 defects on average."
           },
           {
             "id": "ch05-s04-basic-metrics-en-018",
             "kind": "heading",
+            "page": 50,
             "text": "First Time Yield (FTY)"
           },
           {
             "id": "ch05-s04-basic-metrics-en-019",
             "kind": "paragraph",
+            "page": 50,
             "text": "First time yield is the ratio of units produced to units attempted to produce. For example, if you put 12 cookies in the oven, but only 10 come out edible, then you haven’t produced 12 cookies."
           },
           {
             "id": "ch05-s04-basic-metrics-en-020",
             "kind": "paragraph",
+            "page": 50,
             "text": "The formula for FTY is:"
           },
           {
             "id": "ch05-s04-basic-metrics-en-021",
             "kind": "paragraph",
+            "page": 50,
             "text": "Number of good units produced / number of units entering the process"
           },
           {
             "id": "ch05-s04-basic-metrics-en-022",
             "kind": "paragraph",
+            "page": 50,
             "text": "In the cookie example, the FTY is 10/12, or .833."
           },
           {
             "id": "ch05-s04-basic-metrics-en-023",
             "kind": "paragraph",
+            "page": 50,
             "text": "Most products or services are created via multiple processes; you multiply the FTY for each process to calculate an overall FTY. For example, consider the following process chain:"
           },
           {
             "id": "ch05-s04-basic-metrics-en-024",
             "kind": "paragraph",
+            "page": 50,
             "text": "- 100 units enter process A and 95 units exit."
           },
           {
             "id": "ch05-s04-basic-metrics-en-025",
             "kind": "paragraph",
+            "page": 50,
             "text": "- 95 units enter process B and 85 good units are achieved. - 85 units enter process C and 80 good units exit."
           },
           {
             "id": "ch05-s04-basic-metrics-en-026",
             "kind": "paragraph",
+            "page": 50,
             "text": "The FTY would be calculated as follows:"
           },
           {
             "id": "ch05-s04-basic-metrics-en-027",
             "kind": "paragraph",
+            "page": 51,
             "text": "- 95/100 = 0.95 = FTY of process A - 85/95 = 0.89 = FTY of process B - 80/85 = 0.94 = FTY of process C - 0.95 * 0.89 * 0.94 = 0.79"
           },
           {
             "id": "ch05-s04-basic-metrics-en-028",
             "kind": "paragraph",
+            "page": 51,
             "text": "The overall FTY of the process is 0.79."
           },
           {
             "id": "ch05-s04-basic-metrics-en-029",
             "kind": "heading",
+            "page": 51,
             "text": "Rolled Throughput Yield (RTY)"
           },
           {
             "id": "ch05-s04-basic-metrics-en-030",
             "kind": "paragraph",
+            "page": 51,
             "text": "The rolled throughput yield, or RTY, provides a probability that a unit will be generated by a process with no defects. One of the main differences between RTY and basic yield or first time yield is that RTY considers whether rework was needed to generate the number of final units. This is a valuable concern, because organizations don’t always think about the rework that is inherent in a process, which means they often measure a process and deem it successful even if muda is present."
           },
           {
             "id": "ch05-s04-basic-metrics-en-031",
             "kind": "paragraph",
+            "page": 51,
             "text": "RTY is calculated in a similar manner to FTY, but it takes rework into account. If process A from the FTY example only achieved a yield of 95 because someone reworked five items to make them good, then RTY calculations add five instances of rework into the ratio. The formula is:"
           },
           {
             "id": "ch05-s04-basic-metrics-en-032",
             "kind": "paragraph",
+            "page": 51,
             "text": "(Number of units entering - (scrap + rework))/number of units entering process"
           },
           {
             "id": "ch05-s04-basic-metrics-en-033",
             "kind": "paragraph",
+            "page": 51,
             "text": "In the case of process A: (100 - (5+5))/100 = 90/100 = 0.9"
           },
           {
             "id": "ch05-s04-basic-metrics-en-034",
             "kind": "paragraph",
+            "page": 51,
             "text": "Consider the following process chain:"
           },
           {
             "id": "ch05-s04-basic-metrics-en-035",
             "kind": "paragraph",
+            "page": 51,
             "text": "- 100 units enter process A. Five are scrapped, 5 are reworked, and a total of 95 are produced. - 95 units enter process B. Ten are scrapped, 5 are reworked, and a total of 85 are produced. - 85 units enter process C. Five are scrapped, 15 are reworked, and a total of 80 are produced."
           },
           {
             "id": "ch05-s04-basic-metrics-en-036",
             "kind": "paragraph",
+            "page": 51,
             "text": "The RTY is calculated as follows:"
           },
           {
             "id": "ch05-s04-basic-metrics-en-037",
             "kind": "paragraph",
+            "page": 51,
             "text": "- 100 – (5 + 5) = 90, 90/100 = 0.9 RTY for A - 95 – (10 + 5) = 80, 80/95 = 0.84 RTY for B - 85 – (5 + 15) = 65, 65/85 = 0.76 RTY for C - 0.9 * 0.84 * 0.76 = 0.574"
           },
           {
             "id": "ch05-s04-basic-metrics-en-038",
             "kind": "paragraph",
+            "page": 51,
             "text": "The overall RTY for the process is 0.574, which is a much lower rate than when you look at FTY alone. RTY doesn’t provide an indication of final production or sales, but a low RTY indicates that there is waste in the process in the form of rework."
           },
           {
@@ -2030,6 +2398,7 @@
             "kind": "image",
             "assetId": "fig-0afebfe9da34cbab",
             "src": "assets/figures/fig-0afebfe9da34cbab.png",
+            "page": 51,
             "width": 1167,
             "height": 823
           }
@@ -2038,11 +2407,13 @@
           {
             "id": "ch05-s04-basic-metrics-zh-001",
             "kind": "paragraph",
+            "page": 49,
             "text": "我们在第一章讨论西格玛水平和每百万机会缺陷数数数（DPMO）时介绍了有关六西格玛指标的一些想法。在将六西格玛应用于流程和改进时，指标被极大地利用，要求在六西格玛环境中工作的任何人都熟悉它们。"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-002",
             "kind": "termNote",
+            "page": 49,
             "rows": [
               [
                 "术语说明 Sigma level（西格玛水平）：衡量过程缺陷率的尺度；水平越高，单位机会中产生缺陷的概率越低。"
@@ -2053,186 +2424,223 @@
           {
             "id": "ch05-s04-basic-metrics-zh-003",
             "kind": "heading",
+            "page": 49,
             "text": "每百万次机会的缺陷数"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-004",
             "kind": "paragraph",
+            "page": 49,
             "text": "许多六西格玛指标都带有一个方程，就像标准差一样。例如，DPMO 的方程为："
           },
           {
             "id": "ch05-s04-basic-metrics-zh-005",
             "kind": "paragraph",
+            "page": 49,
             "text": "（样本中的缺陷数量/样本中出现缺陷的机会）* 1,000,000"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-006",
             "kind": "paragraph",
+            "page": 49,
             "text": "例如，如果邮购零售商检查订单流程的质量，它可能会对客户服务代表输入的表格进行抽样。如果每个表单有 10 个字段，则每个表单上有 10 次出错机会。如果零售商检查 90 个表格，则总共有 10 * 90 或 900 个错误机会。"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-007",
             "kind": "paragraph",
+            "page": 49,
             "text": "在审查过程中，零售商发现了 2 个错误或缺陷。要计算 DPMO，数学计算如下："
           },
           {
             "id": "ch05-s04-basic-metrics-zh-008",
             "kind": "paragraph",
+            "page": 49,
             "text": "(2/900) * 1,000,000 = 每百万个机会有 2,222 个缺陷。"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-009",
             "kind": "heading",
+            "page": 49,
             "text": "每单位缺陷数"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-010",
             "kind": "paragraph",
+            "page": 49,
             "text": "DPU 是衡量缺陷数量与测试单元数量之间的关系的指标。 DPU 关注的是总缺陷数，一个单元可能有多个缺陷。 DPU的计算公式为："
           },
           {
             "id": "ch05-s04-basic-metrics-zh-011",
             "kind": "paragraph",
+            "page": 49,
             "text": "发现的缺陷数/样本中的单位数"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-012",
             "kind": "paragraph",
+            "page": 49,
             "text": "例如，如果出版商印刷了 1,000 本书并取出 50 本书进行质量检查，则可能会寻找以下缺陷："
           },
           {
             "id": "ch05-s04-basic-metrics-zh-013",
             "kind": "paragraph",
+            "page": 49,
             "text": "- 打印不正确 - 对齐不正确 - 缺页 - 书脊松动 - 封面破损"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-014",
             "kind": "paragraph",
+            "page": 49,
             "text": "在 50 本书中，出版商发现："
           },
           {
             "id": "ch05-s04-basic-metrics-zh-015",
             "kind": "paragraph",
+            "page": 50,
             "text": "- 3 本书缺页 - 1 本书缺页且封面破损 - 2 本书书脊松动 - 1 本书印刷不正确且对齐不正确"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-016",
             "kind": "paragraph",
+            "page": 50,
             "text": "总共有 9 个错误，因为两本书各有两个缺陷。"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-017",
             "kind": "paragraph",
+            "page": 50,
             "text": "DPU 的计算方法是将缺陷除以抽样单位数。在本例中，9/50 = 0.18。"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-018",
             "kind": "paragraph",
+            "page": 50,
             "text": "DPU 提供平均质量水平 — 它告诉您每个单元平均预计有多少缺陷。在本例中，平均缺陷数为 0.18。"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-019",
             "kind": "heading",
+            "page": 50,
             "text": "首次收益率 (FTY)"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-020",
             "kind": "paragraph",
+            "page": 50,
             "text": "首次产量是已生产的单位与尝试生产的单位的比率。例如，如果您将 12 块饼干放入烤箱，但只有 10 块出来可以食用，那么您还没有制作出 12 块饼干。"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-021",
             "kind": "paragraph",
+            "page": 50,
             "text": "FTY 的公式为："
           },
           {
             "id": "ch05-s04-basic-metrics-zh-022",
             "kind": "paragraph",
+            "page": 50,
             "text": "生产的好单位数/进入流程的单位数"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-023",
             "kind": "paragraph",
+            "page": 50,
             "text": "在 cookie 示例中，FTY 为 10/12，即 0.833。"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-024",
             "kind": "paragraph",
+            "page": 50,
             "text": "大多数产品或服务都是通过多个流程创建的；将每个流程的 FTY 相乘即可计算总体 FTY。例如，考虑以下流程链："
           },
           {
             "id": "ch05-s04-basic-metrics-zh-025",
             "kind": "paragraph",
+            "page": 50,
             "text": "- 100 个单位进入流程 A，95 个单位退出。"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-026",
             "kind": "paragraph",
+            "page": 50,
             "text": "- 95 个单元进入流程 B，并获得 85 个良好单元。 - 85 个单位进入流程 C，80 个良好单位退出。"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-027",
             "kind": "paragraph",
+            "page": 50,
             "text": "FTY 计算如下："
           },
           {
             "id": "ch05-s04-basic-metrics-zh-028",
             "kind": "paragraph",
+            "page": 51,
             "text": "- 95/100 = 0.95 = 流程 A 的 FTY - 85/95 = 0.89 = 流程 B 的 FTY - 80/85 = 0.94 = 流程 C 的 FTY - 0.95 * 0.89 * 0.94 = 0.79"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-029",
             "kind": "paragraph",
+            "page": 51,
             "text": "该过程的总体 FTY 为 0.79。"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-030",
             "kind": "heading",
+            "page": 51,
             "text": "滚动吞吐量 (RTY)"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-031",
             "kind": "paragraph",
+            "page": 51,
             "text": "滚动产出率 (RTY) 提供了通过流程生产无缺陷单元的概率。 RTY 与基本良率或首次良率之间的主要区别之一是，RTY 考虑是否需要返工来生成最终单位的数量。 这是一个值得关注的问题，因为组织并不总是考虑流程中固有的返工，这意味着即使存在 Muda，他们也经常衡量流程并认为它是成功的。"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-032",
             "kind": "paragraph",
+            "page": 51,
             "text": "RTY 的计算方式与 FTY 类似，但它考虑了返工。如果 FTY 示例中的流程 A 仅实现了 95 的产量，因为有人返工了 5 个项目以使它们变得良好，则 RTY 计算会将 5 个返工实例添加到比率中。公式为："
           },
           {
             "id": "ch05-s04-basic-metrics-zh-033",
             "kind": "paragraph",
+            "page": 51,
             "text": "(进入的单位数量-(报废+返工))/进入处理的单位数量"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-034",
             "kind": "paragraph",
+            "page": 51,
             "text": "对于过程A：(100 - (5+5))/100 = 90/100 = 0.9"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-035",
             "kind": "paragraph",
+            "page": 51,
             "text": "考虑以下流程链："
           },
           {
             "id": "ch05-s04-basic-metrics-zh-036",
             "kind": "paragraph",
+            "page": 51,
             "text": "- 100 件进入流程 A。其中 5 件报废，5 件返工，总共生产 95 件。 - 95 件进入流程 B。其中 10 件报废，5 件返工，总共生产 85 件。 - 85 件进入流程 C。其中 5 件报废，15 件返工，总共生产 80 件。"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-037",
             "kind": "paragraph",
+            "page": 51,
             "text": "RTY 计算如下："
           },
           {
             "id": "ch05-s04-basic-metrics-zh-038",
             "kind": "paragraph",
+            "page": 51,
             "text": "- 100 – (5 + 5) = 90, 90/100 = 0.9 RTY（A） - 95 – (10 + 5) = 80, 80/95 = 0.84 RTY（B） - 85 – (5 + 15) = 65, 65/85 = 0.76 RTY（C） - 0.9 * 0.84 * 0.76 = 0.574"
           },
           {
             "id": "ch05-s04-basic-metrics-zh-039",
             "kind": "paragraph",
+            "page": 51,
             "text": "该流程的总体 RTY 为 0.574，这比单独查看 FTY 时要低得多。 RTY 不提供最终产量或销量的指标，但较低的 RTY 表明流程中存在返工形式的浪费。"
           },
           {
@@ -2240,6 +2648,7 @@
             "kind": "image",
             "assetId": "fig-0afebfe9da34cbab",
             "src": "assets/figures/fig-0afebfe9da34cbab.png",
+            "page": 51,
             "width": 1167,
             "height": 823
           }
@@ -2260,7 +2669,7 @@
       "id": "fig-07d2aedfa5a6b353",
       "type": "figure",
       "path": "assets/figures/fig-07d2aedfa5a6b353.png",
-      "page": 38,
+      "page": 41,
       "width": 205,
       "height": 223
     },
@@ -2268,7 +2677,7 @@
       "id": "fig-0afebfe9da34cbab",
       "type": "table-image",
       "path": "assets/figures/fig-0afebfe9da34cbab.png",
-      "page": 49,
+      "page": 51,
       "width": 1167,
       "height": 823
     },
@@ -2276,7 +2685,7 @@
       "id": "fig-61198dbcff1c1858",
       "type": "figure",
       "path": "assets/figures/fig-61198dbcff1c1858.png",
-      "page": 42,
+      "page": 44,
       "width": 668,
       "height": 891
     },
@@ -2284,7 +2693,7 @@
       "id": "fig-6265d83140d1378e",
       "type": "formula-image",
       "path": "assets/figures/fig-6265d83140d1378e.png",
-      "page": 38,
+      "page": 41,
       "width": 273,
       "height": 167
     },
@@ -2292,7 +2701,7 @@
       "id": "fig-75ed8e98a327993b",
       "type": "table-image",
       "path": "assets/figures/fig-75ed8e98a327993b.png",
-      "page": 38,
+      "page": 40,
       "width": 1151,
       "height": 373
     },
@@ -2300,7 +2709,7 @@
       "id": "fig-a95aa32401429f20",
       "type": "figure",
       "path": "assets/figures/fig-a95aa32401429f20.png",
-      "page": 42,
+      "page": 44,
       "width": 717,
       "height": 584
     },
@@ -2316,7 +2725,7 @@
       "id": "fig-ce77ffe6b953fefd",
       "type": "figure",
       "path": "assets/figures/fig-ce77ffe6b953fefd.png",
-      "page": 42,
+      "page": 44,
       "width": 668,
       "height": 1101
     },
@@ -2332,7 +2741,7 @@
       "id": "fig-d3e4512e01d6ed45",
       "type": "figure",
       "path": "assets/figures/fig-d3e4512e01d6ed45.png",
-      "page": 38,
+      "page": 41,
       "width": 220,
       "height": 407
     },
@@ -2340,7 +2749,7 @@
       "id": "fig-e5fce825420d3a60",
       "type": "table-image",
       "path": "assets/figures/fig-e5fce825420d3a60.png",
-      "page": 42,
+      "page": 44,
       "width": 1191,
       "height": 356
     },
@@ -2348,7 +2757,7 @@
       "id": "fig-f41a219d0468ab33",
       "type": "table-image",
       "path": "assets/figures/fig-f41a219d0468ab33.png",
-      "page": 38,
+      "page": 40,
       "width": 1155,
       "height": 318
     }

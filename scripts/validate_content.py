@@ -57,12 +57,23 @@ def validate_image_asset(block: dict) -> None:
         fail(f"image dimensions must be positive: {block.get('id')}")
 
 
-def validate_block(section_id: str, block: dict, asset_ids: set[str] | None = None) -> None:
+def validate_block(
+    section_id: str,
+    block: dict,
+    asset_ids: set[str] | None = None,
+    page_start: int | None = None,
+    page_end: int | None = None,
+) -> None:
     if not block.get("id"):
         fail(f"block missing id in section {section_id}")
     kind = block.get("kind")
     if kind not in {"paragraph", "listItem", "table", "termNote", "heading", "image"}:
         fail(f"invalid block kind in {block.get('id')}: {kind}")
+    if "page" in block:
+        if not isinstance(block["page"], int) or block["page"] < 1:
+            fail(f"invalid block page for {block.get('id')}: {block.get('page')}")
+        if page_start is not None and page_end is not None and not (page_start <= block["page"] <= page_end):
+            fail(f"block page outside chapter range for {block.get('id')}: {block['page']}")
     if kind in {"paragraph", "listItem", "termNote", "heading"} and not str(block.get("text", "")).strip():
         fail(f"text block is empty: {block.get('id')}")
     if kind == "table":
@@ -130,6 +141,7 @@ def validate_section_lesson(
     seen_ids: set[str] = set()
     seen_block_ids: set[str] = set()
     referenced_asset_ids: set[str] = set()
+    language_page_coverage: dict[str, set[int]] = {"en": set(), "zh": set()}
     previous_page = data["pageStart"]
     for section in data["sections"]:
         for key in ["id", "page", "level", "title", "content"]:
@@ -168,12 +180,23 @@ def validate_section_lesson(
                         fail(f"duplicate global block id: {block_id}")
                     global_block_ids.add(block_id)
                 seen_block_ids.add(block_id)
-                validate_block(section["id"], block, asset_ids)
+                validate_block(section["id"], block, asset_ids, data["pageStart"], data["pageEnd"])
+                block_page = block.get("page", section["page"])
+                if path.name != "manual.sample.json":
+                    if "page" not in block:
+                        fail(f"block missing page anchor: {block.get('id')}")
+                    language_page_coverage[language].add(block_page)
                 if block.get("kind") == "image":
                     referenced_asset_ids.add(str(block["assetId"]))
     unused_assets = asset_ids - referenced_asset_ids
     if unused_assets:
         fail(f"chapter assets not referenced by image blocks in {data.get('id')}: {sorted(unused_assets)[:5]}")
+    if path.name != "manual.sample.json":
+        expected_pages = set(range(data["pageStart"], data["pageEnd"] + 1))
+        for language, pages in language_page_coverage.items():
+            missing_pages = sorted(expected_pages - pages)
+            if missing_pages:
+                fail(f"chapter {data.get('id')} missing {language} block page coverage: {missing_pages[:12]}")
     if not quiet:
         print(f"ok: {path} ({len(data['sections'])} sections)")
 

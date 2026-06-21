@@ -26,16 +26,19 @@
           {
             "id": "ch24-s01-applying-statistics-to-business-with-six-sigma-en-001",
             "kind": "heading",
+            "page": 295,
             "text": "Applications through Six Sigma"
           },
           {
             "id": "ch24-s01-applying-statistics-to-business-with-six-sigma-en-002",
             "kind": "paragraph",
+            "page": 295,
             "text": "You aren’t done with statistics yetbut, it’s a good idea to take a break from the numbers and analysis to revisit some fundamental concepts of Six Sigma."
           },
           {
             "id": "ch24-s01-applying-statistics-to-business-with-six-sigma-en-003",
             "kind": "paragraph",
+            "page": 295,
             "text": "Throughout Unit 4 and 5, we’ve worked extensively with data and analysis, and it can be easy to get wrapped up in the numbers without remembering the business need. In fact, the more you learn about statistical analysis, the easier it is to get caught up in the challenge of the analysis and forget that the business is relying on you for answers about its own challenges. In this chapter, we’ll cover some obstacles you might run into when communicating your statistical findings to business employees and leaders. We’ll also talk about the importance of including statistics in business presentations and some tips for integrating statistics within those presentations."
           }
         ],
@@ -43,21 +46,25 @@
           {
             "id": "ch24-s01-applying-statistics-to-business-with-six-sigma-zh-001",
             "kind": "heading",
+            "page": 295,
             "text": "通过六西格玛申请"
           },
           {
             "id": "ch24-s01-applying-statistics-to-business-with-six-sigma-zh-002",
             "kind": "paragraph",
+            "page": 295,
             "text": "你还没有完成统计数据，但是，最好从数字和分析中休息一下，重新审视六西格玛的一些基本概念。"
           },
           {
             "id": "ch24-s01-applying-statistics-to-business-with-six-sigma-zh-003",
             "kind": "paragraph",
+            "page": 295,
             "text": "在第 4 单元和第 5 单元中，我们广泛使用了数据和分析，很容易陷入数字之中，而忘记了业务需求。事实上，您对统计分析了解得越多，就越容易陷入分析的挑战中，而忘记企业正在依靠您来解决其自身挑战的问题。在本章中，我们将介绍在向企业员工和领导者传达统计结果时可能遇到的一些障碍。我们还将讨论在业务演示中包含统计数据的重要性以及在这些演示中集成统计数据的一些技巧。"
           },
           {
             "id": "ch24-s01-applying-statistics-to-business-with-six-sigma-zh-004",
             "kind": "heading",
+            "page": 295,
             "text": "进行统计分析时的常见挑战"
           }
         ]
@@ -76,46 +83,55 @@
           {
             "id": "ch24-s02-common-challenges-when-presenting-statistical-analysis-en-001",
             "kind": "paragraph",
+            "page": 295,
             "text": "Here is the first, and perhaps biggest, challenge faced by Six Sigma experts when delivering information from statistical analysis: Most people don’t care. Truly, unless your sponsor is a Six Sigma expert too or your leadership committee is well-versed in Six Sigma methods, the people you are presenting to don’t care about which hypothesis test you used or what your Chi-Squared statistic or p-value was. That isn’t to say that business leaders and others don’t care about the conclusions or results of your analysis, and they certainly care about the results of the project as a whole. But you have to find a way to present your information in a way that ties in with what they care about and doesn’t rely solely on statistical concepts and language."
           },
           {
             "id": "ch24-s02-common-challenges-when-presenting-statistical-analysis-en-002",
             "kind": "paragraph",
+            "page": 295,
             "text": "A second challenge is that general business staff and leaders are unlikely to have the same understanding of statistical analysis as a Six Sigma expert does. The Six Sigma presenter is then tasked with presenting data when the backup for the data might not be understood. As a Six Sigma expert, you have to be able to explain why the team chose to move in a certain direction or how you know a process has improved, and not everyone is simply going to take your word that the p-Value was appropriate for the decision you made."
           },
           {
             "id": "ch24-s02-common-challenges-when-presenting-statistical-analysis-en-003",
             "kind": "paragraph",
+            "page": 295,
             "text": "A third challenge when presenting your analysis is that you can easily become distracted or derailed by the statistics without getting your business point across. This can happen for one of two reasons. First, if your sponsor or another member of your audience is knowledgeable about Six Sigma and statistical analysis, he or she might begin asking statistical questions instead of business questions. Why did you use the 1-Proportion test? How did you choose the sample size? Do you really think a beta of 0.2 is sufficient, or should you have gone with a beta of 0.1?"
           },
           {
             "id": "ch24-s02-common-challenges-when-presenting-statistical-analysis-en-004",
             "kind": "paragraph",
+            "page": 295,
             "text": "Some statistical questions might very well be valid. How did you choose the sample size? That might be something relevant to cover in a presentation so that the audience understands what assumptions were made by the team and what risks were considered acceptable. On the other hand, if you’ve already done the analysis and made decisions based on sample size and hypothesis testing, then it’s a moot point on whether the power was set correctly. One way to keep this type of derailment from occurring is"
           },
           {
             "id": "ch24-s02-common-challenges-when-presenting-statistical-analysis-en-005",
             "kind": "paragraph",
+            "page": 295,
             "text": "to keep a sponsor with Six Sigma knowledge in the loop throughout the project; that way, he or she can provide input on such things in real time if desired."
           },
           {
             "id": "ch24-s02-common-challenges-when-presenting-statistical-analysis-en-006",
             "kind": "paragraph",
+            "page": 295,
             "text": "The other reason you might get lost in statistics when you are supposed to be presenting business- relevant information is because your audience doesn’t understand the statistics, leading to the presentation becoming a statistics lesson. It’s important to walk the line between educating the audience on necessary information regarding the Six Sigma process and providing an in-depth discussion of statistical analysis. For example, you probably should ensure your audience understands what standard deviation is and why it’s important. You probably don’t need to explain all the types of hypothesis tests – or even, in some cases, that you used a hypothesis test at all."
           },
           {
             "id": "ch24-s02-common-challenges-when-presenting-statistical-analysis-en-007",
             "kind": "paragraph",
+            "page": 295,
             "text": "A final challenge in presenting statistical data is in a tendency to include too much information or too many examples. You have a box plot, a bar graph, a pie chart, a hypothesis test, and several calculations based on probability distributions. They all look good to you. They all say a little something different about the data. They should all go in the presentation, right? Wrong – too many ways of illustrating the data overwhelms the audience. It’s also likely that the majority of people within the business won’t see the nuances in the data that a trained Six Sigma expert does, which means from their perspective, you’re simply showing the same data over and over. It’s not an effective use of presentation space or meeting time."
           },
           {
             "id": "ch24-s02-common-challenges-when-presenting-statistical-analysis-en-008",
             "kind": "paragraph",
+            "page": 295,
             "text": "Why Include Some Statistics?"
           },
           {
             "id": "ch24-s02-common-challenges-when-presenting-statistical-analysis-en-009",
             "kind": "paragraph",
+            "page": 295,
             "text": "Even with all the challenges discussed above, you shouldn’t leave statistics out of your presentation altogether. Whether you are presenting findings at a Measure or Analyze tollgate review or you are presenting for final approval on improvements, statistics are what provides your conclusions or results credibility. Incorporating your data into a presentation can be difficult, but we’ve provided some tips for doing so in the next section."
           }
         ],
@@ -123,11 +139,13 @@
           {
             "id": "ch24-s02-common-challenges-when-presenting-statistical-analysis-zh-001",
             "kind": "paragraph",
+            "page": 295,
             "text": "这是六西格玛专家在提供统计分析信息时面临的第一个，也许是最大的挑战：大多数人并不关心。确实，除非你的发起人也是六西格玛专家，或者你的领导委员会精通六西格玛方法，否则你所向的人并不关心你使用了哪种假设检验或你的卡方统计量或 p 值是多少。这并不是说企业领导者和其他人不关心你的分析结论或结果，他们当然关心整个项目的结果。但你必须找到一种与他们关心的内容相关的方式来呈现你的信息，而不仅仅是依赖统计概念和语言。"
           },
           {
             "id": "ch24-s02-common-challenges-when-presenting-statistical-analysis-zh-002",
             "kind": "termNote",
+            "page": 295,
             "rows": [
               [
                 "术语说明 Hypothesis Test（假设检验）：用样本数据判断某个统计假设是否有足够证据被拒绝。"
@@ -138,6 +156,7 @@
           {
             "id": "ch24-s02-common-challenges-when-presenting-statistical-analysis-zh-003",
             "kind": "termNote",
+            "page": 295,
             "rows": [
               [
                 "术语说明 p-value（p 值）：在原假设成立时观察到当前或更极端结果的概率；常用于判断显著性。"
@@ -148,16 +167,19 @@
           {
             "id": "ch24-s02-common-challenges-when-presenting-statistical-analysis-zh-004",
             "kind": "paragraph",
+            "page": 295,
             "text": "第二个挑战是，一般业务人员和领导者不可能像六西格玛专家那样对统计分析有同样的理解。然后，当数据的备份可能无法理解时，六西格玛演示者的任务是演示数据。作为六西格玛专家，你必须能够解释为什么团队选择朝某个方向前进，或者你如何知道流程已经改进，而不是每个人都会简单地相信你的话，即 p 值适合你所做的决定。"
           },
           {
             "id": "ch24-s02-common-challenges-when-presenting-statistical-analysis-zh-005",
             "kind": "paragraph",
+            "page": 295,
             "text": "展示分析时的第三个挑战是，您很容易因统计数据而分心或偏离轨道，而无法阐明您的业务要点。 发生这种情况可能有两个原因之一。首先，如果你的赞助商或其他听众了解六西格玛和统计分析，他或她可能会开始问统计问题，而不是商业问题。为什么使用 1-比例检验？您是如何选择样本量的？您真的认为 0.2 的 beta 值就足够了，还是应该选择 0.1 的 beta 值？"
           },
           {
             "id": "ch24-s02-common-challenges-when-presenting-statistical-analysis-zh-006",
             "kind": "termNote",
+            "page": 295,
             "rows": [
               [
                 "术语说明 Sample / Sampling（样本/抽样）：从总体中选取部分数据进行分析；样本应尽量代表总体。"
@@ -168,21 +190,25 @@
           {
             "id": "ch24-s02-common-challenges-when-presenting-statistical-analysis-zh-007",
             "kind": "paragraph",
+            "page": 295,
             "text": "一些统计问题很可能是有效的。您是如何选择样本量的？这可能是在演示中涉及的相关内容，以便观众了解团队做出了哪些假设以及哪些风险被认为是可以接受的。另一方面，如果您已经完成分析并根据样本量和假设检验做出决策，那么功效设置是否正确就没有实际意义了。防止此类脱轨发生的一种方法是"
           },
           {
             "id": "ch24-s02-common-challenges-when-presenting-statistical-analysis-zh-008",
             "kind": "paragraph",
+            "page": 295,
             "text": "让拥有六西格玛知识的赞助商了解整个项目的情况；这样，如果需要，他或她可以实时提供有关此类事情的输入。"
           },
           {
             "id": "ch24-s02-common-challenges-when-presenting-statistical-analysis-zh-009",
             "kind": "paragraph",
+            "page": 295,
             "text": "当您应该演示与业务相关的信息时，您可能会迷失在统计数据中的另一个原因是您的观众不理解统计数据，导致演示变成统计课程。重要的是要在向观众介绍有关六西格玛过程的必要信息和提供统计分析的深入讨论之间保持平衡。例如，您可能应该确保您的受众了解标准差是什么以及它的重要性。您可能不需要解释所有类型的假设检验，甚至在某些情况下，您根本不需要解释假设检验。"
           },
           {
             "id": "ch24-s02-common-challenges-when-presenting-statistical-analysis-zh-010",
             "kind": "termNote",
+            "page": 295,
             "rows": [
               [
                 "术语说明 Standard Deviation（标准差）：衡量数据离散程度的统计量；标准差越大，波动越明显。"
@@ -193,16 +219,19 @@
           {
             "id": "ch24-s02-common-challenges-when-presenting-statistical-analysis-zh-011",
             "kind": "paragraph",
+            "page": 295,
             "text": "呈现统计数据的最后一个挑战是包含太多信息或太多示例。您有一个箱线图、一个条形图、一个饼图、一个假设检验以及一些基于概率分布的计算。他们对你来说看起来都很好。他们对数据的说法都有些不同。他们都应该参加演示，对吧？错误——太多的数据说明方式让观众不知所措。企业内的大多数人也可能不会像训练有素的六西格玛专家那样看到数据中的细微差别，这意味着从他们的角度来看，您只是一遍又一遍地显示相同的数据。 这不是对演示空间或会议时间的有效利用。"
           },
           {
             "id": "ch24-s02-common-challenges-when-presenting-statistical-analysis-zh-012",
             "kind": "paragraph",
+            "page": 295,
             "text": "为什么要包括一些统计数据？"
           },
           {
             "id": "ch24-s02-common-challenges-when-presenting-statistical-analysis-zh-013",
             "kind": "paragraph",
+            "page": 295,
             "text": "即使面临上面讨论的所有挑战，您也不应该将统计数据完全排除在演示文稿之外。无论您是在测量或分析收费站审查中展示调查结果，还是在改进方面提交最终批准，统计数据都可以为您的结论或结果提供可信度。将数据合并到演示文稿中可能很困难，但我们在下一节中提供了一些技巧。"
           }
         ]
@@ -221,191 +250,229 @@
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-001",
             "kind": "paragraph",
+            "page": 296,
             "text": "If it’s important to include statistics for credibility, but many people in your business audience are likely not to follow the intricacies of the actual analysis, what do you do? This is actually where some of the biggest benefits of Six Sigma’s statistical process control come in. If you are working in a true Six Sigma environment, then you are never working only with the numbers. Remember from Unit 1 that Six Sigma is more concerned with the business – and its goals and success – than it is with the data and the analysis. In fact, the analysis and data is only relevant in so much that it can be used as a tool to make or measure improvements to business processes."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-002",
             "kind": "paragraph",
+            "page": 296,
             "text": "Because of this, the Six Sigma team should already be rooted in business terms and phrases. Consider the act of drafting the problem statement, which we covered in chapter 5. The problem statement combines statistical concepts with business goals and needs – and it is a good reference point for anyone presenting Six Sigma information throughout and following a DMAIC project. If you aren’t sure if something should be included in a presentation, then ask yourself: does it relate to the problem statement or a solution for the problem statement? If not, then it’s probably not necessary to communicate or present in a general business environment. As you work with data and statistics, you might be surprised by how your interest in the numbers grow. While interest in the numbers can lead"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-003",
             "kind": "paragraph",
+            "page": 296,
             "text": "you to valuable discoveries and conclusions, you do need to avoid the temptation to include data or conclusions in a presentation simply because you think they are interesting or “cool.”"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-004",
             "kind": "paragraph",
+            "page": 296,
             "text": "Other ways you can create viable business presentations when dealing with statistics and analysis include tailoring presentation to the audience, creating a story-style narrative, keeping things short and simple, integrating appropriate pictures, and avoiding misuse of technology, presentation, or statistical tools."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-005",
             "kind": "heading",
+            "page": 296,
             "text": "Understand the Target Audience"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-006",
             "kind": "paragraph",
+            "page": 296,
             "text": "When presenting or communicating about a Six Sigma project or statistical analysis, tailor the information to reflect your audience’s level of concern and knowledge. For example, consider a Six Sigma Black Belt who is presenting during an Improve tollgate review meeting. The Black Belt is presenting to a leadership team, which includes the project sponsor. At least two members of the leadership team are also Black Belts – perhaps one is even a Master Black belt."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-007",
             "kind": "paragraph",
+            "page": 296,
             "text": "Given this scenario, the audience is both invested in the information and capable of understanding many of the statistical concepts behind the decisions made by the Six Sigma team during the project. That doesn’t mean you should automatically include all of your data in the presentation – your audience is also busy. But it does mean you should anticipate at least a few questions about methodology or statistical analysis, and you can incorporate a few technical terms or results into your presentation without worrying about having to explain them."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-008",
             "kind": "paragraph",
+            "page": 296,
             "text": "When dealing with this type of audience, it’s often a good idea to create a presentation appendix. You can put your analysis, data tables, and even specific Minitab results in the appendix, where they can be quickly displayed if a specific question calls for it. In situations that involve high costs or high risks, leadership teams are more likely to want to see the background analysis because they need to fully understand all assumptions and risks before making a decision on the recommended improvements."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-009",
             "kind": "paragraph",
+            "page": 296,
             "text": "In other situations, you might be called upon to present Six Sigma information or statistical findings to audiences that are less invested or who don’t have any background with statistics. Examples include presenting to general management or presenting the reasons behind changes to the staff in a department impacted by a Six Sigma process improvement. When this happens, it can be helpful to rely on graphical representations of your analysis, particularly if the information you are trying to share is very apparent on a certain type of graph."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-010",
             "kind": "paragraph",
+            "page": 296,
             "text": "For example, a Six Sigma team in a government office has been task with improving the production of a workflow process that involves reviewing applications for financial aid. The team has made improvements to the process and now compares the average hourly production rate of the process before the changes with the current average hourly production rate. To do so, they complete a 2- Sample T Test to determine whether the new data has a higher average mean than the old data. The Minitab results are presented below."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-011",
             "kind": "paragraph",
+            "page": 296,
             "text": "Two-Sample T-Test and CI: C1, C2 Two-sample T for C1 vs C2 N Mean StDev SE Mean C1 23 4.00 2.76 0.58 C2 23 6.35 3.11 0.65"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-012",
             "kind": "paragraph",
+            "page": 297,
             "text": "Difference = μ (C1) - μ (C2) Estimate for difference: -2.348 95% upper bound for difference: -0.889 T-Test of difference = 0 (vs <): T-Value = -2.70 P-Value = 0.005 DF = 43"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-013",
             "kind": "paragraph",
+            "page": 297,
             "text": "Knowing what you do about hypothesis tests and p-values, you can see quickly that we reject the null hypothesis and accept the alternative. Yes, the mean averages of the process have changed. It is, according to our statistical analysis, a more productive process."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-014",
             "kind": "paragraph",
+            "page": 297,
             "text": "But can you just copy that Minitab data into a PowerPoint slide? Probably not – only a Six Sigma or statistical analysis expert is going to be able to make that connection between p-value and real-world conclusion."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-015",
             "kind": "paragraph",
+            "page": 297,
             "text": "Consider the graphical image below."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-016",
             "kind": "paragraph",
+            "page": 297,
             "text": "Boxplot of C1, C2"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-017",
             "kind": "paragraph",
+            "page": 297,
             "text": "14"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-018",
             "kind": "paragraph",
+            "page": 297,
             "text": "12"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-019",
             "kind": "paragraph",
+            "page": 297,
             "text": "10"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-020",
             "kind": "paragraph",
+            "page": 297,
             "text": "8"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-021",
             "kind": "paragraph",
+            "page": 297,
             "text": "Data"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-022",
             "kind": "paragraph",
+            "page": 298,
             "text": "6"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-023",
             "kind": "paragraph",
+            "page": 298,
             "text": "4"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-024",
             "kind": "paragraph",
+            "page": 298,
             "text": "2"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-025",
             "kind": "paragraph",
+            "page": 298,
             "text": "0"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-026",
             "kind": "paragraph",
+            "page": 298,
             "text": "C2"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-027",
             "kind": "paragraph",
+            "page": 298,
             "text": "C1"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-028",
             "kind": "paragraph",
+            "page": 298,
             "text": "This is a box plot of the same data used to create the 2-Sample T Test above, but it provides a friendlier version of the data for most business employees. You can quickly see that the process C2 has a higher rate of production than the process C1 – even if you don’t know anything about box and whisper plots."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-029",
             "kind": "paragraph",
+            "page": 298,
             "text": "It’s not enough to understand how the target audience is likely to interact with data and statistical analysis. When creating a presentation about your project or statistical data, you also need to understand what the target audience wants to know and how they need to know it."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-030",
             "kind": "listItem",
+            "page": 298,
             "text": "High-level leadership typically wants to know whether the project was a success, how you know it was a success, what savings or gains can be expected, and how you are controlling the process to ensure the same issues don’t arise again."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-031",
             "kind": "listItem",
+            "page": 298,
             "text": "Process owners and employees close to the process should know all of the above, though you might have to broaden discussions about costs and savings to leave out sensitive data that could be included in an executive-level presentation (such as assumptions about employee pay). Process owners and employees are also likely to want to know more details about the specific changes to the process – why were such changes implemented and how does it impact daily workflow? Where leadership might be satisfied with a high-level process map, for example, process owners want to see more granular maps."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-032",
             "kind": "listItem",
+            "page": 299,
             "text": "Audience members from disparate departments are likely to ask questions that make sense from their perspective, so know who will be in a tollgate or other type of presentation meeting, and be prepared to answer questions specific to their world."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-033",
             "kind": "paragraph",
+            "page": 299,
             "text": "o Compliance staff asks about adherence to regulations. Did the team consider regulations when making decisions? What happens when compliance required a decision that seemed opposite of where the statistical inferences led the team? Did the team calculate risks and costs associated with compliance failures, which are often greater than other process failures? o Accounting or finance staff asks about budget, revenue, and savings. Does the team have a graph that shows results in a dollar format? What is the likelihood of saving over a certain amount? Can the team associate a dollar amount with various analysis, changes, or improvements? o Marketing, sales, and customer service staff are likely to ask about customer-facing and customer-centric information. How did the team gather the voice of the customer? What assumptions about the customer did the team make? When making process changes or analyzing data, how did the team consider the customer?"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-034",
             "kind": "paragraph",
+            "page": 299,
             "text": "You obviously can’t create a presentation that answers every possible question about your process, project, or statistical analysis. The presentation would be enormous and take much too long to present. It’s typically a good idea to keep a presentation under 10 to 20 minutes with plenty of time for questions, and your presentation time might be even more constrained depending on organizational business practices. So, you should always answer the biggest and most important questions about your improvements, project, or DMAIC stage in the presentation and be prepared for other types of questions in the question and answer session (this is where an appendix can be helpful)."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-035",
             "kind": "heading",
+            "page": 299,
             "text": "Tell a Story with Text and Images"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-036",
             "kind": "paragraph",
+            "page": 299,
             "text": "Use PowerPoint or another presentation program to combine your information in a way that tells a story that the audience can understand and care about. Keeping your audience and the purpose of your presentation in mind, attempt to tell an overall story across your entire presentation while presenting “miniature narratives” on each slide."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-037",
             "kind": "paragraph",
+            "page": 299,
             "text": "Consider the example slide below, which presents the 2-Sample T Test information we used previously in this chapter. The slide tells a story with the placement of information, the inclusion of a graphic, and the question-and answer format. This is an easy template that can be used in a majority of Six Sigma presentation slides, particularly when presenting statistical analysis or data."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-038",
             "kind": "paragraph",
+            "page": 299,
             "text": "- First, ask a question as the title of the slide. Create a concise question, but try to write a stand-alone question. The slide example doesn’t do a great job of that: what changes, what process, and what hourly rates are being discussed? In the context of an entire presentation, this isn’t a problem. However, you might want to pull a single slide out for an email communication or training document – and executive leaders tend to pull out one slide or graphical image to communicate information about a sponsored project. A better title for this slide might be “Did software changes to the Aid Application Review workflow increase hourly production rates?” - Next, include an image that answers your question or provides additional information regarding the data or process. Pictures, graphs, and maps break up long blocks of text in a presentation, making it easier for the audience to digest. By presenting data in a variety of formats on one slide, you also capture the interest and understanding of a wider audience. Graphical representations of data often get the point across quicker and can help you tell a complex data story in a small amount of time. - It can be a good idea to include some basic statistical information, such as a business-friendly version of the null and alternative hypothesis. At the very least, everyone in the audience can understand that these two statements are what the team were evaluating, and only one of them can be true. Including the type of test run and the p-Value is optional, but can be a good idea both for the team’s own reference and for informing sponsors or others who are also knowledgeable in Six Sigma. - Finally, answer the question posed in the title in a short, text-based conclusion. The conclusion should align with any graphical representation or statistical test data included on the slide. You should avoid presenting contradicting data and conclusions on a single slide unless you have a specific reason for doing so and an explanation of why the contradiction is important."
           },
           {
@@ -413,17 +480,20 @@
             "kind": "image",
             "assetId": "fig-3cf0f9c2787b974a",
             "src": "assets/figures/fig-3cf0f9c2787b974a.png",
+            "page": 299,
             "width": 1191,
             "height": 663
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-040",
             "kind": "paragraph",
+            "page": 299,
             "text": "Not all questions require all elements of the above slide. Sometimes, it makes sense to provide the answer in concise text. For example, you might ask “What problem is the team trying to solve?” The right content for that slide would be the problem statement as written in the Define phase."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-041",
             "kind": "paragraph",
+            "page": 299,
             "text": "Sometimes, the only thing you need to include on the slide is a graph or chart. Consider the slide below."
           },
           {
@@ -431,182 +501,218 @@
             "kind": "image",
             "assetId": "fig-d4f924190390244f",
             "src": "assets/figures/fig-d4f924190390244f.png",
+            "page": 300,
             "width": 1191,
             "height": 673
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-043",
             "kind": "paragraph",
+            "page": 300,
             "text": "This slide asks what is causing defective orders to be sent out, and it answers the question with a Pareto chart. Even if someone is not familiar with the Pareto chart, it’s fairly obvious given the labels and data that the issue creating the biggest number of defects is in product finishing. Someone who knows about Pareto charts could see within seconds that finishing errors and defective raw inputs account for over 60 percent of the errors; if you add “wrong product selected,” you account for 80 percent of the errors."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-044",
             "kind": "paragraph",
+            "page": 300,
             "text": "Some Six Sigma tools, such as the Pareto chart, are easy to explain to audience members who don’t have a pre-existing understanding of data analysis or Six Sigma. Given a minute or two of presentation time, you could sufficiently explain how the above chart answers the slide’s question, and this is one reason Pareto (and other bar-type charts) are popular in such presentations."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-045",
             "kind": "heading",
+            "page": 300,
             "text": "Be Clear and Concise"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-046",
             "kind": "paragraph",
+            "page": 300,
             "text": "No matter how you are presenting your data, make sure each slide – and each element on the slide – is clear and concise. This means writing in active language as much as possible, avoiding long text explanation, and ensuring everything is spelled correctly and that you didn’t use the wrong word by accident. When including statistics in a presentation, it can be easy to make an incorrect word choice that changes the meaning of your entire statement. Simply saying “greater than” when you meant “less than” or “decrease” when you meant “increase” can skew the information you are providing or make it confusing to your audience."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-047",
             "kind": "paragraph",
+            "page": 300,
             "text": "Clarity isn’t just a concern in word choice and sentence structure. You should also be concerned with how elements on your slide come together. Don’t put so much information on a single slide that words or images become unintelligible to the audience. In some cases, you might need to ask a question and answer it over a series of slides."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-048",
             "kind": "paragraph",
+            "page": 300,
             "text": "Be cognizant of the fact that a projected slide image is never as clear as the image on your computer. Because of this, you should always avoid layering light font or images over a light background or layer dark font or images over a dark background. Don’t minimize fonts to something as small as 12-point just to fit all the information -- remember, your audience could be sitting feet away or yards away. You also don’t need to include every bit of information on a slide – the slide should act as the visual reference point for the audience while you add information verbally."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-049",
             "kind": "paragraph",
+            "page": 300,
             "text": "The text and images you add directly to the slide shouldn’t be your only concern. You also need to make sure text and images within graphs are as clear and concise as possible. Consider the two boxplots below."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-050",
             "kind": "paragraph",
+            "page": 300,
             "text": "Boxplot of C1, C2"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-051",
             "kind": "paragraph",
+            "page": 300,
             "text": "14"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-052",
             "kind": "paragraph",
+            "page": 300,
             "text": "12"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-053",
             "kind": "paragraph",
+            "page": 301,
             "text": "10"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-054",
             "kind": "paragraph",
+            "page": 301,
             "text": "8"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-055",
             "kind": "paragraph",
+            "page": 301,
             "text": "Data"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-056",
             "kind": "paragraph",
+            "page": 301,
             "text": "6"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-057",
             "kind": "paragraph",
+            "page": 301,
             "text": "4"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-058",
             "kind": "paragraph",
+            "page": 301,
             "text": "2"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-059",
             "kind": "paragraph",
+            "page": 301,
             "text": "0"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-060",
             "kind": "paragraph",
+            "page": 301,
             "text": "C2"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-061",
             "kind": "paragraph",
+            "page": 301,
             "text": "C1"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-062",
             "kind": "heading",
+            "page": 301,
             "text": "Average Production Per Hour for Application Workflow"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-063",
             "kind": "paragraph",
+            "page": 302,
             "text": "14"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-064",
             "kind": "paragraph",
+            "page": 302,
             "text": "12"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-065",
             "kind": "heading",
+            "page": 302,
             "text": "Average Production Per Hour"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-066",
             "kind": "paragraph",
+            "page": 302,
             "text": "10"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-067",
             "kind": "paragraph",
+            "page": 302,
             "text": "8"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-068",
             "kind": "paragraph",
+            "page": 302,
             "text": "6"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-069",
             "kind": "paragraph",
+            "page": 302,
             "text": "4"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-070",
             "kind": "paragraph",
+            "page": 302,
             "text": "2"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-071",
             "kind": "paragraph",
+            "page": 302,
             "text": "0"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-072",
             "kind": "heading",
+            "page": 302,
             "text": "NewProcess"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-073",
             "kind": "heading",
+            "page": 303,
             "text": "OldProcess"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-074",
             "kind": "paragraph",
+            "page": 303,
             "text": "The first boxplot, on its own, doesn’t provide much information to an audience. Someone who understands boxplots would simply be able to tell that two things were being charted and that the average of one was higher than the average of the other."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-075",
             "kind": "paragraph",
+            "page": 303,
             "text": "The second boxplot is the same as the first, but the title and data labels have been edited. Now, you can see that the graph provides information about the application workflow. Specifically, the graph is illustrating the average production rates per hour for that workflow, and the new workflow process seems to be more productive than the old one."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-076",
             "kind": "paragraph",
+            "page": 303,
             "text": "Creating graphical analyses that tell a small story all on their own – with the help of data labels and titles – is important. First, as the Six Sigma presenter, labels provide cues that help you verbally explain the slide or graph. After several slides with similar-looking graphs or charts, even you can get confused about what specific data you are talking about. Second, appropriate labels on such images let you reuse the image without the context of the presentation or slide. This means you waste less time and can reuse your work when communicating about your project or data – effectively reducing muda of rework. Finally, you don’t have to worry as much about someone taking your data or analysis and misinterpreting it or getting the wrong idea from it. If graphs are properly labeled, then it is harder for someone seeing the information outside of your presentation to draw the wrong conclusions."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-077",
             "kind": "paragraph",
+            "page": 303,
             "text": "You can also edit colors of data on charts in both Minitab and Excel, making it even easier for an audience to draw appropriate conclusions from the illustration. Consider the Pareto chart below. This is the same Pareto chart shown earlier in this chapter, but in this version, the top three categories are presented in red. The color change emphasizes those categories, which account for 80 percent of the errors, making it easier for the audience to draw the conclusion that these are the issues that the team will concentrate on."
           },
           {
@@ -614,77 +720,92 @@
             "kind": "image",
             "assetId": "fig-c818be182f172b4c",
             "src": "assets/figures/fig-c818be182f172b4c.png",
+            "page": 303,
             "width": 1191,
             "height": 692
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-079",
             "kind": "heading",
+            "page": 303,
             "text": "Don’t Misuse Your Tools"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-080",
             "kind": "paragraph",
+            "page": 303,
             "text": "A final tip for creating business-friendly presentations is: don’t misuse the tools, knowledge, and resources you have for creating a presentations or communicating ideas."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-081",
             "kind": "paragraph",
+            "page": 303,
             "text": "Don’t misuse PowerPoint, for example. Most audience members don’t want to see a 100-slide presentation. Just because you can include it, doesn’t mean you should. Likewise, try to avoid animating every aspect of your presentation. Yes, there is a time for fade-in or fly-in, but the time is not every single bullet point or image. Use animations sparingly – if at all – for impact about very important conclusions or elements of your presentation. For the most part, a strong Six Sigma presentation should rely on clarity and data over gimmicks and animations."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-082",
             "kind": "paragraph",
+            "page": 303,
             "text": "Don’t misuse Minitab or your other statistical analysis software. It takes mere seconds to perform certain tests or create graphs in Minitab, as you’ll see in the next Unit. Because of that, Six Sigma analysts and teams tend to accumulate a lot of versions of data. Treat Minitab graphs and analysis as you do PowerPoint animations. Use them as needed, but don’t use them because they are there. One good rule is no more than one graph or chart per slide or data-related question. This forces you to choose the graph or chart that you feel most powerfully or appropriately illustrates your data. There are exceptions to this rule, and you might need to include two charts if one chart helps explain another or you are comparing information about data or multiple data sets."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-083",
             "kind": "paragraph",
+            "page": 304,
             "text": "Don’t misuse your data analysis skills. Misuse of data analysis can come in two forms: either you make a data analysis error inadvertently or you force an analysis to fit a desired outcome or conclusion. The first step is more of an error than a misuse; you can avoid presenting such errors to others by double checking all conclusions and inferences and having someone else knowledgeable about Six Sigma review your analysis before you finalize a presentation. This is why many Six Sigma organizations have at least"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-084",
             "kind": "paragraph",
+            "page": 304,
             "text": "one Master Black Belt on staff – Black Belts and Green Belts can call on the Master Black Belt if they have analysis questions or simply want to confirm they are on the right track with analysis."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-085",
             "kind": "paragraph",
+            "page": 304,
             "text": "No one is infallible, and mistakes can happen. As a Six Sigma expert, however, you can never allow biases to force statistical conclusions that aren’t supported by the data. And you certainly should never cloud analysis by presenting it in a way that makes it hard for your audience to see the appropriate conclusion because you want them to draw another conclusion. For example, the trick used above to highlight a certain part of the Pareto chart with color can be used inappropriately. You can draw attention to a certain part of a graph or bar chart with color, increasing the chance that the audience will conclude that the colored portion is of more relevance or more important than other data on the graph. While this is sometimes true, Six Sigma teams and presenters must be careful when using such tactics – only create this scenario when the data supports such an emphasis."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-086",
             "kind": "paragraph",
+            "page": 304,
             "text": "Another example of creating bias in a presentation comes when you present analysis information knowing the sample size was not big enough for strong conclusions, but you don’t make that known when you present the information. This can result in leadership or others making decisions based on your data without understanding the risks that the conclusions might be wrong."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-087",
             "kind": "paragraph",
+            "page": 304,
             "text": "Similarly, if you run four types of test in Minitab and three support one conclusion while only a single test supports the conclusion the team originally wanted to present, you shouldn’t present only the results of the single test. Before presenting anything, you should review each of the tests to understand why there is a difference in one; you should also ensure that the tests you are using are appropriate for the data, question, and sample size at hand. If you verify the statistics are all correct, then you usually go with the conclusion supported by the greater number of tests."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-088",
             "kind": "heading",
+            "page": 304,
             "text": "Don’t Let the Presentation Drive the Project"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-089",
             "kind": "paragraph",
+            "page": 304,
             "text": "Given the decision-making processes and requirements in a corporate business world, presentations are a requirement of the DMAIC process. Six Sigma teams and experts are going to have to present their findings at some point, so presentation skills are something you do need to work on."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-090",
             "kind": "paragraph",
+            "page": 304,
             "text": "That being said, it is important that you never let the need for a good presentation drive any part of the process. Six Sigma teams should never make decisions about data gathering, graphical analysis, process mapping, brainstorming, or any other Six Sigma function because they think it will be good or look good for the presentation. Instead, the presentation of information to the business must come after the work is done."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-091",
             "kind": "paragraph",
+            "page": 304,
             "text": "This truth is relevant any time you are presenting information to the business or business staff – not just when you are standing in front of a conference room with a PowerPoint behind you. For example, Black Belts often communicate with sponsors or business leaders regularly during the course of a DMAIC project. Perhaps the team provides a daily email or a weekend update to the sponsor; whatever the mode of communication is, all of the tips in this chapter are relevant."
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-en-092",
             "kind": "heading",
+            "page": 304,
             "text": "Unit 6: Advanced Control"
           }
         ],
@@ -692,11 +813,13 @@
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-001",
             "kind": "paragraph",
+            "page": 296,
             "text": "如果包含统计数据以提高可信度很重要，但您的业务受众中的许多人可能不了解实际分析的复杂性，您会怎么做？这实际上是六西格玛统计过程控制的一些最大好处的体现。如果您在真正的六西格玛环境中工作，那么您永远不会只与数字打交道。请记住，在第一单元中，六西格玛更关心业务及其目标和成功，而不是数据和分析。事实上，分析和数据的相关性仅限于可以用作进行或衡量业务流程改进的工具。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-002",
             "kind": "termNote",
+            "page": 296,
             "rows": [
               [
                 "术语说明 SPC（统计过程控制）：用统计方法监控过程表现，区分普通波动和异常信号。"
@@ -707,11 +830,13 @@
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-003",
             "kind": "paragraph",
+            "page": 296,
             "text": "正因为如此，六西格玛团队应该已经扎根于商业术语和短语。考虑起草问题陈述的行为，我们在第 5 章中对此进行了介绍。问题陈述将统计概念与业务目标和需求相结合，对于在整个 DMAIC 项目中和后续展示六西格玛信息的任何人来说，它都是一个很好的参考点。如果您不确定演示文稿中是否应包含某些内容，请问问自己：它与问题陈述或问题陈述的解决方案相关吗？如果没有，那么可能没有必要在一般商业环境中进行沟通或展示。当您处理数据和统计数据时，您可能会惊讶地发现您对数字的兴趣与日俱增。 虽然对数字的兴趣可能会导致"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-004",
             "kind": "termNote",
+            "page": 296,
             "rows": [
               [
                 "术语说明 DMAIC：定义、测量、分析、改进、控制；适用于改进已有流程。"
@@ -722,151 +847,181 @@
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-005",
             "kind": "paragraph",
+            "page": 296,
             "text": "为了获得有价值的发现和结论，您确实需要避免仅仅因为您认为有趣或“酷”而将数据或结论包含在演示文稿中的诱惑。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-006",
             "kind": "paragraph",
+            "page": 296,
             "text": "在处理统计和分析时，您可以创建可行的业务演示文稿的其他方法包括为观众定制演示文稿、创建故事式叙述、保持内容简短、整合适当的图片以及避免滥用技术、演示文稿或统计工具。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-007",
             "kind": "heading",
+            "page": 296,
             "text": "了解目标受众"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-008",
             "kind": "paragraph",
+            "page": 296,
             "text": "在展示或交流六西格玛项目或统计分析时，定制信息以反映受众的关注和知识水平。例如，假设有一名六西格玛黑带在改进收费站审查会议上进行演示。黑带正在向包括项目发起人在内的领导团队进行展示。领导班子里至少有两名也是黑带人员，或许其中一名甚至是黑带大师。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-009",
             "kind": "paragraph",
+            "page": 296,
             "text": "在这种情况下，观众既投入了信息，也能够理解六西格玛团队在项目期间做出的决策背后的许多统计概念。这并不意味着您应该自动将所有数据包含在演示文稿中 - 您的观众也很忙。但这确实意味着您应该至少预见到一些有关方法论或统计分析的问题，并且您可以将一些技术术语或结果纳入您的演示文稿中，而不必担心需要解释它们。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-010",
             "kind": "paragraph",
+            "page": 296,
             "text": "与此类受众打交道时，创建演示文稿附录通常是个好主意。您可以将分析、数据表甚至特定的 Minitab 结果放在附录中，如果特定问题需要，可以在其中快速显示它们。在涉及高成本或高风险的情况下，领导团队更有可能希望看到背景分析，因为他们需要充分了解所有假设和风险，然后才能对建议的改进做出决定。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-011",
             "kind": "paragraph",
+            "page": 296,
             "text": "在其他情况下，您可能会被要求向投资较少或没有任何统计背景的受众展示六西格玛信息或统计结果。 例如，向一般管理层介绍或向受六西格玛流程改进影响的部门的员工介绍变动背后的原因。发生这种情况时，依赖分析的图形表示会很有帮助，特别是当您尝试共享的信息在某种类型的图表上非常明显时。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-012",
             "kind": "paragraph",
+            "page": 297,
             "text": "例如，政府办公室的六西格玛团队的任务是改进涉及审查经济援助申请的工作流程的制作。团队对流程进行了改进，现在将更改之前流程的平均每小时生产率与当前的平均每小时生产率进行比较。为此，他们完成了 2 样本 T 检验，以确定新数据的平均平均值是否高于旧数据。 Minitab 结果如下所示。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-013",
             "kind": "paragraph",
+            "page": 297,
             "text": "两样本 T 检验和 CI：C1、C2 C1 与 C2 的两样本 T N 平均值 StDev SE 平均值 C1 23 4.00 2.76 0.58 C2 23 6.35 3.11 0.65"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-014",
             "kind": "paragraph",
+            "page": 297,
             "text": "差异 = μ (C1) - μ (C2) 差异估计值：-2.348 95% 差异上限：-0.889 差异 T 检验 = 0（vs <）：T 值 = -2.70 P 值 = 0.005 DF = 43"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-015",
             "kind": "paragraph",
+            "page": 297,
             "text": "了解您对假设检验和 p 值所做的操作后，您很快就会发现我们拒绝原假设并接受替代假设。是的，过程的平均值已经改变。根据我们的统计分析，这是一个更有成效的过程。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-016",
             "kind": "paragraph",
+            "page": 297,
             "text": "但是您可以将 Minitab 数据复制到 PowerPoint 幻灯片中吗？可能不会——只有六西格玛或统计分析专家才能在 p 值和现实世界的结论之间建立联系。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-017",
             "kind": "paragraph",
+            "page": 297,
             "text": "考虑下面的图形。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-018",
             "kind": "heading",
+            "page": 297,
             "text": "C1、C2 的箱线图"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-019",
             "kind": "paragraph",
+            "page": 297,
             "text": "14"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-020",
             "kind": "paragraph",
+            "page": 297,
             "text": "12"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-021",
             "kind": "paragraph",
+            "page": 297,
             "text": "10"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-022",
             "kind": "paragraph",
+            "page": 297,
             "text": "8"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-023",
             "kind": "heading",
+            "page": 298,
             "text": "数据"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-024",
             "kind": "paragraph",
+            "page": 298,
             "text": "6"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-025",
             "kind": "paragraph",
+            "page": 298,
             "text": "4"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-026",
             "kind": "paragraph",
+            "page": 298,
             "text": "2"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-027",
             "kind": "paragraph",
+            "page": 298,
             "text": "0"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-028",
             "kind": "heading",
+            "page": 298,
             "text": "C2"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-029",
             "kind": "heading",
+            "page": 298,
             "text": "C1"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-030",
             "kind": "paragraph",
+            "page": 298,
             "text": "这是用于创建上述 2 样本 T 检验的相同数据的箱线图，但它为大多数企业员工提供了更友好的数据版本。您很快就会发现流程 C2 的生产率高于流程 C1 – 即使您对箱线图和耳语图一无所知。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-031",
             "kind": "paragraph",
+            "page": 298,
             "text": "仅了解目标受众可能如何与数据和统计分析进行交互是不够的。 在创建有关项目或统计数据的演示文稿时，您还需要了解目标受众想要了解什么以及他们需要如何了解这些信息。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-032",
             "kind": "listItem",
+            "page": 298,
             "text": "高层领导通常想知道项目是否成功，您如何知道它是成功的，预计可以节省或获得哪些收益，以及您如何控制流程以确保不再出现同样的问题。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-033",
             "kind": "listItem",
+            "page": 299,
             "text": "流程所有者和接近流程的员工应该了解上述所有内容，尽管您可能必须扩大有关成本和节省的讨论，以忽略可能包含在高管级别演示文稿中的敏感数据（例如有关员工薪酬的假设）。流程所有者和员工也可能想了解有关流程具体更改的更多详细信息 - 为什么要实施此类更改以及它如何影响日常工作流程？例如，当领导层可能对高级流程图感到满意时，流程负责人希望看到更精细的流程图。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-034",
             "kind": "termNote",
+            "page": 299,
             "rows": [
               [
                 "术语说明 Process Map（流程图）：把流程步骤、流向和责任可视化，帮助识别断点和浪费。"
@@ -877,36 +1032,43 @@
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-035",
             "kind": "listItem",
+            "page": 299,
             "text": "来自不同部门的观众可能会提出从他们的角度来看有意义的问题，因此要知道谁将参加收费站或其他类型的演示会议，并准备好回答针对他们的世界的问题。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-036",
             "kind": "paragraph",
+            "page": 299,
             "text": "o 合规人员询问法规的遵守情况。团队在做决策时是否考虑了法规？当合规性要求做出似乎与统计推论引导团队的方向相反的决定时，会发生什么？团队是否计算了与合规失败相关的风险和成本（这些风险和成本通常比其他流程失败更大）？ o 会计或财务人员询问预算、收入和储蓄。团队是否有以美元格式显示结果的图表？储蓄超过一定金额的可能性有多大？团队能否将美元金额与各种分析、变更或改进联系起来？ o 营销、销售和客户服务人员可能会询问面向客户和以客户为中心的信息。团队是如何收集客户之声（VOC）的？团队对客户做出了哪些假设？在进行流程变更或分析数据时，团队如何考虑客户？"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-037",
             "kind": "paragraph",
+            "page": 299,
             "text": "显然，您无法创建一个演示文稿来回答有关流程、项目或统计分析的所有可能问题。演示内容将会非常庞大​​，并且需要花费很长的时间来演示。 通常最好将演示时间控制在 10 到 20 分钟以内，并留出足够的时间来提问，并且根据组织的业务实践，您的演示时间可能会受到更多限制。因此，您应该始终在演示中回答有关您的改进、项目或 DMAIC 阶段的最大和最重要的问题，并为问答环节中的其他类型问题做好准备（这是附录可以提供帮助的地方）。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-038",
             "kind": "heading",
+            "page": 299,
             "text": "用文字和图像讲故事"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-039",
             "kind": "paragraph",
+            "page": 299,
             "text": "使用 PowerPoint 或其他演示程序以讲述观众可以理解和关心的故事的方式组合您的信息。牢记您的观众和演示文稿的目的，尝试在整个演示文稿中讲述一个整体故事，同时在每张幻灯片上呈现“微型叙述”。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-040",
             "kind": "paragraph",
+            "page": 299,
             "text": "考虑下面的示例幻灯片，其中介绍了我们在本章前面使用的 2 样本 T 检验信息。该幻灯片通过信息的放置、图形的包含以及问答格​​式讲述了一个故事。这是一个简单的模板，可用于大多数六西格玛演示幻灯片，特别是在演示统计分析或数据时。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-041",
             "kind": "paragraph",
+            "page": 299,
             "text": "- 首先，提出一个问题作为幻灯片的标题。创建一个简洁的问题，但尝试编写一个独立的问题。幻灯片示例并没有很好地说明这一点：正在讨论哪些变化、哪些流程以及每小时费率是多少？在整个演示的背景下，这不是问题。然而，您可能想拿出一张幻灯片来作为电子邮件通信或培训文档，而执行领导者往往会拿出一张幻灯片或图形图像来传达有关赞助项目的信息。这张幻灯片的更好标题可能是“援助申请审查工作流程的软件更改是否提高了每小时的生产率？” - 接下来，添加一张图片来回答您的问题或提供有关数据或过程的附加信息。图片、图表和地图打破了演示文稿中的长文本块，使观众更容易理解。通过在一张幻灯片上以多种格式呈现数据，您还可以吸引更广泛受众的兴趣和理解。数据的图形表示通常可以更快地传达要点，并可以帮助您在短时间内讲述复杂的数据故事。 - 包含一些基本统计信息可能是个好主意，例如原假设和备择假设的商业友好版本。至少，在场的所有人都能明白，这两种说法是团队正在评估的，而且只有一种是真实的。包括测试运行的类型和 p 值是可选的，但对于团队自己的参考以及通知赞助商或其他也了解六西格玛的人来说都是一个好主意。 - 最后，用简短的、基于文本的结论回答标题中提出的问题。结论应与幻灯片上包含的任何图形表示或统计测试数据一致。您应该避免在一张幻灯片上呈现相互矛盾的数据和结论，除非您有这样做的具体原因并且解释了为什么矛盾很重要。"
           },
           {
@@ -914,17 +1076,20 @@
             "kind": "image",
             "assetId": "fig-3cf0f9c2787b974a",
             "src": "assets/figures/fig-3cf0f9c2787b974a.png",
+            "page": 299,
             "width": 1191,
             "height": 663
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-043",
             "kind": "paragraph",
+            "page": 299,
             "text": "并非所有问题都需要上述幻灯片的所有要素。有时，以简洁的文字提供答案是有意义的。例如，您可能会问“团队试图解决什么问题？”该幻灯片的正确内容是在定义阶段编写的问题陈述。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-044",
             "kind": "paragraph",
+            "page": 300,
             "text": "有时，您需要在幻灯片上包含的唯一内容是图形或图表。考虑下面的幻灯片。"
           },
           {
@@ -932,17 +1097,20 @@
             "kind": "image",
             "assetId": "fig-d4f924190390244f",
             "src": "assets/figures/fig-d4f924190390244f.png",
+            "page": 300,
             "width": 1191,
             "height": 673
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-046",
             "kind": "paragraph",
+            "page": 300,
             "text": "这张幻灯片询问了是什么导致发出有缺陷的订单，并用帕累托图回答了这个问题。即使有人不熟悉帕累托图，考虑到标签和数据，很明显，造成最多缺陷的问题是在产品精加工中。了解 Pareto 图的人可以在几秒钟内发现整理错误和有缺陷的原始输入占错误的 60% 以上；如果添加“选择了错误的产品”，则 80% 的错误都是由您造成的。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-047",
             "kind": "termNote",
+            "page": 300,
             "rows": [
               [
                 "术语说明 Pareto（帕累托）：按影响大小排序，常用于找出“少数关键原因”。"
@@ -953,171 +1121,205 @@
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-048",
             "kind": "paragraph",
+            "page": 300,
             "text": "一些六西格玛工具，例如帕累托图，很容易向那些对数据分析或六西格玛没有了解的观众解释。给定一两分钟的演示时间，您可以充分解释上面的图表如何回答幻灯片的问题，这就是帕累托图（和其他条形图）在此类演示中受欢迎的原因之一。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-049",
             "kind": "heading",
+            "page": 300,
             "text": "清晰简洁"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-050",
             "kind": "paragraph",
+            "page": 300,
             "text": "无论您如何呈现数据，请确保每张幻灯片以及幻灯片上的每个元素都清晰简洁。 这意味着尽可能使用活跃的语言进行写作，避免长文本解释，并确保所有内容拼写正确，并且不会意外使用错误的单词。当在演示文稿中包含统计数据时，很容易做出错误的用词选择，从而改变整个陈述的含义。当你的意思是“小于”时简单地说“大于”，或者当你的意思是“增加”时简单地说“减少”可能会扭曲你所提供的信息或让你的听众感到困惑。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-051",
             "kind": "paragraph",
+            "page": 300,
             "text": "清晰度不仅仅是单词选择和句子结构的问题。您还应该关注幻灯片上的元素如何组合在一起。不要在一张幻灯片上放置太多信息，以免观众无法理解文字或图像。在某些情况下，您可能需要提出问题并通过一系列幻灯片来回答。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-052",
             "kind": "paragraph",
+            "page": 300,
             "text": "请注意，投影的幻灯片图像永远不会像计算机上的图像那么清晰。因此，您应该始终避免在浅色背景上分层浅色字体或图像，或在深色背景上分层深色字体或图像。不要为了容纳所有信息而将字体最小化为 12 号——记住，您的观众可能坐在几英尺远或几码远的地方。您也不需要在幻灯片上包含所有信息 - 当您口头添加信息时，幻灯片应该充当观众的视觉参考点。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-053",
             "kind": "paragraph",
+            "page": 300,
             "text": "直接添加到幻灯片中的文本和图像不应该是您唯一关心的问题。您还需要确保图表中的文本和图像尽可能清晰简洁。考虑下面的两个箱线图。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-054",
             "kind": "heading",
+            "page": 300,
             "text": "C1、C2 的箱线图"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-055",
             "kind": "paragraph",
+            "page": 301,
             "text": "14"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-056",
             "kind": "paragraph",
+            "page": 301,
             "text": "12"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-057",
             "kind": "paragraph",
+            "page": 301,
             "text": "10"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-058",
             "kind": "paragraph",
+            "page": 301,
             "text": "8"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-059",
             "kind": "heading",
+            "page": 301,
             "text": "数据"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-060",
             "kind": "paragraph",
+            "page": 301,
             "text": "6"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-061",
             "kind": "paragraph",
+            "page": 301,
             "text": "4"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-062",
             "kind": "paragraph",
+            "page": 301,
             "text": "2"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-063",
             "kind": "paragraph",
+            "page": 301,
             "text": "0"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-064",
             "kind": "heading",
+            "page": 301,
             "text": "C2"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-065",
             "kind": "heading",
+            "page": 302,
             "text": "C1"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-066",
             "kind": "heading",
+            "page": 302,
             "text": "应用程序工作流程的平均每小时产量"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-067",
             "kind": "paragraph",
+            "page": 302,
             "text": "14"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-068",
             "kind": "paragraph",
+            "page": 302,
             "text": "12"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-069",
             "kind": "heading",
+            "page": 302,
             "text": "每小时平均产量"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-070",
             "kind": "paragraph",
+            "page": 302,
             "text": "10"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-071",
             "kind": "paragraph",
+            "page": 302,
             "text": "8"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-072",
             "kind": "paragraph",
+            "page": 302,
             "text": "6"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-073",
             "kind": "paragraph",
+            "page": 302,
             "text": "4"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-074",
             "kind": "paragraph",
+            "page": 302,
             "text": "2"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-075",
             "kind": "paragraph",
+            "page": 302,
             "text": "0"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-076",
             "kind": "heading",
+            "page": 303,
             "text": "新流程"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-077",
             "kind": "heading",
+            "page": 303,
             "text": "旧进程"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-078",
             "kind": "paragraph",
+            "page": 303,
             "text": "第一个箱线图本身并没有向观众提供太多信息。了解箱线图的人可以简单地看出正在绘制两件事，并且其中一件事的平均值高于另一件事的平均值。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-079",
             "kind": "paragraph",
+            "page": 303,
             "text": "第二个箱线图与第一个箱线图相同，但标题和数据标签已被编辑。现在，您可以看到该图提供了有关应用程序工作流程的信息。具体来说，该图显示了该工作流程每小时的平均生产率，并且新的工作流程似乎比旧的流程更具生产力。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-080",
             "kind": "paragraph",
+            "page": 303,
             "text": "借助数据标签和标题，创建能够独立讲述一个小故事的图形分析非常重要。首先，作为六西格玛的演示者，标签提供了提示，帮助您口头解释幻灯片或图表。在看了几张具有相似图形或图表的幻灯片之后，甚至您也会对您正在谈论的具体数据感到困惑。其次，此类图像上的适当标签使您可以在没有演示文稿或幻灯片上下文的情况下重复使用该图像。这意味着您浪费的时间更少，并且在交流项目或数据时可以重复使用您的工作成果，从而有效减少返工的混乱。最后，您不必太担心有人获取您的数据或分析并误解它或从中得出错误的想法。如果图表被正确标记，那么人们在看到演示文稿之外的信息时就很难得出错误的结论。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-081",
             "kind": "paragraph",
+            "page": 303,
             "text": "您还可以在 Minitab 和 Excel 中编辑图表上的数据颜色，使观众更容易从插图中得出适当的结论。考虑下面的帕累托图。这与本章前面显示的帕累托图相同，但在此版本中，前三个类别以红色显示。颜色变化强调了这些类别，这些类别占错误的 80%，使观众更容易得出结论，这些是团队将重点关注的问题。"
           },
           {
@@ -1125,77 +1327,92 @@
             "kind": "image",
             "assetId": "fig-c818be182f172b4c",
             "src": "assets/figures/fig-c818be182f172b4c.png",
+            "page": 303,
             "width": 1191,
             "height": 692
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-083",
             "kind": "heading",
+            "page": 303,
             "text": "不要滥用你的工具"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-084",
             "kind": "paragraph",
+            "page": 303,
             "text": "创建商业友好型演示文稿的最后一个技巧是：不要滥用您用于创建演示文稿或交流想法的工具、知识和资源。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-085",
             "kind": "paragraph",
+            "page": 303,
             "text": "例如，不要滥用 PowerPoint。大多数观众不希望看到 100 张幻灯片的演示文稿。仅仅因为您可以包含它，并不意味着您应该包含它。同样，尽量避免演示文稿的各个方面都充满活力。是的，有淡入或飞入的时间，但时间并不是每个要点或图像。 谨慎使用动画（如果有的话），以影响非常重要的结论或演示文稿的元素。在大多数情况下，一个强大的六西格玛演示应该依赖于清晰度和数据，而不是噱头和动画。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-086",
             "kind": "paragraph",
+            "page": 303,
             "text": "不要滥用 Minitab 或其他统计分析软件。在 Minitab 中执行某些测试或创建图形只需几秒钟，您将在下一个单元中看到。正因为如此，六西格玛的分析师和团队往往会积累大量版本的数据。像对待 PowerPoint 动画一样对待 Minitab 图形和分析。根据需要使用它们，但不要因为它们就在那里而使用它们。一个好的规则是每张幻灯片或与数据相关的问题不超过一个图表或图表。这迫使您选择您认为最有力或最恰当地说明您的数据的图形或图表。此规则也有例外，如果一个图表有助于解释另一个图表，或者您正在比较有关数据或多个数据集的信息，则您可能需要包含两个图表。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-087",
             "kind": "paragraph",
+            "page": 304,
             "text": "不要滥用您的数据分析技能。数据分析的滥用有两种形式：要么无意中犯了数据分析错误，要么强迫分析符合期望的结果或结论。第一步与其说是误用，不如说是错误；您可以在完成演示之前仔细检查所有结论和推论，并让其他了解六西格玛的人审查您的分析，从而避免向他人展示此类错误。这就是为什么许多六西格玛组织至少有"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-088",
             "kind": "paragraph",
+            "page": 304,
             "text": "一名黑带大师 - 如果黑带人员和绿带人员有分析问题或只是想确认分析是否正确，可以致电黑带大师。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-089",
             "kind": "paragraph",
+            "page": 304,
             "text": "没有人是绝对正确的，错误也可能发生。然而，作为六西格玛专家，你绝不能允许偏见强加没有数据支持的统计结论。当然，您绝对不应该以一种让观众很难看到适当结论的方式来呈现分析，因为您希望他们得出另一个结论。例如，上面使用颜色突出显示 Pareto 图的某个部分的技巧可能会被不适当地使用。您可以用颜色吸引人们对图表或条形图的特定部分的注意，从而增加观众得出结论的可能性：彩色部分比图表上的其他数据更相关或更重要。 虽然有时确实如此，但六西格玛团队和主持人在使用这种策略时必须小心——只有在数据支持这种强调时才创建这种场景。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-090",
             "kind": "paragraph",
+            "page": 304,
             "text": "另一个在演示中产生偏见的例子是，当您在提供分析信息时知道样本量不足以得出强有力的结论，但在提供信息时却没有让人们知道这一点。这可能会导致领导层或其他人根据您的数据做出决策，而不了解结论可能错误的风险。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-091",
             "kind": "paragraph",
+            "page": 304,
             "text": "同样，如果您在 Minitab 中运行四种类型的测试，其中三种测试支持一个结论，而只有一个测试支持团队最初想要呈现的结论，则您不应仅呈现单个测试的结果。在展示任何内容之前，您应该回顾每项测试，以了解为什么其中存在差异；您还应该确保您使用的测试适合手头的数据、问题和样本量。如果您验证统计数据全部正确，那么您通常会接受更多测试支持的结论。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-092",
             "kind": "heading",
+            "page": 304,
             "text": "不要让演示驱动项目"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-093",
             "kind": "paragraph",
+            "page": 304,
             "text": "鉴于企业业务领域的决策流程和要求，演示是 DMAIC 流程的要求。 六西格玛团队和专家总有一天要展示他们的发现，所以展示技巧是你需要努力的。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-094",
             "kind": "paragraph",
+            "page": 304,
             "text": "话虽这么说，重要的是永远不要让良好演示的需求驱动过程的任何部分。 六西格玛团队绝不能因为认为数据收集、图形分析、流程图、头脑风暴或任何其他六西格玛功能对演示有利或看起来不错而做出决定。相反，向企业提供信息必须在工作完成之后进行。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-095",
             "kind": "paragraph",
+            "page": 304,
             "text": "每当您向业务或业务人员演示信息时，这一事实都适用，而不仅仅是当您站在会议室前面、身后放着 PowerPoint 时。例如，黑带人员在 DMAIC 项目过程中经常与赞助商或企业领导人定期沟通。也许团队会向赞助商提供每日电子邮件或周末更新；无论沟通方式是什么，本章中的所有提示都是相关的。"
           },
           {
             "id": "ch24-s03-tips-for-creating-business-friendly-presentations-zh-096",
             "kind": "heading",
+            "page": 304,
             "text": "第 6 单元：高级控制"
           }
         ]
@@ -1207,7 +1424,7 @@
       "id": "fig-3cf0f9c2787b974a",
       "type": "table-image",
       "path": "assets/figures/fig-3cf0f9c2787b974a.png",
-      "page": 296,
+      "page": 299,
       "width": 1191,
       "height": 663
     },
@@ -1215,7 +1432,7 @@
       "id": "fig-c818be182f172b4c",
       "type": "table-image",
       "path": "assets/figures/fig-c818be182f172b4c.png",
-      "page": 296,
+      "page": 303,
       "width": 1191,
       "height": 692
     },
@@ -1223,7 +1440,7 @@
       "id": "fig-d4f924190390244f",
       "type": "table-image",
       "path": "assets/figures/fig-d4f924190390244f.png",
-      "page": 296,
+      "page": 300,
       "width": 1191,
       "height": 673
     }

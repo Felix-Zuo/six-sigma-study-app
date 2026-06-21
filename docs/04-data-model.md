@@ -35,6 +35,7 @@ type LessonSection = {
 type ContentBlock = {
   id: string;
   kind: "paragraph" | "listItem" | "table" | "termNote" | "heading" | "image";
+  page?: number;
   text?: string;
   rows?: string[][];
   assetId?: string;

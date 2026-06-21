@@ -26,21 +26,25 @@
           {
             "id": "ch04-s01-lean-concepts-en-001",
             "kind": "paragraph",
+            "page": 28,
             "text": "We’ve discussed Lean concepts in the previous three chapters because most Six Sigma approaches today incorporate Lean concepts into problem solving and the control of a process. In fact, organizations often use the term Lean Six Sigma when describing a process improvement approach that incorporates tenants from both Six Sigma and Lean methodologies. This is a popular approach because the greatest results usually come when you improve a process so that both defects and waste are eliminated. That statement rings true whether you’re measuring from a business-driven bottom-line or a customer- satisfaction approach."
           },
           {
             "id": "ch04-s01-lean-concepts-en-002",
             "kind": "paragraph",
+            "page": 28,
             "text": "A Six Sigma defect is a failure to meet a requirement in a process. We’ll talk more about requirements in Chapter 8 when we define quality. For now, know that defects cost money because businesses have to replace parts, equipment, or products that are not perfect. Organizations also experience financial loss associated with defects when quality reputation is so low that customers choose not to return or purchase from the company. From a customer satisfaction standpoint, defects can increase the time it takes for a customer to get what they want or can cause the customer to be unhappy with the end product or service."
           },
           {
             "id": "ch04-s01-lean-concepts-en-003",
             "kind": "paragraph",
+            "page": 28,
             "text": "Waste costs money because it is unnecessary time, labor, or material in the process. Generally, waste is something that is used in the process that isn’t required for a satisfactory outcome. In some cases, waste creates a customer satisfaction issue because it holds up the process or introduces undesirable elements or defects in the end product."
           },
           {
             "id": "ch04-s01-lean-concepts-en-004",
             "kind": "paragraph",
+            "page": 28,
             "text": "In this chapter, we’ll look at some specific types of waste and how to avoid them as well as touch on some Lean concepts for creating the most efficient processes."
           }
         ],
@@ -48,26 +52,31 @@
           {
             "id": "ch04-s01-lean-concepts-zh-001",
             "kind": "paragraph",
+            "page": 28,
             "text": "我们在前三章中讨论了精益概念，因为当今大多数六西格玛方法都将精益概念融入到问题解决和流程控制中。事实上，组织在描述包含六西格玛和精益方法论的租户的流程改进方法时经常使用术语精益六西格玛。这是一种流行的方法，因为当您改进流程以消除缺陷和浪费时，通常会获得最好的结果。无论您是从业务驱动的底线还是客户满意度的方法来衡量，这句话都是正确的。"
           },
           {
             "id": "ch04-s01-lean-concepts-zh-002",
             "kind": "paragraph",
+            "page": 28,
             "text": "六西格玛缺陷是指未能满足流程中的要求。当我们定义质量时，我们将在第 8 章中更多地讨论需求。目前，要知道缺陷会带来金钱损失，因为企业必须更换不完美的零件、设备或产品。当质量声誉如此低以至于客户选择不从公司退货或购买时，组织还会遭受与缺陷相关的财务损失。从客户满意度的角度来看，缺陷可能会增加客户获得他们想要的东西所需的时间，或者可能导致客户对最终产品或服务不满意。"
           },
           {
             "id": "ch04-s01-lean-concepts-zh-003",
             "kind": "paragraph",
+            "page": 28,
             "text": "浪费需要花钱，因为在这个过程中浪费了不必要的时间、劳动力或材料。一般来说，废物是在过程中使用的、不需要获得令人满意的结果的东西。在某些情况下，浪费会造成客户满意度问题，因为它会阻碍流程或在最终产品中引入不良元素或缺陷。"
           },
           {
             "id": "ch04-s01-lean-concepts-zh-004",
             "kind": "paragraph",
+            "page": 28,
             "text": "在本章中，我们将讨论一些特定类型的浪费以及如何避免它们，并讨论一些用于创建最有效流程的精益概念。"
           },
           {
             "id": "ch04-s01-lean-concepts-zh-005",
             "kind": "heading",
+            "page": 28,
             "text": "七穆达"
           }
         ]
@@ -86,341 +95,409 @@
           {
             "id": "ch04-s02-the-seven-muda-en-001",
             "kind": "paragraph",
+            "page": 28,
             "text": "Muda is a Japanese word that translates to waste. It describes a concept of being useless, unnecessary, or idle. The concept that muda must be eliminated in a process is a driving concept of the Toyota Production System and Lean manufacturing. Muda is a non-value-added task (NVA) within a process. Some types of muda are easier to identify than others, which is why Lean Six Sigma deploys tools such as value stream mapping. By understanding a process at all levels, teams are more likely to identify various forms of muda. According to Taiicho Ohno, chief engineer for Toyota, there are seven muda, or resources that are commonly misused and mismanaged: overproduction, correction, inventory, motion, conveyance, over processing, and waiting."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-002",
             "kind": "heading",
+            "page": 28,
             "text": "Overproduction"
           },
           {
             "id": "ch04-s02-the-seven-muda-en-003",
             "kind": "paragraph",
+            "page": 28,
             "text": "Overproduction is one of the easiest forms of muda to spot, as it tends to result in what we commonly think of as waste. Overproduction means a product, part, or service was produced too fast, at the wrong time, or in too much quantity for the process. To understand the idea of overproduction, consider a basic fast food restaurant that offers hamburgers and French fries for lunch. The restaurant does not serve breakfast, and it opens its doors at 11:00 a.m. for the lunch crowd."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-004",
             "kind": "paragraph",
+            "page": 28,
             "text": "If the cooks light up the grill at 11:00 a.m., then they might start the day behind, as it is possible that several orders will be placed immediately. However, if the cooks start making hamburger patties at"
           },
           {
             "id": "ch04-s02-the-seven-muda-en-005",
             "kind": "paragraph",
+            "page": 28,
             "text": "10:30 a.m., they might have patties that sit for some time before being consumed, which leads to customer dissatisfaction or waste if the patties are thrown out. Making 10 patties every 10 minutes starting at 10:30 a.m. is overproduction—the patties are being made too soon."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-006",
             "kind": "paragraph",
+            "page": 28,
             "text": "What if the restaurant owners have done some research and they know the average number of orders between 11:00 and 11:15 a.m. on a Tuesday is 10 hamburgers? They might instruct the cooks to begin making patties at 10:50 a.m. and to make 5 patties every 10 minutes. The goal is to align patty-making with customer orders so that wait times are reduced but customers are still able to enjoy fresh patties."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-007",
             "kind": "paragraph",
+            "page": 28,
             "text": "By noon, the owners know orders tend to come in quickly, so they ask the cooks to make 15 patties every 10 minutes. By 2:00 p.m., however, the order traffic usually drops to 10 hamburgers an hour. If the cooks are still making 15 every 10 minutes, then the process suffers from overproduction."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-008",
             "kind": "paragraph",
+            "page": 28,
             "text": "At some point, the traffic in the restaurant may call for made-to-order grilling—a process where the cook only makes hamburger patties as they are ordered to avoid wasting any materials. By understanding the traffic trends in their restaurant, the owners are able to estimate needs and create processes that reduce the amount of waste made in the kitchen while still meeting the quality demands of customers."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-009",
             "kind": "paragraph",
+            "page": 28,
             "text": "Overproduction is most often associated with tangible outcomes from a process, though these outcomes don’t have to be final, or “end products” of said processes. Consider a business that prints business cards, stationary, invitations, and other documents. Perhaps this business offers a printing and mailing service; to complete this service, the company uses a machine-driven process that prints, folds, and stuffs mailings. The printer is capable of delivering 1,000 pages an hour, but the folding machine is only able to fold 800 pages an hour."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-010",
             "kind": "paragraph",
+            "page": 28,
             "text": "Even if a customer wants 1,000 pages printed and mailed, the printer is overproducing if the first machine is set to operate at maximum speed. The process will take longer than one hour because it is contingent upon the slowest machine. Since the overproduction doesn’t result in tangible waste – the printed pages will eventually be folded and mailed – the company’s process owners have to consider other factors in order to decide if the temporary overproduction is detrimental to the process. Does the stacking of extra paper before the folding process create an extra risk for error? Does operating the printing machine at maximum capacity without necessity put unnecessary strain or wear and tear on it? If the answer is yes to either question, then there exists waste that should be eliminated from the process."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-011",
             "kind": "paragraph",
+            "page": 28,
             "text": "Overproduction can also exist with regard to reporting, digital assets, and preparation for processes. Almost anyone working in a business environment is familiar with reporting requirements—just as almost anyone who has created reports knows the unfortunate truth that the information often goes unread. Creating reports no one reads—or creating highly detailed reports when an overview would suffice—is overproduction."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-012",
             "kind": "paragraph",
+            "page": 28,
             "text": "Preparing equipment that isn’t used in a process is also overproduction. Surgery centers often prepare machines, equipment trays, and operating rooms before shifts begin. The goal is to create efficient processes for any patient operation; staff must also be able to access equipment quickly if issues arise during procedures. Preparing 20 trays of equipment on a day when only 10 surgeries are scheduled might be considered overproduction if there is no use for the extra trays."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-013",
             "kind": "paragraph",
+            "page": 29,
             "text": "In some situations, such as the medical example above, processes might call for slight overproduction. If 10 surgeries are scheduled, staff might prepare 13 or 14 equipment trays. This way, if an emergency surgery arrives, or if an issue comes up with an existing tray, stand-by equipment is available. By understanding nuances within processes and requirements, Six Sigma teams can better identify muda of overproduction versus overproduction that might be required by regulation or problem-solving policies."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-014",
             "kind": "paragraph",
+            "page": 29,
             "text": "The key to eliminating overproduction is planning. In the examples above, you’ll note that each solution came when the process operator understood the needs inherent within the process. When the owners knew how many orders were likely, they were able to plan to reduce waste. When the printer knows the capability of each machine in the process, he or she can plan for the most efficient printing run."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-015",
             "kind": "heading",
+            "page": 29,
             "text": "Correction"
           },
           {
             "id": "ch04-s02-the-seven-muda-en-016",
             "kind": "paragraph",
+            "page": 29,
             "text": "Also known as muda of rework, this form of waste often plagues organizations that are keen on traditional quality programs. In a desire to eliminate defects from the end product, organizations institute in-process quality checks that route work with defects back for correction. While rework might be necessary in some cases, especially if materials are particularly valuable and work is worth saving rather than scrapping, it is still waste in the process that should be identified and analyzed."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-017",
             "kind": "paragraph",
+            "page": 29,
             "text": "When rework occurs, it increases overall process time and uses additional labor and materials to create a smaller amount of products or outputs. Let’s look at an example that might be found in the call center for a large automobile insurance company. Some of the calls coming into the center are from individuals who have sustained damage to vehicles in an accident. Consider the following process for handling such calls:"
           },
           {
             "id": "ch04-s02-the-seven-muda-en-018",
             "kind": "listItem",
+            "page": 29,
             "text": "The caller reports damage to the car."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-019",
             "kind": "listItem",
+            "page": 29,
             "text": "The representative records information in a computer form."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-020",
             "kind": "listItem",
+            "page": 29,
             "text": "The representative makes a decision based on the information provided by the caller: o The claim is routed for immediate handling if it is deemed an emergency o The claim is routed to team A if it is a single-car or act-of-God incident o The claim is routed to team B if it is a multi-car accident"
           },
           {
             "id": "ch04-s02-the-seven-muda-en-021",
             "kind": "paragraph",
+            "page": 29,
             "text": "Now, imagine a claim that arrives in the work queue for an employee working on team B. The information entered into the computer is incomplete, so the employee cannot determine for sure if the claim is related to a multi-car accident. The employee might send the claim back to the original queue, which means a call-center employee would have to call the insured back to gather additional information. The claim would then be routed again, according to the new information, and would wait in a work queue again."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-022",
             "kind": "paragraph",
+            "page": 29,
             "text": "One of the biggest problems with muda of correction is that a case can often be made that the processing is necessary. Perhaps team B is not equipped to deal with single-car incidents, so the work has to be rerouted if the claim is to be completed. But why not equip down-line team members to handle any claim, or create a process for rerouting claims to the correct team without sending the work back to the original queue?"
           },
           {
             "id": "ch04-s02-the-seven-muda-en-023",
             "kind": "paragraph",
+            "page": 29,
             "text": "Correction, or rework, can occur in any type of process. Manufacturing processes cull out defective parts and products; sometimes materials are reworked for a better outcome and sometimes they are scrapped—also a form of waste. Call centers and digital work queues are famous for rework, as it’s easy"
           },
           {
             "id": "ch04-s02-the-seven-muda-en-024",
             "kind": "paragraph",
+            "page": 30,
             "text": "to send work back and forth in a digital format. In some cases, rework occurs not because of correction, but simply because departmental or worker responsibilities overlap."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-025",
             "kind": "paragraph",
+            "page": 30,
             "text": "To eliminate rework or correction, organizations must use a twofold approach. First, the root cause of the rework—that which is causing the errors—must be addressed. Is further employee training required? Could a process be changed to make it more mistake proof? In some cases, the principles discussed in later units on process control, including a strategy called a poka yoke, can be deployed to make it more difficult to create defects than to not create defects during a process. When defects are avoided, rework is also avoided."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-026",
             "kind": "paragraph",
+            "page": 30,
             "text": "In addition to addressing the root cause of errors, organizations should create quality steps that reduce rework waste. In the example about the insurance company call center, we noted that it would be more efficient for the down-line worker to reroute the claim to the correct team than to return it to the original team. This method sometimes causes a problem of culture, though; there is a feeling among leaders and staff that the first team or first team member should be held accountable for the error. One way of seeking accountability is to have that person correct his or her mistake. While reworking errors can be a good training method when time and resources allow, it isn’t always feasible and doesn’t make for an efficient daily process. Instead, employees might be more efficiently held accountable through goal-setting and metrics for the greater good of the organization as a whole."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-027",
             "kind": "heading",
+            "page": 30,
             "text": "Inventory"
           },
           {
             "id": "ch04-s02-the-seven-muda-en-028",
             "kind": "paragraph",
+            "page": 30,
             "text": "Muda of inventory is similar to muda of overproduction; in fact, overproduction can cause a waste of inventory. Muda of inventory occurs when materials or inputs stack up before a step in the process; this phenomenon is also called a bottleneck. Remember the printing example for overproduction? If the first machine is set to the highest production level, it will generate 1,000 pages an hour. The folding machine can only handle 800 pages an hour, so you would have an inventory of 200 pages created every hour. If both machines ran at highest production for four hours, the process would have developed an inventory of 800 pages. Until and unless the folding process becomes faster, then those extra pages are wasted inventory and will continue to pile up."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-029",
             "kind": "paragraph",
+            "page": 30,
             "text": "Inventory waste can occur when items are purchased or created before they are needed in a manufacturing or service process. Inventory can also occur in work queues, digital data queues, or even email inboxes. If you receive 300 emails a day and you are only handling 30 of them on a regular basis, you have a process problem with your communications."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-030",
             "kind": "paragraph",
+            "page": 30,
             "text": "While inventory waste can occur in any process, it is especially common in processes that operate in batches. Traditional lean wisdom says to avoid batch process – processes that involve creating a certain number of products or outputs before pushing them down the line. Reducing batch size lowers lead times—the time it takes to deliver the end product. It also reduces the amount of inventory that occurs before each step of the process."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-031",
             "kind": "paragraph",
+            "page": 30,
             "text": "While Lean mindsets usually push a batching-is-bad mentality, you can’t always avoid it—and reduced lead times on individual outputs aren’t always a primary goal of a process. Consider a baker who is preparing an order of one dozen cupcakes. He could prepare the order as a batch, or he could prepare each cupcake separately. Obviously, mixing the ingredients and baking the cupcakes as a batch makes more sense. Decorating them as a batch also works well—the baker might frost all of the cupcakes, add piping to all the cupcakes, and then top all the cupcakes with a candy. Batching works for the baker"
           },
           {
             "id": "ch04-s02-the-seven-muda-en-032",
             "kind": "paragraph",
+            "page": 30,
             "text": "because the first cupcake is not going to leave the bakery before the 12th is finished—they all move together because they are considered a unit."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-033",
             "kind": "paragraph",
+            "page": 30,
             "text": "You can also reduce waste of inventory by understanding a process and basing inventory decisions on historic metrics. A shipping center that processes between 50,000 and 100,000 boxes a week wouldn’t place an order for 300,000 boxes if they only wanted to have a week’s supply on hand. A baker doesn’t whip cream for seven pies if he or she only intends to make two."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-034",
             "kind": "heading",
+            "page": 30,
             "text": "Motion"
           },
           {
             "id": "ch04-s02-the-seven-muda-en-035",
             "kind": "paragraph",
+            "page": 31,
             "text": "Muda of motion has to do with how employees themselves move during a process. This type of waste is often relevant to people-powered processes in manufacturing, warehousing, shipping, delivery, or industrial fields, but waste of motion can even crop up in processes that are computerized."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-036",
             "kind": "paragraph",
+            "page": 31,
             "text": "For example, if a data-entry employee has to click back and forth between screens when entering information, this could be muda of motion. If the system is designed so that a number is to be entered in one window and a second number entered in a different window, the click between windows is wasting motion. Moving to another window involves a mouse or keyboard action that could be eliminated if the data were entered on the same window. It seems like an inconsequential detail, but imagine what happens when the data employee completes this process hundreds or thousands of times a day. The waste can absolutely add up:"
           },
           {
             "id": "ch04-s02-the-seven-muda-en-037",
             "kind": "listItem",
+            "page": 31,
             "text": "If each data-entry employee completes 600 entries an hour on average, and there are 10 employees on a team, the team is completing 48,000 entries each day."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-038",
             "kind": "listItem",
+            "page": 31,
             "text": "If it takes only half a second more to toggle between the two windows, the team is still spending a collective 400 minutes a day – just over 6.5 hours – toggling."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-039",
             "kind": "listItem",
+            "page": 31,
             "text": "If the average hourly wage for a data worker is $10, the team is spending an extra $325 each week – almost $17,000 each year – to cover the act of toggling between windows."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-040",
             "kind": "paragraph",
+            "page": 31,
             "text": "Given those numbers, a programing change that includes both data elements on the same window could save the company $17,000 in a single year. This same concept can be applied to any form of muda when you can apply a time and dollar figure to the waste."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-041",
             "kind": "paragraph",
+            "page": 31,
             "text": "Other examples of muda of motion include a task that requires an individual to physically move back and forth between work, extra motion that stems from a poor layout of work, or movement that occurs when an employee leaves an area and has to return one or more times because he or she forgot something. Public libraries have long employed a simple tool to avoid muda of motion in the reshelving process: books are first ordered on a cart. The cart allows an employee to carry many books without moving back and forth, and placing the books in order on the cart lets the individual move through the stacks once. If books are placed at random on the cart, the subsequent movement between shelves wastes motion and time."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-042",
             "kind": "paragraph",
+            "page": 31,
             "text": "Streamlining company processes eliminates muda of motion, and data must be collected and analyzed to identify unnecessary movement. A common tool used in manufacturing and similar environments to track movement is known as a spaghetti diagram. Begin with a basic, bird’s eye drawing of the workspace. Include furniture, computer stations, machinery, doors, and walls. Observe an actual process, tracking any and all movements with a line on the diagram."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-043",
             "kind": "paragraph",
+            "page": 31,
             "text": "When drawn correctly, the diagram looks like a string of spaghetti fell onto your page. Once the process is complete, you can look at the diagram to see where the movements cross paths multiple times or go out of the way unnecessarily. This helps you find opportunities for streamlining the movement in a process—sometimes, it’s as simple as moving furniture or resources around to reduce unnecessary movement. It’s worth noting that a spaghetti diagram only reveals a snapshot of movement in time; sometimes, it is worthwhile to complete more than one such diagram at different times of day or with different employees to reveal an overall picture of a process and possible muda."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-044",
             "kind": "heading",
+            "page": 31,
             "text": "Conveyance"
           },
           {
             "id": "ch04-s02-the-seven-muda-en-045",
             "kind": "paragraph",
+            "page": 31,
             "text": "Muda of conveyance is similar to muda of movement except conveyance involves the movement of outputs, products, or resources. It is sometimes also referred to as muda of transportation. For example, in a doll-making facility, if the glue that binds doll eyes to doll faces is kept in an inventory room and carried, as needed, to the process, there might be muda of conveyance."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-046",
             "kind": "paragraph",
+            "page": 31,
             "text": "If an expense report is printed and then carried to a manager for approval who then routes it in an inner-office envelope to a director, who then carries it to the accounting department, the muda of conveyance is occurring. This is especially true because appropriate technology used correctly and efficiently lets organizations handle expensive reporting via computer with little conveyance at all."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-047",
             "kind": "paragraph",
+            "page": 32,
             "text": "If a plate is prepared by a chef and placed on a counter where a kitchen assistant moves the plate to a different table where wait staff know to pick it up, conveyance is occurring. The wait staff then carries the plate to the customer."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-048",
             "kind": "paragraph",
+            "page": 32,
             "text": "Conveyance can relate to physical movement of items or digital movement of data or workflow. Email strings, which are present in many work environments, often present muda of digital conveyance. A CEO might email a director with a request for data. The director emails a manager, who emails a supervisor, who emails a subject-matter-expert. The SME delivers the information to her supervisor, and the emails work their way back up the chain. The same request and information was conveyed multiple times when it only may have needed to be conveyed once. This allows for many opportunities for error."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-049",
             "kind": "paragraph",
+            "page": 32,
             "text": "Some might point to chain-of-command concerns, but for the purpose of this example, if the data request is a repeated process, then it makes sense for the chain of command to inform the CEO where this information comes from. To go even further, a truly Lean process would require all waste be removed from this process. If the data requirement comes on a weekly basis, then Lean ideals require that the SME automatically generate the data and send it to the CEO weekly."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-050",
             "kind": "paragraph",
+            "page": 32,
             "text": "Physical conveyance is often easier to locate and address than digital conveyance. A spaghetti diagram, process map, or value stream map can help you identify areas where muda of conveyance might exist. Spaghetti diagrams work well in physical conveyance situations, and process maps help you identify conveyance in digital settings."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-051",
             "kind": "paragraph",
+            "page": 32,
             "text": "Once you identify muda of conveyance, you can eliminate it by making changes in the process, layout, or inventory requirements for the work. If conveyance waste isn’t due to poor process design or work-area layout, it might be related to another form of muda. Conveyance is often seen in processes that involve a lot of correction, because work is transferred back and forth between staff or areas. By addressing the muda of correction, you often also address the muda of conveyance."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-052",
             "kind": "paragraph",
+            "page": 32,
             "text": "Over-processing Over-processing occurs when an employee or process inputs more resources into a product or service than is valued by the customer. This could occur because of ignorance, a desire for perfection, or even excitement. Sometimes over-processing occurs because an employee hasn’t had training on the most efficient way to handle a task. Other times, it occurs because an employee or process is more thorough than is worthwhile. A goal of any process should be to do just enough useful and necessary work to ensure that customer or end-user expectations are met."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-053",
             "kind": "paragraph",
+            "page": 32,
             "text": "One example of over-processing often occurs in healthcare administrative offices during the insurance verification process. Insurance verification occurs when a healthcare provider’s office attempts to verify that a person is covered by insurance for the services that are about to be rendered. Depending on the type of insurance coverage and the office’s policies, a staff member either checks benefits via a computer program or calls the insurance company."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-054",
             "kind": "paragraph",
+            "page": 32,
             "text": "In most cases, the goal of insurance verification is simply to ensure that the insured is covered by the plan for the date the services are to be rendered. Sometimes, however, an office worker delves deeper into the verification, spending up to an hour on the phone with an insurance company to receive detailed benefits or calling back to check with another representative to ensure the original information provided was correct. While specific cases exist that require in-depth insurance verification, basic doctor’s visits don’t require this level of work. A staff member who is taking up to an hour to verify insurance coverage is overproducing, and it’s probably causing productivity problems for the office as a whole."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-055",
             "kind": "paragraph",
+            "page": 32,
             "text": "In consumer-centric processes, over-processing occurs when you put more into a product than the value afforded by the customer. While product excellence is important, at some point the work you put into a product exceeds that which is deemed necessary or useful by the customer, and this is often tied to price point. A customer expects more out of a premium, more expensive model, for example."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-056",
             "kind": "paragraph",
+            "page": 32,
             "text": "An example of over-processing might be painting the bottom of an inside cabinet shelf when no one will ever see it. In a restaurant, ironing table linens to an exacting standard could be considered over- processing, especially if you remove the linens between meals for washing. In most restaurants, much of the table linen drapes over the table; owners might want linens that aren’t full of wrinkles, but they don’t need crisp and perfect seams. In the technical world, building an app with 100 features when 99 percent of people only want to use 10 main functions can be considered both over-processing and over- producing."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-057",
             "kind": "paragraph",
+            "page": 32,
             "text": "A value stream map, covered in Chapter 35, is a good tool for identifying any points of over-processing. Any part of the process that doesn’t provide value could be considered over-processing; when the process features a series of linked events and none provide value, it’s even more likely that over- processing is occurring."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-058",
             "kind": "paragraph",
+            "page": 33,
             "text": "In a true Lean process, every step of a process provides value, but it can be tricky to determine when value is not occurring. Quality is important to both the success of the process and the end customer, for example, but the customer doesn’t care, or usually even realize, that your process is imbued with quality checks throughout. They care instead that a process takes 10 minutes longer because of those quality checks—teams have to dig deep into processes, metrics, and customer voice to determine if those 10 extra minutes are providing enough added value to cover the annoyance or loss of customer because of"
           },
           {
             "id": "ch04-s02-the-seven-muda-en-059",
             "kind": "paragraph",
+            "page": 33,
             "text": "the added time. This knowledge is all ascertained through data collection and statistical analysis discussed in detail throughout this book."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-060",
             "kind": "heading",
+            "page": 33,
             "text": "Waiting"
           },
           {
             "id": "ch04-s02-the-seven-muda-en-061",
             "kind": "paragraph",
+            "page": 33,
             "text": "Muda of waiting refers to any idle time in a process, whether that idle time is for machinery or people. In other words, an employee or machine is working below capacity or is not working at all due to waiting on inputs from another part of the process. Waiting occurs when steps in the process are not properly coordinated, when processes are unreliable, when work is batched too large, during rework, and during long changeovers between staff or machines."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-062",
             "kind": "paragraph",
+            "page": 33,
             "text": "In a retail or fast food environment, when one cashier’s shift is over, another cashier takes over at the station. To maintain financial integrity, almost all companies switch out cash register drawers during the change between cashiers; if there is a mistake with the drawer, the company knows who was running the register at that point in time, making it easier to find trends or issues. However, when the drawer is being changed out, the register usually can’t be used. The cashier is simply waiting, sometimes along with the customer."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-063",
             "kind": "paragraph",
+            "page": 33,
             "text": "To reduce the muda of waiting in this cash register example, most organizations use a process that includes a series of register drawers that are prepped at the beginning of the day or shift. The drawers are designed to be interchangeable in the registers, so the old drawer can be pulled and the new drawer put in in less than 30 seconds, solving the waste of waiting."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-064",
             "kind": "paragraph",
+            "page": 33,
             "text": "Waste of waiting is common in construction environments. Construction of roads, bridges, buildings and other structures requires close attention to order and detail: you can’t build the roadway of a bridge until the pillars are in place and steady. This concept is seen even on a small scale in construction, causing paid employees to often stand around waiting for others to complete a piece of the job before they can finish the assigned task."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-065",
             "kind": "paragraph",
+            "page": 33,
             "text": "Because construction is a field of specialists and certifications, one employee often cannot do the work another can. In other words, employee tasks are not interchangeable. This causes additional muda of waiting; one group of construction workers might have to wait on the forklift operator to come and move some items. Meanwhile, the forklift operator is finishing up with a task on the other side of the construction lot. This isn’t a problem limited to construction: some offices have policies requiring an official IT staff member to handle any computer issue. Whether it’s a software glitch, a troubleshooting error, or simply the need to switch out an underperforming mouse, regular office staff must send a support ticket or make a phone call and wait for IT staff to solve the problem."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-066",
             "kind": "paragraph",
+            "page": 33,
             "text": "You can eliminate waste of waiting within many processes by balancing machinery, people, and production. The process will only perform as fast as the slowest link; beefing up the production of a single element does nothing for the whole, so teams must work to balance and improve the entire process."
           },
           {
             "id": "ch04-s02-the-seven-muda-en-067",
             "kind": "paragraph",
+            "page": 33,
             "text": "Sometimes, scheduling is a key component in eliminating waiting. In the construction example, advanced planning and scheduling tactics could reduce the chance that one team would be waiting for a forklift operator while he or she is busy elsewhere. Understanding organizational, team, project, and process needs also helps leadership provide the right amount of resources to reduce waiting. The construction site might benefit from two forklift operators, for example. In the IT example, a company"
           },
           {
             "id": "ch04-s02-the-seven-muda-en-068",
             "kind": "paragraph",
+            "page": 33,
             "text": "can reduce wait times by maximizing IT staffing at high-volume times or implementing processes within the IT department to create more efficient responses to help tickets. An auxiliary IT staff member can be hired to handle less technical issues such as switching out an under-performing mouse."
           }
         ],
@@ -428,131 +505,157 @@
           {
             "id": "ch04-s02-the-seven-muda-zh-001",
             "kind": "paragraph",
+            "page": 28,
             "text": "Muda是一个日语单词，翻译过来就是浪费。它描述了无用、不必要或闲置的概念。过程中必须消除“muda”的概念是丰田生产系统和精益制造的驱动概念。 Muda 是流程中的一项非增值任务 (NVA)。有些类型的 Muda 比其他类型更容易识别，这就是精益六西格玛部署价值流图等工具的原因。通过了解各个级别的流程，团队更有可能识别各种形式的 Muda。 丰田公司总工程师大野泰井（Taiicho Ohno）表示，有七种资源经常被滥用和管理不善：生产过剩、校正、库存、移动、运输、过度加工和等待。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-002",
             "kind": "heading",
+            "page": 28,
             "text": "生产过剩"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-003",
             "kind": "paragraph",
+            "page": 28,
             "text": "生产过剩是最容易发现的浪费形式之一，因为它往往会导致我们通常认为的浪费。生产过剩意味着产品、零件或服务生产得太快、在错误的时间或者生产的数量过多。要理解生产过剩的概念，请考虑一家提供汉堡包和炸薯条午餐的基本快餐店。餐厅不提供早餐，并于上午 11:00 向午餐人群开放。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-004",
             "kind": "paragraph",
+            "page": 28,
             "text": "如果厨师在上午 11:00 点起烤架，那么他们可能会推迟一天的开始，因为可能会立即下几个订单。然而，如果厨师们开始制作汉堡肉饼"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-005",
             "kind": "paragraph",
+            "page": 28,
             "text": "上午 10:30，他们的肉饼可能会在食用前放置一段时间，如果肉饼被扔掉，就会导致顾客不满意或浪费。从上午 10:30 开始每 10 分钟制作 10 个肉饼就属于生产过剩——肉饼制作得太早了。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-006",
             "kind": "paragraph",
+            "page": 28,
             "text": "如果餐厅老板做了一些研究，并且知道周二上午 11:00 到 11:15 之间的平均订单数是 10 个汉堡包，该怎么办？他们可能会指示厨师在上午 10:50 开始制作肉饼，每 10 分钟制作 5 个肉饼。目标是使肉饼制作与客户订单保持一致，从而减少等待时间，但客户仍然能够享用新鲜的肉饼。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-007",
             "kind": "paragraph",
+            "page": 28,
             "text": "到了中午，业主们知道订单往往会很快到来，因此他们要求厨师每 10 分钟制作 15 个肉饼。然而，到下午 2:00，订单量通常会降至每小时 10 个汉堡。如果厨师仍然每 10 分钟制作 15 个，那么该过程就会出现生产过剩。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-008",
             "kind": "paragraph",
+            "page": 28,
             "text": "在某些时候，餐厅的客流量可能需要定制烧烤——厨师只按照订单制作汉堡肉饼，以避免浪费任何材料。通过了解餐厅的客流量趋势，业主能够估计需求并创建流程，减少厨房中产生的废物量，同时仍满足顾客的质量要求。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-009",
             "kind": "paragraph",
+            "page": 28,
             "text": "生产过剩通常与流程的有形结果相关，尽管这些结果不一定是最终的或所述流程的“最终产品”。考虑一家打印名片、文具、邀请函和其他文件的企业。也许这家企业提供打印和邮寄服务；为了完成这项服务，该公司使用机器驱动的流程来打印、折叠和填充邮件。打印机每小时能够打印 1,000 页，但折页机每小时只能折叠 800 页。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-010",
             "kind": "paragraph",
+            "page": 28,
             "text": "即使客户想要打印 1,000 页并邮寄，如果将第一台机器设置为以最大速度运行，打印机也会产能过剩。该过程将需要超过一小时，因为它取决于最慢的机器。由于生产过剩不会导致有形浪费——打印的页面最终将被折叠并邮寄——公司的流程负责人必须考虑其他因素，以决定暂时的生产过剩是否对流程有害。在折叠过程之前堆叠额外的纸张是否会产生额外的错误风险？以最大容量运行印刷机是否会不必要地对其造成不必要的压力或磨损？如果任一问题的答案是肯定的，那么就存在应从流程中消除的浪费。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-011",
             "kind": "paragraph",
+            "page": 28,
             "text": "报告、数字资产和流程准备方面也可能存在生产过剩。几乎所有在商业环境中工作的人都熟悉报告要求，就像几乎所有创建报告的人都知道信息经常未被阅读的不幸事实一样。创建无人阅读的报告，或者在概览就足够的情况下创建非常详细的报告，就是生产过剩。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-012",
             "kind": "paragraph",
+            "page": 28,
             "text": "准备流程中未使用的设备也属于生产过剩。手术中心通常在轮班开始前准备好机器、设备托盘和手术室。目标是为任何患者手术创建高效的流程；如果在手术过程中出现问题，工作人员还必须能够快速使用设备。一天只安排 10 台手术，准备 20 托盘设备，如果多余的托盘没有用处，可能会被视为生产过剩。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-013",
             "kind": "paragraph",
+            "page": 29,
             "text": "在某些情况下，例如上面的医学示例，流程可能需要轻微的生产过剩。 如果安排 10 台手术，工作人员可能会准备 13 或 14 个设备托盘。这样，如果紧急手术到达，或者现有托盘出现问题，就可以使用备用设备。通过了解流程和要求中的细微差别，六西格玛团队可以更好地识别生产过剩与监管或问题解决政策可能要求的生产过剩。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-014",
             "kind": "paragraph",
+            "page": 29,
             "text": "消除生产过剩的关键是规划。在上面的示例中，您会注意到，当流程操作员了解流程中固有的需求时，每个解决方案都会出现。当业主知道可能有多少订单时，他们就能够制定减少浪费的计划。当印刷商了解流程中每台机器的功能时，他或她就可以规划最高效的印刷运行。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-015",
             "kind": "heading",
+            "page": 29,
             "text": "修正"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-016",
             "kind": "paragraph",
+            "page": 29,
             "text": "这种形式的浪费也称为返工浪费，经常困扰热衷于传统质量计划的组织。为了消除最终产品中的缺陷，组织会进行过程中的质量检查，将有缺陷的工作送回进行纠正。虽然在某些情况下可能需要返工，特别是当材料特别有价值并且工作值得节省而不是报废时，但在过程中仍然存在浪费，应予以识别和分析。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-017",
             "kind": "paragraph",
+            "page": 29,
             "text": "当返工发生时，它会增加整体流程时间并使用额外的劳动力和材料来生产较少数量的产品或产出。让我们看一个大型汽车保险公司呼叫中心的示例。该中心的一些电话来自在事故中车辆受损的人。请考虑以下处理此类调用的过程："
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-018",
             "kind": "listItem",
+            "page": 29,
             "text": "来电者报告汽车损坏。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-019",
             "kind": "listItem",
+            "page": 29,
             "text": "代表以计算机形式记录信息。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-020",
             "kind": "listItem",
+            "page": 29,
             "text": "代表根据呼叫者提供的信息做出决定： o 如果被视为紧急情况，则索赔将被转至立即处理 o 如果是单车事故或天灾事故，索赔将转至 A 组 o 如果是多车事故，则索赔将转至 B 组"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-021",
             "kind": "paragraph",
+            "page": 29,
             "text": "现在，想象一下 B 团队的一名员工的工作队列中收到了一份索赔。输入计算机的信息不完整，因此该员工无法确定该索赔是否与多车事故有关。 员工可能会将索赔发送回原始队列，这意味着呼叫中心员工必须给被保险人回电以收集更多信息。然后，根据新信息，索赔将再次被路由，并再次在工作队列中等待。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-022",
             "kind": "paragraph",
+            "page": 29,
             "text": "修正错误的最大问题之一是，经常会出现需要进行处理的情况。也许B队没有能力处理单车事故，所以如果要完成索赔，就必须改变工作路线。但是为什么不让下线团队成员处理任何索赔，或者创建一个流程将索赔重新路由到正确的团队而不将工作发送回原始队列呢？"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-023",
             "kind": "paragraph",
+            "page": 29,
             "text": "纠正或返工可以发生在任何类型的过程中。制造过程剔除有缺陷的零件和产品；有时材料会被重新加工以获得更好的结果，有时它们会被报废——这也是一种浪费。呼叫中心和数字工作队列因返工而闻名，因为这很容易"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-024",
             "kind": "paragraph",
+            "page": 29,
             "text": "以数字格式来回发送作品。在某些情况下，返工的发生并不是因为纠正，而仅仅是因为部门或工人的职责重叠。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-025",
             "kind": "paragraph",
+            "page": 30,
             "text": "为了消除返工或纠正，组织必须使用双重方法。首先，必须解决返工的根本原因——导致错误的原因。是否需要进一步的员工培训？是否可以改变流程以使其更不易出错？在某些情况下，可以部署后面单元中讨论的过程控制原则，包括称为“防错”的策略，以使在过程中产生缺陷比不产生缺陷更困难。当缺陷被避免时，返工也就被避免了。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-026",
             "kind": "termNote",
+            "page": 30,
             "rows": [
               [
                 "术语说明 Root Cause（根本原因）：真正驱动问题发生的原因；解决它才能防止问题反复出现。"
@@ -563,6 +666,7 @@
           {
             "id": "ch04-s02-the-seven-muda-zh-027",
             "kind": "termNote",
+            "page": 30,
             "rows": [
               [
                 "术语说明 Poka-Yoke（防错）：通过设计让错误更难发生，或发生后能立即被发现。"
@@ -573,131 +677,157 @@
           {
             "id": "ch04-s02-the-seven-muda-zh-028",
             "kind": "paragraph",
+            "page": 30,
             "text": "除了解决错误的根本原因之外，组织还应该制定减少返工浪费的质量步骤。在有关保险公司呼叫中心的示例中，我们注意到，对于下线工作人员来说，将索赔重新路由到正确的团队比将其返回到原始团队更有效。不过，这种方法有时会引起文化问题。领导者和工作人员有一种感觉，第一团队或第一团队成员应该对错误负责。追究责任的一种方法是让那个人纠正他或她的错误。 虽然在时间和资源允许的情况下，返工错误可能是一种很好的培训方法，但它并不总是可行，也无法实现高效的日常流程。相反，通过目标设定和指标，员工可以更有效地承担责任，以实现整个组织的更大利益。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-029",
             "kind": "heading",
+            "page": 30,
             "text": "库存"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-030",
             "kind": "paragraph",
+            "page": 30,
             "text": "库存的Muda与生产过剩的Muda类似；事实上，生产过剩会造成库存浪费。当材料或投入在流程的某个步骤之前堆积起来时，就会出现库存混乱；这种现象也称为瓶颈。还记得生产过剩的印刷例子吗？如果第一台机器设置为最高生产水平，每小时将生成 1,000 页。折页机每小时只能处理 800 页，因此每小时会创建 200 页的库存。如果两台机器以最高产量运行四个小时，该流程将生成 800 页的库存。除非折叠过程变得更快，否则这些额外的页面将被浪费，并将继续堆积。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-031",
             "kind": "paragraph",
+            "page": 30,
             "text": "当在制造或服务过程中需要物品之前购买或创建物品时，可能会发生库存浪费。库存还可以出现在工作队列、数字数据队列、甚至电子邮件收件箱中。如果您每天收到 300 封电子邮件，而您只定期处理其中 30 封，则说明您的通信流程存在问题。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-032",
             "kind": "paragraph",
+            "page": 30,
             "text": "虽然库存浪费可能发生在任何流程中，但在批量操作的流程中尤其常见。传统的精益智慧认为要避免批处理——涉及在将产品或输出推下生产线之前创建一定数量的产品或输出的过程。减少批量可以缩短交货时间——交付最终产品所需的时间。它还减少了流程每个步骤之前发生的库存量。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-033",
             "kind": "paragraph",
+            "page": 30,
             "text": "虽然精益思维通常会产生“批量化是不好的”心态，但您无法总是避免它，并且减少单个输出的交付时间并不总是流程的主要目标。假设一位面包师正在准备一打纸杯蛋糕。他可以批量准备订单，也可以单独准备每个纸杯蛋糕。显然，混合配料并批量烘烤纸杯蛋糕更有意义。 批量装饰它们也很有效——面包师可能会在所有纸杯蛋糕上涂上糖霜，在所有纸杯蛋糕上添加滚边，然后在所有纸杯蛋糕上放上糖果。面包师的配料工作"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-034",
             "kind": "paragraph",
+            "page": 30,
             "text": "因为第一个纸杯蛋糕在第 12 个纸杯蛋糕完成之前不会离开面包店——它们都会一起移动，因为它们被视为一个整体。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-035",
             "kind": "paragraph",
+            "page": 30,
             "text": "您还可以通过了解流程并根据历史指标制定库存决策来减少库存浪费。每周处理 50,000 到 100,000 箱的运输中心如果只想拥有一周的供应量，就不会下 300,000 箱的订单。如果面包师只想做两个馅饼，他就不会为七个馅饼打奶油。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-036",
             "kind": "heading",
+            "page": 30,
             "text": "运动"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-037",
             "kind": "paragraph",
+            "page": 31,
             "text": "运动的 Muda 与员工本身在流程中的移动方式有关。这种类型的浪费通常与制造、仓储、运输、交付或工业领域中的人力流程相关，但运动浪费甚至可能出现在计算机化的流程中。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-038",
             "kind": "paragraph",
+            "page": 31,
             "text": "例如，如果数据输入员工在输入信息时必须在屏幕之间来回单击，这可能是运动混乱。如果系统设计为在一个窗口中输入一个数字，然后在另一个窗口中输入第二个数字，那么窗口之间的点击就会浪费动作。移动到另一个窗口涉及鼠标或键盘操作，如果在同一窗口上输入数据，则可以消除这些操作。这似乎是一个无关紧要的细节，但想象一下当数据员工每天数百或数千次完成此过程时会发生什么。浪费绝对会增加："
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-039",
             "kind": "listItem",
+            "page": 31,
             "text": "如果每个数据输入员工平均每小时完成 600 个条目，并且团队中有 10 名员工，则该团队每天要完成 48,000 个条目。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-040",
             "kind": "listItem",
+            "page": 31,
             "text": "如果在两个窗口之间切换只需要多花半秒，那么该团队每天仍然要花费总共 400 分钟（刚刚超过 6.5 小时）进行切换。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-041",
             "kind": "listItem",
+            "page": 31,
             "text": "如果数据工作者的平均时薪为 10 美元，那么团队每周要额外花费 325 美元（每年近 17,000 美元）来支付窗口之间切换的费用。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-042",
             "kind": "paragraph",
+            "page": 31,
             "text": "鉴于这些数字，在同一窗口中包含这两个数据元素的编程更改可以在一年内为公司节省 17,000 美元。 当您可以将时间和金钱数字应用于废物时，同样的概念可以应用于任何形式的 Muda。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-043",
             "kind": "paragraph",
+            "page": 31,
             "text": "运动混乱的其他例子包括要求个人在工作之间来回移动的任务、由于工作布局不当而产生的额外运动，或者当员工离开某个区域并且由于忘记某件事而必须返回一次或多次时发生的运动。公共图书馆长期以来一直采用一种简单的工具来避免重新上架过程中的混乱：首先在购物车上订购书籍。推车允许员工携带许多书籍而无需来回移动，并且将书籍按顺序放在推车上可以让个人在书堆中移动一次。如果书籍被随意放置在推车上，则随后在书架之间的移动就会浪费动作和时间。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-044",
             "kind": "paragraph",
+            "page": 31,
             "text": "简化公司流程可以消除行动混乱，并且必须收集和分析数据以识别不必要的行动。在制造和类似环境中用于跟踪运动的常用工具称为意大利面条图。从工作区的基本鸟瞰图开始。包括家具、计算机站、机械、门和墙壁。观察实际过程，用图表上的线跟踪所有运动。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-045",
             "kind": "paragraph",
+            "page": 31,
             "text": "如果绘制正确，图表看起来就像一串意大利面条掉到了你的页面上。该过程完成后，您可以查看图表以了解运动在何处多次交叉或不必要地偏离路径。这可以帮助您找到简化流程中移动的机会 - 有时，就像移动家具或资源一样简单，以减少不必要的移动。值得注意的是，意大利面条图仅揭示了时间运动的快照；有时，在一天的不同时间或与不同的员工一起完成多个这样的图表是值得的，以揭示流程的整体情况和可能的 Muda。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-046",
             "kind": "heading",
+            "page": 31,
             "text": "运输"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-047",
             "kind": "paragraph",
+            "page": 31,
             "text": "运输的 Muda 与移动的 Muda 类似，只不过运输涉及产出、产品或资源的移动。有时也称为运输的muda。例如，在玩偶制造工厂中，如果将玩偶眼睛和玩偶脸部粘合在一起的胶水保存在库存室中，并根据需要运送到流程中，则可能会出现运输混乱。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-048",
             "kind": "paragraph",
+            "page": 31,
             "text": "如果打印一份费用报告，然后交给经理批准，然后经理将其装在办公室内部的信封中，交给主管，然后主管再将其交给会计部门，那么就发生了运输混乱。尤其如此，因为正确有效地使用适当的技术可以让组织通过计算机处理昂贵的报告，而无需任何传输。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-049",
             "kind": "paragraph",
+            "page": 32,
             "text": "如果厨师准备好盘子并放在柜台上，厨房助理将盘子移到另一张桌子上，服务员知道要拿起它，那么就发生了传送。然后服务员把盘子端到顾客面前。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-050",
             "kind": "paragraph",
+            "page": 32,
             "text": "传送可以涉及物品的物理移动或数据或工作流程的数字移动。许多工作环境中都存在电子邮件字符串，通常会出现数字传输的混乱。首席执行官可能会向董事发送电子邮件，请求提供数据。主管向经理发送电子邮件，经理向主管发送电子邮件，主管向主题专家发送电子邮件。 SME 将信息传递给她的主管，然后电子邮件沿着链条返回。相同的请求和信息可能只需要传达一次，但它却被传达了多次。这会带来很多出错的机会。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-051",
             "kind": "paragraph",
+            "page": 32,
             "text": "有些人可能会提到指挥链问题，但就本示例而言，如果数据请求是一个重复的过程，那么指挥链有必要通知首席执行官此信息的来源。更进一步，真正的精益流程需要消除该流程中的所有浪费。如果数据要求每周一次，那么精益理想要求中小企业每周自动生成数据并将其发送给首席执行官。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-052",
             "kind": "paragraph",
+            "page": 32,
             "text": "物理运输通常比数字运输更容易定位和寻址。意大利面条图、流程图或价值流图可以帮助您识别可能存在运输混乱的区域。意大利面条图在物理运输情况下效果很好，流程图可以帮助您识别数字环境中的运输。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-053",
             "kind": "termNote",
+            "page": 32,
             "rows": [
               [
                 "术语说明 Process Map（流程图）：把流程步骤、流向和责任可视化，帮助识别断点和浪费。"
@@ -708,91 +838,109 @@
           {
             "id": "ch04-s02-the-seven-muda-zh-054",
             "kind": "paragraph",
+            "page": 32,
             "text": "一旦识别出运输混乱，您可以通过更改工作的流程、布局或库存要求来消除它。如果运输废物不是由于不良的流程设计或工作区域布局造成的，那么它可能与另一种形式的 Muda 有关。 转移经常出现在涉及大量纠正的流程中，因为工作会在员工或区域之间来回转移。通过解决修正的误区，你通常也会解决传送的误区。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-055",
             "kind": "paragraph",
+            "page": 32,
             "text": "过度处理 当员工或流程向产品或服务投入的资源多于客户所重视的资源时，就会发生过度处理。这种情况的发生可能是因为无知、追求完美，甚至是兴奋。有时，过度处理的发生是因为员工没有接受过以最有效的方式处理任务的培训。其他时候，发生这种情况是因为员工或流程过于彻底，不值得。任何流程的目标都应该是做足够有用且必要的工作，以确保满足客户或最终用户的期望。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-056",
             "kind": "paragraph",
+            "page": 32,
             "text": "过度处理的一个例子经常发生在医疗保健行政办公室的保险验证过程中。当医疗保健提供者的办公室试图验证一个人是否拥有即将提供的服务的保险时，就会发生保险验证。根据保险范围的类型和办公室的政策，工作人员可以通过计算机程序检查福利或致电保险公司。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-057",
             "kind": "paragraph",
+            "page": 32,
             "text": "在大多数情况下，保险验证的目的只是确保被保险人在提供服务之日受到计划的保障。然而，有时，办公室工作人员会更深入地进行验证，花长达一个小时的时间与保险公司通电话以获取详细的福利，或回电与另一位代表核实以确保所提供的原始信息正确无误。虽然存在需要深入保险验证的特定情况，但基本的就诊不需要这种级别的工作。一名员工需要花费长达一个小时来核实保险范围，这已经是生产力过剩，而且可能会给整个办公室带来生产力问题。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-058",
             "kind": "paragraph",
+            "page": 32,
             "text": "在以消费者为中心的流程中，当您对产品的投入超过客户提供的价值时，就会发生过度加工。虽然产品卓越很重要，但在某些时候，您在产品中投入的工作超出了客户认为必要或有用的程度，而这通常与价格点相关。例如，客户对优质、更昂贵的型号有更多期望。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-059",
             "kind": "paragraph",
+            "page": 32,
             "text": "过度处理的一个例子可能是在没有人看到的情况下对柜内架子的底部进行涂漆。在餐馆里，将桌布熨烫到严格的标准可能会被认为是过度加工，特别是如果你在两餐之间将桌布取下来清洗的话。在大多数餐厅，大部分桌布都垂在桌子上。业主可能想要没有皱纹的亚麻布，但他们不需要清晰完美的接缝。在技​​术领域，当 99% 的人只想使用 10 个主要功能时，构建一个具有 100 个功能的应用程序可以被视为过度处理和过度生产。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-060",
             "kind": "paragraph",
+            "page": 32,
             "text": "第 35 章介绍的价值流图是识别过度加工点的好工具。流程中任何不提供价值的部分都可能被视为过度处理；当流程具有一系列相互关联的事件并且没有一个事件提供价值时，更有可能发生过度处理。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-061",
             "kind": "paragraph",
+            "page": 33,
             "text": "在真正的精益流程中，流程的每一步都提供价值，但确定何时没有价值可能很棘手。例如，质量对于流程的成功和最终客户都很重要，但客户并不关心，甚至通常不会意识到您的流程自始至终都充满了质量检查。相反，他们关心的是，由于这些质量检查，流程需要多花 10 分钟——团队必须深入研究流程、指标和客户声音，以确定这 10 分钟的额外时间是否提供了足够的附加值，以弥补因以下原因而造成的烦恼或客户流失："
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-062",
             "kind": "paragraph",
+            "page": 33,
             "text": "增加的时间。这些知识都是通过本书详细讨论的数据收集和统计分析来确定的。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-063",
             "kind": "heading",
+            "page": 33,
             "text": "等待"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-064",
             "kind": "paragraph",
+            "page": 33,
             "text": "等待的 Muda 是指流程中的任何空闲时间，无论该空闲时间是用于机器还是人员。换句话说，由于等待流程另一部分的输入，员工或机器正在低于容量工作或根本不工作。当流程中的步骤未正确协调、流程不可靠、工作批量太大、返工期间以及人员或机器之间的长时间转换期间，就会出现等待。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-065",
             "kind": "paragraph",
+            "page": 33,
             "text": "在零售或快餐环境中，当一名收银员轮班结束后，另一名收银员将接替收银员。 为了保持财务诚信，几乎所有公司都会在收银员换班时更换收银机抽屉；如果抽屉出现错误，公司就知道当时谁在运行收银机，从而更容易发现趋势或问题。然而，当更换抽屉时，收银机通常无法使用。收银员只是在等待，有时甚至和顾客一起等待。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-066",
             "kind": "paragraph",
+            "page": 33,
             "text": "为了减少此收银机示例中的等待混乱，大多数组织使用的流程包括在一天或轮班开始时准备好的一系列收银机抽屉。收银台抽屉设计为可互换，30秒内即可拉出旧抽屉，放入新抽屉，解决了等待的浪费。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-067",
             "kind": "paragraph",
+            "page": 33,
             "text": "等待的浪费在建筑环境中很常见。道路、桥梁、建筑物和其他结构的建设需要密切关注秩序和细节：在支柱就位并稳定之前，无法建造桥梁的道路。这种概念即使在小规模的建筑中也能看到，导致带薪员工经常站在那里等待其他人完成一项工作，然后才能完成分配的任务。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-068",
             "kind": "paragraph",
+            "page": 33,
             "text": "由于建筑是一个需要专家和认证的领域，一名员工通常无法完成另一名员工可以完成的工作。换句话说，员工的任务是不可互换的。这会导致额外的等待时间；一组建筑工人可能必须等待叉车操作员来移动一些物品。与此同时，叉车操作员正在施工场地的另一边完成一项任务。这不仅仅是建筑方面的问题：一些办公室制定了政策，要求正式 IT 工作人员处理任何计算机问题。无论是软件故障、故障排除错误，还是只是需要更换性能不佳的鼠标，普通办公室工作人员都必须发送支持票或拨打电话，等待 IT 人员解决问题。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-069",
             "kind": "paragraph",
+            "page": 33,
             "text": "您可以通过平衡机器、人员和生产来消除许多流程中的等待浪费。该过程的执行速度仅与最慢的链接一样快；加强单个元素的生产对整体没有任何帮助，因此团队必须努力平衡和改进整个过程。"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-070",
             "kind": "paragraph",
+            "page": 33,
             "text": "有时，日程安排是消除等待的关键组成部分。 在施工示例中，先进的规划和调度策略可以减少团队在叉车操作员忙于其他地方时等待叉车操作员的机会。了解组织、团队、项目和流程的需求也有助于领导层提供适量的资源来减少等待。例如，建筑工地可能会受益于两名叉车操作员。在 IT 示例中，一家公司"
           },
           {
             "id": "ch04-s02-the-seven-muda-zh-071",
             "kind": "paragraph",
+            "page": 33,
             "text": "可以通过在高峰时段最大限度地增加 IT 人员配置或在 IT 部门内实施流程来创建更有效的帮助请求响应来减少等待时间。可以聘请一名辅助 IT 人员来处理技术性较低的问题，例如更换性能不佳的鼠标。"
           }
         ]
@@ -811,51 +959,61 @@
           {
             "id": "ch04-s03-other-forms-of-waste-en-001",
             "kind": "paragraph",
+            "page": 34,
             "text": "While Toyota originally defined seven common muda, even Taiichi Ohno agreed that other types of waste exist. In some cases, what seems like other types of waste are just more defined or specific types of the seven muda discussed above. Some forms of waste don’t seem to fit neatly into one of the seven muda categories."
           },
           {
             "id": "ch04-s03-other-forms-of-waste-en-002",
             "kind": "heading",
+            "page": 34,
             "text": "Talent"
           },
           {
             "id": "ch04-s03-other-forms-of-waste-en-003",
             "kind": "paragraph",
+            "page": 34,
             "text": "Talent can be wasted when a process doesn’t make the most use of the labor or staff available. If a process calls for data to be entered, and the staff member slowest on 10-key is assigned to the task, resources are being wasted. Hiring the wrong person, putting staff in the wrong position, or ignoring a staff member’s growth potential could all be instances of muda of talent. Wasted talent is more a concern for leadership and human resources than for process improvement specialists, though Six Sigma experts should be aware that the way personnel resources are handled can drastically impact the efficiency of a process."
           },
           {
             "id": "ch04-s03-other-forms-of-waste-en-004",
             "kind": "heading",
+            "page": 34,
             "text": "Ideas"
           },
           {
             "id": "ch04-s03-other-forms-of-waste-en-005",
             "kind": "paragraph",
+            "page": 34,
             "text": "Muda of ideas occurs when the thoughts and ideas of people are discounted, not sought out, or misappropriated in a way that doesn’t make sense. Leadership and project teams can often overlook subject matter experts who have detailed insight into a process and, as such, could offer first-hand knowledge and ideas. The result could be the design of a process that works great in theory but falls flat on a granular level once it’s instituted."
           },
           {
             "id": "ch04-s03-other-forms-of-waste-en-006",
             "kind": "paragraph",
+            "page": 34,
             "text": "One reason waste of ideas is such a concern for organizations is that people themselves rarely come forward with thoughts. Staff members might think they don’t have anything real to contribute, might feel like their ideas won’t be heard, or could be anxious about looking silly or ignorant."
           },
           {
             "id": "ch04-s03-other-forms-of-waste-en-007",
             "kind": "paragraph",
+            "page": 34,
             "text": "Six Sigma Green or Black Belts in charge of projects can facilitate less muda of ideas by encouraging subject matter experts to contribute and encouraging leaders to seek all ideas before moving forward with change. Brainstorming tools, which are covered in later chapters, are valuable for this purpose because they are designed to create a safe haven for all ideas. By fostering all ideas in a safe environment, teams can foster valuable ideas and avoid waste of ideas."
           },
           {
             "id": "ch04-s03-other-forms-of-waste-en-008",
             "kind": "heading",
+            "page": 34,
             "text": "Capital/Cash"
           },
           {
             "id": "ch04-s03-other-forms-of-waste-en-009",
             "kind": "paragraph",
+            "page": 34,
             "text": "Saving for a rainy day is smart, but banking cash when there are profits to gain isn’t always the right decision. Muda of capital or cash occurs when leadership decides not to invest in upgrades or improvements that would create additional cash flow. This type of waste is very similar to waiting, except the cash itself is waiting, often for a time when leadership feels safe enough to spend it."
           },
           {
             "id": "ch04-s03-other-forms-of-waste-en-010",
             "kind": "paragraph",
+            "page": 34,
             "text": "Six Sigma helps reduce muda of cash because statistical analysis helps point leaders to decisions that involve the least risk or most gain. No business decision is 100 percent guaranteed, but Six Sigma helps leaders hedge bets by using statistical data in the decision-making process so they don’t sit on cash or capital that could be used to drive gains in efficiency, production, and profit."
           }
         ],
@@ -863,51 +1021,61 @@
           {
             "id": "ch04-s03-other-forms-of-waste-zh-001",
             "kind": "paragraph",
+            "page": 34,
             "text": "虽然丰田最初定义了七种常见的废物，但就连大野耐一也同意存在其他类型的废物。在某些情况下，看似其他类型的废物只是上面讨论的七种废物中更明确或特定的类型。某些形式的废物似乎并不完全属于七个 Muda 类别之一。"
           },
           {
             "id": "ch04-s03-other-forms-of-waste-zh-002",
             "kind": "heading",
+            "page": 34,
             "text": "人才"
           },
           {
             "id": "ch04-s03-other-forms-of-waste-zh-003",
             "kind": "paragraph",
+            "page": 34,
             "text": "当流程没有充分利用可用的劳动力或员工时，人才可能会被浪费。如果某个流程要求输入数据，并且将 10 键操作最慢的员工分配给该任务，那么就会浪费资源。聘用错误的人、将员工放在错误的位置或忽视员工的成长潜力都可能是人才流失的例子。人才浪费更多的是领导层和人力资源而不是流程改进专家的担忧，尽管六西格玛专家应该意识到人力资源的处理方式会极大地影响流程的效率。"
           },
           {
             "id": "ch04-s03-other-forms-of-waste-zh-004",
             "kind": "heading",
+            "page": 34,
             "text": "想法"
           },
           {
             "id": "ch04-s03-other-forms-of-waste-zh-005",
             "kind": "paragraph",
+            "page": 34,
             "text": "当人们的思想和观点被低估、未被寻找或以一种没有意义的方式被盗用时，就会出现思想的 Muda。领导层和项目团队经常会忽视主题专家，他们对流程有详细的了解，因此可以提供第一手的知识和想法。结果可能是设计出一个理论上运行良好的流程，但一旦实施，在粒度层面上就会表现不佳。"
           },
           {
             "id": "ch04-s03-other-forms-of-waste-zh-006",
             "kind": "paragraph",
+            "page": 34,
             "text": "组织如此关注浪费想法的原因之一是人们自己很少提出想法。 员工可能认为他们没有任何实际贡献，可能觉得他们的想法不会被听到，或者可能担心自己看起来愚蠢或无知。"
           },
           {
             "id": "ch04-s03-other-forms-of-waste-zh-007",
             "kind": "paragraph",
+            "page": 34,
             "text": "六西格玛 负责项目的绿色或黑带人员可以通过鼓励主题专家贡献并鼓励领导者在推进变革之前寻求所有想法来减少想法的混乱。后面章节中介绍的头脑风暴工具对于此目的很有价值，因为它们旨在为所有想法创建一个安全港。通过在安全的环境中培育所有想法，团队可以培育有价值的想法并避免想法浪费。"
           },
           {
             "id": "ch04-s03-other-forms-of-waste-zh-008",
             "kind": "heading",
+            "page": 34,
             "text": "资本/现金"
           },
           {
             "id": "ch04-s03-other-forms-of-waste-zh-009",
             "kind": "paragraph",
+            "page": 34,
             "text": "未雨绸缪是明智之举，但当有利润可赚时存入现金并不总是正确的决定。当领导层决定不投资于能够创造额外现金流的升级或改进时，就会出现资本或现金的 Muda。这种类型的浪费与等待非常相似，只不过现金本身正在等待，通常是在领导层感到足够安全可以花掉它的时候。"
           },
           {
             "id": "ch04-s03-other-forms-of-waste-zh-010",
             "kind": "paragraph",
+            "page": 34,
             "text": "六西格玛有助于减少现金浪费，因为统计分析可以帮助领导者做出风险最小或收益最大的决策。没有任何商业决策是百分百保证的，但六西格玛通过在决策过程中使用统计数据来帮助领导者对冲赌注，这样他们就不会坐拥可用于提高效率、产量和利润的现金或资本。"
           }
         ]
@@ -926,171 +1094,205 @@
           {
             "id": "ch04-s04-two-types-of-muda-en-001",
             "kind": "paragraph",
+            "page": 35,
             "text": "All muda is waste that fails to add value to a product or process as defined by the customer or end-user. All muda can also be divided into two overall types, which can help organizations prioritize waste for project and improvement purposes. Muda can be referred to as type I or type II."
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-002",
             "kind": "heading",
+            "page": 35,
             "text": "Type I Muda"
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-003",
             "kind": "paragraph",
+            "page": 35,
             "text": "Type I muda are non-value-added tasks that might actually be essential or required by circumstances. Inspection of products during a process might be required if the process is known to produce defects. Organizations don’t want defects to reach customers, so they put quality controls in place. The act of the inspection, and the time and expense it adds to a process -- are all muda. However, an organization can’t remove that waste until it addresses the cause of the defects within the process."
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-004",
             "kind": "paragraph",
+            "page": 35,
             "text": "Sometimes, auxiliary processes within an organization are Type I muda. For example, the external end customer doesn’t receive direct value from human resource processes within an organization. At the same time, if employees don’t receive pay checks or support regarding benefits, they aren’t likely to continue performing work. Those processes are then essential to the organization. Instead of removing the muda completely, teams might look for ways to make essential muda as efficient and cost-effective as possible."
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-005",
             "kind": "heading",
+            "page": 35,
             "text": "Type II Muda"
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-006",
             "kind": "paragraph",
+            "page": 35,
             "text": "Type II muda are non-value-added tasks that are not essential and can be immediately removed from a process. For example, if a product is carried to and from several work stations while it is being completed, it’s likely type II muda of conveyance exists. By rearranging the workflow, teams might be able to reduce the muda by a substantial amount without making any actual changes to how the product is put together."
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-007",
             "kind": "paragraph",
+            "page": 35,
             "text": "5S"
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-008",
             "kind": "paragraph",
+            "page": 35,
             "text": "5S is a Japanese Lean approach to organizing a workspace, so that by making a process more effective and efficient, it will become easier to identify and expunge muda. 5S relies on visual cues and a clean work area to enhance efficiencies, reduce accidents, and standardize workflows to reduce defects. The method is based on five steps:"
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-009",
             "kind": "listItem",
+            "page": 35,
             "text": "Sort (Seiri)"
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-010",
             "kind": "listItem",
+            "page": 35,
             "text": "Straighten (Seiton)"
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-011",
             "kind": "listItem",
+            "page": 35,
             "text": "Shine (Seiso)"
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-012",
             "kind": "listItem",
+            "page": 35,
             "text": "Standardize (Seiketsu)"
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-013",
             "kind": "listItem",
+            "page": 35,
             "text": "Sustain (Shitsuke)"
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-014",
             "kind": "heading",
+            "page": 35,
             "text": "Phase I: Sort"
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-015",
             "kind": "paragraph",
+            "page": 35,
             "text": "During the sort phase, all items or materials in a workspace are reviewed, removing unneeded items and keeping necessary resources."
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-016",
             "kind": "paragraph",
+            "page": 35,
             "text": "Consider the copy room in an office: over the years, supplies, tools, and machinery have piled up. When going through the room, teams might decide that the stapler and Scotch tape stay; people still need to staple pages or access tape. The old paper cutter isn’t necessary for the team, since no one ever performs paper-cutting duties. However, someone notes that the team in shipping and warehousing has to manually cut pages down sometimes, so the paper cutter is relocated to that department. The team decides to toss a bin of miscellaneous loose paper and an old fax machine because a new copy machine includes fax capability. By eliminating obstacles and unnecessary items, costs, time, and employee frustration are also removed."
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-017",
             "kind": "paragraph",
+            "page": 35,
             "text": "The sort step lets you take inventory of an area, discover unused or wasted resources, and make room for reorganization. Sort can also be applied with computerized processes."
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-018",
             "kind": "paragraph",
+            "page": 35,
             "text": "Phase 2: Straighten"
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-019",
             "kind": "paragraph",
+            "page": 35,
             "text": "Once excess is removed from the work area, teams must provide a streamlined and easy-to-use location for everything necessary to the workspace. During the straighten phase, every item, tool, or material is given a home. To facilitate ongoing organization, the location of resources should be labeled clearly. The idea is to create a workspace that anyone could use: if someone from another area comes to your copy room, it should only take a few seconds to locate the right size paper. Employees in a factory should be able to move from station to station, finding equipment and tools with ease. The goal is to provide the visual controls that allow for common-sense operation. Labeling a shelf for letter-sized paper, arranging sockets in size order in a drawer labeled sockets, or parking the forklift in a marked area of factory floor when not in use are all good examples. Labeling the stapler with a label maker is an example of things going beyond common sense: you don’t need to label items that most people in the workplace would recognize on site."
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-020",
             "kind": "paragraph",
+            "page": 35,
             "text": "The straighten phase also works well in a digital environment, especially when computers or systems are used by a variety of people. In an office that has a shared workspace policy, computer desktops might be pushed out by technical resources so that the same programs are available to everyone. Not only are all programs the same, but the icons are in the same location on each desktop so users don’t have to search for programs if they move to a new workstation."
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-021",
             "kind": "paragraph",
+            "page": 35,
             "text": "Phase 3: Shine"
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-022",
             "kind": "paragraph",
+            "page": 35,
             "text": "The third phase in the 5S methodology is targeted to keeping the workplace clean and neat. Seiso can also be translated to “sweep, sanitize, or scrub.” The goal is to shine the work space by cleaning it, maintaining equipment, and returning items to the proper place after use. In a computerized environment, the shine phase can be accomplished by naming files in a manner that makes them easy to locate, keeping folder structures intact, and deleting or archiving files that are no longer necessary."
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-023",
             "kind": "paragraph",
+            "page": 35,
             "text": "Shine can be applied to any environment, physical or digital."
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-024",
             "kind": "paragraph",
+            "page": 35,
             "text": "Phase 4: Standardize"
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-025",
             "kind": "paragraph",
+            "page": 35,
             "text": "The standardize phase is used to maintain the progress achieved in all previous phases. By keeping high standards of orderliness in place, the benefits of the 5S methodology can be long-term. The stress and speed of a daily workday can make it hard to keep up with the 5S standards. If everyone is committed to working together, the benefits can be ongoing."
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-026",
             "kind": "paragraph",
+            "page": 35,
             "text": "Phase 5: Sustain"
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-027",
             "kind": "paragraph",
+            "page": 35,
             "text": "5S only works if everyone on the team or within the organization commits to the process. Employees must follow the rules that are set up for standardizing and sustaining the organization. Otherwise, the team enters a cycle of cleaning up after a period of failing to keep up with the standards of 5S."
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-028",
             "kind": "paragraph",
+            "page": 35,
             "text": "The overall benefits the 5S method includes:"
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-029",
             "kind": "listItem",
+            "page": 35,
             "text": "Reduced risks of accidents and safety issues"
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-030",
             "kind": "listItem",
+            "page": 35,
             "text": "Increased compliance with regulations from organizations such as OSHA"
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-031",
             "kind": "listItem",
+            "page": 35,
             "text": "A foundation that makes additional improvements easier to implement"
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-032",
             "kind": "listItem",
+            "page": 35,
             "text": "Waste is easier to identify and eliminate"
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-033",
             "kind": "listItem",
+            "page": 35,
             "text": "Production and quality are generally improved"
           },
           {
             "id": "ch04-s04-two-types-of-muda-en-034",
             "kind": "paragraph",
+            "page": 35,
             "text": "All of these benefits translate to increased profits and customer satisfaction, which are the overall goals of the Six Sigma methodology."
           }
         ],
@@ -1098,171 +1300,205 @@
           {
             "id": "ch04-s04-two-types-of-muda-zh-001",
             "kind": "paragraph",
+            "page": 35,
             "text": "所有 Muda 都是无法为客户或最终用户定义的产品或流程增加价值的浪费。所有 Muda 还可以分为两种总体类型，这可以帮助组织优先考虑项目和改进目的的浪费。 Muda 可称为 I 型或 II 型。"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-002",
             "kind": "heading",
+            "page": 35,
             "text": "I型穆达"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-003",
             "kind": "paragraph",
+            "page": 35,
             "text": "I 类 Muda 是非增值任务，实际上可能是必要的或环境所需要的。如果已知流程会产生缺陷，则可能需要在流程中对产品进行检查。组织不希望客户收到缺陷，因此他们实施了质量控制。检查的行为，以及它给流程增加的时间和费用——都是 Muda。然而，在解决流程中缺陷的原因之前，组织无法消除这种浪费。"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-004",
             "kind": "paragraph",
+            "page": 35,
             "text": "有时，组织内的辅助流程是 I 型 muda。 例如，外部最终客户不会从组织内的人力资源流程中获得直接价值。与此同时，如果员工没有收到工资或福利支持，他们就不太可能继续工作。这些流程对于组织来说至关重要。团队可能会寻找方法使基本的 Muda 尽可能高效且具有成本效益，而不是完全消除 Muda。"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-005",
             "kind": "heading",
+            "page": 35,
             "text": "II型穆达"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-006",
             "kind": "paragraph",
+            "page": 35,
             "text": "II 类 Muda 是非增值任务，不是必需的，可以立即从流程中删除。例如，如果产品在完成过程中往返于多个工作站，则很可能存在 II 类运输误区。通过重新安排工作流程，团队可能能够大幅减少混乱，而无需对产品的组合方式进行任何实际更改。"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-007",
             "kind": "heading",
+            "page": 35,
             "text": "5S"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-008",
             "kind": "paragraph",
+            "page": 35,
             "text": "5S 是一种日本精益组织工作空间的方法，通过使流程更加有效和高效，可以更轻松地识别和消除 Muda。 5S 依靠视觉提示和干净的工作区域来提高效率、减少事故并标准化工作流程以减少缺陷。该方法基于五个步骤："
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-009",
             "kind": "listItem",
+            "page": 35,
             "text": "排序（整理）"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-010",
             "kind": "listItem",
+            "page": 35,
             "text": "拉直（整顿）"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-011",
             "kind": "listItem",
+            "page": 35,
             "text": "闪耀 (Seiso)"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-012",
             "kind": "listItem",
+            "page": 35,
             "text": "标准化（雪洁）"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-013",
             "kind": "listItem",
+            "page": 35,
             "text": "维持（Shitsuke）"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-014",
             "kind": "heading",
+            "page": 35,
             "text": "第一阶段：排序"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-015",
             "kind": "paragraph",
+            "page": 35,
             "text": "在排序阶段，将审查工作区中的所有项目或材料，删除不需要的项目并保留必要的资源。"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-016",
             "kind": "paragraph",
+            "page": 35,
             "text": "想象一下办公室里的复印室：多年来，用品、工具和机械堆积如山。当穿过房间时，团队可能会决定留下订书机和透明胶带；人们仍然需要装订页面或访问磁带。团队不需要旧的切纸机，因为没有人执行剪纸任务。不过，有人指出，运输和仓储团队有时需要手动裁切页面，因此切纸机被转移到该部门。该团队决定扔掉一箱杂乱的纸张和一台旧传真机，因为新复印机具有传真功能。通过消除障碍和不必要的物品，成本、时间和员工的挫败感也随之消除。"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-017",
             "kind": "paragraph",
+            "page": 35,
             "text": "排序步骤可让您清点区域、发现未使用或浪费的资源，并为重组腾出空间。排序也可以应用于计算机化流程。"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-018",
             "kind": "heading",
+            "page": 35,
             "text": "第二阶段：拉直"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-019",
             "kind": "paragraph",
+            "page": 35,
             "text": "一旦从工作区域移除多余的东西，团队必须为工作空间所需的一切提供一个精简且易于使用的位置。在拉直阶段，每个物品、工具或材料都有一个归宿。为了便于持续组织，应清楚地标记资源的位置。我们的想法是创建一个任何人都可以使用的工作空间：如果来自其他地区的人来到您的复印室，只需几秒钟即可找到合适尺寸的纸张。工厂里的员工应该能够从一个工作站移动到另一个工作站，轻松找到设备和工具。目标是提供允许常识性操作的视觉控制。在信纸尺寸的架子上贴上标签，在抽屉中按尺寸顺序排列插座并贴上插座标签，或者在不使用时将叉车停放在工厂车间的标记区域，都是很好的例子。使用标签机在订书机上贴标签是一个超越常识的例子：您不需要为工作场所中大多数人在现场都能认出的物品贴上标签。"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-020",
             "kind": "paragraph",
+            "page": 35,
             "text": "整顿阶段在数字环境中也很有效，尤其是当计算机或系统由不同的人使用时。在具有共享工作区策略的办公室中，计算机桌面可能会被技术资源推出，以便每个人都可以使用相同的程序。不仅所有程序都相同，而且图标位于每个桌面上的相同位置，因此用户在移动到新工作站时无需搜索程序。"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-021",
             "kind": "heading",
+            "page": 35,
             "text": "第三阶段：闪耀"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-022",
             "kind": "paragraph",
+            "page": 35,
             "text": "5S 方法的第三阶段旨在保持工作场所干净整洁。 Seiso 也可以翻译为“清扫、消毒或擦洗”。目标是通过清洁工作空间、维护设备以及在使用后将物品放回正确的位置来使工作空间焕然一新。在计算机化环境中，可以通过以易于查找的方式命名文件、保持文件夹结构完整以及删除或归档不再需要的文件来完成闪耀阶段。"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-023",
             "kind": "paragraph",
+            "page": 35,
             "text": "Shine 可以应用于任何环境，无论是物理环境还是数字环境。"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-024",
             "kind": "heading",
+            "page": 35,
             "text": "第四阶段： 标准化"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-025",
             "kind": "paragraph",
+            "page": 35,
             "text": "标准化阶段用于维护之前所有阶段取得的进展。通过保持高标准的有序性，5S 方法的好处可以是长期的。日常工作日的压力和速度可能会让人很难跟上 5S 标准。如果每个人都致力于共同努力，那么好处就会持续存在。"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-026",
             "kind": "heading",
+            "page": 35,
             "text": "第五阶段：维持"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-027",
             "kind": "paragraph",
+            "page": 35,
             "text": "仅当团队或组织内的每个人都致力于该流程时，5S 才能发挥作用。员工必须遵守为标准化和维持组织而制定的规则。否则，团队在一段时间未能达到5S标准后，就会进入清理循环。"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-028",
             "kind": "paragraph",
+            "page": 35,
             "text": "5S 方法的总体优势包括："
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-029",
             "kind": "listItem",
+            "page": 35,
             "text": "降低事故和安全问题的风险"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-030",
             "kind": "listItem",
+            "page": 35,
             "text": "提高对 OSHA 等组织法规的遵守程度"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-031",
             "kind": "listItem",
+            "page": 35,
             "text": "使额外改进更容易实施的基础"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-032",
             "kind": "listItem",
+            "page": 35,
             "text": "废物更容易识别和消除"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-033",
             "kind": "listItem",
+            "page": 35,
             "text": "产量和质量普遍提高"
           },
           {
             "id": "ch04-s04-two-types-of-muda-zh-034",
             "kind": "paragraph",
+            "page": 35,
             "text": "所有这些好处都转化为利润的增加和客户满意度的提高，这是六西格玛方法论的总体目标。"
           }
         ]
@@ -1281,36 +1517,43 @@
           {
             "id": "ch04-s05-just-in-time-manufacturing-en-001",
             "kind": "paragraph",
+            "page": 36,
             "text": "Just-in-Time manufacturing, or JIT, is another Lean concept that originated with Toyota. Originally, JIT took a literal meaning. The goal of JIT manufacturing was to produce an output “just in time,” or “as needed” by the customer. The customer was the person or process that required the output; sometimes, that meant the end customers, and, other times, the customer was a different employee or process within the organization."
           },
           {
             "id": "ch04-s05-just-in-time-manufacturing-en-002",
             "kind": "paragraph",
+            "page": 36,
             "text": "In a JIT processing situation, one machine might produce a part required by another machine. JIT manufacturing means that the first machine supplies only the amount of parts that the second machine can process. If the second machine can process one part per minute, the first machine is set to produce one part per minute. You’ll recognize this idea from the sections on muda of inventory and overproduction."
           },
           {
             "id": "ch04-s05-just-in-time-manufacturing-en-003",
             "kind": "paragraph",
+            "page": 36,
             "text": "It’s obviously not always possible to run a process just-in-time for the end customer, but most modern companies do try to come as close as possible. Using predictive analytics, companies attempt to estimate how many of each product will sell before they produce those products. In some cases, such as with book publishing, companies run a smaller number of items first. If those items sell well or sell out, the company orders bigger and bigger runs of the product."
           },
           {
             "id": "ch04-s05-just-in-time-manufacturing-en-004",
             "kind": "paragraph",
+            "page": 36,
             "text": "Some entrepreneurs have applied JIT manufacturing to DVD sales. These individuals and companies buy the rights to films that have never been released on DVD or Blu-ray before. They usually go after low- cost films that are likely to have a small cult or niche following. Because the demand is small, it isn’t feasible to print and market these DVDs in traditional fashion. However, the companies make a stable profit by selling the DVDs through online retailers such as Amazon.com and printing the DVDs to order. Modern technology lets this process occur with minimal expense and waiting."
           },
           {
             "id": "ch04-s05-just-in-time-manufacturing-en-005",
             "kind": "paragraph",
+            "page": 37,
             "text": "Today, JIT mentalities are less about the literal idea of providing the product just in time; rather, it has become a more general concept of Lean manufacturing that helps organizations eliminate waste in the process."
           },
           {
             "id": "ch04-s05-just-in-time-manufacturing-en-006",
             "kind": "heading",
+            "page": 37,
             "text": "Lean Concepts Crop Up in Many Improvement Methodologies"
           },
           {
             "id": "ch04-s05-just-in-time-manufacturing-en-007",
             "kind": "paragraph",
+            "page": 37,
             "text": "We’ve covered many of the high level Lean concepts, and you’ll see some of these concepts repeat throughout the rest of this book. While Six Sigma is concerned with improving processes and reducing defects, eliminating waste and increasing efficiencies goes hand-in-hand with these goals."
           }
         ],
@@ -1318,36 +1561,43 @@
           {
             "id": "ch04-s05-just-in-time-manufacturing-zh-001",
             "kind": "paragraph",
+            "page": 36,
             "text": "准时化制造（JIT）是起源于丰田的另一个精益概念。最初，JIT 是字面意思。 JIT 制造的目标是“及时”或“根据客户的需要”生产产品。客户是需要输出的人或过程；有时，这意味着最终客户，而有时，客户是组织内的不同员工或流程。"
           },
           {
             "id": "ch04-s05-just-in-time-manufacturing-zh-002",
             "kind": "paragraph",
+            "page": 36,
             "text": "在 JIT 加工情况下，一台机器可能生产另一台机器所需的零件。 JIT 制造意味着第一台机器仅提供第二台机器可以加工的零件数量。如果第二台机器每分钟可以加工一个零件，则第一台机器设置为每分钟生产一个零件。您将从有关库存和生产过剩的 Muda 部分中认识到这个想法。"
           },
           {
             "id": "ch04-s05-just-in-time-manufacturing-zh-003",
             "kind": "paragraph",
+            "page": 36,
             "text": "显然，为最终客户及时运行流程并不总是可能的，但大多数现代公司确实试图尽可能接近。使用预测分析，公司试图在生产这些产品之前估计每种产品的销量。 在某些情况下，例如图书出版，公司首先运行较少数量的项目。如果这些产品卖得好或卖光了，公司就会订购越来越多的产品。"
           },
           {
             "id": "ch04-s05-just-in-time-manufacturing-zh-004",
             "kind": "paragraph",
+            "page": 36,
             "text": "一些企业家已将JIT制造应用于DVD销售。这些个人和公司购买以前从未以 DVD 或蓝光形式发行的电影的版权。他们通常追求低成本的电影，这些电影可能有少量的狂热或小众追随者。由于需求量很小，以传统方式印刷和销售这些 DVD 是不可行的。然而，这些公司通过亚马逊等在线零售商销售 DVD 并按订单印刷 DVD 来获得稳定的利润。现代技术让这一过程以最少的费用和等待进行。"
           },
           {
             "id": "ch04-s05-just-in-time-manufacturing-zh-005",
             "kind": "paragraph",
+            "page": 37,
             "text": "如今，JIT 心态已不再是“及时提供产品”的字面意思；而是“准时”。相反，它已经成为精益制造的一个更普遍的概念，帮助组织消除过程中的浪费。"
           },
           {
             "id": "ch04-s05-just-in-time-manufacturing-zh-006",
             "kind": "heading",
+            "page": 37,
             "text": "精益概念出现在许多改进方法中"
           },
           {
             "id": "ch04-s05-just-in-time-manufacturing-zh-007",
             "kind": "paragraph",
+            "page": 37,
             "text": "我们已经介绍了许多高级精益概念，您将看到其中一些概念在本书的其余部分中重复出现。虽然六西格玛关注改进流程和减少缺陷，但消除浪费和提高效率与这些目标密切相关。"
           }
         ]

@@ -26,6 +26,7 @@
           {
             "id": "ch32-s01-process-maps-en-001",
             "kind": "paragraph",
+            "page": 428,
             "text": "Process maps are a vital part of many Six Sigma projects. Process maps are valuable tools in all stages of a DMAIC project. While good process maps can take a long time to create, they can be reused throughout the project and after the project for a variety of purposes."
           }
         ],
@@ -33,6 +34,7 @@
           {
             "id": "ch32-s01-process-maps-zh-001",
             "kind": "termNote",
+            "page": 428,
             "rows": [
               [
                 "术语说明 Process Map（流程图）：把流程步骤、流向和责任可视化，帮助识别断点和浪费。"
@@ -43,11 +45,13 @@
           {
             "id": "ch32-s01-process-maps-zh-002",
             "kind": "paragraph",
+            "page": 428,
             "text": "流程图是许多六西格玛项目的重要组成部分。流程图在 DMAIC 项目的所有阶段都是有价值的工具。虽然良好的流程图可能需要很长时间才能创建，但它们可以在整个项目中以及项目结束后出于各种目的重复使用。"
           },
           {
             "id": "ch32-s01-process-maps-zh-003",
             "kind": "termNote",
+            "page": 428,
             "rows": [
               [
                 "术语说明 DMAIC：定义、测量、分析、改进、控制；适用于改进已有流程。"
@@ -58,6 +62,7 @@
           {
             "id": "ch32-s01-process-maps-zh-004",
             "kind": "heading",
+            "page": 428,
             "text": "为什么要创建流程图"
           }
         ]
@@ -76,6 +81,7 @@
           {
             "id": "ch32-s02-why-create-process-maps-en-001",
             "kind": "paragraph",
+            "page": 428,
             "text": "Process maps are not just simple flow charts, although teams might choose to create a flow chart as the process map for a specific project or phase. Process maps are visual depictions of a process and usually include all of the activities and decisions within the process. They can show various levels of process, and we'll look at the difference between high-level organizational process maps and detailed process maps in this chapter. Teams create process maps for a variety of reasons. First, a process map is a good place to start when teams are trying to understand the overall process. If a visual depiction of the process doesn't already exist, the team can work with subject matter experts to create such a depiction. The act of creating the map is actually valuable in itself because it lets the team ask many questions about the process and explore the process deeply in order to convert knowledge gained into a working diagram. During the Measure phase, process maps can help teams understand what inputs or outputs should be measured, and when and where during a process data can or should be acquired. Process maps are also helpful during the Analyze phase, because visual depictions of the flow of a process often make it easier to see where rework is occurring or where bottlenecks are possible. Process maps also let the team visualize a future state for a process. A Six Sigma team might begin with a current-state process map during the Define phase of a project and create a desired-state map in the Analyze or Improve phase. Side-by-side comparisons of the current- and future-state maps let teams see exactly what changes need to be made, ensure that all current-state functionality is addressed in the updated process, and double check that all challenges are solved by the new process. Process maps can also help teams see whether they might be creating new challenges, such as rework loops or bottlenecks within an updated process. Finally, process maps in their various forms are valuable documentation for a Six Sigma team and for an organization as a whole. Six Sigma teams can use all or part of process maps they create in tollgate and other presentations to ensure decision makers, sponsors, and auxiliary staff understand the process before moving forward with any aspect of the project or with making decisions about the project or process. Organizations can use process maps in training documents or as a guide for non-Six Sigma staff who need to understand new processes or changes to existing processes."
           }
         ],
@@ -83,6 +89,7 @@
           {
             "id": "ch32-s02-why-create-process-maps-zh-001",
             "kind": "paragraph",
+            "page": 428,
             "text": "流程图不仅仅是简单的流程图，尽管团队可能选择创建流程图作为特定项目或阶段的流程图。流程图是流程的直观描述，通常包括流程中的所有活动和决策。它们可以显示不同级别的流程，我们将在本章中了解高级组织流程图和详细流程图之间的区别。团队出于各种原因创建流程图。首先，当团队试图了解整个流程时，流程图是一个很好的起点。如果流程的视觉描述尚不存在，团队可以与主题专家合作创建这样的描述。创建地图的行为本身实际上很有价值，因为它让团队可以提出有关流程的许多问题并深入探索该流程，以便将获得的知识转化为工作图表。在测量阶段，流程图可以帮助团队了解应该测量哪些输入或输出，以及在过程中何时何地可以或应该获取数据。流程图在分析阶段也很有用，因为流程流程的可视化描述通常可以让您更容易地看到哪里发生返工或哪里可能出现瓶颈。流程图还让团队能够直观地看到流程的未来状态。六西格玛团队可能会在项目的定义阶段从当前状态流程图开始，并在分析或改进阶段创建所需状态图。通过对当前状态和未来状态图进行并排比较，团队可以准确了解需要进行哪些更改，确保在更新的流程中解决所有当前状态的功能，并仔细检查新流程是否解决了所有挑战。流程图还可以帮助团队了解他们是否可能会带来新的挑战，例如更新流程中的返工循环或瓶颈。最后，各种形式的流程图对于六西格玛团队和整个组织来说都是有价值的文档。 六西格玛团队可以使用他们在收费站和其他演示文稿中创建的全部或部分流程图，以确保决策者、发起人和辅助人员在推进项目的任何方面或做出有关项目或流程的决策之前了解流程。组织可以在培训文件中使用流程图，或作为需要了解新流程或现有流程变更的非六西格玛员工的指南。"
           }
         ]
@@ -101,16 +108,19 @@
           {
             "id": "ch32-s03-two-types-of-process-map-en-001",
             "kind": "paragraph",
+            "page": 428,
             "text": "This chapter will cover two basic types of process maps. The first is the flow chart, which presents a view of the process that typically flows down the page. Flow charts usually give the overview of a process or detail a specific part of the process. When multiple flow charts are used for detailed pieces of a process,"
           },
           {
             "id": "ch32-s03-two-types-of-process-map-en-002",
             "kind": "paragraph",
+            "page": 428,
             "text": "they can reference each other to provide an entire description of a process."
           },
           {
             "id": "ch32-s03-two-types-of-process-map-en-003",
             "kind": "paragraph",
+            "page": 428,
             "text": "The second type of process map covered in this chapter is the swimlane process map, which usually provides a left-to-right and top-to-bottom visual of the process. A swimlane process map breaks up the process into different sectors, often by who is responsible for the work, when work occurs, or what type of work is being performed. At a glance, teams can not only see the flow of the work through the process, but can see who or what is responsible for each step."
           }
         ],
@@ -118,16 +128,19 @@
           {
             "id": "ch32-s03-two-types-of-process-map-zh-001",
             "kind": "paragraph",
+            "page": 428,
             "text": "本章将介绍两种基本类型的流程图。第一个是流程图，它显示了通常沿着页面流动的流程的视图。流程图通常给出流程的概述或流程的特定部分的详细信息。当多个流程图用于流程的详细部分时，"
           },
           {
             "id": "ch32-s03-two-types-of-process-map-zh-002",
             "kind": "paragraph",
+            "page": 428,
             "text": "它们可以互相引用以提供流程的完整描述。"
           },
           {
             "id": "ch32-s03-two-types-of-process-map-zh-003",
             "kind": "paragraph",
+            "page": 428,
             "text": "本章介绍的第二种类型的流程图是泳道流程图，它通常提供从左到右、从上到下的流程可视化。泳道流程图将流程分解为不同的部分，通常按工作负责人、工作发生时间或正在执行的工作类型来划分。一目了然，团队不仅可以看到整个流程的工作流程，还可以看到谁或什么负责每个步骤。"
           }
         ]
@@ -146,11 +159,13 @@
           {
             "id": "ch32-s04-process-map-symbols-en-001",
             "kind": "paragraph",
+            "page": 429,
             "text": "Many people attempt to create process maps using various shapes, connecting them with arrows to show the flow of work. That is the basic idea of a flow chart or process map, but each type of shape actually says something specific about the information presented inside or near it. Anyone who is familiar with process map symbology should be able to look at a process map and discern numerous details just from the shapes and the way they are presented. In this section, we’ll cover most of the common flow chart/process map shapes and what they are used for."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-002",
             "kind": "heading",
+            "page": 429,
             "text": "Process Shape"
           },
           {
@@ -158,47 +173,56 @@
             "kind": "image",
             "assetId": "fig-a9f2779739d029af",
             "src": "assets/figures/fig-a9f2779739d029af.png",
+            "page": 429,
             "width": 342,
             "height": 167
           },
           {
             "id": "ch32-s04-process-map-symbols-en-004",
             "kind": "paragraph",
+            "page": 429,
             "text": "The process shape is the most common shape in most process maps or flow charts. It is a rectangle. Depending on how you plan to use the process map and what your company’s design specifications are, you can use default colors of your Word, Excel, or Visio program, update shape colors to match branding or publication requirements for your enterprise, or create a simple black-and-white rectangle. This is true for all of the shapes in this chapter."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-005",
             "kind": "paragraph",
+            "page": 429,
             "text": "A process shape is used to denote an action step within the process. Something is happening, and usually it is a person or people doing the action. The description of the action is usually typed as text within the shape, which is also true for most of the shapes presented in this section."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-006",
             "kind": "heading",
+            "page": 429,
             "text": "Alternate Process Shape"
           },
           {
             "id": "ch32-s04-process-map-symbols-en-007",
             "kind": "paragraph",
+            "page": 429,
             "text": "The alternate process shape is used to indicate that an action is an alternate to something that is normal within the process. It is a rectangle with curved corners."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-008",
             "kind": "heading",
+            "page": 429,
             "text": "Predefined Process Shape"
           },
           {
             "id": "ch32-s04-process-map-symbols-en-009",
             "kind": "paragraph",
+            "page": 429,
             "text": "A predefined process shape is used when there is a process within a process and that subprocess is already defined in another document. The shape lets readers know that more than one step is occurring at this point in the overall process, and that those steps are formerly documented somewhere else in the organization. The documentation might be via standard operating procedures, but could also be in the format of another process map."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-010",
             "kind": "paragraph",
+            "page": 429,
             "text": "If a subprocess is known and a Six Sigma team decides not to fully document those steps – but the process isn’t formerly documented elsewhere or the team doesn’t know if it is – then this shape should not be used."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-011",
             "kind": "heading",
+            "page": 429,
             "text": "Terminator Shape"
           },
           {
@@ -206,17 +230,20 @@
             "kind": "image",
             "assetId": "fig-87c4c0425e979da8",
             "src": "assets/figures/fig-87c4c0425e979da8.png",
+            "page": 429,
             "width": 284,
             "height": 85
           },
           {
             "id": "ch32-s04-process-map-symbols-en-013",
             "kind": "paragraph",
+            "page": 429,
             "text": "When viewing a map for a complex process, it can be difficult to tell where the process begins and ends. This is especially true when a printed process map spans multiple pages and might have more than one possible end point. The terminator shape is used to show the beginning and endings of a process. At the beginning, the terminator shape usually includes an action that triggers the rest of the process."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-014",
             "kind": "heading",
+            "page": 429,
             "text": "Preparation Shape"
           },
           {
@@ -224,192 +251,230 @@
             "kind": "image",
             "assetId": "fig-9b7fff6f4ec97a23",
             "src": "assets/figures/fig-9b7fff6f4ec97a23.png",
+            "page": 429,
             "width": 421,
             "height": 628
           },
           {
             "id": "ch32-s04-process-map-symbols-en-016",
             "kind": "paragraph",
+            "page": 430,
             "text": "The preparation shape, which is a hexagon, indicates that a step in the process is in preparation for something else. An example might be cleaning a piece of equipment before using it or setting the oven temperature before preparing a recipe."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-017",
             "kind": "paragraph",
+            "page": 430,
             "text": "The manual operation shape indicates a part of the process that is performed by a person and is not automated. In processes that are mostly human-driven, you don’t necessarily have to differentiate between manual operation steps and regular process steps. The manual operation step shape is actually"
           },
           {
             "id": "ch32-s04-process-map-symbols-en-018",
             "kind": "paragraph",
+            "page": 430,
             "text": "more important to use when depicting mostly automated or computerized processes because you would want the sudden need for human interaction within the process to stand out."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-019",
             "kind": "heading",
+            "page": 430,
             "text": "Delay Shape"
           },
           {
             "id": "ch32-s04-process-map-symbols-en-020",
             "kind": "paragraph",
+            "page": 430,
             "text": "The delay shape lets you indicate that a waiting time occurs in the process. Delay shapes can be valuable to Six Sigma teams because they often indicate a possible point where muda is occurring. When teams see delay shapes on process maps, they should ask questions about why the delay is occurring – is it, for example, because one step in the process is batching outputs, so the next step is awaiting a batch? Is it because a bottleneck is occurring upstream in the process? These are valuable insights for a Six Sigma team."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-021",
             "kind": "heading",
+            "page": 430,
             "text": "Decision Shape"
           },
           {
             "id": "ch32-s04-process-map-symbols-en-022",
             "kind": "paragraph",
+            "page": 430,
             "text": "The decision shape indicates that a decision is being made in the process. Typically, the decision indicated by the diamond shape is a yes/no or go/no go variety. One example of this type of decision branch in a process is seen when further approval is needed for certain types of actions. For example, a team that processes customer refunds might have some leeway to process lower dollar refunds without approvals. If the refund is under $50, the staff request is processed without further action; if the refund is over $50, a supervisor might need to be involved."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-023",
             "kind": "heading",
+            "page": 430,
             "text": "Connector Shape"
           },
           {
             "id": "ch32-s04-process-map-symbols-en-024",
             "kind": "paragraph",
+            "page": 430,
             "text": "A connector shape usually indicates a jump from one part of a process to another. Sometimes, this shape is used to indicate that an audit or inspection occurs at a certain part of the process."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-025",
             "kind": "heading",
+            "page": 430,
             "text": "Document Shape"
           },
           {
             "id": "ch32-s04-process-map-symbols-en-026",
             "kind": "paragraph",
+            "page": 430,
             "text": "The document shape indicates that a step in a process creates a document. Using the refund example above, at some point in that process, a check is printed. A check is a document, and that step in the process could use this shape."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-027",
             "kind": "heading",
+            "page": 430,
             "text": "Multi-Document Shape"
           },
           {
             "id": "ch32-s04-process-map-symbols-en-028",
             "kind": "paragraph",
+            "page": 430,
             "text": "The multi-document shape indicates a step in the process that creates multiple documents. Using the same refund example, it’s possible that the accounting department batches the checks, printing all refunds at one time each day or week. That step in the process could use this shape."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-029",
             "kind": "heading",
+            "page": 430,
             "text": "Display Shape"
           },
           {
             "id": "ch32-s04-process-map-symbols-en-030",
             "kind": "paragraph",
+            "page": 430,
             "text": "The display shape is used to show that a step in a process involves the display of some information to a person. For example, a person using a company communication portal to send email might have to log into the portal first. During that process, the software might display a user agreement; if the process for using the software were mapped, this shape could be used to indicate that step."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-031",
             "kind": "heading",
+            "page": 431,
             "text": "Data Shape"
           },
           {
             "id": "ch32-s04-process-map-symbols-en-032",
             "kind": "paragraph",
+            "page": 431,
             "text": "The data shape is used to show that inputs are going into a process or that outputs are coming from a process. It is also called and In/Out (or I/O) shape."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-033",
             "kind": "heading",
+            "page": 431,
             "text": "Manual Input Shape"
           },
           {
             "id": "ch32-s04-process-map-symbols-en-034",
             "kind": "paragraph",
+            "page": 431,
             "text": "The manual input shape is used to show a step that involves manual entry of information by a person, usually using a computer."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-035",
             "kind": "heading",
+            "page": 431,
             "text": "Off-Page Connector Shape"
           },
           {
             "id": "ch32-s04-process-map-symbols-en-036",
             "kind": "paragraph",
+            "page": 431,
             "text": "The off-page connector shape is used to show that part of the process is depicted on another page. You can also use off-page connectors to link multiple processes that are documented on various pages."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-037",
             "kind": "heading",
+            "page": 431,
             "text": "Or Shape"
           },
           {
             "id": "ch32-s04-process-map-symbols-en-038",
             "kind": "paragraph",
+            "page": 431,
             "text": "The or shape is different from the basic diamond decision shape depicted earlier in this list. The or shape also indicates a branch of the process, usually in more than two possible directions. Typically, the process map provides some data for how to decide which branch the flow should take at the or shape. For example, consider the refund example used above."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-039",
             "kind": "paragraph",
+            "page": 431,
             "text": "In the previous scenario, there were two options for each refund request: either the request was under $50 and could be processed or over $50 and had to be worked by a supervisor. In a new version of the process, the work can take one of three paths. First, if the refund request is $20 or under, it is approved automatically when entered by a staff member and is routed to check generation. If the refund request is $20 to $50, it must be reviewed by a second staff member, who must agree with the refund decision"
           },
           {
             "id": "ch32-s04-process-map-symbols-en-040",
             "kind": "paragraph",
+            "page": 431,
             "text": "before it is routed to the check process. If the refund is above $50, it must be approved by a supervisor before a check is cut."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-041",
             "kind": "paragraph",
+            "page": 431,
             "text": "On a process map, the three-prong decision would come out of the or shape. The instructions for which path to choose could be as simple as “Refund </= $20,” “Refund $20 to $50,” and “Refund > $50.”"
           },
           {
             "id": "ch32-s04-process-map-symbols-en-042",
             "kind": "heading",
+            "page": 431,
             "text": "Merge Shape"
           },
           {
             "id": "ch32-s04-process-map-symbols-en-043",
             "kind": "paragraph",
+            "page": 431,
             "text": "If processes can branch off based on decision shapes and or shapes, they might also come back together. When multiple branches of work flow within a process come back together, you can indicate this with a merge shape."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-044",
             "kind": "heading",
+            "page": 431,
             "text": "Extract Shape"
           },
           {
             "id": "ch32-s04-process-map-symbols-en-045",
             "kind": "paragraph",
+            "page": 431,
             "text": "If processes split into two or more parallel flows without a decision or criteria, then you can use an extract shape to indicate this fact. This isn’t one of the more common symbols seen on process maps, and sometimes the triangle indicates something else. When the triangle is presented with an M inside of it, it can show that a measurement must occur at a certain point in the workflow."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-046",
             "kind": "heading",
+            "page": 432,
             "text": "Collate Data Shape"
           },
           {
             "id": "ch32-s04-process-map-symbols-en-047",
             "kind": "paragraph",
+            "page": 432,
             "text": "The collate data shape is used when data or material in a process has to be organized using a standard format. Cutting fabric into certain lengths before sewing or ordering the admissions forms before considering them are both examples of when this symbol might be used."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-048",
             "kind": "heading",
+            "page": 432,
             "text": "Sort Data Shape"
           },
           {
             "id": "ch32-s04-process-map-symbols-en-049",
             "kind": "paragraph",
+            "page": 432,
             "text": "The sort data shape indicates that information or materials must be arranged in a certain order. Sorting materials by color before moving to the next step in a manufacturing process might warrant this symbol, for example."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-050",
             "kind": "paragraph",
+            "page": 432,
             "text": "All of the shapes within your flow chart or process map are connected with lines and arrows. The arrows are important, because they guide the reader through the map in the proper sequence."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-051",
             "kind": "paragraph",
+            "page": 432,
             "text": "Where Do These Shapes Come From?"
           },
           {
             "id": "ch32-s04-process-map-symbols-en-052",
             "kind": "paragraph",
+            "page": 432,
             "text": "All of the shapes listed in this chapter are available in Microsoft programs, including Word, Excel, and Visio. For those without specific process-mapping software, Excel is probably one of the easiest programs to use for creating process maps and flow charts. Simply turn off the view gridlines function to give yourself a clean slate with which to work."
           },
           {
@@ -417,12 +482,14 @@
             "kind": "image",
             "assetId": "fig-98ea52a10de93dad",
             "src": "assets/figures/fig-98ea52a10de93dad.png",
+            "page": 432,
             "width": 1130,
             "height": 503
           },
           {
             "id": "ch32-s04-process-map-symbols-en-054",
             "kind": "paragraph",
+            "page": 432,
             "text": "You can insert all of the flow chart shape into Excel using the Insert > Shapes option."
           },
           {
@@ -430,27 +497,32 @@
             "kind": "image",
             "assetId": "fig-aac0e475408a797c",
             "src": "assets/figures/fig-aac0e475408a797c.png",
+            "page": 432,
             "width": 749,
             "height": 313
           },
           {
             "id": "ch32-s04-process-map-symbols-en-056",
             "kind": "heading",
+            "page": 432,
             "text": "Include a Key with Your Process Map"
           },
           {
             "id": "ch32-s04-process-map-symbols-en-057",
             "kind": "paragraph",
+            "page": 432,
             "text": "While someone familiar with process mapping tools will recognize most of the above symbols quickly, not everyone in a business environment will. Most people in business environments are familiar with the basic process shape, decision and connector shapes, and terminator shape. Because of this, you can create the bulk of most process maps using these shapes. If you think another shape is warranted, then it’s a good idea to add a process map key to your diagram to ensure anyone who looks at it can follow it."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-058",
             "kind": "paragraph",
+            "page": 432,
             "text": "It’s also a good idea to add a process map key because not everyone uses all of the above symbols for exactly the same reasons. The connector shape can mean several different things, as can several of the other shapes."
           },
           {
             "id": "ch32-s04-process-map-symbols-en-059",
             "kind": "paragraph",
+            "page": 432,
             "text": "You probably noted as you were reading through the list of common shapes that some activities might be appropriate for two or even three process shapes. Outside of some basic rules, there isn’t a right and wrong way to add details on a process map. Ultimately, the goal for creating a process map should be clarity. If adding a different type of shape is going to make the process easier to understand on your visual, then do it. If you can simply use the basic process shape along with text to spell out the process, then remember that in Six Sigma, less really is more."
           }
         ],
@@ -458,11 +530,13 @@
           {
             "id": "ch32-s04-process-map-symbols-zh-001",
             "kind": "paragraph",
+            "page": 429,
             "text": "许多人尝试使用各种形状创建流程图，并用箭头将它们连接起来以显示工作流程。这是流程图或流程图的基本思想，但每种类型的形状实际上都说明了其内部或附近呈现的信息的具体内容。任何熟悉流程图符号系统的人都应该能够查看流程图并仅从形状及其呈现方式中辨别出大量细节。在本节中，我们将介绍大多数常见的流程图/流程图形状及其用途。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-002",
             "kind": "heading",
+            "page": 429,
             "text": "工艺形状"
           },
           {
@@ -470,47 +544,56 @@
             "kind": "image",
             "assetId": "fig-a9f2779739d029af",
             "src": "assets/figures/fig-a9f2779739d029af.png",
+            "page": 429,
             "width": 342,
             "height": 167
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-004",
             "kind": "paragraph",
+            "page": 429,
             "text": "流程形状是大多数流程图或流程图中最常见的形状。它是一个矩形。根据您计划使用流程图的方式以及公司的设计规范，您可以使用 Word、Excel 或 Visio 程序的默认颜色，更新形状颜色以匹配企业的品牌或发布要求，或者创建简单的黑白矩形。对于本章中的所有形状都是如此。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-005",
             "kind": "paragraph",
+            "page": 429,
             "text": "流程形状用于表示流程中的操作步骤。某事正在发生，通常是一个或多个人在采取行动。操作的描述通常在形状中以文本形式键入，这对于本节中介绍的大多数形状也是如此。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-006",
             "kind": "heading",
+            "page": 429,
             "text": "替代工艺形状"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-007",
             "kind": "paragraph",
+            "page": 429,
             "text": "替代流程形状用于指示某个操作是流程中正常操作的替代操作。它是一个带有弧形角的矩形。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-008",
             "kind": "heading",
+            "page": 429,
             "text": "预定义的工艺形状"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-009",
             "kind": "paragraph",
+            "page": 429,
             "text": "当流程中存在流程并且该子流程已在另一个文档中定义时，将使用预定义的流程形状。该形状让读者知道在整个流程的这一点上发生了多个步骤，并且这些步骤以前已记录在组织的其他地方。文档可以通过标准操作程序，但也可以采用其他流程图的格式。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-010",
             "kind": "paragraph",
+            "page": 429,
             "text": "如果某个子流程已知，并且六西格玛团队决定不完整记录这些步骤（但该流程以前没有在其他地方记录过，或者团队不知道是否记录过），则不应使用此形状。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-011",
             "kind": "heading",
+            "page": 429,
             "text": "终结者形状"
           },
           {
@@ -518,17 +601,20 @@
             "kind": "image",
             "assetId": "fig-87c4c0425e979da8",
             "src": "assets/figures/fig-87c4c0425e979da8.png",
+            "page": 429,
             "width": 284,
             "height": 85
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-013",
             "kind": "paragraph",
+            "page": 429,
             "text": "查看复杂流程的地图时，可能很难判断流程的开始和结束位置。当打印的流程图跨越多页并且可能具有多个可能的终点时尤其如此。终止符形状用于显示过程的开始和结束。一开始，终止符形状通常包括触发其余过程的动作。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-014",
             "kind": "heading",
+            "page": 429,
             "text": "制备形状"
           },
           {
@@ -536,27 +622,32 @@
             "kind": "image",
             "assetId": "fig-9b7fff6f4ec97a23",
             "src": "assets/figures/fig-9b7fff6f4ec97a23.png",
+            "page": 429,
             "width": 421,
             "height": 628
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-016",
             "kind": "paragraph",
+            "page": 430,
             "text": "准备形状是六边形，表明该过程中的一个步骤是为其他事情做准备。一个例子可能是在使用设备之前对其进行清洁，或者在准备食谱之前设置烤箱温度。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-017",
             "kind": "paragraph",
+            "page": 430,
             "text": "手动操作形状表示由人执行且非自动化的过程的一部分。在主要由人驱动的流程中，您不一定需要区分手动操作步骤和常规流程步骤。手动操作步骤形状实际上是"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-018",
             "kind": "paragraph",
+            "page": 430,
             "text": "在描述大多数自动化或计算机化流程时使用更重要，因为您希望突显流程中突然需要的人机交互。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-019",
             "kind": "termNote",
+            "page": 430,
             "rows": [
               [
                 "术语说明 Interaction（交互作用）：一个因素的效果会随另一个因素水平不同而变化。"
@@ -567,171 +658,205 @@
           {
             "id": "ch32-s04-process-map-symbols-zh-020",
             "kind": "heading",
+            "page": 430,
             "text": "延迟形状"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-021",
             "kind": "paragraph",
+            "page": 430,
             "text": "延迟形状可让您指示过程中发生等待时间。延迟形状对于六西格玛团队来说很有价值，因为它们通常表明可能发生 Muda 的点。当团队在流程图上看到延迟形状时，他们应该询问为什么会发生延迟 - 例如，是否因为流程中的一个步骤是批处理输出，所以下一步是等待一批？是因为流程上游出现瓶颈吗？这些对于六西格玛团队来说都是宝贵的见解。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-022",
             "kind": "heading",
+            "page": 430,
             "text": "决策形态"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-023",
             "kind": "paragraph",
+            "page": 430,
             "text": "决策形状表明正在做出决策。通常，菱形形状指示的决策是是/否或通过/不通过的变化。当某些类型的操作需要进一步批准时，可以看到流程中此类决策分支的一个例子。例如，处理客户退款的团队可能有一定的余地，可以在未经批准的情况下处理金额较低的退款。如果退款低于 50 美元，工作人员的请求将得到处理，无需采取进一步行动；如果退款超过 50 美元，则可能需要主管介入。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-024",
             "kind": "heading",
+            "page": 430,
             "text": "连接器形状"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-025",
             "kind": "paragraph",
+            "page": 430,
             "text": "连接器形状通常表示从流程的一个部分到另一部分的跳转。有时，此形状用于指示在流程的某个部分进行审核或检查。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-026",
             "kind": "heading",
+            "page": 430,
             "text": "文件形状"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-027",
             "kind": "paragraph",
+            "page": 430,
             "text": "文档形状指示流程中的步骤创建文档。使用上面的退款示例，在该过程的某个时刻，会打印一张支票。支票是一份文件，流程中的该步骤可以使用此形状。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-028",
             "kind": "heading",
+            "page": 430,
             "text": "多文档形状"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-029",
             "kind": "paragraph",
+            "page": 430,
             "text": "多文档形状表示创建多个文档的过程中的一个步骤。使用相同的退款示例，会计部门可能会批量处理支票，每天或每周一次打印所有退款。该过程中的该步骤可以使用此形状。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-030",
             "kind": "heading",
+            "page": 430,
             "text": "显示形状"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-031",
             "kind": "paragraph",
+            "page": 431,
             "text": "显示形状用于表明流程中的某个步骤涉及向人员显示某些信息。例如，使用公司通信门户发送电子邮件的人可能必须首先登录该门户。在此过程中，软件可能会显示用户协议；如果绘制了软件的使用过程，则可以使用该形状来指示该步骤。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-032",
             "kind": "heading",
+            "page": 431,
             "text": "数据形状"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-033",
             "kind": "paragraph",
+            "page": 431,
             "text": "数据形状用于显示输入正在进入流程或输出来自流程。它也称为 In/Out（或 I/O）形状。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-034",
             "kind": "heading",
+            "page": 431,
             "text": "手动输入形状"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-035",
             "kind": "paragraph",
+            "page": 431,
             "text": "手动输入形状用于显示涉及人通常使用计算机手动输入信息的步骤。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-036",
             "kind": "heading",
+            "page": 431,
             "text": "离页连接器形状"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-037",
             "kind": "paragraph",
+            "page": 431,
             "text": "页面外连接器形状用于显示该过程的一部分在另一页面上描述。您还可以使用页外连接器来链接各个页面上记录的多个流程。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-038",
             "kind": "heading",
+            "page": 431,
             "text": "或形状"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-039",
             "kind": "paragraph",
+            "page": 431,
             "text": "或 形状与此列表前面描述的基本菱形决策形状不同。或 形状还表示过程的分支，通常在两个以上可能的方向上。通常，流程图提供一些数据，用于如何决定流程应采用 或 形状的哪个分支。例如，考虑上面使用的退款示例。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-040",
             "kind": "paragraph",
+            "page": 431,
             "text": "在之前的场景中，每个退款请求有两种选择：请求金额低于 50 美元且可以处理，或者请求金额超过 50 美元且必须由主管处理。在新版本的流程中，工作可以采取三种路径之一。首先，如果退款申请金额为 20 美元或以下，则由工作人员输入后会自动获得批准，并路由至支票生成。如果退款申请金额为 20 至 50 美元，则必须由第二名工作人员审核，该工作人员必须同意退款决定"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-041",
             "kind": "paragraph",
+            "page": 431,
             "text": "在将其发送至检查流程之前。如果退款超过 50 美元，则必须在开具支票之前获得主管批准。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-042",
             "kind": "paragraph",
+            "page": 431,
             "text": "在流程图上，三管齐下的决策将来自 或 形状。选择哪条路径的说明可以很简单，例如“退款 </= 20 美元”、“退款 20 美元到 50 美元”和“退款 > 50 美元”。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-043",
             "kind": "heading",
+            "page": 431,
             "text": "合并形状"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-044",
             "kind": "paragraph",
+            "page": 431,
             "text": "如果流程可以根据决策形状和/或形状进行分支，那么它们也可能会重新聚集在一起。当流程中的多个工作流分支重新聚集在一起时，您可以使用合并形状来指示这一点。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-045",
             "kind": "heading",
+            "page": 431,
             "text": "提取形状"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-046",
             "kind": "paragraph",
+            "page": 432,
             "text": "如果流程在没有决策或标准的情况下分成两个或多个并行流，那么您可以使用提取形状来指示这一事实。这不是流程图上最常见的符号之一，有时三角形还表示其他含义。 当三角形内部带有 M 时，可以表明必须在工作流程中的某个点进行测量。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-047",
             "kind": "heading",
+            "page": 432,
             "text": "整理数据形状"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-048",
             "kind": "paragraph",
+            "page": 432,
             "text": "当必须使用标准格式组织流程中的数据或材料时，将使用整理数据形状。在缝纫之前将织物切割成一定的长度或在考虑招生表格之前先订购招生表格都是可能使用此符号的示例。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-049",
             "kind": "heading",
+            "page": 432,
             "text": "对数据形状进行排序"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-050",
             "kind": "paragraph",
+            "page": 432,
             "text": "排序数据形状表示信息或材料必须按照一定的顺序排列。例如，在进入制造过程的下一步之前按颜色对材料进行分类可能需要使用此符号。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-051",
             "kind": "paragraph",
+            "page": 432,
             "text": "流程图或流程图中的所有形状都用线条和箭头连接。箭头很重要，因为它们引导读者以正确的顺序浏览地图。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-052",
             "kind": "paragraph",
+            "page": 432,
             "text": "这些形状从何而来？"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-053",
             "kind": "paragraph",
+            "page": 432,
             "text": "本章列出的所有形状均可在 Microsoft 程序中使用，包括 Word、Excel 和 Visio。对于那些没有特定流程图软件的人来说，Excel 可能是用于创建流程图和流程图的最简单的程序之一。只需关闭视图网格线功能即可让自己重新开始工作。"
           },
           {
@@ -739,12 +864,14 @@
             "kind": "image",
             "assetId": "fig-98ea52a10de93dad",
             "src": "assets/figures/fig-98ea52a10de93dad.png",
+            "page": 432,
             "width": 1130,
             "height": 503
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-055",
             "kind": "paragraph",
+            "page": 432,
             "text": "您可以使用“插入”>“形状”选项将所有流程图形状插入 Excel 中。"
           },
           {
@@ -752,27 +879,32 @@
             "kind": "image",
             "assetId": "fig-aac0e475408a797c",
             "src": "assets/figures/fig-aac0e475408a797c.png",
+            "page": 432,
             "width": 749,
             "height": 313
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-057",
             "kind": "heading",
+            "page": 432,
             "text": "在流程图中包含一个密钥"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-058",
             "kind": "paragraph",
+            "page": 432,
             "text": "虽然熟悉流程图工具的人会很快识别上述大多数符号，但并不是业务环境中的每个人都能识别。商业环境中的大多数人都熟悉基本流程形状、决策和连接器形状以及终结器形状。因此，您可以使用这些形状创建大部分流程图。如果您认为需要使用其他形状，那么最好在图表中添加流程图键，以确保看到它的任何人都可以遵循它。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-059",
             "kind": "paragraph",
+            "page": 432,
             "text": "添加流程图键也是一个好主意，因为并非每个人都出于完全相同的原因使用上述所有符号。连接器形状可以表示多种不同的含义，其他几种形状也是如此。"
           },
           {
             "id": "ch32-s04-process-map-symbols-zh-060",
             "kind": "paragraph",
+            "page": 432,
             "text": "您可能在阅读常见形状列表时注意到，某些活动可能适合两个甚至三个流程形状。 除了一些基本规则之外，在流程图上添加详细信息没有正确和错误的方法。最终，创建流程图的目标应该是清晰。如果添加不同类型的形状将使该过程在视觉上更容易理解，那么就这样做。如果你可以简单地使用基本的流程形状和文字来拼出流程，那么请记住，在六西格玛中，少即是多。"
           }
         ]
@@ -793,22 +925,26 @@
             "kind": "image",
             "assetId": "fig-055c40ef20d1e679",
             "src": "assets/figures/fig-055c40ef20d1e679.png",
+            "page": 433,
             "width": 762,
             "height": 908
           },
           {
             "id": "ch32-s05-basic-flow-charts-en-002",
             "kind": "paragraph",
+            "page": 433,
             "text": "A basic flow chart begins with a trigger activity, includes inputs and processes, decisions, and a final action. Flow charts usually begin at the top of the page and flow down the page. Secondarily, you would read a flow chart from left to right as you move down the page, if a secondary direction is required. In the above flow chart, you can see that a trigger activity occurs, which involves some type of data input. Using that input, a person makes a decision. That decision directs the flow of work either to the process"
           },
           {
             "id": "ch32-s05-basic-flow-charts-en-003",
             "kind": "paragraph",
+            "page": 433,
             "text": "on the right or the process on the left. After that action is done, the overall process, as recorded on this flow chart, ends."
           },
           {
             "id": "ch32-s05-basic-flow-charts-en-004",
             "kind": "paragraph",
+            "page": 433,
             "text": "It’s important to note that the terminator that ends the process being mapped on the flow chart or process map rarely ends the work itself. The only time the final terminator signals the complete end of the work is when you are mapping the very last process before the end customer or you are mapping the entire enterprise process at a very high level. In most cases, however, the final terminator on your process map is likely to indicate the end of this particular process and the beginning of the next. For example, in a beverage bottling plant, a team might be mapping the process that prepares bottles to receive ingredients. The process map begins when a fresh, new bottle is introduced to the process and it ends when the bottle is cleaned, has a label, and is put on the line to receive the liquid it will house. After the process that was mapped, the bottle goes through other process to fill it, cap it, inspect it, and pack it."
           }
         ],
@@ -818,22 +954,26 @@
             "kind": "image",
             "assetId": "fig-055c40ef20d1e679",
             "src": "assets/figures/fig-055c40ef20d1e679.png",
+            "page": 433,
             "width": 762,
             "height": 908
           },
           {
             "id": "ch32-s05-basic-flow-charts-zh-002",
             "kind": "paragraph",
+            "page": 433,
             "text": "基本流程图以触发活动开始，包括输入和流程、决策和最终操作。流程图通常从页面顶部开始并沿着页面向下流动。其次，如果需要辅助方向，您可以在向下移动页面时从左到右阅读流程图。在上面的流程图中，您可以看到发生了一个触发活动，其中涉及某种类型的数据输入。使用该输入，一个人做出决定。该决定将工作流程引导至流程"
           },
           {
             "id": "ch32-s05-basic-flow-charts-zh-003",
             "kind": "paragraph",
+            "page": 433,
             "text": "右侧或左侧的过程。该操作完成后，如该流程图所记录的整个过程就结束了。"
           },
           {
             "id": "ch32-s05-basic-flow-charts-zh-004",
             "kind": "paragraph",
+            "page": 433,
             "text": "值得注意的是，结束流程图或流程图上映射的流程的终止符很少会结束工作本身。最终终结者唯一表示工作完全结束的情况是，当您在绘制最终客户之前的最后一个流程时，或者在非常高的级别上绘制整个企业流程时。然而，在大多数情况下，流程图上的最终终止符可能表示此特定流程的结束和下一个流程的开始。例如，在饮料装瓶厂中，团队可能正在绘制准备瓶子以接收原料的流程。当一个新鲜的新瓶子被引入流程时，流程图开始，当瓶子被清洗、贴上标签并被放到生产线上以接收将要容纳的液体时，流程图结束。完成绘制的流程后，瓶子将经过其他流程来灌装、封盖、检查和包装。"
           }
         ]
@@ -852,11 +992,13 @@
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-001",
             "kind": "paragraph",
+            "page": 434,
             "text": "One of the most widely used process map formats in the Six Sigma world is the swimlane diagram. The swimlane diagram is a flowchart, but it is one that is constrained somewhat by rows and columns, known as swimlanes. You can design your swimlane as you want to best depict the process you are working with. Two common options are:"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-002",
             "kind": "paragraph",
+            "page": 434,
             "text": "1. Using columns to depict time or activity phases in the process and using rows to depict the person, department, or group responsible. 2. Using columns to depict the person, department, or group responsible and using rows to depict the time or activity phases in the process."
           },
           {
@@ -864,62 +1006,74 @@
             "kind": "image",
             "assetId": "fig-1c1d4ac7e0fe0947",
             "src": "assets/figures/fig-1c1d4ac7e0fe0947.png",
+            "page": 434,
             "width": 1184,
             "height": 801
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-004",
             "kind": "paragraph",
+            "page": 434,
             "text": "No matter which method you choose, someone should be able to read your swimlane diagram by starting at the top left and reading to the right and down."
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-005",
             "kind": "heading",
+            "page": 434,
             "text": "Begin by Identifying the Swimlanes"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-006",
             "kind": "paragraph",
+            "page": 434,
             "text": "Start your process map session by identifying the swimlanes associated with the process you plan to map. If you’ve already done a SIPOC as part of the Define phase of a project, then you can use the information from that activity to create your swimlanes. If not, you can use some of the brainstorming activities from the previous chapter to help generate ideas for your process map. Responsibility diagrams, for example, can help you understand how the activities within the process might be broken into organic categories."
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-007",
             "kind": "paragraph",
+            "page": 434,
             "text": "If you don’t yet have a basic idea about possible swimlanes, first ask yourself or your team: what are all the steps in the process? Don’t worry yet about putting the steps in order or even getting all the detailed steps brainstormed. You can add to your map as you create it. Because you don’t want the team to start worrying too much about the order of steps or about how they are connected, use notecards to write steps on for this stage. Once the team thinks all major steps are written down, you can sort the steps into groups to get a better idea of possible swimlanes."
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-008",
             "kind": "paragraph",
+            "page": 434,
             "text": "To understand how swimlanes might look for a real-world process, consider the process a brand uses to generate ideas for blog posts, write blog posts, and post blogs to a website. You can see, just from the previous sentence, the process is already somewhat broken down into major categories:"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-009",
             "kind": "listItem",
+            "page": 434,
             "text": "Ideas are created"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-010",
             "kind": "listItem",
+            "page": 435,
             "text": "Blog posts are written"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-011",
             "kind": "listItem",
+            "page": 435,
             "text": "Blog posts are posted"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-012",
             "kind": "paragraph",
+            "page": 435,
             "text": "Those three sections might become the row designations for the swimlane process map."
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-013",
             "kind": "paragraph",
+            "page": 435,
             "text": "Now, consider that different people or groups handle each of the subcategories within the process. The marketing team generates the ideas for content, a team of contracted writers writes the blog posts, and an internal quality team reviews and then posts the blogs."
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-014",
             "kind": "paragraph",
+            "page": 435,
             "text": "The foundation of the swimlane diagram might look something like the figure below."
           },
           {
@@ -927,47 +1081,56 @@
             "kind": "image",
             "assetId": "fig-cbc34133e166f274",
             "src": "assets/figures/fig-cbc34133e166f274.png",
+            "page": 435,
             "width": 1191,
             "height": 550
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-016",
             "kind": "heading",
+            "page": 435,
             "text": "Create Step-by-Step List for Process Activities"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-017",
             "kind": "paragraph",
+            "page": 435,
             "text": "Next, create a simple step-by-step list for all the activities within the process. If you are familiar with a process and are making a process map on your own, you can start putting the steps into shapes on the grid – you can always move them around as needed later. If you are not familiar with the process or are working with a group to create the process map, it helps to gather data first."
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-018",
             "kind": "paragraph",
+            "page": 436,
             "text": "For the purpose of the blog generation example, here are some steps that are included in the process."
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-019",
             "kind": "paragraph",
+            "page": 436,
             "text": "1. At the beginning of each month, the marketing team generates ideas for the next month’s content. 2. The marketing team generates 15 to 25 ideas, but chooses only 8 to 10 ideas to be written. 3. Once the 8 to 10 items are chosen, the marketing team chooses a title and keywords for each blog post. 4. The topic, along with any necessary special instructions, the titles, and the keywords are provided to the contract writing team. 5. Writers draft blog posts. 6. Writers check that blog posts fit guidelines. 7. Writers submit blogs posts. 8. Quality editors review blog posts. 9. Quality editors check that blog posts fit guidelines and request revisions if they do not. 10. Quality editors line edit blog posts. 11. Quality editors format blog posts."
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-020",
             "kind": "paragraph",
+            "page": 436,
             "text": "12. Quality editors enter posts into blogging platform. 13. Quality editors schedule blog posts for publication in the next month."
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-021",
             "kind": "paragraph",
+            "page": 436,
             "text": "You can break the above steps into various swimlanes and rows. Steps 1 through 4 belong under the marketing team and mostly in the row for idea creation. The very last step begins to cross the lines into the next phase of the process."
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-022",
             "kind": "paragraph",
+            "page": 436,
             "text": "Steps 5 through 7 belong under the writing team and typically fall into the writing phase of the process. The last steps belong under the quality editor section, but they do involve a decision step that could send work back to the writers."
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-023",
             "kind": "paragraph",
+            "page": 436,
             "text": "Consider how steps 1 through 4 might be placed on the swimlane diagram."
           },
           {
@@ -975,22 +1138,26 @@
             "kind": "image",
             "assetId": "fig-d13cc1e49d1140f7",
             "src": "assets/figures/fig-d13cc1e49d1140f7.png",
+            "page": 436,
             "width": 1064,
             "height": 1045
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-025",
             "kind": "paragraph",
+            "page": 436,
             "text": "The terminal shape – the activity that starts the entire process – is that it is time to brainstorm the blog ideas for next month. The team brainstorms ideas and then chooses 8 to 10. For the next step, the activity is a predefined process. This means that somewhere, the company has a published SOP or"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-026",
             "kind": "paragraph",
+            "page": 437,
             "text": "guidelines for researching and applying keywords to blog post ideas. Once that is done, someone chooses a title for each idea and the blogs are assigned to the writers. Note that the final activity – assigning the blogs to the writers – is in a rectangle that somewhat straddles the swimlane line. This is a helpful visual cue that the responsibility for work at this point in the process shifts from the marketing team to the writers."
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-027",
             "kind": "paragraph",
+            "page": 437,
             "text": "Next, consider how steps 5 and 7 might look on the process map."
           },
           {
@@ -998,12 +1165,14 @@
             "kind": "image",
             "assetId": "fig-cf32f8f63be52950",
             "src": "assets/figures/fig-cf32f8f63be52950.png",
+            "page": 437,
             "width": 983,
             "height": 718
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-029",
             "kind": "paragraph",
+            "page": 437,
             "text": "The three steps are presented under the contracted writers swimlane and in the row associated with writing blogs. The final step crosses the line slightly, indicating responsibility is being passed to the quality editors. Consider the remainder of the process map, which falls under the quality editor swimlane."
           },
           {
@@ -1011,12 +1180,14 @@
             "kind": "image",
             "assetId": "fig-61b88a589a76e6d9",
             "src": "assets/figures/fig-61b88a589a76e6d9.png",
+            "page": 437,
             "width": 1191,
             "height": 576
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-031",
             "kind": "paragraph",
+            "page": 437,
             "text": "You can see that the quality editor responsibilities actually span writing and posting phases. More importantly, you can see that if the blog doesn’t meet guidelines, the editor sends it back to the writer. The team can see here that there is a possibility for rework in this process, and it can see exactly how that rework is handled. The entire process map is shown in the image below."
           },
           {
@@ -1024,12 +1195,14 @@
             "kind": "image",
             "assetId": "fig-c668cf8d570540d3",
             "src": "assets/figures/fig-c668cf8d570540d3.png",
+            "page": 437,
             "width": 1191,
             "height": 1047
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-en-033",
             "kind": "paragraph",
+            "page": 437,
             "text": "While this is a fairly basic example as process maps go, it includes all of the basic premises of creating a swimlane process map. You can apply these basics to create simple to very complex process maps of any process in Excel or with Word or other any programs that include process map shapes as an option."
           }
         ],
@@ -1037,11 +1210,13 @@
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-001",
             "kind": "paragraph",
+            "page": 434,
             "text": "六西格玛世界中最广泛使用的流程图格式之一是泳道图。泳道图是一种流程图，但它在一定程度上受到行和列的限制，称为泳道。您可以根据自己的需要设计泳道，以最好地描述您正在使用的流程。两个常见的选项是："
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-002",
             "kind": "paragraph",
+            "page": 434,
             "text": "1. 使用列来描述流程中的时间或活动阶段，使用行来描述负责人、部门或小组。 2. 使用列来描述负责人、部门或小组，并使用行来描述流程中的时间或活动阶段。"
           },
           {
@@ -1049,27 +1224,32 @@
             "kind": "image",
             "assetId": "fig-1c1d4ac7e0fe0947",
             "src": "assets/figures/fig-1c1d4ac7e0fe0947.png",
+            "page": 434,
             "width": 1184,
             "height": 801
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-004",
             "kind": "paragraph",
+            "page": 434,
             "text": "无论您选择哪种方法，人们都应该能够通过从左上角开始向右和向下阅读来阅读您的泳道图。"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-005",
             "kind": "heading",
+            "page": 434,
             "text": "首先确定泳道"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-006",
             "kind": "paragraph",
+            "page": 434,
             "text": "通过识别与您计划映射的流程关联的泳道来开始您的流程图会话。如果您已经完成了 SIPOC 作为项目定义阶段的一部分，那么您可以使用该活动中的信息来创建您的泳道。如果没有，您可以使用上一章中的一些头脑风暴活动来帮助为流程图生成想法。例如，职责图可以帮助您了解如何将流程中的活动分解为有机类别。"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-007",
             "kind": "termNote",
+            "page": 434,
             "rows": [
               [
                 "术语说明 SIPOC：供应商、输入、流程、输出、客户；用于快速界定流程边界。"
@@ -1080,41 +1260,49 @@
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-008",
             "kind": "paragraph",
+            "page": 434,
             "text": "如果您对可能的泳道还没有基本的了解，请首先问问自己或您的团队：该过程中的所有步骤是什么？不用担心如何将步骤按顺序排列，甚至不用头脑风暴来头脑风暴所有的详细步骤。您可以在创建地图时将其添加到地图中。因为您不希望团队开始过多担心步骤的顺序或步骤的连接方式，所以使用记事卡写下此阶段的步骤。一旦团队认为所有主要步骤都已写下来，您就可以将这些步骤分组，以更好地了解可能的泳道。"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-009",
             "kind": "paragraph",
+            "page": 434,
             "text": "要了解泳道如何寻找现实世界的流程，请考虑品牌用于生成博客文章创意、撰写博客文章以及将博客发布到网站的流程。您可以看到，仅从上一句话来看，该过程已经分为几大类："
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-010",
             "kind": "listItem",
+            "page": 435,
             "text": "想法被创造出来"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-011",
             "kind": "listItem",
+            "page": 435,
             "text": "博客文章已写好"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-012",
             "kind": "listItem",
+            "page": 435,
             "text": "博客文章已发布"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-013",
             "kind": "paragraph",
+            "page": 435,
             "text": "这三个部分可能成为泳道流程图的行指定。"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-014",
             "kind": "paragraph",
+            "page": 435,
             "text": "现在，考虑不同的人或团体处理流程中的每个子类别。营销团队产生内容创意，签约作家团队撰写博客文章，内部质量团队审核并发布博客。"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-015",
             "kind": "paragraph",
+            "page": 435,
             "text": "泳道图的基础可能如下图所示。"
           },
           {
@@ -1122,47 +1310,56 @@
             "kind": "image",
             "assetId": "fig-cbc34133e166f274",
             "src": "assets/figures/fig-cbc34133e166f274.png",
+            "page": 435,
             "width": 1191,
             "height": 550
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-017",
             "kind": "heading",
+            "page": 435,
             "text": "为流程活动创建分步列表"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-018",
             "kind": "paragraph",
+            "page": 436,
             "text": "接下来，为流程中的所有活动创建一个简单的分步列表。如果您熟悉某个流程并且正在自己制作流程图，您可以开始将步骤放入网格上的形状中 - 您可以随时根据需要移动它们。如果您不熟悉该流程或正在与一个小组一起创建流程图，那么首先收集数据会有所帮助。"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-019",
             "kind": "paragraph",
+            "page": 436,
             "text": "出于博客生成示例的目的，以下是该过程中包含的一些步骤。"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-020",
             "kind": "paragraph",
+            "page": 436,
             "text": "1. 每个月初，营销团队都会为下个月的内容产生想法。 2. 营销团队产生 15 至 25 个创意，但只选择 8 至 10 个创意进行撰写。 3. 一旦选择了 8 到 10 个项目，营销团队就会为每篇博客文章选择标题和关键字。 4. 向合同撰写团队提供主题以及任何必要的特殊说明、标题和关键词。 5. 作者起草博客文章。 6. 作者检查博客文章是否符合指南。 7. 作者提交博客文章。 8. 优质编辑审查博客文章。 9. 质量编辑检查博客文章是否符合指南，如果不符合则要求修改。 10. 优质编辑在线编辑博客文章。 11. 优质编辑对博客文章进行格式化。"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-021",
             "kind": "paragraph",
+            "page": 436,
             "text": "12. 优质编辑将帖子输入博客平台。 13. 质量编辑安排博客文章在下个月出版。"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-022",
             "kind": "paragraph",
+            "page": 436,
             "text": "您可以将上述步骤分解为各种泳道和行。第 1 步到第 4 步属于营销团队，主要用于创意创造。最后一步开始跨越界限进入流程的下一阶段。"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-023",
             "kind": "paragraph",
+            "page": 436,
             "text": "第 5 步到第 7 步属于写作团队，通常属于该过程的写作阶段。最后的步骤属于质量编辑部分，但它们确实涉及一个决策步骤，可以将工作发送回作者。"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-024",
             "kind": "paragraph",
+            "page": 436,
             "text": "考虑如何将步骤 1 到 4 放置在泳道图上。"
           },
           {
@@ -1170,22 +1367,26 @@
             "kind": "image",
             "assetId": "fig-d13cc1e49d1140f7",
             "src": "assets/figures/fig-d13cc1e49d1140f7.png",
+            "page": 436,
             "width": 1064,
             "height": 1045
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-026",
             "kind": "paragraph",
+            "page": 436,
             "text": "最终的形状——启动整个过程的活动——是时候集思广益下个月的博客想法了。团队集思广益，然后选择 8 到 10 个。对于下一步，活动是一个预定义的过程。 这意味着公司在某个地方发布了 SOP 或"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-027",
             "kind": "paragraph",
+            "page": 437,
             "text": "研究关键字并将其应用于博客文章创意的指南。一旦完成，有人会为每个想法选择一个标题，并将博客分配给作者。请注意，最后的活动（将博客分配给作者）位于一个稍微横跨泳道线的矩形中。这是一个有用的视觉提示，表明流程中此时的工作责任从营销团队转移到了作家身上。"
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-028",
             "kind": "paragraph",
+            "page": 437,
             "text": "接下来，考虑步骤 5 和 7 在流程图上的外观。"
           },
           {
@@ -1193,12 +1394,14 @@
             "kind": "image",
             "assetId": "fig-cf32f8f63be52950",
             "src": "assets/figures/fig-cf32f8f63be52950.png",
+            "page": 437,
             "width": 983,
             "height": 718
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-030",
             "kind": "paragraph",
+            "page": 437,
             "text": "这三个步骤显示在签约作家泳道下以及与撰写博客相关的行中。最后一步稍微越界了，表明责任正在转移给质量编辑。考虑流程图的其余部分，它属于质量编辑器泳道。"
           },
           {
@@ -1206,12 +1409,14 @@
             "kind": "image",
             "assetId": "fig-61b88a589a76e6d9",
             "src": "assets/figures/fig-61b88a589a76e6d9.png",
+            "page": 437,
             "width": 1191,
             "height": 576
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-032",
             "kind": "paragraph",
+            "page": 437,
             "text": "您可以看到质量编辑的职责实际上跨越了写作和发布阶段。更重要的是，您可以看到，如果博客不符合准则，编辑会将其发送回作者。团队可以在这里看到这个流程中存在返工的可能性，并且可以准确地看到返工是如何处理的。整个流程图如下图所示。"
           },
           {
@@ -1219,12 +1424,14 @@
             "kind": "image",
             "assetId": "fig-c668cf8d570540d3",
             "src": "assets/figures/fig-c668cf8d570540d3.png",
+            "page": 437,
             "width": 1191,
             "height": 1047
           },
           {
             "id": "ch32-s06-creating-a-swimlane-diagram-zh-034",
             "kind": "paragraph",
+            "page": 437,
             "text": "虽然这是一个相当基本的流程图示例，但它包含创建泳道流程图的所有基本前提。您可以应用这些基础知识，在 Excel 或 Word 或其他任何包含流程图形状选项的程序中创建任何流程的简单到非常复杂的流程图。"
           }
         ]
@@ -1243,46 +1450,55 @@
           {
             "id": "ch32-s07-tips-for-creating-concise-attractive-process-maps-en-001",
             "kind": "paragraph",
+            "page": 438,
             "text": "Admittedly, the process maps shown in the above images are a bit rough. That was done on purpose to show you how the creation of a process map occurs as you are working through brainstorming and thinking about the process. If the sole purpose of the process map is to provide a Six Sigma team with visual guidance as it works through the DMAIC process, you can leave the process map in a rough-draft state."
           },
           {
             "id": "ch32-s07-tips-for-creating-concise-attractive-process-maps-en-002",
             "kind": "paragraph",
+            "page": 438,
             "text": "If you plan to use the process map in presentations or training documents, however, consider cleaning it up a bit. First, make sure all the color combinations that you used will translate well to whatever medium you plan to use the map in. The above map features the white-on-blue text in each shape, which might not translate well to black-and-white hardcopy documents."
           },
           {
             "id": "ch32-s07-tips-for-creating-concise-attractive-process-maps-en-003",
             "kind": "paragraph",
+            "page": 438,
             "text": "Next, take time to make sure shapes and arrows line up in an aesthetically pleasing and logical fashion. Review your map to ensure arrows are pointing in the right direction, try to keep arrows from crossing over each other too much, and ensure the start and end of each arrow is touching a process shape. This helps reduce confusion when you aren’t there it."
           },
           {
             "id": "ch32-s07-tips-for-creating-concise-attractive-process-maps-en-004",
             "kind": "paragraph",
+            "page": 438,
             "text": "Finally, use concise and active language when possible to keep text in each shape short and understandable. Here are some edits that could be made to the example above to make language more active and concise."
           },
           {
             "id": "ch32-s07-tips-for-creating-concise-attractive-process-maps-en-005",
             "kind": "listItem",
+            "page": 438,
             "text": "“Team lists new ideas for next month’s blog” becomes “Generate blog ideas”"
           },
           {
             "id": "ch32-s07-tips-for-creating-concise-attractive-process-maps-en-006",
             "kind": "listItem",
+            "page": 438,
             "text": "“Team chooses 8 to 10 ideas from those brainstormed” becomes “Choose 8 to 10 ideas”"
           },
           {
             "id": "ch32-s07-tips-for-creating-concise-attractive-process-maps-en-007",
             "kind": "listItem",
+            "page": 438,
             "text": "“Blogs are assigned to writers” becomes “Assign posts to writers”"
           },
           {
             "id": "ch32-s07-tips-for-creating-concise-attractive-process-maps-en-008",
             "kind": "listItem",
+            "page": 438,
             "text": "“Blog is written” becomes “Write blog”"
           },
           {
             "id": "ch32-s07-tips-for-creating-concise-attractive-process-maps-en-009",
             "kind": "paragraph",
+            "page": 438,
             "text": "You can see that the shorter versions almost always start with an action verb, which is ideal in process mapping and flow charting."
           }
         ],
@@ -1290,46 +1506,55 @@
           {
             "id": "ch32-s07-tips-for-creating-concise-attractive-process-maps-zh-001",
             "kind": "paragraph",
+            "page": 438,
             "text": "不可否认，上图中显示的流程图有点粗糙。这样做的目的是为了向您展示当您通过头脑风暴和思考流程时如何创建流程图。如果流程图的唯一目的是为六西格玛团队在 DMAIC 流程中提供视觉指导，您可以将流程图保留为草稿状态。"
           },
           {
             "id": "ch32-s07-tips-for-creating-concise-attractive-process-maps-zh-002",
             "kind": "paragraph",
+            "page": 438,
             "text": "但是，如果您打算在演示文稿或培训文档中使用流程图，请考虑对其进行一些清理。首先，确保您使用的所有颜色组合都能很好地适应您计划使用地图的任何媒体。 上面的地图在每个形状中都具有蓝底白字文本，这可能无法很好地转换为黑白硬拷贝文档。"
           },
           {
             "id": "ch32-s07-tips-for-creating-concise-attractive-process-maps-zh-003",
             "kind": "paragraph",
+            "page": 438,
             "text": "接下来，花点时间确保形状和箭头以美观且合乎逻辑的方式排列。检查地图以确保箭头指向正确的方向，尽量避免箭头彼此交叉过多，并确保每个箭头的起点和终点接触过程形状。当您不在场时，这有助于减少混乱。"
           },
           {
             "id": "ch32-s07-tips-for-creating-concise-attractive-process-maps-zh-004",
             "kind": "paragraph",
+            "page": 438,
             "text": "最后，尽可能使用简洁、活跃的语言，使每种形状的文本简短易懂。以下是可以对上面的示例进行的一些编辑，以使语言更加活跃和简洁。"
           },
           {
             "id": "ch32-s07-tips-for-creating-concise-attractive-process-maps-zh-005",
             "kind": "listItem",
+            "page": 438,
             "text": "“团队列出下个月博客的新想法”变为“生成博客想法”"
           },
           {
             "id": "ch32-s07-tips-for-creating-concise-attractive-process-maps-zh-006",
             "kind": "listItem",
+            "page": 438,
             "text": "“团队从头脑风暴中选择 8 到 10 个想法”变成“选择 8 到 10 个想法”"
           },
           {
             "id": "ch32-s07-tips-for-creating-concise-attractive-process-maps-zh-007",
             "kind": "listItem",
+            "page": 438,
             "text": "“博客分配给作者”变为“将帖子分配给作者”"
           },
           {
             "id": "ch32-s07-tips-for-creating-concise-attractive-process-maps-zh-008",
             "kind": "listItem",
+            "page": 438,
             "text": "“写博客”变成“写博客”"
           },
           {
             "id": "ch32-s07-tips-for-creating-concise-attractive-process-maps-zh-009",
             "kind": "paragraph",
+            "page": 438,
             "text": "您可以看到较短的版本几乎总是以动作动词开头，这在流程图和流程图中是理想的选择。"
           }
         ]
@@ -1357,7 +1582,7 @@
       "id": "fig-61b88a589a76e6d9",
       "type": "table-image",
       "path": "assets/figures/fig-61b88a589a76e6d9.png",
-      "page": 434,
+      "page": 437,
       "width": 1191,
       "height": 576
     },
@@ -1373,7 +1598,7 @@
       "id": "fig-98ea52a10de93dad",
       "type": "table-image",
       "path": "assets/figures/fig-98ea52a10de93dad.png",
-      "page": 429,
+      "page": 432,
       "width": 1130,
       "height": 503
     },
@@ -1397,7 +1622,7 @@
       "id": "fig-aac0e475408a797c",
       "type": "figure",
       "path": "assets/figures/fig-aac0e475408a797c.png",
-      "page": 429,
+      "page": 432,
       "width": 749,
       "height": 313
     },
@@ -1405,7 +1630,7 @@
       "id": "fig-c668cf8d570540d3",
       "type": "table-image",
       "path": "assets/figures/fig-c668cf8d570540d3.png",
-      "page": 434,
+      "page": 437,
       "width": 1191,
       "height": 1047
     },
@@ -1413,7 +1638,7 @@
       "id": "fig-cbc34133e166f274",
       "type": "table-image",
       "path": "assets/figures/fig-cbc34133e166f274.png",
-      "page": 434,
+      "page": 435,
       "width": 1191,
       "height": 550
     },
@@ -1421,7 +1646,7 @@
       "id": "fig-cf32f8f63be52950",
       "type": "table-image",
       "path": "assets/figures/fig-cf32f8f63be52950.png",
-      "page": 434,
+      "page": 437,
       "width": 983,
       "height": 718
     },
@@ -1429,7 +1654,7 @@
       "id": "fig-d13cc1e49d1140f7",
       "type": "table-image",
       "path": "assets/figures/fig-d13cc1e49d1140f7.png",
-      "page": 434,
+      "page": 436,
       "width": 1064,
       "height": 1045
     }

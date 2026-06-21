@@ -20,6 +20,7 @@ type TextScale = "standard" | "large" | "xlarge";
 type ContentBlock = {
   id: string;
   kind: "paragraph" | "listItem" | "table" | "termNote" | "heading" | "image";
+  page?: number;
   text?: string;
   rows?: string[][];
   assetId?: string;
@@ -500,34 +501,49 @@ export function App() {
     if (!pending) {
       return;
     }
+    const pendingScroll = pending;
 
-    const handle = window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(() => {
-        const sectionNode = document.querySelector<HTMLElement>(`[data-section-id="${pending.sectionId}"]`);
-        if (!sectionNode) {
+    function restorePendingScroll(finalAttempt = false) {
+      const sectionNode = document.querySelector<HTMLElement>(`[data-section-id="${pendingScroll.sectionId}"]`);
+      if (!sectionNode) {
+        if (finalAttempt) {
           pendingLanguageScrollRef.current = null;
-          return;
         }
+        return;
+      }
 
-        const sectionTop = window.scrollY + sectionNode.getBoundingClientRect().top;
-        const sectionFallbackTop =
-          sectionTop + sectionNode.scrollHeight * pending.sectionOffsetRatio - readerAnchorOffset();
-        const bodyNode = sectionNode.querySelector<HTMLElement>(".sectionBody");
-        const targetBlock = bodyNode?.children[pending.blockIndex] as HTMLElement | undefined;
-        if (!targetBlock) {
-          window.scrollTo({ top: Math.max(0, sectionFallbackTop) });
+      const sectionTop = window.scrollY + sectionNode.getBoundingClientRect().top;
+      const sectionFallbackTop =
+        sectionTop + sectionNode.scrollHeight * pendingScroll.sectionOffsetRatio - readerAnchorOffset();
+      const bodyNode = sectionNode.querySelector<HTMLElement>(".sectionBody");
+      const targetBlock = bodyNode?.children[pendingScroll.blockIndex] as HTMLElement | undefined;
+      if (!targetBlock) {
+        window.scrollTo({ top: Math.max(0, sectionFallbackTop) });
+        if (finalAttempt) {
           pendingLanguageScrollRef.current = null;
-          return;
         }
+        return;
+      }
 
-        const blockTop = window.scrollY + targetBlock.getBoundingClientRect().top;
-        const targetTop =
-          blockTop + targetBlock.scrollHeight * pending.blockOffsetRatio - readerAnchorOffset();
-        window.scrollTo({ top: Math.max(0, targetTop) });
+      const blockTop = window.scrollY + targetBlock.getBoundingClientRect().top;
+      const targetTop =
+        blockTop + targetBlock.scrollHeight * pendingScroll.blockOffsetRatio - readerAnchorOffset();
+      window.scrollTo({ top: Math.max(0, targetTop) });
+      if (finalAttempt) {
         pendingLanguageScrollRef.current = null;
-      });
+      }
+    }
+
+    const frame = window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => restorePendingScroll(false));
     });
-    return () => window.cancelAnimationFrame(handle);
+    const timers = [80, 180, 300, 700].map((delay, index, values) =>
+      window.setTimeout(() => restorePendingScroll(index === values.length - 1), delay)
+    );
+    return () => {
+      window.cancelAnimationFrame(frame);
+      timers.forEach((timer) => window.clearTimeout(timer));
+    };
   }, [language]);
 
   useEffect(() => {
@@ -712,11 +728,17 @@ export function App() {
   }
 
   function captureLanguageScrollPosition(): PendingLanguageScroll | null {
-    if (!activeSectionId) {
+    const anchor = readerAnchorOffset();
+    const visibleSection = Array.from(document.querySelectorAll<HTMLElement>("[data-section-id]")).find((section) => {
+      const rect = section.getBoundingClientRect();
+      return rect.top <= anchor + 20 && rect.bottom >= anchor;
+    });
+    const sectionId = visibleSection?.dataset.sectionId ?? activeSectionId;
+    if (!sectionId) {
       return null;
     }
 
-    const sectionNode = document.querySelector<HTMLElement>(`[data-section-id="${activeSectionId}"]`);
+    const sectionNode = visibleSection ?? document.querySelector<HTMLElement>(`[data-section-id="${sectionId}"]`);
     if (!sectionNode) {
       return null;
     }
@@ -733,7 +755,7 @@ export function App() {
 
     if (blockIndex < 0) {
       return {
-        sectionId: activeSectionId,
+        sectionId,
         blockIndex: 0,
         blockOffsetRatio: 0,
         sectionOffsetRatio
@@ -744,7 +766,7 @@ export function App() {
     const blockTop = window.scrollY + block.getBoundingClientRect().top;
     const blockOffsetRatio = clamp((anchorY - blockTop) / Math.max(1, block.scrollHeight), 0, 1);
     return {
-      sectionId: activeSectionId,
+      sectionId,
       blockIndex,
       blockOffsetRatio,
       sectionOffsetRatio
@@ -899,9 +921,10 @@ export function App() {
   }
 
   function renderBlock(block: ContentBlock, section: LessonSection) {
+    const blockPage = block.page ?? section.page;
     if (block.kind === "image") {
       const imageSrc = block.src ? `content/${block.src}` : "";
-      const imageAlt = block.alt || `${currentLesson.title.en} page ${section.page} figure`;
+      const imageAlt = block.alt || `${currentLesson.title.en} page ${blockPage} figure`;
       return (
         <figure key={block.id} className="figureBlock">
           <img
@@ -925,7 +948,7 @@ export function App() {
                 <tr key={`${block.id}-row-${rowIndex}`}>
                   {row.map((cell, cellIndex) => (
                     <td key={`${block.id}-cell-${rowIndex}-${cellIndex}`}>
-                      {renderText(cell, section.page, section.id)}
+                      {renderText(cell, blockPage, section.id)}
                     </td>
                   ))}
                 </tr>
@@ -947,7 +970,7 @@ export function App() {
     if (block.kind === "heading") {
       return (
         <h3 key={block.id} className="inlineHeading">
-          {renderText(block.text ?? "", section.page, section.id)}
+          {renderText(block.text ?? "", blockPage, section.id)}
         </h3>
       );
     }
@@ -955,7 +978,7 @@ export function App() {
     const className = block.kind === "listItem" ? "readerListItem" : "readerText";
     return (
       <p key={block.id} className={className}>
-        {renderText(block.text ?? "", section.page, section.id)}
+        {renderText(block.text ?? "", blockPage, section.id)}
       </p>
     );
   }

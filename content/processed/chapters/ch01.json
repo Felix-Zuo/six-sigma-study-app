@@ -26,6 +26,7 @@
           {
             "id": "ch01-overview-en-001",
             "kind": "paragraph",
+            "page": 6,
             "text": "Six Sigma, or 6σ, is both a methodology for process improvement and a statistical concept that seeks to define the variation inherent in any process. The overarching premise of Six Sigma is that variation in a process leads to opportunities for error; opportunities for error then lead to risks for product defects. Product defects—whether in a tangible process or a service—lead to poor customer satisfaction. By working to reduce variation and opportunities for error, the Six Sigma method ultimately reduces process costs and increases customer satisfaction."
           }
         ],
@@ -33,11 +34,13 @@
           {
             "id": "ch01-overview-zh-001",
             "kind": "paragraph",
+            "page": 6,
             "text": "六西格玛（Six Sigma，或 6σ）既是一套流程改进方法，也是一种用于描述流程固有变异的统计概念。六西格玛的基本前提是：流程中的变异会带来出错机会；出错机会会进一步带来产品或服务缺陷的风险；缺陷最终会损害客户满意度。通过减少变异和出错机会，六西格玛方法最终能够降低流程成本并提升客户满意度。"
           },
           {
             "id": "ch01-overview-zh-002",
             "kind": "termNote",
+            "page": 6,
             "rows": [
               [
                 "术语说明 Six Sigma / 6σ：既指一套流程改进方法，也指一种统计质量目标；核心是用数据减少变异、缺陷和返工。"
@@ -61,6 +64,7 @@
           {
             "id": "data-driven-processes-en-001",
             "kind": "paragraph",
+            "page": 6,
             "text": "In applying Six Sigma, organizations, teams, and project managers seek to implement strategies that are based on measurement and metrics. Historically, many business leaders made decisions based on intuition or experience. Despite some common beliefs in various industries, Six Sigma doesn’t remove the need for experienced leadership, and it doesn’t negate the importance of intuition in any process. Instead, Six Sigma works alongside other skills, experience, and knowledge to provide a mathematical and statistical foundation for decision making. Experience might say a process isn’t working; statistics prove that to be true. Intuition might guide a project manager to believe a certain change could improve output; Six Sigma tools help organizations validate those assumptions."
           }
         ],
@@ -68,6 +72,7 @@
           {
             "id": "data-driven-processes-zh-001",
             "kind": "paragraph",
+            "page": 6,
             "text": "在应用六西格玛时，组织、团队和项目经理会努力采用基于测量和指标的策略。过去，许多企业领导者依靠直觉或经验做决策。六西格玛并不是要否定经验型领导，也不是要排斥流程中的直觉判断；相反，它让技能、经验和知识获得数学与统计基础。经验可能告诉我们某个流程运转不佳，统计数据则能证明这一点；直觉可能让项目经理认为某项改变能提升产出，六西格玛工具则帮助组织验证这些假设。"
           }
         ]
@@ -86,6 +91,7 @@
           {
             "id": "decision-without-six-sigma-en-001",
             "kind": "paragraph",
+            "page": 6,
             "text": "Without proper measurement and analysis, decision making processes in an organization might proceed as follows:"
           },
           {
@@ -93,32 +99,38 @@
             "kind": "image",
             "assetId": "fig-72a76dbe66a901d6",
             "src": "assets/figures/fig-72a76dbe66a901d6.png",
+            "page": 6,
             "width": 582,
             "height": 538
           },
           {
             "id": "decision-without-six-sigma-en-003",
             "kind": "listItem",
+            "page": 6,
             "text": "Someone with clout in the organization has a good idea or takes interest in someone else’s idea."
           },
           {
             "id": "decision-without-six-sigma-en-004",
             "kind": "listItem",
+            "page": 6,
             "text": "Based on past experience or knowledge, decision makers within an organization believe the idea will be successful."
           },
           {
             "id": "decision-without-six-sigma-en-005",
             "kind": "listItem",
+            "page": 6,
             "text": "The idea is implemented; sometimes it is implemented in beta mode so expenses and risks are minimized."
           },
           {
             "id": "decision-without-six-sigma-en-006",
             "kind": "listItem",
+            "page": 6,
             "text": "The success of the idea is weighed after implementation; problems are addressed after they impact products or processes in some way in the present or the future."
           },
           {
             "id": "decision-without-six-sigma-en-007",
             "kind": "paragraph",
+            "page": 6,
             "text": "Beta testing is sometimes used in a Six Sigma approach, but the idea or change in question goes through rigorous analysis and data testing first. The disadvantage of launching ideas into beta—or to an entire population--without going through a Six Sigma methodology is that organizations can experience unintended consequences from changes, spend money on ideas that don’t end up working out as planned, and impact customer perceptions through trial-and-error periods rife with opportunities for error. In many cases, organizations that don’t rely on data make improvements without first understanding the true gain or loss associated with the change. Some improvements may appear to work on the surface without actually impacting customer satisfaction or profit in a positive way."
           }
         ],
@@ -126,31 +138,37 @@
           {
             "id": "decision-without-six-sigma-zh-001",
             "kind": "paragraph",
+            "page": 6,
             "text": "如果缺少适当的测量和分析，组织内的决策过程可能会变成下面这样："
           },
           {
             "id": "decision-without-six-sigma-zh-002",
             "kind": "listItem",
+            "page": 6,
             "text": "组织中有影响力的人提出一个好点子，或对别人的点子产生兴趣。"
           },
           {
             "id": "decision-without-six-sigma-zh-003",
             "kind": "listItem",
+            "page": 6,
             "text": "决策者基于过往经验或知识，相信这个点子会成功。"
           },
           {
             "id": "decision-without-six-sigma-zh-004",
             "kind": "listItem",
+            "page": 6,
             "text": "点子被付诸实施；有时会以 Beta 测试形式上线，以尽量降低费用和风险。"
           },
           {
             "id": "decision-without-six-sigma-zh-005",
             "kind": "listItem",
+            "page": 6,
             "text": "实施后才评估成败；问题通常要等到已经影响当前或未来的产品、服务或流程后才被处理。"
           },
           {
             "id": "decision-without-six-sigma-zh-006",
             "kind": "termNote",
+            "page": 6,
             "rows": [
               [
                 "术语说明 Beta testing（Beta 测试）：在相对受控的环境中，让选定人群或流程先试用新想法、系统或产品；发现并修正潜在问题后，再推广到更大范围。"
@@ -161,6 +179,7 @@
           {
             "id": "decision-without-six-sigma-zh-007",
             "kind": "paragraph",
+            "page": 6,
             "text": "Beta 测试有时也会被纳入六西格玛方法，但相关想法或变更必须先经过严谨的分析和数据检验。如果不经过六西格玛方法，就直接把想法推入 Beta 测试甚至全面推广，组织可能会遭遇意料之外的后果：把资金花在最终无法按计划奏效的方案上，或在充满出错机会的试错期中损害客户感知。许多不依赖数据的组织会在尚未理解真实收益或损失之前就开始改进。有些改进表面看似有效，却未必真正提升客户满意度或利润。"
           }
         ]
@@ -179,11 +198,13 @@
           {
             "id": "decision-with-six-sigma-en-001",
             "kind": "paragraph",
+            "page": 6,
             "text": "The Six Sigma method lets organizations identify problems, validate assumptions, brainstorm solutions, and plan for implementation to avoid unintended consequences. By applying tools such as statistical analysis and process mapping to problems and solutions, teams can visualize and predict outcomes with a high-level of accuracy, letting leadership make decisions with less financial risk."
           },
           {
             "id": "decision-with-six-sigma-en-002",
             "kind": "paragraph",
+            "page": 6,
             "text": "Six Sigma methods don’t offer a crystal ball for organizations, though. Even with expert use of the tools described in this book, problems can arise for teams as they implement and maintain solutions. That’s why Six Sigma also provides for control methods: once teams implement changes, they can control processes for a fraction of the cost of traditional quality methods by continuing the use of Six Sigma tools and statistics."
           }
         ],
@@ -191,11 +212,13 @@
           {
             "id": "decision-with-six-sigma-zh-001",
             "kind": "paragraph",
+            "page": 6,
             "text": "六西格玛方法使组织能够识别问题、验证假设、头脑风暴解决方案，并规划实施路径，从而避免意外后果。通过将统计分析、流程图等工具应用于问题与方案，团队可以更准确地可视化并预测结果，让管理层在较低财务风险下做出决策。"
           },
           {
             "id": "decision-with-six-sigma-zh-002",
             "kind": "paragraph",
+            "page": 6,
             "text": "当然，六西格玛并不能给组织一颗“水晶球”。即使熟练使用本书介绍的工具，团队在实施和维持解决方案时仍可能遇到问题。因此，六西格玛还强调控制方法：一旦团队实施了变更，就要持续使用六西格玛工具和统计方法，以远低于传统质量方法的成本控制流程。"
           }
         ]
@@ -214,11 +237,13 @@
           {
             "id": "defining-6-sigma-en-001",
             "kind": "paragraph",
+            "page": 7,
             "text": "Six Sigma as a methodology for process improvement involves a vast library of tools and knowledge, which will be covered throughout this book. In this section, we’ll begin to define the statistical concept represented by 6σ."
           },
           {
             "id": "defining-6-sigma-en-002",
             "kind": "paragraph",
+            "page": 7,
             "text": "At the most basic definition, 6σ is a statistical representation for what many experts call a “perfect” process. Technically, in a Six Sigma process, there are only 3.4 defects per million opportunities. In percentages, that means 99.99966 percent of the products from a Six Sigma process are without defect. At just one sigma level below—5σ, or 99.97 percent accuracy--processes experience 233 errors per million opportunities. In simpler terms, there are going to be many more unsatisfied customers."
           }
         ],
@@ -226,16 +251,19 @@
           {
             "id": "defining-6-sigma-zh-001",
             "kind": "paragraph",
+            "page": 7,
             "text": "作为流程改进方法，六西格玛包含大量工具和知识，本书后续会逐步展开。本节先从统计概念角度说明 6σ 的含义。"
           },
           {
             "id": "defining-6-sigma-zh-002",
             "kind": "paragraph",
+            "page": 7,
             "text": "从最基本的定义看，6σ 是许多专家所说“近乎完美”流程的统计表示。严格来说，一个六西格玛流程每百万次机会中只有 3.4 个缺陷。换成百分比，即六西格玛流程产出的产品中有 99.99966% 没有缺陷。若低一个西格玛水平，即五西格玛，准确率约为 99.97%，流程每百万次机会会出现 233 个错误。简单说，这意味着会有多得多的不满意客户。"
           },
           {
             "id": "defining-6-sigma-zh-003",
             "kind": "termNote",
+            "page": 7,
             "rows": [
               [
                 "术语说明 Defect 与 Opportunity：Defect 是未满足客户或规格要求的缺陷；Opportunity 是一次可能发生缺陷的机会。六西格玛常用“每百万机会缺陷数”衡量质量。"
@@ -259,141 +287,169 @@
           {
             "id": "real-world-examples-en-001",
             "kind": "paragraph",
+            "page": 7,
             "text": "According to the National Oceanic and Atmospheric Administration, air traffic controllers in the United States handle 28,537 commercial flights daily.1 In a year, that is approximately 10.416 million flights. Based on a Five Sigma air traffic control process, errors of some type occur in the process for handling approximately 2,426 flights every year. With a Six Sigma process, that risk drops to 35.41 errors."
           },
           {
             "id": "real-world-examples-en-002",
             "kind": "paragraph",
+            "page": 7,
             "text": "The CDC reports that approximately 51.4 million surgeries are performed in the United States in a given year.2 Based on a 99.97 accuracy rate, doctors would make errors in 11,976 surgeries each year, or 230 surgeries a week. At Six Sigma, that drops to approximately 174 errors a year for the entire country, or"
           },
           {
             "id": "real-world-examples-en-003",
             "kind": "paragraph",
+            "page": 7,
             "text": "just over 3 errors each week. At Five Sigma, patients are 68 times more likely to experience an error at the hands of medical providers."
           },
           {
             "id": "real-world-examples-en-004",
             "kind": "paragraph",
+            "page": 7,
             "text": "While most people accept a 99.9 percent accuracy rate in even the most critical services on a daily basis, the above examples highlight how wide the gap between Six Sigma and Five Sigma really is. For organizations, it’s not just about the error rate—it’s also about the costs associated with each error."
           },
           {
             "id": "real-world-examples-en-005",
             "kind": "paragraph",
+            "page": 7,
             "text": "Consider an example based on Amazon shipments. On Cyber Monday in 2013, Amazon processed a whopping 36.8 million orders.3 Let’s assume that each order error costs the company an average of $35 (a very conservative number, considering that costs might include return shipping, labor to answer customer phone calls or emails, and labor and shipping to right a wrong order)."
           },
           {
             "id": "real-world-examples-en-006",
             "kind": "paragraph",
+            "page": 7,
             "text": "Cost of Amazon Order Errors, 5σ"
           },
           {
             "id": "real-world-examples-en-007",
             "kind": "heading",
+            "page": 7,
             "text": "Total Orders"
           },
           {
             "id": "real-world-examples-en-008",
             "kind": "heading",
+            "page": 7,
             "text": "Errors Average Cost per Error Total Cost of Errors"
           },
           {
             "id": "real-world-examples-en-009",
             "kind": "paragraph",
+            "page": 7,
             "text": "36.8 million 8574.4 $35 $300,104.00"
           },
           {
             "id": "real-world-examples-en-010",
             "kind": "paragraph",
+            "page": 7,
             "text": "Cost of Amazon Order Errors, 6σ"
           },
           {
             "id": "real-world-examples-en-011",
             "kind": "heading",
+            "page": 7,
             "text": "Total Orders"
           },
           {
             "id": "real-world-examples-en-012",
             "kind": "heading",
+            "page": 7,
             "text": "Errors Average Cost per Error Total Cost of Errors"
           },
           {
             "id": "real-world-examples-en-013",
             "kind": "paragraph",
+            "page": 7,
             "text": "36.8 million 125.12 $35 $4,379.20"
           },
           {
             "id": "real-world-examples-en-014",
             "kind": "paragraph",
+            "page": 7,
             "text": "For this example, the cost difference in sigma levels is still over $295,000 for the Cyber Monday business."
           },
           {
             "id": "real-world-examples-en-015",
             "kind": "paragraph",
+            "page": 7,
             "text": "For most organizations, Six Sigma processes are a constant target. Achieving and maintaining Six Sigma “perfection” is difficult and requires continuous process improvement. But even advancing from lower levels of sigma to a Four or Five Sigma process has a drastic impact on costs and customer satisfaction. Let’s look at the Amazon Cyber Monday example at other levels of sigma."
           },
           {
             "id": "real-world-examples-en-016",
             "kind": "heading",
+            "page": 7,
             "text": "Sigma Level"
           },
           {
             "id": "real-world-examples-en-017",
             "kind": "heading",
+            "page": 7,
             "text": "Defects per Million Opportunities"
           },
           {
             "id": "real-world-examples-en-018",
             "kind": "heading",
+            "page": 7,
             "text": "Estimated Cyber"
           },
           {
             "id": "real-world-examples-en-019",
             "kind": "heading",
+            "page": 7,
             "text": "Monday Defects"
           },
           {
             "id": "real-world-examples-en-020",
             "kind": "paragraph",
+            "page": 7,
             "text": "Total Cost (at $35"
           },
           {
             "id": "real-world-examples-en-021",
             "kind": "paragraph",
+            "page": 7,
             "text": "estimate per error)"
           },
           {
             "id": "real-world-examples-en-022",
             "kind": "paragraph",
+            "page": 7,
             "text": "One Sigma 690,000 25,392,000 $888,720,000"
           },
           {
             "id": "real-world-examples-en-023",
             "kind": "paragraph",
+            "page": 7,
             "text": "Two Sigma 308,000 11,334,400 $396,704,000"
           },
           {
             "id": "real-world-examples-en-024",
             "kind": "paragraph",
+            "page": 7,
             "text": "Three Sigma 66,800 2,458,240 $86,038,400"
           },
           {
             "id": "real-world-examples-en-025",
             "kind": "paragraph",
+            "page": 7,
             "text": "Four Sigma 6,200 228,160 $7,985,600"
           },
           {
             "id": "real-world-examples-en-026",
             "kind": "paragraph",
+            "page": 7,
             "text": "Five Sigma 233 8,574.4 $300,104"
           },
           {
             "id": "real-world-examples-en-027",
             "kind": "paragraph",
+            "page": 7,
             "text": "Six Sigma 3.4 125.12 $4,379"
           },
           {
             "id": "real-world-examples-en-028",
             "kind": "paragraph",
+            "page": 7,
             "text": "At very low levels of sigma, any process is unlikely to be profitable. The higher the sigma level, the better the bottom line is likely to be."
           }
         ],
@@ -401,26 +457,31 @@
           {
             "id": "real-world-examples-zh-001",
             "kind": "paragraph",
+            "page": 7,
             "text": "根据美国国家海洋和大气管理局的数据，美国空中交通管制员每天处理 28,537 架次商业航班，一年约 1,041.6 万架次。若空管流程处在五西格玛水平，处理流程中每年约有 2,426 架次航班会出现某类错误；如果达到六西格玛水平，这一风险会降至约 35.41 次。"
           },
           {
             "id": "real-world-examples-zh-002",
             "kind": "paragraph",
+            "page": 7,
             "text": "美国疾病控制与预防中心报告显示，美国一年约进行 5,140 万台手术。若准确率为 99.97%，医生每年会在 11,976 台手术中出错，即每周约 230 台；达到六西格玛水平后，全国全年错误数会降至约 174 次，也就是每周略高于 3 次。在五西格玛水平下，患者遭遇医疗服务提供者错误的可能性是六西格玛水平的 68 倍。"
           },
           {
             "id": "real-world-examples-zh-003",
             "kind": "paragraph",
+            "page": 7,
             "text": "多数人在日常关键服务中能够接受 99.9% 的准确率，但这些例子说明，六西格玛和五西格玛之间的差距非常大。对组织而言，这不仅是错误率问题，还关系到每一次错误背后的成本。"
           },
           {
             "id": "real-world-examples-zh-004",
             "kind": "paragraph",
+            "page": 7,
             "text": "以亚马逊发货为例。2013 年网络星期一，亚马逊处理了高达 3,680 万份订单。假设每个订单错误给公司造成 35 美元的平均成本（这是非常保守的估计，因为成本可能包括退货运费、客服接听电话或邮件的人力，以及纠正错误订单所需的人力和运输费用）。"
           },
           {
             "id": "real-world-examples-zh-005",
             "kind": "table",
+            "page": 7,
             "rows": [
               [
                 "亚马逊订单错误成本，5σ",
@@ -446,6 +507,7 @@
           {
             "id": "real-world-examples-zh-006",
             "kind": "table",
+            "page": 7,
             "rows": [
               [
                 "亚马逊订单错误成本，6σ",
@@ -471,16 +533,19 @@
           {
             "id": "real-world-examples-zh-007",
             "kind": "paragraph",
+            "page": 7,
             "text": "在这个例子中，仅网络星期一业务，不同西格玛水平造成的成本差异就超过 295,000 美元。"
           },
           {
             "id": "real-world-examples-zh-008",
             "kind": "paragraph",
+            "page": 7,
             "text": "对多数组织来说，六西格玛流程是一个持续追求的目标。达到并维持六西格玛“完美”很困难，需要持续流程改进。但即使只是把较低西格玛水平提升到四西格玛或五西格玛，也会显著影响成本和客户满意度。下表继续沿用亚马逊网络星期一示例，比较不同西格玛水平下的结果。"
           },
           {
             "id": "real-world-examples-zh-009",
             "kind": "table",
+            "page": 7,
             "rows": [
               [
                 "西格玛水平",
@@ -530,6 +595,7 @@
           {
             "id": "real-world-examples-zh-010",
             "kind": "termNote",
+            "page": 7,
             "rows": [
               [
                 "术语说明 DPMO：Defects Per Million Opportunities，指每百万次机会中的缺陷数；数值越低，流程质量越高。"
@@ -553,6 +619,7 @@
           {
             "id": "calculating-sigma-level-en-001",
             "kind": "paragraph",
+            "page": 8,
             "text": "Organizations and teams can calculate the sigma level of a product or process using the equation below:"
           },
           {
@@ -560,67 +627,80 @@
             "kind": "image",
             "assetId": "fig-9f3da0ba12d44fb6",
             "src": "assets/figures/fig-9f3da0ba12d44fb6.png",
+            "page": 8,
             "width": 479,
             "height": 113
           },
           {
             "id": "calculating-sigma-level-en-003",
             "kind": "paragraph",
+            "page": 8,
             "text": "Consider a process in a marketing department that distributes letters to customers or prospects. For the purposes of the example, imagine that the process inserts 30,000 letters in preaddressed envelopes each day. In a given business week, the process outputs 150,000 letters."
           },
           {
             "id": "calculating-sigma-level-en-004",
             "kind": "paragraph",
+            "page": 8,
             "text": "The marketing department begins receiving complaints that people are receiving letters in envelopes that are addressed to them, but the letters inside are addressed to or relevant to someone else. The marketing department randomly selects 1,000 letters from the next week’s batch and finds that 5 of them have errors. Applying that to the total amount, they estimate that as many as 750 letters could have errors. (Sampling and extrapolation are covered in depth in the advanced chapters on statistics.)"
           },
           {
             "id": "calculating-sigma-level-en-005",
             "kind": "paragraph",
+            "page": 8,
             "text": "The letter process has 150,000 opportunities for error each week and an estimated 750 defects."
           },
           {
             "id": "calculating-sigma-level-en-006",
             "kind": "paragraph",
+            "page": 8,
             "text": "((150,000 – 750) / 150,000) * 100 = a yield of 99.5"
           },
           {
             "id": "calculating-sigma-level-en-007",
             "kind": "paragraph",
+            "page": 8,
             "text": "Look up a yield of 99.5 in the abridged Sigma table below and you’ll see the process described above is currently between 4 and 4.1 sigma."
           },
           {
             "id": "calculating-sigma-level-en-008",
             "kind": "heading",
+            "page": 8,
             "text": "Yield %"
           },
           {
             "id": "calculating-sigma-level-en-009",
             "kind": "heading",
+            "page": 8,
             "text": "DPMO Sigma Level"
           },
           {
             "id": "calculating-sigma-level-en-010",
             "kind": "paragraph",
+            "page": 8,
             "text": "99.7450 2,550 4.3"
           },
           {
             "id": "calculating-sigma-level-en-011",
             "kind": "paragraph",
+            "page": 8,
             "text": "99.6540 3,460 4.2"
           },
           {
             "id": "calculating-sigma-level-en-012",
             "kind": "paragraph",
+            "page": 8,
             "text": "99.5340 4,550 4.1"
           },
           {
             "id": "calculating-sigma-level-en-013",
             "kind": "paragraph",
+            "page": 8,
             "text": "99.3790 6,210 4.0"
           },
           {
             "id": "calculating-sigma-level-en-014",
             "kind": "paragraph",
+            "page": 8,
             "text": "99.1810 8,190 3.9"
           }
         ],
@@ -628,11 +708,13 @@
           {
             "id": "calculating-sigma-level-zh-001",
             "kind": "paragraph",
+            "page": 8,
             "text": "在西格玛水平非常低时，任何流程都不太可能盈利。西格玛水平越高，财务结果通常越好。组织和团队可以使用下面的公式计算产品或流程的西格玛水平："
           },
           {
             "id": "calculating-sigma-level-zh-002",
             "kind": "termNote",
+            "page": 8,
             "rows": [
               [
                 "术语说明 Yield（良率）：良率 =（机会数 - 缺陷数）/ 机会数 × 100，用来表示流程输出中符合要求的比例。"
@@ -643,36 +725,43 @@
           {
             "id": "calculating-sigma-level-zh-003",
             "kind": "paragraph",
+            "page": 8,
             "text": "（机会数 - 缺陷数） / 机会数 × 100 = 良率"
           },
           {
             "id": "calculating-sigma-level-zh-004",
             "kind": "paragraph",
+            "page": 8,
             "text": "设想一个营销部门负责向客户或潜在客户寄送信件。为便于说明，假设该流程每天将 30,000 封信装入预先写好地址的信封；一个工作周内，流程共输出 150,000 封信。"
           },
           {
             "id": "calculating-sigma-level-zh-005",
             "kind": "paragraph",
+            "page": 8,
             "text": "随后，营销部门收到投诉：有人收到写着自己地址的信封，但里面的信件却是写给别人或与别人相关的。营销部门从下一周批次中随机抽取 1,000 封信，发现其中 5 封有错误。将这个比例推算到总量上，他们估计可能多达 750 封信存在错误。（抽样与外推会在后续统计章节中详细介绍。）"
           },
           {
             "id": "calculating-sigma-level-zh-006",
             "kind": "paragraph",
+            "page": 8,
             "text": "该信件流程每周有 150,000 次出错机会，估计有 750 个缺陷。计算为："
           },
           {
             "id": "calculating-sigma-level-zh-007",
             "kind": "paragraph",
+            "page": 8,
             "text": "((150,000 - 750) / 150,000) × 100 = 良率 99.5"
           },
           {
             "id": "calculating-sigma-level-zh-008",
             "kind": "paragraph",
+            "page": 8,
             "text": "在下方简化西格玛表中查找 99.5 的良率，可以看到上述流程当前介于 4.0 和 4.1 西格玛之间。"
           },
           {
             "id": "calculating-sigma-level-zh-009",
             "kind": "table",
+            "page": 8,
             "rows": [
               [
                 "良率 %",
@@ -723,76 +812,91 @@
           {
             "id": "sigma-level-not-final-en-001",
             "kind": "paragraph",
+            "page": 9,
             "text": "Sigma levels provide organization with a high-level look at how a process is performing, but comparing sigma levels between multiple processes doesn’t always point to the particular process an organization"
           },
           {
             "id": "sigma-level-not-final-en-002",
             "kind": "paragraph",
+            "page": 9,
             "text": "should improve first. Leadership should also consider costs, resources, and the estimated impact of improvements."
           },
           {
             "id": "sigma-level-not-final-en-003",
             "kind": "paragraph",
+            "page": 9,
             "text": "For example, consider these processes that might be found in a food processing plant:"
           },
           {
             "id": "sigma-level-not-final-en-004",
             "kind": "heading",
+            "page": 9,
             "text": "Process"
           },
           {
             "id": "sigma-level-not-final-en-005",
             "kind": "heading",
+            "page": 9,
             "text": "Performance Metric(s) Current Sigma Level"
           },
           {
             "id": "sigma-level-not-final-en-006",
             "kind": "paragraph",
+            "page": 9,
             "text": "2.2"
           },
           {
             "id": "sigma-level-not-final-en-007",
             "kind": "paragraph",
+            "page": 9,
             "text": "Attaching a decorative element to food item"
           },
           {
             "id": "sigma-level-not-final-en-008",
             "kind": "paragraph",
+            "page": 9,
             "text": "Decorative touch is centered on food product and stable so it won’t fall off in transit"
           },
           {
             "id": "sigma-level-not-final-en-009",
             "kind": "paragraph",
+            "page": 9,
             "text": "Packing product Product is sealed for freshness 3.1"
           },
           {
             "id": "sigma-level-not-final-en-010",
             "kind": "paragraph",
+            "page": 9,
             "text": "4.3"
           },
           {
             "id": "sigma-level-not-final-en-011",
             "kind": "paragraph",
+            "page": 9,
             "text": "Shipping of product Product reaches the right customer in a timely manner"
           },
           {
             "id": "sigma-level-not-final-en-012",
             "kind": "paragraph",
+            "page": 9,
             "text": "A glance at sigma levels indicates that the process that attaches the decorative element is in most need of improvement. While that process has the highest rate of defects, leadership within the plant would have to ask themselves: How much does that matter to the customer, and what is the hit to the bottom line?"
           },
           {
             "id": "sigma-level-not-final-en-013",
             "kind": "paragraph",
+            "page": 9,
             "text": "It’s likely that most customers will notice most that the product is sealed for freshness and reaches the right location. Since bad product has to be thrown away, the most expensive errors might be associated with improper sealing during packing. The plant is likely to use resources to improve the packing process before addressing the decorative element issue."
           },
           {
             "id": "sigma-level-not-final-en-014",
             "kind": "paragraph",
+            "page": 9,
             "text": "After the packing process is improved, the plant might then consider whether to improve the decorating process or the shipping process. As part of that consideration, the company might conduct customer surveys to reveal that some customers have stopped buying the product because of the decorative element issue. An analyst estimates that the loss of sales related to that issue are costing the company $1,000 a week. Shipping issues are costing the company $500 a week."
           },
           {
             "id": "sigma-level-not-final-en-015",
             "kind": "paragraph",
+            "page": 9,
             "text": "Should the company address the costlier issue first? What if you were told that the shipping process could be improved with staff training sessions, while the decorative element issue required an expensive machinery update? Sometimes, organizations have to consider the expense of an improvement. Applying a Six Sigma project to all situations isn’t financially lucrative since those improvements take time and money. A Six Sigma culture is about continuous improvement, which means teams consider all options before embarking on the most lucrative improvement measures."
           }
         ],
@@ -800,16 +904,19 @@
           {
             "id": "sigma-level-not-final-zh-001",
             "kind": "paragraph",
+            "page": 9,
             "text": "西格玛水平能让组织从高层次了解流程表现，但不同流程之间仅比较西格玛水平，并不总能指出最应该优先改进的流程。领导层还应考虑成本、资源以及改进的预期影响。"
           },
           {
             "id": "sigma-level-not-final-zh-002",
             "kind": "paragraph",
+            "page": 9,
             "text": "例如，在一家食品加工厂中，可能存在以下流程："
           },
           {
             "id": "sigma-level-not-final-zh-003",
             "kind": "table",
+            "page": 9,
             "rows": [
               [
                 "流程",
@@ -837,16 +944,19 @@
           {
             "id": "sigma-level-not-final-zh-004",
             "kind": "paragraph",
+            "page": 9,
             "text": "只看西格玛水平，添加装饰元素的流程最需要改进，因为它缺陷率最高。但工厂领导还要问：这对客户有多重要？它对利润底线的影响有多大？"
           },
           {
             "id": "sigma-level-not-final-zh-005",
             "kind": "paragraph",
+            "page": 9,
             "text": "多数客户可能更在意产品是否密封保鲜、是否送达正确地点。由于变质产品必须丢弃，最昂贵的错误很可能来自包装密封不当。因此，工厂可能先把资源投入包装流程，而不是装饰元素流程。"
           },
           {
             "id": "sigma-level-not-final-zh-006",
             "kind": "paragraph",
+            "page": 9,
             "text": "包装流程改进后，工厂再考虑是否改进装饰流程或运输流程。若客户调查显示，一些客户因装饰问题停止购买产品，分析师估计该问题每周造成 1,000 美元销售损失，而运输问题每周造成 500 美元损失。此时是否一定先处理成本更高的问题？如果运输流程只需员工培训即可改善，而装饰问题需要昂贵设备升级呢？有时组织必须把改进成本纳入考虑。六西格玛文化强调持续改进，团队应在启动最有价值的改进措施前综合评估所有选择。"
           }
         ]
@@ -865,6 +975,7 @@
           {
             "id": "common-six-sigma-principles-en-001",
             "kind": "paragraph",
+            "page": 10,
             "text": "Organizations can impact their sigma level by integrating core principles from the Six Sigma methodology into leadership styles, process management, and improvement endeavors. The principles of Six Sigma, and the tools used to achieve them, are covered in detail in various sections of this book, but some common ideas are introduced below."
           }
         ],
@@ -872,6 +983,7 @@
           {
             "id": "common-six-sigma-principles-zh-001",
             "kind": "paragraph",
+            "page": 10,
             "text": "组织可以通过把六西格玛核心原则融入领导方式、流程管理和改进行动，影响自身的西格玛水平。六西格玛原则及相关工具将在本书各部分详细展开，下面先介绍几个常见思想。"
           }
         ]
@@ -890,46 +1002,55 @@
           {
             "id": "customer-focused-improvement-en-001",
             "kind": "paragraph",
+            "page": 10,
             "text": "In the illustration about the food plant, we saw that the Six Sigma process doesn’t just make improvements for the sake of driving up sigma levels. A primary principle of the methodology is a focus on the customer. In Chapter 5, we’ll look at the Voice of the Customer (VoC) and ways for establishing what the customer really wants from a product or process. By combining that knowledge with measurements, statistics, and process improvement methods, organizations increase customer satisfaction, ultimately bolstering profits, customer retention, and loyalty."
           },
           {
             "id": "customer-focused-improvement-en-002",
             "kind": "paragraph",
+            "page": 10,
             "text": "A detailed understanding of the customer and customer desires not only lets businesses customize product offerings and services, but it also lets organizations:"
           },
           {
             "id": "customer-focused-improvement-en-003",
             "kind": "listItem",
+            "page": 10,
             "text": "Offer additional features customers want and are willing to pay for"
           },
           {
             "id": "customer-focused-improvement-en-004",
             "kind": "listItem",
+            "page": 10,
             "text": "Prioritize product development to meet current needs"
           },
           {
             "id": "customer-focused-improvement-en-005",
             "kind": "listItem",
+            "page": 10,
             "text": "Develop new ideas based on customer feedback"
           },
           {
             "id": "customer-focused-improvement-en-006",
             "kind": "listItem",
+            "page": 10,
             "text": "Understand changing trends in the market"
           },
           {
             "id": "customer-focused-improvement-en-007",
             "kind": "listItem",
+            "page": 10,
             "text": "Identify areas of concern"
           },
           {
             "id": "customer-focused-improvement-en-008",
             "kind": "listItem",
+            "page": 10,
             "text": "Prioritize work on challenges based on how customers perceive various problems or issues"
           },
           {
             "id": "customer-focused-improvement-en-009",
             "kind": "listItem",
+            "page": 10,
             "text": "Test solutions and ideas before investing time and money in them"
           }
         ],
@@ -937,51 +1058,61 @@
           {
             "id": "customer-focused-improvement-zh-001",
             "kind": "paragraph",
+            "page": 10,
             "text": "从食品工厂的例子可以看到，六西格玛流程并不是为了提高西格玛水平而盲目改进。该方法的首要原则之一是关注客户。第 5 章会介绍客户之声（Voice of the Customer，VoC），以及如何确定客户真正希望从产品或流程中获得什么。将客户理解与测量、统计和流程改进方法结合起来，组织可以提升客户满意度，并最终增强利润、客户留存和忠诚度。"
           },
           {
             "id": "customer-focused-improvement-zh-002",
             "kind": "paragraph",
+            "page": 10,
             "text": "深入理解客户及其需求，不仅能帮助企业定制产品和服务，还能帮助组织："
           },
           {
             "id": "customer-focused-improvement-zh-003",
             "kind": "listItem",
+            "page": 10,
             "text": "提供客户想要且愿意付费的附加功能。"
           },
           {
             "id": "customer-focused-improvement-zh-004",
             "kind": "listItem",
+            "page": 10,
             "text": "根据当前需求确定产品开发优先级。"
           },
           {
             "id": "customer-focused-improvement-zh-005",
             "kind": "listItem",
+            "page": 10,
             "text": "基于客户反馈发展新想法。"
           },
           {
             "id": "customer-focused-improvement-zh-006",
             "kind": "listItem",
+            "page": 10,
             "text": "理解市场趋势变化。"
           },
           {
             "id": "customer-focused-improvement-zh-007",
             "kind": "listItem",
+            "page": 10,
             "text": "识别需要关注的领域。"
           },
           {
             "id": "customer-focused-improvement-zh-008",
             "kind": "listItem",
+            "page": 10,
             "text": "根据客户对不同问题的感知，确定挑战处理优先级。"
           },
           {
             "id": "customer-focused-improvement-zh-009",
             "kind": "listItem",
+            "page": 10,
             "text": "在投入时间和资金前测试解决方案与想法。"
           },
           {
             "id": "customer-focused-improvement-zh-010",
             "kind": "termNote",
+            "page": 10,
             "rows": [
               [
                 "术语说明 VOC：Voice of the Customer，客户之声；指客户需求、抱怨、期望和偏好的系统化输入。"
@@ -1005,96 +1136,115 @@
           {
             "id": "value-streams-en-001",
             "kind": "paragraph",
+            "page": 10,
             "text": "The value stream is the sequence of all items, events, and people required to produce an end result. For example, the value stream for serving a hotdog with ketchup to someone would include:"
           },
           {
             "id": "value-streams-en-002",
             "kind": "listItem",
+            "page": 10,
             "text": "A hotdog supplier"
           },
           {
             "id": "value-streams-en-003",
             "kind": "listItem",
+            "page": 10,
             "text": "A bun supplier"
           },
           {
             "id": "value-streams-en-004",
             "kind": "listItem",
+            "page": 10,
             "text": "A ketchup supplier"
           },
           {
             "id": "value-streams-en-005",
             "kind": "listItem",
+            "page": 10,
             "text": "Hotdogs"
           },
           {
             "id": "value-streams-en-006",
             "kind": "listItem",
+            "page": 10,
             "text": "Buns"
           },
           {
             "id": "value-streams-en-007",
             "kind": "listItem",
+            "page": 10,
             "text": "Ketchup"
           },
           {
             "id": "value-streams-en-008",
             "kind": "listItem",
+            "page": 10,
             "text": "A cooking procedure for the hotdog"
           },
           {
             "id": "value-streams-en-009",
             "kind": "listItem",
+            "page": 10,
             "text": "A pot"
           },
           {
             "id": "value-streams-en-010",
             "kind": "listItem",
+            "page": 10,
             "text": "Tongs"
           },
           {
             "id": "value-streams-en-011",
             "kind": "listItem",
+            "page": 10,
             "text": "Someone to do the cooking"
           },
           {
             "id": "value-streams-en-012",
             "kind": "listItem",
+            "page": 10,
             "text": "A plate"
           },
           {
             "id": "value-streams-en-013",
             "kind": "listItem",
+            "page": 10,
             "text": "Someone to put the hotdog into the bun"
           },
           {
             "id": "value-streams-en-014",
             "kind": "listItem",
+            "page": 10,
             "text": "Someone to put the ketchup on the hotdog"
           },
           {
             "id": "value-streams-en-015",
             "kind": "listItem",
+            "page": 10,
             "text": "Someone to put the completed hotdog onto a plate"
           },
           {
             "id": "value-streams-en-016",
             "kind": "listItem",
+            "page": 10,
             "text": "Someone to serve the hotdog to another"
           },
           {
             "id": "value-streams-en-017",
             "kind": "paragraph",
+            "page": 10,
             "text": "If you combine all of the above processes into a pictorial representation of exactly how these elements become the served hotdog, then you have a value stream map."
           },
           {
             "id": "value-streams-en-018",
             "kind": "paragraph",
+            "page": 10,
             "text": "The purpose for determining a value stream for a process is that you can identify areas of concern, waste, and improvement. In the above process, are there four different people putting the hotdog together and serving it, or is one person doing all four of those tasks? Is the supplier a single grocery store, or are you shopping for items at various stores and why? Do you get savings benefits to offset the"
           },
           {
             "id": "value-streams-en-019",
             "kind": "paragraph",
+            "page": 10,
             "text": "added time spent working with multiple suppliers? These are some examples of the questions you can reveal and answer during value stream mapping."
           }
         ],
@@ -1102,36 +1252,43 @@
           {
             "id": "value-streams-zh-001",
             "kind": "paragraph",
+            "page": 10,
             "text": "价值流是为了产生最终结果而需要的所有事项、事件和人员的序列。例如，为某人提供一个加番茄酱的热狗，其价值流可能包括："
           },
           {
             "id": "value-streams-zh-002",
             "kind": "listItem",
+            "page": 10,
             "text": "热狗供应商、面包供应商、番茄酱供应商。"
           },
           {
             "id": "value-streams-zh-003",
             "kind": "listItem",
+            "page": 10,
             "text": "热狗、面包、番茄酱，以及烹制热狗的程序。"
           },
           {
             "id": "value-streams-zh-004",
             "kind": "listItem",
+            "page": 10,
             "text": "锅、夹子、负责烹制的人、盘子。"
           },
           {
             "id": "value-streams-zh-005",
             "kind": "listItem",
+            "page": 10,
             "text": "把热狗放入面包的人、添加番茄酱的人、装盘的人、把热狗端给顾客的人。"
           },
           {
             "id": "value-streams-zh-006",
             "kind": "paragraph",
+            "page": 10,
             "text": "如果把上述所有过程用图形准确表示出来，说明这些要素如何变成最终端出的热狗，就形成了价值流图。确定流程价值流的目的，是识别关注点、浪费和改进机会。在上述流程中，是否有四个人分别完成夹热狗、加番茄酱、装盘和端送？若是，产品在四个人之间转手是否增加了时间？是否由一个人完成会更快？供应商是否是一家杂货店，还是从多家商店采购，原因是什么？多供应商带来的节省是否足以抵消额外协作时间？这些都是价值流图能帮助揭示并回答的问题。"
           },
           {
             "id": "value-streams-zh-007",
             "kind": "termNote",
+            "page": 10,
             "rows": [
               [
                 "术语说明 Value Stream：从需求到交付结果的完整活动链，包含增值活动和非增值活动；用于识别浪费和改进机会。"
@@ -1155,6 +1312,7 @@
           {
             "id": "continuous-process-improvement-en-001",
             "kind": "paragraph",
+            "page": 11,
             "text": "Inherent in the Six Sigma method is continuous process improvement. An organization that completely adopts a Six Sigma methodology never stops improving. It identifies and prioritizes areas of opportunity on a continuous basis. Once one area is improved upon, the organization moves on to improving another area. If a process is improved from 4 Sigma to 4.4 Sigma, the organization considers ways to move the sigma level up further. The goal is to move ever closer to the “perfect” level of 99.99966 accuracy for all processes within an organization while maintaining other goals and requirements, such as financial stability, as quickly as possible."
           }
         ],
@@ -1162,6 +1320,7 @@
           {
             "id": "continuous-process-improvement-zh-001",
             "kind": "paragraph",
+            "page": 11,
             "text": "持续流程改进是六西格玛方法的内在要求。真正采用六西格玛方法的组织不会停止改进，而会持续识别并优先处理机会领域。一个领域改进后，组织会继续改进另一个领域。如果某流程从 4 西格玛提升到 4.4 西格玛，组织还会继续寻找进一步提升的方法。目标是在尽快满足财务稳定等其他要求的同时，使组织内所有流程逐步接近 99.99966% 准确率的“近乎完美”水平。"
           }
         ]
@@ -1180,16 +1339,19 @@
           {
             "id": "variation-en-001",
             "kind": "paragraph",
+            "page": 11,
             "text": "One of the ways to continuously improve a process is to reduce the variation in the process. Every process contains inherent variation: in a call center with 20 employees, variation will exist in each phone call even if the calls are scripted. Inflection, accents, environmental concerns, and caller moods are just some things that lead to variation in this circumstance. By providing employees with a script or suggested comments for common scenarios, the call center reduces variation to some degree."
           },
           {
             "id": "variation-en-002",
             "kind": "paragraph",
+            "page": 11,
             "text": "Consider another example: A pizzeria. The employees are instructed to use certain amounts of ingredients for each size of pizza. A small gets one cup of cheese; a large gets two cups. The pizzeria owner notes a great deal of variation in how much cheese is on each pizza, and he fears it will lead to inconsistent customer experiences. To reduce variation, he provides employees with two measuring cups: a 1-cup container for small pizzas and a 2-cup container for large pizzas."
           },
           {
             "id": "variation-en-003",
             "kind": "paragraph",
+            "page": 11,
             "text": "The variation is reduced, but it is still present. Some employees pour cheese into the cups and some scoop it. Some fill the cups just to the rim; others let the cheese create a mound above the rim. The owner acts to reduce variation again: he trains all employees to fill the cup over the rim and use a flat spatula to scrape excess cheese off. While variation will still exist due to factors such as air pockets or how cheese settles in the cup, it is greatly reduced, and customers experience more consistent pizzas."
           }
         ],
@@ -1197,21 +1359,25 @@
           {
             "id": "variation-zh-001",
             "kind": "paragraph",
+            "page": 11,
             "text": "持续改进流程的一种方式是减少流程变异。每个流程都有固有变异：例如一个有 20 名员工的呼叫中心，即便所有电话都有脚本，不同电话之间仍会因为语调、口音、环境和来电者情绪而产生差异。通过为员工提供脚本或常见场景建议话术，呼叫中心可以在一定程度上减少变异。"
           },
           {
             "id": "variation-zh-002",
             "kind": "paragraph",
+            "page": 11,
             "text": "再看一家披萨店。员工被要求按披萨尺寸使用固定配料量：小披萨一杯奶酪，大披萨两杯奶酪。店主发现每个披萨上的奶酪量差异很大，担心客户体验不一致。为减少变异，他给员工提供两个量杯：小披萨用一杯量杯，大披萨用两杯量杯。"
           },
           {
             "id": "variation-zh-003",
             "kind": "paragraph",
+            "page": 11,
             "text": "变异降低了，但并未消失。有的员工把奶酪倒入量杯，有的用勺舀；有人只装到杯口，有人让奶酪高出杯口形成小堆。店主再次减少变异：培训所有员工把奶酪装到超过杯口，然后用平刮刀刮去多余奶酪。虽然空气间隙或奶酪沉降方式仍会造成变异，但整体变异大幅减少，客户得到的披萨也更一致。"
           },
           {
             "id": "variation-zh-004",
             "kind": "termNote",
+            "page": 11,
             "rows": [
               [
                 "术语说明 Variation：流程输出的波动程度。减少不必要的变异，是稳定质量和提升客户体验的前提。"
@@ -1235,11 +1401,13 @@
           {
             "id": "removing-waste-en-001",
             "kind": "paragraph",
+            "page": 11,
             "text": "Remember the hotdog example for value streams? We asked the question: do four different people act to place the hotdog in the bun, put the ketchup on the hotdog, plate the hotdog, and serve it? If so, does the process take more time because the product has to be transferred between four people? Would it be faster to have one person perform all those actions? If so, then we’ve identified some waste in the process—in this case, waste of conveyance."
           },
           {
             "id": "removing-waste-en-002",
             "kind": "paragraph",
+            "page": 11,
             "text": "Removing waste—items, actions, or people that are unnecessary to the outcome of a process—reduces processing time, opportunities for errors, and overall costs. While waste is a major concern in the Six Sigma methodology, the concept of waste comes from a methodology known as Lean Process Management.."
           }
         ],
@@ -1247,16 +1415,19 @@
           {
             "id": "removing-waste-zh-001",
             "kind": "paragraph",
+            "page": 11,
             "text": "还记得热狗价值流的例子吗？如果夹热狗、加番茄酱、装盘、端送分别由四个人完成，流程是否因为产品要在四个人之间传递而耗时更长？如果一个人能完成所有动作，是否会更快？若答案是肯定的，我们就识别出流程中的一种浪费，在这个例子里是搬运浪费。"
           },
           {
             "id": "removing-waste-zh-002",
             "kind": "paragraph",
+            "page": 11,
             "text": "消除浪费，即去除对流程结果并非必要的事项、动作或人员，可以减少处理时间、出错机会和总体成本。虽然浪费是六西格玛方法中的重要关注点，但“浪费”这一概念来自精益流程管理。"
           },
           {
             "id": "removing-waste-zh-003",
             "kind": "termNote",
+            "page": 11,
             "rows": [
               [
                 "术语说明 Waste / Lean：Waste 是消耗资源但不为客户增加价值的活动；Lean 强调识别并消除浪费，使流程更快、更顺、更少返工。"
@@ -1280,11 +1451,13 @@
           {
             "id": "equipping-people-en-001",
             "kind": "paragraph",
+            "page": 11,
             "text": "Implementing improved processes is a temporary measure unless organizations equip their employees working with processes to monitor and maintain improvements. In most organizations, process improvement includes a two-pronged approach. First, a process improvement team comprised of"
           },
           {
             "id": "equipping-people-en-002",
             "kind": "paragraph",
+            "page": 11,
             "text": "project management, methodology experts, and subject-matter experts define, plan, and implement an improvement. That team then equips the employees who work directly with the process daily to control and manage the process in its improved state."
           }
         ],
@@ -1292,6 +1465,7 @@
           {
             "id": "equipping-people-zh-001",
             "kind": "paragraph",
+            "page": 11,
             "text": "如果组织没有让直接参与流程的员工掌握监控和维持改进的方法，改进流程只能是暂时措施。多数组织中的流程改进通常采用双重路径：首先，由项目管理人员、方法专家和主题专家组成的流程改进团队定义、规划并实施改进；随后，该团队赋能每天直接处理流程的员工，使他们能够在改进后的状态下控制和管理流程。"
           }
         ]
@@ -1310,6 +1484,7 @@
           {
             "id": "controlling-the-process-en-001",
             "kind": "paragraph",
+            "page": 11,
             "text": "Often, Six Sigma improvements address processes that are out of control. Out of control processes meet specific statistical requirements. The goal of improvement is to bring a process back within a state of statistical control. Then, after improvements are implemented, measurements, statistics, and other Six Sigma tools are used to ensure the process remains in control. Part of any continuous improvement process is ensuring such controls are put in place and that the employees who are hands-on with the process on a regular basis know how to use the controls."
           }
         ],
@@ -1317,11 +1492,13 @@
           {
             "id": "controlling-the-process-zh-001",
             "kind": "paragraph",
+            "page": 11,
             "text": "六西格玛改进通常针对失控流程。所谓失控流程，是指满足特定统计条件、表现出不受控状态的流程。改进目标是让流程回到统计受控状态。改进实施后，组织继续使用测量、统计和其他六西格玛工具，确保流程保持受控。任何持续改进流程的一部分，都是建立这些控制，并确保经常接触流程的一线员工知道如何使用这些控制。"
           },
           {
             "id": "controlling-the-process-zh-002",
             "kind": "termNote",
+            "page": 11,
             "rows": [
               [
                 "术语说明 Control：控制不是事后检查，而是通过指标、规则和反馈机制，让改进后的流程持续保持稳定。"
@@ -1345,11 +1522,13 @@
           {
             "id": "challenges-of-six-sigma-en-001",
             "kind": "paragraph",
+            "page": 12,
             "text": "Six Sigma is not without its own challenges. As an expansive method that requires commitment to continuous improvement, Six Sigma is often viewed as an expensive or unnecessary process, especially for small or mid-sized organizations. Leadership at Ideal Aerosmith, a manufacturing and engineering company in Minnesota, was skeptical of Six Sigma ideas and the costs associated with implementing them. Despite reservations, the company waded into Six Sigma implementations, eventually seeing worthwhile results after only 18 months. Those results included a production improvement of 25 percent, a 5 percent improvement in profits within the first year, and a 30 percent improvement in timely deliverables.4"
           },
           {
             "id": "challenges-of-six-sigma-en-002",
             "kind": "paragraph",
+            "page": 12,
             "text": "Some obstacles and challenges that often stand in the way of positive results from Six Sigma include lack of support, resources, or knowledge, poor execution of projects, inconsistent access to valid statistical data, and concerns about using the methodology in new industries."
           }
         ],
@@ -1357,11 +1536,13 @@
           {
             "id": "challenges-of-six-sigma-zh-001",
             "kind": "paragraph",
+            "page": 12,
             "text": "六西格玛也有自身挑战。作为一种范围广、需要持续改进承诺的方法，六西格玛常被视为昂贵或不必要的流程，尤其对中小型组织而言更是如此。位于明尼苏达州的制造和工程公司 Ideal Aerosmith 的领导层曾对六西格玛理念及实施成本持怀疑态度。尽管有所保留，该公司仍开始实施六西格玛，并在 18 个月后看到有价值的成果，包括产量提升 25%、第一年利润提升 5%、按时交付提升 30%。"
           },
           {
             "id": "challenges-of-six-sigma-zh-002",
             "kind": "paragraph",
+            "page": 12,
             "text": "阻碍六西格玛取得积极成果的常见障碍包括：缺乏支持、资源或知识；项目执行不佳；无法持续获得有效统计数据；以及对在新行业中使用该方法的顾虑。"
           }
         ]
@@ -1380,31 +1561,37 @@
           {
             "id": "lack-of-support-en-001",
             "kind": "paragraph",
+            "page": 12,
             "text": "Six Sigma requires support and buy-in at all levels of an organization. Leaders and executives must be willing to back initiatives with resources—financial and labor related. Subject-matter experts must be open to sharing information about their processes with project teams, and employees at all levels must embrace the idea of change and improvement and participate in training. Common barriers to support include:"
           },
           {
             "id": "lack-of-support-en-002",
             "kind": "listItem",
+            "page": 12,
             "text": "Leaders that are unfamiliar with or don’t understand the Six Sigma process"
           },
           {
             "id": "lack-of-support-en-003",
             "kind": "listItem",
+            "page": 12,
             "text": "Leaders willing to pursue improvements initially but who lose interest in overseeing and championing projects before they are completed"
           },
           {
             "id": "lack-of-support-en-004",
             "kind": "listItem",
+            "page": 12,
             "text": "Staff that is fearful of change, especially in an environment when change has historically caused negative consequences for employees"
           },
           {
             "id": "lack-of-support-en-005",
             "kind": "listItem",
+            "page": 12,
             "text": "Employees who are resistant to change because they believe improvements might make them obsolete, drastically change their jobs, or make their jobs harder"
           },
           {
             "id": "lack-of-support-en-006",
             "kind": "listItem",
+            "page": 12,
             "text": "Department heads or employees who constantly champion their own processes and needs and are unwilling to enter into big-picture thinking"
           }
         ],
@@ -1412,31 +1599,37 @@
           {
             "id": "lack-of-support-zh-001",
             "kind": "paragraph",
+            "page": 12,
             "text": "六西格玛需要组织各层级的支持和认同。领导者和高管必须愿意以资金和人力资源支持改进行动；主题专家应愿意向项目团队分享流程信息；各层级员工也需要接受变化和改进理念，并参与培训。常见支持障碍包括："
           },
           {
             "id": "lack-of-support-zh-002",
             "kind": "listItem",
+            "page": 12,
             "text": "领导者不熟悉或不了解六西格玛流程。"
           },
           {
             "id": "lack-of-support-zh-003",
             "kind": "listItem",
+            "page": 12,
             "text": "领导者起初愿意推动改进，但在项目完成前失去监督和倡导兴趣。"
           },
           {
             "id": "lack-of-support-zh-004",
             "kind": "listItem",
+            "page": 12,
             "text": "员工害怕改变，尤其是在历史上改变曾给员工带来负面后果的环境中。"
           },
           {
             "id": "lack-of-support-zh-005",
             "kind": "listItem",
+            "page": 12,
             "text": "员工抵触改变，因为担心改进会让自己被替代、显著改变工作，或让工作更难。"
           },
           {
             "id": "lack-of-support-zh-006",
             "kind": "listItem",
+            "page": 12,
             "text": "部门负责人或员工持续维护本部门流程和需求，不愿从整体视角思考。"
           }
         ]
@@ -1455,6 +1648,7 @@
           {
             "id": "lack-of-resources-en-001",
             "kind": "paragraph",
+            "page": 13,
             "text": "Lack of resources can be a challenge to Six Sigma initiatives, but they don’t have to be a barrier. Lack of knowledge about how to use and implement Six Sigma is one of the first issues small- and mid-sized companies face. Smaller businesses can’t always afford to hire dedicated resources to handle continuous process improvement, but the availability of resources and Six Sigma training makes it increasingly possible for organizations to use some of the tools without an expert or to send in-house staff to be certified in Six Sigma."
           }
         ],
@@ -1462,6 +1656,7 @@
           {
             "id": "lack-of-resources-zh-001",
             "kind": "paragraph",
+            "page": 13,
             "text": "缺乏资源可能是六西格玛项目的挑战，但并不一定构成障碍。中小企业首先面临的问题之一，是缺乏使用和实施六西格玛的知识。小企业并不总能聘请专职人员处理持续流程改进，但随着培训资源和六西格玛课程更容易获得，组织越来越可以在没有专家的情况下使用部分工具，或派内部员工取得六西格玛认证。"
           }
         ]
@@ -1480,6 +1675,7 @@
           {
             "id": "poor-project-execution-en-001",
             "kind": "paragraph",
+            "page": 13,
             "text": "Companies implementing Six Sigma for the first time, especially in a project environment, often turn away from the entire methodology if the first project or improvement falls flat. Proponents of Six Sigma within any organization really have to hit it out of the ballpark with the first project if leadership and others are on the fence about the methodology. Teams can help avoid poor project performance by taking extreme care to execute every phase of the project correctly. By choosing low-risk, high-reward improvements, teams can also stack the deck in their favor with first-time projects. The only disadvantage with such a tactic is that it can be hard to duplicate the wow factor with subsequent improvements, making it important to remember that long-term implementation and commitment is vital in Six Sigma."
           }
         ],
@@ -1487,6 +1683,7 @@
           {
             "id": "poor-project-execution-zh-001",
             "kind": "paragraph",
+            "page": 13,
             "text": "首次实施六西格玛的公司，尤其是在项目制环境中，如果第一个项目或改进效果不佳，往往会转而放弃整个方法。若领导层和其他相关人员仍在观望，组织内的六西格玛推动者必须让第一个项目取得足够有说服力的成果。团队可以通过谨慎、正确地执行项目每个阶段来避免绩效不佳；也可以选择低风险、高回报的改进，为首个项目创造有利条件。这种策略的不足在于，后续改进未必总能复制第一次的惊艳效果，因此长期实施和持续承诺对六西格玛至关重要。"
           }
         ]
@@ -1505,36 +1702,43 @@
           {
             "id": "data-access-issues-en-001",
             "kind": "paragraph",
+            "page": 13,
             "text": "Data and analytics issues are a common challenge for organizations of all sizes. Gaining access to consistent and accurate data streams—and applying statistical analysis to that data in an appropriate manner—is difficult. Some data-related challenges include:"
           },
           {
             "id": "data-access-issues-en-002",
             "kind": "listItem",
+            "page": 13,
             "text": "Discovering that an important process metric is not being captured"
           },
           {
             "id": "data-access-issues-en-003",
             "kind": "listItem",
+            "page": 13,
             "text": "The use of manual data processes in many processes"
           },
           {
             "id": "data-access-issues-en-004",
             "kind": "listItem",
+            "page": 13,
             "text": "Automated data processes that capture enormous amounts and create scope challenges"
           },
           {
             "id": "data-access-issues-en-005",
             "kind": "listItem",
+            "page": 13,
             "text": "Data that is skewed due to assumptions, human interaction in the process, or incorrect capture"
           },
           {
             "id": "data-access-issues-en-006",
             "kind": "listItem",
+            "page": 13,
             "text": "Lengthy times between raw data capture and access"
           },
           {
             "id": "data-access-issues-en-007",
             "kind": "listItem",
+            "page": 13,
             "text": "Industry or company compliance rules that make it difficult to gain access to necessary data"
           }
         ],
@@ -1542,36 +1746,43 @@
           {
             "id": "data-access-issues-zh-001",
             "kind": "paragraph",
+            "page": 13,
             "text": "数据和分析问题是各种规模组织共同面对的挑战。获得一致、准确的数据流，并以适当方式对数据进行统计分析并不容易。常见数据挑战包括："
           },
           {
             "id": "data-access-issues-zh-002",
             "kind": "listItem",
+            "page": 13,
             "text": "发现重要流程指标没有被采集。"
           },
           {
             "id": "data-access-issues-zh-003",
             "kind": "listItem",
+            "page": 13,
             "text": "许多流程仍依赖手工数据处理。"
           },
           {
             "id": "data-access-issues-zh-004",
             "kind": "listItem",
+            "page": 13,
             "text": "自动化数据流程捕获了海量数据，反而带来范围界定挑战。"
           },
           {
             "id": "data-access-issues-zh-005",
             "kind": "listItem",
+            "page": 13,
             "text": "数据因假设、人为交互或采集错误而产生偏差。"
           },
           {
             "id": "data-access-issues-zh-006",
             "kind": "listItem",
+            "page": 13,
             "text": "从原始数据采集到可访问之间耗时过长。"
           },
           {
             "id": "data-access-issues-zh-007",
             "kind": "listItem",
+            "page": 13,
             "text": "行业或公司合规规则使获取必要数据变得困难。"
           }
         ]
@@ -1590,6 +1801,7 @@
           {
             "id": "industry-concerns-en-001",
             "kind": "paragraph",
+            "page": 13,
             "text": "Six Sigma originated in the manufacturing industry and many of the concepts and tools of the methodology are still taught in the context of a factory or industrial environment. Because of this, organizations often discount the methods or believe they will be too difficult to implement in other industries. In reality, Six Sigma can be customized to any industry."
           }
         ],
@@ -1597,6 +1809,7 @@
           {
             "id": "industry-concerns-zh-001",
             "kind": "paragraph",
+            "page": 13,
             "text": "六西格玛起源于制造业，许多概念和工具至今仍在工厂或工业环境语境下教授。因此，组织常常低估这些方法，或认为它们很难在其他行业实施。事实上，六西格玛可以针对任何行业进行定制。"
           }
         ]
@@ -1615,16 +1828,19 @@
           {
             "id": "chapter-sources-en-001",
             "kind": "paragraph",
+            "page": 13,
             "text": "1“Air Traffic,” Science on a Sphere, National Oceanic and Atmospheric Administration. http://sos.noaa.gov/Datasets/dataset.php?id=44 2 “Inpatient Surgery,” FastStats, Centers for Disease Control and Prevention. http://www.cdc.gov/nchs/fastats/inpatient-surgery.htm"
           },
           {
             "id": "chapter-sources-en-002",
             "kind": "paragraph",
+            "page": 13,
             "text": "3 Siegel, Jacob, “Amazon sold 426 items per second during its ‘best ever’ holiday season,” Boy Genius Reports, Dec. 26, 2013. http://bgr.com/2013/12/26/amazon-holiday-season-sales-2013/"
           },
           {
             "id": "chapter-sources-en-003",
             "kind": "paragraph",
+            "page": 13,
             "text": "4 Gupta, Praveen and Schultz, Barb, “Six Sigma Success in Small Business,” Quality Digest. http://www.qualitydigest.com/april05/articles/02_article.shtml"
           }
         ],
@@ -1632,21 +1848,25 @@
           {
             "id": "chapter-sources-zh-001",
             "kind": "listItem",
+            "page": 13,
             "text": "National Oceanic and Atmospheric Administration, Science on a Sphere: http://sos.noaa.gov/Datasets/dataset.php?id=44"
           },
           {
             "id": "chapter-sources-zh-002",
             "kind": "listItem",
+            "page": 13,
             "text": "Centers for Disease Control and Prevention, FastStats: http://www.cdc.gov/nchs/fastats/inpatient-surgery.htm"
           },
           {
             "id": "chapter-sources-zh-003",
             "kind": "listItem",
+            "page": 13,
             "text": "Boy Genius Reports, Dec. 26, 2013: http://bgr.com/2013/12/26/amazon-holiday-season-sales-2013/"
           },
           {
             "id": "chapter-sources-zh-004",
             "kind": "listItem",
+            "page": 13,
             "text": "Quality Digest, Six Sigma Success in Small Business: http://www.qualitydigest.com/april05/articles/02_article.shtml"
           }
         ]

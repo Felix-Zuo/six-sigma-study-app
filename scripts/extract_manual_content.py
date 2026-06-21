@@ -16,11 +16,13 @@ from extract_chapter_content import (
     DEFAULT_EN_DOCX,
     DEFAULT_REPO_ROOT,
     DEFAULT_ZH_DOCX,
+    assign_estimated_pages,
     attach_assets_to_lesson,
     build_lesson,
     iter_doc_items,
     normalize_heading_item,
     normalize_title,
+    section_range_end,
     serialize_block,
     write_json,
 )
@@ -292,7 +294,15 @@ def content_has_blocks(items: list[dict[str, Any]]) -> bool:
     return any(item.get("kind") != "heading" or item.get("text") for item in items)
 
 
-def serialize_items(section_id: str, lang: str, items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def serialize_items(
+    section_id: str,
+    lang: str,
+    items: list[dict[str, Any]],
+    page_start: int | None = None,
+    page_end: int | None = None,
+) -> list[dict[str, Any]]:
+    if page_start is not None and page_end is not None:
+        items = assign_estimated_pages(items, page_start, page_end)
     return [
         serialize_block(item, section_id, lang, index)
         for index, item in enumerate(items, start=1)
@@ -322,8 +332,8 @@ def build_sectionized_chapter(
                 "page": page_start,
                 "title": {"en": en_title, "zh": zh_title},
                 "content": {
-                    "en": serialize_items(section_id, "en", en_body),
-                    "zh": serialize_items(section_id, "zh", zh_body),
+                    "en": serialize_items(section_id, "en", en_body, page_start, page_end),
+                    "zh": serialize_items(section_id, "zh", zh_body, page_start, page_end),
                 },
             }
         ]
@@ -410,6 +420,8 @@ def build_sectionized_chapter(
         if not content_has_blocks(en_segment) and not content_has_blocks(zh_segment):
             continue
         section_id = unique_section_id(chapter_id, used_ids, index, entry["title"])
+        next_page = en_ranges[index]["page"] if index < len(en_ranges) else None
+        entry_page_end = section_range_end(entry["page"], next_page, page_end)
         sections.append(
             {
                 "id": section_id,
@@ -420,8 +432,8 @@ def build_sectionized_chapter(
                     "zh": entry["zhTitle"],
                 },
                 "content": {
-                    "en": serialize_items(section_id, "en", en_segment),
-                    "zh": serialize_items(section_id, "zh", zh_segment),
+                    "en": serialize_items(section_id, "en", en_segment, entry["page"], entry_page_end),
+                    "zh": serialize_items(section_id, "zh", zh_segment, entry["page"], entry_page_end),
                 },
             }
         )
@@ -462,8 +474,8 @@ def generic_chapter(
         )
         extraction = "python-docx body-order extraction; source-TOC sectionized bilingual content"
     else:
-        en_blocks = [serialize_block(item, section_id, "en", idx) for idx, item in enumerate(en_body, start=1)]
-        zh_blocks = [serialize_block(item, section_id, "zh", idx) for idx, item in enumerate(zh_body, start=1)]
+        en_blocks = serialize_items(section_id, "en", en_body, page_start, page_end)
+        zh_blocks = serialize_items(section_id, "zh", zh_body, page_start, page_end)
         sections = [
             {
                 "id": section_id,

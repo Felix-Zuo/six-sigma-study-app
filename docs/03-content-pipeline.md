@@ -34,8 +34,9 @@ Generated app package:
    - `ch01-overview-en-001`
    - `ch01-fig0001`
    - `term-dmaic`
-7. Validate JSON against schema.
-8. Render spot-check pages in the app.
+7. Estimate a page anchor for every generated content block inside the chapter/section page range.
+8. Validate JSON against schema and source coverage gates.
+9. Render spot-check pages in the app.
 
 ## Current Chapter 1 Implementation
 
@@ -44,6 +45,7 @@ Run:
 ```powershell
 npm run extract:manual
 npm run lint:content
+npm run qa:source-coverage
 ```
 
 The manual extractor reads the aligned English and Chinese DOCX files from `C:\findjob_sixsigma_sources`, builds all 33 chapters for pages 6-449, uses source table-of-contents metadata to split generic chapters into stable section anchors where Word headings exist, preserves Chinese semantic tables, keeps Chinese term-note sidebars, extracts DOCX-embedded figures/tables in body order, deduplicates them by content hash, and builds the offline learner dictionary when `C:\findjob_sixsigma_sources\ecdict.csv` exists.
@@ -52,6 +54,7 @@ Current generated content includes:
 
 - 33 chapters
 - 449 page manifest
+- 9542 generated content blocks with per-block page anchors
 - 470 deduplicated PNG figure assets, about 31.7 MB total
 - 940 image blocks across English and Chinese content streams
 - 3952 offline dictionary entries: curated Six Sigma/course terms plus a manual-scoped ECDICT learner subset
@@ -64,15 +67,19 @@ Chapter 1 has hand-defined detailed section alignment. Chapters 2-33 now use sou
 The source TOC metadata is generated from the local source PDF with:
 
 ```powershell
-& 'C:\Users\左雅轩\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' scripts/extract_source_toc.py
+python scripts/extract_source_toc.py
 ```
 
 The source PDF is copied locally to `C:\findjob_sixsigma_sources\source_manual.pdf` and is not committed.
+
+`npm run qa:source-coverage` expects Poppler under the pure-English local tool path `C:\findjob_sixsigma_tools\poppler\Library\bin` when available. It falls back to the bundled Codex Poppler path or `PATH` binaries.
 
 ## Quality Gates
 
 - full manual has 33 chapters, `pageCount` 449, first study page 6, and continuous chapter page ranges
 - manifest chapter paths resolve to generated chapter JSON files
+- every generated content block has a page anchor inside the chapter range
+- English and Chinese block page anchors cover every page from 6 through 449
 - no empty English or Chinese paragraph pair
 - no duplicated section IDs or block IDs inside chapters or across `manual.json`
 - image blocks have valid asset IDs, dimensions, safe relative paths, existing files, and matching chapter asset metadata
@@ -81,12 +88,13 @@ The source PDF is copied locally to `C:\findjob_sixsigma_sources\source_manual.p
 - production dictionary has at least 3000 entries and includes ECDICT-derived learner entries
 - APK/AAB package checks confirm all 470 figure assets are bundled
 - curated term references resolve
+- source coverage QA confirms the 557-page source PDF, 142 source TOC sections, 127 matched source section anchors, 15 explicitly allowed normal-paragraph source headings, 470 app assets, and nonblank Poppler renders for sampled source pages 9, 73, 396, 544, and 555
 - sample chapter opens on phone viewport without horizontal overflow
 
 ## Open Extraction Problems
 
-- DOCX paragraph order around images is extracted, but full-document visual review against rendered source pages is still incomplete.
+- DOCX paragraph order around images is extracted and source-page render sampling passes, but exhaustive 557-page pixel comparison is intentionally not part of the normal gate.
 - Some tables stay as images; some may become semantic tables in a later refinement pass.
 - Phrase detection needs a curated phrase list before generic NLP.
 - English table recovery needs special handling because some Word tables are represented as heading/paragraph fragments.
-- Some chapters, such as Chapter 28, contain section-like titles as normal paragraphs rather than Word headings; these need curated manual mapping before they can be safely split without misaligning Chinese content.
+- Some chapters, such as Chapter 28, contain section-like titles as normal paragraphs rather than Word headings; the source coverage validator tracks the current 15 allowed unmatched source headings until curated manual mapping is added.

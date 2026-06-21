@@ -34,6 +34,7 @@ It intentionally does **not** commit the full manual DOCX/PDF/PNG assets. Those 
 - Full manual: all 33 chapters, 449 aligned study pages, 174 generated reader sections.
 - Offline runtime package: `manual.json`, 3952-entry offline learner dictionary, local vocabulary store, PWA install cache, and 470 bundled figure/table/formula PNG assets.
 - Reader interactions: EN/ZH toggle with block-aware position restoration, table-of-contents search, persisted dark mode and font size controls, tap-to-lookup, phrase selection lookup, bottom-sheet explanations, local vocabulary save/status, due-based vocabulary review, vocabulary CSV export, and selected-text study notes.
+- Page anchors: every generated content block carries a page anchor, and both English and Chinese content streams cover pages 6-449.
 - Long chapter handling: English word buttons are mounted only near the viewport to avoid huge DOMs.
 - Latest verified implementation CI at the time of this note: `27920637568` on commit `365fe1a`.
 
@@ -46,6 +47,7 @@ cd C:\findjob_sixsigma_app
 npm install
 npm run extract:manual
 npm run lint:content
+npm run qa:source-coverage
 npm run build
 npm run dev
 ```
@@ -63,6 +65,8 @@ For source-TOC-guided section anchors, the local source PDF is copied to:
 - `C:\findjob_sixsigma_sources\source_manual.pdf`
 
 The derived metadata committed to the repo is `content/source/source_toc_sections.json`; the original PDF is not committed.
+
+`npm run qa:source-coverage` validates the local source PDF, source TOC anchors, generated block-level page coverage, 470 app assets, and sampled nonblank Poppler renders. The preferred Poppler runtime is copied to the pure-English path `C:\findjob_sixsigma_tools\poppler\Library\bin` to avoid Unicode path issues in older Poppler wrappers.
 
 Current generated figure package:
 

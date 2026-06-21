@@ -26,11 +26,13 @@
           {
             "id": "ch16-s01-control-en-001",
             "kind": "paragraph",
+            "page": 151,
             "text": "The last stage of a DMAIC project is control. During the control phase, teams build monitors that let them ensure the process continues to work successfully after changes are implemented across the regular business process. At the same time, Six Sigma teams work to transition the process back to the process owner."
           },
           {
             "id": "ch16-s01-control-en-002",
             "kind": "paragraph",
+            "page": 151,
             "text": "Up until this point in the DMAIC process, Six Sigma teams have worked with statistical analysis tools, and a Black Belt or other Six Sigma expert has been present to walk team members through analysis and interpretation. While many organizations train process owners and other employees in Six Sigma fundamentals, it isn’t always true that a process owner and his or her team will be familiar with the statistical controls that Six Sigma experts have been using. Because of that, appropriate documentation via a control plan and education regarding tools such as control charts might be necessary to ensure business teams can maintain a process and identify when it is out of control and needs remediation."
           }
         ],
@@ -38,11 +40,13 @@
           {
             "id": "ch16-s01-control-zh-001",
             "kind": "paragraph",
+            "page": 151,
             "text": "DMAIC 项目的最后阶段是控制。在控制阶段，团队构建监视器，以确保在常规业务流程中实施变更后流程继续成功运行。与此同时，六西格玛团队致力于将流程交还给流程所有者。"
           },
           {
             "id": "ch16-s01-control-zh-002",
             "kind": "termNote",
+            "page": 151,
             "rows": [
               [
                 "术语说明 DMAIC：定义、测量、分析、改进、控制；适用于改进已有流程。"
@@ -53,11 +57,13 @@
           {
             "id": "ch16-s01-control-zh-003",
             "kind": "paragraph",
+            "page": 151,
             "text": "到目前为止，DMAIC流程中，六西格玛团队一直在使用统计分析工具，并有黑带或其他六西格玛专家在场，带领团队成员进行分析和解读。虽然许多组织对流程所有者和其他员工进行六西格玛基础知识培训，但流程所有者及其团队并不总是熟悉六西格玛专家一直在使用的统计控制。因此，可能需要通过控制计划和有关控制图等工具的教育进行适当的记录，以确保业务团队能够维护流程并确定流程何时失控并需要补救。"
           },
           {
             "id": "ch16-s01-control-zh-004",
             "kind": "termNote",
+            "page": 151,
             "rows": [
               [
                 "术语说明 Control Chart（控制图）：用时间序列和控制界限判断过程是否处于受控状态。"
@@ -68,6 +74,7 @@
           {
             "id": "ch16-s01-control-zh-005",
             "kind": "heading",
+            "page": 151,
             "text": "修改FMEA"
           }
         ]
@@ -86,16 +93,19 @@
           {
             "id": "ch16-s02-revise-fmea-en-001",
             "kind": "paragraph",
+            "page": 151,
             "text": "At this time, Six Sigma teams might want to revisit the FMEA tool originally introduced in chapter 13. Six Sigma teams initially use the Failure Modes and Effect Analysis to identify potential failures in a process and causes of those failures. In chapter 13, we discussed how the FMEA listed potential failure points and ranked them according to severity, occurrence, and detection, calculating a total risk priority number."
           },
           {
             "id": "ch16-s02-revise-fmea-en-002",
             "kind": "paragraph",
+            "page": 151,
             "text": "At the end of the improve phase or beginning of the control phase, Six Sigma teams should revisit the FMEA, noting what recommended actions were completed and recalculating risk priority numbers for the improved process. There are two reasons for revisiting the FMEA. First, the team is able to see that positive and significant changes have occurred because of the solutions adapted during the improve phase. For any root cause that matched a solution implemented, the team would hope to see a smaller risk priority number."
           },
           {
             "id": "ch16-s02-revise-fmea-en-003",
             "kind": "paragraph",
+            "page": 151,
             "text": "Second, an updated FMEA helps the team identify the next problem or root cause that might be addressed. Remember, Six Sigma is a continuous improvement initiative. The team might have implemented a solution and met an improvement goal, but further improvements can always be made. Control is a time to review the process and suggest possible improvements for future projects."
           }
         ],
@@ -103,6 +113,7 @@
           {
             "id": "ch16-s02-revise-fmea-zh-001",
             "kind": "termNote",
+            "page": 151,
             "rows": [
               [
                 "术语说明 FMEA：失效模式与影响分析，用于提前识别风险、影响和控制措施。"
@@ -113,16 +124,19 @@
           {
             "id": "ch16-s02-revise-fmea-zh-002",
             "kind": "paragraph",
+            "page": 151,
             "text": "此时，六西格玛团队可能需要重新审视最初在第13章中介绍的FMEA工具。六西格玛团队最初使用故障模式和影响分析来识别过程中的潜在故障以及这些故障的原因。在第13章中，我们讨论了FMEA如何列出潜在的故障点，并根据严重程度、发生情况和检测情况对它们进行排序，计算总风险优先级数。"
           },
           {
             "id": "ch16-s02-revise-fmea-zh-003",
             "kind": "paragraph",
+            "page": 151,
             "text": "在改进阶段结束或控制阶段开始时，六西格玛团队应重新审视 FMEA，记录已完成的建议行动，并重新计算改进过程的风险优先级编号。重新审视 FMEA 有两个原因。首先，团队能够看到由于改进阶段采用的解决方案而发生了积极且重大的变化。对于与所实施的解决方案相匹配的任何根本原因，团队希望看到更小的风险优先级数字。"
           },
           {
             "id": "ch16-s02-revise-fmea-zh-004",
             "kind": "termNote",
+            "page": 151,
             "rows": [
               [
                 "术语说明 Root Cause（根本原因）：真正驱动问题发生的原因；解决它才能防止问题反复出现。"
@@ -133,6 +147,7 @@
           {
             "id": "ch16-s02-revise-fmea-zh-005",
             "kind": "paragraph",
+            "page": 151,
             "text": "其次，更新的 FMEA 可以帮助团队识别下一个可能需要解决的问题或根本原因。请记住，六西格玛是一项持续改进的举措。团队可能已经实施了解决方案并达到了改进目标，但始终可以进行进一步的改进。控制是审查流程并为未来项目提出可能的改进建议的时间。"
           }
         ]
@@ -151,241 +166,289 @@
           {
             "id": "ch16-s03-create-a-control-plan-en-001",
             "kind": "paragraph",
+            "page": 151,
             "text": "To facilitate continued success, Six Sigma teams should create a written control plan for the process owner. The purpose of a control plan is to help the process owner and business team track and respond to key performance indicators so that the process remains improved. The control plan should be a concise, easy-to-reference document that tells the business team when to monitor, how to monitor, what range of data is acceptable to the monitor, and how to respond with corrective action if the range measured is not acceptable."
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-002",
             "kind": "paragraph",
+            "page": 151,
             "text": "Control plans can be spreadsheets, specialized digital documents, or hard-copy documents posted at a work station. Common elements of a control plan include:"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-003",
             "kind": "listItem",
+            "page": 151,
             "text": "Company, division, or department name"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-004",
             "kind": "listItem",
+            "page": 151,
             "text": "Name of person who created the plan"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-005",
             "kind": "listItem",
+            "page": 151,
             "text": "Date the plan was created"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-006",
             "kind": "listItem",
+            "page": 151,
             "text": "Name of the person who last edited the plan"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-007",
             "kind": "listItem",
+            "page": 151,
             "text": "Date the plan was last edited"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-008",
             "kind": "listItem",
+            "page": 151,
             "text": "Project and/or process name or identifier"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-009",
             "kind": "listItem",
+            "page": 151,
             "text": "Process owner"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-010",
             "kind": "listItem",
+            "page": 151,
             "text": "List of process steps where control action is required"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-011",
             "kind": "listItem",
+            "page": 151,
             "text": "CTQ or metric associated with each action required"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-012",
             "kind": "listItem",
+            "page": 151,
             "text": "Limit specifications, or the acceptable range of measurements"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-013",
             "kind": "listItem",
+            "page": 151,
             "text": "The unit of measurement"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-014",
             "kind": "listItem",
+            "page": 151,
             "text": "The method of measurement"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-015",
             "kind": "listItem",
+            "page": 151,
             "text": "The necessary sample size"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-016",
             "kind": "listItem",
+            "page": 151,
             "text": "The frequency of measurement"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-017",
             "kind": "listItem",
+            "page": 152,
             "text": "The person responsible for measurement"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-018",
             "kind": "listItem",
+            "page": 152,
             "text": "Where the information is recorded"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-019",
             "kind": "listItem",
+            "page": 152,
             "text": "Correction actions"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-020",
             "kind": "listItem",
+            "page": 152,
             "text": "Associated policy and procedure documents"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-021",
             "kind": "paragraph",
+            "page": 152,
             "text": "In discussing quality in chapter 8, we introduced the example of a company that makes chocolate bars and noted that the amount of sugar in the chocolate bar recipe was critical to the customer’s experience with the end product. If a Six Sigma team were tasked with improving customer satisfaction with a new chocolate bar product, they might have implemented a solution that ensures the proper amount of sugar is added to the mixture at the right temperature to incorporate the ingredient appropriately."
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-022",
             "kind": "paragraph",
+            "page": 152,
             "text": "A control plan for the new chocolate bar solution might look something like the document below."
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-023",
             "kind": "heading",
+            "page": 152,
             "text": "Company: XYZ Sweets"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-024",
             "kind": "heading",
+            "page": 152,
             "text": "Control Plan Created by: Joe Black Belt"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-025",
             "kind": "paragraph",
+            "page": 152,
             "text": "Process: Sugar addition, raw goods mixture"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-026",
             "kind": "paragraph",
+            "page": 152,
             "text": "Control Plan Created on: Jan. 4, 2012"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-027",
             "kind": "heading",
+            "page": 152,
             "text": "Process Owner: Sue Processor"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-028",
             "kind": "heading",
+            "page": 152,
             "text": "Process Step"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-029",
             "kind": "paragraph",
+            "page": 152,
             "text": "Addition of sugar to batch Heating of batch"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-030",
             "kind": "heading",
+            "page": 152,
             "text": "CTQ/Metric"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-031",
             "kind": "paragraph",
+            "page": 152,
             "text": "Total amount added to batch Mean temperature during mixing"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-032",
             "kind": "paragraph",
+            "page": 152,
             "text": "Limit specification LSL: 4.90 cups USL: 5.10 cups"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-033",
             "kind": "paragraph",
+            "page": 153,
             "text": "LSL: 105 F"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-034",
             "kind": "paragraph",
+            "page": 153,
             "text": "USL: 110 F"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-035",
             "kind": "heading",
+            "page": 153,
             "text": "Unit of measurement Cups Degrees F"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-036",
             "kind": "paragraph",
+            "page": 153,
             "text": "Method of measurement 6-cup sugar test bowl Read integrated digital thermometer on mixing machine"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-037",
             "kind": "heading",
+            "page": 153,
             "text": "Sample Size"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-038",
             "kind": "paragraph",
+            "page": 153,
             "text": "One batch 3 reading, 2 minutes apart, during mixing"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-039",
             "kind": "paragraph",
+            "page": 153,
             "text": "Frequency Every 2 hours Every 2 hours"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-040",
             "kind": "heading",
+            "page": 153,
             "text": "Employee"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-041",
             "kind": "heading",
+            "page": 153,
             "text": "Mixer operator Mixer Operator"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-042",
             "kind": "paragraph",
+            "page": 153,
             "text": "Record data in Mix operation log spreadsheet Mix operation log spreadsheet"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-043",
             "kind": "paragraph",
+            "page": 153,
             "text": "Corrective action Manually measure correct amount for current batch to allow for processing, calibrate sugar disbursement machine following SOP 100.54, test sugar disbursement for first batch after calibration to ensure problem is resolved. Report issue to supervisor."
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-044",
             "kind": "paragraph",
+            "page": 153,
             "text": "Turn off machine, waste inappropriately heated batch, and report temperature calibration issue to maintenance."
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-045",
             "kind": "paragraph",
+            "page": 153,
             "text": "The above example control plan provides instructions for two specific steps in the process with easy-to- understand measurement and monitor requirements. To reduce the chance of errors, the Six Sigma team has even specified a special measuring tool for measuring the sugar in the test batch so that every operator performing the monitor measures using the same tool."
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-046",
             "kind": "paragraph",
+            "page": 153,
             "text": "At the end of the control document, the team provides steps for corrective action. The first step can be corrected by the operator, who has the ability to calibrate the machine him or herself. The temperature calibration in this case can’t be performed by the operator, which means the process has to be stopped so that someone can attend to the issue. Note that it is always preferable, when possible, to build corrective action at the process level, such as was done with the sugar measurement. This minimizes downtime, puts employees more in control of the processes they own, and helps employees stay involved with the quality process."
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-047",
             "kind": "paragraph",
+            "page": 153,
             "text": "The control plan above assumes that manual measurements must be taken or recorded. Optimally, Six Sigma teams should look for ways to automate measurements, which means data can be continuously gathered and converted into statistical process controls such as control charts. Automated data gathering doesn’t mean a control plan isn’t necessary, it just means that a control plan won’t include instructions for gathering the data. Instead, employees and process owners can be instructed to review automated data or control charts and take action if necessary."
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-048",
             "kind": "paragraph",
+            "page": 153,
             "text": "You’ll also note that the specification requirements given above are provided with LSL and USL. LSL is the lower specification limit and the USL is the upper specification limit. These are the upper and lower limits of the acceptable range."
           }
         ],
@@ -393,61 +456,73 @@
           {
             "id": "ch16-s03-create-a-control-plan-zh-001",
             "kind": "paragraph",
+            "page": 151,
             "text": "为了促进持续成功，六西格玛团队应为流程所有者制定书面控制计划。控制计划的目的是帮助流程所有者和业务团队跟踪和响应关键绩效指标，以便流程不断得到改进。控制计划应该是一份简洁、易于参考的文档，告诉业务团队何时进行监控、如何监控、监控者可接受的数据范围以及如果测量的范围不可接受时如何采取纠正措施。"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-002",
             "kind": "paragraph",
+            "page": 151,
             "text": "控制计划可以是电子表格、专门的数字文档或张贴在工作站上的硬拷贝文档。控制计划的常见要素包括："
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-003",
             "kind": "listItem",
+            "page": 151,
             "text": "公司、部门或部门名称"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-004",
             "kind": "listItem",
+            "page": 151,
             "text": "创建该计划的人的姓名"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-005",
             "kind": "listItem",
+            "page": 151,
             "text": "计划创建日期"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-006",
             "kind": "listItem",
+            "page": 151,
             "text": "最后编辑该计划的人员姓名"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-007",
             "kind": "listItem",
+            "page": 151,
             "text": "上次编辑计划的日期"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-008",
             "kind": "listItem",
+            "page": 151,
             "text": "项目和/或流程名称或标识符"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-009",
             "kind": "listItem",
+            "page": 151,
             "text": "流程所有者"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-010",
             "kind": "listItem",
+            "page": 151,
             "text": "需要控制操作的过程步骤列表"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-011",
             "kind": "listItem",
+            "page": 151,
             "text": "与所需的每项操作相关的 CTQ 或指标"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-012",
             "kind": "termNote",
+            "page": 151,
             "rows": [
               [
                 "术语说明 CTQ（关键质量特性）：把客户需求转化为可测量的质量要求。"
@@ -458,26 +533,31 @@
           {
             "id": "ch16-s03-create-a-control-plan-zh-013",
             "kind": "listItem",
+            "page": 151,
             "text": "限制规格或可接受的测量范围"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-014",
             "kind": "listItem",
+            "page": 151,
             "text": "计量单位"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-015",
             "kind": "listItem",
+            "page": 151,
             "text": "测量方法"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-016",
             "kind": "listItem",
+            "page": 151,
             "text": "必要的样本量"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-017",
             "kind": "termNote",
+            "page": 151,
             "rows": [
               [
                 "术语说明 Sample / Sampling（样本/抽样）：从总体中选取部分数据进行分析；样本应尽量代表总体。"
@@ -488,166 +568,199 @@
           {
             "id": "ch16-s03-create-a-control-plan-zh-018",
             "kind": "listItem",
+            "page": 152,
             "text": "测量频率"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-019",
             "kind": "listItem",
+            "page": 152,
             "text": "测量负责人"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-020",
             "kind": "listItem",
+            "page": 152,
             "text": "信息记录在哪里"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-021",
             "kind": "listItem",
+            "page": 152,
             "text": "纠正措施"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-022",
             "kind": "listItem",
+            "page": 152,
             "text": "相关政策和程序文件"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-023",
             "kind": "paragraph",
+            "page": 152,
             "text": "在第 8 章讨论质量时，我们介绍了一家生产巧克力棒的公司的例子，并指出巧克力棒配方中的糖含量对于客户对最终产品的体验至关重要。如果六西格玛团队的任务是提高客户对新巧克力棒产品的满意度，他们可能会实施一种解决方案，确保在正确的温度下将适量的糖添加到混合物中，以适当地混合成分。"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-024",
             "kind": "paragraph",
+            "page": 152,
             "text": "新巧克力棒解决方案的控制计划可能类似于下面的文档。"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-025",
             "kind": "heading",
+            "page": 152,
             "text": "公司：XYZ糖果"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-026",
             "kind": "heading",
+            "page": 152,
             "text": "控制计划创建者：Joe 黑带"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-027",
             "kind": "paragraph",
+            "page": 152,
             "text": "工艺：加糖、原料混合"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-028",
             "kind": "heading",
+            "page": 152,
             "text": "控制计划创建于：一月 2012年4月"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-029",
             "kind": "heading",
+            "page": 152,
             "text": "进程所有者：Sue Processor"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-030",
             "kind": "heading",
+            "page": 152,
             "text": "工艺步骤"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-031",
             "kind": "paragraph",
+            "page": 152,
             "text": "向批次中添加糖 加热批次"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-032",
             "kind": "heading",
+            "page": 152,
             "text": "CTQ/公制"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-033",
             "kind": "paragraph",
+            "page": 152,
             "text": "添加到批次中的总量 混合期间的平均温度"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-034",
             "kind": "heading",
+            "page": 152,
             "text": "极限规格 LSL：4.90 杯 USL：5.10 杯"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-035",
             "kind": "heading",
+            "page": 153,
             "text": "LSL：105 华氏度"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-036",
             "kind": "heading",
+            "page": 153,
             "text": "上层高度：110 华氏度"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-037",
             "kind": "heading",
+            "page": 153,
             "text": "测量单位 杯 度 F"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-038",
             "kind": "paragraph",
+            "page": 153,
             "text": "测量方法 6 杯糖测试碗 读取搅拌机上的集成数字温度计"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-039",
             "kind": "heading",
+            "page": 153,
             "text": "样本量"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-040",
             "kind": "paragraph",
+            "page": 153,
             "text": "一批 3 次读数，间隔 2 分钟，混合期间"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-041",
             "kind": "heading",
+            "page": 153,
             "text": "频率 每 2 小时 每 2 小时"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-042",
             "kind": "heading",
+            "page": 153,
             "text": "员工"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-043",
             "kind": "heading",
+            "page": 153,
             "text": "混合器操作员 混合器操作员"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-044",
             "kind": "paragraph",
+            "page": 153,
             "text": "在混合操作日志电子表格中记录数据 混合操作日志电子表格"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-045",
             "kind": "paragraph",
+            "page": 153,
             "text": "纠正措施 手动测量当前批次的正确数量以进行加工，按照 SOP 100.54 校准糖分配机，在校准后测试第一批糖的分配，以确保问题得到解决。向主管报告问题。"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-046",
             "kind": "paragraph",
+            "page": 153,
             "text": "关闭机器，浪费加热不当的批次，并向维护人员报告温度校准问题。"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-047",
             "kind": "paragraph",
+            "page": 153,
             "text": "上述示例控制计划提供了流程中两个特定步骤的说明，以及易于理解的测量和监控要求。为了减少出错的机会，六西格玛团队甚至指定了一种特殊的测量工具来测量测试批次中的糖分，以便每个进行监测的操作人员都使用相同的工具进行测量。"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-048",
             "kind": "paragraph",
+            "page": 153,
             "text": "在控制文档的末尾，团队提供了纠正措施的步骤。第一步可以由操作员纠正，操作员有能力自己校准机器。在这种情况下，操作员无法执行温度校准，这意味着必须停止该过程，以便有人可以处理该问题。请注意，如果可能的话，最好在过程层面采取纠正措施，例如糖测量。这可以最大限度地减少停机时间，让员工更好地控制自己的流程，并帮助员工继续参与质量流程。"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-049",
             "kind": "paragraph",
+            "page": 153,
             "text": "上述控制计划假设必须进行或记录手动测量。 最理想的情况是，六西格玛团队应该寻找自动化测量的方法，这意味着可以不断收集数据并将其转换为统计过程控制，例如控制图。自动数据收集并不意味着不需要控制计划，它只是意味着控制计划不会包含收集数据的说明。相反，可以指示员工和流程所有者查看自动化数据或控制图，并在必要时采取行动。"
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-050",
             "kind": "paragraph",
+            "page": 153,
             "text": "您还会注意到，LSL 和 USL 提供了上面给出的规格要求。 LSL 是规格下限，USL 是规格上限。这些是可接受范围的上限和下限。"
           }
         ]
@@ -666,16 +779,19 @@
           {
             "id": "ch16-s04-visual-management-en-001",
             "kind": "paragraph",
+            "page": 154,
             "text": "In addition to providing a control plan, Six Sigma teams can implement specific visual controls in a workplace to help business teams maintain a controlled process. Some of these tools were covered in chapter 4 on Lean process management, including 5S. Other visual controls teams might implement include signs, posted matrixes and instructions, auditing boards that let teams keep track of individual or group performance over time, color coding, and safety signals."
           },
           {
             "id": "ch16-s04-visual-management-en-002",
             "kind": "paragraph",
+            "page": 154,
             "text": "Standard operating procedures can often be distilled to visual representations on posters. A coffee shop, for example, might provide employees with a visual representation of what ingredients are used to create various complex drink flavors. Such a poster ensures that employees can prepare drinks quickly while reducing errors in ingredient inclusion."
           },
           {
             "id": "ch16-s04-visual-management-en-003",
             "kind": "paragraph",
+            "page": 154,
             "text": "Other SOP visualizations might include safety procedures in a medical environment, such as visual reminders for hand washing and short pictorial representations for how to operate equipment such as hospital beds. In an office environment, pictorial instructions are found on copy machines, where pictures indicate how paper should be loaded and visual gifs are often displayed on LED screens to help employees remove jammed paper. These are some examples that Six Sigma teams can follow when creating documents that will help business staff accept ownership of an improved process and maintain the improvements made."
           }
         ],
@@ -683,16 +799,19 @@
           {
             "id": "ch16-s04-visual-management-zh-001",
             "kind": "paragraph",
+            "page": 154,
             "text": "除了提供控制计划外，六西格玛团队还可以在工作场所实施特定的可视化控制，帮助业务团队维持受控流程。其中一些工具在关于精益流程管理的第 4 章中进行了介绍，包括 5S。其他视觉控制团队可能实施的措施包括标志、张贴的矩阵和说明、让团队跟踪个人或小组随时间变化的表现的审核板、颜色编码和安全信号。"
           },
           {
             "id": "ch16-s04-visual-management-zh-002",
             "kind": "paragraph",
+            "page": 154,
             "text": "标准操作程序通常可以被提炼为海报上的视觉表现形式。例如，咖啡店可能会为员工提供用于创建各种复杂饮料口味的成分的可视化表示。这样的海报确保员工可以快速准备饮料，同时减少配料错误。"
           },
           {
             "id": "ch16-s04-visual-management-zh-003",
             "kind": "paragraph",
+            "page": 154,
             "text": "其他 SOP 可视化可能包括医疗环境中的安全程序，例如洗手的视觉提醒以及如何操作医院病床等设备的简短图示。在办公环境中，复印机上会出现图形说明，其中图片指示如何加载纸张，并且 LED 屏幕上通常会显示视觉 GIF，以帮助员工清除卡纸。这些是六西格玛团队在创建文档时可以遵循的一些示例，这些文档将帮助业务人员接受改进流程的所有权并维护所做的改进。"
           }
         ]
@@ -711,41 +830,49 @@
           {
             "id": "ch16-s05-spc-charts-en-001",
             "kind": "paragraph",
+            "page": 154,
             "text": "One of the most common methods Six Sigma teams use to monitor a process is the control chart. A number of types of control charts exist, and Six Sigma experts must choose the right control chart for the type of data and analytical purpose."
           },
           {
             "id": "ch16-s05-spc-charts-en-002",
             "kind": "paragraph",
+            "page": 154,
             "text": "Now, we’ll cover the visual tests that let a Six Sigma team or process owner know that a process is out of control."
           },
           {
             "id": "ch16-s05-spc-charts-en-003",
             "kind": "paragraph",
+            "page": 154,
             "text": "A basic control chart has the following elements:"
           },
           {
             "id": "ch16-s05-spc-charts-en-004",
             "kind": "listItem",
+            "page": 154,
             "text": "A line chart of data with plot points for specific data points"
           },
           {
             "id": "ch16-s05-spc-charts-en-005",
             "kind": "listItem",
+            "page": 154,
             "text": "An x-bar line representing the average of the data points"
           },
           {
             "id": "ch16-s05-spc-charts-en-006",
             "kind": "listItem",
+            "page": 154,
             "text": "Lines above and below the x-bar line representing 1, 2, and 3 standard deviations from the median in either direction"
           },
           {
             "id": "ch16-s05-spc-charts-en-007",
             "kind": "listItem",
+            "page": 154,
             "text": "An upper control limit (UCL) line at 3 standard deviations above the median"
           },
           {
             "id": "ch16-s05-spc-charts-en-008",
             "kind": "listItem",
+            "page": 154,
             "text": "A lower control limit (LCL) line at 3 standard deviations below the median"
           },
           {
@@ -753,147 +880,176 @@
             "kind": "image",
             "assetId": "fig-74f8614c59d5d939",
             "src": "assets/figures/fig-74f8614c59d5d939.png",
+            "page": 154,
             "width": 1189,
             "height": 439
           },
           {
             "id": "ch16-s05-spc-charts-en-010",
             "kind": "paragraph",
+            "page": 154,
             "text": "Above is an example of a control chart. The middle line, which is black, is the x-bar line. The x-bar line is bounded by green lines on both sides, indicating 1 and 2 standard deviations away from the mid-line. Those lines are bounded by orange lines on either side: at the top, the upper control limit, and on bottom, the lower control limit. Between the various lines are areas of the control chart, designated as C, B, and A going in either direction. These distinct areas are important for understanding if a process might be out of control. They are also called Zones 1, 2, and 3."
           },
           {
             "id": "ch16-s05-spc-charts-en-011",
             "kind": "paragraph",
+            "page": 154,
             "text": "A control chart is best displayed using an automated reporting system or dashboard, where process owners or responsible employees can view it as needed. If automated data collection and control charting is not possible, then a business analyst can be tasked with collecting data and presenting it in this format periodically, though periodic graphical analysis is less likely to catch a problem of control within a process."
           },
           {
             "id": "ch16-s05-spc-charts-en-012",
             "kind": "heading",
+            "page": 154,
             "text": "Statistical Process Control Tests: Control Charts"
           },
           {
             "id": "ch16-s05-spc-charts-en-013",
             "kind": "paragraph",
+            "page": 154,
             "text": "Eight tests exist that can quickly tell someone viewing a control chart if a process is out of control."
           },
           {
             "id": "ch16-s05-spc-charts-en-014",
             "kind": "listItem",
+            "page": 154,
             "text": "Test one: A single point on the control chart appears outside of the upper or lower control limits. If this occurs, process owners should take immediate action, because it is evidence of a major problem within a process. While there is a very remote possibility that shifts outside of three standard deviations can occur randomly, the likelihood is only 3 in 1,000."
           },
           {
             "id": "ch16-s05-spc-charts-en-015",
             "kind": "listItem",
+            "page": 154,
             "text": "Test two: Nine points in a row appear on one side of the center line. This indicates that a change occurred in the process; if the process owner knows what change caused the shift and it was intentional change, nothing needs to be done and the control chart will right itself over time with the new data. Otherwise, the process owner should investigate the process."
           },
           {
             "id": "ch16-s05-spc-charts-en-016",
             "kind": "listItem",
+            "page": 154,
             "text": "Test three: Six points on the control chart increase or decrease in a row, indicating the process is becoming less or more efficient or is generating fewer or more errors. Process owners should investigate unless there is a known reason for the trend."
           },
           {
             "id": "ch16-s05-spc-charts-en-017",
             "kind": "listItem",
+            "page": 154,
             "text": "Test four: Fourteen points on the control chart in a row alternate moving up and down. This could indicate variation in machines, employees, shifts, or over correction."
           },
           {
             "id": "ch16-s05-spc-charts-en-018",
             "kind": "listItem",
+            "page": 154,
             "text": "Test five: Two out of three points in a row on the control chart are in the upper A section or in the lower A section. This might indicate some type of special cause creating sudden high variation."
           },
           {
             "id": "ch16-s05-spc-charts-en-019",
             "kind": "listItem",
+            "page": 154,
             "text": "Test six: Four out of five points in a row on the control chart are located in the upper B section (or beyond) or the lower B section (or beyond). This can indicate a problem of major causation or a shift problem similar to that of test four."
           },
           {
             "id": "ch16-s05-spc-charts-en-020",
             "kind": "listItem",
+            "page": 155,
             "text": "Test seven: Fifteen points in a row are located within the C section above or below the centerline. This can indicate that control limits are no longer relevant to the process; if a team has improved variation of a process, they should recalculate control limits to new parameters. Alternatively, this might occur temporarily when short-term variation is high or low relative to the rest of the points on a control chart."
           },
           {
             "id": "ch16-s05-spc-charts-en-021",
             "kind": "listItem",
+            "page": 155,
             "text": "Test eight: Eight points in a row on the control chart are located on either side of the center line, but none are located in the C section above or below the line. This could indicate an issue of mixed resources or processes; a team might think they are measuring a single process when they are actually measuring two process, for example. Alternatively, it could indicate a major difference in processing for two employees or teams."
           },
           {
             "id": "ch16-s05-spc-charts-en-022",
             "kind": "paragraph",
+            "page": 155,
             "text": "When it’s possible to create control charts and display current data on a regular basis, these charts make a good addition to a control plan. Individuals don’t have to be well-versed in statistical process control to learn about the eight tests, and business teams with the benefit of control charts can spend more time working on production or correcting issues and less time collecting and documenting measurements."
           },
           {
             "id": "ch16-s05-spc-charts-en-023",
             "kind": "heading",
+            "page": 155,
             "text": "Control Versus Capability"
           },
           {
             "id": "ch16-s05-spc-charts-en-024",
             "kind": "paragraph",
+            "page": 155,
             "text": "It’s important to note the distinction between a controlled process and one that is capable of meeting customer requirements. We touched on this concept in unit 1: controlled processes don’t have a lot of variation. Capable processes don’t have a lot of variation and the outputs center around a customer requirement. This is why both control limits and specification limits are important."
           },
           {
             "id": "ch16-s05-spc-charts-en-025",
             "kind": "paragraph",
+            "page": 155,
             "text": "Consider the example used earlier in this chapter about sugar in the chocolate mix. The specification limits ranged from 4.9 to 5.1 cups of sugar in each batch. It’s possible for a control chart to show that the process is in control if the measurements range from 3.5 to 3.6 cups of sugar per batch, but the process owner should know that those measurements aren’t going to contribute to a product that meets critical to customer quality requirements."
           },
           {
             "id": "ch16-s05-spc-charts-en-026",
             "kind": "paragraph",
+            "page": 155,
             "text": "To understand how a process is performing against specification limits, Six Sigma teams can calculate sigma level and process capability."
           },
           {
             "id": "ch16-s05-spc-charts-en-027",
             "kind": "heading",
+            "page": 155,
             "text": "Sigma Level"
           },
           {
             "id": "ch16-s05-spc-charts-en-028",
             "kind": "paragraph",
+            "page": 155,
             "text": "Sigma level is the number of standard deviations between the current process center, as measured by the median, and the nearest specification limit (not control limit.) The equation for sigma level is the smaller of the following calculations:"
           },
           {
             "id": "ch16-s05-spc-charts-en-029",
             "kind": "paragraph",
+            "page": 155,
             "text": "𝑈𝑆𝐿−𝑥̅"
           },
           {
             "id": "ch16-s05-spc-charts-en-030",
             "kind": "paragraph",
+            "page": 155,
             "text": "𝜎 𝑜𝑟 𝐿𝑆𝐿−𝑥̅"
           },
           {
             "id": "ch16-s05-spc-charts-en-031",
             "kind": "paragraph",
+            "page": 155,
             "text": "𝜎"
           },
           {
             "id": "ch16-s05-spc-charts-en-032",
             "kind": "paragraph",
+            "page": 155,
             "text": "For example, if a process has an USL of 5 and a LSL of 3, a standard deviation of .25 and a median of 4.2, then you would calculate from the USL, since the median is closer to the USL."
           },
           {
             "id": "ch16-s05-spc-charts-en-033",
             "kind": "paragraph",
+            "page": 155,
             "text": "5−4.2"
           },
           {
             "id": "ch16-s05-spc-charts-en-034",
             "kind": "paragraph",
+            "page": 155,
             "text": ".25 = 3.2 = sigma level"
           },
           {
             "id": "ch16-s05-spc-charts-en-035",
             "kind": "heading",
+            "page": 155,
             "text": "Process Capability"
           },
           {
             "id": "ch16-s05-spc-charts-en-036",
             "kind": "paragraph",
+            "page": 155,
             "text": "Process capability is calculated by dividing the sigma level by 3. In the case of the example, the capability is 1.06."
           },
           {
             "id": "ch16-s05-spc-charts-en-037",
             "kind": "paragraph",
+            "page": 155,
             "text": "Process capability is denoted as Cpk. A process capability of 1.33 is equal to a sigma level of 4, which is what most experts agree is the minimal level at which most customers will be satisfied. Under statistical process control, many organizations aim for a process capability of 2.0 with minimal acceptable process capability at 1.5."
           }
         ],
@@ -901,6 +1057,7 @@
           {
             "id": "ch16-s05-spc-charts-zh-001",
             "kind": "termNote",
+            "page": 154,
             "rows": [
               [
                 "术语说明 SPC（统计过程控制）：用统计方法监控过程表现，区分普通波动和异常信号。"
@@ -911,31 +1068,37 @@
           {
             "id": "ch16-s05-spc-charts-zh-002",
             "kind": "paragraph",
+            "page": 154,
             "text": "六西格玛团队监控流程最常用的方法之一是控制图。 控制图有多种类型，六西格玛专家必须根据数据类型和分析目的选择正确的控制图。"
           },
           {
             "id": "ch16-s05-spc-charts-zh-003",
             "kind": "paragraph",
+            "page": 154,
             "text": "现在，我们将介绍让六西格玛团队或流程所有者知道流程失控的可视化测试。"
           },
           {
             "id": "ch16-s05-spc-charts-zh-004",
             "kind": "paragraph",
+            "page": 154,
             "text": "基本控制图具有以下元素："
           },
           {
             "id": "ch16-s05-spc-charts-zh-005",
             "kind": "listItem",
+            "page": 154,
             "text": "带有特定数据点绘图点的数据折线图"
           },
           {
             "id": "ch16-s05-spc-charts-zh-006",
             "kind": "listItem",
+            "page": 154,
             "text": "代表数据点平均值的 X 条线"
           },
           {
             "id": "ch16-s05-spc-charts-zh-007",
             "kind": "termNote",
+            "page": 154,
             "rows": [
               [
                 "术语说明 X-Bar Chart（均值图）：监控样本均值随时间变化的控制图。"
@@ -946,16 +1109,19 @@
           {
             "id": "ch16-s05-spc-charts-zh-008",
             "kind": "listItem",
+            "page": 154,
             "text": "x 条线上方和下方的线代表任一方向距中位数 1、2 和 3 个标准差"
           },
           {
             "id": "ch16-s05-spc-charts-zh-009",
             "kind": "listItem",
+            "page": 154,
             "text": "控制上限 (UCL) 线高于中位数 3 个标准差"
           },
           {
             "id": "ch16-s05-spc-charts-zh-010",
             "kind": "listItem",
+            "page": 154,
             "text": "控制下限 (LCL) 线低于中值 3 个标准差"
           },
           {
@@ -963,97 +1129,116 @@
             "kind": "image",
             "assetId": "fig-74f8614c59d5d939",
             "src": "assets/figures/fig-74f8614c59d5d939.png",
+            "page": 154,
             "width": 1189,
             "height": 439
           },
           {
             "id": "ch16-s05-spc-charts-zh-012",
             "kind": "paragraph",
+            "page": 154,
             "text": "上面是控制图的示例。中间的黑色线是 x 条线。 x 条线两侧以绿线为界，表示距中线 1 和 2 个标准差。这些线的两侧以橙色线为界：顶部为控制上限，底部为控制下限。各条线之间是控制图的区域，指定为任一方向的 C、B 和 A。这些不同的区域对于了解流程是否可能失控非常重要。它们也称为 1 区、2 区和 3 区。"
           },
           {
             "id": "ch16-s05-spc-charts-zh-013",
             "kind": "paragraph",
+            "page": 154,
             "text": "控制图最好使用自动报告系统或仪表板来显示，流程所有者或负责的员工可以根据需要查看它。如果无法实现自动数据收集和控制图表，则业务分析师可以负责收集数据并定期以这种格式呈现数据，尽管定期图形分析不太可能发现流程中的控制问题。"
           },
           {
             "id": "ch16-s05-spc-charts-zh-014",
             "kind": "heading",
+            "page": 154,
             "text": "统计过程控制测试：控制图"
           },
           {
             "id": "ch16-s05-spc-charts-zh-015",
             "kind": "paragraph",
+            "page": 154,
             "text": "存在八种测试，可以快速告诉查看控制图的人流程是否失控。"
           },
           {
             "id": "ch16-s05-spc-charts-zh-016",
             "kind": "listItem",
+            "page": 154,
             "text": "测试一：控制图上的单个点出现在控制上限或下限之外。如果发生这种情况，流程所有者应立即采取行动，因为这是流程中存在重大问题的证据。虽然随机发生超出三个标准偏差的可能性非常小，但这种可能性仅为千分之三。"
           },
           {
             "id": "ch16-s05-spc-charts-zh-017",
             "kind": "listItem",
+            "page": 154,
             "text": "测试二：连续九个点出现在中心线的一侧。 这表明流程发生了变化；如果流程所有者知道是什么变化导致了这种转变，并且这是有意的变化，则无需执行任何操作，并且控制图将随着时间的推移使用新数据自行纠正。否则，流程所有者应调查该流程。"
           },
           {
             "id": "ch16-s05-spc-charts-zh-018",
             "kind": "listItem",
+            "page": 154,
             "text": "测试三：控制图上的六个点连续增加或减少，表明过程的效率正在变得更低或更高，或者产生的错误更少或更多。除非有已知的趋势原因，否则流程所有者应该进行调查。"
           },
           {
             "id": "ch16-s05-spc-charts-zh-019",
             "kind": "listItem",
+            "page": 154,
             "text": "测试四：控制图上的十四个点连续交替上下移动。这可能表明机器、员工、轮班的变化或过度修正。"
           },
           {
             "id": "ch16-s05-spc-charts-zh-020",
             "kind": "listItem",
+            "page": 154,
             "text": "测试五：控制图上连续的三个点中有两个位于上 A 部分或下 A 部分。这可能表明某种类型的特殊原因造成突然的高变化。"
           },
           {
             "id": "ch16-s05-spc-charts-zh-021",
             "kind": "listItem",
+            "page": 154,
             "text": "测试六：控制图上连续的五个点中有四个位于上 B 部分（或之外）或下 B 部分（或之外）。这可能表明存在重大因果关系问题或类似于测试四的转移问题。"
           },
           {
             "id": "ch16-s05-spc-charts-zh-022",
             "kind": "listItem",
+            "page": 155,
             "text": "测试七：连续十五个点位于中心线上方或下方的 C 部分内。这可以表明控制限值不再与过程相关；如果团队改进了过程的变化，他们应该重新计算新参数的控制限制。或者，当短期变化相对于控制图上的其余点较高或较低时，这种情况可能会暂时发生。"
           },
           {
             "id": "ch16-s05-spc-charts-zh-023",
             "kind": "listItem",
+            "page": 155,
             "text": "测试八：控制图上连续八个点位于中心线的两侧，但没有一个点位于中心线上方或下方的 C 部分。这可能表明存在混合资源或流程的问题；例如，团队可能认为他们正在测量单个流程，但实际上他们正在测量两个流程。或者，它可能表明两个员工或团队的处理存在重大差异。"
           },
           {
             "id": "ch16-s05-spc-charts-zh-024",
             "kind": "paragraph",
+            "page": 155,
             "text": "当可以创建控制图并定期显示当前数据时，这些图表可以很好地补充控制计划。 个人无需精通统计过程控制即可了解八项测试，而借助控制图的业务团队可以将更多时间用于生产或纠正问题，并减少收集和记录测量结果的时间。"
           },
           {
             "id": "ch16-s05-spc-charts-zh-025",
             "kind": "heading",
+            "page": 155,
             "text": "控制与能力"
           },
           {
             "id": "ch16-s05-spc-charts-zh-026",
             "kind": "paragraph",
+            "page": 155,
             "text": "重要的是要注意受控流程和能够满足客户要求的流程之间的区别。我们在第一单元中谈到了这个概念：受控过程没有太多变化。有效的流程没有太多变化，并且输出以客户需求为中心。这就是控制限和规格限都很重要的原因。"
           },
           {
             "id": "ch16-s05-spc-charts-zh-027",
             "kind": "paragraph",
+            "page": 155,
             "text": "考虑本章前面使用的有关巧克力混合物中糖的示例。每批次的规格限制范围为 4.9 至 5.1 杯糖。如果每批次的测量范围为 3.5 至 3.6 杯糖，则控制图可以显示过程处于受控状态，但流程负责人应该知道这些测量结果不会有助于生产出满足客户关键质量要求的产品。"
           },
           {
             "id": "ch16-s05-spc-charts-zh-028",
             "kind": "paragraph",
+            "page": 155,
             "text": "为了了解流程在规格限制下的执行情况，六西格玛团队可以计算西格玛水平和流程能力。"
           },
           {
             "id": "ch16-s05-spc-charts-zh-029",
             "kind": "termNote",
+            "page": 155,
             "rows": [
               [
                 "术语说明 Sigma level（西格玛水平）：衡量过程缺陷率的尺度；水平越高，单位机会中产生缺陷的概率越低。"
@@ -1064,6 +1249,7 @@
           {
             "id": "ch16-s05-spc-charts-zh-030",
             "kind": "termNote",
+            "page": 155,
             "rows": [
               [
                 "术语说明 Process Capability（过程能力）：过程稳定满足规格要求的能力，常用 Cp、Cpk 等指标描述。"
@@ -1074,36 +1260,43 @@
           {
             "id": "ch16-s05-spc-charts-zh-031",
             "kind": "heading",
+            "page": 155,
             "text": "西格玛水平"
           },
           {
             "id": "ch16-s05-spc-charts-zh-032",
             "kind": "paragraph",
+            "page": 155,
             "text": "西格玛水平是当前过程中心（按中值测量）与最近的规格限（不是控制限）之间的标准偏差数。西格玛水平的方程是以下计算中较小的一个："
           },
           {
             "id": "ch16-s05-spc-charts-zh-033",
             "kind": "paragraph",
+            "page": 155,
             "text": "𝑈𝑆𝐿−𝑥̅"
           },
           {
             "id": "ch16-s05-spc-charts-zh-034",
             "kind": "paragraph",
+            "page": 155,
             "text": "𝜎 𝑜𝑟 𝐿𝑆𝐿−𝑥̅"
           },
           {
             "id": "ch16-s05-spc-charts-zh-035",
             "kind": "paragraph",
+            "page": 155,
             "text": "𝜎"
           },
           {
             "id": "ch16-s05-spc-charts-zh-036",
             "kind": "paragraph",
+            "page": 155,
             "text": "例如，如果某个流程的 USL 为 5，LSL 为 3，标准差为 0.25，中位数为 4.2，那么您将根据 USL 进行计算，因为中位数更接近 USL。"
           },
           {
             "id": "ch16-s05-spc-charts-zh-037",
             "kind": "termNote",
+            "page": 155,
             "rows": [
               [
                 "术语说明 Standard Deviation（标准差）：衡量数据离散程度的统计量；标准差越大，波动越明显。"
@@ -1114,26 +1307,31 @@
           {
             "id": "ch16-s05-spc-charts-zh-038",
             "kind": "paragraph",
+            "page": 155,
             "text": "5−4.2"
           },
           {
             "id": "ch16-s05-spc-charts-zh-039",
             "kind": "paragraph",
+            "page": 155,
             "text": ".25 = 3.2 = 西格玛水平"
           },
           {
             "id": "ch16-s05-spc-charts-zh-040",
             "kind": "heading",
+            "page": 155,
             "text": "制程能力"
           },
           {
             "id": "ch16-s05-spc-charts-zh-041",
             "kind": "paragraph",
+            "page": 155,
             "text": "过程能力是通过将西格玛水平除以 3 来计算的。在本例中，能力为 1.06。"
           },
           {
             "id": "ch16-s05-spc-charts-zh-042",
             "kind": "paragraph",
+            "page": 155,
             "text": "过程能力表示为Cpk。 1.33 的过程能力等于 4 的西格玛水平，这是大多数专家认为大多数客户满意的最低水平。在统计过程控制下，许多组织的目标是过程能力达到 2.0，可接受的最低过程能力为 1.5。"
           }
         ]
@@ -1152,11 +1350,13 @@
           {
             "id": "ch16-s06-team-celebration-and-reflection-en-001",
             "kind": "paragraph",
+            "page": 156,
             "text": "When Six Sigma teams deem improvements and the related process to be capable and in control, and they’ve passed those processes back to business and process owner control, they should take time to celebrate and reflect on the outcome of the project. This is usually done following the final tollgate review with a sponsor or champion, and can be a quick meeting to close loose ends, recognize the work done by the team, and discuss lessons learned within the process."
           },
           {
             "id": "ch16-s06-team-celebration-and-reflection-en-002",
             "kind": "paragraph",
+            "page": 156,
             "text": "The celebration and reflection meeting is also a great time for team members to bring up ideas for possible improvement projects. While improvements – and the related problems and causes – are still fresh on the team’s minds, they can effectively brainstorm ideas for next steps. As with any brainstorming session, no idea should be automatically held off the table because it seems silly, would be too hard to implement, is too costly, or seems too big. Not all of the ideas will become future projects, but the team’s input provides valuable information that the Black Belt can later share with Six Sigma leadership panels."
           }
         ],
@@ -1164,11 +1364,13 @@
           {
             "id": "ch16-s06-team-celebration-and-reflection-zh-001",
             "kind": "paragraph",
+            "page": 156,
             "text": "当六西格玛团队认为改进和相关流程是有能力且可控的，并且他们已将这些流程交回给业务和流程所有者控制时，他们应该花时间庆祝和反思项目的结果。这通常是在与赞助商或支持者进行最终收费站审查之后完成的，并且可以是一次快速会议，以结束未解决的问题，认可团队所做的工作，并讨论在此过程中吸取的经验教训。"
           },
           {
             "id": "ch16-s06-team-celebration-and-reflection-zh-002",
             "kind": "paragraph",
+            "page": 156,
             "text": "庆祝和反思会议也是团队成员提出可能的改进项目想法的好时机。虽然改进以及相关的问题和原因对团队来说仍然记忆犹新，但他们可以有效地集思广益，为下一步采取行动。与任何头脑风暴会议一样，任何想法都不应因为看起来愚蠢、实施起来太困难、成本太高或看起来太大而自动被搁置。并非所有的想法都会成为未来的项目，但团队的投入提供了有价值的信息，黑带随后可以与六西格玛领导小组分享。"
           }
         ]
@@ -1187,11 +1389,13 @@
           {
             "id": "ch16-s07-control-tollgate-checklist-en-001",
             "kind": "paragraph",
+            "page": 156,
             "text": "o The team has calculated the performance and capability of the new process o The team has written a control plan and communicated it to the process owner o The team has created a monitor for the process, either through procedures for manual data collection or automated generation of control charts o The team has provided the process owner and business team with all tools and information required to maintain improvements o The sponsor, champion, or executive leadership has been informed about the state of the improvements o The team met to reflect on the project and generate a list of ideas for future improvements"
           },
           {
             "id": "ch16-s07-control-tollgate-checklist-en-002",
             "kind": "heading",
+            "page": 157,
             "text": "Unit 4: Beginner Statistics"
           }
         ],
@@ -1199,11 +1403,13 @@
           {
             "id": "ch16-s07-control-tollgate-checklist-zh-001",
             "kind": "paragraph",
+            "page": 156,
             "text": "o 团队计算了新流程的绩效和能力 o 团队编写了控制计划并将其传达给流程所有者 o 团队通过手动数据收集程序或自动生成控制图为流程创建了监控器 o 团队为流程所有者和业务团队提供了维持改进所需的所有工具和信息 o 发起人、拥护者或执行领导层已获悉改进的状态 o 团队开会反思项目并生成未来改进的想法列表"
           },
           {
             "id": "ch16-s07-control-tollgate-checklist-zh-002",
             "kind": "heading",
+            "page": 157,
             "text": "第 4 单元：初级统计"
           }
         ]

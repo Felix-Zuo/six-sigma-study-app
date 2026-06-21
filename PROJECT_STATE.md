@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 07:17 Asia/Shanghai
+Last updated: 2026-06-22 07:35 Asia/Shanghai
 
 ## Objective
 
@@ -22,7 +22,7 @@ The final product must support full-manual offline reading, position-preserving 
 - Latest validated implementation commit: `365fe1a Add full-manual language toggle sweep QA`
 - Local worktree: expected clean after the state-sync commit that contains this note
 - Latest implementation GitHub Actions state: CI passed for `365fe1a` in run `27920637568`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 3952-entry offline learner dictionary with curated Six Sigma terms first, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service worker with verified offline app-shell/figure caching for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 3952-entry offline learner dictionary with curated Six Sigma terms first, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service worker with verified offline app-shell/figure caching for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
 
@@ -111,6 +111,10 @@ The final product must support full-manual offline reading, position-preserving 
 - Added browser CDP dictionary QA in `scripts/qa-dictionary-cdp.mjs` and lookup-sheet phonetic rendering for ECDICT entries.
 - Strengthened content validation so the production dictionary must contain at least 3000 entries and include ECDICT-derived learner entries.
 - Added `scripts/qa-language-toggle-sweep-cdp.mjs` to sample one comparable section/block in every chapter and verify EN -> ZH -> EN position restoration across the full manual.
+- Added block-level page anchors to generated English/Chinese content blocks and updated the reader to use `block.page ?? section.page` for lookup and vocabulary source metadata.
+- Strengthened `scripts/validate_content.py` so every generated content block must have an in-range page anchor and English/Chinese content streams must cover every page from 6 through 449.
+- Copied Poppler to the pure-English local path `C:\findjob_sixsigma_tools\poppler` for source PDF QA, avoiding Unicode path problems in the bundled Poppler wrapper.
+- Added `scripts/qa_source_coverage.py` and `npm run qa:source-coverage` to validate the 557-page source PDF, source TOC anchors, block-level page coverage, asset manifest consistency, and nonblank source-page render samples.
 
 ## Verification In Current Stage
 
@@ -437,17 +441,41 @@ The final product must support full-manual offline reading, position-preserving 
   - Result: 0 failures; every sample stayed in the same section through EN -> ZH -> EN, block index remained within tolerance, and horizontal overflow stayed 0
   - Local QA screenshot captured at `C:\findjob_sixsigma_app\qa\screenshots\language-toggle-sweep-qa.png` and ignored by Git.
   - GitHub Actions CI for `365fe1a`: passed in run `27920637568`
+- Source coverage and block-page-anchor verification:
+  - `npm run extract:manual`: passed with 33 chapters, 4640 English blocks, and 4902 Chinese blocks
+  - `npm run lint:content`: passed with block page anchors required for generated section lessons and complete EN/ZH page coverage from 6 through 449
+  - `npm run qa:source-coverage`: passed
+  - Source PDF page count: 557
+  - Manual page count: 449
+  - Generated content blocks checked by source coverage QA: 9542
+  - Image blocks checked by source coverage QA: 940
+  - Asset manifest/package assets checked by source coverage QA: 470
+  - Source TOC sections: 142, with 127 matched generated section anchors and 15 explicitly allowed normal-paragraph source headings
+  - Nonblank Poppler source render samples: pages 9, 73, 396, 544, and 555
+  - `node --check scripts\qa-dictionary-cdp.mjs`: passed after making the script reset to Chapter 1 English before lookup
+  - `node --check scripts\qa-language-toggle-sweep-cdp.mjs`: passed after making the script wait for the final language-switch layout restoration pass
+  - `npm run typecheck`: passed
+  - `npm run build`: passed
+  - `node scripts\qa-dictionary-cdp.mjs`: passed with 3952 dictionary entries, 3860 ECDICT entries, real lookup for `both`, phonetic rendering, and horizontal overflow 0
+  - `node scripts\qa-language-toggle-sweep-cdp.mjs`: passed with 33 samples, 0 failures, exact same-block restoration for every sampled chapter, and horizontal overflow 0
+  - `npm run android:release-apk`: passed
+  - `npm run android:aab`: passed
+  - APK size: 37,822,535 bytes
+  - AAB size: 35,605,671 bytes
+  - APK/AAB package checks: 481 public runtime entries, 470 figure PNG files, `manual.json`, `asset-manifest.json`, `manifest.webmanifest`, and `sw.js` are present
+  - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
+  - AAB `jarsigner -verify`: verified with expected self-signed certificate warnings
 
 ## Known Limitations
 
 - The release signing key is a local self-signed key for this project; store upload key policy and distribution channel are not finalized.
-- Chapters 2-33 now use source-TOC-guided section anchors where reliable Word headings exist, but chapters whose section titles are normal paragraphs need curated manual mapping before further splitting.
+- Chapters 2-33 now use source-TOC-guided section anchors where reliable Word headings exist; the source coverage validator tracks 15 allowed unmatched source headings whose titles are normal paragraphs and need curated manual mapping before further splitting.
 - Language position preservation is block-aware, Android WebView verified on a long Chapter 26 section, and browser-sweep verified across all 33 chapters; exact sentence-level semantic pairing is not separately modeled.
 - Phrase lookup works through WebView text selection and stores the selected phrase's source section/page; physical long-press QA on a real phone is still pending.
 - English tables in Chapter 1 are partly represented as Word paragraph fragments; Chinese tables render as semantic tables.
 - Long chapters now use viewport-bound English tokenization and reader comfort controls; deeper low-end-device profiling is still pending.
 - Detailed sentence-level anchors can be added later if the content model gains sentence IDs; current accepted behavior is section/block-level restoration.
-- Figure assets now preserve DOCX-embedded originals, but full source-page-by-source-page visual comparison is not complete; issue #6 remains open for that deeper validation layer.
+- Figure assets now preserve DOCX-embedded originals, and source coverage QA samples nonblank Poppler renders from the source PDF; exhaustive 557-page pixel comparison is intentionally not part of the normal gate.
 - Some extracted table images are intentionally rendered as images; later passes can convert selected tables to semantic tables where fidelity allows.
 - The offline dictionary is manual-scoped, not a full arbitrary English dictionary; remaining fallback tokens are mostly proper names, OCR/formatting artifacts, URLs, and unusual compounds.
 
@@ -476,7 +504,7 @@ After context compression or a new session, do this before making changes:
 
 ## Next Action
 
-Improve curated manual section mapping for normal-paragraph titles, run physical-phone long-press QA, add inline highlight rendering for saved notes, review remaining dictionary fallback tokens, perform low-end-device performance profiling, and continue full-source visual comparison for extracted figures/tables.
+Improve curated manual section mapping for the 15 normal-paragraph source headings, run physical-phone long-press QA, add inline highlight rendering for saved notes, review remaining dictionary fallback tokens, perform low-end-device performance profiling, and run the final Android release verification sweep.
 
 ## Constraints
 

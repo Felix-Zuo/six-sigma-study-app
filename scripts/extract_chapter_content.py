@@ -791,6 +791,26 @@ def image_asset_type(width: int | None, height: int | None) -> str:
     return "figure"
 
 
+def section_range_end(current_page: int, next_page: int | None, chapter_page_end: int) -> int:
+    if next_page is None:
+        return chapter_page_end
+    return max(current_page, min(chapter_page_end, next_page - 1))
+
+
+def assign_estimated_pages(items: list[dict[str, Any]], page_start: int, page_end: int) -> list[dict[str, Any]]:
+    if not items:
+        return []
+    safe_start = min(page_start, page_end)
+    safe_end = max(page_start, page_end)
+    page_span = safe_end - safe_start + 1
+    item_count = len(items)
+    assigned: list[dict[str, Any]] = []
+    for index, item in enumerate(items):
+        offset = min(page_span - 1, (index * page_span) // item_count)
+        assigned.append({**item, "page": safe_start + offset})
+    return assigned
+
+
 def image_item_from_part(part: Any) -> dict[str, Any]:
     blob = part.blob
     digest = hashlib.sha256(blob).hexdigest()
@@ -935,6 +955,8 @@ def serialize_block(item: dict[str, Any], section_id: str, lang: str, index: int
             "assetId": item["assetId"],
             "src": item["src"],
         }
+        if isinstance(item.get("page"), int):
+            result["page"] = item["page"]
         if item.get("width") and item.get("height"):
             result["width"] = item["width"]
             result["height"] = item["height"]
@@ -945,6 +967,8 @@ def serialize_block(item: dict[str, Any], section_id: str, lang: str, index: int
         "id": block_id(section_id, lang, index),
         "kind": kind,
     }
+    if isinstance(item.get("page"), int):
+        result["page"] = item["page"]
     if "rows" in item:
         result["rows"] = item["rows"]
         result["text"] = item.get("text", "")
@@ -969,7 +993,7 @@ def attach_assets_to_lesson(lesson: dict[str, Any]) -> dict[str, Any]:
                     "id": asset_id,
                     "type": image_asset_type(width, height),
                     "path": block["src"],
-                    "page": section["page"],
+                    "page": block.get("page", section["page"]),
                 }
                 if width and height:
                     asset["width"] = width
@@ -987,14 +1011,22 @@ def build_lesson(en_docx: Path, zh_docx: Path) -> dict[str, Any]:
     zh_sections = build_sections(zh_items, "zh")
 
     sections: list[dict[str, Any]] = []
-    for section in SECTION_DEFS:
+    for section_index, section in enumerate(SECTION_DEFS):
+        next_page = SECTION_DEFS[section_index + 1].page if section_index + 1 < len(SECTION_DEFS) else None
+        page_end = section_range_end(section.page, next_page, 13)
         en_blocks = [
             serialize_block(item, section.section_id, "en", index)
-            for index, item in enumerate(en_sections[section.section_id], start=1)
+            for index, item in enumerate(
+                assign_estimated_pages(en_sections[section.section_id], section.page, page_end),
+                start=1,
+            )
         ]
         zh_blocks = [
             serialize_block(item, section.section_id, "zh", index)
-            for index, item in enumerate(zh_sections[section.section_id], start=1)
+            for index, item in enumerate(
+                assign_estimated_pages(zh_sections[section.section_id], section.page, page_end),
+                start=1,
+            )
         ]
         sections.append(
             {

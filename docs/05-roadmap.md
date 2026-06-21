@@ -36,6 +36,7 @@ Goal: convert all 449 aligned pages into app content.
 - [x] generate all chapter JSON files
 - [x] validate page/chapter mapping at chapter level
 - [x] strengthen full-manual validator for 449-page alignment, duplicate IDs, assets, and dictionary keys
+- [x] add source PDF/TOC coverage QA with block-level page anchors and source render sampling
 - [x] build table of contents inside app
 - [x] preserve figures/tables as optimized assets where semantic extraction is not enough
 - [x] refine section/page anchors for Chapters 2-33 where reliable Word headings exist

@@ -30,6 +30,7 @@ Run from `C:\findjob_sixsigma_app`:
 npm run extract:manual
 npm run build:dictionary
 npm run lint:content
+npm run qa:source-coverage
 npm run typecheck
 npm run build
 npm run android:release-apk
@@ -67,11 +68,12 @@ node scripts\qa-dictionary-cdp.mjs
 - 33 chapters are generated into app content.
 - 449 aligned study pages are represented in the manifest.
 - 174 reader sections are generated across the manual.
+- 9542 generated content blocks carry page anchors; English and Chinese block coverage spans every page from 6 through 449.
 - 470 deduplicated PNG figure/table/formula assets are bundled.
 - 3952 offline dictionary entries are bundled: 92 curated course/term entries and 3860 ECDICT-derived learner entries.
 - Dictionary generation covers 5582 of 5673 single-word manual forms; the remaining uncovered forms are mostly proper names, URL fragments, OCR/formatting artifacts, and unusual compound tokens.
 - `manual.json`, `asset-manifest.json`, PWA shell files, hashed reader assets, and all figure PNGs are present in both APK and AAB.
-- Targeted APK/AAB package checks count 479 public runtime entries for the reader shell, manifest, service worker, manual, asset manifest, and figures.
+- Targeted APK/AAB package checks count 481 public runtime entries for the reader shell, manifest, service worker, manual, asset manifest, and figures.
 - Chapter 28 remains one section because its TOC-like headings are normal paragraphs, not reliable Word headings.
 
 ## PWA Browser Offline QA
@@ -102,15 +104,17 @@ Verified on local emulator `SixSigmaQA` / `emulator-5554`.
 - Study notes: Android WebView QA verified selected Chinese text can be saved with language/page/section metadata, edited in the notes panel, and rendered with 0 horizontal overflow.
 - Dictionary lookup: Android WebView QA verified a clicked word after EN/ZH round trip used a real dictionary entry (`to`) rather than the generic fallback explanation.
 - Dictionary coverage: browser CDP QA verified runtime `manual.json` contains 3952 entries, 3860 ECDICT-derived entries, curated hits for `COPQ`, `DMADV`, `poka-yoke`, `5S`, and `Anderson-Darling`, and a real lookup sheet for `both` with phonetic text and 0 horizontal overflow.
-- Full-manual validator: `npm run lint:content` now checks 33 chapters, pageCount 449, continuous chapter page ranges, manifest chapter paths, global duplicate section/block IDs, image asset metadata consistency, unsafe asset paths, asset page bounds, and reader-style dictionary lookup key uniqueness.
+- Full-manual validator: `npm run lint:content` now checks 33 chapters, pageCount 449, continuous chapter page ranges, manifest chapter paths, global duplicate section/block IDs, block page anchors, complete EN/ZH page coverage, image asset metadata consistency, unsafe asset paths, asset page bounds, and reader-style dictionary lookup key uniqueness.
+- Source coverage validator: `npm run qa:source-coverage` passed with source PDF page count 557, manual page count 449, 9542 content blocks, 940 image blocks, 470 assets, 142 source TOC sections, 127 matched source section anchors, 15 explicitly allowed normal-paragraph source headings, and nonblank source-page renders for pages 9, 73, 396, 544, and 555.
+- Current release package sizes after this validation pass: APK 37,822,535 bytes; AAB 35,605,671 bytes.
 
 ## Known Remaining Gaps
 
 - The release key is local self-signed; final distribution/upload key policy is not decided.
 - Physical-device long-press selection QA is still pending; WebView Selection API QA passes.
 - Language restoration is accepted at section/block level across the full manual; exact sentence-level semantic pairing is not separately modeled.
-- Some chapters need curated section mapping where headings are normal paragraphs.
-- Full source-page-by-source-page visual comparison for figures/tables is not complete.
+- Some chapters need curated section mapping where headings are normal paragraphs; the source coverage validator now guards the current 15 allowed unmatched source headings.
+- Exhaustive 557-page pixel comparison for figures/tables is not part of the normal gate; source-page render sampling and app figure checks are covered.
 - Some table images are intentionally preserved as images; selected tables can be converted to semantic tables later.
 - The local dictionary is manual-scoped rather than a full arbitrary English dictionary; remaining fallback tokens should be reviewed as proper names, OCR artifacts, URL fragments, or course-specific compounds.
 - Saved notes currently render as a notes list; exact inline highlight rendering in the reading body is still pending.

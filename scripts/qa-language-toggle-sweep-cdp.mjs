@@ -3,6 +3,7 @@ import fs from "node:fs";
 const endpoint = process.env.CHROME_CDP_ENDPOINT ?? "http://127.0.0.1:9333/json";
 const appUrl = process.env.PWA_URL ?? "http://127.0.0.1:4175/";
 const manualPath = "apps/reader/public/content/manual.json";
+const languageSettleMs = 850;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -191,14 +192,14 @@ async function main() {
     await waitFor(`sample ${sample.chapter} Chinese mode`, () =>
       evalPage(`Boolean(document.querySelector(${JSON.stringify(`[data-section-id="${sample.sectionId}"] .sectionBody.zhText`)}))`)
     );
-    await sleep(350);
+    await sleep(languageSettleMs);
     const afterZh = await snapshot("after-zh", sample);
 
     await evalPage(`document.querySelector(".modeButton")?.click()`);
     await waitFor(`sample ${sample.chapter} English mode after toggle`, () =>
       evalPage(`!document.querySelector(${JSON.stringify(`[data-section-id="${sample.sectionId}"] .sectionBody`)})?.classList.contains("zhText")`)
     );
-    await sleep(350);
+    await sleep(languageSettleMs);
     const afterEn = await snapshot("after-en", sample);
 
     const blockTolerance = Math.max(2, Math.ceil(sample.comparableBlocks * 0.08));

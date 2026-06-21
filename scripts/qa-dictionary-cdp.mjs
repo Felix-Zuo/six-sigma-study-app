@@ -79,6 +79,20 @@ async function main() {
 
   await cdp.send("Page.navigate", { url: appUrl });
   await waitFor("reader render", () => evalPage(`Boolean(document.querySelector(".readerPanel"))`));
+  await evalPage(`(() => {
+    localStorage.setItem("six-sigma-study:reader-position:v1", JSON.stringify({
+      chapterId: "ch01",
+      sectionId: "ch01-overview",
+      language: "en",
+      scrollY: 0,
+      updatedAt: new Date().toISOString()
+    }));
+    location.reload();
+    return true;
+  })()`);
+  await waitFor("Chapter 1 English reader render", () =>
+    evalPage(`Boolean(document.querySelector('[data-section-id="ch01-overview"] .sectionBody:not(.zhText)'))`)
+  );
 
   const dictionaryState = await evalPage(`(async () => {
     const normalize = (value) => String(value)
@@ -112,6 +126,11 @@ async function main() {
       hits
     };
   })()`, true);
+
+  await waitFor("clickable word token", () =>
+    evalPage(`Boolean([...document.querySelectorAll(".wordToken")]
+      .find((item) => item.textContent.trim().toLowerCase() === "both"))`)
+  );
 
   const clicked = await evalPage(`(() => {
     const button = [...document.querySelectorAll(".wordToken")]
