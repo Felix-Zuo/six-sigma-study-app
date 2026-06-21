@@ -71,9 +71,10 @@ Goal: installable Android app first.
 
 Goal: comfortable long-session study.
 
-- dark mode
-- font size controls
-- page/chapter search
-- notes and highlights
-- performance profiling on real phone
-- low-end-device profiling for long image-heavy chapters
+- [x] dark mode with persisted reader preference
+- [x] font size controls with standard, large, and extra-large reading sizes
+- [x] long URL/reference wrapping so extra-large text does not create page-level horizontal scroll
+- [ ] page/chapter search
+- [ ] notes and highlights
+- [ ] performance profiling on real phone
+- [ ] low-end-device profiling for long image-heavy chapters

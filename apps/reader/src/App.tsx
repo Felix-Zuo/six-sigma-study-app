@@ -5,6 +5,8 @@ import { loadSavedTerms, persistSavedTerms, type SavedTerm } from "./lib/vocabSt
 import { loadReaderPosition, persistReaderPosition } from "./lib/readerPositionStore";
 
 type Language = "en" | "zh";
+type ThemeMode = "light" | "dark";
+type TextScale = "standard" | "large" | "xlarge";
 
 type ContentBlock = {
   id: string;
@@ -75,6 +77,28 @@ type SelectedPhrase = {
 
 type OverlayName = "lookup" | "toc" | "vocab";
 type LookupTextHandler = (text: string, page: number, sectionId: string, sourceText: string) => void;
+const readerPreferencesKey = "six-sigma-study:reader-preferences:v1";
+const textScaleOrder: TextScale[] = ["standard", "large", "xlarge"];
+
+function loadReaderPreferences(): { theme: ThemeMode; textScale: TextScale } {
+  try {
+    const raw = window.localStorage.getItem(readerPreferencesKey);
+    if (!raw) {
+      return { theme: "light", textScale: "standard" };
+    }
+    const parsed = JSON.parse(raw);
+    return {
+      theme: parsed.theme === "dark" ? "dark" : "light",
+      textScale: textScaleOrder.includes(parsed.textScale) ? parsed.textScale : "standard"
+    };
+  } catch {
+    return { theme: "light", textScale: "standard" };
+  }
+}
+
+function persistReaderPreferences(theme: ThemeMode, textScale: TextScale): void {
+  window.localStorage.setItem(readerPreferencesKey, JSON.stringify({ theme, textScale }));
+}
 
 function buildTermIndex(entries: TermEntry[]) {
   const index = new Map<string, TermEntry>();
@@ -185,6 +209,7 @@ export function App() {
   const [language, setLanguage] = useState<Language>(() =>
     initialPositionRef.current.language === "zh" ? "zh" : "en"
   );
+  const [readerPreferences, setReaderPreferences] = useState(() => loadReaderPreferences());
   const [activeChapterId, setActiveChapterId] = useState("");
   const [activeSectionId, setActiveSectionId] = useState("");
   const [activeLookup, setActiveLookup] = useState<ActiveLookup | null>(null);
@@ -203,6 +228,7 @@ export function App() {
     () => new Set(savedTerms.map((item) => normalizeLookup(item.term))),
     [savedTerms]
   );
+  const textScaleIndex = textScaleOrder.indexOf(readerPreferences.textScale);
 
   useEffect(() => {
     fetch("content/manual.json")
@@ -241,6 +267,14 @@ export function App() {
   useEffect(() => {
     persistSavedTerms(savedTerms);
   }, [savedTerms]);
+
+  useEffect(() => {
+    persistReaderPreferences(readerPreferences.theme, readerPreferences.textScale);
+  }, [readerPreferences]);
+
+  useEffect(() => {
+    document.documentElement.dataset.readerTheme = readerPreferences.theme;
+  }, [readerPreferences.theme]);
 
   useEffect(() => {
     if (!activeChapterId || !activeSectionId) {
@@ -392,7 +426,11 @@ export function App() {
 
   if (loadError) {
     return (
-      <main className="appShell">
+      <main
+        className="appShell"
+        data-theme={readerPreferences.theme}
+        data-text-scale={readerPreferences.textScale}
+      >
         <section className="sectionBlock">
           <h1>教材加载失败</h1>
           <p className="readerText">{loadError}</p>
@@ -403,7 +441,11 @@ export function App() {
 
   if (!manual || !lesson || !activeSection) {
     return (
-      <main className="appShell">
+      <main
+        className="appShell"
+        data-theme={readerPreferences.theme}
+        data-text-scale={readerPreferences.textScale}
+      >
         <section className="sectionBlock">
           <h1>Six Sigma Study</h1>
           <p className="readerText">正在加载教材...</p>
@@ -469,6 +511,23 @@ export function App() {
     setActiveSectionId(nextLesson.sections[0].id);
     closeOverlayFromControl();
     window.requestAnimationFrame(() => window.scrollTo({ top: 0 }));
+  }
+
+  function updateTextScale(direction: -1 | 1) {
+    setReaderPreferences((current) => {
+      const nextIndex = Math.max(
+        0,
+        Math.min(textScaleOrder.length - 1, textScaleOrder.indexOf(current.textScale) + direction)
+      );
+      return { ...current, textScale: textScaleOrder[nextIndex] };
+    });
+  }
+
+  function toggleTheme() {
+    setReaderPreferences((current) => ({
+      ...current,
+      theme: current.theme === "dark" ? "light" : "dark"
+    }));
   }
 
   function lookupText(text: string, page: number, sectionId: string, sourceText: string) {
@@ -587,7 +646,11 @@ export function App() {
   }
 
   return (
-    <main className="appShell">
+    <main
+      className="appShell"
+      data-theme={readerPreferences.theme}
+      data-text-scale={readerPreferences.textScale}
+    >
       <div className="readerChrome">
         <header className="topBar">
           <div>
@@ -597,6 +660,32 @@ export function App() {
           <div className="headerActions">
             <button className="tocButton" onClick={openToc} aria-label="open table of contents">
               目录
+            </button>
+            <button
+              className="readerControlButton"
+              onClick={() => updateTextScale(-1)}
+              aria-label="decrease text size"
+              title="减小字号"
+              disabled={textScaleIndex === 0}
+            >
+              A-
+            </button>
+            <button
+              className="readerControlButton"
+              onClick={() => updateTextScale(1)}
+              aria-label="increase text size"
+              title="增大字号"
+              disabled={textScaleIndex === textScaleOrder.length - 1}
+            >
+              A+
+            </button>
+            <button
+              className="readerControlButton"
+              onClick={toggleTheme}
+              aria-label="toggle dark mode"
+              title={readerPreferences.theme === "dark" ? "切换亮色" : "切换暗色"}
+            >
+              {readerPreferences.theme === "dark" ? "亮" : "暗"}
             </button>
             <button
               className="modeButton"
