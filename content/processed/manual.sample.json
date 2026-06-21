@@ -1,0 +1,17 @@
+{
+  "id": "ch01-sample",
+  "chapter": 1,
+  "title": {
+    "en": "Chapter 1: What is Six Sigma?",
+    "zh": "第一章：什么是六西格玛？"
+  },
+  "paragraphs": [
+    {
+      "id": "ch01-p001",
+      "page": 6,
+      "en": "Six Sigma, or 6σ, is both a methodology for process improvement and a statistical concept that seeks to define the variation inherent in any process.",
+      "zh": "六西格玛（Six Sigma，或 6σ）既是一套流程改进方法，也是一种用于描述流程固有变异的统计概念。"
+    }
+  ]
+}
+

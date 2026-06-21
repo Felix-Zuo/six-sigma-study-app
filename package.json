@@ -1,0 +1,15 @@
+{
+  "name": "six-sigma-study-app",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/reader"
+  ],
+  "scripts": {
+    "dev": "npm --workspace apps/reader run dev",
+    "build": "npm --workspace apps/reader run build",
+    "typecheck": "npm --workspace apps/reader run typecheck",
+    "lint:content": "python scripts/validate_content.py content/processed/manual.sample.json"
+  }
+}
+

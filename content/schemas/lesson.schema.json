@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://six-sigma-study.local/schemas/lesson.schema.json",
+  "title": "Six Sigma Study Lesson",
+  "type": "object",
+  "required": ["id", "chapter", "title", "paragraphs"],
+  "properties": {
+    "id": { "type": "string" },
+    "chapter": { "type": "integer", "minimum": 1 },
+    "title": {
+      "type": "object",
+      "required": ["en", "zh"],
+      "properties": {
+        "en": { "type": "string" },
+        "zh": { "type": "string" }
+      }
+    },
+    "paragraphs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "page", "en", "zh"],
+        "properties": {
+          "id": { "type": "string" },
+          "page": { "type": "integer", "minimum": 1 },
+          "en": { "type": "string" },
+          "zh": { "type": "string" },
+          "assetIds": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "path", "page"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "enum": ["figure", "table-image", "formula-image"] },
+          "path": { "type": "string" },
+          "page": { "type": "integer" },
+          "caption": {
+            "type": "object",
+            "properties": {
+              "en": { "type": "string" },
+              "zh": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
