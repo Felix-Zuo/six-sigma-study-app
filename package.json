@@ -11,6 +11,8 @@
     "typecheck": "npm --workspace apps/reader run typecheck",
     "android:sync": "npm run build && npx cap sync android",
     "android:apk": "npm run android:sync && cd android && gradlew.bat assembleDebug",
+    "android:release-apk": "npm run android:sync && cd android && gradlew.bat assembleRelease",
+    "android:aab": "npm run android:sync && cd android && gradlew.bat bundleRelease",
     "extract:ch01": "python scripts/extract_chapter_content.py",
     "extract:manual": "python scripts/extract_manual_content.py",
     "lint:content": "python scripts/validate_content.py content/processed"

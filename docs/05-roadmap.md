@@ -59,9 +59,10 @@ Goal: installable Android app first.
 - [x] emulator install/runtime smoke test
 - [x] native Android back button closes reader sheets
 - [x] debug reinstall preserves local vocabulary data
-- offline asset packaging
+- [x] offline app asset packaging for APK/AAB
+- [x] release APK signing setup
+- [x] release AAB build
 - local data migration test
-- release signing setup
 
 ## Phase 5: Polish
 

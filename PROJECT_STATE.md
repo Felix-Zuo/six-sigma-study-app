@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 03:08 Asia/Shanghai
+Last updated: 2026-06-22 03:15 Asia/Shanghai
 
 ## Objective
 
@@ -20,9 +20,9 @@ The final product must support full-manual offline reading, position-preserving 
 
 - Branch: `main`
 - Latest validated implementation commit: `64f6d9e Fix Android sheet back behavior and mobile header`
-- Local worktree: expected clean after the state-sync commit that contains this note
+- Local worktree: dirty with release signing/AAB workflow pending commit
 - Latest implementation GitHub Actions state: CI passed for `64f6d9e`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with section-preserving language toggle, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, PWA manifest/service worker base, and a Capacitor Android debug APK that runs on the local emulator.
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with section-preserving language toggle, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, PWA manifest/service worker base, a Capacitor Android debug APK that runs on the local emulator, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
 
@@ -59,6 +59,11 @@ The final product must support full-manual offline reading, position-preserving 
 - Created local AVD `SixSigmaQA` and installed the debug APK on `emulator-5554`.
 - Added native Android back-button handling through `@capacitor/app` so open sheets close before the app exits.
 - Reworked the sticky reader header so long chapter titles no longer clip the page rail.
+- Added ignored Android release signing configuration via `android\keystore.properties`.
+- Added `npm run android:release-apk` and `npm run android:aab`.
+- Generated local signing keystore at `C:\findjob_sixsigma_secrets\sixsigma-release.jks`.
+- Built release APK at `C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk`.
+- Built release AAB at `C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab`.
 
 ## Verification In Current Stage
 
@@ -91,10 +96,16 @@ The final product must support full-manual offline reading, position-preserving 
   - Chapter 26 English/Chinese visual check: passed after sticky header fix
   - Chapter 33 English/Chinese visual check: passed
   - QA screenshots are local under `C:\findjob_sixsigma_app\qa\screenshots` and are not committed because PNG files are ignored.
+- Release build verification:
+  - `npm run android:release-apk`: passed
+  - `npm run android:aab`: passed
+  - `apksigner verify --print-certs android\app\build\outputs\apk\release\app-release.apk`: passed
+  - `jarsigner -verify -certs android\app\build\outputs\bundle\release\app-release.aab`: verified with expected self-signed certificate warnings
+  - Release APK install and launch on `emulator-5554`: passed
 
 ## Known Limitations
 
-- The Android debug APK builds successfully, but release APK/AAB signing is not configured yet.
+- The release signing key is a local self-signed key for this project; store upload key policy and distribution channel are not finalized.
 - Chapters 2-33 are connected as chapter-level sections; detailed subsection/page anchors still need refinement.
 - Language position preservation is section-level for Chapter 1 and chapter-level for generic chapters, not sentence-level.
 - Phrase lookup UI exists through text selection, but needs real touch-device QA.
@@ -126,7 +137,7 @@ After context compression or a new session, do this before making changes:
 
 ## Next Action
 
-Add release signing/AAB workflow, then improve detailed anchors and long-chapter performance.
+Improve detailed anchors, figure/table preservation, phrase-selection QA, and long-chapter performance.
 
 ## Constraints
 

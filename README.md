@@ -74,7 +74,21 @@ Debug APK output:
 C:\findjob_sixsigma_app\android\app\build\outputs\apk\debug\app-debug.apk
 ```
 
-This debug APK is unsigned for release distribution. A release APK/AAB needs a signing key before it is suitable for sharing outside local testing.
+This debug APK is for local testing.
+
+Release APK/AAB builds use `android\keystore.properties`, which is ignored by Git. Start from `android\keystore.properties.example`, keep the actual keystore outside the repo, then run:
+
+```powershell
+npm run android:release-apk
+npm run android:aab
+```
+
+Release outputs:
+
+```text
+C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk
+C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab
+```
 
 ## Android Emulator QA
 
