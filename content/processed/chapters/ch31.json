@@ -1,0 +1,1072 @@
+{
+  "id": "ch31",
+  "chapter": 31,
+  "pageStart": 420,
+  "pageEnd": 427,
+  "title": {
+    "en": "Chapter 31: Brainstorming and Process Improvement Tools",
+    "zh": "第 31 章：头脑风暴与流程改进工具"
+  },
+  "source": {
+    "enDocx": "C:\\findjob_sixsigma_sources\\manual_en_aligned.docx",
+    "zhDocx": "C:\\findjob_sixsigma_sources\\manual_zh_aligned.docx",
+    "extraction": "python-docx body-order extraction; generic chapter-level bilingual content"
+  },
+  "sections": [
+    {
+      "id": "ch31-content",
+      "level": 1,
+      "page": 420,
+      "title": {
+        "en": "Brainstorming and Process Improvement Tools",
+        "zh": "头脑风暴与流程改进工具"
+      },
+      "content": {
+        "en": [
+          {
+            "id": "ch31-content-en-001",
+            "kind": "paragraph",
+            "text": "Throughout this book, you’ve learned to deploy a number of Six Sigma tools, including brainstorming tools. Some tools you’ve already learned to use include the SIPOC diagram, the in-and-out-of-the-box method, and the 5 Whys brainstorming model. This chapter provides an appendix of additional tools and methods that can be integrated into meetings for DMAIC projects or simply to help a team or department gain insight into a problem or process."
+          },
+          {
+            "id": "ch31-content-en-002",
+            "kind": "paragraph",
+            "text": "As a Six Sigma expert or process leader, having access to multiple process improvement and brainstorming tools is helpful. While all of the tools previously covered in this book are extremely powerful when used correctly, if you use the same approach all the time, you risk coming up with the same solutions and hitting the same obstacles. Sometimes, switching the brainstorming method or tool can help break a team out of a rut, encouraging a different perspective or sparking different discussions or debates."
+          },
+          {
+            "id": "ch31-content-en-003",
+            "kind": "heading",
+            "text": "Activity Network Diagram"
+          },
+          {
+            "id": "ch31-content-en-004",
+            "kind": "paragraph",
+            "text": "An activity network diagram helps a Six Sigma team chart either the activity involved in a project or the activity involved in a process. The point of the diagram is to understand sequential and time relationships within a project or process. Which items come first? Which activities happen at the same time?"
+          },
+          {
+            "id": "ch31-content-en-005",
+            "kind": "paragraph",
+            "text": "When applied to an overall project, the activity network diagram helps teams and project leaders understand what resources will be required at each point during the project. It can also provide project managers with the ability to better estimate project timelines."
+          },
+          {
+            "id": "ch31-content-en-006",
+            "kind": "paragraph",
+            "text": "When applied to a process, the diagram helps teams identify all the activities in a process. It also helps teams understand which activities are up- and downstream and what activities happen together. Once teams know these things, they can begin to discuss whether the current sequence is the most effective sequence and understand how changes to one activity might impact the outcome of another."
+          },
+          {
+            "id": "ch31-content-en-007",
+            "kind": "paragraph",
+            "text": "An activity network diagram is created by following these steps:"
+          },
+          {
+            "id": "ch31-content-en-008",
+            "kind": "paragraph",
+            "text": "1. List all of the activities involved in the process. Teams can draw from their own knowledge or from previous tools used by the group such as SIPOC or process maps. 2. Write each activity on a separate card or sticky note. 3. Place activities in order from left to right. Activities that are simultaneous are placed in a vertical line in one horizontal space on the diagram. 4. Write an estimated time for each activity."
+          },
+          {
+            "id": "ch31-content-en-009",
+            "kind": "paragraph",
+            "text": "5. Draw a critical path line through each step. Where vertical (simultaneous steps) are noted, the line goes through the step that takes the longest. 6. Add up the times listed along the critical path to get an idea of the overall estimate of time for the process. In the example below, the total time for the critical path in minutes is: 5 + 2 + 12 + 9 + 10 + 5, or 43."
+          },
+          {
+            "id": "ch31-content-en-010",
+            "kind": "heading",
+            "text": "Affinity Diagram"
+          },
+          {
+            "id": "ch31-content-en-011",
+            "kind": "paragraph",
+            "text": "An affinity diagram is a tool that lets the team list and group a large number of ideas quickly and systematically. Affinity diagrams work well when you are first approaching a process or idea because they help you sort through all of the associated ideas to identify some of the main points the team will need to consider throughout the DMAIC project. Affinity diagrams are also a good tool to use if you have a larger-than-normal brainstorming group, which means they can be used in department meetings or in DMAIC meetings that include subject matter experts that aren’t part of the core team. The goal of an affinity diagram is to help the group understand the relationships between inputs, outputs, products, services, workers, customers, processes, and ideas – or any subgroup of those things."
+          },
+          {
+            "id": "ch31-content-en-012",
+            "kind": "paragraph",
+            "text": "To conduct an affinity diagram, you’ll need a large workspace, such as a flat table, wall, or floor. You can also use a white board, and if you are working with a group across multiple locations, you can conduct the exercise via web conferencing software, though, as with most brainstorming tools, this would not be optimal."
+          },
+          {
+            "id": "ch31-content-en-013",
+            "kind": "paragraph",
+            "text": "An affinity diagram session is conducted by following the steps outlined below."
+          },
+          {
+            "id": "ch31-content-en-014",
+            "kind": "paragraph",
+            "text": "1. Provide everyone in the session with small notecards, sticky notes, or pieces of paper. 2. Begin brainstorming ideas about the process or problem. Ideas at this stage are very loose – encourage the team to write down anything that comes to mind. The ideas should be short – one or two words or very simple sentences, otherwise the team might be recording two ideas"
+          },
+          {
+            "id": "ch31-content-en-015",
+            "kind": "paragraph",
+            "text": "on one note card. Encourage participants to record inputs, outputs, challenges, obstacles, customers, people, processes, actions, etc. If you are attempting to address a specific question, that question should drive the type of things recorded on the notes. 3. Brainstorming can occur individually for a few minutes or as a group. Individual brainstorming is likely to present a number of ideas that aren’t influenced by others’ input, which can be valuable. 4. After brainstorming, have everyone spread the cards on a floor or table, or stick the notes to a wall or white board. 5. Work as a team to identify ideas that are related. Place those ideas next to each other. Consider working as a team without talking during this step to shift ideas around the diagram for a few minutes until most ideas are lumped into larger groups. 6. If one idea could belong to more than one group, make multiple cards with that idea on it so it can be put with multiple groups. 7. It’s okay to have groups of one when an idea doesn’t seem to fit with anything else. 8. Once all the notes are grouped, hold a discussion time with the team to answer questions:"
+          },
+          {
+            "id": "ch31-content-en-016",
+            "kind": "paragraph",
+            "text": "a. Are there patterns in the ideas?"
+          },
+          {
+            "id": "ch31-content-en-017",
+            "kind": "paragraph",
+            "text": "b. Does the diagram spark any new ideas or clarify ideas or relationships? c. Do ideas fall into natural sequences for processes or timelines? d. Do ideas fall into natural groups of causes? 9. The questions asked and answered will depend on what process or overall question the team is addressing with the affinity diagram. 10. Title each group of ideas by pulling out what seems to be the main idea of that grouping. 11. Record the diagram for use later. You can have someone copy it onto a piece of paper, convert it to a computer diagram, or simply snap a digital picture for storing with other team documents."
+          },
+          {
+            "id": "ch31-content-en-018",
+            "kind": "heading",
+            "text": "Interrelationship Diagram"
+          },
+          {
+            "id": "ch31-content-en-019",
+            "kind": "paragraph",
+            "text": "An interrelationship diagram is similar to a fishbone diagram in purpose. The goal of an interrelationship brainstorm is to understand what causes and effects are primary with regard to a problem or process. The outcome of the brainstorming session is a visual depiction that makes it easy to see which items are likely causing most of the effects and which effects are tied to which causes within a process."
+          },
+          {
+            "id": "ch31-content-en-020",
+            "kind": "paragraph",
+            "text": "As a Six Sigma expert you can deploy this exercise when teams don’t fully understand the relationships between causes and effects within a process, can’t agree on which causal factors might be primary within the process, or are just beginning to understand the process and need more overall knowledge before moving into a fishbone diagram process or measuring processes."
+          },
+          {
+            "id": "ch31-content-en-021",
+            "kind": "paragraph",
+            "text": "Conduct an interrelationship diagram session by following these steps:"
+          },
+          {
+            "id": "ch31-content-en-022",
+            "kind": "paragraph",
+            "text": "1. Define the problem on a white board, piece of paper, or sticky note. 2. On other sticky notes, write brainstormed ideas about the problem. Specifically, what might have caused the problem? What might be causing things that cause the problems? What other issues might the problem cause? 3. Place the notes all around the problem on the white board."
+          },
+          {
+            "id": "ch31-content-en-023",
+            "kind": "paragraph",
+            "text": "4. As a team, consider each idea on each note. Decide whether that idea is somehow related to any other idea on the board. 5. If the idea is related in such a way to a second idea that it could cause, or be an input or factor, for another idea, draw an arrow going from the first idea to the one it might be an input, factor, or cause for. 6. If the idea is related in such a way to a second idea that it might be an effect or output from the second idea, draw an arrow going from the second idea to the first idea. 7. If necessary, draw multiple arrows to and from each idea. 8. At the end of the exercise, count the number of arrows coming in to the idea. Write those numbers in one color on each sticky note. 9. Count the number of arrows going out from each idea. Write those numbers in another color on each sticky note. 10. The notes with the highest total count – when you add those two numbers – are likely the key factors in the process or problem. You might also be able to identify key inputs (causes) and outputs (effects) based on the number of arrows coming in or out of various notes."
+          },
+          {
+            "id": "ch31-content-en-024",
+            "kind": "heading",
+            "text": "Force Field Analysis"
+          },
+          {
+            "id": "ch31-content-en-025",
+            "kind": "paragraph",
+            "text": "A lot of Six Sigma education has to do with statistical analysis, but the methodology doesn’t work if Six Sigma leaders are too caught up in the numbers and data to realize that people play an important role in every process, every project, and every improvement initiative. One way Six Sigma teams can understand how people and other factors might support or challenge a process, project, or change is to conduct a force field analysis."
+          },
+          {
+            "id": "ch31-content-en-026",
+            "kind": "paragraph",
+            "text": "A force field analysis lets teams understand how factors surrounding a process might support (or drive) change or challenge (or restrain) change. In addition to people, factors might include culture, materials and resources requirements, customers, needs, machines, rules, and regulations. Sometimes, Six Sigma teams can work to change some of these factors to create additional support for an improvement. In other cases, the team cannot change restraining factors, but must be aware of those factors as they move forward with improvement initiatives."
+          },
+          {
+            "id": "ch31-content-en-027",
+            "kind": "paragraph",
+            "text": "Create a force field analysis by following these steps:"
+          },
+          {
+            "id": "ch31-content-en-028",
+            "kind": "paragraph",
+            "text": "1. Start with the definition of the problem. This can be either the overall problem statement or a more detailed and smaller problem within the scope of the entire project. 2. Write the problem on the top of a white board or large piece of paper. 3. Draw a bold line down the center of the page. This line represents the status quo – the current state of the process. 4. Define the solution or desired state. If the team is just starting out, the desired state might be the overall project objective statement. If the team is working to solve a specific problem within the project scope, it might have a solution in mind. 5. Write the solution or objective statement at the bottom of the white board or page. 6. Brainstorm driving factors – factors that would move the status quo “forward”. 7. Write driving factors on the left side of the status quo line. 8. Brainstorm restraining factors – factors that would keep the status quo as is. 9. Write restraining factors on the right side of the status quo line."
+          },
+          {
+            "id": "ch31-content-en-029",
+            "kind": "paragraph",
+            "text": "10. Draw an arrow under each driving factor toward the status quo line; the length of each arrow represents the perceived strength of the driving factor. For example, the sponsor who holds financial decisions is on board with the solution. This would be a strong driving factor and might get a long arrow. 11. Draw an arrow under each restraining factor back toward the status quo line. The length of each arrow represents the perceived strength of the challenge. If the sponsor wasn’t on board with the solution yet, this would be a fairly strong restraining factor."
+          },
+          {
+            "id": "ch31-content-en-030",
+            "kind": "paragraph",
+            "text": "Once the diagram is completed, the team can see quickly:"
+          },
+          {
+            "id": "ch31-content-en-031",
+            "kind": "listItem",
+            "text": "Whether there are more driving factors or restraining factors"
+          },
+          {
+            "id": "ch31-content-en-032",
+            "kind": "listItem",
+            "text": "Whether driving factors or restraining factors have more “weight” (based on the number of longer arrows on either side)"
+          },
+          {
+            "id": "ch31-content-en-033",
+            "kind": "listItem",
+            "text": "Which factors are strongest"
+          },
+          {
+            "id": "ch31-content-en-034",
+            "kind": "paragraph",
+            "text": "The team can then discuss whether any of the restraining factors can be weakened or converted to driving factors, which can be helpful in paving the way for smoother solution implementation."
+          },
+          {
+            "id": "ch31-content-en-035",
+            "kind": "heading",
+            "text": "Responsibility Chart"
+          },
+          {
+            "id": "ch31-content-en-036",
+            "kind": "paragraph",
+            "text": "A responsibility chart helps Six Sigma teams identify which people, teams, or departments have various types of connections or responsibilities to a process. The reason for understanding such relationships is for Six Sigma teams to understand who actually acts on or within the process, who needs to be informed about the process, who is ultimately accountable for the process, and who might offer valuable information about the process. Often, these various people can be identified with a charting process known as RACI, which stands for:"
+          },
+          {
+            "id": "ch31-content-en-037",
+            "kind": "listItem",
+            "text": "Responsible – the person or team who actually does the work (an employee who is responsible for collecting money at the cash register)"
+          },
+          {
+            "id": "ch31-content-en-038",
+            "kind": "listItem",
+            "text": "Accountable – the person in charge of the work (the supervisor of that shift)"
+          },
+          {
+            "id": "ch31-content-en-039",
+            "kind": "listItem",
+            "text": "Consult – any person involved in steps prior to the activity that should be kept in the loop (the sales person on the floor, the bookkeeper who creates starting drawers each morning)"
+          },
+          {
+            "id": "ch31-content-en-040",
+            "kind": "listItem",
+            "text": "Inform – any person involved in steps after the activity that should be kept in the loop (the bookkeeper, who also balances the drawers at the end of shifts)"
+          },
+          {
+            "id": "ch31-content-en-041",
+            "kind": "paragraph",
+            "text": "Create a RACI matrix for your project or process by following these steps:"
+          },
+          {
+            "id": "ch31-content-en-042",
+            "kind": "paragraph",
+            "text": "1. Create a list of all activities and decisions that are part of the process. Teams can get this information from previous brainstorming sessions or tools such as process maps. 2. List those items down the right side of a page or white board. 3. Create a list of all functional roles associated with a process. List those as the row headers across the top of the page or white board."
+          },
+          {
+            "id": "ch31-content-en-043",
+            "kind": "paragraph",
+            "text": "a. Activities and decisions might include items such as:"
+          },
+          {
+            "id": "ch31-content-en-044",
+            "kind": "paragraph",
+            "text": "i. Measure lumber. ii. Cut lumber iii. Review lumber."
+          },
+          {
+            "id": "ch31-content-en-045",
+            "kind": "paragraph",
+            "text": "iv. Decide if lumber is the right length. b. Functional roles might include:"
+          },
+          {
+            "id": "ch31-content-en-046",
+            "kind": "paragraph",
+            "text": "i. Lumber measurer ii. Lumber cutter iii. Auditor iv. Lumber packer 4. For each functional role and activity, decide if the role is responsible or accountable for each activity listed or if the role should be consulted or informed. In the example below, you can see that the cutter is responsible for measuring and cutting, the auditor is responsible for reviewing and deciding whether the lumber is correct, and the supervisor is accountable for all of it. The packer needs to be informed about whether the lumber is correct so he or she knows whether to pack it."
+          },
+          {
+            "id": "ch31-content-en-047",
+            "kind": "heading",
+            "text": "Cutter"
+          },
+          {
+            "id": "ch31-content-en-048",
+            "kind": "paragraph",
+            "text": "Auditor Packer Supervisor Measure lumber R A Cut lumber R A Review lumber R A Decide if lumber is correct R I A"
+          },
+          {
+            "id": "ch31-content-en-049",
+            "kind": "heading",
+            "text": "Nominal Group Technique"
+          },
+          {
+            "id": "ch31-content-en-050",
+            "kind": "paragraph",
+            "text": "A Six Sigma leader has to develop a good understanding of group dynamics. Not every project team will work the same, and sometimes Six Sigma leaders face interpersonal challenges within the group environment. Some of these challenges can derail brainstorming efforts because of personality clashes. If you have one or more quiet or shy individuals, for example, you might not be getting all of their perspective. Even if everyone on the team is fairly vocal, if there is a natural leader, bully, or more outspoken member, they might be getting more ideas in than others. On way you can reduce the impact of personality on brainstorming sessions is to use the nominal group technique to encourage input from everyone."
+          },
+          {
+            "id": "ch31-content-en-051",
+            "kind": "paragraph",
+            "text": "1. Provide everyone with pen and paper. 2. Being with a question, topic, or concern that is relevant to the project or the phase you are in. 3. Take 5 to 10 minutes and invite everyone to brainstorm their own ideas. Make sure you note that at this stage, there are no bad or wrong ideas. 4. Once everyone is finished writing, go around the table, having each person state an idea from their list. Each person should only state one idea at a time before letting others have a turn. 5. Write the ideas down on a white board or flipchart, but don’t discuss the ideas at this time. 6. As ideas are shared, individuals can pass if every idea on their list has been shared by themselves or someone else. 7. Once all ideas are listed, lead a discussion based on the ideas or use the ideas to fuel a secondary activity, such as an affinity diagram or fishbone diagram."
+          },
+          {
+            "id": "ch31-content-en-052",
+            "kind": "paragraph",
+            "text": "Nominal group technique is also a good tool to use if the team is stuck or is dealing with a particularly difficult concept. The technique helps break thoughts out of ruts in two ways. First, it removes some of the fear individuals can have at sharing half-formed verbal ideas. Team members who are writing ideas down can think through those ideas a bit more and might feel more comfortable listing them later. Second, the act of writing itself is proven to break down creative and thought barriers, and can help the team members brainstorm more ideas."
+          },
+          {
+            "id": "ch31-content-en-053",
+            "kind": "heading",
+            "text": "Check Sheets"
+          },
+          {
+            "id": "ch31-content-en-054",
+            "kind": "paragraph",
+            "text": "Check sheets as a tool have been touched on multiple times in this book, but it’s worth mentioning them again in a more formal way. Check sheets are simple tools that can be extremely powerful for managing teams, people, processes, and data. The reason check sheets are so powerful is that they require an action, and when you require a physical and recordable action, personal responsibility for the action involved is usually higher."
+          },
+          {
+            "id": "ch31-content-en-055",
+            "kind": "paragraph",
+            "text": "A check sheet is any templated form used to record information. The information you record can be a specific piece of data, but it might also be a notation that a routine check, analysis, or certain other task was performed. The purpose of a check sheet, beyond formalizing and mandating an action, is to streamline the process of reporting the action."
+          },
+          {
+            "id": "ch31-content-en-056",
+            "kind": "paragraph",
+            "text": "Consider the check sheets often seen in public restroom facilities in restaurants or stores. These check sheets are usually on the door or wall near the door. Each hour, a staff member initials and dates the check sheet to indicate that the restroom was checked. By requiring the staff member to initial and date the check sheet, companies make it more likely staff will check the restroom at appropriate times. The initial and date indicates that staff ensured the facilities were stocked, clean, and in working order."
+          },
+          {
+            "id": "ch31-content-en-057",
+            "kind": "paragraph",
+            "text": "This premise can be used in a variety of processes to ensure data collection or certain tasks are performed at the right time by the right person. Check sheets can also be used to manage tasks within a project environment – a Six Sigma leader might provide check sheets to each subject matter expert during a project meeting so that each person knows what needs to be done before the next meeting and has a physical requirement for recording process."
+          },
+          {
+            "id": "ch31-content-en-058",
+            "kind": "paragraph",
+            "text": "As a Six Sigma expert, it’s important to understand when the simplest solution fits your need, and the checklist is often that solution."
+          },
+          {
+            "id": "ch31-content-en-059",
+            "kind": "heading",
+            "text": "SWOT Analysis"
+          },
+          {
+            "id": "ch31-content-en-060",
+            "kind": "paragraph",
+            "text": "SWOT analysis is a common business brainstorming technique that helps teams understand high-level strengths, weaknesses, opportunities, and threats (challenges) for a project, improvement, or process. SWOT analyses can be conducted anytime during the DMAIC phases, but are especially helpful during define phases or anytime storming has occurred and the team needs something fast and easy to help them get back on track."
+          },
+          {
+            "id": "ch31-content-en-061",
+            "kind": "paragraph",
+            "text": "Some people break up SWOT analysis into a visual depiction, drawing a large grid of four squares, one each to represent Strengths, Weaknesses, Opportunities, and Threats. This can be helpful if you have a project group that is especially visual, but is not necessary. The point of a SWOT analysis is really to answer some fundamental questions through brainstorming."
+          },
+          {
+            "id": "ch31-content-en-062",
+            "kind": "paragraph",
+            "text": "1. Strengths: What about the process works? What is done better, faster, cheaper, more unique?"
+          },
+          {
+            "id": "ch31-content-en-063",
+            "kind": "paragraph",
+            "text": "2. Weaknesses: What doesn’t work? What are the disadvantages, problems, losses, errors, or customer dissatisfaction points? 3. Opportunities: What can be fixed? What are some easy-to-fix issues? Where are improvements needed? 4. Threats: What obstacles exist to improvement? What risks will the project team face? What resource challenges might there be?"
+          },
+          {
+            "id": "ch31-content-en-064",
+            "kind": "heading",
+            "text": "Starburst Brainstorming"
+          },
+          {
+            "id": "ch31-content-en-065",
+            "kind": "paragraph",
+            "text": "Starburst brainstorming is a method for generating a series of questions about a problem, process, or idea. Those questions can later be used in defining processes, problems, products, or other ideas. On the surface, the starburst tool is similar to the 5 Whys, but instead of answering each question and then asking another question, the team simply comes up with as many various questions as possible."
+          },
+          {
+            "id": "ch31-content-en-066",
+            "kind": "paragraph",
+            "text": "Conduct a starburst brainstorming session by following these steps:"
+          },
+          {
+            "id": "ch31-content-en-067",
+            "kind": "paragraph",
+            "text": "1. Draw a six-pointed star on a white board or large piece of paper. 2. On each of the points, write one of the following: Who, What, Where, When, Why, How. 3. At the center of the star, write one or a few words describing the central idea. 4. For each point of the star, brainstorm questions about the center that start with the word at that point. For example, a team might be working to create more customer satisfaction regarding a food-service product. For the purpose of this example, imagine a team working to solve a problem of customer satisfaction with an individually-wrapped snack cake that is typically sold in convenience stores and newsstands."
+          },
+          {
+            "id": "ch31-content-en-068",
+            "kind": "paragraph",
+            "text": "a. The center of the star might simply state “ABC Snack Cake.” b. Questions at the “Who?” tip of the star might include:"
+          },
+          {
+            "id": "ch31-content-en-069",
+            "kind": "paragraph",
+            "text": "i. Who is the primary customer for the snack cake?"
+          },
+          {
+            "id": "ch31-content-en-070",
+            "kind": "paragraph",
+            "text": "ii. Who is most likely to eat the snack cake? iii. Who will buy the snack cake? (not always the same person who eats it) iv. Who will sell the snack cake?"
+          },
+          {
+            "id": "ch31-content-en-071",
+            "kind": "paragraph",
+            "text": "v. Who will market the snack cake?"
+          },
+          {
+            "id": "ch31-content-en-072",
+            "kind": "paragraph",
+            "text": "vi. Who will make the snack cake? c. “What?” questions might include:"
+          },
+          {
+            "id": "ch31-content-en-073",
+            "kind": "paragraph",
+            "text": "i. What flavor or flavors should the snack cake be?"
+          },
+          {
+            "id": "ch31-content-en-074",
+            "kind": "paragraph",
+            "text": "ii. What packaging is best for the snack cake? iii. What ingredients are important to the snack cake? d. Go through all the points of the star, asking questions that match the word at that point. Generate as many questions as you can within a set period of time. It’s a good idea to set a time limit for question generation for each point of the star – up to five minutes is usually good – to keep questions from become too detailed or out of scope for the problem, process, or idea you are dealing with."
+          },
+          {
+            "id": "ch31-content-en-075",
+            "kind": "paragraph",
+            "text": "The purpose of the starburst session is not to answer the questions you come up with, and that can be a challenge for Six Sigma leaders. Team members will naturally want to move immediately from one question to an answer, which can derail the process and result in a discussion that is not productive or ranges out of scope. Direct team members back to asking questions for the duration of the brainstorming session. Those questions can later be compiled and used when conducting other"
+          },
+          {
+            "id": "ch31-content-en-076",
+            "kind": "paragraph",
+            "text": "exercises, such as SIPOCs or process maps. The questions help ensure details aren’t left out and that all possible queries are considered."
+          },
+          {
+            "id": "ch31-content-en-077",
+            "kind": "heading",
+            "text": "Role-Play or Figuring Brainstorming"
+          },
+          {
+            "id": "ch31-content-en-078",
+            "kind": "paragraph",
+            "text": "One of the biggest challenges with brainstorming as a Six Sigma team is that, after a few meetings or as the team gets deeper into the DMAIC process, the team can become stuck on certain beliefs and ideas. Once certain ideas are proposed, it can be hard to “get away” from them. Teams might find themselves circling back around to the same ideas repeatedly. Sometimes, this means the team is on the right track and the iteration of the same concepts throughout the DMAIC process and brainstorming is confirmation that those are the right things to be thinking about. Other times, however, it can be a sign that the team is stuck."
+          },
+          {
+            "id": "ch31-content-en-079",
+            "kind": "paragraph",
+            "text": "It can be difficult at times to tell the difference, and Six Sigma experts do have to rely on analysis and data to help make a decision about whether the team is going in the right direction or not. If a Six Sigma expert believes that the team is not going in the right direction, he or she can try figuring brainstorming to try to get team members to think more creatively or from a different perspective about the issue."
+          },
+          {
+            "id": "ch31-content-en-080",
+            "kind": "paragraph",
+            "text": "Figuring brainstorming, or role-play, can be combined with many of the other tools in this chapter to generate new thoughts. Choose one of the simpler brainstorming exercises or simply ask a question and brainstorm responses. However, ask participants to brainstorm as someone other than themselves. They might brainstorm as the CEO of the company. They might brainstorm as a person working on the product line. The might brainstorm as Johnny Depp, the President of the United States, or Cookie Monster."
+          },
+          {
+            "id": "ch31-content-en-081",
+            "kind": "paragraph",
+            "text": "Here is where Six Sigma leadership is important. Is the group likely to respond better to a silly situation that cracks some of the boundaries they’ve built, or are they more likely to respond to a serious role- playing situation? This helps you decide whether to go with Cookie Monster or CEO."
+          },
+          {
+            "id": "ch31-content-en-082",
+            "kind": "paragraph",
+            "text": "One challenge with this type of team activity is balancing the stress release and creativity of the silly activity with a true need to be productive. If things are devolving into pure fun without productivity, then the Six Sigma team leader should wrap up the activity and move on with another. The time is usually not wasted, though – breaking away from the seriousness of the project for a few minutes is often itself enough to help teams think more creatively."
+          },
+          {
+            "id": "ch31-content-en-083",
+            "kind": "heading",
+            "text": "Brainwriting"
+          },
+          {
+            "id": "ch31-content-en-084",
+            "kind": "paragraph",
+            "text": "Brainwriting is somewhat like the nominal group technique. In fact, nominal group technique is actually a form of brainwriting. Reasons you might incorporate this type of brainstorming in your meetings include increasing input from quieter or more reserved team members, reducing how only one or two vocal members impact the outcome of a meeting, and generating ideas that other brainstorming methods are not generating. Remember, the physical act of writing itself contributes to thought processes and can help the brain make connections between ideas that it is less likely to make during verbal brainstorming."
+          },
+          {
+            "id": "ch31-content-en-085",
+            "kind": "paragraph",
+            "text": "There are numerous types of brainwriting exercises that you can use in a team environment. Nominal group technique is one, and this section provides some other options."
+          },
+          {
+            "id": "ch31-content-en-086",
+            "kind": "heading",
+            "text": "The Pool Brainwriting Method"
+          },
+          {
+            "id": "ch31-content-en-087",
+            "kind": "paragraph",
+            "text": "The pool method can help generate different ideas because participants build off of each other’s ideas without the pressure of a fast verbal brainstorming sessions. Each participant gets a piece of paper and a pen. You can print the pages with a question or idea at the top or state the prompt for the session once everyone is ready. Each person writes two to three ideas on their paper and then places the paper back in the center of the table. Each person takes another paper from the pool (one that already has ideas written on it from someone else) and adds two to three more ideas. Papers are written on, replaced, and repulled repeatedly. There aren’t timed rounds – each participant moves at his or her own pace and pulls from the center pool as pages become available."
+          },
+          {
+            "id": "ch31-content-en-088",
+            "kind": "paragraph",
+            "text": "At the end of the exercise, which lasts a predetermined time, the team records all ideas on a single page or white board and categorizes and sorts them appropriately. The length of time the session might last depends on the number of people involved and how complex the problem is. A good time limit for this exercise is typically between 10 and 30 minutes, and the exercise works best with four to eight participants."
+          },
+          {
+            "id": "ch31-content-en-089",
+            "kind": "heading",
+            "text": "The Card Brainwriting Method"
+          },
+          {
+            "id": "ch31-content-en-090",
+            "kind": "paragraph",
+            "text": "Often, the goal of brainwriting is to build upon each other’s ideas, which is accomplished by returning and pulling pages from the pool in the above method. The card method uses a similar approach but records each idea on a separate card for more flexibility during the analysis or categorization portion of the exercise."
+          },
+          {
+            "id": "ch31-content-en-091",
+            "kind": "paragraph",
+            "text": "The card method works well with groups of four to eight people. Begin by providing each participant with a stack of index cards and a pen. Pose a question or problem – it sometimes helps to write this question or problem on a whiteboard or large piece of paper so participants can reference it throughout the exercise."
+          },
+          {
+            "id": "ch31-content-en-092",
+            "kind": "paragraph",
+            "text": "Participants start by brainstorming their own ideas by writing each idea on one of the cards. After an idea is written down, the card containing that idea is passed to the left. When a participant has written as many ideas as he or she can think of quickly on cards, they begin picking up and reading the cards passed from the person on their right."
+          },
+          {
+            "id": "ch31-content-en-093",
+            "kind": "paragraph",
+            "text": "If a participant can add anything to the idea on any card they read, they write the new or extended idea on a new card and attach it to the existing card. Those cards are then passed to the left. If the participant can’t add anything new, then the cards are simply passed to the left."
+          },
+          {
+            "id": "ch31-content-en-094",
+            "kind": "paragraph",
+            "text": "When a participant receives his or her own cards back, then they keep them. The brainwriting session ends when all participants have received all of their original cards back, hopefully now with attachments of other ideas. The moderator then picks up the cards and the cards can be used in further brainstorming and idea organization. You could use the cards to create an affinity diagram, for example."
+          },
+          {
+            "id": "ch31-content-en-095",
+            "kind": "paragraph",
+            "text": "The card brainwriting method is also a good way to start a group effort to create a process map. Instead of writing ideas for solutions to a problem, the team writes down individual parts of a process – including activities, inputs, and outputs. Those pieces can then form the bare bones of a process map, which can be added on to by the team."
+          },
+          {
+            "id": "ch31-content-en-096",
+            "kind": "heading",
+            "text": "Brainstorming Alone"
+          },
+          {
+            "id": "ch31-content-en-097",
+            "kind": "paragraph",
+            "text": "This chapter, and most of the information throughout this book, concentrates on activities and methods to be used in a group environment. This is because facing and solving problems as a team is a fundamental part of the Six Sigma methodology. Brainstorming as a team is critical because it presents multiple perspectives and lets individual team members build thoughts on top of ideas generated by others. However, it’s not always possible or even a good idea to brainstorm about every single issue as a group."
+          },
+          {
+            "id": "ch31-content-en-098",
+            "kind": "paragraph",
+            "text": "Sometimes, the Six Sigma leader must consider an issue or idea before presenting it to the group. Other times, the issue about which you want to brainstorm isn't something that is appropriate to share with the entire team. Remember, if you are in a Black Belt or project leadership role, you might have access to information that is sensitive or confidential. While Six Sigma projects and process improvement work best in transparent environments, it's simply not always possible for every member of a Six Sigma team to know all of the information about a process. As a Six Sigma leader, you should work to create a team that you feel is capable of dealing appropriately with sensitive information, but you should also be prepared to facilitate a team in unique situations when some information sharing is limited. This can be especially true in industries such as healthcare or finance, where the data itself is sensitive. Other reasons exist for brainstorming on your own as a project leader or Six Sigma expert. Your team might be floundering due to storming or scope creep, two challenges covered in earlier units. You might want to come into a team meeting prepared with some ideas or understanding of the problem -- although you should always be careful not to lead others too closely with your own ideas because you might reduce the efficacy of the team. As a Six Sigma expert, you might also face your own problems or information needs outside of a team environment. Whatever the reason, you can use abbreviated forms of many of the brainstorming tools in this chapter to brainstorm alone. Tools such as starburst brainstorming, SWOT analysis, and force field analysis can be conducted as an individual. For example, if your team seems to be stuck in a certain DMAIC phase, you can use the force field analysis to help you identify what problems or people are holding you in place. As a Six Sigma leader, you can then use that information to address the issues so the team can move forward with a project. Brainstorming is a powerful tool whether you use it as a team or as an individual. It takes practice to be able to best implement brainstorming methods within various group dynamics, but when you follow the basic guidelines in this chapter, you almost always have at least some positive result from a brainstorming session."
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch31-content-zh-001",
+            "kind": "paragraph",
+            "text": "在本书中，您学习了如何部署许多六西格玛工具，包括头脑风暴工具。您已经学会使用的一些工具包括 SIPOC 图、现成方法和 5 个为什么头脑风暴模型。本章提供了附加工具和方法的附录，这些工具和方法可以集成到 DMAIC 项目的会议中，或者只是为了帮助团队或部门深入了解问题或流程。"
+          },
+          {
+            "id": "ch31-content-zh-002",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 DMAIC：定义、测量、分析、改进、控制；适用于改进已有流程。"
+              ]
+            ],
+            "text": "术语说明 DMAIC：定义、测量、分析、改进、控制；适用于改进已有流程。"
+          },
+          {
+            "id": "ch31-content-zh-003",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 SIPOC：供应商、输入、流程、输出、客户；用于快速界定流程边界。"
+              ]
+            ],
+            "text": "术语说明 SIPOC：供应商、输入、流程、输出、客户；用于快速界定流程边界。"
+          },
+          {
+            "id": "ch31-content-zh-004",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 5 Whys（五个为什么）：连续追问原因，帮助从表面症状深入到根本原因。"
+              ]
+            ],
+            "text": "术语说明 5 Whys（五个为什么）：连续追问原因，帮助从表面症状深入到根本原因。"
+          },
+          {
+            "id": "ch31-content-zh-005",
+            "kind": "paragraph",
+            "text": "作为六西格玛专家或流程领导者，能够使用多种流程改进和头脑风暴工具会很有帮助。虽然本书前面介绍的所有工具在正确使用时都非常强大，但如果您一直使用相同的方法，您就有可能提出相同的解决方案并遇到相同的障碍。有时，转换头脑风暴方法或工具可以帮助团队打破陈规，鼓励不同的观点或引发不同的讨论或辩论。"
+          },
+          {
+            "id": "ch31-content-zh-006",
+            "kind": "heading",
+            "text": "活动网络图"
+          },
+          {
+            "id": "ch31-content-zh-007",
+            "kind": "paragraph",
+            "text": "活动网络图可以帮助六西格玛团队绘制项目中涉及的活动或流程中涉及的活动的图表。该图的目的是理解项目或流程中的顺序和时间关系。哪些项目先出现？哪些活动同时发生？"
+          },
+          {
+            "id": "ch31-content-zh-008",
+            "kind": "paragraph",
+            "text": "当应用于整个项目时，活动网络图可以帮助团队和项目负责人了解项目期间每个点需要哪些资源。它还可以为项目经理提供更好地估计项目时间表的能力。"
+          },
+          {
+            "id": "ch31-content-zh-009",
+            "kind": "paragraph",
+            "text": "当应用于流程时，该图可以帮助团队识别流程中的所有活动。它还可以帮助团队了解哪些活动是上游活动和下游活动以及哪些活动一起发生。一旦团队了解了这些事情，他们就可以开始讨论当前序列是否是最有效的序列，并了解一项活动的更改可能如何影响另一项活动的结果。"
+          },
+          {
+            "id": "ch31-content-zh-010",
+            "kind": "paragraph",
+            "text": "活动网络图是通过以下步骤创建的："
+          },
+          {
+            "id": "ch31-content-zh-011",
+            "kind": "paragraph",
+            "text": "1. 列出流程中涉及的所有活动。团队可以从自己的知识或团队以前使用的工具（例如 SIPOC 或流程图）中汲取经验。 2. 将每项活动写在单独的卡片或便利贴上。 3. 从左到右排列活动。 同时进行的活动被放置在图上一个水平空间的垂直线上。 4. 写下每项活动的预计时间。"
+          },
+          {
+            "id": "ch31-content-zh-012",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Process Map（流程图）：把流程步骤、流向和责任可视化，帮助识别断点和浪费。"
+              ]
+            ],
+            "text": "术语说明 Process Map（流程图）：把流程步骤、流向和责任可视化，帮助识别断点和浪费。"
+          },
+          {
+            "id": "ch31-content-zh-013",
+            "kind": "paragraph",
+            "text": "5. 画出每一步的关键路径线。在注明垂直（同时步骤）的地方，该线会经过耗时最长的步骤。 6. 将关键路径上列出的时间相加，以了解流程的总体时间估计。在下面的示例中，关键路径的总时间（以分钟为单位）为：5 + 2 + 12 + 9 + 10 + 5，即 43。"
+          },
+          {
+            "id": "ch31-content-zh-014",
+            "kind": "heading",
+            "text": "亲和图"
+          },
+          {
+            "id": "ch31-content-zh-015",
+            "kind": "paragraph",
+            "text": "亲和图是一种工具，可以让团队快速、系统地列出和分组大量想法。当您第一次接触某个流程或想法时，亲和图效果很好，因为它们可以帮助您对所有相关想法进行排序，以确定团队在整个 DMAIC 项目中需要考虑的一些要点。如果您有一个比正常规模更大的头脑风暴小组，亲和图也是一个很好的工具，这意味着它们可以在部门会议或 DMAIC 会议中使用，其中包括不属于核心团队的主题专家。亲和图的目标是帮助团队理解输入、输出、产品、服务、工人、客户、流程和想法之间的关系，或者这些事物的任何子组之间的关系。"
+          },
+          {
+            "id": "ch31-content-zh-016",
+            "kind": "paragraph",
+            "text": "要绘制亲和图，您需要一个大的工作空间，例如平坦的桌子、墙壁或地板。您还可以使用白板，如果您与多个地点的团队合作，则可以通过网络会议软件进行练习，但与大多数头脑风暴工具一样，这并不是最佳选择。"
+          },
+          {
+            "id": "ch31-content-zh-017",
+            "kind": "paragraph",
+            "text": "亲和图会话是按照下面概述的步骤进行的。"
+          },
+          {
+            "id": "ch31-content-zh-018",
+            "kind": "paragraph",
+            "text": "1. 为会议中的每个人提供小记事卡、便利贴或纸片。 2. 开始集思广益关于流程或问题的想法。这个阶段的想法非常松散——鼓励团队写下想到的任何东西。这些想法应该很短——一两个词或非常简单的句子，否则团队可能会记录两个想法"
+          },
+          {
+            "id": "ch31-content-zh-019",
+            "kind": "paragraph",
+            "text": "在一张记事卡上。鼓励参与者记录输入、输出、挑战、障碍、客户、人员、流程、行动等。如果您试图解决一个特定问题，该问题应该驱动笔记上记录的内容类型。 3. 头脑风暴可以单独进行几分钟，也可以集体进行。个人头脑风暴可能会提出许多不受他人意见影响的想法，这些想法可能很有价值。 4. 集思广益后，让每个人将卡片铺在地板或桌子上，或将笔记贴在墙上或白板上。 5. 团队合作找出相关的想法。将这些想法放在一起。考虑在这一步中以团队形式工作，不进行交谈，围绕图表转移想法几分钟，直到大多数想法集中到更大的组中。 6. 如果一个想法可以属于多个组，请制作多张带有该想法的卡片，以便可以将其放入多个组中。 7. 当一个想法似乎与其他想法不相符时，可以由一个人组成小组。 8. 将所有笔记分组后，与团队进行讨论以回答问题："
+          },
+          {
+            "id": "ch31-content-zh-020",
+            "kind": "paragraph",
+            "text": "a.想法中有模式吗？"
+          },
+          {
+            "id": "ch31-content-zh-021",
+            "kind": "paragraph",
+            "text": "b.该图是否激发了任何新想法或澄清了想法或关系？ c.想法是否符合流程或时间表的自然顺序？ d.想法是否属于自然原因组？ 9. 提出和回答的问题将取决于团队使用亲和图解决的流程或总体问题。 10. 找出每组想法的标题，找出该组想法的主要想法。 11.记录该图以供以后使用。您可以让人将其复制到一张纸上，将其转换为计算机图表，或者简单地拍摄数码照片以与其他团队文档一起存储。"
+          },
+          {
+            "id": "ch31-content-zh-022",
+            "kind": "heading",
+            "text": "相互关系图"
+          },
+          {
+            "id": "ch31-content-zh-023",
+            "kind": "paragraph",
+            "text": "相互关系图的目的类似于鱼骨图。相互关系头脑风暴的目标是了解问题或过程的主要原因和影响。头脑风暴会议的结果是一种视觉描述，可以很容易地看出哪些项目可能导致大部分影响，以及哪些影响与流程中的哪些原因相关。"
+          },
+          {
+            "id": "ch31-content-zh-024",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Fishbone / Ishikawa（鱼骨图）：按类别梳理潜在原因的根因分析工具。"
+              ]
+            ],
+            "text": "术语说明 Fishbone / Ishikawa（鱼骨图）：按类别梳理潜在原因的根因分析工具。"
+          },
+          {
+            "id": "ch31-content-zh-025",
+            "kind": "paragraph",
+            "text": "作为六西格玛专家，当团队没有完全理解流程中因果关系、无法就流程中哪些因果因素可能是主要因素达成一致、或者刚刚开始理解流程并在进入鱼骨图流程或测量流程之前需要更多整体知识时，您可以部署此练习。"
+          },
+          {
+            "id": "ch31-content-zh-026",
+            "kind": "paragraph",
+            "text": "按照以下步骤进行相互关系图会话："
+          },
+          {
+            "id": "ch31-content-zh-027",
+            "kind": "paragraph",
+            "text": "1. 在白板、纸或便利贴上定义问题。 2. 在其他便签上，写下关于该问题的集思广益的想法。具体来说，是什么原因导致了这个问题？造成问题的原因可能是什么？该问题还可能导致哪些其他问题？ 3. 将问题周围的注释放在白板上。"
+          },
+          {
+            "id": "ch31-content-zh-028",
+            "kind": "paragraph",
+            "text": "4. 作为一个团队，考虑每个笔记上的每个想法。确定该想法是否与板上的任何其他想法有某种关系。 5. 如果这个想法与第二个想法相关，并且它可能导致另一个想法，或者成为另一个想法的输入或因素，则绘制一个从第一个想法到它可能是输入、因素或原因的箭头。 6. 如果该想法与第二个想法的关联方式可能是第二个想法的效果或输出，则绘制一个从第二个想法到第一个想法的箭头。 7. 如有必要，在每个想法之间绘制多个箭头。 8. 练习结束时，数一下进入该想法的箭头数量。将这些数字用一种颜色写在每张便签上。 9. 数一下从每个想法射出的箭头数量。用另一种颜色将这些数字写在每张便签上。 10. 总计数最高的注释（当您将这两个数字相加时）可能是流程或问题中的关键因素。您还可以根据进出各种音符的箭头数量来识别关键输入（原因）和输出（结果）。"
+          },
+          {
+            "id": "ch31-content-zh-029",
+            "kind": "heading",
+            "text": "力场分析"
+          },
+          {
+            "id": "ch31-content-zh-030",
+            "kind": "paragraph",
+            "text": "六西格玛教育的很多内容都与统计分析有关，但如果六西格玛领导者过于沉迷于数字和数据，而没有意识到人在每个流程、每个项目和每个改进举措中发挥着重要作用，那么这种方法就不起作用。六西格玛团队了解人员和其他因素如何支持或挑战流程、项目或变革的一种方法是进行力场分析。"
+          },
+          {
+            "id": "ch31-content-zh-031",
+            "kind": "paragraph",
+            "text": "力场分析使团队能够了解流程周围的因素如何支持（或驱动）变革或挑战（或抑制）变革。除了人员之外，因素还可能包括文化、材料和资源要求、客户、需求、机器、规则和法规。有时，六西格玛团队可以努力改变其中一些因素，为改进创造额外的支持。 在其他情况下，团队无法改变限制因素，但在推进改进计划时必须意识到这些因素。"
+          },
+          {
+            "id": "ch31-content-zh-032",
+            "kind": "paragraph",
+            "text": "按照以下步骤创建力场分析："
+          },
+          {
+            "id": "ch31-content-zh-033",
+            "kind": "paragraph",
+            "text": "1. 从问题的定义开始。这可以是总体问题陈述，也可以是整个项目范围内更详细、更小的问题。 2. 将问题写在白板或大纸上。 3. 在页面中央画一条粗线。这条线代表现状——流程的当前状态。 4. 定义解决方案或所需状态。如果团队刚刚起步，所需的状态可能是总体项目目标陈述。如果团队正在努力解决项目范围内的特定问题，那么它可能会想到一个解决方案。 5. 将解决方案或目标陈述写在白板或页面的底部。 6.集思广益的驱动因素——推动现状“前进”的因素。 7. 将驱动因素写在现状行的左侧。 8.集思广益，讨论限制因素——维持现状的因素。 9. 将限制因素写在现状线的右侧。"
+          },
+          {
+            "id": "ch31-content-zh-034",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Scope（项目范围）：说明改进项目包括什么、不包括什么，避免目标扩张。"
+              ]
+            ],
+            "text": "术语说明 Scope（项目范围）：说明改进项目包括什么、不包括什么，避免目标扩张。"
+          },
+          {
+            "id": "ch31-content-zh-035",
+            "kind": "paragraph",
+            "text": "10. 在每个驱动因素下方画一个指向现状线的箭头；每个箭头的长度代表驱动因素的感知强度。例如，负责财务决策的发起人就支持该解决方案。这将是一个强大的驱动因素，并且可能会带来长箭。 11. 在每个限制因素下画一个箭头回到现状线。每个箭头的长度代表挑战的感知强度。如果发起人尚未同意该解决方案，这将是一个相当强大的限制因素。"
+          },
+          {
+            "id": "ch31-content-zh-036",
+            "kind": "paragraph",
+            "text": "图表完成后，团队可以快速看到："
+          },
+          {
+            "id": "ch31-content-zh-037",
+            "kind": "listItem",
+            "text": "是否存在较多驱动因素或制约因素"
+          },
+          {
+            "id": "ch31-content-zh-038",
+            "kind": "listItem",
+            "text": "驱动因素或限制因素是否具有更大的“权重”（基于两侧较长箭头的数量）"
+          },
+          {
+            "id": "ch31-content-zh-039",
+            "kind": "listItem",
+            "text": "哪些因素最强"
+          },
+          {
+            "id": "ch31-content-zh-040",
+            "kind": "paragraph",
+            "text": "然后，团队可以讨论是否可以削弱任何限制因素或将其转化为驱动因素，这有助于为更顺利的解决方案实施铺平道路。"
+          },
+          {
+            "id": "ch31-content-zh-041",
+            "kind": "heading",
+            "text": "责任图"
+          },
+          {
+            "id": "ch31-content-zh-042",
+            "kind": "paragraph",
+            "text": "责任图帮助六西格玛团队识别哪些人员、团队或部门与流程有各种类型的联系或职责。理解这种关系的原因是让六西格玛团队了解谁在流程中或流程内实际行动，谁需要了解流程，谁最终对流程负责，以及谁可能提供有关流程的有价值的信息。通常，可以通过称为 RACI 的图表流程来识别这些不同的人，RACI 代表："
+          },
+          {
+            "id": "ch31-content-zh-043",
+            "kind": "listItem",
+            "text": "负责人 - 实际完成工作的个人或团队（负责在收银机收款的员工）"
+          },
+          {
+            "id": "ch31-content-zh-044",
+            "kind": "listItem",
+            "text": "责任人——工作负责人（当班主管）"
+          },
+          {
+            "id": "ch31-content-zh-045",
+            "kind": "listItem",
+            "text": "咨询 – 参与活动之前应保持循环的步骤的任何人员（现场销售人员、每天早上创建起始抽屉的簿记员）"
+          },
+          {
+            "id": "ch31-content-zh-046",
+            "kind": "listItem",
+            "text": "通知 – 参与活动后应保持循环的步骤的任何人员（簿记员，他还在轮班结束时平衡抽屉）"
+          },
+          {
+            "id": "ch31-content-zh-047",
+            "kind": "paragraph",
+            "text": "按照以下步骤为您的项目或流程创建 RACI 矩阵："
+          },
+          {
+            "id": "ch31-content-zh-048",
+            "kind": "paragraph",
+            "text": "1. 创建流程中所有活动和决策的列表。团队可以从之前的头脑风暴会议或流程图等工具中获取这些信息。 2. 在页面或白板的右侧列出这些项目。 3. 创建与流程关联的所有功能角色的列表。将它们列为页面或白板顶部的行标题。"
+          },
+          {
+            "id": "ch31-content-zh-049",
+            "kind": "paragraph",
+            "text": "a.活动和决策可能包括以下项目："
+          },
+          {
+            "id": "ch31-content-zh-050",
+            "kind": "paragraph",
+            "text": "岛测量木材。二.砍伐木材 iii.审查木材。"
+          },
+          {
+            "id": "ch31-content-zh-051",
+            "kind": "paragraph",
+            "text": "四.确定木材的长度是否合适。 b.职能角色可能包括："
+          },
+          {
+            "id": "ch31-content-zh-052",
+            "kind": "paragraph",
+            "text": "岛木材测量仪 ii.木材切割机 iii.审计师四。木材包装工 4. 对于每个职能角色和活动，确定该角色是否对列出的每项活动负责或负责，或者是否应咨询或通知该角色。在下面的示例中，您可以看到切割师负责测量和切割，审核员负责检查并确定木材是否正确，而主管则对这一切负责。包装工需要了解木材是否正确，以便他或她知道是否包装。"
+          },
+          {
+            "id": "ch31-content-zh-053",
+            "kind": "heading",
+            "text": "切刀"
+          },
+          {
+            "id": "ch31-content-zh-054",
+            "kind": "paragraph",
+            "text": "审核员 包装员 主管 测量木材 R A 切割木材 R A 审查木材 R A 确定木材是否正确 R I A"
+          },
+          {
+            "id": "ch31-content-zh-055",
+            "kind": "heading",
+            "text": "名义组技术"
+          },
+          {
+            "id": "ch31-content-zh-056",
+            "kind": "paragraph",
+            "text": "六西格玛的领导者必须对团队动态有深入的了解。并非每个项目团队的工作方式都相同，有时六西格玛领导者会在团队环境中面临人际关系挑战。其中一些挑战可能会因性格冲突而使头脑风暴的努力脱轨。例如，如果你有一个或多个安静或害羞的人，你可能无法了解他们的全部观点。即使团队中的每个人都相当直言不讳，如果有一个天生的领导者、恶霸或更直言不讳的成员，他们可能会比其他人获得更多的想法。减少个性对头脑风暴会议影响的一种方法是使用名义小组技术来鼓励每个人的意见。"
+          },
+          {
+            "id": "ch31-content-zh-057",
+            "kind": "paragraph",
+            "text": "1. 为每个人提供笔和纸。 2. 提出与项目或您所处阶段相关的问题、主题或担忧。 3. 花 5 到 10 分钟时间，邀请每个人集思广益，讨论自己的想法。请务必注意，在这个阶段，没有坏的或错误的想法。 4. 每个人都写完后，绕桌子走一圈，让每个人从他们的清单中陈述一个想法。每个人一次只能陈述一个想法，然后再让其他人发言。 5. 将想法写在白板或活动挂图上，但此时不要讨论这些想法。 6. 当想法被共享时，如果列表中的每个想法都被他们自己或其他人共享过，那么个人就可以通过。 7. 列出所有想法后，根据这些想法进行讨论或使用这些想法来推动次要活动，例如亲和图或鱼骨图。"
+          },
+          {
+            "id": "ch31-content-zh-058",
+            "kind": "paragraph",
+            "text": "如果团队陷入困境或正在处理一个特别困难的概念，名义小组技术也是一个很好的工具。该技术可以通过两种方式帮助我们打破思维定势。首先，它消除了个人在分享半成形的口头想法时可能产生的一些恐惧。写下想法的团队成员可以进一步思考这些想法，并且稍后列出它们可能会更舒服。其次，事实证明，写作本身可以打破创意和思维障碍，并可以帮助团队成员集思广益。"
+          },
+          {
+            "id": "ch31-content-zh-059",
+            "kind": "heading",
+            "text": "检查表"
+          },
+          {
+            "id": "ch31-content-zh-060",
+            "kind": "paragraph",
+            "text": "本书多次提到检查表作为一种工具，但值得以更正式的方式再次提及。检查表是简单的工具，对于管理团队、人员、流程和数据来说非常强大。检查表之所以如此强大，是因为它们需要采取行动，而当您需要采取实际且可记录的行动时，个人对所涉及行动的责任通常会更高。"
+          },
+          {
+            "id": "ch31-content-zh-061",
+            "kind": "paragraph",
+            "text": "检查表是用于记录信息的任何模板表格。您记录的信息可以是特定的数据，但也可能是执行例行检查、分析或某些其他任务的表示法。检查表的目的除了使行动正式化和强制执行之外，还在于简化报告行动的过程。"
+          },
+          {
+            "id": "ch31-content-zh-062",
+            "kind": "paragraph",
+            "text": "考虑一下餐馆或商店的公共卫生间设施中常见的检查表。这些检查表通常位于门上或门附近的墙上。每小时，一名工作人员都会在检查表上签上姓名缩写并注明日期，以表明卫生间已被检查过。通过要求员工在检查表上签名并注明日期，公司可以让员工更有可能在适当的时间检查卫生间。姓名首字母和日期表明工作人员确保设施库存充足、干净且运转正常。"
+          },
+          {
+            "id": "ch31-content-zh-063",
+            "kind": "paragraph",
+            "text": "这一前提可用于各种流程，以确保数据收集或某些任务由正确的人在正确的时间执行。检查表还可以用于管理项目环境中的任务——六西格玛领导者可能会在项目会议期间向每个主题专家提供检查表，以便每个人都知道在下一次会议之前需要做什么，并对记录过程有实际要求。"
+          },
+          {
+            "id": "ch31-content-zh-064",
+            "kind": "paragraph",
+            "text": "作为六西格玛专家，重要的是要了解最简单的解决方案何时适合您的需求，而清单通常就是该解决方案。"
+          },
+          {
+            "id": "ch31-content-zh-065",
+            "kind": "heading",
+            "text": "SWOT分析"
+          },
+          {
+            "id": "ch31-content-zh-066",
+            "kind": "paragraph",
+            "text": "SWOT 分析是一种常见的商业头脑风暴技术，可帮助团队了解项目、改进或流程的高级优势、劣势、机会和威胁（挑战）。 SWOT 分析可以在 DMAIC 阶段的任何时间进行，但在定义阶段或发生风暴并且团队需要快速、简单的方法来帮助他们回到正轨时尤其有用。"
+          },
+          {
+            "id": "ch31-content-zh-067",
+            "kind": "paragraph",
+            "text": "有些人将 SWOT 分析分解为视觉描述，绘制一个由四个正方形组成的大网格，每个正方形代表优势、劣势、机会和威胁。如果您有一个特别视觉化的项目组，这会很有帮助，但这不是必需的。 SWOT 分析的要点实际上是通过头脑风暴来回答一些基本问题。"
+          },
+          {
+            "id": "ch31-content-zh-068",
+            "kind": "paragraph",
+            "text": "1. 优点：流程效果如何？什么做得更好、更快、更便宜、更独特？"
+          },
+          {
+            "id": "ch31-content-zh-069",
+            "kind": "paragraph",
+            "text": "2. 弱点：什么不起作用？有哪些缺点、问题、损失、错误或客户不满意点？ 3. 机会：什么可以解决？有哪些容易解决的问题？哪些地方需要改进？ 4. 威胁：改进存在哪些障碍？项目团队将面临哪些风险？可能存在哪些资源挑战？"
+          },
+          {
+            "id": "ch31-content-zh-070",
+            "kind": "heading",
+            "text": "星爆头脑风暴"
+          },
+          {
+            "id": "ch31-content-zh-071",
+            "kind": "paragraph",
+            "text": "星爆式头脑风暴是一种针对某个问题、流程或想法提出一系列问题的方法。这些问题稍后可用于定义流程、问题、产品或其他想法。从表面上看，星爆工具类似于“5个为什么”，但团队并没有回答每个问题然后提出另一个问题，而是简单地提出尽可能多的各种问题。"
+          },
+          {
+            "id": "ch31-content-zh-072",
+            "kind": "paragraph",
+            "text": "按照以下步骤进行星爆式头脑风暴会议："
+          },
+          {
+            "id": "ch31-content-zh-073",
+            "kind": "paragraph",
+            "text": "1. 在白板或大纸上画一个六角星。 2. 在每一点上写下以下内容之一：人物、事件、地点、时间、原因、方式。 3. 在星星的中心，写一个或几个描述中心思想的单词。 4. 对于星形的每个点，集体讨论以该点的单词开头的中心问题。例如，一个团队可能正在努力提高客户对食品服务产品的满意度。出于此示例的目的，想象一个团队正在努力解决客户对通常在便利店和报摊出售的单独包装的零食蛋糕的满意度问题。"
+          },
+          {
+            "id": "ch31-content-zh-074",
+            "kind": "paragraph",
+            "text": "a.星星的中心可能只是简单地写着“ABC Snack Cake”。 b.关于“谁？”的问题星尖可能包括："
+          },
+          {
+            "id": "ch31-content-zh-075",
+            "kind": "paragraph",
+            "text": "岛谁是零食蛋糕的主要客户？"
+          },
+          {
+            "id": "ch31-content-zh-076",
+            "kind": "paragraph",
+            "text": "二.谁最有可能吃零食蛋糕？三.谁会买零食蛋糕？ （吃的人不一定是同一个人） iv．谁来卖点心蛋糕？"
+          },
+          {
+            "id": "ch31-content-zh-077",
+            "kind": "paragraph",
+            "text": "v. 谁来销售零食蛋糕？"
+          },
+          {
+            "id": "ch31-content-zh-078",
+            "kind": "paragraph",
+            "text": "六.谁来做点心蛋糕？ c. “什么？”问题可能包括："
+          },
+          {
+            "id": "ch31-content-zh-079",
+            "kind": "paragraph",
+            "text": "岛点心蛋糕应该是什么口味？"
+          },
+          {
+            "id": "ch31-content-zh-080",
+            "kind": "paragraph",
+            "text": "二.什么包装最适合零食蛋糕？三.零食蛋糕的哪些成分很重要？ d.浏览星星的所有点，提出与该点的单词匹配的问题。在规定的时间内提出尽可能多的问题。最好为星形的每个点设置问题生成的时间限制（通常最多五分钟），以防止问题变得过于详细或超出您正在处理的问题、流程或想法的范围。"
+          },
+          {
+            "id": "ch31-content-zh-081",
+            "kind": "paragraph",
+            "text": "星爆会议的目的不是回答你提出的问题，这对六西格玛领导人来说可能是一个挑战。团队成员自然会希望立即从一个问题转向一个答案，这可能会破坏流程并导致讨论没有成效或超出范围。指导团队成员在头脑风暴会议期间继续提问。这些问题可以在以后进行整理并在进行其他操作时使用"
+          },
+          {
+            "id": "ch31-content-zh-082",
+            "kind": "paragraph",
+            "text": "练习，例如 SIPOC 或流程图。这些问题有助于确保不遗漏细节并考虑所有可能的查询。"
+          },
+          {
+            "id": "ch31-content-zh-083",
+            "kind": "heading",
+            "text": "角色扮演或头脑风暴"
+          },
+          {
+            "id": "ch31-content-zh-084",
+            "kind": "paragraph",
+            "text": "作为六西格玛团队进行头脑风暴的最大挑战之一是，在几次会议之后或随着团队深入 DMAIC 流程，团队可能会陷入某些信念和想法。一旦提出某些想法，就很难“摆脱”它们。团队可能会发现自己反复回到相同的想法。有时，这意味着团队正走在正确的轨道上，并且在整个 DMAIC 流程和头脑风暴中重复相同的概念可以确认这些是需要考虑的正确的事情。然而，其他时候，这可能表明团队陷入困境。"
+          },
+          {
+            "id": "ch31-content-zh-085",
+            "kind": "paragraph",
+            "text": "有时很难区分，六西格玛的专家确实必须依靠分析和数据来帮助决定团队是否在朝着正确的方向前进。如果六西格玛专家认为团队没有朝着正确的方向前进，他或她可以尝试进行头脑风暴，试图让团队成员更有创意地思考或从不同的角度思考问题。"
+          },
+          {
+            "id": "ch31-content-zh-086",
+            "kind": "paragraph",
+            "text": "头脑风暴或角色扮演可以与本章中的许多其他工具结合起来，以产生新的想法。选择一种更简单的头脑风暴练习，或者简单地提出问题并头脑风暴答案。但是，请参与者以其他人的身份进行头脑风暴。他们可能会作为公司的首席执行官进行集思广益。他们可能会作为产品线工作人员进行集思广益。可能会以美国总统约翰尼·德普或饼干怪物的身份进行头脑风暴。"
+          },
+          {
+            "id": "ch31-content-zh-087",
+            "kind": "paragraph",
+            "text": "这就是六西格玛领导力的重要性。团队是否可能对打破他们所建立的一些界限的愚蠢情况做出更好的反应，或者他们是否更有可能对严肃的角色扮演情况做出反应？这可以帮助您决定是选择 Cookie Monster 还是 CEO。"
+          },
+          {
+            "id": "ch31-content-zh-088",
+            "kind": "paragraph",
+            "text": "这种类型的团队活动面临的一个挑战是平衡愚蠢活动的压力释放和创造力与生产力的真正需要。如果事情变成纯粹的乐趣而没有生产力，那么六西格玛团队领导应该结束活动并继续进行另一个活动。不过，时间通常不会被浪费——从项目的严肃性中抽离几分钟，通常就足以帮助团队进行更有创意的思考。"
+          },
+          {
+            "id": "ch31-content-zh-089",
+            "kind": "heading",
+            "text": "头脑风暴"
+          },
+          {
+            "id": "ch31-content-zh-090",
+            "kind": "paragraph",
+            "text": "头脑风暴有点像名义小组技术。事实上，名义小组技术实际上是一种书面形式。您可能在会议中采用这种类型的头脑风暴的原因包括：增加安静或保守的团队成员的投入，减少只有一两个发声成员对会议结果的影响，以及产生其他头脑风暴方法无法产生的想法。请记住，写作本身的身体行为有助于思维过程，并可以帮助大脑在想法之间建立联系，而在口头头脑风暴中不太可能建立这种联系。"
+          },
+          {
+            "id": "ch31-content-zh-091",
+            "kind": "paragraph",
+            "text": "您可以在团队环境中使用多种类型的头脑风暴练习。名义组技术是其中之一，本节提供了一些其他选项。"
+          },
+          {
+            "id": "ch31-content-zh-092",
+            "kind": "heading",
+            "text": "池写脑力法"
+          },
+          {
+            "id": "ch31-content-zh-093",
+            "kind": "paragraph",
+            "text": "集体方法可以帮助产生不同的想法，因为参与者可以借鉴彼此的想法，而无需进行快速口头头脑风暴会议的压力。每个参与者都会得到一张纸和一支笔。 您可以打印顶部带有问题或想法的页面，或者在每个人都准备好后说出会议提示。每个人在纸上写下两到三个想法，然后将纸放回桌子中央。每个人从池中取出另一张纸（上面已经写有其他人的想法）并添加两到三个想法。纸张被反复书写、替换和拉回。没有定时回合——每个参与者按照自己的节奏移动，并在页面可用时从中心池中提取。"
+          },
+          {
+            "id": "ch31-content-zh-094",
+            "kind": "paragraph",
+            "text": "在持续预定时间的练习结束时，团队将所有想法记录在一页或白板上，并对它们进行适当的分类和排序。会议持续的时间长短取决于涉及的人数以及问题的复杂程度。此练习的最佳时间限制通常为 10 到 30 分钟，并且该练习最适合 4 到 8 名参与者。"
+          },
+          {
+            "id": "ch31-content-zh-095",
+            "kind": "heading",
+            "text": "卡片脑写法"
+          },
+          {
+            "id": "ch31-content-zh-096",
+            "kind": "paragraph",
+            "text": "通常，头脑风暴的目标是建立在彼此的想法之上，这是通过在上述方法中从池中返回和提取页面来实现的。卡片法使用类似的方法，但将每个想法记录在单独的卡片上，以便在练习的分析或分类部分中具有更大的灵活性。"
+          },
+          {
+            "id": "ch31-content-zh-097",
+            "kind": "paragraph",
+            "text": "卡片法适用于四到八人的团体。首先为每个参与者提供一叠索引卡和一支笔。提出问题 - 有时将这个问题写在白板或大纸上会有所帮助，以便参与者可以在整个练习中参考它。"
+          },
+          {
+            "id": "ch31-content-zh-098",
+            "kind": "paragraph",
+            "text": "参与者首先将每个想法写在一张卡片上，集思广益地讨论自己的想法。写下一个想法后，包含该想法的卡片就会传递到左侧。当参与者在卡片上写下他或她能快速想到的尽可能多的想法时，他们开始拿起并阅读右边的人递过来的卡片。"
+          },
+          {
+            "id": "ch31-content-zh-099",
+            "kind": "paragraph",
+            "text": "如果参与者可以在他们读到的任何卡片上的想法中添加任何内容，他们就会在新卡片上写下新的或扩展的想法并将其附加到现有的卡片上。然后这些卡被传递到左边。如果参与者无法添加任何新内容，那么卡片就会简单地传递到左侧。"
+          },
+          {
+            "id": "ch31-content-zh-100",
+            "kind": "paragraph",
+            "text": "当参与者收到自己的卡片时，他们会保留它们。 当所有参与者收到所有原始卡片后，头脑风暴会议结束，希望现在还附有其他想法的附件。然后主持人拿起卡片，卡片可以用于进一步的头脑风暴和想法组织。例如，您可以使用这些卡片来创建亲和图。"
+          },
+          {
+            "id": "ch31-content-zh-101",
+            "kind": "paragraph",
+            "text": "卡片写脑法也是开始团队努力创建流程图的好方法。团队不是写下问题解决方案的想法，而是写下流程的各个部分——包括活动、输入和输出。然后，这些部分可以形成流程图的基本框架，团队可以将其添加到其中。"
+          },
+          {
+            "id": "ch31-content-zh-102",
+            "kind": "heading",
+            "text": "独自集思广益"
+          },
+          {
+            "id": "ch31-content-zh-103",
+            "kind": "paragraph",
+            "text": "本章以及本书中的大部分信息都集中于在小组环境中使用的活动和方法。这是因为作为一个团队面对和解决问题是六西格玛方法论的基本组成部分。作为一个团队，头脑风暴至关重要，因为它提出了多种观点，并让各个团队成员可以在其他人产生的想法的基础上构建想法。然而，作为一个团队对每个问题进行集思广益并不总是可能的，甚至不是一个好主意。"
+          },
+          {
+            "id": "ch31-content-zh-104",
+            "kind": "paragraph",
+            "text": "有时，六西格玛领导者必须先考虑一个问题或想法，然后再向小组提出。其他时候，您想要集思广益的问题并不适合与整个团队分享。请记住，如果您担任黑带或项目领导角色，您可能会访问敏感或机密信息。虽然六西格玛项目和流程改进在透明的环境中效果最好，但六西格玛团队的每个成员并不总是能够了解流程的所有信息。作为六西格玛的领导者，您应该努力创建一个您认为能够适当处理敏感信息的团队，但您也应该准备好在某些信息共享受到限制的特殊情况下为团队提供便利。在医疗保健或金融等数据本身很敏感的行业尤其如此。作为项目负责人或六西格玛专家，还存在其他原因需要您自行集思广益。您的团队可能会因风暴或范围蔓延而陷入困境，这两个挑战在早期单元中已涉及。 您可能希望在参加团队会议时准备好一些想法或对问题的理解——尽管您应该始终小心，不要让其他人与您自己的想法过于接近，因为这可能会降低团队的效率。作为六西格玛专家，您也可能会面临团队环境之外的自身问题或信息需求。无论出于什么原因，您都可以使用本章中许多头脑风暴工具的缩写形式来单独进行头脑风暴。星爆头脑风暴、SWOT 分析和力场分析等工具可以单独进行。例如，如果您的团队似乎陷入了某个 DMAIC 阶段，您可以使用力场分析来帮助您确定哪些问题或人员阻碍了您的发展。作为六西格玛的领导者，您可以使用该信息来解决问题，以便团队能够推进项目。无论您作为团队还是个人使用，头脑风暴都是一个强大的工具。需要练习才能在各种群体动态中最好地实施头脑风暴方法，但是当您遵循本章中的基本准则时，您几乎总能从头脑风暴会议中获得至少一些积极的结果。"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,6 +1,4 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import ch01Data from "./generated/ch01.json";
-import termsData from "./generated/six-sigma-terms.json";
 import { normalizeLookup, tokenizeEnglish } from "./lib/tokenize";
 import { loadSavedTerms, persistSavedTerms, type SavedTerm } from "./lib/vocabStore";
 
@@ -39,15 +37,20 @@ type TermEntry = {
   isSixSigmaTerm?: boolean;
 };
 
+type ManualData = {
+  manual: string;
+  version: string;
+  pageCount: number;
+  chapters: Lesson[];
+  dictionary: TermEntry[];
+};
+
 type ActiveLookup = {
   entry: TermEntry;
   page: number;
   sectionId: string;
   sourceText: string;
 };
-
-const lesson = ch01Data as Lesson;
-const terms = termsData as TermEntry[];
 
 function buildTermIndex(entries: TermEntry[]) {
   const index = new Map<string, TermEntry>();
@@ -71,20 +74,43 @@ function lookupFallback(term: string): TermEntry {
 }
 
 export function App() {
+  const [manual, setManual] = useState<ManualData | null>(null);
+  const [loadError, setLoadError] = useState("");
   const [language, setLanguage] = useState<Language>("en");
+  const [activeChapterId, setActiveChapterId] = useState("");
+  const [activeSectionId, setActiveSectionId] = useState("");
   const [activeLookup, setActiveLookup] = useState<ActiveLookup | null>(null);
-  const [activeSectionId, setActiveSectionId] = useState(lesson.sections[0].id);
   const [selectedPhrase, setSelectedPhrase] = useState("");
   const [savedTerms, setSavedTerms] = useState<SavedTerm[]>(() => loadSavedTerms());
+  const [showToc, setShowToc] = useState(false);
   const [showVocab, setShowVocab] = useState(false);
   const readerRef = useRef<HTMLElement | null>(null);
 
-  const termIndex = useMemo(() => buildTermIndex(terms), []);
-  const activeSection = lesson.sections.find((section) => section.id === activeSectionId) ?? lesson.sections[0];
+  const lesson = manual?.chapters.find((chapter) => chapter.id === activeChapterId) ?? manual?.chapters[0];
+  const activeSection = lesson?.sections.find((section) => section.id === activeSectionId) ?? lesson?.sections[0];
+  const termIndex = useMemo(() => buildTermIndex(manual?.dictionary ?? []), [manual]);
   const savedSet = useMemo(
     () => new Set(savedTerms.map((item) => normalizeLookup(item.term))),
     [savedTerms]
   );
+
+  useEffect(() => {
+    fetch("content/manual.json")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`manual load failed: ${response.status}`);
+        }
+        return response.json() as Promise<ManualData>;
+      })
+      .then((data) => {
+        setManual(data);
+        setActiveChapterId(data.chapters[0].id);
+        setActiveSectionId(data.chapters[0].sections[0].id);
+      })
+      .catch((error: unknown) => {
+        setLoadError(error instanceof Error ? error.message : "manual load failed");
+      });
+  }, []);
 
   useEffect(() => {
     persistSavedTerms(savedTerms);
@@ -92,7 +118,7 @@ export function App() {
 
   useEffect(() => {
     const root = readerRef.current;
-    if (!root) {
+    if (!root || !lesson) {
       return;
     }
     const observer = new IntersectionObserver(
@@ -109,9 +135,12 @@ export function App() {
     );
     root.querySelectorAll("[data-section-id]").forEach((node) => observer.observe(node));
     return () => observer.disconnect();
-  }, []);
+  }, [lesson]);
 
   useEffect(() => {
+    if (!activeSectionId) {
+      return;
+    }
     const node = document.querySelector(`[data-section-id="${activeSectionId}"]`);
     if (node) {
       window.requestAnimationFrame(() => node.scrollIntoView({ block: "start" }));
@@ -134,6 +163,44 @@ export function App() {
     return () => document.removeEventListener("selectionchange", handleSelectionChange);
   }, []);
 
+  if (loadError) {
+    return (
+      <main className="appShell">
+        <section className="sectionBlock">
+          <h1>教材加载失败</h1>
+          <p className="readerText">{loadError}</p>
+        </section>
+      </main>
+    );
+  }
+
+  if (!manual || !lesson || !activeSection) {
+    return (
+      <main className="appShell">
+        <section className="sectionBlock">
+          <h1>Six Sigma Study</h1>
+          <p className="readerText">正在加载教材...</p>
+        </section>
+      </main>
+    );
+  }
+
+  const currentManual = manual;
+  const currentLesson = lesson;
+  const currentSection = activeSection;
+
+  function selectChapter(chapterId: string) {
+    const nextLesson = currentManual.chapters.find((chapter) => chapter.id === chapterId);
+    if (!nextLesson) {
+      return;
+    }
+    setActiveChapterId(nextLesson.id);
+    setActiveSectionId(nextLesson.sections[0].id);
+    setActiveLookup(null);
+    setShowToc(false);
+    window.requestAnimationFrame(() => window.scrollTo({ top: 0 }));
+  }
+
   function lookupText(text: string, page: number, sectionId: string, sourceText: string) {
     const key = normalizeLookup(text);
     const entry = termIndex.get(key) ?? lookupFallback(text);
@@ -148,6 +215,8 @@ export function App() {
       id: `${normalizeLookup(activeLookup.entry.term)}-${Date.now()}`,
       term: activeLookup.entry.term,
       translation: activeLookup.entry.translation,
+      chapter: currentLesson.chapter,
+      chapterTitle: currentLesson.title.en,
       page: activeLookup.page,
       sectionId: activeLookup.sectionId,
       sourceText: activeLookup.sourceText,
@@ -233,20 +302,25 @@ export function App() {
     <main className="appShell">
       <header className="topBar">
         <div>
-          <p className="eyebrow">Page {activeSection.page} / 449</p>
-          <h1>{lesson.title[language]}</h1>
+          <p className="eyebrow">Page {currentSection.page} / {currentManual.pageCount}</p>
+          <h1>{currentLesson.title[language]}</h1>
         </div>
-        <button
-          className="modeButton"
-          onClick={() => setLanguage(language === "en" ? "zh" : "en")}
-          aria-label="switch reading language"
-        >
-          {language === "en" ? "中文" : "EN"}
-        </button>
+        <div className="headerActions">
+          <button className="tocButton" onClick={() => setShowToc(true)} aria-label="open table of contents">
+            目录
+          </button>
+          <button
+            className="modeButton"
+            onClick={() => setLanguage(language === "en" ? "zh" : "en")}
+            aria-label="switch reading language"
+          >
+            {language === "en" ? "中文" : "EN"}
+          </button>
+        </div>
       </header>
 
       <nav className="chapterRail" aria-label="chapter sections">
-        {lesson.sections.map((section) => (
+        {currentLesson.sections.map((section) => (
           <button
             key={section.id}
             className={section.id === activeSectionId ? "sectionPill active" : "sectionPill"}
@@ -261,7 +335,7 @@ export function App() {
       </nav>
 
       <section ref={readerRef} className="readerPanel" aria-label="manual reader">
-        {lesson.sections.map((section) => (
+        {currentLesson.sections.map((section) => (
           <article
             key={section.id}
             data-section-id={section.id}
@@ -279,10 +353,36 @@ export function App() {
       {language === "en" && selectedPhrase && (
         <button
           className="phraseLookup"
-          onClick={() => lookupText(selectedPhrase, activeSection.page, activeSection.id, selectedPhrase)}
+          onClick={() => lookupText(selectedPhrase, currentSection.page, currentSection.id, selectedPhrase)}
         >
           查询选中短语
         </button>
+      )}
+
+      {showToc && (
+        <section className="tocPanel" aria-label="table of contents">
+          <div className="sheetHandle" />
+          <div className="sheetHeader">
+            <div>
+              <p className="eyebrow">manual contents</p>
+              <h2>目录</h2>
+            </div>
+            <button className="closeButton" onClick={() => setShowToc(false)}>关闭</button>
+          </div>
+          <div className="tocList">
+            {currentManual.chapters.map((chapter) => (
+              <button
+                key={chapter.id}
+                className={chapter.id === currentLesson.id ? "tocItem active" : "tocItem"}
+                onClick={() => selectChapter(chapter.id)}
+              >
+                <span>第 {chapter.chapter} 章</span>
+                <strong>{chapter.title[language]}</strong>
+                <small>p. {chapter.pageStart}-{chapter.pageEnd}</small>
+              </button>
+            ))}
+          </div>
+        </section>
       )}
 
       <button className="vocabDock" aria-label="saved vocabulary" onClick={() => setShowVocab(true)}>
@@ -309,7 +409,7 @@ export function App() {
                   <div>
                     <strong>{item.term}</strong>
                     <span>{item.translation}</span>
-                    <small>p. {item.page}</small>
+                    <small>Ch. {item.chapter} · p. {item.page}</small>
                   </div>
                   <select
                     value={item.status}

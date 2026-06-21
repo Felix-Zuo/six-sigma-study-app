@@ -43,7 +43,7 @@ def validate_block(section_id: str, block: dict) -> None:
             fail(f"table block has no visible cells: {block.get('id')}")
 
 
-def validate_section_lesson(path: Path, data: dict) -> None:
+def validate_section_lesson(path: Path, data: dict, quiet: bool = False) -> None:
     for key in ["id", "chapter", "pageStart", "pageEnd", "title", "sections"]:
         if key not in data:
             fail(f"lesson missing {key}")
@@ -69,7 +69,8 @@ def validate_section_lesson(path: Path, data: dict) -> None:
                 fail(f"section {section['id']} missing {language} blocks")
             for block in blocks:
                 validate_block(section["id"], block)
-    print(f"ok: {path} ({len(data['sections'])} sections)")
+    if not quiet:
+        print(f"ok: {path} ({len(data['sections'])} sections)")
 
 
 def validate_dictionary(path: Path, data: object) -> None:
@@ -101,7 +102,13 @@ def validate_file(path: Path) -> None:
     elif isinstance(data, list):
         validate_dictionary(path, data)
     elif isinstance(data, dict) and "chapters" in data:
-        print(f"ok: {path} ({len(data['chapters'])} manifest chapters)")
+        chapters = data["chapters"]
+        if chapters and isinstance(chapters[0], dict) and "sections" in chapters[0]:
+            for chapter in chapters:
+                validate_section_lesson(path, chapter, quiet=True)
+            print(f"ok: {path} ({len(chapters)} manual chapters)")
+        else:
+            print(f"ok: {path} ({len(chapters)} manifest chapters)")
     else:
         fail(f"unrecognized content file: {path}")
 

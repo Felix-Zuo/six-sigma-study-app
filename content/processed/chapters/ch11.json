@@ -1,0 +1,1092 @@
+{
+  "id": "ch11",
+  "chapter": 11,
+  "pageStart": 100,
+  "pageEnd": 109,
+  "title": {
+    "en": "Chapter 11: Introduction to DMAIC and DMADV",
+    "zh": "第 11 章：DMAIC 与 DMADV 入门"
+  },
+  "source": {
+    "enDocx": "C:\\findjob_sixsigma_sources\\manual_en_aligned.docx",
+    "zhDocx": "C:\\findjob_sixsigma_sources\\manual_zh_aligned.docx",
+    "extraction": "python-docx body-order extraction; generic chapter-level bilingual content"
+  },
+  "sections": [
+    {
+      "id": "ch11-content",
+      "level": 1,
+      "page": 100,
+      "title": {
+        "en": "Introduction to DMAIC and DMADV",
+        "zh": "DMAIC 与 DMADV 入门"
+      },
+      "content": {
+        "en": [
+          {
+            "id": "ch11-content-en-001",
+            "kind": "heading",
+            "text": "DMADV"
+          },
+          {
+            "id": "ch11-content-en-002",
+            "kind": "paragraph",
+            "text": "One of the things that sets Six Sigma apart from some other quality improvement and management methodologies is a structured approach to every project. Projects that are meant to improve an existing process follow a road-map for success known as the DMAIC process; DMAIC is broken into five phases: Define, Measure, Analyze, Improve, and Control. The main activities of a DMAIC project include identifying the critical inputs or causes (the Xs) that are creating the problem (the Y), verifying those causes, brainstorming and selecting solutions, implementing solutions, and creating a control plan to ensure the improved state is maintained."
+          },
+          {
+            "id": "ch11-content-en-003",
+            "kind": "paragraph",
+            "text": "The DMAIC methodology is designed to be fairly inclusive – the vast majority of teams who are seeking to improve a project will be able to fit their activities in to the DMAIC steps because those steps are designed to allow some flexibility. Sometimes, though, teams realize that fixing or improving a process isn’t the right way to achieve sustained improvement for the organization. Instead, a process might need to be completely replaced or redesigned to meet goals for customer satisfaction or organizational improvement. In such cases, teams can employ the DMADV method."
+          },
+          {
+            "id": "ch11-content-en-004",
+            "kind": "paragraph",
+            "text": "DMADV stands for Define, Measure, Analyze, Design, and Verify. The principles governing the method are very similar to those governing DMAIC, but the last two phases are geared toward rolling out and testing a completely new process. Six Sigma teams might approach improvements through DMADV if:"
+          },
+          {
+            "id": "ch11-content-en-005",
+            "kind": "listItem",
+            "text": "The business wants to launch a new service or product."
+          },
+          {
+            "id": "ch11-content-en-006",
+            "kind": "listItem",
+            "text": "Business leaders decide to replace a process because of upgrade needs or to align business processes, machinery, or employees with future goals."
+          },
+          {
+            "id": "ch11-content-en-007",
+            "kind": "listItem",
+            "text": "A Six Sigma team discovers that improving a process is not likely to provide the success desired from a project."
+          },
+          {
+            "id": "ch11-content-en-008",
+            "kind": "paragraph",
+            "text": "Most teams go into the project knowing whether they are employing DMAIC or DMADV approaches, but some DMAIC projects can become DMADV projects – usually during the Define, Measure, or Analyze stages – when the team realizes the need for a complete process replacement. Switching to the new methodology during the middle of the project might require some shuffling of resources and could impact project schedules, which means keeping champions and sponsors informed of team progress and decisions is imperative."
+          },
+          {
+            "id": "ch11-content-en-009",
+            "kind": "paragraph",
+            "text": "It’s worth noting that some organizations don’t formally use the DMADV approach for any project, in part because they find it easier to stick with the nomenclature of a single methodology. These organizations might still complete process redesign projects by altering some of the activities handled in the Improve and Control stages of DMAIC. In short, the teams do use the DMADV approach, but they use the verbiage associated with DMAIC to streamline Six Sigma education across all levels of the organization."
+          },
+          {
+            "id": "ch11-content-en-010",
+            "kind": "heading",
+            "text": "DMAIC versus DMADV"
+          },
+          {
+            "id": "ch11-content-en-011",
+            "kind": "paragraph",
+            "text": "The major differences between DMAIC and DMADV are the goals the team sets and the outcome of the completed project. In some ways, a DMADV project might feel like it has a more tangible outcome, but in reality, both methods are seeking to deliver better quality, better efficiency, more production, more profits, higher customer satisfaction, or some combination of these things. We’ll introduce each of the phases of both methods in this chapter. But first, let’s look at some quick definitions of each phase as they relate to DMAIC versus DMADV."
+          },
+          {
+            "id": "ch11-content-en-012",
+            "kind": "paragraph",
+            "text": "Phase 1: Define"
+          },
+          {
+            "id": "ch11-content-en-013",
+            "kind": "paragraph",
+            "text": "During a DMAIC project, the Define phase is concerned with identifying the problem, defining requirements for the project, and setting goals for success. Requirements and goal setting might relate to a variety of factors and are dependent somewhat on guidance from the leadership team and expected budgets, and Six Sigma leaders can use various tools within the phase to create flexibility that allows for a variety of project types."
+          },
+          {
+            "id": "ch11-content-en-014",
+            "kind": "paragraph",
+            "text": "In a DMADV project, the Define stage is slightly more rigid. Teams also have to identify a problem and begin defining requirements, but requirements must be made within a change-management environment. Sometimes, organizations have a change management program in place, which means Six Sigma teams must incorporate all requirements of that program into the DMADV phases. The team also works to define customer requirements to create a measuring stick to which the process development can be compared."
+          },
+          {
+            "id": "ch11-content-en-015",
+            "kind": "paragraph",
+            "text": "Phase 2: Measure"
+          },
+          {
+            "id": "ch11-content-en-016",
+            "kind": "paragraph",
+            "text": "The DMAIC Measure phase is when teams use data to validate their assumptions about the process and the problem. Validation of assumptions also merges into the analyze phase. The bulk of the measure phase is occupied with actually gathering data and formatting it in a way that can be analyzed. Measuring can be one of the most difficult tasks in a Six Sigma project if data isn’t already being captured. Teams might have to build tools to capture data, create queries for digital data, sift through enormous amounts of data to find relevant information, or capture data by hand in some manual process."
+          },
+          {
+            "id": "ch11-content-en-017",
+            "kind": "paragraph",
+            "text": "After validating assumptions from the Define stage with actual data, the team might revisit problem statements, goals, and other process-related definitions. If the team leaves Define with a “rough draft” of these things, they should leave Measure with a final draft. Teams also work during Measure phases to measure key inputs and steps in the process in preparation for Define."
+          },
+          {
+            "id": "ch11-content-en-018",
+            "kind": "paragraph",
+            "text": "Teams working through a DMADV approach might do some of the same things during the Measure phase, but activities are typically more targeted. Teams will likely collect data and measurements that help them define performance requirements for the new process."
+          },
+          {
+            "id": "ch11-content-en-019",
+            "kind": "paragraph",
+            "text": "Phase 3: Analyze"
+          },
+          {
+            "id": "ch11-content-en-020",
+            "kind": "paragraph",
+            "text": "During the Analyze phase of a DMAIC project, teams develop hypotheses about causal relationships between inputs and outputs and between Xs and Ys, they narrow causation down to the vital few (using methods such as the Pareto principle), and they use statistical analysis and data to validate the hypotheses and assumptions they’ve made so far. The Analyze phase tends to flow into the Improve phase in a DMAIC project; hypothesis testing to validate assumptions and possible solutions might begin in Analyze and continue into the Improve phase."
+          },
+          {
+            "id": "ch11-content-en-021",
+            "kind": "paragraph",
+            "text": "A team using DMADV might also identify cause and effect relationships, but they are usually more concerned with identifying best practices and benchmarks by which to measure and design the new process. Teams might also begin process design work by identifying value- and non value-added activities, locating areas where bottlenecks or errors are likely, and refining requirements to better meet the needs and goals of the project."
+          },
+          {
+            "id": "ch11-content-en-022",
+            "kind": "paragraph",
+            "text": "Phase 4: Improve or Design"
+          },
+          {
+            "id": "ch11-content-en-023",
+            "kind": "paragraph",
+            "text": "Six Sigma teams start developing the ideas that began in the Analyze phase during the Improve phase of a project. They use statistics and real-world observation to test hypotheses and solutions. Hypothesis testing actually begins in the analyze phase, but is continued during the improve phase as teams select solutions and begin to implement them. Teams also work to standardize solutions in preparation for rolling improved processes to daily production and non-team employees. Teams also start measuring results and lay the foundation for controls that will be built in the last phase."
+          },
+          {
+            "id": "ch11-content-en-024",
+            "kind": "paragraph",
+            "text": "The fourth phase is where DMADV projects begin to diverge substantially from DMAIC projects. The team actually works to design a new process, which does involve some of the solutions testing mentioned above, but also involves mapping, workflow principles, and actively building new infrastructures. That might mean putting new equipment in place, hiring and training new employees, or developing new software tools. Teams also start to implement the new systems and processes during the fourth phase."
+          },
+          {
+            "id": "ch11-content-en-025",
+            "kind": "paragraph",
+            "text": "Phase 5: Control or Verify"
+          },
+          {
+            "id": "ch11-content-en-026",
+            "kind": "paragraph",
+            "text": "For DMAIC and DMADV teams, the control or verify phase is where loose ends are tied and the project is transitioned to a daily work environment. Controls and standards are established so that improvements can be maintained, but the responsibility for those improvements is transitioned to the process owner. During the transition, the Six Sigma team might work with the process owner and his or her department to troubleshoot any problems with the improvement."
+          },
+          {
+            "id": "ch11-content-en-027",
+            "kind": "paragraph",
+            "text": "Which Methodology Would You Use?"
+          },
+          {
+            "id": "ch11-content-en-028",
+            "kind": "paragraph",
+            "text": "Consider the following improvement projects. Which methodology do you think a Six Sigma team might use to approach each project?"
+          },
+          {
+            "id": "ch11-content-en-029",
+            "kind": "paragraph",
+            "text": "1. A business wants to create a smartphone app to help customers make and manage appointments. 2. A doctor’s office has had numerous complaints from patients because it is too hard to get appointments, appointment communications are confusing, or patients show up for appointments and are told they don’t have an appointment. 3. A company that manufactures pizza boxes isn’t happy with the profit margins in the small size boxes."
+          },
+          {
+            "id": "ch11-content-en-030",
+            "kind": "paragraph",
+            "text": "The team handling an improvement for the business in example 1 would choose a DMADV approach. They are creating a product that doesn’t yet exist; while the team is meeting a need that already exists and is improving an overall process – the setting of appointments – the app itself is a new process and a new product. The app will need to be designed, integrated into existing systems, and the final product tested before full implementation."
+          },
+          {
+            "id": "ch11-content-en-031",
+            "kind": "paragraph",
+            "text": "Example 2 is for an existing process, so the team would begin with a DMAIC approach. It’s possible that the team might determine during the process that one solution might be to develop a new appointment-setting software or replace existing software with something from a different vendor. In some cases, that might warrant a switch to DMADV, but, as previously stated, not all organizations would do so. Some organizations would continue with the DMAIC process and modify the activities in each phase to fit the needs of the project at hand."
+          },
+          {
+            "id": "ch11-content-en-032",
+            "kind": "paragraph",
+            "text": "Example 3 is a classic example of what brings many teams to the DMAIC method. The problem hasn’t yet been defined, but the organization knows that goals and expectations are not being met. A leadership team might work with subject matter experts and one or more Six Sigma experts to discover more about the processes involved before settling on one or more improvement projects."
+          },
+          {
+            "id": "ch11-content-en-033",
+            "kind": "heading",
+            "text": "Define"
+          },
+          {
+            "id": "ch11-content-en-034",
+            "kind": "paragraph",
+            "text": "During the Define phase of a Six Sigma process improvement project, teams create what is known as a project charter and a basic plan for work. A charter is a synopsis of the project. It provides some common information and a summary of what the team hopes to accomplish. The charter usually features a list of team members, names of those responsible for outcomes, a problem statement, a goal, and some basic definitions of scope and metrics for success. Some charters also include a rough timeline estimate for the project."
+          },
+          {
+            "id": "ch11-content-en-035",
+            "kind": "paragraph",
+            "text": "Also during the Define phase, teams create or list measurable customer requirements and create high- level documents about the process (including process maps). Often, teams will start with a SIPOC diagram to help them begin to understand a process. Teams should also identify stakeholders during the Define phase. Stakeholders are individuals, both within and without an organization, who have some level of influence on the success of an improvement project. By understanding who stakeholders are, teams can remain in contact with various persons throughout the project, communicating with those stakeholders as needed to ensure future viability of any improvement that is created. One way to identify stakeholders is through a Stakeholder Analysis."
+          },
+          {
+            "id": "ch11-content-en-036",
+            "kind": "heading",
+            "text": "Tips for Positive Movement in the Define Stage"
+          },
+          {
+            "id": "ch11-content-en-037",
+            "kind": "paragraph",
+            "text": "One of the biggest challenges Six Sigma teams face when in the Define phase of a project is generating positive, targeted momentum that sets the foundation for the rest of the project. As a Six Sigma team"
+          },
+          {
+            "id": "ch11-content-en-038",
+            "kind": "paragraph",
+            "text": "leader, you can increase chances of success by keeping the team as focused as possible during the Define stage. Begin by explaining the Six Sigma process and the purpose of the project for any ancillary team members who may not be familiar with Six Sigma and DMAIC. Next, work as a team to create ground rules for how the project will run – including how meetings are organized and managed, how information will be communicated, and what each team member might be responsible for during the project."
+          },
+          {
+            "id": "ch11-content-en-039",
+            "kind": "paragraph",
+            "text": "Create a charter and project plan so the team has something to focus on. If possible, have the Champion of the project spend time with the team. Hearing directly from an executive leader about expectations and the support of leadership for the project helps motivate a team. At the same time, ensure the Champion doesn’t step in to take over the project, as this isn’t his or her role."
+          },
+          {
+            "id": "ch11-content-en-040",
+            "kind": "paragraph",
+            "text": "Define is also a good time to explain the roles of scribe and time keeper and talk about the purpose of brainstorming. Some Six Sigma leaders like to let team members take turns facilitating various exercises for the group, as this integrates each person more tightly within the process and helps team members at all levels learn more about Six Sigma."
+          },
+          {
+            "id": "ch11-content-en-041",
+            "kind": "heading",
+            "text": "Measure"
+          },
+          {
+            "id": "ch11-content-en-042",
+            "kind": "paragraph",
+            "text": "Once a team has a good grasp of what the process does and how it works, what the problem is, and what the goal for the project is, the team moves from Define to Measure. Usually, the transition between phases is marked by a tollgate review wherein the team presents its Define work to a champion or a Six Sigma leadership board. The champion or board provides feedback and makes the decision about whether the team is ready to move on to Measure."
+          },
+          {
+            "id": "ch11-content-en-043",
+            "kind": "paragraph",
+            "text": "During the Measure phase, the team is concerned with creating a baseline metric for the process and refining problem statements and other outputs of the Define stage. Creating a baseline metric lets teams understand how a process should be measured and how the process is really performing before improvements begin. It also provides a comparison point so teams can show how much improvement they’ve brought to a project at the end of the DMAIC method."
+          },
+          {
+            "id": "ch11-content-en-044",
+            "kind": "paragraph",
+            "text": "One of the biggest challenges, especially for teams and team members who are new to the Six Sigma method, can be deciding what to measure. Many times, inexperienced teams end up spending time collecting data that doesn’t provide answers or can’t be used for the process. Because the Measure phase starts with some educated guesswork and trial-and-error, teams and Six Sigma leaders have to keep a close eye on progress and redirect work when measurements are not creating the answers or production required."
+          },
+          {
+            "id": "ch11-content-en-045",
+            "kind": "paragraph",
+            "text": "A successful Measure phase requires strong observation skills, an understanding of the reasons behind measure, knowledge of data types such as discrete and continuous, tools for measurement assessment, and a strong background in statistical analysis. Some of the tools often deployed in the Measure phase, such as the CTQ tree and sigma level calculation, were covered in previous chapters."
+          },
+          {
+            "id": "ch11-content-en-046",
+            "kind": "heading",
+            "text": "Tips for an Effective Measure Phase"
+          },
+          {
+            "id": "ch11-content-en-047",
+            "kind": "paragraph",
+            "text": "The Measure phase is often the most challenging phase for a Six Sigma team leader, especially when working with teams that are inexperienced in the methodology. When teams start to really dig deep"
+          },
+          {
+            "id": "ch11-content-en-048",
+            "kind": "paragraph",
+            "text": "into a process and begin to measure things, they often get a true idea about how challenging the problem really is. They might also have a difficult time understanding how and when to measure things, and collecting data that hasn’t been collected before can be time consuming and tedious. Because of all these challenges, teams might enter what is called a storming stage—team members question the viability of the project, rail against the Champion or the team leader, complain how much time the project is taking from other duties, or stop showing up to meetings altogether."
+          },
+          {
+            "id": "ch11-content-en-049",
+            "kind": "paragraph",
+            "text": "Six Sigma leaders can reduce the impact of storming on a team by demonstrating a calm approach to each aspect of the project and redirecting the strong emotion of storming to more productive work. If you can identify an easy task or problem, letting the team work on that and accomplish something immediately can reduce the excitement of storming; Six Sigma leaders should also ensure work is fairly distributed and that each team member knows exactly what his or her responsibilities are."
+          },
+          {
+            "id": "ch11-content-en-050",
+            "kind": "heading",
+            "text": "Analyze"
+          },
+          {
+            "id": "ch11-content-en-051",
+            "kind": "paragraph",
+            "text": "Once measurements are collected – or are in the process of being collected – Six Sigma teams usually move on to the Analyze phase. Again, a tollgate review is often conducted between phases, but the lines between Measure and Analyze are often blurrier than the lines between Define and Measure. In some cases, a team has to measure, analyze, and then measure some more – particularly if metrics aren’t already in place for a process."
+          },
+          {
+            "id": "ch11-content-en-052",
+            "kind": "paragraph",
+            "text": "Analyze phases are when teams perform detective work on the process. Using the clues gathered during the Define and Measure phases, along with information provided by the sponsor, process owner, and subject matter experts, teams attempt to identify root causes for a problem; they also use statistical analysis and other tools to verify causes before turning to the work of identifying possible solutions. During the Analyze phase, teams use a variety of tools – some of which were introduced in earlier chapters. Tools common in the Analyze phase include Pareto charts, run charts, histograms, cause-and- effect diagrams, scatter diagrams, process maps, and value analysis."
+          },
+          {
+            "id": "ch11-content-en-053",
+            "kind": "paragraph",
+            "text": "As teams work through the Analyze phase, they also start preparing for the Improve phase. During Analyze, teams might begin working on possible solutions and selecting solutions, developing improvement plans, and preparing some basic documentation about improvement work. Whether a team begins this work during Analyze often depends on the individual project and the manner in which the Six Sigma team leader would like to proceed. The Six Sigma team leader should ensure that teams aren’t taking on too much of the project at one time and that working on early Improve work doesn’t reduce the efficacy of the work done for the Analyze phase."
+          },
+          {
+            "id": "ch11-content-en-054",
+            "kind": "heading",
+            "text": "Tips for a Strong Analyze Phase"
+          },
+          {
+            "id": "ch11-content-en-055",
+            "kind": "paragraph",
+            "text": "Teams in the Analyze phase might continue to suffer from storming; if teams didn’t storm during Define or Measure phases, they might begin to do so in Analyze. Six Sigma leaders can use the same tips for controlling storming in the Measure phase in the Analyze phase."
+          },
+          {
+            "id": "ch11-content-en-056",
+            "kind": "paragraph",
+            "text": "Another common challenge for Six Sigma team leaders is introducing and explaining statistical concepts during the Analyze phase. When other team members or even the champion of the process are not familiar with statistical analysis, presenting advanced analysis in terms of statistical verbiage only can be"
+          },
+          {
+            "id": "ch11-content-en-057",
+            "kind": "paragraph",
+            "text": "a mistake. Team members won’t understand how you came to the conclusions you are presenting, which makes it less likely they will get behind the solution or improvement in a positive way."
+          },
+          {
+            "id": "ch11-content-en-058",
+            "kind": "paragraph",
+            "text": "Six Sigma experts should be aware of the knowledge limitations of various team members and work to both present information in a way that is understood by everyone and continue to add to team member knowledge by explaining concepts when possible."
+          },
+          {
+            "id": "ch11-content-en-059",
+            "kind": "heading",
+            "text": "Improve"
+          },
+          {
+            "id": "ch11-content-en-060",
+            "kind": "paragraph",
+            "text": "During the Improve phase of a project, a Six Sigma team selects a final solution and begins to put it in place. Sometimes, teams will select more than one solution, especially if a few smaller solutions are highly related and work together for an overall solution. It can be hard to determine which solution actually improves a process, however, so it’s usually a best practice to implement one change at a time and verify that change before moving on to something else."
+          },
+          {
+            "id": "ch11-content-en-061",
+            "kind": "paragraph",
+            "text": "Teams might also come up with many possible solutions, all of which would provide some improvement for the process. They should use a solutions selection matrix or other Six Sigma tool to evaluate solutions, choosing only the few best solutions. It’s worth noting again that the best solution is not always the solution that provides the most improvement. Solutions that are so expensive or disruptive that they cause disadvantages that outweigh any benefits should never be selected by project teams."
+          },
+          {
+            "id": "ch11-content-en-062",
+            "kind": "paragraph",
+            "text": "During Improve, Six Sigma teams must continue to keep the project definitions in mind. The solution must address a root cause verified in the Analyze phase; the root cause must be directly related to the problem stated during the Define phase. After selecting solutions, teams must test them using statistical tools and real-world sampling to ensure effectiveness before deploying solutions to a live work environment."
+          },
+          {
+            "id": "ch11-content-en-063",
+            "kind": "paragraph",
+            "text": "Tips for Staying Strong Nearing the End of a DMAIC Project Possibly the most common problem that plagues Six Sigma teams during the Improve phase is project fatigue. By the time teams come to Improve, they have been working on a project for weeks or even months; for many team members, the project work is on top of regular work. Fatigue or frustration might push team members to select and implement solutions just to have the project completed. Six Sigma leaders have to work to keep teams motivated on quality and improvement."
+          },
+          {
+            "id": "ch11-content-en-064",
+            "kind": "paragraph",
+            "text": "The best way for a Six Sigma team leader to create strength as the team nears project completion is to build a good foundation for Six Sigma in the earlier phases. Teams that understand the DMAIC process and have at least basic understanding of Six Sigma and statistical analysis by the Improve phase are more likely to stick with planning, analysis, and the DMAIC method."
+          },
+          {
+            "id": "ch11-content-en-065",
+            "kind": "paragraph",
+            "text": "Six Sigma team leaders should also continue to foster a team approach to all aspects of the project. One challenge for some leaders is the temptation to take measurements and analysis and begin performing much of the work themselves. Sometimes, it’s faster and easier to handle decision-making and analysis on your own, especially when you are dealing with team members who aren’t fluent in DMAIC or Six Sigma methods. Doing so alienates team members, though, and can result in a Six Sigma leader without direct process knowledge making the wrong decision. Keeping the team involved – and making exercises and meetings fun and productive – helps you make it through the Improve phase."
+          },
+          {
+            "id": "ch11-content-en-066",
+            "kind": "heading",
+            "text": "Control"
+          },
+          {
+            "id": "ch11-content-en-067",
+            "kind": "paragraph",
+            "text": "Control is the final phase for Six Sigma teams employing the DMAIC process. During the Control phase, teams usually handle four tasks: creating the foundation for process discipline, finalizing documents regarding the improvement, establishing ongoing metrics to evaluate the process, and building a process management plan that lets the team transition the improvement to the process owner."
+          },
+          {
+            "id": "ch11-content-en-068",
+            "kind": "paragraph",
+            "text": "Tools used by a team during the Control phase include documentation checklists, control charts, response plans, process maps, and process dashboards."
+          },
+          {
+            "id": "ch11-content-en-069",
+            "kind": "paragraph",
+            "text": "The Control Phase is often easy for a team because the work of the team has already reached a crescendo. In a well-run DMAIC process, the Control phase is a time of wrapping up loose ends and arriving at the end of a project. At the same time, teams might find it challenging to let go of a process they have put so much time into. By the time teams reach the Control phase, they might have been working with a process for months. If a Six Sigma leader has done his or her job, the team has taken ownership of the process and feels personally tied to the quality and output, making it hard to turn the work over to other teams or employees."
+          },
+          {
+            "id": "ch11-content-en-070",
+            "kind": "heading",
+            "text": "Ending on a Positive Note"
+          },
+          {
+            "id": "ch11-content-en-071",
+            "kind": "paragraph",
+            "text": "Six Sigma leaders can help team members transition a project by preparing them in advance for this phase. You might also find ways to incorporate team members into meetings or presentations where project results are being shared. Six Sigma leaders should always host a meeting to wrap up the project. The meeting should be somewhat celebratory in nature – if budget, time, and policy allows, Six Sigma leaders might consider having lunch or snacks at the meeting. Take time to recognize each team member’s contribution, and ask team members to identify something they learned that can be applied to their own work. This helps team members see that Six Sigma is an ongoing culture within an organization, and the end of a particular project doesn’t equate to the end of each person’s involvement in continuous improvement."
+          },
+          {
+            "id": "ch11-content-en-072",
+            "kind": "paragraph",
+            "text": "Recognition is extremely important when ending a Six Sigma project. Team members might have put in extra hours to provide excellent work on a project while maintaining their own responsibilities. Often, work on a Six Sigma project is not part of a team member’s regular duties, so they are going above and beyond what might normally be expected of them. Six Sigma leaders should make it a point to recognize the work of team members in front of a project sponsor or champion, and, when possible, in front of the department for which the improvement is being made."
+          },
+          {
+            "id": "ch11-content-en-073",
+            "kind": "heading",
+            "text": "Design"
+          },
+          {
+            "id": "ch11-content-en-074",
+            "kind": "paragraph",
+            "text": "Design is the fourth phase of DMADV; it replaces the Improve phase of DMAIC. DMADV is one approach for what is called Design for Six Sigma, or DFSS. Another approach is called DMADOV, which stands for Define, Measure, Analyze, Design, Optimize, and Validate. Teams using the DMADV approach usually combine the activities from Design and Optimize, and we’ll briefly introduce those activities in this section."
+          },
+          {
+            "id": "ch11-content-en-075",
+            "kind": "paragraph",
+            "text": "The Design phase of DMADV is when teams create a new process or develop a new product. A Six Sigma team would have previously done all the work to lay the foundation for development during the Define, Measure, and Analyze stages, which means most of the Design phase is taken up with the actual work involved in creating the process or project."
+          },
+          {
+            "id": "ch11-content-en-076",
+            "kind": "paragraph",
+            "text": "Using the plans, instructions, or maps created in earlier phases, the team either creates a product themselves or works with vendors, manufacturers, or other employees to create the product. For example, if the DMADV project involved the creation of a new app for customers or employees, the team might work with staff in the programming and technical departments. They might also work with a vendor who will be supplying the app or software in question; in such a case, a representative from the vendor should have been part of the team throughout all phases."
+          },
+          {
+            "id": "ch11-content-en-077",
+            "kind": "paragraph",
+            "text": "During Design, a team will also test the product, process, or service. Testing can be done in testing environments, in limited production environments, or via Beta testing. Usually, the team rolls out the new process or product to a limited number of internal or external customers; those customers provide feedback and the team uses the feedback to troubleshoot the new process or product as needed. Seeking feedback and troubleshooting the new process to create the best possible solution is where the Optimize in DMADOV comes in."
+          },
+          {
+            "id": "ch11-content-en-078",
+            "kind": "heading",
+            "text": "Tips for a Successful Design Phase"
+          },
+          {
+            "id": "ch11-content-en-079",
+            "kind": "paragraph",
+            "text": "In a process redesign project, all phases are essential, but Design is often seen as the most critical. Teams that falter in the design phase can waste the work that was put into other phases, and it’s easy for teams to fall prey to project fatigue just as work requirements pick up for everyone involved. Six Sigma team leaders can help improve the chances of a successful Design phase by following the tips for managing Improve phases. Teams should also be realistic about target dates for design work. Promising a complete solution in a short time period pleases leadership at first, but if teams are rushed, they tend to deliver low-quality processes. If you promise a too-good-to-be true timeline, you also run the risk of running far behind schedule, which can impede the work of other projects and process improvements."
+          },
+          {
+            "id": "ch11-content-en-080",
+            "kind": "heading",
+            "text": "Verify"
+          },
+          {
+            "id": "ch11-content-en-081",
+            "kind": "paragraph",
+            "text": "The Verify phase of a DMADV or DMADOV project is very similar to the Control phase of a DMAIC project. The new process, product, or service is transitioned out of project mode and handed off to a process owner or employees who work daily with the process or product in question. Control plans, including control charts, might be put in place by the team to track ongoing results, and almost all of the tools used in a DMAIC Control phase are relevant to Verify."
+          },
+          {
+            "id": "ch11-content-en-082",
+            "kind": "paragraph",
+            "text": "One of the differences between Verify and Control is that DMADV teams might take time to complete further CTQ analysis at the end of a project so they can identify new critical-to-quality factors. This is done because the process or product is different than it was when the team first started working. While the team should have made educated guesses about CTQs for the new product – and used those CTQs in planning and designing – they could not predict 100 percent how the customer might react to the new product or process. A new process might have a capability the old one did not; having that capability, the customer might decide it is the most important factor in quality about the process or product."
+          },
+          {
+            "id": "ch11-content-en-083",
+            "kind": "paragraph",
+            "text": "At the end of the Verify phase, a team delivers a final product or process that meets the needs first identified in the Define stage. The process or product should be free of known problems and defects wherever possible, and teams should have provided a way to manage and control the process through statistical control charts, Lean templates, and policies."
+          },
+          {
+            "id": "ch11-content-en-084",
+            "kind": "heading",
+            "text": "Closing a DMADV Project"
+          },
+          {
+            "id": "ch11-content-en-085",
+            "kind": "paragraph",
+            "text": "One of the major differences between DMAIC and DMADV is the possible timeline. We previously stated that a problem fits the DMAIC model if it can be solved in less than six months. While some DMADV projects might only take a few months, many process or product designs can take years. Because of this, the concluding challenges for a DMADV team are similar to those in a DMAIC environment, but they might be heightened by the length of time a team has spent on a project."
+          },
+          {
+            "id": "ch11-content-en-086",
+            "kind": "paragraph",
+            "text": "Team members who have spent a year or more working to develop a new process or product might feel like the end of the project threatens their job. This is especially true when team members have not been handling regular work duties in addition to product duties. Six Sigma leaders and champions can reduce these worries by communicating next steps and expectations clearly with staff."
+          },
+          {
+            "id": "ch11-content-en-087",
+            "kind": "paragraph",
+            "text": "Team members who have been working on regular job duties alongside project work for years might find it hard to return to regular duties without something else to work on. One of the benefits of Six Sigma is that team members learn to expect more of themselves, their coworkers, and an organization’s processes. Six Sigma team leaders can work with employees returning to daily work and help them apply what they learned in a positive fashion within their respective departments."
+          },
+          {
+            "id": "ch11-content-en-088",
+            "kind": "paragraph",
+            "text": "Finally, Six Sigma team leaders should ensure that a DMADV project closes on a positive note by validating all team members and ensuring process owners have all the tools they need to accept the new process without disrupting work."
+          },
+          {
+            "id": "ch11-content-en-089",
+            "kind": "paragraph",
+            "text": "Breaking up the Elephant You should now have a basic understanding of how a Six Sigma team approaches a problem or process improvement. Whether improving an existing process or creating a new process or product, teams work through phased approaches. The phases of DMAIC and DMADV provide control and organization for a project, help keep everyone on task, and let teams break up what can seem like enormous tasks into chunks that are tolerable. As the old adage says: How do you eat an elephant? One bite at a time. Similarly, the phased approach of Six Sigma breaks up the elephant so teams can work on it one bite at a time."
+          },
+          {
+            "id": "ch11-content-en-090",
+            "kind": "heading",
+            "text": "Unit 3: Advanced DMAIC"
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch11-content-zh-001",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 DMAIC：定义、测量、分析、改进、控制；适用于改进已有流程。"
+              ]
+            ],
+            "text": "术语说明 DMAIC：定义、测量、分析、改进、控制；适用于改进已有流程。"
+          },
+          {
+            "id": "ch11-content-zh-002",
+            "kind": "heading",
+            "text": "DMADV"
+          },
+          {
+            "id": "ch11-content-zh-003",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 DMADV：定义、测量、分析、设计、验证；常用于设计新流程或新产品。"
+              ]
+            ],
+            "text": "术语说明 DMADV：定义、测量、分析、设计、验证；常用于设计新流程或新产品。"
+          },
+          {
+            "id": "ch11-content-zh-004",
+            "kind": "paragraph",
+            "text": "六西格玛与其他质量改进和管理方法论的区别之一是每个项目都采用结构化方法。旨在改进现有流程的项目遵循称为 DMAIC 流程的成功路线图； DMAIC 分为五个阶段：定义、测量、分析、改进和控制。 DMAIC 项目的主要活动包括确定造成问题（Y）的关键输入或原因（X）、验证这些原因、集思广益并选择解决方案、实施解决方案以及创建控制计划以确保维持改进的状态。"
+          },
+          {
+            "id": "ch11-content-zh-005",
+            "kind": "paragraph",
+            "text": "DMAIC 方法的设计具有相当的包容性——绝大多数寻求改进项目的团队都能够将他们的活动纳入 DMAIC 步骤，因为这些步骤的设计允许一定的灵活性。但有时，团队意识到修复或改进流程并不是实现组织持续改进的正确方法。相反，流程可能需要完全替换或重新设计，以满足客户满意度或组织改进的目标。在这种情况下，团队可以采用 DMADV 方法。"
+          },
+          {
+            "id": "ch11-content-zh-006",
+            "kind": "paragraph",
+            "text": "DMADV 代表定义、测量、分析、设计和验证。该方法的管理原则与 DMAIC 的管理原则非常相似，但最后两个阶段旨在推出和测试全​​新的流程。 如果满足以下条件，六西格玛团队可能会通过 DMADV 进行改进："
+          },
+          {
+            "id": "ch11-content-zh-007",
+            "kind": "listItem",
+            "text": "该企业想要推出新服务或产品。"
+          },
+          {
+            "id": "ch11-content-zh-008",
+            "kind": "listItem",
+            "text": "由于升级需求或使业务流程、机器或员工与未来目标保持一致，业务领导者决定更换流程。"
+          },
+          {
+            "id": "ch11-content-zh-009",
+            "kind": "listItem",
+            "text": "六西格玛团队发现改进流程不太可能实现项目所需的成功。"
+          },
+          {
+            "id": "ch11-content-zh-010",
+            "kind": "paragraph",
+            "text": "大多数团队在进入项目时都知道他们是采用 DMAIC 还是 DMADV 方法，但当团队意识到需要完整的流程替换时，一些 DMAIC 项目可能会变成 DMADV 项目（通常是在定义、测量或分析阶段）。 在项目中期改用新方法可能需要一些资源调整，并可能影响项目进度，这意味着让支持者和赞助商了解团队进度和决策势在必行。"
+          },
+          {
+            "id": "ch11-content-zh-011",
+            "kind": "paragraph",
+            "text": "值得注意的是，一些组织并未在任何项目中正式使用 DMADV 方法，部分原因是他们发现坚持单一方法的术语更容易。这些组织仍可能通过改变 DMAIC 改进和控制阶段处理的一些活动来完成流程重新设计项目。简而言之，团队确实使用了 DMADV 方法，但他们使用与 DMAIC 相关的措辞来简化组织各个级别的六西格玛教育。"
+          },
+          {
+            "id": "ch11-content-zh-012",
+            "kind": "heading",
+            "text": "DMAIC 与 DMADV"
+          },
+          {
+            "id": "ch11-content-zh-013",
+            "kind": "paragraph",
+            "text": "DMAIC 和 DMADV 之间的主要区别在于团队设定的目标和已完成项目的结果。在某些方面，DMADV 项目可能感觉它有更切实的成果，但实际上，这两种方法都在寻求提供更好的质量、更高的效率、更多的产量、更多的利润、更高的客户满意度或这些东西的某种组合。我们将在本章中介绍这两种方法的每个阶段。但首先，让我们看一下每个阶段的一些快速定义，因为它们与 DMAIC 和 DMADV 相关。"
+          },
+          {
+            "id": "ch11-content-zh-014",
+            "kind": "heading",
+            "text": "第一阶段：定义"
+          },
+          {
+            "id": "ch11-content-zh-015",
+            "kind": "paragraph",
+            "text": "在 DMAIC 项目期间，定义阶段涉及识别问题、定义项目需求以及设定成功目标。要求和目标设定可能与多种因素相关，并且在一定程度上取决于领导团队的指导和预期预算，六西格玛领导者可以在该阶段使用各种工具来创建允许各种项目类型的灵活性。"
+          },
+          {
+            "id": "ch11-content-zh-016",
+            "kind": "paragraph",
+            "text": "在 DMADV 项目中，定义阶段稍微严格一些。团队还必须识别问题并开始定义需求，但必须在变更管理环境中制定需求。有时，组织制定了变革管理计划，这意味着六西格玛团队必须将该计划的所有要求纳入 DMADV 阶段。该团队还致力于定义客户要求，以创建一个可以与流程开发进行比较的衡量尺。"
+          },
+          {
+            "id": "ch11-content-zh-017",
+            "kind": "heading",
+            "text": "第二阶段： 测量"
+          },
+          {
+            "id": "ch11-content-zh-018",
+            "kind": "paragraph",
+            "text": "DMAIC 测量阶段是团队使用数据验证他们对流程和问题的假设的阶段。假设的验证也合并到分析阶段。测量阶段的大部分时间用于实际收集数据并以可分析的方式对其进行格式化。如果尚未捕获数据，测量可能是六西格玛项目中最困难的任务之一。团队可能必须构建工具来捕获数据、创建数字数据查询、筛选大量数据以查找相关信息，或者在某些手动过程中手动捕获数据。"
+          },
+          {
+            "id": "ch11-content-zh-019",
+            "kind": "paragraph",
+            "text": "使用实际数据验证定义阶段的假设后，团队可能会重新审视问题陈述、目标和其他与流程相关的定义。如果团队在 Define 时留下了这些内容的“粗略草案”，那么他们应该在 Measure 时留下最终草案。团队还在测量阶段工作，测量流程中的关键输入和步骤，为定义做好准备。"
+          },
+          {
+            "id": "ch11-content-zh-020",
+            "kind": "paragraph",
+            "text": "通过 DMADV 方法工作的团队可能会在测量阶段做一些相同的事情，但活动通常更有针对性。团队可能会收集数据和测量结果，帮助他们定义新流程的性能要求。"
+          },
+          {
+            "id": "ch11-content-zh-021",
+            "kind": "heading",
+            "text": "第三阶段：分析"
+          },
+          {
+            "id": "ch11-content-zh-022",
+            "kind": "paragraph",
+            "text": "在 DMAIC 项目的分析阶段，团队提出关于输入和输出之间以及 X 和 Y 之间因果关系的假设，他们将因果关系缩小到至关重要的少数（使用帕累托原理等方法），并使用统计分析和数据来验证他们迄今为止所做的假设和假设。在 DMAIC 项目中，分析阶段往往会进入改进阶段；用于验证假设和可能的解决方案的假设检验可以从分析开始，并继续进入改进阶段。"
+          },
+          {
+            "id": "ch11-content-zh-023",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Pareto（帕累托）：按影响大小排序，常用于找出“少数关键原因”。"
+              ]
+            ],
+            "text": "术语说明 Pareto（帕累托）：按影响大小排序，常用于找出“少数关键原因”。"
+          },
+          {
+            "id": "ch11-content-zh-024",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Hypothesis Test（假设检验）：用样本数据判断某个统计假设是否有足够证据被拒绝。"
+              ]
+            ],
+            "text": "术语说明 Hypothesis Test（假设检验）：用样本数据判断某个统计假设是否有足够证据被拒绝。"
+          },
+          {
+            "id": "ch11-content-zh-025",
+            "kind": "paragraph",
+            "text": "使用 DMADV 的团队还可能确定因果关系，但他们通常更关心确定用于衡量和设计新流程的最佳实践和基准。团队还可以通过识别增值和非增值活动、定位可能存在瓶颈或错误的区域以及细化需求以更好地满足项目的需求和目标来开始流程设计工作。"
+          },
+          {
+            "id": "ch11-content-zh-026",
+            "kind": "heading",
+            "text": "第四阶段：改进或设计"
+          },
+          {
+            "id": "ch11-content-zh-027",
+            "kind": "paragraph",
+            "text": "六西格玛团队在项目的改进阶段开始开发从分析阶段开始的想法。 他们使用统计数据和现实世界的观察来测试假设和解决方案。假设测试实际上从分析阶段开始，但在改进阶段继续，因为团队选择解决方案并开始实施它们。团队还致力于标准化解决方案，为将改进的流程推广到日常生产和非团队员工做好准备。团队还开始衡量结果，并为最后阶段构建的控制奠定基础。"
+          },
+          {
+            "id": "ch11-content-zh-028",
+            "kind": "paragraph",
+            "text": "第四阶段是 DMADV 项目开始与 DMAIC 项目产生重大分歧的阶段。该团队实际上致力于设计一个新流程，其中确实涉及上面提到的一些解决方案测试，但也涉及映射、工作流程原则以及积极构建新的基础设施。这可能意味着安装新设备、雇用和培训新员工或开发新的软件工具。团队还在第四阶段开始实施新的系统和流程。"
+          },
+          {
+            "id": "ch11-content-zh-029",
+            "kind": "heading",
+            "text": "第五阶段：控制或验证"
+          },
+          {
+            "id": "ch11-content-zh-030",
+            "kind": "paragraph",
+            "text": "对于 DMAIC 和 DMADV 团队来说，控制或验证阶段是解决未解决问题并将项目过渡到日常工作环境的阶段。建立控制和标准是为了维持改进，但这些改进的责任转移到流程所有者。在过渡期间，六西格玛团队可能会与流程所有者及其部门合作，解决改进中的任何问题。"
+          },
+          {
+            "id": "ch11-content-zh-031",
+            "kind": "paragraph",
+            "text": "您会使用哪种方法？"
+          },
+          {
+            "id": "ch11-content-zh-032",
+            "kind": "paragraph",
+            "text": "考虑以下改进项目。您认为六西格玛团队可能会使用哪种方法来处理每个项目？"
+          },
+          {
+            "id": "ch11-content-zh-033",
+            "kind": "paragraph",
+            "text": "1. 一家企业希望创建一款智能手机应用程序来帮助客户进行和管理预约。 2. 医生办公室收到了大量来自患者的投诉，因为预约太难、预约沟通混乱、或者患者去预约却被告知没有预约。 3. 一家生产披萨盒的公司对小尺寸披萨盒的利润率并不满意。"
+          },
+          {
+            "id": "ch11-content-zh-034",
+            "kind": "paragraph",
+            "text": "处理示例 1 中业务改进的团队将选择 DMADV 方法。他们正在创造一种尚不存在的产品；虽然团队正在满足已经存在的需求并正在改进整个流程（预约的设置），但应用程序本身是一个新流程和新产品。 该应用程序需要进行设计、集成到现有系统中，并在全面实施之前对最终产品进行测试。"
+          },
+          {
+            "id": "ch11-content-zh-035",
+            "kind": "paragraph",
+            "text": "示例 2 针对现有流程，因此团队将从 DMAIC 方法开始。团队可能会在此过程中确定一种解决方案是开发新的预约设置软件或用其他供应商的软件替换现有软件。在某些情况下，这可能需要转向 DMADV，但如前所述，并非所有组织都会这样做。一些组织将继续 DMAIC 流程并修改每个阶段的活动以适应当前项目的需求。"
+          },
+          {
+            "id": "ch11-content-zh-036",
+            "kind": "paragraph",
+            "text": "示例 3 是让许多团队采用 DMAIC 方法的经典示例。问题尚未确定，但组织知道目标和期望尚未实现。领导团队可能会与主题专家和一名或多名六西格玛专家合作，在确定一个或多个改进项目之前了解有关流程的更多信息。"
+          },
+          {
+            "id": "ch11-content-zh-037",
+            "kind": "heading",
+            "text": "定义"
+          },
+          {
+            "id": "ch11-content-zh-038",
+            "kind": "paragraph",
+            "text": "在六西格玛流程改进项目的定义阶段，团队创建所谓的项目章程和基本工作计划。章程是项目的概要。它提供了一些通用信息以及团队希望完成的任务的摘要。章程通常包含团队成员列表、对结果负责的人员姓名、问题陈述、目标以及成功范围和指标的一些基本定义。一些章程还包括项目的粗略时间表估计。"
+          },
+          {
+            "id": "ch11-content-zh-039",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Scope（项目范围）：说明改进项目包括什么、不包括什么，避免目标扩张。"
+              ]
+            ],
+            "text": "术语说明 Scope（项目范围）：说明改进项目包括什么、不包括什么，避免目标扩张。"
+          },
+          {
+            "id": "ch11-content-zh-040",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Project Charter（项目章程）：确认问题、目标、范围、收益、团队和时间表的项目启动文件。"
+              ]
+            ],
+            "text": "术语说明 Project Charter（项目章程）：确认问题、目标、范围、收益、团队和时间表的项目启动文件。"
+          },
+          {
+            "id": "ch11-content-zh-041",
+            "kind": "paragraph",
+            "text": "此外，在定义阶段，团队创建或列出可衡量的客户需求，并创建有关流程的高级文档（包括流程图）。通常，团队会从 SIPOC 图开始帮助他们开始理解流程。团队还应该在定义阶段识别利益相关者。利益相关者是组织内部和外部的个人，他们对改进项目的成功具有一定程度的影响。通过了解利益相关者是谁，团队可以在整个项目中与各个人员保持联系，根据需要与这些利益相关者进行沟通，以确保所创建的任何改进的未来可行性。识别利益相关者的一种方法是通过利益相关者分析。"
+          },
+          {
+            "id": "ch11-content-zh-042",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 SIPOC：供应商、输入、流程、输出、客户；用于快速界定流程边界。"
+              ]
+            ],
+            "text": "术语说明 SIPOC：供应商、输入、流程、输出、客户；用于快速界定流程边界。"
+          },
+          {
+            "id": "ch11-content-zh-043",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Stakeholder（相关方）：会影响项目或被项目影响的人或组织。"
+              ]
+            ],
+            "text": "术语说明 Stakeholder（相关方）：会影响项目或被项目影响的人或组织。"
+          },
+          {
+            "id": "ch11-content-zh-044",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Process Map（流程图）：把流程步骤、流向和责任可视化，帮助识别断点和浪费。"
+              ]
+            ],
+            "text": "术语说明 Process Map（流程图）：把流程步骤、流向和责任可视化，帮助识别断点和浪费。"
+          },
+          {
+            "id": "ch11-content-zh-045",
+            "kind": "heading",
+            "text": "定义阶段积极行动的技巧"
+          },
+          {
+            "id": "ch11-content-zh-046",
+            "kind": "paragraph",
+            "text": "六西格玛团队在项目定义阶段面临的最大挑战之一是产生积极的、有针对性的动力，为项目的其余部分奠定基础。作为六西格玛团队"
+          },
+          {
+            "id": "ch11-content-zh-047",
+            "kind": "paragraph",
+            "text": "作为领导者，您可以通过在定义阶段让团队尽可能集中注意力来增加成功的机会。首先向可能不熟悉六西格玛和 DMAIC 的辅助团队成员解释六西格玛流程和项目的目的。接下来，作为一个团队工作，制定项目如何运行的基本规则，包括如何组织和管理会议、如何沟通信息以及每个团队成员在项目期间可能负责的工作。"
+          },
+          {
+            "id": "ch11-content-zh-048",
+            "kind": "paragraph",
+            "text": "创建章程和项目计划，以便团队有重点关注的事情。如果可能的话，让项目负责人花时间与团队在一起。直接听取执行领导者关于项目的期望和领导层的支持有助于激励团队。同时，确保冠军不会介入接管该项目，因为这不是他或她的职责。"
+          },
+          {
+            "id": "ch11-content-zh-049",
+            "kind": "paragraph",
+            "text": "定义也是解释抄写员和计时员的角色并讨论头脑风暴的目的的好时机。一些六西格玛的领导喜欢让团队成员轮流主持小组的各种练习，这样可以让每个人更紧密地融入到流程中，并帮助各级团队成员更多地了解六西格玛。"
+          },
+          {
+            "id": "ch11-content-zh-050",
+            "kind": "heading",
+            "text": "测量"
+          },
+          {
+            "id": "ch11-content-zh-051",
+            "kind": "paragraph",
+            "text": "一旦团队很好地掌握了流程的作用、工作原理、问题是什么以及项目的目标是什么，团队就会从“定义”转向“衡量”。通常，阶段之间的过渡以收费站审查为标志，其中团队向冠军或六西格玛领导委员会展示其定义工作。冠军或董事会提供反馈并决定团队是否准备好继续进行衡量。"
+          },
+          {
+            "id": "ch11-content-zh-052",
+            "kind": "paragraph",
+            "text": "在测量阶段，团队负责为流程创建基线指标，并完善问题陈述和定义阶段的其他输出。创建基线指标可以让团队在改进开始之前了解如何衡量流程以及流程的实际执行情况。它还提供了一个比较点，以便团队可以展示他们在 DMAIC 方法结束时为项目带来了多少改进。"
+          },
+          {
+            "id": "ch11-content-zh-053",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Baseline（基线）：改进前的当前表现水平，是后续比较改进效果的参照。"
+              ]
+            ],
+            "text": "术语说明 Baseline（基线）：改进前的当前表现水平，是后续比较改进效果的参照。"
+          },
+          {
+            "id": "ch11-content-zh-054",
+            "kind": "paragraph",
+            "text": "最大的挑战之一，尤其是对于刚接触六西格玛方法的团队和团队成员来说，可能是决定测量什么。很多时候，缺乏经验的团队最终会花时间收集无法提供答案或无法用于流程的数据。由于测量阶段是从一些有根据的猜测和反复试验开始的，因此团队和六西格玛领导者必须密切关注进展情况，并在测量无法产生所需的答案或生产时重新调整工作方向。"
+          },
+          {
+            "id": "ch11-content-zh-055",
+            "kind": "paragraph",
+            "text": "成功的测量阶段需要强大的观察技能、对测量背后原因的理解、离散和连续等数据类型的知识、测量评估工具以及强大的统计分析背景。前面的章节介绍了一些在测量阶段经常部署的工具，例如 CTQ 树和 sigma 级别计算。"
+          },
+          {
+            "id": "ch11-content-zh-056",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Sigma level（西格玛水平）：衡量过程缺陷率的尺度；水平越高，单位机会中产生缺陷的概率越低。"
+              ]
+            ],
+            "text": "术语说明 Sigma level（西格玛水平）：衡量过程缺陷率的尺度；水平越高，单位机会中产生缺陷的概率越低。"
+          },
+          {
+            "id": "ch11-content-zh-057",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 CTQ（关键质量特性）：把客户需求转化为可测量的质量要求。"
+              ]
+            ],
+            "text": "术语说明 CTQ（关键质量特性）：把客户需求转化为可测量的质量要求。"
+          },
+          {
+            "id": "ch11-content-zh-058",
+            "kind": "heading",
+            "text": "有效测量阶段的技巧"
+          },
+          {
+            "id": "ch11-content-zh-059",
+            "kind": "paragraph",
+            "text": "对于六西格玛团队领导者来说，测量阶段通常是最具挑战性的阶段，尤其是在与缺乏方法论经验的团队一起工作时。当团队开始真正深入挖掘时"
+          },
+          {
+            "id": "ch11-content-zh-060",
+            "kind": "paragraph",
+            "text": "当他们进入一个流程并开始衡量事物时，他们通常会真正了解问题的真正挑战性。他们也可能很难理解如何以及何时测量事物，并且收集以前未收集过的数据可能既耗时又乏味。由于所有这些挑战，团队可能会进入所谓的风暴阶段——团队成员质疑项目的可行性、抱怨冠军或团队领导、抱怨项目占用了其他职责的时间，或者完全不再参加会议。"
+          },
+          {
+            "id": "ch11-content-zh-061",
+            "kind": "paragraph",
+            "text": "六西格玛领导者可以通过对项目的各个方面表现出冷静的态度，并将强烈的风暴情绪转移到更有成效的工作上，从而减少风暴对团队的影响。如果你能发现一个简单的任务或问题，让团队去解决它并立即完成某件事可以减少风暴的兴奋感； 六西格玛领导者还应确保工作分配公平，并且每个团队成员都清楚自己的职责是什么。"
+          },
+          {
+            "id": "ch11-content-zh-062",
+            "kind": "heading",
+            "text": "分析"
+          },
+          {
+            "id": "ch11-content-zh-063",
+            "kind": "paragraph",
+            "text": "一旦测量数据被收集——或正在收集过程中——六西格玛团队通常会进入分析阶段。 同样，收费站审查通常在阶段之间进行，但测量和分析之间的界限通常比定义和测量之间的界限更模糊。在某些情况下，团队必须测量、分析，然后进行更多测量——特别是在流程尚未制定指标的情况下。"
+          },
+          {
+            "id": "ch11-content-zh-064",
+            "kind": "paragraph",
+            "text": "分析阶段是团队对流程执行侦查工作的阶段。使用定义和测量阶段收集的线索以及发起人、流程所有者和主题专家提供的信息，团队尝试确定问题的根本原因；他们还使用统计分析和其他工具来验证原因，然后再开始确定可能的解决方案。在分析阶段，团队使用各种工具——其中一些工具已在前面的章节中介绍过。分析阶段常用的工具包括帕累托图、运行图、直方图、因果图、散点图、流程图和价值分析。"
+          },
+          {
+            "id": "ch11-content-zh-065",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Root Cause（根本原因）：真正驱动问题发生的原因；解决它才能防止问题反复出现。"
+              ]
+            ],
+            "text": "术语说明 Root Cause（根本原因）：真正驱动问题发生的原因；解决它才能防止问题反复出现。"
+          },
+          {
+            "id": "ch11-content-zh-066",
+            "kind": "paragraph",
+            "text": "当团队完成分析阶段时，他们也开始为改进阶段做准备。在分析过程中，团队可能会开始研究可能的解决方案并选择解决方案、制定改进计划并准备一些有关改进工作的基本文档。团队是否在分析期间开始这项工作通常取决于单个项目以及六西格玛团队领导想要进行的方式。六西格玛团队领导应确保团队不会一次性承担太多项目，并且早期改进工作不会降低分析阶段工作的效率。"
+          },
+          {
+            "id": "ch11-content-zh-067",
+            "kind": "heading",
+            "text": "强大分析阶段的技巧"
+          },
+          {
+            "id": "ch11-content-zh-068",
+            "kind": "paragraph",
+            "text": "处于分析阶段的团队可能会继续遭受攻击；如果团队在定义或测量阶段没有进行风暴，他们可能会在分析阶段开始这样做。 六西格玛领导者可以在分析阶段的测量阶段使用相同的技巧来控制风暴。"
+          },
+          {
+            "id": "ch11-content-zh-069",
+            "kind": "paragraph",
+            "text": "六西格玛团队领导者面临的另一个常见挑战是在分析阶段介绍和解释统计概念。当其他团队成员甚至流程的冠军不熟悉统计分析时，只能用统计术语来呈现高级分析。"
+          },
+          {
+            "id": "ch11-content-zh-070",
+            "kind": "paragraph",
+            "text": "一个错误。团队成员不会理解您如何得出所提出的结论，这使得他们不太可能以积极的方式支持解决方案或改进。"
+          },
+          {
+            "id": "ch11-content-zh-071",
+            "kind": "paragraph",
+            "text": "六西格玛专家应该意识到各个团队成员的知识局限性，并努力以每个人都能理解的方式呈现信息，并在可能的情况下通过解释概念不断增加团队成员的知识。"
+          },
+          {
+            "id": "ch11-content-zh-072",
+            "kind": "heading",
+            "text": "改善"
+          },
+          {
+            "id": "ch11-content-zh-073",
+            "kind": "paragraph",
+            "text": "在项目的改进阶段，六西格玛团队选择最终解决方案并开始实施。有时，团队会选择多个解决方案，特别是当几个较小的解决方案高度相关并共同形成整体解决方案时。然而，很难确定哪种解决方案真正改进了流程，因此最佳实践通常是一次实施一项更改并在继续进行其他更改之前验证该更改。"
+          },
+          {
+            "id": "ch11-content-zh-074",
+            "kind": "paragraph",
+            "text": "团队还可能提出许多可能的解决方案，所有这些都将为流程提供一些改进。他们应该使用解决方案选择矩阵或其他六西格玛工具来评估解决方案，仅选择少数最佳解决方案。再次值得注意的是，最好的解决方案并不总是提供最大改进的解决方案。项目团队永远不应该选择那些过于昂贵或具有破坏​​性、导致弊大于利的解决方案。"
+          },
+          {
+            "id": "ch11-content-zh-075",
+            "kind": "paragraph",
+            "text": "在改进过程中，六西格玛团队必须继续牢记项目定义。该解决方案必须解决在分析阶段验证的根本原因；根本原因必须与定义阶段提出的问题直接相关。选择解决方案后，团队必须使用统计工具和实际采样对其进行测试，以确保其有效性，然后再将解决方案部署到实时工作环境中。"
+          },
+          {
+            "id": "ch11-content-zh-076",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Sample / Sampling（样本/抽样）：从总体中选取部分数据进行分析；样本应尽量代表总体。"
+              ]
+            ],
+            "text": "术语说明 Sample / Sampling（样本/抽样）：从总体中选取部分数据进行分析；样本应尽量代表总体。"
+          },
+          {
+            "id": "ch11-content-zh-077",
+            "kind": "paragraph",
+            "text": "DMAIC 项目接近尾声时保持坚强的秘诀 在改进阶段困扰六西格玛团队的最常见问题可能是项目疲劳。当团队进行改进时，他们已经在一个项目上工作了数周甚至数月；对于许多团队成员来说，项目工作是在日常工作之上的。疲劳或沮丧可能会促使团队成员选择和实施解决方案，只是为了完成项目。 六西格玛领导者必须努力保持团队对质量和改进的积极性。"
+          },
+          {
+            "id": "ch11-content-zh-078",
+            "kind": "paragraph",
+            "text": "对于六西格玛团队领导者来说，在项目即将完成之际，最好的发力方式就是为六西格玛前期打好基础。 了解 DMAIC 流程并且至少对六西格玛和改进阶段的统计分析有基本了解的团队更有可能坚持规划、分析和 DMAIC 方法。"
+          },
+          {
+            "id": "ch11-content-zh-079",
+            "kind": "paragraph",
+            "text": "六西格玛团队领导者还应继续在项目的各个方面培养团队合作精神。一些领导者面临的挑战之一是进行测量和分析并开始自己执行大部分工作。有时，自己处理决策和分析会更快更容易，尤其是当您与不熟悉 DMAIC 或六西格玛方法的团队成员打交道时。然而，这样做会疏远团队成员，并可能导致没有直接流程知识的六西格玛领导者做出错误的决定。让团队参与进来，让练习和会议变得有趣和富有成效，可以帮助您度过改进阶段。"
+          },
+          {
+            "id": "ch11-content-zh-080",
+            "kind": "heading",
+            "text": "控制"
+          },
+          {
+            "id": "ch11-content-zh-081",
+            "kind": "paragraph",
+            "text": "控制是六西格玛团队采用 DMAIC 流程的最后阶段。在控制阶段，团队通常处理四项任务：为流程纪律奠定基础，最终确定有关改进的文档，建立持续的指标来评估流程，以及构建流程管理计划，让团队将改进移交给流程所有者。"
+          },
+          {
+            "id": "ch11-content-zh-082",
+            "kind": "paragraph",
+            "text": "团队在控制阶段使用的工具包括文档清单、控制图、响应计划、流程图和流程仪表板。"
+          },
+          {
+            "id": "ch11-content-zh-083",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Control Chart（控制图）：用时间序列和控制界限判断过程是否处于受控状态。"
+              ]
+            ],
+            "text": "术语说明 Control Chart（控制图）：用时间序列和控制界限判断过程是否处于受控状态。"
+          },
+          {
+            "id": "ch11-content-zh-084",
+            "kind": "paragraph",
+            "text": "控制阶段对于团队来说通常很容易，因为团队的工作已经达到了高潮。在运行良好的 DMAIC 流程中，控制阶段是收拾残局并到达项目结束的时间。与此同时，团队可能会发现放弃他们投入大量时间的流程具有挑战性。当团队到达控制阶段时，他们可能已经使用一个流程数月了。如果六西格玛的领导者完成了他或她的工作，那么团队就掌握了整个流程，并感觉个人与质量和产出息息相关，因此很难将工作移交给其他团队或员工。"
+          },
+          {
+            "id": "ch11-content-zh-085",
+            "kind": "heading",
+            "text": "以积极的态度结束"
+          },
+          {
+            "id": "ch11-content-zh-086",
+            "kind": "paragraph",
+            "text": "六西格玛领导者可以通过提前为该阶段做好准备来帮助团队成员过渡项目。您还可以找到将团队成员纳入共享项目结果的会议或演示的方法。 六西格玛领导总是应该召开会议来总结该项目。 这次会议应该有点庆祝性质——如果预算、时间和政策允许，六西格玛领导人可以考虑在会议上吃午餐或小吃。花时间认可每个团队成员的贡献，并要求团队成员找出他们学到的可以应用于自己工作的东西。这有助于团队成员认识到六西格玛是组织内一种持续的文化，特定项目的结束并不等于每个人参与持续改进的结束。"
+          },
+          {
+            "id": "ch11-content-zh-087",
+            "kind": "paragraph",
+            "text": "在结束六西格玛项目时，认可是极其重要的。团队成员可能会投入额外的时间来在项目中提供出色的工作，同时保持自己的职责。通常，六西格玛项目的工作不属于团队成员的日常职责，因此他们的工作超出了通常的预期。 六西格玛领导者应该在项目发起人或倡导者面前，并在可能的情况下，在正在改进的部门面前，特别强调对团队成员工作的认可。"
+          },
+          {
+            "id": "ch11-content-zh-088",
+            "kind": "heading",
+            "text": "设计"
+          },
+          {
+            "id": "ch11-content-zh-089",
+            "kind": "paragraph",
+            "text": "设计是DMADV的第四阶段；它取代了 DMAIC 的改进阶段。 DMADV 是所谓的“六西格玛设计”（DFSS）的一种方法。另一种方法称为 DMADOV，它代表定义、测量、分析、设计、优化和验证。使用 DMADV 方法的团队通常会结合设计和优化的活动，我们将在本节中简要介绍这些活动。"
+          },
+          {
+            "id": "ch11-content-zh-090",
+            "kind": "paragraph",
+            "text": "DMADV 的设计阶段是团队创建新流程或开发新产品的阶段。六西格玛团队之前会在定义、测量和分析阶段完成为开发奠定基础的所有工作，这意味着设计阶段的大部分时间都用于创建流程或项目所涉及的实际工作。"
+          },
+          {
+            "id": "ch11-content-zh-091",
+            "kind": "paragraph",
+            "text": "使用早期阶段创建的计划、说明或地图，团队可以自己创建产品，也可以与供应商、制造商或其他员工合作创建产品。例如，如果 DMADV 项目涉及为客户或员工创建新应用程序，则团队可能会与编程和技术部门的员工合作。他们还可能与供应相关应用程序或软件的供应商合作；在这种情况下，供应商的代表应该在所有阶段都是团队的一部分。"
+          },
+          {
+            "id": "ch11-content-zh-092",
+            "kind": "paragraph",
+            "text": "在设计过程中，团队还将测试产品、流程或服务。测试可以在测试环境、有限生产环境或通过 Beta 测试进行。通常，团队向有限数量的内部或外部客户推出新流程或产品；这些客户提供反馈，团队根据需要使用反馈来对新流程或产品进行故障排除。寻求反馈并对新流程进行故障排除以创建最佳解决方案是 DMADOV 中的优化的用武之地。"
+          },
+          {
+            "id": "ch11-content-zh-093",
+            "kind": "heading",
+            "text": "成功设计阶段的技巧"
+          },
+          {
+            "id": "ch11-content-zh-094",
+            "kind": "paragraph",
+            "text": "在流程重新设计项目中，所有阶段都是必不可少的，但设计通常被认为是最关键的。在设计阶段犹豫不决的团队可能会浪费投入其他阶段的工作，并且当每个参与人员的工作需求增加时，团队很容易陷入项目疲劳。 六西格玛团队领导者可以按照管理改进阶段的提示来帮助提高设计阶段成功的机会。团队还应该切合实际地确定设计工作的目标日期。承诺在短时间内提供完整的解决方案首先会让领导层感到高兴，但如果团队很匆忙，他们往往会交付低质量的流程。如果您承诺的时间表好得令人难以置信，那么您还会面临远远落后于计划的风险，这可能会阻碍其他项目的工作和流程改进。"
+          },
+          {
+            "id": "ch11-content-zh-095",
+            "kind": "heading",
+            "text": "验证"
+          },
+          {
+            "id": "ch11-content-zh-096",
+            "kind": "paragraph",
+            "text": "DMADV 或 DMADOV 项目的验证阶段与 DMAIC 项目的控制阶段非常相似。新流程、产品或服务从项目模式转换出来，并移交给每天处理相关流程或产品的流程所有者或员工。团队可能会制定控制计划（包括控制图）来跟踪持续结果，并且 DMAIC 控制阶段使用的几乎所有工具都与验证相关。"
+          },
+          {
+            "id": "ch11-content-zh-097",
+            "kind": "paragraph",
+            "text": "验证和控制之间的区别之一是 DMADV 团队可能需要时间在项目结束时完成进一步的 CTQ 分析，以便他们可以识别新的关键质量因素。这样做是因为流程或产品与团队刚开始工作时不同。虽然团队应该对新产品的 CTQ 做出有根据的猜测，并在规划和设计中使用这些 CTQ，但他们无法 100% 预测客户对新产品或流程的反应。 新流程可能具有旧流程所没有的功能；有了这种能力，客户可能会认为这是流程或产品质量中最重要的因素。"
+          },
+          {
+            "id": "ch11-content-zh-098",
+            "kind": "paragraph",
+            "text": "在验证阶段结束时，团队交付满足定义阶段首先确定的需求的最终产品或流程。流程或产品应尽可能不存在已知问题和缺陷，并且团队应提供一种通过统计控制图、精益模板和策略来管理和控制流程的方法。"
+          },
+          {
+            "id": "ch11-content-zh-099",
+            "kind": "heading",
+            "text": "关闭 DMADV 项目"
+          },
+          {
+            "id": "ch11-content-zh-100",
+            "kind": "paragraph",
+            "text": "DMAIC 和 DMADV 之间的主要区别之一是可能的时间表。我们之前说过，如果一个问题能够在六个月内得到解决，那么它就适合 DMAIC 模型。虽然某些 DMADV 项目可能只需要几个月的时间，但许多流程或产品设计可能需要数年时间。因此，DMADV 团队面临的最终挑战与 DMAIC 环境中的挑战类似，但团队在项目上花费的时间长度可能会加剧这些挑战。"
+          },
+          {
+            "id": "ch11-content-zh-101",
+            "kind": "paragraph",
+            "text": "花了一年或更长时间开发新流程或产品的团队成员可能会觉得项目的结束威胁到了他们的工作。当团队成员除了产品职责之外还没有处理常规工作职责时尤其如此。 六西格玛的领导者和倡导者可以通过与员工清楚地沟通后续步骤和期望来减少这些担忧。"
+          },
+          {
+            "id": "ch11-content-zh-102",
+            "kind": "paragraph",
+            "text": "多年来一直在项目工作的同时承担日常工作职责的团队成员可能会发现，如果没有其他事情可做，就很难恢复正常工作。六西格玛的好处之一是团队成员学会对自己、同事和组织的流程有更多的期望。 六西格玛团队领导可以与重返日常工作的员工一起工作，帮助他们在各自的部门中积极运用所学到的知识。"
+          },
+          {
+            "id": "ch11-content-zh-103",
+            "kind": "paragraph",
+            "text": "最后，六西格玛团队领导者应验证所有团队成员并确保流程所有者拥有接受新流程所需的所有工具，而不会中断工作，从而确保 DMADV 项目以积极的方式结束。"
+          },
+          {
+            "id": "ch11-content-zh-104",
+            "kind": "paragraph",
+            "text": "打破大象 现在您应该对六西格玛团队如何解决问题或流程改进有了基本的了解。无论是改进现有流程还是创建新流程或产品，团队都通过分阶段的方法进行工作。 DMAIC 和 DMADV 的阶段为项目提供控制和组织，帮助每个人都专注于任务，并让团队将看似庞大的任务分解为可以忍受的小块。正如古老的格言所说：你如何吃掉大象？一次咬一口。同样，六西格玛的分阶段方法将大象分解，这样团队就可以一次一点地处理它。"
+          },
+          {
+            "id": "ch11-content-zh-105",
+            "kind": "heading",
+            "text": "第 3 单元：高级 DMAIC"
+          },
+          {
+            "id": "ch11-content-zh-106",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 DMAIC：定义、测量、分析、改进、控制；适用于改进已有流程。"
+              ]
+            ],
+            "text": "术语说明 DMAIC：定义、测量、分析、改进、控制；适用于改进已有流程。"
+          }
+        ]
+      }
+    }
+  ]
+}

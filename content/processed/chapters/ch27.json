@@ -1,0 +1,902 @@
+{
+  "id": "ch27",
+  "chapter": 27,
+  "pageStart": 361,
+  "pageEnd": 371,
+  "title": {
+    "en": "Chapter 27: The Stat Menu in Minitab",
+    "zh": "第 27 章：Minitab 的 Stat 菜单"
+  },
+  "source": {
+    "enDocx": "C:\\findjob_sixsigma_sources\\manual_en_aligned.docx",
+    "zhDocx": "C:\\findjob_sixsigma_sources\\manual_zh_aligned.docx",
+    "extraction": "python-docx body-order extraction; generic chapter-level bilingual content"
+  },
+  "sections": [
+    {
+      "id": "ch27-content",
+      "level": 1,
+      "page": 361,
+      "title": {
+        "en": "The Stat Menu in Minitab",
+        "zh": "Minitab 的 Stat 菜单"
+      },
+      "content": {
+        "en": [
+          {
+            "id": "ch27-content-en-001",
+            "kind": "paragraph",
+            "text": "Chapter 21 introduced hypothesis testing and included information on how to select the right test and how to interpret the results of a test based on p-value. Chapter 19 covered correlation and regression and how to interpret the results of tests run in Excel. In this chapter, you’ll learn how to run all these tests in Minitab."
+          },
+          {
+            "id": "ch27-content-en-002",
+            "kind": "paragraph",
+            "text": "Because interpreting test results and setting up hypothesis testing has been covered in detail in other chapters, this chapter simply offers some guidance for using Minitab to run the tests, including where to find the tests and how to enter information for various tests. Each individual test isn’t covered in detail, since the entry of data for the various hypothesis tests is very similar."
+          },
+          {
+            "id": "ch27-content-en-003",
+            "kind": "heading",
+            "text": "Basic Statistics"
+          },
+          {
+            "id": "ch27-content-en-004",
+            "kind": "paragraph",
+            "text": "Many of the tools used to run hypothesis tests are found under Basic Statistics in the Stat menu."
+          },
+          {
+            "id": "ch27-content-en-005",
+            "kind": "heading",
+            "text": "Descriptive and Store Descriptive Statistics"
+          },
+          {
+            "id": "ch27-content-en-006",
+            "kind": "paragraph",
+            "text": "Sometimes, you need to know the mean, standard deviation, or some other descriptive statistic about your data sample. When running many hypothesis tests, you need such data. Minitab’s Descriptive Statistics function lets you run all of the most common statistics at one time, and you can store them in a worksheet for reference as you work on analysis."
+          },
+          {
+            "id": "ch27-content-en-007",
+            "kind": "paragraph",
+            "text": "Copy the data above into Minitab."
+          },
+          {
+            "id": "ch27-content-en-008",
+            "kind": "paragraph",
+            "text": "Select Stat > Basic Statistics > Display Descriptive Statistics."
+          },
+          {
+            "id": "ch27-content-en-009",
+            "kind": "paragraph",
+            "text": "Select the temperature column as the variable."
+          },
+          {
+            "id": "ch27-content-en-010",
+            "kind": "paragraph",
+            "text": "Click Statistics."
+          },
+          {
+            "id": "ch27-content-en-011",
+            "kind": "paragraph",
+            "text": "Check the box next to each statistic you would like to display."
+          },
+          {
+            "id": "ch27-content-en-012",
+            "kind": "paragraph",
+            "text": "Click OK. Click OK again."
+          },
+          {
+            "id": "ch27-content-en-013",
+            "kind": "paragraph",
+            "text": "Minitab displays the statistics in the session window."
+          },
+          {
+            "id": "ch27-content-en-014",
+            "kind": "heading",
+            "text": "Descriptive Statistics: Temperature A"
+          },
+          {
+            "id": "ch27-content-en-015",
+            "kind": "paragraph",
+            "text": "Variable N N* Mean SE Mean StDev Minimum Q1 Median Q3 Maximum Temperature A 12 0 49.33 3.55 12.31 30.00 37.75 51.50 61.25 65.00"
+          },
+          {
+            "id": "ch27-content-en-016",
+            "kind": "paragraph",
+            "text": "Complete the exact same series of steps, but choose Store Descriptive Statistics instead of Display Descriptive Statistics. Minitab will place the statistics in the workbook."
+          },
+          {
+            "id": "ch27-content-en-017",
+            "kind": "heading",
+            "text": "Regression Analysis"
+          },
+          {
+            "id": "ch27-content-en-018",
+            "kind": "paragraph",
+            "text": "Use the data of temperature over time you copied above to run a regression analysis in Minitab. The question you want to answer is: Is there a correlation between the temperature and the time?"
+          },
+          {
+            "id": "ch27-content-en-019",
+            "kind": "paragraph",
+            "text": "Select Stat > Regression > Fitted Line Plot."
+          },
+          {
+            "id": "ch27-content-en-020",
+            "kind": "paragraph",
+            "text": "Choose the temperature column as the response variable and the time column as the predictor variable."
+          },
+          {
+            "id": "ch27-content-en-021",
+            "kind": "paragraph",
+            "text": "Click OK."
+          },
+          {
+            "id": "ch27-content-en-022",
+            "kind": "heading",
+            "text": "Fitted Line Plot"
+          },
+          {
+            "id": "ch27-content-en-023",
+            "kind": "paragraph",
+            "text": "Temperature A = 27.56 + 3.350 Time"
+          },
+          {
+            "id": "ch27-content-en-024",
+            "kind": "paragraph",
+            "text": "70"
+          },
+          {
+            "id": "ch27-content-en-025",
+            "kind": "paragraph",
+            "text": "S 2.49367 R-Sq 96.3% R-Sq(adj) 95.9%"
+          },
+          {
+            "id": "ch27-content-en-026",
+            "kind": "paragraph",
+            "text": "60"
+          },
+          {
+            "id": "ch27-content-en-027",
+            "kind": "heading",
+            "text": "Temperature A"
+          },
+          {
+            "id": "ch27-content-en-028",
+            "kind": "paragraph",
+            "text": "50"
+          },
+          {
+            "id": "ch27-content-en-029",
+            "kind": "paragraph",
+            "text": "40"
+          },
+          {
+            "id": "ch27-content-en-030",
+            "kind": "paragraph",
+            "text": "30"
+          },
+          {
+            "id": "ch27-content-en-031",
+            "kind": "paragraph",
+            "text": "12 10 8 6 4 2 0"
+          },
+          {
+            "id": "ch27-content-en-032",
+            "kind": "heading",
+            "text": "Time"
+          },
+          {
+            "id": "ch27-content-en-033",
+            "kind": "paragraph",
+            "text": "Minitab returns the fitted line plot along with R-squared values, which you can interpret following the information from chapter 19."
+          },
+          {
+            "id": "ch27-content-en-034",
+            "kind": "heading",
+            "text": "Statistical Tests"
+          },
+          {
+            "id": "ch27-content-en-035",
+            "kind": "paragraph",
+            "text": "Most of the relevant hypothesis tests in Minitab are found either under Stat > Basic Statistics or Stat > Nonparametics."
+          },
+          {
+            "id": "ch27-content-en-036",
+            "kind": "paragraph",
+            "text": "The most relevant tests found under Stat > Basic Statistics are:"
+          },
+          {
+            "id": "ch27-content-en-037",
+            "kind": "paragraph",
+            "text": "- 1 Sample Z - 1 Sample t - 2 Sample t - Paired t - 1 Proportion - 2 Proportion - 1 Variance - 2 Variance - Normality Test"
+          },
+          {
+            "id": "ch27-content-en-038",
+            "kind": "paragraph",
+            "text": "You might notice that the tests found under Basic Statistics tend to be the tests used for discrete or normally distributed continuous data. The test for nonnormally distributed continuous data can be found under Stat > Nonparametrics."
+          },
+          {
+            "id": "ch27-content-en-039",
+            "kind": "heading",
+            "text": "Running Hypothesis Tests"
+          },
+          {
+            "id": "ch27-content-en-040",
+            "kind": "paragraph",
+            "text": "Example 1: 1 Proportion Test"
+          },
+          {
+            "id": "ch27-content-en-041",
+            "kind": "paragraph",
+            "text": "Let’s look at a few examples of hypothesis tests in Minitab. We’ll look again at some of the problems discussed in the hypothesis testing chapter."
+          },
+          {
+            "id": "ch27-content-en-042",
+            "kind": "paragraph",
+            "text": "Problem: A school administrator believes that the students in a certain classroom are being impacted by some environmental issue with that room. The administrator wants to see if the students in that room perform statistically lower on tests than the students throughout the school; she has already noted that different classes in that room are taught by other teachers."
+          },
+          {
+            "id": "ch27-content-en-043",
+            "kind": "paragraph",
+            "text": "The administrator gathers data. The rate of failure for classes taught in any other classroom is 20 percent. Out of 142 students who have a class in the classroom in question, 38 are failing that particular class."
+          },
+          {
+            "id": "ch27-content-en-044",
+            "kind": "paragraph",
+            "text": "The question is, is the rate of failure in the classroom statistically greater than the rate in other classrooms? You can look back to the 1 Proportion section of chapter 21 to see how the null and alternative hypotheses are created."
+          },
+          {
+            "id": "ch27-content-en-045",
+            "kind": "paragraph",
+            "text": "To run the test in Minitab, select Stat > Basic Statistics > 1 Proportion."
+          },
+          {
+            "id": "ch27-content-en-046",
+            "kind": "paragraph",
+            "text": "In the drop down, select “Summarized data,” since you don’t have information in columns."
+          },
+          {
+            "id": "ch27-content-en-047",
+            "kind": "paragraph",
+            "text": "The number of events is the number of outcomes that you are measuring. Here, the administrator was measuring failure rates, and there were 38 failures."
+          },
+          {
+            "id": "ch27-content-en-048",
+            "kind": "paragraph",
+            "text": "The number of trials is the total number of data points. In this case, the school administrator looked at scores for 142 students."
+          },
+          {
+            "id": "ch27-content-en-049",
+            "kind": "paragraph",
+            "text": "Check the box to perform a hypothesis test and enter the hypothesized proportion. In this case, you are comparing the actual failure rate of the classroom group to the overall failure rate of 20 percent. The hypothesized portion is written as a decimal between 0 and 1."
+          },
+          {
+            "id": "ch27-content-en-050",
+            "kind": "paragraph",
+            "text": "Click Options."
+          },
+          {
+            "id": "ch27-content-en-051",
+            "kind": "paragraph",
+            "text": "Minitab usually defaults the confidence level to 95, which would set alpha at 0.05. Unless you have a specific need for greater confidence, you can leave this as is."
+          },
+          {
+            "id": "ch27-content-en-052",
+            "kind": "paragraph",
+            "text": "Select the appropriate alternative hypothesis from the drop down menu. In this case, we are testing whether the proportion of our data is greater than the hypothesized proportion."
+          },
+          {
+            "id": "ch27-content-en-053",
+            "kind": "paragraph",
+            "text": "Click OK. Click OK again."
+          },
+          {
+            "id": "ch27-content-en-054",
+            "kind": "paragraph",
+            "text": "Minitab displays the results, including a p-value you can use to decide to reject or not reject the null hypothesis."
+          },
+          {
+            "id": "ch27-content-en-055",
+            "kind": "paragraph",
+            "text": "Example 2: 1 Sample T Test"
+          },
+          {
+            "id": "ch27-content-en-056",
+            "kind": "paragraph",
+            "text": "Problem: An agriculture company growing corn produced an average of 168 bushels of corn per acre each year for five years. The company made a change to its seeding process in an attempt to increase the yield of its fields. The harvest following the seed change resulted in an average of 175 bushels of corn per acre each year over 500 acres of fields. The standard deviation is 2.2 bushels. Did the seeding change result in a statistically different outcome in yield per acre?"
+          },
+          {
+            "id": "ch27-content-en-057",
+            "kind": "paragraph",
+            "text": "Select Stat > Basic Statistics > 1 Sample T."
+          },
+          {
+            "id": "ch27-content-en-058",
+            "kind": "paragraph",
+            "text": "Choose summarized data."
+          },
+          {
+            "id": "ch27-content-en-059",
+            "kind": "paragraph",
+            "text": "Enter the sample size, sample mean, and sample standard deviation from the problem. Check the box to perform a hypothesis test and enter the hypothesized mean. In this case, you want to know whether the new mean is greater than the old mean, so the old mean is the hypothesized mean."
+          },
+          {
+            "id": "ch27-content-en-060",
+            "kind": "paragraph",
+            "text": "Click Options."
+          },
+          {
+            "id": "ch27-content-en-061",
+            "kind": "paragraph",
+            "text": "Choose the appropriate hypothesis test from the drop down menu."
+          },
+          {
+            "id": "ch27-content-en-062",
+            "kind": "paragraph",
+            "text": "Click OK. Click OK again."
+          },
+          {
+            "id": "ch27-content-en-063",
+            "kind": "paragraph",
+            "text": "Minitab displays the results, including a p-value you can use to decide to reject or not reject the null hypothesis."
+          },
+          {
+            "id": "ch27-content-en-064",
+            "kind": "paragraph",
+            "text": "Example 3 – 2 – Sample T Test"
+          },
+          {
+            "id": "ch27-content-en-065",
+            "kind": "paragraph",
+            "text": "Copy the data from the table below into Minitab. If you recall from chapter 21, a law firm believed there was a statistical difference between the time employees on two different teams were spending on tasks."
+          },
+          {
+            "id": "ch27-content-en-066",
+            "kind": "paragraph",
+            "text": "Minutes Spent on Quarter-Hour Tasks Attorney A's Team Attorney B's Team 10 8 8 7 15 10 16 12 17 18 5 6 8 9 16 12 12 11 11 11 8 9 9 8 15 14 17 15 22 16 25 12 30 19 2 8 9 12 4 6 5 8 7 11 8 12 12 13 13 15 15 17 16 13 18 15 19 15 20 12 22 21 25 32 15 18 14 11"
+          },
+          {
+            "id": "ch27-content-en-067",
+            "kind": "paragraph",
+            "text": "Select Stat > Basic Statistics > 2 – Sample T Test."
+          },
+          {
+            "id": "ch27-content-en-068",
+            "kind": "paragraph",
+            "text": "From the drop down, select that each sample is in its own column. You can also choose to analyze samples when the data is all in one column or you can enter summarized data about each sample."
+          },
+          {
+            "id": "ch27-content-en-069",
+            "kind": "paragraph",
+            "text": "Select the appropriate columns into the Samples 1 and 2 boxes. In this case, you are selecting the columns that hold the data for each of the teams."
+          },
+          {
+            "id": "ch27-content-en-070",
+            "kind": "paragraph",
+            "text": "Click Options."
+          },
+          {
+            "id": "ch27-content-en-071",
+            "kind": "paragraph",
+            "text": "In this case, we only want to know if there is a difference between the two teams, so we’ll leave the alternative hypothesis as simply not equal to the hypothesized difference. In this case, we are assuming there is no difference, so we’ll leave the hypothesized difference as 0."
+          },
+          {
+            "id": "ch27-content-en-072",
+            "kind": "paragraph",
+            "text": "Click OK. Click OK again."
+          },
+          {
+            "id": "ch27-content-en-073",
+            "kind": "paragraph",
+            "text": "Minitab displays the results, including a p-value you can use to decide to reject or not reject the null hypothesis."
+          },
+          {
+            "id": "ch27-content-en-074",
+            "kind": "heading",
+            "text": "Hypothesis Test Steps Are Similar for all Types of Tests"
+          },
+          {
+            "id": "ch27-content-en-075",
+            "kind": "paragraph",
+            "text": "All of the hypothesis tests in Minitab are run using basically the same steps as in the examples above. For most test types, you can choose to test the raw data or you can enter summarized data. Remember, each type of hypothesis test requires different summarized data. Proportion testing requires rates, means testing usually requires standard deviations and means of samples, and variance testing requires sample variance. Some of the tests you might use on data that isn’t normally distributed require the median instead of the mean."
+          },
+          {
+            "id": "ch27-content-en-076",
+            "kind": "paragraph",
+            "text": "If you have the right descriptive statistics or have your data in columns in Minitab, it is a matter of a few clicks to set up and run a hypothesis test. The challenge isn’t in running, or interpreting, the tests. It is usually in determining which test is the right option for your data. It’s worth reviewing the information in chapter 21 again to understand what types of hypothesis tests are used with different data types and scenarios. It’s also important to test your data for normality before running hypothesis tests. Remember that you can easily test for normality by running the Graphical Summary under Basic Statistics."
+          },
+          {
+            "id": "ch27-content-en-077",
+            "kind": "paragraph",
+            "text": "Some other things to keep in mind when dealing with hypothesis tests in Minitab are that you should always click the Options button to verify that your confidence interval is set appropriately and that the appropriate hypothesis test is selected. Minitab defaults to a confidence interval of 95% and an alternative hypothesis of not equal. However, if you are working during the same session – meaning you haven’t closed Minitab since the last time you ran that specific hypothesis test, the program will remember what settings you entered and apply them automatically to the new test you are running. This can be a problem if you want to run a test on different data or run a test on the same data with a different confidence interval or alternative hypothesis and you forgot to make the change."
+          },
+          {
+            "id": "ch27-content-en-078",
+            "kind": "paragraph",
+            "text": "It’s also worth noting that a few of the means tests are also located under Stat > Equivalence Test."
+          },
+          {
+            "id": "ch27-content-en-079",
+            "kind": "paragraph",
+            "text": "If you are working in Minitab and have questions about these tests, you can access the Help menu for information about choosing, running, and interpreting each test."
+          },
+          {
+            "id": "ch27-content-en-080",
+            "kind": "paragraph",
+            "text": "Select Help > StatGuide."
+          },
+          {
+            "id": "ch27-content-en-081",
+            "kind": "paragraph",
+            "text": "The topics are organized just like the Minitab menus. Simply select the test you want help with and Minitab offers a dozen or so pages of help content for each."
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch27-content-zh-001",
+            "kind": "paragraph",
+            "text": "第 21 章介绍了假设检验，并包含有关如何选择正确的检验以及如何根据 p 值解释检验结果的信息。第 19 章介绍了相关性和回归以及如何解释在 Excel 中运行的测试结果。在本章中，您将学习如何在 Minitab 中运行所有这些测试。"
+          },
+          {
+            "id": "ch27-content-zh-002",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Correlation（相关）：描述两个变量共同变化的程度，不直接证明因果关系。"
+              ]
+            ],
+            "text": "术语说明 Correlation（相关）：描述两个变量共同变化的程度，不直接证明因果关系。"
+          },
+          {
+            "id": "ch27-content-zh-003",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Regression（回归）：用模型估计变量之间的关系，并预测响应变量。"
+              ]
+            ],
+            "text": "术语说明 Regression（回归）：用模型估计变量之间的关系，并预测响应变量。"
+          },
+          {
+            "id": "ch27-content-zh-004",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Hypothesis Test（假设检验）：用样本数据判断某个统计假设是否有足够证据被拒绝。"
+              ]
+            ],
+            "text": "术语说明 Hypothesis Test（假设检验）：用样本数据判断某个统计假设是否有足够证据被拒绝。"
+          },
+          {
+            "id": "ch27-content-zh-005",
+            "kind": "paragraph",
+            "text": "由于解释检验结果和设置假设检验已在其他章节中详细介绍，因此本章仅提供一些使用 Minitab 运行检验的指导，包括在哪里查找检验以及如何输入各种检验的信息。由于各种假设检验的数据输入非常相似，因此没有详细介绍每个单独的检验。"
+          },
+          {
+            "id": "ch27-content-zh-006",
+            "kind": "heading",
+            "text": "基础统计"
+          },
+          {
+            "id": "ch27-content-zh-007",
+            "kind": "paragraph",
+            "text": "许多用于运行假设检验的工具都可以在“统计”菜单中的“基本统计”下找到。"
+          },
+          {
+            "id": "ch27-content-zh-008",
+            "kind": "heading",
+            "text": "描述性和存储描述性统计数据"
+          },
+          {
+            "id": "ch27-content-zh-009",
+            "kind": "paragraph",
+            "text": "有时，您需要了解数据样本的平均值、标准差或其他一些描述性统计数据。在运行许多假设检验时，您需要此类数据。 Minitab 的描述统计功能可让您一次运行所有最常见的统计数据，并且您可以将它们存储在工作表中，以供分析时参考。"
+          },
+          {
+            "id": "ch27-content-zh-010",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Standard Deviation（标准差）：衡量数据离散程度的统计量；标准差越大，波动越明显。"
+              ]
+            ],
+            "text": "术语说明 Standard Deviation（标准差）：衡量数据离散程度的统计量；标准差越大，波动越明显。"
+          },
+          {
+            "id": "ch27-content-zh-011",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Sample / Sampling（样本/抽样）：从总体中选取部分数据进行分析；样本应尽量代表总体。"
+              ]
+            ],
+            "text": "术语说明 Sample / Sampling（样本/抽样）：从总体中选取部分数据进行分析；样本应尽量代表总体。"
+          },
+          {
+            "id": "ch27-content-zh-012",
+            "kind": "paragraph",
+            "text": "将以上数据复制到 Minitab 中。"
+          },
+          {
+            "id": "ch27-content-zh-013",
+            "kind": "paragraph",
+            "text": "选择统计 > 基本统计 > 显示描述性统计。"
+          },
+          {
+            "id": "ch27-content-zh-014",
+            "kind": "paragraph",
+            "text": "选择温度列作为变量。"
+          },
+          {
+            "id": "ch27-content-zh-015",
+            "kind": "paragraph",
+            "text": "单击统计。"
+          },
+          {
+            "id": "ch27-content-zh-016",
+            "kind": "paragraph",
+            "text": "选中您想要显示的每个统计数据旁边的框。"
+          },
+          {
+            "id": "ch27-content-zh-017",
+            "kind": "paragraph",
+            "text": "单击“确定”。再次单击“确定”。"
+          },
+          {
+            "id": "ch27-content-zh-018",
+            "kind": "paragraph",
+            "text": "Minitab 在会话窗口中显示统计数据。"
+          },
+          {
+            "id": "ch27-content-zh-019",
+            "kind": "heading",
+            "text": "描述性统计：温度 A"
+          },
+          {
+            "id": "ch27-content-zh-020",
+            "kind": "paragraph",
+            "text": "变量 N N* 平均值 SE 平均值 StDev 最小值 Q1 中值 Q3 最高温度 A 12 0 49.33 3.55 12.31 30.00 37.75 51.50 61.25 65.00"
+          },
+          {
+            "id": "ch27-content-zh-021",
+            "kind": "paragraph",
+            "text": "完成完全相同的一系列步骤，但选择“存储描述性统计信息”而不是“显示描述性统计信息”。 Minitab 会将统计数据放入工作簿中。"
+          },
+          {
+            "id": "ch27-content-zh-022",
+            "kind": "heading",
+            "text": "回归分析"
+          },
+          {
+            "id": "ch27-content-zh-023",
+            "kind": "paragraph",
+            "text": "使用上面复制的温度随时间变化的数据在 Minitab 中运行回归分析。你要回答的问题是：温度和时间之间有相关性吗？"
+          },
+          {
+            "id": "ch27-content-zh-024",
+            "kind": "paragraph",
+            "text": "选择统计 > 回归 > 拟合线图。"
+          },
+          {
+            "id": "ch27-content-zh-025",
+            "kind": "paragraph",
+            "text": "选择温度列作为响应变量，选择时间列作为预测变量。"
+          },
+          {
+            "id": "ch27-content-zh-026",
+            "kind": "paragraph",
+            "text": "单击“确定”。"
+          },
+          {
+            "id": "ch27-content-zh-027",
+            "kind": "heading",
+            "text": "拟合线图"
+          },
+          {
+            "id": "ch27-content-zh-028",
+            "kind": "paragraph",
+            "text": "温度A = 27.56 + 3.350 时间"
+          },
+          {
+            "id": "ch27-content-zh-029",
+            "kind": "paragraph",
+            "text": "70"
+          },
+          {
+            "id": "ch27-content-zh-030",
+            "kind": "paragraph",
+            "text": "S 2.49367 R-Sq 96.3% R-Sq(调整) 95.9%"
+          },
+          {
+            "id": "ch27-content-zh-031",
+            "kind": "paragraph",
+            "text": "60"
+          },
+          {
+            "id": "ch27-content-zh-032",
+            "kind": "heading",
+            "text": "温度A"
+          },
+          {
+            "id": "ch27-content-zh-033",
+            "kind": "paragraph",
+            "text": "50"
+          },
+          {
+            "id": "ch27-content-zh-034",
+            "kind": "paragraph",
+            "text": "40"
+          },
+          {
+            "id": "ch27-content-zh-035",
+            "kind": "paragraph",
+            "text": "30"
+          },
+          {
+            "id": "ch27-content-zh-036",
+            "kind": "paragraph",
+            "text": "12 10 8 6 4 2 0"
+          },
+          {
+            "id": "ch27-content-zh-037",
+            "kind": "heading",
+            "text": "时间"
+          },
+          {
+            "id": "ch27-content-zh-038",
+            "kind": "paragraph",
+            "text": "Minitab 返回拟合线图以及 R 平方值，您可以根据第 19 章中的信息对其进行解释。"
+          },
+          {
+            "id": "ch27-content-zh-039",
+            "kind": "heading",
+            "text": "统计检验"
+          },
+          {
+            "id": "ch27-content-zh-040",
+            "kind": "paragraph",
+            "text": "Minitab 中的大多数相关假设检验可在统计 > 基本统计或统计 > 非参数下找到。"
+          },
+          {
+            "id": "ch27-content-zh-041",
+            "kind": "paragraph",
+            "text": "在统计 > 基本统计下找到的最相关的测试是："
+          },
+          {
+            "id": "ch27-content-zh-042",
+            "kind": "paragraph",
+            "text": "- 1 个样本 Z - 1 个样本 t - 2 个样本 t - 配对 t - 1 个比例 - 2 个比例 - 1 个方差 - 2 个方差 - 正态性检验"
+          },
+          {
+            "id": "ch27-content-zh-043",
+            "kind": "paragraph",
+            "text": "您可能会注意到，在“基本统计”下找到的检验往往是用于离散或正态分布连续数据的检验。非正态分布连续数据的检验可以在统计 > 非参数下找到。"
+          },
+          {
+            "id": "ch27-content-zh-044",
+            "kind": "heading",
+            "text": "运行假设检验"
+          },
+          {
+            "id": "ch27-content-zh-045",
+            "kind": "paragraph",
+            "text": "示例1：1比例测试"
+          },
+          {
+            "id": "ch27-content-zh-046",
+            "kind": "paragraph",
+            "text": "让我们看一下 Minitab 中假设检验的几个示例。我们将再次看看假设检验章节中讨论的一些问题。"
+          },
+          {
+            "id": "ch27-content-zh-047",
+            "kind": "paragraph",
+            "text": "问题：学校管理员认为某个教室的学生受到该房间的某些环境问题的影响。管理员想了解该房间的学生在测试中的统计成绩是否低于全校学生；她已经注意到那个房间里的不同课程是由其他老师教的。"
+          },
+          {
+            "id": "ch27-content-zh-048",
+            "kind": "paragraph",
+            "text": "管理员收集数据。在任何其他教室教授的课程的失败率为 20%。在该教室上课的 142 名学生中，有 38 名学生未能通过该课程。"
+          },
+          {
+            "id": "ch27-content-zh-049",
+            "kind": "paragraph",
+            "text": "问题是，从统计数据来看，该教室的失败率是否高于其他教室的失败率？您可以回顾第 21 章的 1 比例部分，了解原假设和备择假设是如何创建的。"
+          },
+          {
+            "id": "ch27-content-zh-050",
+            "kind": "paragraph",
+            "text": "要在 Minitab 中运行检验，请选择统计 > 基本统计 > 1 比例。"
+          },
+          {
+            "id": "ch27-content-zh-051",
+            "kind": "paragraph",
+            "text": "在下拉列表中，选择“汇总数据”，因为列中没有信息。"
+          },
+          {
+            "id": "ch27-content-zh-052",
+            "kind": "paragraph",
+            "text": "事件的数量就是您正在测量的结果的数量。这里，管理员正在测量故障率，结果有 38 次故障。"
+          },
+          {
+            "id": "ch27-content-zh-053",
+            "kind": "paragraph",
+            "text": "试验次数是数据点的总数。在本例中，学校管理人员查看了 142 名学生的成绩。"
+          },
+          {
+            "id": "ch27-content-zh-054",
+            "kind": "paragraph",
+            "text": "选中该框以执行假设检验并输入假设比例。在本例中，您将课堂小组的实际不及格率与 20% 的总体不及格率进行比较。假设部分被写成 0 到 1 之间的小数。"
+          },
+          {
+            "id": "ch27-content-zh-055",
+            "kind": "paragraph",
+            "text": "单击选项。"
+          },
+          {
+            "id": "ch27-content-zh-056",
+            "kind": "paragraph",
+            "text": "Minitab 通常将置信水平默认为 95，这会将 alpha 设置为 0.05。除非您特别需要增强信心，否则可以保持原样。"
+          },
+          {
+            "id": "ch27-content-zh-057",
+            "kind": "paragraph",
+            "text": "从下拉菜单中选择适当的备择假设。在这种情况下，我们正在测试我们的数据比例是否大于假设比例。"
+          },
+          {
+            "id": "ch27-content-zh-058",
+            "kind": "paragraph",
+            "text": "单击“确定”。再次单击“确定”。"
+          },
+          {
+            "id": "ch27-content-zh-059",
+            "kind": "paragraph",
+            "text": "Minitab 显示结果，包括可用于决定拒绝或不拒绝原假设的 p 值。"
+          },
+          {
+            "id": "ch27-content-zh-060",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 p-value（p 值）：在原假设成立时观察到当前或更极端结果的概率；常用于判断显著性。"
+              ]
+            ],
+            "text": "术语说明 p-value（p 值）：在原假设成立时观察到当前或更极端结果的概率；常用于判断显著性。"
+          },
+          {
+            "id": "ch27-content-zh-061",
+            "kind": "paragraph",
+            "text": "示例 2：1 个样本 T 检验"
+          },
+          {
+            "id": "ch27-content-zh-062",
+            "kind": "paragraph",
+            "text": "问题：一家种植玉米的农业公司五年来平均每年每英亩生产 168 蒲式耳玉米。该公司改变了播种流程，试图提高田地的产量。换种后的收获结果是，500 英亩的土地上每年平均每英亩收获 175 蒲式耳玉米。标准偏差为 2.2 蒲式耳。播种量的变化是否导致每英亩产量出现统计上不同的结果？"
+          },
+          {
+            "id": "ch27-content-zh-063",
+            "kind": "paragraph",
+            "text": "选择统计 > 基本统计 > 1 个样本 T。"
+          },
+          {
+            "id": "ch27-content-zh-064",
+            "kind": "paragraph",
+            "text": "选择汇总数据。"
+          },
+          {
+            "id": "ch27-content-zh-065",
+            "kind": "paragraph",
+            "text": "输入问题的样本量、样本均值和样本标准差。选中该框以执行假设检验并输入假设平均值。在这种情况下，您想知道新均值是否大于旧均值，因此旧均值就是假设均值。"
+          },
+          {
+            "id": "ch27-content-zh-066",
+            "kind": "paragraph",
+            "text": "单击选项。"
+          },
+          {
+            "id": "ch27-content-zh-067",
+            "kind": "paragraph",
+            "text": "从下拉菜单中选择适当的假设检验。"
+          },
+          {
+            "id": "ch27-content-zh-068",
+            "kind": "paragraph",
+            "text": "单击“确定”。再次单击“确定”。"
+          },
+          {
+            "id": "ch27-content-zh-069",
+            "kind": "paragraph",
+            "text": "Minitab 显示结果，包括可用于决定拒绝或不拒绝原假设的 p 值。"
+          },
+          {
+            "id": "ch27-content-zh-070",
+            "kind": "paragraph",
+            "text": "示例 3 – 2 – 样本 T 检验"
+          },
+          {
+            "id": "ch27-content-zh-071",
+            "kind": "paragraph",
+            "text": "将下表中的数据复制到 Minitab 中。如果您还记得第 21 章，一家律师事务所认为两个不同团队的员工花在任务上的时间存在统计差异。"
+          },
+          {
+            "id": "ch27-content-zh-072",
+            "kind": "paragraph",
+            "text": "一刻钟任务花费的分钟数 律师 A 的团队 律师 B 的团队 10 8 8 7 15 10 16 12 17 18 5 6 8 9 16 12 12 11 11 11 8 9 9 8 15 14 17 15 22 16 25 12 30 19 2 8 9 12 4 6 5 8 7 11 8 12 12 13 13 15 15 17 16 13 18 15 19 15 20 12 22 21 25 32 15 18 14 11"
+          },
+          {
+            "id": "ch27-content-zh-073",
+            "kind": "paragraph",
+            "text": "选择统计 > 基本统计 > 2 – 样本 T 检验。"
+          },
+          {
+            "id": "ch27-content-zh-074",
+            "kind": "paragraph",
+            "text": "从下拉列表中，选择每个样本都位于其自己的列中。当数据全部在一列中时，您还可以选择分析样品，或者您可以输入有关每个样品的汇总数据。"
+          },
+          {
+            "id": "ch27-content-zh-075",
+            "kind": "paragraph",
+            "text": "在示例 1 和 2 框中选择适当的列。在本例中，您选择保存每个团队的数据的列。"
+          },
+          {
+            "id": "ch27-content-zh-076",
+            "kind": "paragraph",
+            "text": "单击选项。"
+          },
+          {
+            "id": "ch27-content-zh-077",
+            "kind": "paragraph",
+            "text": "在这种情况下，我们只想知道两支球队之间是否存在差异，因此我们将备择假设简单地不等于假设的差异。在本例中，我们假设没有差异，因此我们将假设的差异保留为 0。"
+          },
+          {
+            "id": "ch27-content-zh-078",
+            "kind": "paragraph",
+            "text": "单击“确定”。再次单击“确定”。"
+          },
+          {
+            "id": "ch27-content-zh-079",
+            "kind": "paragraph",
+            "text": "Minitab 显示结果，包括可用于决定拒绝或不拒绝原假设的 p 值。"
+          },
+          {
+            "id": "ch27-content-zh-080",
+            "kind": "heading",
+            "text": "所有类型的检验的假设检验步骤都是相似的"
+          },
+          {
+            "id": "ch27-content-zh-081",
+            "kind": "paragraph",
+            "text": "Minitab 中的所有假设检验都使用与上述示例基本相同的步骤运行。对于大多数测试类型，您可以选择测试原始数据，也可以输入汇总数据。请记住，每种类型的假设检验都需要不同的汇总数据。比例检验需要比率，均值检验通常需要标准差和样本均值，方差检验需要样本方差。您可能对非正态分布的数据使用的一些检验需要中位数而不是均值。"
+          },
+          {
+            "id": "ch27-content-zh-082",
+            "kind": "paragraph",
+            "text": "如果您拥有正确的描述性统计数据或将数据存储在 Minitab 的列中，则只需单击几下即可设置并运行假设检验。挑战不在于运行或解释测试。通常是为了确定哪种测试最适合您的数据。 值得再次回顾第 21 章中的信息，以了解不同数据类型和场景使用哪些类型的假设检验。在运行假设检验之前测试数据的正态性也很重要。请记住，您可以通过运行基本统计下的图形摘要来轻松测试正态性。"
+          },
+          {
+            "id": "ch27-content-zh-083",
+            "kind": "paragraph",
+            "text": "在 Minitab 中处理假设检验时需要记住的其他一些事情是，您应该始终单击“选项”按钮来验证您的置信区间设置是否正确以及是否选择了适当的假设检验。 Minitab 默认置信区间为 95%，备择假设为不相等。但是，如果您在同一个会话期间工作 - 这意味着自上次运行特定假设检验以来您尚未关闭 Minitab，程序将记住您输入的设置并自动将它们应用到您正在运行的新测试。如果您想要对不同的数据运行测试，或者使用不同的置信区间或备择假设对相同的数据运行测试，而您忘记进行更改，则这可能会出现问题。"
+          },
+          {
+            "id": "ch27-content-zh-084",
+            "kind": "paragraph",
+            "text": "还值得注意的是，一些经济状况测试也位于统计 > 等价测试下。"
+          },
+          {
+            "id": "ch27-content-zh-085",
+            "kind": "paragraph",
+            "text": "如果您使用 Minitab 并对这些测试有疑问，您可以访问“帮助”菜单以获取有关选择、运行和解释每个测试的信息。"
+          },
+          {
+            "id": "ch27-content-zh-086",
+            "kind": "paragraph",
+            "text": "选择帮助 > 统计指南。"
+          },
+          {
+            "id": "ch27-content-zh-087",
+            "kind": "paragraph",
+            "text": "这些主题的组织方式与 Minitab 菜单类似。只需选择您需要帮助的测试，Minitab 就会为每个测试提供十几页左右的帮助内容。"
+          }
+        ]
+      }
+    }
+  ]
+}

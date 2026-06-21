@@ -1,0 +1,922 @@
+{
+  "id": "ch09",
+  "chapter": 9,
+  "pageStart": 80,
+  "pageEnd": 90,
+  "title": {
+    "en": "Chapter 9: Selecting the Right Projects",
+    "zh": "第 9 章：选择正确的项目"
+  },
+  "source": {
+    "enDocx": "C:\\findjob_sixsigma_sources\\manual_en_aligned.docx",
+    "zhDocx": "C:\\findjob_sixsigma_sources\\manual_zh_aligned.docx",
+    "extraction": "python-docx body-order extraction; generic chapter-level bilingual content"
+  },
+  "sections": [
+    {
+      "id": "ch09-content",
+      "level": 1,
+      "page": 80,
+      "title": {
+        "en": "Selecting the Right Projects",
+        "zh": "选择正确的项目"
+      },
+      "content": {
+        "en": [
+          {
+            "id": "ch09-content-en-001",
+            "kind": "paragraph",
+            "text": "Teams can bring abundant knowledge of Six Sigma to the table, but if organizations don’t choose the right projects, improvements won’t drive effective changes for the benefit of the bottom line and/or customer satisfaction. Since Six Sigma works best when it is implemented as a company-wide culture, project selection should work as an enterprise-wide function. This chapter covers a number of tools and methods for brainstorming and selecting projects that are most likely to bring significant improvement to processes and serve overall business goals."
+          },
+          {
+            "id": "ch09-content-en-002",
+            "kind": "heading",
+            "text": "Juggling the Right Amount of Projects"
+          },
+          {
+            "id": "ch09-content-en-003",
+            "kind": "paragraph",
+            "text": "A critical part of Six Sigma success for organizations is knowing when teams reach maximum project load. Even when organizations hire employees dedicated to process improvement, they can only sustain a certain number of improvement projects without substantially reducing the positive outcomes of those projects. While project work, including data gathering and analysis, might be handled by employees committed 100 percent to improvement projects, teams usually have to engage with and pull resources from regular staff members. An organization that juggles too many projects puts daily output at risk. In seeking to improve processes, a company that selects too many projects at one time could actually negatively impact quality."
+          },
+          {
+            "id": "ch09-content-en-004",
+            "kind": "paragraph",
+            "text": "No formula exists for how many Six Sigma projects a company should run at a given time, but a few well- designed projects are more likely to make greater impact than many poorly designed, overlapping, or unfunded projects. Organizations should only launch projects they can:"
+          },
+          {
+            "id": "ch09-content-en-005",
+            "kind": "listItem",
+            "text": "Fund. Six Sigma projects take monetary resources, which means organizations must prioritize based on financial criteria."
+          },
+          {
+            "id": "ch09-content-en-006",
+            "kind": "listItem",
+            "text": "Support with people resources. Six Sigma projects require work from employees at all levels. Companies shouldn’t launch three projects at one time that draw heavily on IT resources or attempt multiple, simultaneous projects that need input from the Director of Compliance on a regular basis. Relying too heavily on resources for multiple projects can burn out employees, decrease morale, impact quality, and impede work that is necessary to keep the business running from day to day."
+          },
+          {
+            "id": "ch09-content-en-007",
+            "kind": "listItem",
+            "text": "Manage. Project teams require leadership; Six Sigma teams are usually run by Black Belts, sometimes along with certified Project Managers. Since Black Belts are supported by Green Belts who handle much of the data collection and analysis work, a single Black Belt can usually manage more than one project at a time if needed. This is especially true for experienced Black Belts who are not responsible for any type of daily operation. Even so, organizations with limited Six Sigma experts on staff can’t launch dozens of projects without putting a strain on those resources."
+          },
+          {
+            "id": "ch09-content-en-008",
+            "kind": "heading",
+            "text": "Enterprise-Level Selection Process"
+          },
+          {
+            "id": "ch09-content-en-009",
+            "kind": "paragraph",
+            "text": "When companies are working to apply Six Sigma culture to the entire enterprise, executive leaders and other decision makers should work directly with Six Sigma experts to identify improvement opportunities and launch projects. Doing so lets leadership align project selection with organizational"
+          },
+          {
+            "id": "ch09-content-en-010",
+            "kind": "paragraph",
+            "text": "goals, ensure projects are organized in a way that matches resources, and keep a bird’s eye view of improvement endeavors. Organizations can apply a five-step procedure for identifying viable Six Sigma improvement projects."
+          },
+          {
+            "id": "ch09-content-en-011",
+            "kind": "paragraph",
+            "text": "1. Data-Based Review of Current State of the Organization"
+          },
+          {
+            "id": "ch09-content-en-012",
+            "kind": "paragraph",
+            "text": "Organizations can begin with a high-level look at internal and external sources of information about performance. Internal information might include complaints or issues raised by employees, existing performance metrics or reports, financial reports, and quality reports. External sources include all of the Voice of the Customer tools we covered in Chapter 5. In reviewing internal and external information, organizations should ask:"
+          },
+          {
+            "id": "ch09-content-en-013",
+            "kind": "listItem",
+            "text": "What types of things are customers or employees complaining about?"
+          },
+          {
+            "id": "ch09-content-en-014",
+            "kind": "listItem",
+            "text": "Where is the organization falling short of benchmarks or competitor performance?"
+          },
+          {
+            "id": "ch09-content-en-015",
+            "kind": "listItem",
+            "text": "What needs do customers have that the organization is not meeting?"
+          },
+          {
+            "id": "ch09-content-en-016",
+            "kind": "listItem",
+            "text": "What needs might customers have in the near future that the organization is not yet able to meet?"
+          },
+          {
+            "id": "ch09-content-en-017",
+            "kind": "listItem",
+            "text": "What processes are outputting the most defects?"
+          },
+          {
+            "id": "ch09-content-en-018",
+            "kind": "listItem",
+            "text": "What processes are known for the most rework?"
+          },
+          {
+            "id": "ch09-content-en-019",
+            "kind": "listItem",
+            "text": "What are the slowest or most expensive processes in the organization?"
+          },
+          {
+            "id": "ch09-content-en-020",
+            "kind": "listItem",
+            "text": "What are some obstacles keeping the organization from reaching its goals?"
+          },
+          {
+            "id": "ch09-content-en-021",
+            "kind": "paragraph",
+            "text": "2. Brainstorm and Describe Potential Projects"
+          },
+          {
+            "id": "ch09-content-en-022",
+            "kind": "paragraph",
+            "text": "Answers to the questions in step one become a brainstorming list for potential projects. What types of things are customers complaining about? Perhaps surveys and feedback forms show customers complaining about long shipment times, poor quality of products, or rude customer service. With just a single question, an organization has a list of possible projects:"
+          },
+          {
+            "id": "ch09-content-en-023",
+            "kind": "listItem",
+            "text": "A project to reduce the time it takes for customers to receive orders"
+          },
+          {
+            "id": "ch09-content-en-024",
+            "kind": "listItem",
+            "text": "A project to increase the quality of products"
+          },
+          {
+            "id": "ch09-content-en-025",
+            "kind": "listItem",
+            "text": "A project to create better customer service"
+          },
+          {
+            "id": "ch09-content-en-026",
+            "kind": "paragraph",
+            "text": "Admittedly, the scope is enormous with these examples, so organizations would need to look for a bit more detail. Why do customers think the quality of products is low? In Chapter 6, we covered the 5 Whys brainstorming method, and that method is relevant here. During the brainstorming process, organizations and teams should repeatedly ask “Why?” questions to get a more granular look at project possibilities."
+          },
+          {
+            "id": "ch09-content-en-027",
+            "kind": "paragraph",
+            "text": "For example, if a feedback form for a carpet installation company indicates that customers aren’t satisfied with the service they receive, the team might ask “Why are customers dissatisfied?” Further investigation into customer feedback might indicate that the customers are unhappy because carpet edges are coming up shortly after the carpet is installed. Why is this happening? The short answer is that something is wrong in the installation process. The organization might add “Improve carpet installation process” to a list of possible projects."
+          },
+          {
+            "id": "ch09-content-en-028",
+            "kind": "paragraph",
+            "text": "Creating a list of possible projects in this manner isn’t always a matter of a single brainstorming session. As issues are raised, more information might be required to list possible projects, but if you gather the right group of people for a few braining storming sessions, it’s likely someone already has that information or knows some basic answers. Remember, the point of this exercise is to call out possible areas for improvement, not validate assumptions or come up with solutions."
+          },
+          {
+            "id": "ch09-content-en-029",
+            "kind": "paragraph",
+            "text": "Once teams have a large list of possible projects, they should begin creating short descriptions that will become the basis of step three. The descriptions also let teams quickly identify things that are not actually problems or would not apply within an improvement project environment. Descriptions should include answers to three questions:"
+          },
+          {
+            "id": "ch09-content-en-030",
+            "kind": "listItem",
+            "text": "How is the issue painful to the customer, the employees, or the organization? In short, how does the issue impede someone from getting what they want or need?"
+          },
+          {
+            "id": "ch09-content-en-031",
+            "kind": "listItem",
+            "text": "What is the goal that would be accomplished with an improvement?"
+          },
+          {
+            "id": "ch09-content-en-032",
+            "kind": "listItem",
+            "text": "Why should an organization address this issue now?"
+          },
+          {
+            "id": "ch09-content-en-033",
+            "kind": "paragraph",
+            "text": "If this is starting to sound familiar, it’s because the answers to these questions create something similar to, though slightly less formal than, the problem statements discussed in Chapter 6. Using the carpet installation example, for example, the description might be:"
+          },
+          {
+            "id": "ch09-content-en-034",
+            "kind": "paragraph",
+            "text": "Customers are not satisfied with carpet installation because edges are coming up within a few weeks of installation. The poor edges are creating safety and aesthetic issues and increasing expense and rework for teams who have to return to sites to address defects. The goal is to reduce the number of times carpet edges come up by 80 percent. The organization should address the issue because it is costing $20,000 per month in errors."
+          },
+          {
+            "id": "ch09-content-en-035",
+            "kind": "paragraph",
+            "text": "Some basic idea of what the team wants to do is provided, and leadership has a very real measurement of why the improvement is important. Even better, the measurement -- $20,000 in additional costs each month – can be compared to other project opportunities."
+          },
+          {
+            "id": "ch09-content-en-036",
+            "kind": "paragraph",
+            "text": "3. Apply Some Basic Criteria to Shorten the List"
+          },
+          {
+            "id": "ch09-content-en-037",
+            "kind": "paragraph",
+            "text": "Once a list of possible projects is created, teams can apply some very basic criteria to remove projects that are inappropriate, would not work with Six Sigma methodology, are not property scoped, or have little likely return on investment. This step usually begins during the second part of step two, when teams are creating short descriptions of possible projects."
+          },
+          {
+            "id": "ch09-content-en-038",
+            "kind": "paragraph",
+            "text": "First, teams can remove items from the list where there is no real pain point. If a significant difference between desired state and current state doesn’t exist, then there’s nothing to improve. For example, if a single employee complaint about the efficiency of a piece of software made it onto the initial list, a company wouldn’t pursue improvements further if it turned out no one else was having the issue."
+          },
+          {
+            "id": "ch09-content-en-039",
+            "kind": "paragraph",
+            "text": "Second, teams can remove issues that have very obvious problems and/or solutions. Consider the carpet installation problem: if the issue of edges cropped up in the last month and someone on the team reviewing potential problems recently received an email about defects in edging materials from a carpet vendor, the solution might be obvious. Perhaps the vendor sent notification that the materials in a certain batch of carpet were faulty and provided instructions for a solution. In this case, action is required on the part of the organization, but that action isn’t a Six Sigma project. We’ll talk more in"
+          },
+          {
+            "id": "ch09-content-en-040",
+            "kind": "paragraph",
+            "text": "Chapter 11 about the DMAIC process, but if a problem is already defined and a solution provided, you don’t need to spend time going through the DMAIC phases."
+          },
+          {
+            "id": "ch09-content-en-041",
+            "kind": "paragraph",
+            "text": "4. Create Unique Business Criteria"
+          },
+          {
+            "id": "ch09-content-en-042",
+            "kind": "paragraph",
+            "text": "After removing project ideas that don’t fit Six Sigma methodology, teams should create and apply business criteria to further filter the list. Business criteria usually come in the form of expenses, monetary gains, impact on customer satisfaction, and urgency. Some questions teams might ask include:"
+          },
+          {
+            "id": "ch09-content-en-043",
+            "kind": "listItem",
+            "text": "How will the improvement impact revenue-facing measurements such as profit, orders, or income?"
+          },
+          {
+            "id": "ch09-content-en-044",
+            "kind": "listItem",
+            "text": "What savings will the improvement create?"
+          },
+          {
+            "id": "ch09-content-en-045",
+            "kind": "listItem",
+            "text": "How is the problem trending? Is it becoming a bigger and more urgent issue quickly, or can the organization operate with minimal impact without making an immediate or near-future change?"
+          },
+          {
+            "id": "ch09-content-en-046",
+            "kind": "listItem",
+            "text": "How much will the improvement cost?"
+          },
+          {
+            "id": "ch09-content-en-047",
+            "kind": "listItem",
+            "text": "How many employees/employee hours will be required for the improvement?"
+          },
+          {
+            "id": "ch09-content-en-048",
+            "kind": "listItem",
+            "text": "What resources are required for the improvement?"
+          },
+          {
+            "id": "ch09-content-en-049",
+            "kind": "paragraph",
+            "text": "5. Use Business Criteria to Prioritize Project Lists"
+          },
+          {
+            "id": "ch09-content-en-050",
+            "kind": "paragraph",
+            "text": "Using the business criteria, teams should prioritize projects and select projects from the top of the prioritized list for immediate work. One of the best ways to prioritize projects is to create a selection matrix with defined criteria and a numerical ranking system."
+          },
+          {
+            "id": "ch09-content-en-051",
+            "kind": "paragraph",
+            "text": "For example, using the example questions in step four, we might create the following list of criteria:"
+          },
+          {
+            "id": "ch09-content-en-052",
+            "kind": "listItem",
+            "text": "Potential savings"
+          },
+          {
+            "id": "ch09-content-en-053",
+            "kind": "listItem",
+            "text": "Potential cost"
+          },
+          {
+            "id": "ch09-content-en-054",
+            "kind": "listItem",
+            "text": "Potential increase to revenue"
+          },
+          {
+            "id": "ch09-content-en-055",
+            "kind": "listItem",
+            "text": "Ability to access resources needed"
+          },
+          {
+            "id": "ch09-content-en-056",
+            "kind": "paragraph",
+            "text": "A matrix can be created using the criteria and a list of projects. Teams can then rate each project against each criteria using a numeric scale. In the example below, we applied a scale from 1 to 10, with 1 being the most negative and 10 being the most positive."
+          },
+          {
+            "id": "ch09-content-en-057",
+            "kind": "paragraph",
+            "text": "It’s important to note that in this example, the numbers aren’t associated with real-world numbers. For example, when rating savings, a higher number just means a more positive expectation. In this case, the positive expectation would be a high amount of savings. When rating costs, however, the higher number (and more positive expectation) would relate to a project with a lower overall cost."
+          },
+          {
+            "id": "ch09-content-en-058",
+            "kind": "paragraph",
+            "text": "3 10 2 2 2 16 In the table above, you can see that Project 1 has low expected savings, but the team also estimates it will have a low overall cost, drive a high increase in revenue, and has easy access to resources. Project 3, on the other hand, has a high expected savings, but negative ratings in all other categories."
+          },
+          {
+            "id": "ch09-content-en-059",
+            "kind": "paragraph",
+            "text": "To rank projects, add up the scores for all categories and order the projects from highest to lowest by total score."
+          },
+          {
+            "id": "ch09-content-en-060",
+            "kind": "heading",
+            "text": "The Project Viability Model"
+          },
+          {
+            "id": "ch09-content-en-061",
+            "kind": "paragraph",
+            "text": "Teams can choose to create their own criteria for a project selection matrix, or they can use a 15-point viability model as defined below. One benefit of the project viability model is that it provides some weighting, letting teams make some criteria more important than others. It also removes some of the objective nature of the selection matrix defined in the previous section."
+          },
+          {
+            "id": "ch09-content-en-062",
+            "kind": "paragraph",
+            "text": "This model is based on 15 criteria, which are defined in the table below."
+          },
+          {
+            "id": "ch09-content-en-063",
+            "kind": "paragraph",
+            "text": "Based on the above criteria, teams create a matrix."
+          },
+          {
+            "id": "ch09-content-en-064",
+            "kind": "paragraph",
+            "text": "Teams then apply a numerical weight to each criterion. Weight each criterion on a scale of 1 to 5, with 1 being least important and 5 being most important. For example, our team with the carpet installation issue might create weights as follows:"
+          },
+          {
+            "id": "ch09-content-en-065",
+            "kind": "paragraph",
+            "text": "Next, teams should answer each question by marking a 1 in the relevant box on the grid; the answers correspond with no, mostly no, possibly, mostly yes, and yes. The complete grid for our carpet installation problem is featured below."
+          },
+          {
+            "id": "ch09-content-en-066",
+            "kind": "paragraph",
+            "text": "Once a matrix is completed for each project, teams must calculate and compare the score for potential projects. These calculations are completed via the following steps."
+          },
+          {
+            "id": "ch09-content-en-067",
+            "kind": "paragraph",
+            "text": "1. Divide each weight by 3; a weight of 3 equals 1, but a weight of 5 equals 5/3, or 1.7"
+          },
+          {
+            "id": "ch09-content-en-068",
+            "kind": "paragraph",
+            "text": "2. Convert each of the 1s listed on your grid to a weighted value by multiplying it by the converted weight from step one. For example, the weight for the first question on the grid above is 3. We divided 3/3 to get 1. We would multiple 1 * 1 for the first row. The next row is weighted 4; 4/3 is 1.3. The numbers have all been converted in the grid below."
+          },
+          {
+            "id": "ch09-content-en-069",
+            "kind": "paragraph",
+            "text": "4. Multiply each of the summed weighted scores by the number at the top of the column. For example, the sum of the column for the “No” answers is 1.3. Multiplying that by 1 equals 1.3. The other columns are calculated as:"
+          },
+          {
+            "id": "ch09-content-en-070",
+            "kind": "listItem",
+            "text": "4.4 * 2 = 8.8"
+          },
+          {
+            "id": "ch09-content-en-071",
+            "kind": "listItem",
+            "text": "4.7 * 3 = 14.1"
+          },
+          {
+            "id": "ch09-content-en-072",
+            "kind": "listItem",
+            "text": "3.3 * 4 = 13.2"
+          },
+          {
+            "id": "ch09-content-en-073",
+            "kind": "listItem",
+            "text": "4.4 * 5 = 22"
+          },
+          {
+            "id": "ch09-content-en-074",
+            "kind": "paragraph",
+            "text": "5. Add up the answers from the previous step. In this case, the total is 59.4."
+          },
+          {
+            "id": "ch09-content-en-075",
+            "kind": "paragraph",
+            "text": "6. Divide the sum from step five by the sum of the weighted totals from step three. In this case, 59.4 / 18.1 = 3.28"
+          },
+          {
+            "id": "ch09-content-en-076",
+            "kind": "paragraph",
+            "text": "7. The answer from step 6 is the score for your project."
+          },
+          {
+            "id": "ch09-content-en-077",
+            "kind": "paragraph",
+            "text": "Once you score each potential project, you can determine if it is a viable project within a DMAIC methodology with the following key:"
+          },
+          {
+            "id": "ch09-content-en-078",
+            "kind": "paragraph",
+            "text": "It should be noted that the 15-point matrix described above can only be used to determine if a project is viable within a DMAIC structure. A process might still need to be improved even though it doesn’t fit DMAIC methodology; in the case of a redesign, the DMADV structure might let Six Sigma teams approach the improvement. The differences between DMAIC and DMADV methodologies, and how to determine which method is best for a project, are covered more in-depth in Chapter 11."
+          },
+          {
+            "id": "ch09-content-en-079",
+            "kind": "heading",
+            "text": "Project Selection at a Process Level"
+          },
+          {
+            "id": "ch09-content-en-080",
+            "kind": "paragraph",
+            "text": "The goal of a Six Sigma team is not to define appropriate projects at an enterprise level. A department or team responsible for only a few processes might be seeking to make an improvement. In an organization where Six Sigma is important to business culture, departmental leaders are likely familiar with some Six Sigma tools and might even be Green Belts or Black Belts themselves. While these leaders have daily responsibilities that are not Six Sigma related, they can bring Six Sigma thought processes to their department."
+          },
+          {
+            "id": "ch09-content-en-081",
+            "kind": "paragraph",
+            "text": "Departmental leaders might want to identify potential opportunities to present to leadership. They might also want to identify areas where they and their teams can work toward improvement themselves. In some organizations, department leaders can run smaller versions of projects with the guidance of on-staff Six Sigma experts – especially when such projects would require little in the way of capital or resources."
+          },
+          {
+            "id": "ch09-content-en-082",
+            "kind": "paragraph",
+            "text": "Departmental staff can use all of the tools in this chapter to identify possible projects. Often, though, they are close enough to the situation that they can identify possibilities for improvement without going through brainstorming stages. If data is already present, departmental staff might use Pareto charts to identify some areas where improvement would create results; they can then use the selections matrix to validate those assumptions and prioritize efforts."
+          },
+          {
+            "id": "ch09-content-en-083",
+            "kind": "heading",
+            "text": "See for Yourself"
+          },
+          {
+            "id": "ch09-content-en-084",
+            "kind": "paragraph",
+            "text": "Consider a problem or need for improvement in your own company or one you faced in a past work experience. Practice completing the project viability matrix using the template below."
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch09-content-zh-001",
+            "kind": "paragraph",
+            "text": "团队可以将丰富的六西格玛知识带到桌面上，但如果组织没有选择正确的项目，那么改进就不会推动有效的变革，从而提高利润和/或客户满意度。由于六西格玛在作为全公司文化实施时效果最佳，因此项目选择应作为全公司职能。本章介绍了一些用于集思广益和选择最有可能为流程带来重大改进并服务于整体业务目标的项目的工具和方法。"
+          },
+          {
+            "id": "ch09-content-zh-002",
+            "kind": "heading",
+            "text": "兼顾适量的项目"
+          },
+          {
+            "id": "ch09-content-zh-003",
+            "kind": "paragraph",
+            "text": "对于组织来说，六西格玛成功的一个关键部分是了解团队何时达到最大项目负载。即使组织雇用专门致力于流程改进的员工，他们也只能维持一定数量的改进项目，而不会大幅减少这些项目的积极成果。虽然项目工作（包括数据收集和分析）可能由 100% 致力于改进项目的员工来处理，但团队通常必须与正式员工互动并从他们那里获取资源。处理太多项目的组织会使日常产出面临风险。在寻求改进流程时，一次选择太多项目的公司实际上可能会对质量产生负面影响。"
+          },
+          {
+            "id": "ch09-content-zh-004",
+            "kind": "paragraph",
+            "text": "对于一家公司在给定时间应该运行多少个六西格玛项目并没有公式，但一些设计良好的项目比许多设计不良、重叠或没有资金的项目更有可能产生更大的影响。组织应该只启动他们能够执行以下操作的项目："
+          },
+          {
+            "id": "ch09-content-zh-005",
+            "kind": "listItem",
+            "text": "基金。 六西格玛项目需要金钱资源，这意味着组织必须根据财务标准确定优先顺序。"
+          },
+          {
+            "id": "ch09-content-zh-006",
+            "kind": "listItem",
+            "text": "人力资源支持。 六西格玛项目需要各级员工的共同努力。公司不应同时启动三个需要大量 IT 资源的项目，也不应尝试同时启动多个需要合规总监定期提供意见的项目。过度依赖多个项目的资源可能会导致员工精疲力竭、士气低落、影响质量并阻碍维持业务日常运营所必需的工作。"
+          },
+          {
+            "id": "ch09-content-zh-007",
+            "kind": "listItem",
+            "text": "管理。项目团队需要领导力； 六西格玛团队通常由黑带人员管理，有时还包括经过认证的项目经理。 由于黑带人员得到了绿带人员的支持，绿带人员负责处理大部分数据收集和分析工作，因此如果需要，一个黑带通常可以一次管理多个项目。对于不负责任何类型日常运营的经验丰富的黑带人员来说尤其如此。即便如此，拥有有限六西格玛专家的组织也无法在不对资源造成压力的情况下启动数十个项目。"
+          },
+          {
+            "id": "ch09-content-zh-008",
+            "kind": "heading",
+            "text": "企业级选拔流程"
+          },
+          {
+            "id": "ch09-content-zh-009",
+            "kind": "paragraph",
+            "text": "当企业致力于将六西格玛文化应用于整个企业时，高管领导者和其他决策者应直接与六西格玛专家合作，识别改进机会并启动项目。这样做可以让领导层使项目选择与组织保持一致"
+          },
+          {
+            "id": "ch09-content-zh-010",
+            "kind": "paragraph",
+            "text": "目标，确保项目以与资源相匹配的方式组织，并对改进工作保持鸟瞰。组织可以应用五步程序来识别可行的六西格玛改进项目。"
+          },
+          {
+            "id": "ch09-content-zh-011",
+            "kind": "heading",
+            "text": "1. 基于数据的组织现状审查"
+          },
+          {
+            "id": "ch09-content-zh-012",
+            "kind": "paragraph",
+            "text": "组织可以首先从高层角度审视有关绩效的内部和外部信息源。内部信息可能包括员工提出的投诉或问题、现有绩效指标或报告、财务报告和质量报告。外部来源包括我们在第 5 章中介绍的所有客户之声（VOC）工具。在审查内部和外部信息时，组织应询问："
+          },
+          {
+            "id": "ch09-content-zh-013",
+            "kind": "listItem",
+            "text": "客户或员工抱怨什么类型的事情？"
+          },
+          {
+            "id": "ch09-content-zh-014",
+            "kind": "listItem",
+            "text": "该组织在哪些方面未达到基准或竞争对手的绩效？"
+          },
+          {
+            "id": "ch09-content-zh-015",
+            "kind": "listItem",
+            "text": "客户有哪些组织未满足的需求？"
+          },
+          {
+            "id": "ch09-content-zh-016",
+            "kind": "listItem",
+            "text": "在不久的将来，客户可能有哪些组织尚无法满足的需求？"
+          },
+          {
+            "id": "ch09-content-zh-017",
+            "kind": "listItem",
+            "text": "哪些流程产生的缺陷最多？"
+          },
+          {
+            "id": "ch09-content-zh-018",
+            "kind": "listItem",
+            "text": "哪些流程返工最多？"
+          },
+          {
+            "id": "ch09-content-zh-019",
+            "kind": "listItem",
+            "text": "组织中最慢或最昂贵的流程是什么？"
+          },
+          {
+            "id": "ch09-content-zh-020",
+            "kind": "listItem",
+            "text": "有哪些障碍阻碍组织实现其目标？"
+          },
+          {
+            "id": "ch09-content-zh-021",
+            "kind": "heading",
+            "text": "2. 集思广益并描述潜在项目"
+          },
+          {
+            "id": "ch09-content-zh-022",
+            "kind": "paragraph",
+            "text": "第一步中问题的答案将成为潜在项目的头脑风暴清单。顾客抱怨什么类型的事情？ 也许调查和反馈表显示客户抱怨发货时间长、产品质量差或客户服务粗鲁。只需一个问题，组织就会列出可能的项目："
+          },
+          {
+            "id": "ch09-content-zh-023",
+            "kind": "listItem",
+            "text": "减少客户收到订单时间的项目"
+          },
+          {
+            "id": "ch09-content-zh-024",
+            "kind": "listItem",
+            "text": "提高产品质量的项目"
+          },
+          {
+            "id": "ch09-content-zh-025",
+            "kind": "listItem",
+            "text": "一个旨在创造更好的客户服务的项目"
+          },
+          {
+            "id": "ch09-content-zh-026",
+            "kind": "paragraph",
+            "text": "诚然，这些示例的范围是巨大的，因此组织需要寻找更多细节。为什么顾客认为产品质量低？在第 6 章中，我们介绍了“5 个为什么”头脑风暴法，该方法在这里也适用。在头脑风暴过程中，组织和团队应该反复问“为什么？”问题以更详细地了解项目的可能性。"
+          },
+          {
+            "id": "ch09-content-zh-027",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Scope（项目范围）：说明改进项目包括什么、不包括什么，避免目标扩张。"
+              ]
+            ],
+            "text": "术语说明 Scope（项目范围）：说明改进项目包括什么、不包括什么，避免目标扩张。"
+          },
+          {
+            "id": "ch09-content-zh-028",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 5 Whys（五个为什么）：连续追问原因，帮助从表面症状深入到根本原因。"
+              ]
+            ],
+            "text": "术语说明 5 Whys（五个为什么）：连续追问原因，帮助从表面症状深入到根本原因。"
+          },
+          {
+            "id": "ch09-content-zh-029",
+            "kind": "paragraph",
+            "text": "例如，如果地毯安装公司的反馈表表明客户对他们收到的服务不满意，团队可能会问“客户为什么不满意？”对客户反馈的进一步调查可能表明客户不满意，因为地毯安装后不久地毯边缘就出现了。为什么会发生这种情况？简短的回答是安装过程中出现问题。该组织可能会将“改进地毯安装过程”添加到可能的项目列表中。"
+          },
+          {
+            "id": "ch09-content-zh-030",
+            "kind": "paragraph",
+            "text": "以这种方式创建可能项目的列表并不总是一次头脑风暴会议的问题。随着问题的提出，可能需要更多的信息来列出可能的项目，但如果您聚集合适的人员进行几次头脑风暴会议，很可能有人已经掌握了该信息或知道一些基本答案。请记住，此练习的目的是指出可能需要改进的领域，而不是验证假设或提出解决方案。"
+          },
+          {
+            "id": "ch09-content-zh-031",
+            "kind": "paragraph",
+            "text": "一旦团队有了大量可能的项目，他们就应该开始创建简短的描述，这将成为第三步的基础。这些描述还可以让团队快速识别实际上不是问题或不适用于改进项目环境的事物。描述应包括三个问题的答案："
+          },
+          {
+            "id": "ch09-content-zh-032",
+            "kind": "listItem",
+            "text": "这个问题对客户、员工或组织来说有何痛苦？简而言之，这个问题如何阻碍某人获得他们想要或需要的东西？"
+          },
+          {
+            "id": "ch09-content-zh-033",
+            "kind": "listItem",
+            "text": "通过改进可以实现什么目标？"
+          },
+          {
+            "id": "ch09-content-zh-034",
+            "kind": "listItem",
+            "text": "为什么组织现在应该解决这个问题？"
+          },
+          {
+            "id": "ch09-content-zh-035",
+            "kind": "paragraph",
+            "text": "如果这听起来有点熟悉，那是因为这些问题的答案所创建的内容与第 6 章中讨论的问题陈述类似，但稍微不那么正式。例如，以地毯安装为例，描述可能是："
+          },
+          {
+            "id": "ch09-content-zh-036",
+            "kind": "paragraph",
+            "text": "客户对地毯的安装不满意，因为安装后几周内就会出现边缘。较差的边缘会造成安全和美观问题，并增加必须返回现场解决缺陷的团队的费用和返工。目标是将地毯边缘出现的次数减少 80%。该组织应该解决这个问题，因为每月因错误而造成的损失高达 20,000 美元。"
+          },
+          {
+            "id": "ch09-content-zh-037",
+            "kind": "paragraph",
+            "text": "提供了团队想要做什么的一些基本想法，领导层对改进的重要性有一个非常真实的衡量标准。更好的是，该衡量标准（每月 20,000 美元的额外成本）可以与其他项目机会进行比较。"
+          },
+          {
+            "id": "ch09-content-zh-038",
+            "kind": "heading",
+            "text": "3. 应用一些基本标准来缩短列表"
+          },
+          {
+            "id": "ch09-content-zh-039",
+            "kind": "paragraph",
+            "text": "一旦创建了可能的项目列表，团队就可以应用一些非常基本的标准来删除不合适的、不符合六西格玛方法、不属于财产范围或几乎没有投资回报的项目。此步骤通常在第二步的第二部分开始，此时团队正在创建可能项目的简短描述。"
+          },
+          {
+            "id": "ch09-content-zh-040",
+            "kind": "paragraph",
+            "text": "首先，团队可以从列表中删除没有真正痛点的项目。如果期望状态和当前状态之间不存在显着差异，那么就没有什么可以改进的。例如，如果一名员工对一款软件效率的投诉进入了初始列表，那么如果发现其他人没有遇到这个问题，公司就不会进一步寻求改进。"
+          },
+          {
+            "id": "ch09-content-zh-041",
+            "kind": "paragraph",
+            "text": "其次，团队可以消除具有非常明显的问题和/或解决方案的问题。考虑地毯安装问题：如果上个月突然出现边缘问题，并且审查潜在问题的团队中的某人最近收到了来自地毯供应商的关于边缘材料缺陷的电子邮件，那么解决方案可能是显而易见的。 也许供应商发送了通知，指出某批次地毯的材料有问题，并提供了解决方案的说明。在这种情况下，组织方面需要采取行动，但该行动不是六西格玛项目。我们将在以下内容中详细讨论"
+          },
+          {
+            "id": "ch09-content-zh-042",
+            "kind": "paragraph",
+            "text": "第 11 章介绍了 DMAIC 流程，但如果已经定义了问题并提供了解决方案，则无需花时间完成 DMAIC 阶段。"
+          },
+          {
+            "id": "ch09-content-zh-043",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 DMAIC：定义、测量、分析、改进、控制；适用于改进已有流程。"
+              ]
+            ],
+            "text": "术语说明 DMAIC：定义、测量、分析、改进、控制；适用于改进已有流程。"
+          },
+          {
+            "id": "ch09-content-zh-044",
+            "kind": "heading",
+            "text": "4. 制定独特的业务标准"
+          },
+          {
+            "id": "ch09-content-zh-045",
+            "kind": "paragraph",
+            "text": "在删除不符合六西格玛方法论的项目想法后，团队应该创建并应用业务标准来进一步过滤列表。业务标准通常以费用、货币收益、对客户满意度的影响和紧迫性的形式出现。团队可能会问的一些问题包括："
+          },
+          {
+            "id": "ch09-content-zh-046",
+            "kind": "listItem",
+            "text": "改进将如何影响利润、订单或收入等面向收入的衡量标准？"
+          },
+          {
+            "id": "ch09-content-zh-047",
+            "kind": "listItem",
+            "text": "改进将带来哪些节省？"
+          },
+          {
+            "id": "ch09-content-zh-048",
+            "kind": "listItem",
+            "text": "问题的发展趋势如何？它是否会迅速成为一个更大、更紧迫的问题，或者组织能否在不立即或近期进行变革的情况下以最小的影响运作？"
+          },
+          {
+            "id": "ch09-content-zh-049",
+            "kind": "listItem",
+            "text": "改进需要花费多少费用？"
+          },
+          {
+            "id": "ch09-content-zh-050",
+            "kind": "listItem",
+            "text": "改进需要多少员工/员工工时？"
+          },
+          {
+            "id": "ch09-content-zh-051",
+            "kind": "listItem",
+            "text": "改进需要哪些资源？"
+          },
+          {
+            "id": "ch09-content-zh-052",
+            "kind": "heading",
+            "text": "5. 使用业务标准确定项目列表的优先级"
+          },
+          {
+            "id": "ch09-content-zh-053",
+            "kind": "paragraph",
+            "text": "使用业务标准，团队应确定项目的优先级，并从优先级列表的顶部选择项目以立即开展工作。确定项目优先级的最佳方法之一是创建一个具有明确标准和数字排名系统的选择矩阵。"
+          },
+          {
+            "id": "ch09-content-zh-054",
+            "kind": "paragraph",
+            "text": "例如，使用第四步中的示例问题，我们可以创建以下条件列表："
+          },
+          {
+            "id": "ch09-content-zh-055",
+            "kind": "listItem",
+            "text": "潜在的节省"
+          },
+          {
+            "id": "ch09-content-zh-056",
+            "kind": "listItem",
+            "text": "潜在成本"
+          },
+          {
+            "id": "ch09-content-zh-057",
+            "kind": "listItem",
+            "text": "收入的潜在增长"
+          },
+          {
+            "id": "ch09-content-zh-058",
+            "kind": "listItem",
+            "text": "获取所需资源的能力"
+          },
+          {
+            "id": "ch09-content-zh-059",
+            "kind": "paragraph",
+            "text": "可以使用标准和项目列表创建矩阵。然后，团队可以使用数字等级根据每个标准对每个项目进行评分。在下面的示例中，我们应用了从 1 到 10 的等级，其中 1 表示最消极，10 表示最积极。"
+          },
+          {
+            "id": "ch09-content-zh-060",
+            "kind": "paragraph",
+            "text": "值得注意的是，在此示例中，这些数字与现实世界的数字无关。例如，在对储蓄进行评级时，数字越高意味着期望越积极。 在这种情况下，积极的预期将是大量储蓄。然而，当评级成本时，较高的数字（和更积极的期望）将与总体成本较低的项目相关。"
+          },
+          {
+            "id": "ch09-content-zh-061",
+            "kind": "paragraph",
+            "text": "3 10 2 2 2 16 在上表中，您可以看到项目 1 的预期节省较低，但团队还估计其总体成本较低，收入大幅增长，并且易于获取资源。另一方面，项目 3 的预期节省很高，但在所有其他类别中的评级均为负面。"
+          },
+          {
+            "id": "ch09-content-zh-062",
+            "kind": "paragraph",
+            "text": "要对项目进行排名，请将所有类别的分数相加，并按总分从最高到最低对项目进行排序。"
+          },
+          {
+            "id": "ch09-content-zh-063",
+            "kind": "heading",
+            "text": "项目可行性模型"
+          },
+          {
+            "id": "ch09-content-zh-064",
+            "kind": "paragraph",
+            "text": "团队可以选择创建自己的项目选择矩阵标准，也可以使用如下定义的 15 点可行性模型。项目可行性模型的好处之一是它提供了一些权重，让团队可以使某些标准比其他标准更重要。它还消除了上一节中定义的选择矩阵的一些客观性质。"
+          },
+          {
+            "id": "ch09-content-zh-065",
+            "kind": "paragraph",
+            "text": "该模型基于下表中定义的 15 条标准。"
+          },
+          {
+            "id": "ch09-content-zh-066",
+            "kind": "paragraph",
+            "text": "根据上述标准，团队创建一个矩阵。"
+          },
+          {
+            "id": "ch09-content-zh-067",
+            "kind": "paragraph",
+            "text": "然后，团队对每个标准应用数字权重。按 1 到 5 的等级对每个标准进行加权，1 表示最不重要，5 表示最重要。例如，我们处理地毯安装问题的团队可能会创建如下权重："
+          },
+          {
+            "id": "ch09-content-zh-068",
+            "kind": "paragraph",
+            "text": "接下来，团队应通过在网格上的相关框中标记 1 来回答每个问题；答案分别是“否”、“大部分否”、“可能”、“大部分是”和“是”。下面是我们地毯安装问题的完整网格。"
+          },
+          {
+            "id": "ch09-content-zh-069",
+            "kind": "paragraph",
+            "text": "一旦每个项目的矩阵完成，团队必须计算并比较潜在项目的分数。这些计算是通过以下步骤完成的。"
+          },
+          {
+            "id": "ch09-content-zh-070",
+            "kind": "paragraph",
+            "text": "1.将每个权重除以3；权重 3 等于 1，但权重 5 等于 5/3，即 1.7"
+          },
+          {
+            "id": "ch09-content-zh-071",
+            "kind": "paragraph",
+            "text": "2. 将网格中列出的每个 1 乘以步骤一中转换后的权重，将其转换为加权值。例如，上面网格中第一个问题的权重是 3。我们除以 3/3 得到 1。我们将为第一行乘以 1 * 1。下一行的权重为 4； 4/3 是 1.3。下面的网格中的数字已全部转换。"
+          },
+          {
+            "id": "ch09-content-zh-072",
+            "kind": "paragraph",
+            "text": "4. 将每个加权分数总和乘以列顶部的数字。例如，“否”答案列的总和为 1.3。乘以 1 等于 1.3。其他列计算如下："
+          },
+          {
+            "id": "ch09-content-zh-073",
+            "kind": "listItem",
+            "text": "4.4 * 2 = 8.8"
+          },
+          {
+            "id": "ch09-content-zh-074",
+            "kind": "listItem",
+            "text": "4.7 * 3 = 14.1"
+          },
+          {
+            "id": "ch09-content-zh-075",
+            "kind": "listItem",
+            "text": "3.3 * 4 = 13.2"
+          },
+          {
+            "id": "ch09-content-zh-076",
+            "kind": "listItem",
+            "text": "4.4 * 5 = 22"
+          },
+          {
+            "id": "ch09-content-zh-077",
+            "kind": "paragraph",
+            "text": "5. 将上一步的答案相加。在本例中，总数为 59.4。"
+          },
+          {
+            "id": "ch09-content-zh-078",
+            "kind": "paragraph",
+            "text": "6. 将第五步的总和除以第三步的加权总和。在这种情况下，59.4 / 18.1 = 3.28"
+          },
+          {
+            "id": "ch09-content-zh-079",
+            "kind": "paragraph",
+            "text": "7. 第 6 步的答案是您项目的分数。"
+          },
+          {
+            "id": "ch09-content-zh-080",
+            "kind": "paragraph",
+            "text": "对每个潜在项目进行评分后，您可以使用以下关键字确定它是否是 DMAIC 方法中可行的项目："
+          },
+          {
+            "id": "ch09-content-zh-081",
+            "kind": "paragraph",
+            "text": "应该注意的是，上述 15 点矩阵只能用于确定项目在 DMAIC 结构内是否可行。即使不符合 DMAIC 方法，流程仍可能需要改进；如果重新设计，DMADV结构可能会让六西格玛团队接近改进。第 11 章更深入地介绍了 DMAIC 和 DMADV 方法之间的差异，以及如何确定哪种方法最适合项目。"
+          },
+          {
+            "id": "ch09-content-zh-082",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 DMADV：定义、测量、分析、设计、验证；常用于设计新流程或新产品。"
+              ]
+            ],
+            "text": "术语说明 DMADV：定义、测量、分析、设计、验证；常用于设计新流程或新产品。"
+          },
+          {
+            "id": "ch09-content-zh-083",
+            "kind": "heading",
+            "text": "流程层面的项目选择"
+          },
+          {
+            "id": "ch09-content-zh-084",
+            "kind": "paragraph",
+            "text": "六西格玛团队的目标不是在企业层面定义合适的项目。仅负责少数流程的部门或团队可能正在寻求改进。在六西格玛对企业文化至关重要的组织中，部门领导很可能熟悉一些六西格玛工具，甚至可能自己就是绿带人员或黑带人员。虽然这些领导者的日常职责与六西格玛无关，但他们可以将六西格玛的思维过程带到他们的部门。"
+          },
+          {
+            "id": "ch09-content-zh-085",
+            "kind": "paragraph",
+            "text": "部门领导可能希望找出向领导层展示的潜在机会。他们可能还想确定他们和他们的团队可以努力改进的领域。在一些组织中，部门领导可以在六西格玛专家的指导下运行较小版本的项目——特别是当此类项目几乎不需要资本或资源时。"
+          },
+          {
+            "id": "ch09-content-zh-086",
+            "kind": "paragraph",
+            "text": "部门工作人员可以使用本章中的所有工具来识别可能的项目。 不过，通常情况下，他们足够接近实际情况，无需经过头脑风暴阶段就能确定改进的可能性。如果数据已经存在，部门工作人员可能会使用帕累托图来确定一些可以改进的领域；然后，他们可以使用选择矩阵来验证这些假设并确定工作的优先顺序。"
+          },
+          {
+            "id": "ch09-content-zh-087",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Pareto（帕累托）：按影响大小排序，常用于找出“少数关键原因”。"
+              ]
+            ],
+            "text": "术语说明 Pareto（帕累托）：按影响大小排序，常用于找出“少数关键原因”。"
+          },
+          {
+            "id": "ch09-content-zh-088",
+            "kind": "heading",
+            "text": "亲自看看"
+          },
+          {
+            "id": "ch09-content-zh-089",
+            "kind": "paragraph",
+            "text": "考虑一下您自己的公司或您在过去的工作经历中遇到的问题或需要改进的问题。使用下面的模板练习完成项目可行性矩阵。"
+          }
+        ]
+      }
+    }
+  ]
+}

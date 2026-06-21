@@ -1,0 +1,19 @@
+{
+  "name": "Six Sigma Study",
+  "short_name": "Six Sigma",
+  "description": "Bilingual Six Sigma Black Belt study reader with terminology lookup and local vocabulary.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4f6f5",
+  "theme_color": "#1f5b4f",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

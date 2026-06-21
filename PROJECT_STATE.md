@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 01:56 Asia/Shanghai
+Last updated: 2026-06-22 02:18 Asia/Shanghai
 
 ## Objective
 
@@ -19,10 +19,10 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest known pushed commit: `28f1a39 Ignore Python cache files`
-- Local worktree: clean after implementation commits
-- Latest known GitHub Actions state: CI passed for `28f1a39`
-- Current product state: React/Vite PWA reading real Chapter 1 content, with section-preserving language toggle, tap-to-lookup bottom sheet, curated Chapter 1 terminology, phrase-selection UI hook, and persistent local vocabulary book
+- Latest known pushed commit: `d60211a Sync project state after issue updates`
+- Local worktree: dirty with full-manual/PWA changes pending commit
+- Latest known GitHub Actions state: CI passed for `d60211a`
+- Current product state: React/Vite PWA reading all 33 chapters from runtime `manual.json`, with section-preserving language toggle, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, and PWA manifest/service worker base
 
 ## Completed In Current Stage
 
@@ -40,6 +40,16 @@ The final product must support full-manual offline reading, position-preserving 
 - Added localStorage-backed vocabulary persistence.
 - Added Chinese semantic table rendering and term-note sidebars.
 - Added content validation for section-based lessons, dictionaries, manifests, and legacy samples.
+- Added `scripts/extract_manual_content.py`.
+- Generated full-manual content:
+  - 33 chapters
+  - 449 page manifest
+  - 4288 English blocks
+  - 4521 Chinese blocks
+  - `content/processed/manual.json` and `apps/reader/public/content/manual.json`
+- Added in-app table of contents and chapter switching.
+- Moved full manual loading out of the JS bundle and into static `content/manual.json`.
+- Added PWA manifest, SVG icon, and service worker base.
 
 ## Verification In Current Stage
 
@@ -48,14 +58,20 @@ The final product must support full-manual offline reading, position-preserving 
 - `npm run build`: passed
 - Mobile browser check at `http://127.0.0.1:5188/`: passed for first-screen render, English word lookup, save-to-vocabulary, Chinese toggle, term notes, and semantic table rendering
 - GitHub Actions CI for `28f1a39`: passed
+- `npm run extract:manual`: passed
+- `npm run lint:content`: passed for 33 chapter files plus `manual.json`
+- `npm run build`: passed with main JS at about 203 KB, manual JSON served separately
+- Browser check at `http://127.0.0.1:5188/`: Chapter 26 and Chapter 33 can be opened from table of contents; Chapter 33 Chinese toggle checked
+- HTTP checks: `/manifest.webmanifest`, `/sw.js`, `/icons/icon.svg`, and `/content/manual.json` return 200
 
 ## Known Limitations
 
 - The current reader is still a PWA, not an Android APK/AAB.
-- Only Chapter 1 is connected as real content.
-- Language position preservation is section-level, not sentence-level.
+- Chapters 2-33 are connected as chapter-level sections; detailed subsection/page anchors still need refinement.
+- Language position preservation is section-level for Chapter 1 and chapter-level for generic chapters, not sentence-level.
 - Phrase lookup UI exists through text selection, but needs real touch-device QA.
 - English tables in Chapter 1 are partly represented as Word paragraph fragments; Chinese tables render as semantic tables.
+- Long chapters can render thousands of clickable English tokens; add virtualization or lazy tokenization before final mobile polish.
 
 ## Open GitHub Work Items
 
@@ -81,7 +97,7 @@ After context compression or a new session, do this before making changes:
 
 ## Next Action
 
-Generalize the extractor from Chapter 1 to a manifest-driven multi-chapter pipeline, then build in-app table of contents and offline packaging.
+Add Android packaging foundation with Capacitor, then verify local Android build prerequisites and produce the first APK/AAB path if Android SDK is available.
 
 ## Constraints
 

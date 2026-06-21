@@ -2,6 +2,8 @@ export type SavedTerm = {
   id: string;
   term: string;
   translation: string;
+  chapter: number;
+  chapterTitle: string;
   page: number;
   sectionId: string;
   sourceText: string;
@@ -18,7 +20,15 @@ export function loadSavedTerms(): SavedTerm[] {
       return [];
     }
     const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed : [];
+    if (!Array.isArray(parsed)) {
+      return [];
+    }
+    return parsed.map((item) => ({
+      ...item,
+      chapter: item.chapter ?? 1,
+      chapterTitle: item.chapterTitle ?? "Chapter 1: What is Six Sigma?",
+      status: item.status ?? "new"
+    }));
   } catch {
     return [];
   }
@@ -27,4 +37,3 @@ export function loadSavedTerms(): SavedTerm[] {
 export function persistSavedTerms(terms: SavedTerm[]): void {
   window.localStorage.setItem(storageKey, JSON.stringify(terms));
 }
-

@@ -30,11 +30,13 @@ Goal: prove the study loop on real content.
 
 Goal: convert all 449 aligned pages into app content.
 
-- generalize chapter extraction beyond Chapter 1
-- preserve figures/tables as optimized assets
-- generate all chapter JSON files
-- validate page/chapter mapping
-- build table of contents inside app
+- [x] generalize chapter extraction beyond Chapter 1
+- [x] generate all chapter JSON files
+- [x] validate page/chapter mapping at chapter level
+- [x] build table of contents inside app
+- [ ] preserve figures/tables as optimized assets where semantic extraction is not enough
+- [ ] refine section/page anchors for Chapters 2-33
+- [ ] add reader virtualization or lazy tokenization for long chapters
 
 ## Phase 3: Learning System
 
@@ -50,7 +52,7 @@ Goal: make vocabulary learning useful.
 
 Goal: installable Android app first.
 
-- add PWA manifest and service worker
+- [x] add PWA manifest and service worker base
 - wrap with Capacitor
 - Android build
 - offline asset packaging

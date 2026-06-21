@@ -26,6 +26,7 @@ content/processed/*
 !content/processed/dictionary/
 !content/processed/dictionary/*.json
 !content/processed/manifest.json
+!content/processed/manual.json
 *.pdf
 *.docx
 *.png

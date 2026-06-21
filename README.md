@@ -33,24 +33,25 @@ It intentionally does **not** commit the full manual DOCX/PDF/PNG assets. Those 
 ```powershell
 cd C:\findjob_sixsigma_app
 npm install
-npm run extract:ch01
+npm run extract:manual
 npm run lint:content
 npm run build
 npm run dev
 ```
 
-`npm run extract:ch01` expects local aligned DOCX copies at:
+`npm run extract:manual` expects local aligned DOCX copies at:
 
 - `C:\findjob_sixsigma_sources\manual_en_aligned.docx`
 - `C:\findjob_sixsigma_sources\manual_zh_aligned.docx`
 
-The script generates structured Chapter 1 content and a curated term dictionary into `content/processed`, then copies the same JSON into `apps/reader/src/generated` for the mobile reader build.
+The script generates structured content for all 33 chapters into `content/processed`, then copies the full manual package into `apps/reader/public/content/manual.json` for runtime loading.
 
 ## Key Folders
 
 - `apps/reader`: mobile reader PWA prototype
 - `content/schemas`: app content contracts
 - `content/processed/chapters/ch01.json`: generated real Chapter 1 bilingual content
+- `content/processed/manual.json`: generated full-manual bilingual content package
 - `content/processed/dictionary/six-sigma-terms.json`: curated local terminology seed
 - `content/processed/manual.sample.json`: small legacy sample lesson for UI development
 - `scripts`: validation and extraction tools

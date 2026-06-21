@@ -1,0 +1,972 @@
+{
+  "id": "ch03",
+  "chapter": 3,
+  "pageStart": 22,
+  "pageEnd": 27,
+  "title": {
+    "en": "Chapter 3: Other Process Improvement and Quality Methods",
+    "zh": "第 3 章：其他流程改进与质量方法"
+  },
+  "source": {
+    "enDocx": "C:\\findjob_sixsigma_sources\\manual_en_aligned.docx",
+    "zhDocx": "C:\\findjob_sixsigma_sources\\manual_zh_aligned.docx",
+    "extraction": "python-docx body-order extraction; generic chapter-level bilingual content"
+  },
+  "sections": [
+    {
+      "id": "ch03-content",
+      "level": 1,
+      "page": 22,
+      "title": {
+        "en": "Other Process Improvement and Quality Methods",
+        "zh": "其他流程改进与质量方法"
+      },
+      "content": {
+        "en": [
+          {
+            "id": "ch03-content-en-001",
+            "kind": "heading",
+            "text": "Quality Methods"
+          },
+          {
+            "id": "ch03-content-en-002",
+            "kind": "paragraph",
+            "text": "By studying the history of Six Sigma, you’ve already realized that the methodology is closely related to a number of other quality-driven initiatives developed over the past century. This is true in part because all successful businesses ultimately seek to do the same thing: serve a customer a product or service they need while making as much profit as possible."
+          },
+          {
+            "id": "ch03-content-en-003",
+            "kind": "paragraph",
+            "text": "While Six Sigma encompasses all the tools you need to approach virtually any problem of process, familiarity with other types of process improvement and quality methods is important. Some of these methods, such as Lean and JumpStart, add value within a Six Sigma approach. Others might be used by outside resources alongside a Six Sigma project. Even if you don’t use or work with some of these programs, you will need to communicate with leadership and business partners who are more familiar with other methods. The ability to frame Six Sigma concepts in a more global quality management approach can help you win support for your own projects."
+          },
+          {
+            "id": "ch03-content-en-004",
+            "kind": "heading",
+            "text": "Other Formal Quality or Process Improvement Programs"
+          },
+          {
+            "id": "ch03-content-en-005",
+            "kind": "heading",
+            "text": "Lean Process Management"
+          },
+          {
+            "id": "ch03-content-en-006",
+            "kind": "paragraph",
+            "text": "Lean principles often go hand-in-hand with Six Sigma principles. While Lean originally developed as a concept for reducing waste in a manufacturing environment, the ideas of Lean Process Management can be applied to any process that involves the movement or creation of goods or services. This is true even if those services are virtual or digital, such as in a computerized workflow process."
+          },
+          {
+            "id": "ch03-content-en-007",
+            "kind": "paragraph",
+            "text": "One of the ways that Lean is similar to Six Sigma is that it is concerned with continuous improvements; like Six Sigma, Lean provides waste-removal tools so daily control and improvements can be made to processes. In fact, one of Lean’s continuous improvement tools is called Kaizen, a Japanese word that translates loosely to “change for the better.” The purpose of every change in a Kaizen environment is to eliminate waste and/or create more value for the customer on a continuous basis."
+          },
+          {
+            "id": "ch03-content-en-008",
+            "kind": "paragraph",
+            "text": "Lean Process Management can be deployed within a project environment or in daily production. Like Six Sigma, Lean is more about an overall culture of quality than a single quality event. Many organizations use Lean principles to make improvements in processes. By simply instituting some of the Lean principles, managers can drastically increase production and reduce costs for their departments."
+          },
+          {
+            "id": "ch03-content-en-009",
+            "kind": "paragraph",
+            "text": "Because Lean principles are so effective and fit so well with Six Sigma principles, for the purpose of this book, we will often treat Lean as a part of the Six Sigma methodology."
+          },
+          {
+            "id": "ch03-content-en-010",
+            "kind": "heading",
+            "text": "Total Quality Management"
+          },
+          {
+            "id": "ch03-content-en-011",
+            "kind": "paragraph",
+            "text": "Total Quality Management, or TQM, is a phrase well-known by anyone who worked in business in the last quarter of the 20th century. The TQM approach to quality is one of the first formal methods enacted in business environments in the United States. Originally developed in the 1950s, Total Quality"
+          },
+          {
+            "id": "ch03-content-en-012",
+            "kind": "paragraph",
+            "text": "Management didn’t become popular with companies across the country until the 80s. At one point, TQM was so popular with executives and other leaders that it actually became something of a joke among certain workforces who believed that much effort and expense was expended on quality without an equal resulting benefit. In fact, if you remember from the last chapter, Jack Welch at GE felt this way."
+          },
+          {
+            "id": "ch03-content-en-013",
+            "kind": "paragraph",
+            "text": "While Total Quality Management programs were often somewhat lackluster when it came to results, the method was an essential stepping point to current improvement and quality methods such as Six Sigma. TQM was not without its results: as with any method, results depended highly on the way the program was implemented and the culture of the organization. For this reason, TQM and its variations are still in play in many industries today. Some requirements for a successful TQM program include:"
+          },
+          {
+            "id": "ch03-content-en-014",
+            "kind": "listItem",
+            "text": "A strict quality commitment at all levels of the organization, especially among leaders"
+          },
+          {
+            "id": "ch03-content-en-015",
+            "kind": "listItem",
+            "text": "Empowered employees who can make quality decisions while working within the process without constantly seeking leadership approval for those decisions"
+          },
+          {
+            "id": "ch03-content-en-016",
+            "kind": "listItem",
+            "text": "A reward and recognition structure to promote quality work so that employees have a reason to make quality-making decisions"
+          },
+          {
+            "id": "ch03-content-en-017",
+            "kind": "listItem",
+            "text": "Strategic planning that takes quality and quality improvement goals into account when making long-term decisions"
+          },
+          {
+            "id": "ch03-content-en-018",
+            "kind": "listItem",
+            "text": "Systems that let organizations make improvements and monitor quality"
+          },
+          {
+            "id": "ch03-content-en-019",
+            "kind": "paragraph",
+            "text": "Successful TQM initiatives require eight key elements: ethics, integrity, trust, training, teamwork, leadership, recognition, and communication. You can view these elements as if they were part of the components needed to build a high-quality, lasting building. Ethics, integrity, and trust become the foundation for quality. Training, teamwork, and leadership are the bricks by which quality organizations are built. Honest, open, and concise communication is the mortar that binds everything else together, and recognition is the roof that covers everything, providing employees with a reason to seek and maintain quality."
+          },
+          {
+            "id": "ch03-content-en-020",
+            "kind": "paragraph",
+            "text": "One of the biggest advantages of the TQM mentality is that it began to force organizations to see themselves as one entity rather than a number of loosely related entities or departments. Prior to the quality methods developed in the last half of the 20th century, many organizations were run via heavily siloed departments. One department often did not understand what another was doing, which caused a great deal of rework and waste. Each department might seek higher quality levels or process improvements, but in the end, the organization was only as strong as the weakest element."
+          },
+          {
+            "id": "ch03-content-en-021",
+            "kind": "paragraph",
+            "text": "TQM began to change departmental thinking on a massive scale: organizations began to take enterprise approaches to decision making, quality, and customer service. Business leaders started to look at companies as a series of linked processes operating toward a single end goal. Within the bounds of TQM, the ideas for business process reengineering began to develop."
+          },
+          {
+            "id": "ch03-content-en-022",
+            "kind": "paragraph",
+            "text": "Organizations using TQM often experienced benefits such as:"
+          },
+          {
+            "id": "ch03-content-en-023",
+            "kind": "listItem",
+            "text": "Improved employee engagement and morale"
+          },
+          {
+            "id": "ch03-content-en-024",
+            "kind": "listItem",
+            "text": "A reduction in production or product costs"
+          },
+          {
+            "id": "ch03-content-en-025",
+            "kind": "listItem",
+            "text": "Decreased cycle times"
+          },
+          {
+            "id": "ch03-content-en-026",
+            "kind": "listItem",
+            "text": "More satisfied customers"
+          },
+          {
+            "id": "ch03-content-en-027",
+            "kind": "heading",
+            "text": "Business Process Reengineering"
+          },
+          {
+            "id": "ch03-content-en-028",
+            "kind": "paragraph",
+            "text": "Six Sigma, Lean and TQM are all concerned with making continuous changes on both a large and small scale that bring an organization ever closer to a model of perfection. In the case of Lean, that model is a process that has zero waste; in Six Sigma, the model is statistically 6 sigma. In TQM, organizations often define their own version of perfection before working toward it. Business Process Reengineering, or BPR, is less concerned with incremental quality wins and more concerned with a radical change across an entire organization or process architecture."
+          },
+          {
+            "id": "ch03-content-en-029",
+            "kind": "paragraph",
+            "text": "Business process reengineering, which is also called business process redesign, is most often concerned with the technical processes that occur throughout an organization. Those processes might include systems, software, data storage, cloud and web processes, and computer-based workflows operated and maintained by human users. Because of the intense integration of automation and computer elements into processes with BPR, organizations that enter BPR endeavors have to rely heavily on both inside and outside technical resources. Inside resources provide programming, integration, and troubleshooting services as processes are developed or redesigned. Outside resources can be BPR consultants, contracted programmers and developers, or vendors bringing new software products to the table."
+          },
+          {
+            "id": "ch03-content-en-030",
+            "kind": "paragraph",
+            "text": "As you can probably imagine, BPR initiatives can be costly, which is why they are often deployed only when an organization expects exponential gain or has determined that current processes are obsolete or badly broken."
+          },
+          {
+            "id": "ch03-content-en-031",
+            "kind": "paragraph",
+            "text": "BPR projects tend to follow a common map, though there isn’t a defined set of principles as there is with Six Sigma. Most projects go through planning, design, and implementation phases. During planning, teams use process mapping and process architecture principles to define enterprise-wide processes in their current state. Teams look for opportunities for improvement and brainstorm new architectures for processes throughout the organization."
+          },
+          {
+            "id": "ch03-content-en-032",
+            "kind": "paragraph",
+            "text": "During the design phase, BPR teams use validation techniques 3 to ensure solutions they are planning will work within the enterprise structure. They also begin to build tools and programs to integrate the changes; technical teams might use the Scrum methods described later in this chapter at this point in the process."
+          },
+          {
+            "id": "ch03-content-en-033",
+            "kind": "paragraph",
+            "text": "Finally, organizations implement the changes they have made. Since changes are often programmatic in nature, implementation usually includes a rigorous change management and testing procedure. Testing in technical environments includes steps such as:"
+          },
+          {
+            "id": "ch03-content-en-034",
+            "kind": "listItem",
+            "text": "Sandbox testing of basic functionality"
+          },
+          {
+            "id": "ch03-content-en-035",
+            "kind": "listItem",
+            "text": "Quality assurance testing by trained technical resources"
+          },
+          {
+            "id": "ch03-content-en-036",
+            "kind": "listItem",
+            "text": "Beta testing during which experienced subject matter experts vet all aspects of a program in a limited live environment"
+          },
+          {
+            "id": "ch03-content-en-037",
+            "kind": "listItem",
+            "text": "A rollout of the program to the enterprise, often conducted in a phased approach during which technical resources are on call to immediately resolve troubleshooting issues"
+          },
+          {
+            "id": "ch03-content-en-038",
+            "kind": "listItem",
+            "text": "A conversion to regular function where technical resources are available in a normal capacity to deal with occasional issues"
+          },
+          {
+            "id": "ch03-content-en-039",
+            "kind": "heading",
+            "text": "Rummler-Brache"
+          },
+          {
+            "id": "ch03-content-en-040",
+            "kind": "paragraph",
+            "text": "As process improvement methods became increasingly popular in the 1980s and later, individuals often took portions of one method or another and integrated it into new improvement or quality programs. In this manner, companies outside of the manufacturing industry began implementing bits and pieces of methods that incorporated Lean and Six Sigma elements. One such program is known as Rummler- Brache."
+          },
+          {
+            "id": "ch03-content-en-041",
+            "kind": "paragraph",
+            "text": "Rummler-Brache was pioneered in the 80s by Geary Rummler and Alan Brache. They developed what remains a proprietary program used by their own consulting firm, but details of the method have been published and used by others. The method seeks to affect positive change in processes and organizations by using a set of practical tools to address business issues and process problems."
+          },
+          {
+            "id": "ch03-content-en-042",
+            "kind": "paragraph",
+            "text": "One of the foundational components of Rummler-Brache is known as the Nine Boxes Model. The model is created by a matrix of three performance levels and three performance dimensions. Performance levels are the performer, the process, and the organization. Dimensions are management, design, and goal. When placed on a grid, the levels and dimensions form nine boxes, as seen below."
+          },
+          {
+            "id": "ch03-content-en-043",
+            "kind": "heading",
+            "text": "Management"
+          },
+          {
+            "id": "ch03-content-en-044",
+            "kind": "heading",
+            "text": "Design Goals"
+          },
+          {
+            "id": "ch03-content-en-045",
+            "kind": "heading",
+            "text": "Performer"
+          },
+          {
+            "id": "ch03-content-en-046",
+            "kind": "paragraph",
+            "text": "Concerned with feedback, consequences, and rewards"
+          },
+          {
+            "id": "ch03-content-en-047",
+            "kind": "paragraph",
+            "text": "Concerned with performance metrics and requirements at an individual level"
+          },
+          {
+            "id": "ch03-content-en-048",
+            "kind": "paragraph",
+            "text": "Concerned with the tools and training needed to do the job as well as job documentation"
+          },
+          {
+            "id": "ch03-content-en-049",
+            "kind": "paragraph",
+            "text": "Concerned with the design of the process, work space, or system"
+          },
+          {
+            "id": "ch03-content-en-050",
+            "kind": "heading",
+            "text": "Process"
+          },
+          {
+            "id": "ch03-content-en-051",
+            "kind": "paragraph",
+            "text": "Concerned with who owns the process and how they might improve it"
+          },
+          {
+            "id": "ch03-content-en-052",
+            "kind": "paragraph",
+            "text": "Concerned with the requirements of the business and the customer"
+          },
+          {
+            "id": "ch03-content-en-053",
+            "kind": "paragraph",
+            "text": "Concerned with overall org charts and process architecture"
+          },
+          {
+            "id": "ch03-content-en-054",
+            "kind": "paragraph",
+            "text": "Concerned with operating plans and top-level metrics"
+          },
+          {
+            "id": "ch03-content-en-055",
+            "kind": "heading",
+            "text": "Organization"
+          },
+          {
+            "id": "ch03-content-en-056",
+            "kind": "paragraph",
+            "text": "Concerned with overall leadership culture and the requirements of performance evaluation"
+          },
+          {
+            "id": "ch03-content-en-057",
+            "kind": "paragraph",
+            "text": "Rummler-Brache approaches improvement in six phases:"
+          },
+          {
+            "id": "ch03-content-en-058",
+            "kind": "listItem",
+            "text": "Improvement planning. During the first phase, leadership and subject-matter-experts commit to making improvements and begin to identify opportunities for change."
+          },
+          {
+            "id": "ch03-content-en-059",
+            "kind": "listItem",
+            "text": "Definition. During the second phase, project goals and scopes are defined and teams are formed to create improvements."
+          },
+          {
+            "id": "ch03-content-en-060",
+            "kind": "listItem",
+            "text": "Analysis and Design. Teams use analysis to understand the current problem and to define and validate workable solutions."
+          },
+          {
+            "id": "ch03-content-en-061",
+            "kind": "listItem",
+            "text": "Implementation. Teams implement process changes. Depending on the type of change, this might include programming changes, retraining staff, changes in machinery or equipment, or policy changes."
+          },
+          {
+            "id": "ch03-content-en-062",
+            "kind": "listItem",
+            "text": "Management of process. Teams monitor the process during and immediately following the change to ensure improvements function as planned."
+          },
+          {
+            "id": "ch03-content-en-063",
+            "kind": "listItem",
+            "text": "Processes are turned over to daily teams. Management of the process is turned over to daily teams, often with some type of control in place to ensure continued success."
+          },
+          {
+            "id": "ch03-content-en-064",
+            "kind": "heading",
+            "text": "Scrum"
+          },
+          {
+            "id": "ch03-content-en-065",
+            "kind": "paragraph",
+            "text": "Scrum is a project development method specific to Agile programming endeavors in technical departments. Scrum is used when teams want to create new technical products or integrate new developments on existing products within a short time frame. Commonly, Scrum projects last between two and four weeks, which is traditionally a very tight timeline for programming projects. Scrum was developed as programming and development teams needed a way to meet continuous technical design and improvement needs from other departments without substantially increasing programming, testing employee hours, or hiring more technical staff. Scrum can also be used to drive faster times to production or market for software and application products."
+          },
+          {
+            "id": "ch03-content-en-066",
+            "kind": "paragraph",
+            "text": "Scrum is a related concept to other process improvement initiatives discussed in the book because many projects today call for some type of technical resource or change. While project teams are working to validate and measure, technical departments often simultaneously deploy Scrum concepts to meet development needs for the improvement project by deadline."
+          },
+          {
+            "id": "ch03-content-en-067",
+            "kind": "paragraph",
+            "text": "Scrum projects feature three main phases:"
+          },
+          {
+            "id": "ch03-content-en-068",
+            "kind": "listItem",
+            "text": "The pregame. Development teams analyze available data and business requirements. They use this information to come up with the concept for the new product or upgrade. Often, this involves translating business and process concepts into computer and technical concepts."
+          },
+          {
+            "id": "ch03-content-en-069",
+            "kind": "listItem",
+            "text": "The game. Teams begin to develop the product via programming sprints. Sprints are smaller phases of development that are completed in sequence, usually with a review and validation of the work before moving on to the next sprint. By validating work during development, teams are able to create working products faster."
+          },
+          {
+            "id": "ch03-content-en-070",
+            "kind": "listItem",
+            "text": "The postgame. Even though validation occurs during development, teams still have to follow quality assurance, testing, and change management procedures. Quality preparation for product release is handled in the final phase."
+          },
+          {
+            "id": "ch03-content-en-071",
+            "kind": "heading",
+            "text": "The Customer Experience Management Method (CEM)"
+          },
+          {
+            "id": "ch03-content-en-072",
+            "kind": "paragraph",
+            "text": "Like Rummler-Brache, the Customer Experience Management Method, or CEM Method, was created by process improvement consultants to address needs in organizations outside of manufacturing. CEM combines some process improvement tools with customer relations management. It was developed in the 1990s by the Virgin Group and became popular throughout the 90s and early part of the 21st century."
+          },
+          {
+            "id": "ch03-content-en-073",
+            "kind": "paragraph",
+            "text": "The CEM Method takes an outside-in approach to process improvement, focusing on what the customer wants or needs and how each process in an organization serves that need. The primary purpose of CEM is to align processes throughout an organization with customer satisfaction goals. As such, even processes without a direct relation to customers are defined in terms of customers."
+          },
+          {
+            "id": "ch03-content-en-074",
+            "kind": "paragraph",
+            "text": "For example, shipping processes are obviously directly related to end customers, so it’s easy to define how those processes can best serve customers. Shipments should arrive on time, be accurate to orders, and shipping costs should be affordable."
+          },
+          {
+            "id": "ch03-content-en-075",
+            "kind": "paragraph",
+            "text": "In-house human resource processes are harder to link to customer-facing goals. However, the morale and functionality of employees is directly related to how those employees can serve customers. You can make a customer-facing statement about almost any process in an organization in this manner. If organizations cannot link a process to the customer, then they must ask whether the process is necessary or broken."
+          },
+          {
+            "id": "ch03-content-en-076",
+            "kind": "paragraph",
+            "text": "Like Six Sigma, CEM relies heavily on data. Organizations can’t make determinations about customer goals and the success of processes without collecting and analyzing customer feedback. The advantage of CEM is that organizations are able to deploy customer-facing tactics across the enterprise, which often results in enormous gains in customer satisfaction, loyalty, and spending. A disadvantage of this method is that traditionally inward-facing departments, such as human resources, legal, and accounting, often have a difficult time implementing customer-focused cultural change."
+          },
+          {
+            "id": "ch03-content-en-077",
+            "kind": "heading",
+            "text": "JumpStart"
+          },
+          {
+            "id": "ch03-content-en-078",
+            "kind": "paragraph",
+            "text": "JumpStart differs from the other programs and methods described in this chapter in that it is a fast- paced method for identifying problems and solutions in a single session. JumpStart can be used within almost all of the other methods described in this book as a way to spark discussion regarding processes or to identify possible solutions. It can also be used as a management tool for helping teams come to tenable solutions outside of project environments or in the absence of project resources."
+          },
+          {
+            "id": "ch03-content-en-079",
+            "kind": "paragraph",
+            "text": "Because JumpStart doesn’t take the time for rigorous verification or statistical analysis on its own, teams should not use this method to enact sweeping changes or attempt to improve processes that could seriously impact customer experience or the bottom line. One disadvantage of using JumpStart alone is that changes are sometimes made on a wait-and-see mentality, which is safe for many inner-team changes but often dangerous for department or enterprise-wide processes, or for making changes to processes that are closely tied to regulatory or compliance rules."
+          },
+          {
+            "id": "ch03-content-en-080",
+            "kind": "paragraph",
+            "text": "JumpStart usually begins when leaders at some level identify an area of concern or opportunity. The manager, supervisor, or other delegate identifies a team of employees who they believe would offer appropriate insight on the issue at hand. In most cases, JumpStart doesn’t work to define the problem: the group is close enough to the issue that they already know what is wrong. Instead, the group spends several hours brainstorming root causes for the problem and coming up with possible solutions."
+          },
+          {
+            "id": "ch03-content-en-081",
+            "kind": "paragraph",
+            "text": "Six Sigma and other process improvement tools can be deployed during JumpStart sessions. Fishbone diagrams and solutions selections matrixes, both covered in later chapters, can be used to validate assumptions using only the knowledge of the people in the room and some quick research."
+          },
+          {
+            "id": "ch03-content-en-082",
+            "kind": "paragraph",
+            "text": "The benefit of JumpStart is that it lets teams create and implement small-scale solutions quickly, often providing problem resolution the same day. It also lets teams identify issues that need to be addressed in a more comprehensive project environment."
+          },
+          {
+            "id": "ch03-content-en-083",
+            "kind": "heading",
+            "text": "When to Use Six Sigma"
+          },
+          {
+            "id": "ch03-content-en-084",
+            "kind": "paragraph",
+            "text": "Some organizations make use of various project improvement methods. As a Six Sigma expert, you might have to champion your own method on occasion. Here are some reasons to choose Six Sigma over other methods described in this chapter."
+          },
+          {
+            "id": "ch03-content-en-085",
+            "kind": "paragraph",
+            "text": "When facing the unknown Six Sigma is designed so you can begin a project even when you don’t know the cause of the problem. In some cases, teams aren’t even sure what the exact problem is – they only know some metric is not performing as desired. For example, an organization might experience a drop in profits that doesn’t correct itself in several consecutive quarters. Six Sigma methods can begin to seek the causes of the problem, prioritize them, and work toward solutions."
+          },
+          {
+            "id": "ch03-content-en-086",
+            "kind": "paragraph",
+            "text": "When problems are widespread and not defined Even when a problem is understood, if it is wide in scope and not well defined, improvement projects that are not tightly managed can escalate in scope to a point that they become unmanageable. In this situation, teams attempt to solve increasingly bigger issues. As a result, no problem is ever completely solved. Six Sigma includes controls for avoiding such scope creep so teams can make incremental improvements that steadily improve a process over time. We’ll talk about scope creep more in later chapters."
+          },
+          {
+            "id": "ch03-content-en-087",
+            "kind": "paragraph",
+            "text": "When solving complex problems If processes are complex and feature many variables, it is difficult to determine how to approach a solution, much less define and measure success. Knowledge of statistical analysis and process control lets teams approach problems that involve enormous amounts of data and many variables. Through analysis and graphical representation, complex ideas can be distilled to specific hypotheses, premises, and conclusions."
+          },
+          {
+            "id": "ch03-content-en-088",
+            "kind": "paragraph",
+            "text": "When costs are closely tied to processes Because Six Sigma’s statistical process control component lets teams make more accurate assumptions than almost any other method, it is very appropriate for situations that are closely tied to revenue or cost. When a single tiny change can result in millions of dollars in gains or losses, teams must validate assumptions with an extremely small margin of error. Guesswork, basic research, and even years of experience cannot do that as accurately as properly implemented Six Sigma methods."
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch03-content-zh-001",
+            "kind": "heading",
+            "text": "质量方法"
+          },
+          {
+            "id": "ch03-content-zh-002",
+            "kind": "paragraph",
+            "text": "通过研究六西格玛的历史，您已经意识到该方法与过去一个世纪发展的许多其他质量驱动举措密切相关。这在一定程度上是正确的，因为所有成功的企业最终都寻求做同样的事情：为客户提供他们需要的产品或服务，同时赚取尽可能多的利润。"
+          },
+          {
+            "id": "ch03-content-zh-003",
+            "kind": "paragraph",
+            "text": "虽然六西格玛包含解决几乎任何流程问题所需的所有工具，但熟悉其他类型的流程改进和质量方法也很重要。其中一些方法，例如 Lean 和 JumpStart，在六西格玛方法中增加了价值。其他的可能会与六西格玛项目一起被外部资源使用。即使您不使用或不使用其中某些程序，您也需要与更熟悉其他方法的领导层和业务合作伙伴进行沟通。以更加全球化的质量管理方法构建六西格玛概念的能力可以帮助您为自己的项目赢得支持。"
+          },
+          {
+            "id": "ch03-content-zh-004",
+            "kind": "heading",
+            "text": "其他正式的质量或流程改进计划"
+          },
+          {
+            "id": "ch03-content-zh-005",
+            "kind": "heading",
+            "text": "精益流程管理"
+          },
+          {
+            "id": "ch03-content-zh-006",
+            "kind": "paragraph",
+            "text": "精益原则常常与六西格玛原则齐头并进。虽然精益最初是作为减少制造环境中浪费的概念而开发的，但精益流程管理的思想可以应用于涉及商品或服务的移动或创建的任何流程。即使这些服务是虚拟的或数字的，例如在计算机化的工作流程中，情况也是如此。"
+          },
+          {
+            "id": "ch03-content-zh-007",
+            "kind": "paragraph",
+            "text": "精益与六西格玛的相似之处之一是它关注持续改进；与六西格玛一样，精益提供废物清除工具，以便对流程进行日常控制和改进。事实上，精益的持续改进工具之一被称为“Kaizen”，这是一个日语单词，大致翻译为“变得更好”。 Kaizen 环境中每一次变革的目的都是为了持续消除浪费和/或为客户创造更多价值。"
+          },
+          {
+            "id": "ch03-content-zh-008",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Kaizen（改善）：强调小步、持续、全员参与的改进方式。"
+              ]
+            ],
+            "text": "术语说明 Kaizen（改善）：强调小步、持续、全员参与的改进方式。"
+          },
+          {
+            "id": "ch03-content-zh-009",
+            "kind": "paragraph",
+            "text": "精益流程管理可以部署在项目环境或日常生产中。与六西格玛一样，精益更多地是一种整体的质量文化，而不是单一的质量活动。许多组织使用精益原则来改进流程。 通过简单地制定一些精益原则，管理人员就可以大幅提高部门的产量并降低成本。"
+          },
+          {
+            "id": "ch03-content-zh-010",
+            "kind": "paragraph",
+            "text": "由于精益原则非常有效，并且与六西格玛原则非常契合，出于本书的目的，我们通常将精益视为六西格玛方法论的一部分。"
+          },
+          {
+            "id": "ch03-content-zh-011",
+            "kind": "heading",
+            "text": "全面质量管理"
+          },
+          {
+            "id": "ch03-content-zh-012",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 TQM（全面质量管理）：以全员参与和持续改进为核心的质量管理思想。"
+              ]
+            ],
+            "text": "术语说明 TQM（全面质量管理）：以全员参与和持续改进为核心的质量管理思想。"
+          },
+          {
+            "id": "ch03-content-zh-013",
+            "kind": "paragraph",
+            "text": "全面质量管理（TQM）是 20 世纪最后 25 年从事商业工作的人都熟知的一个短语。 TQM 质量方法是美国商业环境中最早采用的正式方法之一。最初开发于 20 世纪 50 年代，全面质量"
+          },
+          {
+            "id": "ch03-content-zh-014",
+            "kind": "paragraph",
+            "text": "直到上世纪80年代，管理才开始受到全国企业的欢迎。全面质量管理曾一度受到高管和其他领导者的欢迎，以至于它实际上成为某些员工的一个笑话，他们认为在质量上花费了大量的精力和费用，却没有得到同等的效益。事实上，如果你还记得上一章的话，通用电气的杰克·韦尔奇（Jack Welch）也有这种感觉。"
+          },
+          {
+            "id": "ch03-content-zh-015",
+            "kind": "paragraph",
+            "text": "虽然全面质量管理计划在结果方面往往有些乏善可陈，但该方法是当前改进和质量方法（如六西格玛）的重要起点。全面质量管理并非没有结果：与任何方法一样，结果在很大程度上取决于计划的实施方式和组织文化。因此，全面质量管理及其变体至今仍在许多行业中发挥着作用。成功的全面质量管理计划的一些要求包括："
+          },
+          {
+            "id": "ch03-content-zh-016",
+            "kind": "listItem",
+            "text": "组织各个层面，尤其是领导者的严格质量承诺"
+          },
+          {
+            "id": "ch03-content-zh-017",
+            "kind": "listItem",
+            "text": "授权员工在流程中工作时可以做出高质量决策，而无需不断寻求领导层对这些决策的批准"
+          },
+          {
+            "id": "ch03-content-zh-018",
+            "kind": "listItem",
+            "text": "促进高质量工作的奖励和认可结构，使员工有理由做出质量决策"
+          },
+          {
+            "id": "ch03-content-zh-019",
+            "kind": "listItem",
+            "text": "在制定长期决策时考虑质量和质量改进目标的战略规划"
+          },
+          {
+            "id": "ch03-content-zh-020",
+            "kind": "listItem",
+            "text": "让组织进行改进和监控质量的系统"
+          },
+          {
+            "id": "ch03-content-zh-021",
+            "kind": "paragraph",
+            "text": "成功的全面质量管理计划需要八个关键要素：道德、诚信、信任、培训、团队合作、领导力、认可和沟通。您可以将这些元素视为构建高质量、持久建筑所需的组件的一部分。 道德、诚信和信任成为质量的基础。培训、团队合作和领导力是构建优质组织的基石。诚实、开放、简洁的沟通是将一切联系在一起的砂浆，认可是覆盖一切的屋顶，为员工提供了追求和保持质量的理由。"
+          },
+          {
+            "id": "ch03-content-zh-022",
+            "kind": "paragraph",
+            "text": "TQM 理念的最大优势之一是它开始迫使组织将自己视为一个实体，而不是许多松散相关的实体或部门。在 20 世纪下半叶开发质量方法之前，许多组织都是通过严重孤立的部门来运营的。一个部门常常不了解另一个部门在做什么，这导致了大量的返工和浪费。每个部门可能会寻求更高的质量水平或流程改进，但最终，组织的实力取决于最薄弱的部分。"
+          },
+          {
+            "id": "ch03-content-zh-023",
+            "kind": "paragraph",
+            "text": "TQM 开始大规模改变部门思维：组织开始采用企业方法进行决策、质量和客户服务。商业领袖开始将公司视为一系列相互关联的流程，以实现单一的最终目标。在全面质量管理的范围内，业务流程再造的想法开始发展。"
+          },
+          {
+            "id": "ch03-content-zh-024",
+            "kind": "paragraph",
+            "text": "使用全面质量管理的组织通常会受益匪浅，例如："
+          },
+          {
+            "id": "ch03-content-zh-025",
+            "kind": "listItem",
+            "text": "提高员工敬业度和士气"
+          },
+          {
+            "id": "ch03-content-zh-026",
+            "kind": "listItem",
+            "text": "生产或产品成本降低"
+          },
+          {
+            "id": "ch03-content-zh-027",
+            "kind": "listItem",
+            "text": "减少循环时间"
+          },
+          {
+            "id": "ch03-content-zh-028",
+            "kind": "listItem",
+            "text": "客户更满意"
+          },
+          {
+            "id": "ch03-content-zh-029",
+            "kind": "heading",
+            "text": "业务流程再造"
+          },
+          {
+            "id": "ch03-content-zh-030",
+            "kind": "paragraph",
+            "text": "六西格玛、精益和全面质量管理都致力于在大大小小的规模上进行持续的变革，使组织更加接近完美的典范。就精益而言，该模型是一个零浪费的流程；在六西格玛中，模型统计为六西格玛。在全面质量管理中，组织通常会在努力实现完美之前定义自己的完美版本。业务流程重组（BPR）不太关心增量质量胜利，而更关心整个组织或流程架构的根本性变化。"
+          },
+          {
+            "id": "ch03-content-zh-031",
+            "kind": "paragraph",
+            "text": "业务流程再造，也称为业务流程重新设计，通常涉及整个组织中发生的技术流程。 这些流程可能包括系统、软件、数据存储、云和网络流程，以及由人类用户操作和维护的基于计算机的工作流程。由于自动化和计算机元素与 BPR 流程的紧密集成，参与 BPR 工作的组织必须严重依赖内部和外部技术资源。随着流程的开发或重新设计，内部资源提供编程、集成和故障排除服务。外部资源可以是 BPR 顾问、签约程序员和开发人员，或者是推出新软件产品的供应商。"
+          },
+          {
+            "id": "ch03-content-zh-032",
+            "kind": "paragraph",
+            "text": "正如您可能想象的那样，BPR 计划的成本可能很高，这就是为什么它们通常仅在组织期望指数级收益或确定当前流程已过时或严重损坏时才部署。"
+          },
+          {
+            "id": "ch03-content-zh-033",
+            "kind": "paragraph",
+            "text": "BPR 项目往往遵循一个通用的地图，尽管没有像六西格玛那样有一套明确的原则。大多数项目都会经历规划、设计和实施阶段。在规划过程中，团队使用流程图和流程架构原则来定义当前状态的企业范围流程。团队寻找改进的机会，并集体讨论整个组织流程的新架构。"
+          },
+          {
+            "id": "ch03-content-zh-034",
+            "kind": "paragraph",
+            "text": "在设计阶段，BPR 团队使用验证技术 3 确保他们规划的解决方案能够在企业结构内发挥作用。他们还开始构建工具和程序来整合这些变化；在此过程中，技术团队可能会使用本章稍后描述的 Scrum 方法。"
+          },
+          {
+            "id": "ch03-content-zh-035",
+            "kind": "paragraph",
+            "text": "最后，组织实施他们所做的改变。由于变更本质上通常是程序化的，因此实施通常包括严格的变更管理和测试程序。技术环境中的测试包括以下步骤："
+          },
+          {
+            "id": "ch03-content-zh-036",
+            "kind": "listItem",
+            "text": "基本功能的沙箱测试"
+          },
+          {
+            "id": "ch03-content-zh-037",
+            "kind": "listItem",
+            "text": "由训练有素的技术资源进行质量保证测试"
+          },
+          {
+            "id": "ch03-content-zh-038",
+            "kind": "listItem",
+            "text": "Beta 测试期间，经验丰富的主题专家在有限的现场环境中审查程序的各个方面"
+          },
+          {
+            "id": "ch03-content-zh-039",
+            "kind": "listItem",
+            "text": "向企业推出该计划，通常以分阶段的方式进行，在此期间技术资源随时待命以立即解决故障排除问题"
+          },
+          {
+            "id": "ch03-content-zh-040",
+            "kind": "listItem",
+            "text": "转为常规职能，以正常能力提供技术资源来处理偶尔出现的问题"
+          },
+          {
+            "id": "ch03-content-zh-041",
+            "kind": "heading",
+            "text": "鲁姆勒-布拉什"
+          },
+          {
+            "id": "ch03-content-zh-042",
+            "kind": "paragraph",
+            "text": "随着过程改进方法在 20 世纪 80 年代及以后变得越来越流行，个人经常采用一种或另一种方法的一部分并将其集成到新的改进或质量计划中。就这样，制造业以外的企业开始实施融入精益和六西格玛元素的点点滴滴的方法。其中一个程序被称为 Rummler-Brache。"
+          },
+          {
+            "id": "ch03-content-zh-043",
+            "kind": "paragraph",
+            "text": "Rummler-Brache 是由 Geary Rummler 和 Alan Brache 在 80 年代首创的。他们开发了自己的咨询公司使用的专有程序，但该方法的详细信息已被其他人发布和使用。该方法旨在通过使用一组实用工具来解决业务问题和流程问题，从而影响流程和组织的积极变化。"
+          },
+          {
+            "id": "ch03-content-zh-044",
+            "kind": "paragraph",
+            "text": "Rummler-Brache 的基本组成部分之一被称为九盒模型。该模型由三个性能级别和三个性能维度的矩阵创建。绩效级别包括执行者、过程和组织。维度是管理、设计和目标。当放置在网格上时，级别和尺寸形成九个框，如下所示。"
+          },
+          {
+            "id": "ch03-content-zh-045",
+            "kind": "heading",
+            "text": "管理"
+          },
+          {
+            "id": "ch03-content-zh-046",
+            "kind": "heading",
+            "text": "设计目标"
+          },
+          {
+            "id": "ch03-content-zh-047",
+            "kind": "heading",
+            "text": "表演者"
+          },
+          {
+            "id": "ch03-content-zh-048",
+            "kind": "paragraph",
+            "text": "关注反馈、后果和奖励"
+          },
+          {
+            "id": "ch03-content-zh-049",
+            "kind": "paragraph",
+            "text": "关注个人层面的绩效指标和要求"
+          },
+          {
+            "id": "ch03-content-zh-050",
+            "kind": "paragraph",
+            "text": "关注完成工作所需的工具和培训以及工作文档"
+          },
+          {
+            "id": "ch03-content-zh-051",
+            "kind": "paragraph",
+            "text": "关注流程、工作空间或系统的设计"
+          },
+          {
+            "id": "ch03-content-zh-052",
+            "kind": "heading",
+            "text": "工艺流程"
+          },
+          {
+            "id": "ch03-content-zh-053",
+            "kind": "paragraph",
+            "text": "关心谁拥有该流程以及他们如何改进它"
+          },
+          {
+            "id": "ch03-content-zh-054",
+            "kind": "paragraph",
+            "text": "关注业务和客户的需求"
+          },
+          {
+            "id": "ch03-content-zh-055",
+            "kind": "paragraph",
+            "text": "关注整体组织结构图和流程架构"
+          },
+          {
+            "id": "ch03-content-zh-056",
+            "kind": "paragraph",
+            "text": "关注运营计划和顶级指标"
+          },
+          {
+            "id": "ch03-content-zh-057",
+            "kind": "heading",
+            "text": "组织机构"
+          },
+          {
+            "id": "ch03-content-zh-058",
+            "kind": "paragraph",
+            "text": "关注整体领导文化和绩效评估的要求"
+          },
+          {
+            "id": "ch03-content-zh-059",
+            "kind": "paragraph",
+            "text": "Rummler-Brache 的改进分为六个阶段："
+          },
+          {
+            "id": "ch03-content-zh-060",
+            "kind": "listItem",
+            "text": "改进计划。在第一阶段，领导层和主题专家致力于做出改进并开始寻找变革机会。"
+          },
+          {
+            "id": "ch03-content-zh-061",
+            "kind": "listItem",
+            "text": "定义。在第二阶段，定义项目目标和范围，并组建团队来进行改进。"
+          },
+          {
+            "id": "ch03-content-zh-062",
+            "kind": "listItem",
+            "text": "分析与设计。团队使用分析来了解当前问题并定义和验证可行的解决方案。"
+          },
+          {
+            "id": "ch03-content-zh-063",
+            "kind": "listItem",
+            "text": "实施。团队实施流程变更。根据变更的类型，这可能包括规划变更、员工再培训、机械或设备变更或政策变更。"
+          },
+          {
+            "id": "ch03-content-zh-064",
+            "kind": "listItem",
+            "text": "流程管理。团队在变更期间和变更后立即监控流程，以确保改进按计划发挥作用。"
+          },
+          {
+            "id": "ch03-content-zh-065",
+            "kind": "listItem",
+            "text": "流程移交给日常团队。流程的管理移交给日常团队，通常会采取某种类型的控制来确保持续成功。"
+          },
+          {
+            "id": "ch03-content-zh-066",
+            "kind": "heading",
+            "text": "Scrum"
+          },
+          {
+            "id": "ch03-content-zh-067",
+            "kind": "paragraph",
+            "text": "Scrum 是一种专门针对技术部门敏捷编程工作的项目开发方法。当团队想要在短时间内创建新技术产品或将新开发集成到现有产品上时，可以使用 Scrum。通常，Scrum 项目持续两到四个星期，这对于编程项目来说传统上是一个非常紧张的时间表。 Scrum 的诞生是因为编程和开发团队需要一种方法来满足其他部门的持续技术设计和改进需求，而无需大幅增加编程、测试员工时间或雇用更多技术人员。 Scrum 还可用于加快软件和应用程序产品的生产或上市速度。"
+          },
+          {
+            "id": "ch03-content-zh-068",
+            "kind": "paragraph",
+            "text": "Scrum 是与本书中讨论的其他流程改进计划相关的概念，因为当今的许多项目都需要某种类型的技术资源或变更。当项目团队致力于验证和衡量时，技术部门通常会同时部署 Scrum 概念，以满足截止日期前改进项目的开发需求。"
+          },
+          {
+            "id": "ch03-content-zh-069",
+            "kind": "paragraph",
+            "text": "Scrum 项目分为三个主要阶段："
+          },
+          {
+            "id": "ch03-content-zh-070",
+            "kind": "listItem",
+            "text": "赛前。开发团队分析可用数据和业务需求。他们利用这些信息来提出新产品或升级的概念。通常，这涉及将业务和流程概念转化为计算机和技术概念。"
+          },
+          {
+            "id": "ch03-content-zh-071",
+            "kind": "listItem",
+            "text": "游戏。团队开始通过编程冲刺来开发产品。冲刺是按顺序完成的较小的开发阶段，通常在进入下一个冲刺之前对工作进行审查和验证。通过在开发过程中验证工作，团队能够更快地创建工作产品。"
+          },
+          {
+            "id": "ch03-content-zh-072",
+            "kind": "listItem",
+            "text": "赛后。即使在开发过程中进行验证，团队仍然必须遵循质量保证、测试和变更管理程序。产品发布的质量准备工作在最后阶段进行。"
+          },
+          {
+            "id": "ch03-content-zh-073",
+            "kind": "heading",
+            "text": "客户体验管理方法（CEM）"
+          },
+          {
+            "id": "ch03-content-zh-074",
+            "kind": "paragraph",
+            "text": "与 Rummler-Brache 一样，客户体验管理方法（CEM 方法）是由流程改进顾问创建的，旨在满足制造以外的组织的需求。 CEM 将一些流程改进工具与客户关系管理结合起来。它由维珍集团于 20 世纪 90 年代开发，并在整个 90 年代和 21 世纪初期流行起来。"
+          },
+          {
+            "id": "ch03-content-zh-075",
+            "kind": "paragraph",
+            "text": "CEM 方法采用由外向内的方法来改进流程，重点关注客户想要什么或需要什么以及组织中的每个流程如何满足该需求。 CEM 的主要目的是使整个组织的流程与客户满意度目标保持一致。 因此，即使与客户没有直接关系的流程也是根据客户来定义的。"
+          },
+          {
+            "id": "ch03-content-zh-076",
+            "kind": "paragraph",
+            "text": "例如，运输流程显然与最终客户直接相关，因此很容易定义这些流程如何最好地为客户服务。货物应准时到达，准确无误，并且运输成本应负担得起。"
+          },
+          {
+            "id": "ch03-content-zh-077",
+            "kind": "paragraph",
+            "text": "内部人力资源流程更难与面向客户的目标联系起来。然而，员工的士气和功能与这些员工如何为客户服务直接相关。您可以通过这种方式针对组织中的几乎所有流程做出面向客户的声明。如果组织无法将流程与客户联系起来，那么他们必须询问该流程是否必要或已被破坏。"
+          },
+          {
+            "id": "ch03-content-zh-078",
+            "kind": "paragraph",
+            "text": "与六西格玛一样，CEM 也非常依赖数据。如果不收集和分析客户反馈，组织就无法确定客户目标和流程的成功。 CEM 的优势在于组织能够在整个企业内部署面向客户的策略，这通常会在客户满意度、忠诚度和支出方面带来巨大收益。这种方法的缺点是，传统上面向内向的部门，例如人力资源、法律和会计部门，通常很难实施以客户为中心的文化变革。"
+          },
+          {
+            "id": "ch03-content-zh-079",
+            "kind": "heading",
+            "text": "快速启动"
+          },
+          {
+            "id": "ch03-content-zh-080",
+            "kind": "paragraph",
+            "text": "JumpStart 与本章中描述的其他程序和方法不同，因为它是一种在单个会话中识别问题和解决方案的快节奏方法。 JumpStart 几乎可以在本书中描述的所有其他方法中使用，作为引发有关流程的讨论或确定可能的解决方案的一种方式。它还可以用作管理工具，帮助团队在项目环境之外或缺乏项目资源的情况下找到可行的解决方案。"
+          },
+          {
+            "id": "ch03-content-zh-081",
+            "kind": "paragraph",
+            "text": "由于 JumpStart 本身不会花时间进行严格的验证或统计分析，因此团队不应使用此方法来实施彻底的更改或尝试改进可能严重影响客户体验或利润的流程。 单独使用 JumpStart 的一个缺点是，有时会以观望的心态进行更改，这对于许多内部团队更改来说是安全的，但对于部门或企业范围的流程或对与监管或合规规则密切相关的流程进行更改通常是危险的。"
+          },
+          {
+            "id": "ch03-content-zh-082",
+            "kind": "paragraph",
+            "text": "JumpStart 通常在某个级别的领导者确定了一个值得关注的领域或机会时开始。经理、主管或其他代表确定一个他们认为能够就当前问题提供适当见解的员工团队。在大多数情况下，JumpStart 无法定义问题：团队足够接近问题，他们已经知道出了什么问题。相反，该小组花了几个小时集思广益，讨论问题的根本原因，并提出可能的解决方案。"
+          },
+          {
+            "id": "ch03-content-zh-083",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Root Cause（根本原因）：真正驱动问题发生的原因；解决它才能防止问题反复出现。"
+              ]
+            ],
+            "text": "术语说明 Root Cause（根本原因）：真正驱动问题发生的原因；解决它才能防止问题反复出现。"
+          },
+          {
+            "id": "ch03-content-zh-084",
+            "kind": "paragraph",
+            "text": "六西格玛和其他流程改进工具可以在 JumpStart 会议期间部署。鱼骨图和解决方案选择矩阵（均在后面的章节中介绍）可用于仅使用房间内人员的知识和一些快速研究来验证假设。"
+          },
+          {
+            "id": "ch03-content-zh-085",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Fishbone / Ishikawa（鱼骨图）：按类别梳理潜在原因的根因分析工具。"
+              ]
+            ],
+            "text": "术语说明 Fishbone / Ishikawa（鱼骨图）：按类别梳理潜在原因的根因分析工具。"
+          },
+          {
+            "id": "ch03-content-zh-086",
+            "kind": "paragraph",
+            "text": "JumpStart 的好处是它可以让团队快速创建和实施小规模解决方案，通常在同一天提供问题解决方案。它还可以让团队识别需要在更全面的项目环境中解决的问题。"
+          },
+          {
+            "id": "ch03-content-zh-087",
+            "kind": "heading",
+            "text": "何时使用六西格玛"
+          },
+          {
+            "id": "ch03-content-zh-088",
+            "kind": "paragraph",
+            "text": "一些组织利用各种项目改进方法。作为六西格玛专家，您有时可能必须捍卫自己的方法。以下是选择六西格玛而不是本章中描述的其他方法的一些原因。"
+          },
+          {
+            "id": "ch03-content-zh-089",
+            "kind": "paragraph",
+            "text": "当面对未知时，六西格玛的设计是为了让你即使不知道问题的原因也可以开始一个项目。在某些情况下，团队甚至不确定确切的问题是什么——他们只知道某些指标没有达到预期的效果。例如，一个组织可能会经历利润下降，并且连续几个季度都无法自行纠正。 六西格玛方法可以开始寻找问题的原因，确定优先顺序，并努力解决问题。"
+          },
+          {
+            "id": "ch03-content-zh-090",
+            "kind": "paragraph",
+            "text": "当问题广泛存在且未定义时 即使问题已被理解，但如果问题范围广泛且定义不明确，未严格管理的改进项目的范围可能会扩大到难以管理的地步。在这种情况下，团队试图解决越来越大的问题。 结果，没有任何问题能够完全解决。 六西格玛包括避免这种范围蔓延的控制措施，因此团队可以进行渐进式改进，随着时间的推移稳步改进流程。我们将在后面的章节中更多地讨论范围蔓延。"
+          },
+          {
+            "id": "ch03-content-zh-091",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Scope（项目范围）：说明改进项目包括什么、不包括什么，避免目标扩张。"
+              ]
+            ],
+            "text": "术语说明 Scope（项目范围）：说明改进项目包括什么、不包括什么，避免目标扩张。"
+          },
+          {
+            "id": "ch03-content-zh-092",
+            "kind": "paragraph",
+            "text": "解决复杂问题时 如果流程复杂并且具有许多变量，则很难确定如何实现解决方案，更不用说定义和衡量成功了。统计分析和过程控制知识使团队能够解决涉及大量数据和许多变量的问题。通过分析和图形表示，复杂的想法可以提炼为具体的假设、前提和结论。"
+          },
+          {
+            "id": "ch03-content-zh-093",
+            "kind": "paragraph",
+            "text": "当成本与流程密切相关时 由于六西格玛的统计流程控制组件可以让团队比几乎任何其他方法做出更准确的假设，因此它非常适合与收入或成本密切相关的情况。当一个微小的变化可能导致数百万美元的收益或损失时，团队必须以极小的误差范围来验证假设。猜测、基础研究、甚至多年的经验都无法像正确实施六西格玛方法那样准确。"
+          },
+          {
+            "id": "ch03-content-zh-094",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 SPC（统计过程控制）：用统计方法监控过程表现，区分普通波动和异常信号。"
+              ]
+            ],
+            "text": "术语说明 SPC（统计过程控制）：用统计方法监控过程表现，区分普通波动和异常信号。"
+          }
+        ]
+      }
+    }
+  ]
+}

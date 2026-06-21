@@ -1,0 +1,1352 @@
+{
+  "id": "ch17",
+  "chapter": 17,
+  "pageStart": 158,
+  "pageEnd": 178,
+  "title": {
+    "en": "Chapter 17: Intermediate Graphical Analysis",
+    "zh": "第 17 章：中级图形分析"
+  },
+  "source": {
+    "enDocx": "C:\\findjob_sixsigma_sources\\manual_en_aligned.docx",
+    "zhDocx": "C:\\findjob_sixsigma_sources\\manual_zh_aligned.docx",
+    "extraction": "python-docx body-order extraction; generic chapter-level bilingual content"
+  },
+  "sections": [
+    {
+      "id": "ch17-content",
+      "level": 1,
+      "page": 158,
+      "title": {
+        "en": "Intermediate Graphical Analysis",
+        "zh": "中级图形分析"
+      },
+      "content": {
+        "en": [
+          {
+            "id": "ch17-content-en-001",
+            "kind": "paragraph",
+            "text": "Graphical analysis is a critical part of the Six Sigma approach. Whenever data or ideas can be displayed in a visual format, obvious data trends can be quickly identified and communicated. Visual analysis is extremely helpful when presenting ideas to auxiliary staff or executives, who might not be trained in intermediate or advanced statistics. The Black Belt or other Six Sigma experts have the ability to tell the same story that statistics tell, but in a format that can be understood by anyone. Visual depictions are tools that make it easier for Six Sigma professionals or sponsors to retell the story to others, which can be helpful for training, building cultural buy-in for a process change, or even resource requests."
+          },
+          {
+            "id": "ch17-content-en-002",
+            "kind": "paragraph",
+            "text": "Throughout the first three units of this book, we’ve discussed a number of graphical analysis tools, including:"
+          },
+          {
+            "id": "ch17-content-en-003",
+            "kind": "listItem",
+            "text": "Pareto charts in chapters 5 and 14"
+          },
+          {
+            "id": "ch17-content-en-004",
+            "kind": "listItem",
+            "text": "Run charts in chapter 13"
+          },
+          {
+            "id": "ch17-content-en-005",
+            "kind": "listItem",
+            "text": "Box plots in chapter 14"
+          },
+          {
+            "id": "ch17-content-en-006",
+            "kind": "listItem",
+            "text": "Introduction to control charts in chapter 16"
+          },
+          {
+            "id": "ch17-content-en-007",
+            "kind": "listItem",
+            "text": "Introduction to scatter diagrams in chapter 14"
+          },
+          {
+            "id": "ch17-content-en-008",
+            "kind": "paragraph",
+            "text": "In this chapter, we’ll discuss additional graphical analysis tools, including bar charts and pie charts. We’ll also look again at scatter diagrams and how to create them in Excel. In Chapter 16, you learned about the components of an X-bar control chart and how to tell if a control chart indicates a process might be out of control. In this chapter, we’ll walk through the steps for manually creating an X-bar control chart in Excel. Finally, you’ll learn how to install a data analysis add-in for various versions of Excel. The add-in provides functionality that will become relevant in the next few chapters."
+          },
+          {
+            "id": "ch17-content-en-009",
+            "kind": "heading",
+            "text": "Additional Graphical Analysis Tools"
+          },
+          {
+            "id": "ch17-content-en-010",
+            "kind": "paragraph",
+            "text": "As with many other areas of the Six Sigma methodology, it can be easy to go overboard when dealing with graphical analysis – particularly when presenting information to others. With so many tools at your disposal, it’s tempting to pick the graph that is new, exciting, or more complex. Often, though, that means spending non-value added time creating one visual tool when an easier tool would do the job. If you recall from chapter 4, this would be an instance of over-processing to avoid."
+          },
+          {
+            "id": "ch17-content-en-011",
+            "kind": "paragraph",
+            "text": "Consider the two charts below to understand when over-processing might be occurring with regard to graphical analysis."
+          },
+          {
+            "id": "ch17-content-en-012",
+            "kind": "paragraph",
+            "text": "Both charts are a graphical representation of the same information. The first is a simple bar chart that was created within a few clicks in Excel. The second is a Pareto chart, also created in Excel but requiring many more clicks of the mouse. In this particular case, a Pareto chart is not necessary to convey the required information. The data is diverse enough that anyone can see from looking at the bar chart that sales person E accounts for a lot of the errors. In this particular case, a Pareto chart is overselling the conclusion and doesn’t need to be created if extra work is required."
+          },
+          {
+            "id": "ch17-content-en-013",
+            "kind": "paragraph",
+            "text": "In this example, it’s possible that a visual portrayal of the data isn’t required at all: the conclusion is obvious. Looking at the raw data below, you can quickly see that employee E has triple the errors as the next-highest employee. Even when the raw data provides for easy analysis, however, many Six Sigma experts do take the time to create a graphical representation for the purpose of presentations. A graph is more visually appealing and quicker to read than a data table."
+          },
+          {
+            "id": "ch17-content-en-014",
+            "kind": "paragraph",
+            "text": "Sales Errors A 10 B 5 C 2 D 9 E 34 F 7 G 3"
+          },
+          {
+            "id": "ch17-content-en-015",
+            "kind": "heading",
+            "text": "Employee"
+          },
+          {
+            "id": "ch17-content-en-016",
+            "kind": "paragraph",
+            "text": "The simplest graphical analysis isn’t always the best choice, especially when data elements are not so obvious to note. More complex analysis might be required to discover outliers, relationships, and trends. Even when conclusions about data seem obvious, they aren’t always correct. This is especially true when dealing with the relationship or correlation between factors in a process."
+          },
+          {
+            "id": "ch17-content-en-017",
+            "kind": "paragraph",
+            "text": "As a Six Sigma expert, it takes time to be able to quickly choose which type of graphical analysis will best represent the data at hand. It’s also important to note that the best choice for graphical analysis relies equally on the questions being asked as much as it does on the data itself. In the example above, the basic bar chart is a good choice for a team that wants to know where errors might be coming from. If the team was comparing errors to shift times being worked, the bar chart would not be helpful."
+          },
+          {
+            "id": "ch17-content-en-018",
+            "kind": "paragraph",
+            "text": "While it’s true that you don’t want to waste time and space presenting data in a way that is not helpful – or could be considered muda of over-production – the same isn’t always true when dealing with analysis. At the analysis stage of a DMAIC project, Black Belts and other Six Sigma experts often work with numerous graphical analysis tools as they attempt to understand data. The need to view data in various ways is one reason statistical analysis software is helpful: such software takes some of the manual work out of creating these charts and graphs. Trial-and-error work with all types of Six Sigma analysis tools also helps you learn to identify which tools fit each situation best."
+          },
+          {
+            "id": "ch17-content-en-019",
+            "kind": "paragraph",
+            "text": "In this section, we’ll discuss some tools that haven’t been introduced so far, covering benefits, limitations, and how to create the tools in Excel without statistical analysis software when necessary."
+          },
+          {
+            "id": "ch17-content-en-020",
+            "kind": "heading",
+            "text": "Bar Charts"
+          },
+          {
+            "id": "ch17-content-en-021",
+            "kind": "paragraph",
+            "text": "One of the biggest benefits of bar charts is that they are recognizable and easy to read. Almost any employee in a company can glean information from a properly formatted bar chart without instruction or guidance, making them a great choice for general use presentations and training materials. Bar charts are also easy to create, so they are a preferred method of illustration in presentations and reports. Other benefits include:"
+          },
+          {
+            "id": "ch17-content-en-022",
+            "kind": "listItem",
+            "text": "The ability to summarize large data sets in a simple visual format"
+          },
+          {
+            "id": "ch17-content-en-023",
+            "kind": "listItem",
+            "text": "The ability to clarify trends"
+          },
+          {
+            "id": "ch17-content-en-024",
+            "kind": "listItem",
+            "text": "The fact that most people can easily estimate important values on a well-formatted bar chart"
+          },
+          {
+            "id": "ch17-content-en-025",
+            "kind": "listItem",
+            "text": "The ability to visually check data and identify areas where data might be skewed"
+          },
+          {
+            "id": "ch17-content-en-026",
+            "kind": "listItem",
+            "text": "The ability to easily display data sets that range above and below zero on the same chart"
+          },
+          {
+            "id": "ch17-content-en-027",
+            "kind": "paragraph",
+            "text": "Bar charts typically require nominal or ordinal data – data that is classified according to qualitative information. When displaying nominal data, it’s often beneficial to create a Pareto-style chart so the reader can see instantly how the population relates to the categories. Ordinal data usually involves its own logical order for presentation. For example, if individuals are asked to rank satisfaction with a product as very satisfied, somewhat satisfied, neutral, unsatisfied, and very unsatisfied, then you usually would not want to change the order of that presentation on a bar chart."
+          },
+          {
+            "id": "ch17-content-en-028",
+            "kind": "paragraph",
+            "text": "Bar charts are not without limitations. Depending on what is being presented, additional narrative might be required to explain the chart. Bar charts also often fail to reveal key information about trends that aren’t part of the specific design of the chart, and they rarely on their own provide detailed data about causes or patterns in data. Finally, it’s easy to manipulate colors, order, and layout of a bar chart to influence the message that your audience takes away. Six Sigma experts should always choose the best format for displaying fundamental truths, but should never format a chart to create an impression that might not be in keeping with the statistical data behind the graphical representation."
+          },
+          {
+            "id": "ch17-content-en-029",
+            "kind": "heading",
+            "text": "Create a Bar Chart in Excel"
+          },
+          {
+            "id": "ch17-content-en-030",
+            "kind": "paragraph",
+            "text": "Create your own bar charts in Excel by starting with data tables of relevant nominal or ordinal data. Copy the data table below into Excel to practice bar chart creation, or use data relevant to your own processes or projects. The sample data table provides the total number of phone calls experienced by a regional customer service call-center team for each hour in a particular day."
+          },
+          {
+            "id": "ch17-content-en-031",
+            "kind": "paragraph",
+            "text": "1. Highlight the columns that contain the data you want to chart as well as the labels for that data. In this case, the data is the number of calls and the labels are the hours."
+          },
+          {
+            "id": "ch17-content-en-032",
+            "kind": "paragraph",
+            "text": "2. Select Insert > Chart > Bar Chart"
+          },
+          {
+            "id": "ch17-content-en-033",
+            "kind": "paragraph",
+            "text": "3. For this example, the simplest form of bar chart is appropriate. 4. Use Excel formatting tools as desired to customize the chart title, colors, and labels."
+          },
+          {
+            "id": "ch17-content-en-034",
+            "kind": "paragraph",
+            "text": "Most versions of Excel offer several types of bar charts, and you can experiment with these various formats to see how they display your data. Some notes about common formats are included below."
+          },
+          {
+            "id": "ch17-content-en-035",
+            "kind": "heading",
+            "text": "Column versus Bar"
+          },
+          {
+            "id": "ch17-content-en-036",
+            "kind": "paragraph",
+            "text": "Technically, what is commonly referred to as a bar chart – and what we’ve been calling a bar chart here – is a column chart. The visual columns representing each data category rise vertically. A literal bar chart displays the same information horizontally. Most versions of Excel let you choose between the two displays. The information from the example data table is presented below in a horizontal bar chart."
+          },
+          {
+            "id": "ch17-content-en-037",
+            "kind": "paragraph",
+            "text": "3-D Bar and Column Charts"
+          },
+          {
+            "id": "ch17-content-en-038",
+            "kind": "paragraph",
+            "text": "The charts displayed so far in this chapter are all 2-dimensional. Excel can also help you create 3- dimensional charts to add visual appeal to a presentation. 3-D charts are helpful if you are presenting a number of similar-looking charts in a row, as it helps to differentiate between information in your presentation. It might also be helpful to create more visually appealing charts simply to capture audience attention more fully. Here’s an example of the same data used above in a 3-D chart."
+          },
+          {
+            "id": "ch17-content-en-039",
+            "kind": "heading",
+            "text": "Stacked Bar Charts"
+          },
+          {
+            "id": "ch17-content-en-040",
+            "kind": "paragraph",
+            "text": "Stacked bar charts let you display the total nominal or ordinal data for each category while also breaking that information into color coded categories. For example, if the Six Sigma team analyzing phone calls per hour wanted to display data that included how many calls were handled by separate teams within a department, the bar chart might look something like the image below."
+          },
+          {
+            "id": "ch17-content-en-041",
+            "kind": "heading",
+            "text": "Create a Stacked Bar Chart"
+          },
+          {
+            "id": "ch17-content-en-042",
+            "kind": "paragraph",
+            "text": "To create a stacked bar chart, you must have ordinal or nominal data that is broken into categories. The categories must be the same for each data set so that the total of the sub-category numbers equals the total of the main category. For example, if you have three bags of marbles, you might have data that says:"
+          },
+          {
+            "id": "ch17-content-en-043",
+            "kind": "paragraph",
+            "text": "Upon further analysis, you realize you have marbles in three colors: red, blue, and yellow."
+          },
+          {
+            "id": "ch17-content-en-044",
+            "kind": "paragraph",
+            "text": "Bag 1 doesn’t include any blue marbles, but you must include blue as a category for Bag 1 because it is a category in the other two bags. You simply put a 0 in that data field. You’ll note that the totals of the subcategories under each bag add up to the amount of marbles in each bag. Following these guidelines – including all subcategories for each section and ensuring the subcategories total correctly – helps you create accurate stacked bar charts."
+          },
+          {
+            "id": "ch17-content-en-045",
+            "kind": "paragraph",
+            "text": "Examine the data table below, which displays the breakdown of calls by teams in the call center."
+          },
+          {
+            "id": "ch17-content-en-046",
+            "kind": "paragraph",
+            "text": "1. Highlight the cells containing the data you want to include in your stacked bar chart as well as the cells containing the data labels."
+          },
+          {
+            "id": "ch17-content-en-047",
+            "kind": "paragraph",
+            "text": "2. Select Insert > Charts > Bar Charts > Stacked Bar Chart"
+          },
+          {
+            "id": "ch17-content-en-048",
+            "kind": "paragraph",
+            "text": "3. Use Excel’s format options to edit titles, colors, and data labels as desired."
+          },
+          {
+            "id": "ch17-content-en-049",
+            "kind": "heading",
+            "text": "Pie Charts"
+          },
+          {
+            "id": "ch17-content-en-050",
+            "kind": "paragraph",
+            "text": "The pie chart is another visual tool that almost any employee in a business environment will be familiar with, making it a good choice for displaying certain types of information. Ordinal and nominal information can also be displayed in a pie chart with the main purpose of visually representing how each category relates to the whole. Conventional wisdom says to use a pie chart when the numbers you are charting add up to 100, but this doesn’t have to be the case. Excel converts values to percentages to create pie charts. Consider the pie chart below, which graphs the numbers 8, 5, and 4. Excel considers each of these numbers against the total “pie” of 17. The blue section, which represents 47%, corresponds to the raw data 8/17."
+          },
+          {
+            "id": "ch17-content-en-051",
+            "kind": "paragraph",
+            "text": "Benefits of pie charts include:"
+          },
+          {
+            "id": "ch17-content-en-052",
+            "kind": "listItem",
+            "text": "The ability to summarize large amounts of specific data types in a visual format."
+          },
+          {
+            "id": "ch17-content-en-053",
+            "kind": "listItem",
+            "text": "Simplicity; the pie chart is one of the simplest types of graphs"
+          },
+          {
+            "id": "ch17-content-en-054",
+            "kind": "listItem",
+            "text": "The ability to identify obvious problems with data or calculations"
+          },
+          {
+            "id": "ch17-content-en-055",
+            "kind": "listItem",
+            "text": "Pie charts usually require very little extra explanation when labeled correctly"
+          },
+          {
+            "id": "ch17-content-en-056",
+            "kind": "listItem",
+            "text": "Pie charts display the relevance of subset data within a total data set"
+          },
+          {
+            "id": "ch17-content-en-057",
+            "kind": "paragraph",
+            "text": "The fact that pie charts are used constantly in business environments is both an advantage and disadvantage for Six Sigma teams and experts. When data can be depicted in a pie chart, the Six Sigma expert usually has to create less narrative to get a potential point across. At the same time, pie charts don’t always carry the weight that a more advanced statistical representation might because business employees are so used to seeing them. Other disadvantages of pie charts include the fact that they can be manipulated in much the same way as bar charts, they usually fail to easily display changes over time, and it can be difficult to visualize exact values when presented with a pie chart."
+          },
+          {
+            "id": "ch17-content-en-058",
+            "kind": "heading",
+            "text": "Create a Pie Chart in Excel"
+          },
+          {
+            "id": "ch17-content-en-059",
+            "kind": "paragraph",
+            "text": "Practice creating a pie chart in Excel using the following data table, which records how many minutes are spent on average for each step of a process. You can also use data relevant to your own process or project to create a practice pie chart if desired."
+          },
+          {
+            "id": "ch17-content-en-060",
+            "kind": "paragraph",
+            "text": "Process Step Minutes A 14 B 18 C 41 D 64 E 12 F 4 G 3 H 7 I 23 J 18"
+          },
+          {
+            "id": "ch17-content-en-061",
+            "kind": "paragraph",
+            "text": "1. Highlight the column of data you want to chart as well as the data labels. In the example, we are charting the number of minutes and the process numbers are the data labels."
+          },
+          {
+            "id": "ch17-content-en-062",
+            "kind": "paragraph",
+            "text": "2. Click Insert > Chart > Pie Chart"
+          },
+          {
+            "id": "ch17-content-en-063",
+            "kind": "paragraph",
+            "text": "3. Use Excel’s formatting tools to make changes to color, title, and labels as desired."
+          },
+          {
+            "id": "ch17-content-en-064",
+            "kind": "paragraph",
+            "text": "From the pie chart created for our sample data, we can see that approximately half of the total process time is related to only two steps in the 10-step process. We can also quickly see which steps take the longest on average and which are the shortest, although we can’t draw any conclusions about actual time from only this chart."
+          },
+          {
+            "id": "ch17-content-en-065",
+            "kind": "paragraph",
+            "text": "As with bar charts, you can take advantage of Excel options for creating three-dimensional pie charts. A particularly helpful function is the Pie of Pie function in Excel, which lets you create an overall pie chart and carve out a second pie chart to delve deeper into certain areas of the larger structure. Consider a Pie of Pie chart below, which represents the same data from the pie chart above."
+          },
+          {
+            "id": "ch17-content-en-066",
+            "kind": "paragraph",
+            "text": "The original pie chart depicted 10 steps. The illustration above shows a large pie chart with a secondary chart. The large pie chart appears to show 7 steps – but this pie chart shows the same information as the one above. However, four steps from the process are called out in a smaller chart so you can see how they relate to each other better. Those four steps combined make up the 7th, dark-blue pie piece in the larger pie. This makes it easier to pinpoint relevance of smaller data categories within the whole or to emphasize a certain area of the chart."
+          },
+          {
+            "id": "ch17-content-en-067",
+            "kind": "paragraph",
+            "text": "You do have to be careful, however, that the viewer doesn’t assign relevance or importance based solely on the size of the pie pieces. The gray pie piece in the secondary chart above is bigger than some of the other pieces in the larger pie, but that doesn’t mean that step takes longer. The smaller pie should be considered a large-scale view of a small piece of the overall graph. In this case, that small piece takes into account four of the steps."
+          },
+          {
+            "id": "ch17-content-en-068",
+            "kind": "heading",
+            "text": "X Y Scatter Diagrams"
+          },
+          {
+            "id": "ch17-content-en-069",
+            "kind": "paragraph",
+            "text": "We introduced scatter diagrams very briefly in chapter 14, and we’ll revisit them in depth in later chapters on correlation and regression modeling. In this section, we’ll cover how to create a scatter diagram in Excel with any analysis add-on. In chapter 19, we’ll use an add-on for Excel to conduct some statistical analysis while creating scatter diagrams."
+          },
+          {
+            "id": "ch17-content-en-070",
+            "kind": "paragraph",
+            "text": "Scatter diagrams are beneficial because they can help teams visually see the relationship between two factors in a process. Does temperature decrease over time? Does a person’s productivity increase with his or her salary? These are examples of questions that might be answered by scatter diagrams, but it’s important to realize that correlation as depicted on a scatter diagram doesn’t necessarily mean causation. Two variables can be closely related without one causing changes in the other."
+          },
+          {
+            "id": "ch17-content-en-071",
+            "kind": "paragraph",
+            "text": "Scatter diagrams typically help teams see whether there is no correlation, weak correlation, or positive or negative correlation. Positive correlation occurs when variable 2 is related to an increase in variable 1, or vice versa. Negative correlation occurs when variable 2 is related to a decrease in variable 1, or vice versa. For example, it is commonly noted that the rate of crime and the average per-capita income of geographic areas in the United States are related. Areas that demonstrate higher crime rates often also demonstrate lower income statistics. The statement can be made the other direction: areas that demonstrate lower income statistics often demonstrate higher crime rates. That is not to say that either of these things necessarily causes the other."
+          },
+          {
+            "id": "ch17-content-en-072",
+            "kind": "paragraph",
+            "text": "Drawbacks of scatter diagrams are that they are not as familiar to business employees as bar, pie, or even line charts. There is also a risk that individuals who don’t have an understanding of statistical analysis will mistake correlation for causation, which can lead to incorrect decisions. Black Belts and other Six Sigma experts must be cognizant of these risks so they can appropriately explain scatter diagrams and provide further explanation when necessary."
+          },
+          {
+            "id": "ch17-content-en-073",
+            "kind": "heading",
+            "text": "Create a Scatter Diagram in Excel"
+          },
+          {
+            "id": "ch17-content-en-074",
+            "kind": "paragraph",
+            "text": "Use the data table below, which includes the average number of errors per hour a process creates as output is increased per hour to create a scatter diagram in Excel. Copy the information from the table below into Excel, or use data from your own process or project if desired."
+          },
+          {
+            "id": "ch17-content-en-075",
+            "kind": "heading",
+            "text": "Parts Per"
+          },
+          {
+            "id": "ch17-content-en-076",
+            "kind": "paragraph",
+            "text": "Hour"
+          },
+          {
+            "id": "ch17-content-en-077",
+            "kind": "paragraph",
+            "text": "Defects"
+          },
+          {
+            "id": "ch17-content-en-078",
+            "kind": "paragraph",
+            "text": "100 3 150 4 200 5 250 5 300 7 350 7 400 9 450 8 500 10"
+          },
+          {
+            "id": "ch17-content-en-079",
+            "kind": "paragraph",
+            "text": "1. Highlight the data you want to chart. To create a scatter diagram, you will need to highlight two sets of data that you want to compare."
+          },
+          {
+            "id": "ch17-content-en-080",
+            "kind": "paragraph",
+            "text": "1. Select Insert > Chart > Scatter"
+          },
+          {
+            "id": "ch17-content-en-081",
+            "kind": "paragraph",
+            "text": "2. Use Excel’s formatting functions to edit colors, titles, and labels as desired."
+          },
+          {
+            "id": "ch17-content-en-082",
+            "kind": "paragraph",
+            "text": "From the scatter diagram created, we can see that the two variables – production volume and errors – appear to be related in some manner. While it’s a good bet that increased production actually causes increased errors, you can’t simply assume causation from this graph. This assumption could be further tested using more advanced statistical techniques."
+          },
+          {
+            "id": "ch17-content-en-083",
+            "kind": "paragraph",
+            "text": "It should be noted that, even when correlation seems obvious on a scatter diagram, it isn’t always the case. Six Sigma experts should always test correlation assumptions to ensure they are correct statistically before presenting a scatter diagram to others as an illustration of a relationship. We’ll cover statistical regression and correlation tests in chapter 19."
+          },
+          {
+            "id": "ch17-content-en-084",
+            "kind": "heading",
+            "text": "Creating an X-Bar Control Chart without Statistical Software"
+          },
+          {
+            "id": "ch17-content-en-085",
+            "kind": "paragraph",
+            "text": "The X-bar control chart plots the mean of a sample over time – or the mean of samples taken over time, in the case of an active process. X-bar control charts are one of the most frequently used control charts. Some control charts can also be created in Excel using these steps; more advanced control charts require statistical analysis software."
+          },
+          {
+            "id": "ch17-content-en-086",
+            "kind": "paragraph",
+            "text": "1. Create the following template in an empty Excel spreadsheet."
+          },
+          {
+            "id": "ch17-content-en-087",
+            "kind": "paragraph",
+            "text": "2. Enter your data points in column A. 3. In cell G1, enter the formula =STDEV(A2:A15)"
+          },
+          {
+            "id": "ch17-content-en-088",
+            "kind": "paragraph",
+            "text": "a. The cell references A2:A15 should be edited to correspond to your actual data list. b. This calculates the standard deviation of your data set. 4. In cell G5, enter the formula =AVERAGE(A2:A15)"
+          },
+          {
+            "id": "ch17-content-en-089",
+            "kind": "paragraph",
+            "text": "a. The cell references A2:A15 should be edited to correspond to your actual data list. b. This calculates the mean of your data set. 5. In cell G2, enter the formula: =G5+3*(G1)"
+          },
+          {
+            "id": "ch17-content-en-090",
+            "kind": "paragraph",
+            "text": "a. This calculates an upper control limit that is three standard deviations above the mean. 6. In cell G3, enter the formula: =G5-3*(G1)"
+          },
+          {
+            "id": "ch17-content-en-091",
+            "kind": "paragraph",
+            "text": "a. This calculates a lower control limit that is three standard deviations below the mean. 7. In the UCL column (B), direct Excel to create a column of numbers where every number is equal to the upper control limit by copying =$G$2 into each cell in a row that has an X-bar data point in column A. 8. In the LCL column (C), direct Excel to create a column of numbers where every number is equal to the lower control limit by copying =$G$3 into each cell in a row that has an X-bar data point in column A. 9. In the Mean column, direct Excel to create a column of numbers where every number is equal to the mean by copying =$G$5 into each cell in a row that has an X-bar data point in column A."
+          },
+          {
+            "id": "ch17-content-en-092",
+            "kind": "paragraph",
+            "text": "(Practice steps 1 through 9 with the following data.)"
+          },
+          {
+            "id": "ch17-content-en-093",
+            "kind": "heading",
+            "text": "X-Bar Data Points"
+          },
+          {
+            "id": "ch17-content-en-094",
+            "kind": "paragraph",
+            "text": "24.1 25.2 24.7 28.3 27.1 26.4 25.4"
+          },
+          {
+            "id": "ch17-content-en-095",
+            "kind": "paragraph",
+            "text": "21.4 24.5 23.5 27.5 29.5 24.5 26.8"
+          },
+          {
+            "id": "ch17-content-en-096",
+            "kind": "paragraph",
+            "text": "The result should be a spreadsheet that looks just like the one below."
+          },
+          {
+            "id": "ch17-content-en-097",
+            "kind": "paragraph",
+            "text": "10. Create a control chart by highlighting the data in columns A through D."
+          },
+          {
+            "id": "ch17-content-en-098",
+            "kind": "paragraph",
+            "text": "11. Select Insert > Charts > Line Chart > 2-D Line Chart with Markers"
+          },
+          {
+            "id": "ch17-content-en-099",
+            "kind": "paragraph",
+            "text": "12. Right click on the data labels for the Y axis and select “Format Axis.” 13. Alter the bounds for the axis to remove excess white space in your control chart. In this case, we’ll change bounds from 0 to 35 to 15 to 35."
+          },
+          {
+            "id": "ch17-content-en-100",
+            "kind": "paragraph",
+            "text": "14. Format the chart as desired for color, titles, and data labels. You now have a very basic control chart."
+          },
+          {
+            "id": "ch17-content-en-101",
+            "kind": "paragraph",
+            "text": "One thing you’ll note missing from this control chart is the lines that denote one and two standard deviations above and below the mean. In chapter 16, you learned that those lines help you apply the tests that determine if a process is in control or not. You can easily add those lines by following the steps below."
+          },
+          {
+            "id": "ch17-content-en-102",
+            "kind": "heading",
+            "text": "Add Standard Deviation Lines"
+          },
+          {
+            "id": "ch17-content-en-103",
+            "kind": "paragraph",
+            "text": "1. Add calculations to your spreadsheet for:"
+          },
+          {
+            "id": "ch17-content-en-104",
+            "kind": "paragraph",
+            "text": "a. The mean plus one standard deviation b. The mean plus two standard deviations c. The mean minus one standard deviation d. The mean minus two standard deviations 2. Add four data columns, one for each of the calculations in step one. Copy the numbers from each of the calculations down the columns as you did with the upper and lower control limits and the mean in the original instructions above. 3. The spreadsheet should now appear similar to the image below."
+          },
+          {
+            "id": "ch17-content-en-105",
+            "kind": "paragraph",
+            "text": "4. Highlight all of the information in columns A through H. 5. Select Insert > Charts > Line Chart > 2-D Line Chart with Markers. 6. Change the Y-Axis to an appropriate range. 7. Edit the background standard deviation lines to be less intrusive by clicking on each and first selecting the gradient line option."
+          },
+          {
+            "id": "ch17-content-en-106",
+            "kind": "paragraph",
+            "text": "8. Click on the line again and select “Marker.” Select none to remove the markers for the background lines."
+          },
+          {
+            "id": "ch17-content-en-107",
+            "kind": "paragraph",
+            "text": "9. Edit the final chart as desired with titles and labels."
+          },
+          {
+            "id": "ch17-content-en-108",
+            "kind": "paragraph",
+            "text": "This process might seem very time consuming, but it only takes a few minutes once you are well-versed in the elements of a control chart. It’s a good idea to know how to create control charts in Excel, because Six Sigma experts can’t always rely on access to statistical analysis software."
+          },
+          {
+            "id": "ch17-content-en-109",
+            "kind": "heading",
+            "text": "Adding Free Data Analysis Tools to Excel"
+          },
+          {
+            "id": "ch17-content-en-110",
+            "kind": "paragraph",
+            "text": "You can complete these calculations by hand, but that can be time consuming and require extremely advanced statistical skill sets. We will start with manual calculations because it helps to understand the reasoning behind an analysis. But we’ll also rely heavily on tools that complete most of the calculations. Not only does statistical analysis software minimize the time it takes to conduct such analysis, but it also reduces the chance of calculation errors and increases the accuracy of analysis and conclusions offered by Six Sigma experts."
+          },
+          {
+            "id": "ch17-content-en-111",
+            "kind": "paragraph",
+            "text": "For lessons covered in the next few chapters, you can rely on the free data analysis tool available from Microsoft for Excel. To add this free tool in Excel 2013 and higher, follow the steps below."
+          },
+          {
+            "id": "ch17-content-en-112",
+            "kind": "paragraph",
+            "text": "1. Select File"
+          },
+          {
+            "id": "ch17-content-en-113",
+            "kind": "paragraph",
+            "text": "2. Select options"
+          },
+          {
+            "id": "ch17-content-en-114",
+            "kind": "paragraph",
+            "text": "3. Select Add-ins"
+          },
+          {
+            "id": "ch17-content-en-115",
+            "kind": "paragraph",
+            "text": "4. Locate the Analysis ToolPak under inactive application add-ins. Note: if the Analysis ToolPak is located under Active Application Add-ins, then it is already active and you don’t need to take any of the next steps."
+          },
+          {
+            "id": "ch17-content-en-116",
+            "kind": "paragraph",
+            "text": "5. At the bottom of the dialogue box, ensure that “Excel Add-ins” is listed in the Manage box, and click “Go”."
+          },
+          {
+            "id": "ch17-content-en-117",
+            "kind": "paragraph",
+            "text": "6. In the new dialogue box, ensure the option for Analysis ToolPak is checked."
+          },
+          {
+            "id": "ch17-content-en-118",
+            "kind": "paragraph",
+            "text": "7. Click OK"
+          },
+          {
+            "id": "ch17-content-en-119",
+            "kind": "paragraph",
+            "text": "8. Check that the Analysis ToolPak was installed by selecting “Data” from the Excel menu bar and looking for the Data Analysis option."
+          },
+          {
+            "id": "ch17-content-en-120",
+            "kind": "paragraph",
+            "text": "If the Analysis ToolPak doesn’t appear as an Add-In option, that means it wasn’t installed when your version of Excel was installed. If you are using Excel that was installed from a disk, you’ll need to locate your software CDs and either reinstall the software or complete a custom install of just the Analysis ToolPak file."
+          },
+          {
+            "id": "ch17-content-en-121",
+            "kind": "paragraph",
+            "text": "Note that there are two files with the Analysis ToolPak name. The file called Analysis ToolPak – VBA is not the file that provides analytical capability."
+          },
+          {
+            "id": "ch17-content-en-122",
+            "kind": "paragraph",
+            "text": "The Analysis ToolPak is also available in earlier versions of Excel. In 2003 and earlier versions of Excel, you’ll find the Add-in menu item under Tools. In 2007, the Add-in option is found by selecting the Office button and then Excel options. In 2010, select File, Options, and Manage Add-ins."
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch17-content-zh-001",
+            "kind": "paragraph",
+            "text": "图形分析是六西格玛方法的关键部分。只要能够以可视化格式显示数据或想法，就可以快速识别和传达明显的数据趋势。当向可能没有接受过中级或高级统计培训的辅助人员或管理人员展示想法时，可视化分析非常有用。黑带或其他六西格玛专家有能力讲述与统计数据相同的故事，但以任何人都可以理解的格式。视觉描述是让六西格玛专业人士或赞助商更容易向其他人复述故事的工具，这有助于培训、建立流程变革的文化认同，甚至资源请求。"
+          },
+          {
+            "id": "ch17-content-zh-002",
+            "kind": "paragraph",
+            "text": "在本书的前三个单元中，我们讨论了许多图形分析工具，包括："
+          },
+          {
+            "id": "ch17-content-zh-003",
+            "kind": "listItem",
+            "text": "第 5 章和第 14 章中的帕累托图"
+          },
+          {
+            "id": "ch17-content-zh-004",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Pareto（帕累托）：按影响大小排序，常用于找出“少数关键原因”。"
+              ]
+            ],
+            "text": "术语说明 Pareto（帕累托）：按影响大小排序，常用于找出“少数关键原因”。"
+          },
+          {
+            "id": "ch17-content-zh-005",
+            "kind": "listItem",
+            "text": "运行第 13 章中的图表"
+          },
+          {
+            "id": "ch17-content-zh-006",
+            "kind": "listItem",
+            "text": "第 14 章的箱线图"
+          },
+          {
+            "id": "ch17-content-zh-007",
+            "kind": "listItem",
+            "text": "第 16 章控制图简介"
+          },
+          {
+            "id": "ch17-content-zh-008",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Control Chart（控制图）：用时间序列和控制界限判断过程是否处于受控状态。"
+              ]
+            ],
+            "text": "术语说明 Control Chart（控制图）：用时间序列和控制界限判断过程是否处于受控状态。"
+          },
+          {
+            "id": "ch17-content-zh-009",
+            "kind": "listItem",
+            "text": "第14章散点图介绍"
+          },
+          {
+            "id": "ch17-content-zh-010",
+            "kind": "paragraph",
+            "text": "在本章中，我们将讨论其他图形分析工具，包括条形图和饼图。我们还将再次查看散点图以及如何在 Excel 中创建它们。在第 16 章中，您了解了 X 形控制图的组成部分以及如何判断控制图是否表明流程可能失控。在本章中，我们将逐步完成在 Excel 中手动创建 X 条形控制图的步骤。最后，您将学习如何为各种版本的 Excel 安装数据分析加载项。该插件提供的功能将在接下来的几章中变得相关。"
+          },
+          {
+            "id": "ch17-content-zh-011",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 X-Bar Chart（均值图）：监控样本均值随时间变化的控制图。"
+              ]
+            ],
+            "text": "术语说明 X-Bar Chart（均值图）：监控样本均值随时间变化的控制图。"
+          },
+          {
+            "id": "ch17-content-zh-012",
+            "kind": "heading",
+            "text": "附加图形分析工具"
+          },
+          {
+            "id": "ch17-content-zh-013",
+            "kind": "paragraph",
+            "text": "与六西格玛方法论的许多其他领域一样，在处理图形分析时，特别是在向他人展示信息时，很容易走极端。有这么多可供您使用的工具，您很容易会选择新的、令人兴奋的或更复杂的图表。不过，这通常意味着，当一个更简单的工具可以完成这项工作时，却要花费非增值时间来创建一个可视化工具。如果您还记得第 4 章，这将是一个需要避免的过度处理实例。"
+          },
+          {
+            "id": "ch17-content-zh-014",
+            "kind": "paragraph",
+            "text": "请考虑下面的两个图表，以了解图形分析何时可能发生过度处理。"
+          },
+          {
+            "id": "ch17-content-zh-015",
+            "kind": "paragraph",
+            "text": "两个图表都是相同信息的图形表示。第一个是在 Excel 中单击几下即可创建的简单条形图。第二个是帕累托图，也是在 Excel 中创建的，但需要多次单击鼠标。在这种特殊情况下，帕累托图不需要传达所需的信息。数据足够多样化，任何人都可以通过查看条形图看出销售人员 E 造成了很多错误。在这种特殊情况下，帕累托图夸大了结论，如果需要额外的工作，则不需要创建帕累托图。"
+          },
+          {
+            "id": "ch17-content-zh-016",
+            "kind": "paragraph",
+            "text": "在这个例子中，可能根本不需要数据的可视化描述：结论是显而易见的。查看下面的原始数据，您很快就会发现员工 E 的错误是第二高员工的三倍。然而，即使原始数据可以轻松分析，许多六西格玛专家也会花时间创建图形表示以进行演示。与数据表相比，图表更具视觉吸引力且读取速度更快。"
+          },
+          {
+            "id": "ch17-content-zh-017",
+            "kind": "heading",
+            "text": "销售错误 A 10 B 5 C 2 D 9 E 34 F 7 G 3"
+          },
+          {
+            "id": "ch17-content-zh-018",
+            "kind": "heading",
+            "text": "员工"
+          },
+          {
+            "id": "ch17-content-zh-019",
+            "kind": "paragraph",
+            "text": "最简单的图形分析并不总是最好的选择，尤其是当数据元素不太明显时。可能需要更复杂的分析来发现异常值、关系和趋势。即使有关数据的结论看起来很明显，它们也并不总是正确的。在处理过程中因素之间的关系或相关性时尤其如此。"
+          },
+          {
+            "id": "ch17-content-zh-020",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Correlation（相关）：描述两个变量共同变化的程度，不直接证明因果关系。"
+              ]
+            ],
+            "text": "术语说明 Correlation（相关）：描述两个变量共同变化的程度，不直接证明因果关系。"
+          },
+          {
+            "id": "ch17-content-zh-021",
+            "kind": "paragraph",
+            "text": "作为六西格玛专家，需要时间才能快速选择哪种类型的图形分析最能代表手头的数据。同样重要的是要注意，图形分析的最佳选择同样依赖于提出的问题和数据本身。在上面的示例中，对于想要了解错误可能来自何处的团队来说，基本条形图是一个不错的选择。如果团队将错误与正在工作的轮班时间进行比较，则条形图将没有帮助。"
+          },
+          {
+            "id": "ch17-content-zh-022",
+            "kind": "paragraph",
+            "text": "虽然您确实不想浪费时间和空间以无益的方式呈现数据（或者可能被认为是过度生产的混乱），但在处理分析时情况并非总是如此。 在DMAIC项目的分析阶段，黑带人员和其他六西格玛专家在试图理解数据时经常使用大量的图形分析工具。需要以各种方式查看数据是统计分析软件有用的原因之一：此类软件可以减少创建这些图表和图形的一些手动工作。使用各种类型的六西格玛分析工具进行反复试验还可以帮助您学习确定哪些工具最适合每种情况。"
+          },
+          {
+            "id": "ch17-content-zh-023",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 DMAIC：定义、测量、分析、改进、控制；适用于改进已有流程。"
+              ]
+            ],
+            "text": "术语说明 DMAIC：定义、测量、分析、改进、控制；适用于改进已有流程。"
+          },
+          {
+            "id": "ch17-content-zh-024",
+            "kind": "paragraph",
+            "text": "在本节中，我们将讨论一些到目前为止尚未介绍的工具，包括优点、局限性，以及如何在必要时在 Excel 中创建这些工具，而无需使用统计分析软件。"
+          },
+          {
+            "id": "ch17-content-zh-025",
+            "kind": "heading",
+            "text": "条形图"
+          },
+          {
+            "id": "ch17-content-zh-026",
+            "kind": "paragraph",
+            "text": "条形图的最大好处之一是它们易于识别且易于阅读。公司中几乎所有员工都可以从格式正确的条形图中收集信息，无需指导或指导，这使它们成为通用演示和培训材料的绝佳选择。条形图也很容易创建，因此它们是演示文稿和报告中的首选说明方法。其他好处包括："
+          },
+          {
+            "id": "ch17-content-zh-027",
+            "kind": "listItem",
+            "text": "以简单的视觉格式总结大型数据集的能力"
+          },
+          {
+            "id": "ch17-content-zh-028",
+            "kind": "listItem",
+            "text": "澄清趋势的能力"
+          },
+          {
+            "id": "ch17-content-zh-029",
+            "kind": "listItem",
+            "text": "事实上，大多数人可以轻松地在格式良好的条形图上估计重要值"
+          },
+          {
+            "id": "ch17-content-zh-030",
+            "kind": "listItem",
+            "text": "能够目视检查数据并识别数据可能存在偏差的区域"
+          },
+          {
+            "id": "ch17-content-zh-031",
+            "kind": "listItem",
+            "text": "能够在同一个图表上轻松显示高于和低于零的数据集"
+          },
+          {
+            "id": "ch17-content-zh-032",
+            "kind": "paragraph",
+            "text": "条形图通常需要名义数据或有序数据——根据定性信息分类的数据。显示名义数据时，创建帕累托式图表通常很有用，这样读者可以立即看到人口与类别的关系。序数数据通常涉及其自己的表示逻辑顺序。例如，如果要求个人将产品的满意度分为非常满意、有些满意、一般、不满意和非常不满意，那么您通常不想更改条形图上该演示文稿的顺序。"
+          },
+          {
+            "id": "ch17-content-zh-033",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Population（总体）：研究对象的全部集合；实际项目中常通过样本推断总体。"
+              ]
+            ],
+            "text": "术语说明 Population（总体）：研究对象的全部集合；实际项目中常通过样本推断总体。"
+          },
+          {
+            "id": "ch17-content-zh-034",
+            "kind": "paragraph",
+            "text": "条形图并非没有限制。根据所呈现的内容，可能需要额外的叙述来解释图表。 条形图通常也无法揭示不属于图表特定设计一部分的趋势的关键信息，而且条形图本身很少提供有关数据原因或模式的详细数据。最后，可以轻松地操纵条形图的颜色、顺序和布局来影响受众所获取的信息。 六西格玛专家应始终选择显示基本事实的最佳格式，但绝不应格式化图表来造成可能与图形表示背后的统计数据不一致的印象。"
+          },
+          {
+            "id": "ch17-content-zh-035",
+            "kind": "heading",
+            "text": "在 Excel 中创建条形图"
+          },
+          {
+            "id": "ch17-content-zh-036",
+            "kind": "paragraph",
+            "text": "从相关名义或有序数据的数据表开始，在 Excel 中创建您自己的条形图。将下面的数据表复制到 Excel 中以练习条形图创建，或使用与您自己的流程或项目相关的数据。示例数据表提供了区域客户服务呼叫中心团队在特定日期每小时经历的电话总数。"
+          },
+          {
+            "id": "ch17-content-zh-037",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Sample / Sampling（样本/抽样）：从总体中选取部分数据进行分析；样本应尽量代表总体。"
+              ]
+            ],
+            "text": "术语说明 Sample / Sampling（样本/抽样）：从总体中选取部分数据进行分析；样本应尽量代表总体。"
+          },
+          {
+            "id": "ch17-content-zh-038",
+            "kind": "paragraph",
+            "text": "1. 突出显示包含要绘制图表的数据的列以及该数据的标签。在本例中，数据是呼叫次数，标签是小时数。"
+          },
+          {
+            "id": "ch17-content-zh-039",
+            "kind": "heading",
+            "text": "2. 选择“插入”>“图表”>“条形图”"
+          },
+          {
+            "id": "ch17-content-zh-040",
+            "kind": "paragraph",
+            "text": "3. 对于本例，最简单的条形图形式是合适的。 4. 根据需要使用 Excel 格式化工具自定义图表标题、颜色和标签。"
+          },
+          {
+            "id": "ch17-content-zh-041",
+            "kind": "paragraph",
+            "text": "大多数版本的 Excel 都提供多种类型的条形图，您可以尝试使用这些不同的格式，看看它们如何显示数据。下面包含一些有关常见格式的注释。"
+          },
+          {
+            "id": "ch17-content-zh-042",
+            "kind": "heading",
+            "text": "柱形与条形"
+          },
+          {
+            "id": "ch17-content-zh-043",
+            "kind": "paragraph",
+            "text": "从技术上讲，通常所说的条形图（以及我们在这里所说的条形图）是柱形图。代表每个数据类别的可视列垂直上升。文字条形图水平显示相同的信息。大多数版本的 Excel 允许您在两种显示之间进行选择。下面以水平条形图显示示例数据表中的信息。"
+          },
+          {
+            "id": "ch17-content-zh-044",
+            "kind": "heading",
+            "text": "3-D 条形图和柱形图"
+          },
+          {
+            "id": "ch17-content-zh-045",
+            "kind": "paragraph",
+            "text": "本章到目前为止显示的图表都是二维的。 Excel 还可以帮助您创建 3 维图表，为演示文稿增添视觉吸引力。如果您连续呈现多个外观相似的图表，3D 图表会很有帮助，因为它有助于区分演示文稿中的信息。 创建更具视觉吸引力的图表以更充分地吸引观众的注意力也可能会有所帮助。这是上面在 3D 图表中使用的相同数据的示例。"
+          },
+          {
+            "id": "ch17-content-zh-046",
+            "kind": "heading",
+            "text": "堆积条形图"
+          },
+          {
+            "id": "ch17-content-zh-047",
+            "kind": "paragraph",
+            "text": "堆叠条形图可让您显示每个类别的总名义或序数数据，同时还将该信息分解为颜色编码的类别。例如，如果六西格玛团队分析每小时的电话量，想要显示包括部门内不同团队处理的电话量在内的数据，则条形图可能如下图所示。"
+          },
+          {
+            "id": "ch17-content-zh-048",
+            "kind": "heading",
+            "text": "创建堆积条形图"
+          },
+          {
+            "id": "ch17-content-zh-049",
+            "kind": "paragraph",
+            "text": "要创建堆积条形图，您必须具有分为类别的序数或名义数据。每个数据集的类别必须相同，以便子类别数的总数等于主类别数的总数。例如，如果您有三袋弹珠，您的数据可能会显示："
+          },
+          {
+            "id": "ch17-content-zh-050",
+            "kind": "paragraph",
+            "text": "经过进一步分析，您发现弹珠有三种颜色：红色、蓝色和黄色。"
+          },
+          {
+            "id": "ch17-content-zh-051",
+            "kind": "paragraph",
+            "text": "袋子 1 不包含任何蓝色弹珠，但您必须将蓝色作为袋子 1 的类别，因为它是其他两个袋子中的类别。您只需在该数据字段中输入 0 即可。您会注意到，每个袋子下的子类别总数加起来就是每个袋子中弹珠的数量。遵循这些准则（包括每个部分的所有子类别并确保子类别总计正确）可帮助您创建准确的堆叠条形图。"
+          },
+          {
+            "id": "ch17-content-zh-052",
+            "kind": "paragraph",
+            "text": "检查下面的数据表，其中显示了呼叫中心各团队的呼叫明细。"
+          },
+          {
+            "id": "ch17-content-zh-053",
+            "kind": "paragraph",
+            "text": "1. 突出显示包含要包含在堆叠条形图中的数据的单元格以及包含数据标签的单元格。"
+          },
+          {
+            "id": "ch17-content-zh-054",
+            "kind": "heading",
+            "text": "2. 选择“插入”>“图表”>“条形图”>“堆叠条形图”"
+          },
+          {
+            "id": "ch17-content-zh-055",
+            "kind": "paragraph",
+            "text": "3. 使用 Excel 的格式选项根据需要编辑标题、颜色和数据标签。"
+          },
+          {
+            "id": "ch17-content-zh-056",
+            "kind": "heading",
+            "text": "饼图"
+          },
+          {
+            "id": "ch17-content-zh-057",
+            "kind": "paragraph",
+            "text": "饼图是商业环境中几乎所有员工都会熟悉的另一种可视化工具，使其成为显示某些类型信息的不错选择。序数和名义信息也可以显示在饼图中，主要目的是直观地表示每个类别与整体的关系。传统观点认为，当您绘制图表的数字加起来达到 100 时，就应该使用饼图，但事实并非如此。 Excel 将值转换为百分比以创建饼图。考虑下面的饼图，其中绘制了数字 8、5 和 4。Excel 将这些数字中的每一个与 17 的总“饼图”进行比较。蓝色部分代表 47%，对应于原始数据 8/17。"
+          },
+          {
+            "id": "ch17-content-zh-058",
+            "kind": "paragraph",
+            "text": "饼图的好处包括："
+          },
+          {
+            "id": "ch17-content-zh-059",
+            "kind": "listItem",
+            "text": "以可视化格式汇总大量特定数据类型的能力。"
+          },
+          {
+            "id": "ch17-content-zh-060",
+            "kind": "listItem",
+            "text": "简单；饼图是最简单的图表类型之一"
+          },
+          {
+            "id": "ch17-content-zh-061",
+            "kind": "listItem",
+            "text": "识别数据或计算的明显问题的能力"
+          },
+          {
+            "id": "ch17-content-zh-062",
+            "kind": "listItem",
+            "text": "当正确标记时，饼图通常不需要太多额外的解释"
+          },
+          {
+            "id": "ch17-content-zh-063",
+            "kind": "listItem",
+            "text": "饼图显示总数据集中子集数据的相关性"
+          },
+          {
+            "id": "ch17-content-zh-064",
+            "kind": "paragraph",
+            "text": "商业环境中不断使用饼图对于六西格玛团队和专家来说既是优点也是缺点。当数据可以用饼图来描述时，六西格玛专家通常需要减少叙述才能表达潜在的观点。与此同时，饼图并不总是像更高级的统计表示那样具有重要性，因为企业员工已经习惯了看到它们。饼图的其他缺点包括它们的操作方式与条形图大致相同，它们通常无法轻松显示随时间的变化，并且在使用饼图呈现时很难可视化精确值。"
+          },
+          {
+            "id": "ch17-content-zh-065",
+            "kind": "heading",
+            "text": "在 Excel 中创建饼图"
+          },
+          {
+            "id": "ch17-content-zh-066",
+            "kind": "paragraph",
+            "text": "使用以下数据表练习在 Excel 中创建饼图，该数据表记录流程每个步骤平均花费的分钟数。如果需要，您还可以使用与您自己的流程或项目相关的数据来创建练习饼图。"
+          },
+          {
+            "id": "ch17-content-zh-067",
+            "kind": "paragraph",
+            "text": "处理步骤分钟 A 14 B 18 C 41 D 64 E 12 F 4 G 3 H 7 I 23 J 18"
+          },
+          {
+            "id": "ch17-content-zh-068",
+            "kind": "paragraph",
+            "text": "1. 突出显示要绘制图表的数据列以及数据标签。在示例中，我们绘制了分钟数图表，进程编号是数据标签。"
+          },
+          {
+            "id": "ch17-content-zh-069",
+            "kind": "heading",
+            "text": "2. 单击“插入”>“图表”>“饼图”"
+          },
+          {
+            "id": "ch17-content-zh-070",
+            "kind": "paragraph",
+            "text": "3. 使用 Excel 的格式设置工具根据需要更改颜色、标题和标签。"
+          },
+          {
+            "id": "ch17-content-zh-071",
+            "kind": "paragraph",
+            "text": "从为示例数据创建的饼图中，我们可以看到总处理时间的大约一半与 10 步流程中的仅两个步骤相关。 我们还可以快速查看哪些步骤平均耗时最长，哪些步骤最短，尽管我们无法仅从该图表得出有关实际时间的任何结论。"
+          },
+          {
+            "id": "ch17-content-zh-072",
+            "kind": "paragraph",
+            "text": "与条形图一样，您可以利用 Excel 选项来创建三维饼图。 Excel 中的 Pie of Pie 函数是一个特别有用的函数，它可让您创建一个整体饼图并绘制第二个饼图以更深入地研究较大结构的某些区域。考虑下面的饼图，它表示与上面饼图相同的数据。"
+          },
+          {
+            "id": "ch17-content-zh-073",
+            "kind": "paragraph",
+            "text": "原始饼图描绘了 10 个步骤。上图显示了一个带有辅助图表的大饼图。大饼图似乎显示了 7 个步骤 - 但此饼图显示的信息与上面的饼图相同。然而，该过程中的四个步骤在较小的图表中被标注出来，以便您可以更好地了解它们如何相互关联。这四个步骤组合起来构成了大饼中的第七个深蓝色饼块。这使得更容易查明整体中较小数据类别的相关性或强调图表的特定区域。"
+          },
+          {
+            "id": "ch17-content-zh-074",
+            "kind": "paragraph",
+            "text": "但是，您必须小心，观看者不会仅根据饼图的大小来分配相关性或重要性。上面第二个图表中的灰色饼图比较大饼图中的其他部分更大，但这并不意味着该步骤需要更长的时间。较小的饼图应被视为整个图表的一小部分的大比例视图。在本例中，该小部分考虑了其中四个步骤。"
+          },
+          {
+            "id": "ch17-content-zh-075",
+            "kind": "heading",
+            "text": "X Y 散点图"
+          },
+          {
+            "id": "ch17-content-zh-076",
+            "kind": "paragraph",
+            "text": "我们在第 14 章中非常简单地介绍了散点图，我们将在后面有关相关性和回归建模的章节中深入讨论它们。在本节中，我们将介绍如何使用任何分析插件在 Excel 中创建散点图。在第 19 章中，我们将使用 Excel 插件在创建散点图时进行一些统计分析。"
+          },
+          {
+            "id": "ch17-content-zh-077",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Scatter Diagram（散点图）：展示两个变量之间关系的图形；相关不等于因果。"
+              ]
+            ],
+            "text": "术语说明 Scatter Diagram（散点图）：展示两个变量之间关系的图形；相关不等于因果。"
+          },
+          {
+            "id": "ch17-content-zh-078",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Regression（回归）：用模型估计变量之间的关系，并预测响应变量。"
+              ]
+            ],
+            "text": "术语说明 Regression（回归）：用模型估计变量之间的关系，并预测响应变量。"
+          },
+          {
+            "id": "ch17-content-zh-079",
+            "kind": "paragraph",
+            "text": "散点图很有用，因为它们可以帮助团队直观地看到流程中两个因素之间的关系。温度会随着时间的推移而降低吗？一个人的生产力会随着他或她的薪水而提高吗？这些是可以通过散点图回答的问题示例，但重要的是要认识到散点图上描绘的相关性并不一定意味着因果关系。 两个变量可以密切相关，而一个变量不会引起另一个变量的变化。"
+          },
+          {
+            "id": "ch17-content-zh-080",
+            "kind": "paragraph",
+            "text": "散点图通常可以帮助团队了解是否存在不相关、弱相关、正相关或负相关。当变量 2 与变量 1 的增加相关时，就会出现正相关，反之亦然。当变量 2 与变量 1 的减少相关时，就会出现负相关，反之亦然。例如，人们普遍注意到美国各地理区域的犯罪率和人均收入是相关的。犯罪率较高的地区通常也表现出较低的收入统计数据。该说法也可以从另一个方向进行：收入统计数据较低的地区往往表现出较高的犯罪率。这并不是说其中任何一个必然导致另一个。"
+          },
+          {
+            "id": "ch17-content-zh-081",
+            "kind": "paragraph",
+            "text": "散点图的缺点是业务员工不像条形图、饼图甚至折线图那样熟悉它们。不了解统计分析的人还存在将相关性误认为因果关系的风险，这可能会导致错误的决策。 黑带人员和六西格玛的其他专家必须认识到这些风险，以便能够对散点图进行适当的解释，并在必要时提供进一步的解释。"
+          },
+          {
+            "id": "ch17-content-zh-082",
+            "kind": "heading",
+            "text": "在 Excel 中创建散点图"
+          },
+          {
+            "id": "ch17-content-zh-083",
+            "kind": "paragraph",
+            "text": "使用下面的数据表（其中包括随着输出每小时增加而导致流程每小时产生的平均错误数）在 Excel 中创建散点图。将下表中的信息复制到 Excel 中，或者根据需要使用您自己的流程或项目中的数据。"
+          },
+          {
+            "id": "ch17-content-zh-084",
+            "kind": "heading",
+            "text": "每份数"
+          },
+          {
+            "id": "ch17-content-zh-085",
+            "kind": "heading",
+            "text": "小时"
+          },
+          {
+            "id": "ch17-content-zh-086",
+            "kind": "heading",
+            "text": "缺陷"
+          },
+          {
+            "id": "ch17-content-zh-087",
+            "kind": "paragraph",
+            "text": "100 3 150 4 200 5 250 5 300 7 350 7 400 9 450 8 500 10"
+          },
+          {
+            "id": "ch17-content-zh-088",
+            "kind": "paragraph",
+            "text": "1. 突出显示要绘制图表的数据。要创建散点图，您需要突出显示要比较的两组数据。"
+          },
+          {
+            "id": "ch17-content-zh-089",
+            "kind": "heading",
+            "text": "1. 选择“插入”>“图表”>“散点图”"
+          },
+          {
+            "id": "ch17-content-zh-090",
+            "kind": "paragraph",
+            "text": "2. 使用 Excel 的格式化功能根据需要编辑颜色、标题和标签。"
+          },
+          {
+            "id": "ch17-content-zh-091",
+            "kind": "paragraph",
+            "text": "从创建的散点图中，我们可以看到两个变量——产量和错误——似乎以某种方式相关。虽然可以肯定的是，产量增加实​​际上会导致错误增加，但您不能简单地从该图中假设因果关系。可以使用更先进的统计技术进一步测试这一假设。"
+          },
+          {
+            "id": "ch17-content-zh-092",
+            "kind": "paragraph",
+            "text": "应该指出的是，即使相关性在散点图上看起来很明显，但情况并非总是如此。 六西格玛专家在向他人展示散点图以说明关系之前，应始终测试相关性假设，以确保它们在统计上是正确的。我们将在第 19 章介绍统计回归和相关性测试。"
+          },
+          {
+            "id": "ch17-content-zh-093",
+            "kind": "heading",
+            "text": "无需统计软件即可创建 X-Bar 控制图"
+          },
+          {
+            "id": "ch17-content-zh-094",
+            "kind": "paragraph",
+            "text": "X 条形控制图绘制了一段时间内样本的平均值，或者在活动过程的情况下绘制了一段时间内采集的样本的平均值。 X 形控制图是最常用的控制图之一。还可以使用以下步骤在 Excel 中创建一些控制图；更先进的控制图需要统计分析软件。"
+          },
+          {
+            "id": "ch17-content-zh-095",
+            "kind": "paragraph",
+            "text": "1. 在空的 Excel 电子表格中创建以下模板。"
+          },
+          {
+            "id": "ch17-content-zh-096",
+            "kind": "paragraph",
+            "text": "2. 在 A 列中输入数据点。 3. 在单元格 G1 中，输入公式 =STDEV(A2:A15)"
+          },
+          {
+            "id": "ch17-content-zh-097",
+            "kind": "paragraph",
+            "text": "a.应编辑单元格引用 A2:A15 以对应于您的实际数据列表。 b.这将计算数据集的标准差。 4. 在单元格 G5 中，输入公式 =AVERAGE(A2:A15)"
+          },
+          {
+            "id": "ch17-content-zh-098",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Standard Deviation（标准差）：衡量数据离散程度的统计量；标准差越大，波动越明显。"
+              ]
+            ],
+            "text": "术语说明 Standard Deviation（标准差）：衡量数据离散程度的统计量；标准差越大，波动越明显。"
+          },
+          {
+            "id": "ch17-content-zh-099",
+            "kind": "paragraph",
+            "text": "a.应编辑单元格引用 A2:A15 以对应于您的实际数据列表。 b.这将计算数据集的平均值。 5. 在单元格 G2 中，输入公式：=G5+3*(G1)"
+          },
+          {
+            "id": "ch17-content-zh-100",
+            "kind": "paragraph",
+            "text": "a.这将计算出比平均值高三个标准差的控制上限。 6. 在单元格 G3 中，输入公式：=G5-3*(G1)"
+          },
+          {
+            "id": "ch17-content-zh-101",
+            "kind": "paragraph",
+            "text": "a.这将计算出比平均值低三个标准差的控制下限。 7. 在 UCL 列 (B) 中，通过将 =$G$2 复制到 A 列中具有 X 条数据点的行中的每个单元格中，指示 Excel 创建一列数字，其中每个数字都等于控制上限。 8. 在 LCL 列 (C) 中，通过将 =$G$3 复制到 A 列中具有 X 条数据点的行中的每个单元格中，指示 Excel 创建一列数字，其中每个数字都等于控制下限。 9. 在平均值列，通过将 =$G$5 复制到 A 列中具有 X 条数据点的行中的每个单元格中，指示 Excel 创建一列数字，其中每个数字都等于平均值。"
+          },
+          {
+            "id": "ch17-content-zh-102",
+            "kind": "paragraph",
+            "text": "（使用以下数据练习步骤 1 到 9。）"
+          },
+          {
+            "id": "ch17-content-zh-103",
+            "kind": "heading",
+            "text": "X-Bar 数据点"
+          },
+          {
+            "id": "ch17-content-zh-104",
+            "kind": "paragraph",
+            "text": "24.1 25.2 24.7 28.3 27.1 26.4 25.4"
+          },
+          {
+            "id": "ch17-content-zh-105",
+            "kind": "paragraph",
+            "text": "21.4 24.5 23.5 27.5 29.5 24.5 26.8"
+          },
+          {
+            "id": "ch17-content-zh-106",
+            "kind": "paragraph",
+            "text": "结果应该是一个如下所示的电子表格。"
+          },
+          {
+            "id": "ch17-content-zh-107",
+            "kind": "paragraph",
+            "text": "10. 通过突出显示 A 至 D 列中的数据来创建控制图。"
+          },
+          {
+            "id": "ch17-content-zh-108",
+            "kind": "heading",
+            "text": "11. 选择“插入”>“图表”>“折线图”>“带标记的二维折线图”"
+          },
+          {
+            "id": "ch17-content-zh-109",
+            "kind": "paragraph",
+            "text": "12. 右键单击 Y 轴的数据标签，然后选择“设置轴格式”。 13. 更改轴的边界以删除控制图中多余的空白。在本例中，我们将范围从 0 更改为 35 到 15 到 35。"
+          },
+          {
+            "id": "ch17-content-zh-110",
+            "kind": "paragraph",
+            "text": "14. 根据需要设置图表的颜色、标题和数据标签格式。现在您已经有了一个非常基本的控制图。"
+          },
+          {
+            "id": "ch17-content-zh-111",
+            "kind": "paragraph",
+            "text": "您会注意到此控制图中缺少的一件事是表示高于和低于平均值的一个和两个标准差的线条。在第 16 章中，您了解到这些行可以帮助您应用测试来确定过程是否受控。您可以按照以下步骤轻松添加这些行。"
+          },
+          {
+            "id": "ch17-content-zh-112",
+            "kind": "heading",
+            "text": "添加标准偏差线"
+          },
+          {
+            "id": "ch17-content-zh-113",
+            "kind": "paragraph",
+            "text": "1. 将计算添加到电子表格中："
+          },
+          {
+            "id": "ch17-content-zh-114",
+            "kind": "paragraph",
+            "text": "a.平均值加一标准差 B.平均值加上两个标准差 C.平均值减去一个标准差 D．平均值减去两个标准差 2. 添加四个数据列，每个数据列对应第一步中的每个计算。将每个计算中的数字复制到列中，就像上面原始说明中对控制上限和下限以及平均值所做的那样。 3. 电子表格现在应如下图所示。"
+          },
+          {
+            "id": "ch17-content-zh-115",
+            "kind": "paragraph",
+            "text": "4. 突出显示 A 至 H 列中的所有信息。 5. 选择“插入”>“图表”>“折线图”>“带标记的二维折线图”。 6. 将 Y 轴更改为适当的范围。 7. 单击每条背景标准偏差线并首先选择渐变线选项，编辑背景标准偏差线以减少干扰。"
+          },
+          {
+            "id": "ch17-content-zh-116",
+            "kind": "paragraph",
+            "text": "8. 再次单击该线并选择“标记”。选择“无”可删除背景线的标记。"
+          },
+          {
+            "id": "ch17-content-zh-117",
+            "kind": "paragraph",
+            "text": "9. 根据需要编辑最终图表的标题和标签。"
+          },
+          {
+            "id": "ch17-content-zh-118",
+            "kind": "paragraph",
+            "text": "这个过程可能看起来非常耗时，但一旦您精通控制图的元素，只需要几分钟。 了解如何在 Excel 中创建控制图是个好主意，因为六西格玛专家不能总是依赖统计分析软件。"
+          },
+          {
+            "id": "ch17-content-zh-119",
+            "kind": "heading",
+            "text": "向 Excel 添加免费数据分析工具"
+          },
+          {
+            "id": "ch17-content-zh-120",
+            "kind": "paragraph",
+            "text": "您可以手动完成这些计算，但这可能非常耗时，并且需要极其先进的统计技能。我们将从手动计算开始，因为它有助于理解分析背后的推理。但我们也会严重依赖完成大部分计算的工具。统计分析软件不仅最大限度地减少了进行此类分析所需的时间，而且还减少了计算错误的机会，提高了六西格玛专家提供的分析和结论的准确性。"
+          },
+          {
+            "id": "ch17-content-zh-121",
+            "kind": "paragraph",
+            "text": "对于接下来几章中介绍的课程，您可以依靠 Microsoft for Excel 提供的免费数据分析工具。要在 Excel 2013 及更高版本中添加此免费工具，请按照以下步骤操作。"
+          },
+          {
+            "id": "ch17-content-zh-122",
+            "kind": "heading",
+            "text": "1. 选择文件"
+          },
+          {
+            "id": "ch17-content-zh-123",
+            "kind": "heading",
+            "text": "2. 选择选项"
+          },
+          {
+            "id": "ch17-content-zh-124",
+            "kind": "heading",
+            "text": "3. 选择加载项"
+          },
+          {
+            "id": "ch17-content-zh-125",
+            "kind": "paragraph",
+            "text": "4. 在非活动应用程序加载项下找到分析工具库。注意：如果分析工具库位于活动应用程序加载项下，则它已处于活动状态，您无需执行任何后续步骤。"
+          },
+          {
+            "id": "ch17-content-zh-126",
+            "kind": "paragraph",
+            "text": "5. 在对话框底部，确保“Excel 加载项”列在“管理”框中，然后单击“执行”。"
+          },
+          {
+            "id": "ch17-content-zh-127",
+            "kind": "paragraph",
+            "text": "6. 在新对话框中，确保选中 Analysis ToolPak 选项。"
+          },
+          {
+            "id": "ch17-content-zh-128",
+            "kind": "heading",
+            "text": "7. 单击“确定”"
+          },
+          {
+            "id": "ch17-content-zh-129",
+            "kind": "paragraph",
+            "text": "8. 从 Excel 菜单栏中选择“数据”并查找“数据分析”选项，检查分析工具库是否已安装。"
+          },
+          {
+            "id": "ch17-content-zh-130",
+            "kind": "paragraph",
+            "text": "如果分析工具库没有作为加载项选项出现，则意味着在安装您的 Excel 版本时尚未安装它。如果您使用的是从磁盘安装的 Excel，则需要找到软件 CD 并重新安装软件或仅完成分析工具库文件的自定义安装。"
+          },
+          {
+            "id": "ch17-content-zh-131",
+            "kind": "paragraph",
+            "text": "请注意，有两个文件具有分析工具库名称。名为 Analysis ToolPak – VBA 的文件不是提供分析功能的文件。"
+          },
+          {
+            "id": "ch17-content-zh-132",
+            "kind": "paragraph",
+            "text": "早期版本的 Excel 中也提供了分析工具库。在 2003 版及更早版本的 Excel 中，您可以在“工具”下找到“加载项”菜单项。 2007 年，通过选择 Office 按钮然后选择 Excel 选项可以找到加载项选项。 在 2010 年，选择“文件”、“选项”和“管理加载项”。"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,1642 @@
+{
+  "id": "ch20",
+  "chapter": 20,
+  "pageStart": 222,
+  "pageEnd": 247,
+  "title": {
+    "en": "Chapter 20: Non-Normal Probability Distributions",
+    "zh": "第 20 章：非正态概率分布"
+  },
+  "source": {
+    "enDocx": "C:\\findjob_sixsigma_sources\\manual_en_aligned.docx",
+    "zhDocx": "C:\\findjob_sixsigma_sources\\manual_zh_aligned.docx",
+    "extraction": "python-docx body-order extraction; generic chapter-level bilingual content"
+  },
+  "sections": [
+    {
+      "id": "ch20-content",
+      "level": 1,
+      "page": 222,
+      "title": {
+        "en": "Non-Normal Probability Distributions",
+        "zh": "非正态概率分布"
+      },
+      "content": {
+        "en": [
+          {
+            "id": "ch20-content-en-001",
+            "kind": "paragraph",
+            "text": "In chapter 18, we discussed the normal probability curve, which is also called the Gaussian distribution. While it’s true that the normal probability curve is the most important and commonly used distribution in statistics and by Six Sigma teams, it’s also true that every set of data is not going to fall along the normal probability distribution. This chapter covers non-normal probability distributions, how to recognize some of the more common distributions through graphical analysis, and some information about using statistical analysis with such distributions."
+          },
+          {
+            "id": "ch20-content-en-002",
+            "kind": "paragraph",
+            "text": "Some of the simpler statistical calculations for non-normal probability distributions are included in this chapter, along with details for how to handle those calculations manually. Calculations for all of the distributions mentioned are not included, because they can be very complex and almost no one handles these calculations manually. In unit 6, we’ll cover how to calculate probabilities using a wide variety of distributions in Minitab."
+          },
+          {
+            "id": "ch20-content-en-003",
+            "kind": "heading",
+            "text": "Reviewing Normal Probability Distributions"
+          },
+          {
+            "id": "ch20-content-en-004",
+            "kind": "paragraph",
+            "text": "Before moving forward, it’s important to revisit some of the fundamental information about the normal curve covered in chapter 18. First, remember that the normal distribution is related to continuous data. This means that your data is associated with random variables that can take the form of any of an infinite number of points along an interval. Temperature over time is a continuous type of data. Yes, you might never see the temperature of a room fall below 40 degrees F, but within a range such as 40 degrees and 80 degrees are an infinite number of continuous data points if you measured to a high enough degree of accuracy."
+          },
+          {
+            "id": "ch20-content-en-005",
+            "kind": "paragraph",
+            "text": "Remember that discrete data is not continuous in nature. Discrete data is typically about categorical occurrences. In some cases, discrete data can be converted to continuous data to allow Six Sigma teams to use more statistical analysis tools when working with the information. When that isn’t possible, however, you cannot use the normal curve or related statistical analysis on discrete data. Discrete data usually involves either a binomial distribution or a Poisson distribution; both will be covered later in this chapter."
+          },
+          {
+            "id": "ch20-content-en-006",
+            "kind": "heading",
+            "text": "Anatomy of a Normal Curve"
+          },
+          {
+            "id": "ch20-content-en-007",
+            "kind": "paragraph",
+            "text": "The normal curve, when presented in graphical format or on a histogram, is typically symmetrical in nature. The data elements tend to concentrate along the center of the curve, with elements fanning out slowly on either side as the curve drops ever toward zero."
+          },
+          {
+            "id": "ch20-content-en-008",
+            "kind": "paragraph",
+            "text": "While a visual inspection of data through graphical analysis can help determine if data might be normal, there are several continuous distribution curves that look a lot like normal curves. That’s why we apply statistical tests, such as the Chi-Squared Goodness-of-Fit Test discussed in chapter 18, to determine whether data is actually normal. Don’t confuse the Chi-Squared Goodness-of-Fit Test with the Chi-"
+          },
+          {
+            "id": "ch20-content-en-009",
+            "kind": "paragraph",
+            "text": "Squared distribution, which makes an appearance later in this chapter. One is a statistical test and the other is a probability distribution."
+          },
+          {
+            "id": "ch20-content-en-010",
+            "kind": "paragraph",
+            "text": "The normal curve:"
+          },
+          {
+            "id": "ch20-content-en-011",
+            "kind": "listItem",
+            "text": "Is symmetrical"
+          },
+          {
+            "id": "ch20-content-en-012",
+            "kind": "listItem",
+            "text": "Is most commonly required for inferential statistics"
+          },
+          {
+            "id": "ch20-content-en-013",
+            "kind": "listItem",
+            "text": "Is described statistically using both the mean and standard deviation"
+          },
+          {
+            "id": "ch20-content-en-014",
+            "kind": "paragraph",
+            "text": "o The curve centers on the mean o The number of standard deviations away from the mean changes the probability of the amount of data under the curve"
+          },
+          {
+            "id": "ch20-content-en-015",
+            "kind": "heading",
+            "text": "Non-Normal Continuous Distributions"
+          },
+          {
+            "id": "ch20-content-en-016",
+            "kind": "heading",
+            "text": "Exponential Distribution"
+          },
+          {
+            "id": "ch20-content-en-017",
+            "kind": "paragraph",
+            "text": "The exponential distribution creates a histogram or trend line that is exponential in nature. It decreases exponentially as you travel across the x-axis. See the image below for an example."
+          },
+          {
+            "id": "ch20-content-en-018",
+            "kind": "paragraph",
+            "text": "In an exponential distribution, the data is not organized around the mean as in the normal probability curve, but at one end of the x-axis. The data used to create the histogram above had a mean of 24.79 but a median of 16. Often, when working with non-normal data, the median is a more applicable data point than the mean for graphical analysis. If you locate the median on the x-axis of an exponential histogram, you know that 50 percent of the other data points fall before it and 50 percent after it."
+          },
+          {
+            "id": "ch20-content-en-019",
+            "kind": "paragraph",
+            "text": "Exponential distributions are often used when working with data sets that include arrival times, the average or mean time between failures in a process, wait-line theories, or the distance – in time or space – between interesting points of occurrence in data, processes, or experiments. The exponential"
+          },
+          {
+            "id": "ch20-content-en-020",
+            "kind": "paragraph",
+            "text": "distribution is particularly valuable when working with certain Poisson distributions. If you recall, Poisson distributions are discrete rather than continuous, which means Six Sigma teams are limited in what statistical tools can be used to analyze the data. However, the exponential distribution can often be used to describe the rate of change within the data that is distributed in a Poisson distribution, providing a method for creating continuous data that can be analyzed."
+          },
+          {
+            "id": "ch20-content-en-021",
+            "kind": "paragraph",
+            "text": "The exponential curve:"
+          },
+          {
+            "id": "ch20-content-en-022",
+            "kind": "listItem",
+            "text": "Never appears symmetrical"
+          },
+          {
+            "id": "ch20-content-en-023",
+            "kind": "listItem",
+            "text": "Is described statistically by the mean of the data and a value known as lambda"
+          },
+          {
+            "id": "ch20-content-en-024",
+            "kind": "paragraph",
+            "text": "Here is another graphical representation of an exponential distribution generated in Minitab, which is a statistical analysis software."
+          },
+          {
+            "id": "ch20-content-en-025",
+            "kind": "heading",
+            "text": "Distribution Plot"
+          },
+          {
+            "id": "ch20-content-en-026",
+            "kind": "paragraph",
+            "text": "Exponential, Scale=1, Thresh=0"
+          },
+          {
+            "id": "ch20-content-en-027",
+            "kind": "paragraph",
+            "text": "1.0"
+          },
+          {
+            "id": "ch20-content-en-028",
+            "kind": "paragraph",
+            "text": "0.8"
+          },
+          {
+            "id": "ch20-content-en-029",
+            "kind": "paragraph",
+            "text": "0.6"
+          },
+          {
+            "id": "ch20-content-en-030",
+            "kind": "paragraph",
+            "text": "Density"
+          },
+          {
+            "id": "ch20-content-en-031",
+            "kind": "paragraph",
+            "text": "0.4"
+          },
+          {
+            "id": "ch20-content-en-032",
+            "kind": "paragraph",
+            "text": "0.2"
+          },
+          {
+            "id": "ch20-content-en-033",
+            "kind": "paragraph",
+            "text": "0.0"
+          },
+          {
+            "id": "ch20-content-en-034",
+            "kind": "paragraph",
+            "text": "16 14 12 10 8 6 4 2 0"
+          },
+          {
+            "id": "ch20-content-en-035",
+            "kind": "paragraph",
+            "text": "X"
+          },
+          {
+            "id": "ch20-content-en-036",
+            "kind": "paragraph",
+            "text": "As with the normal distribution, you can run a statistical test in Excel to determine if your data is exponential. The test is basically the same Chi-Squared Goodness-of-Fit test we used in chapter 18. The same idea is used: you first predict the number of data points you would find in each bin in a perfect exponential curve given the statistical data regarding your set. You then compare the actual breakdown of your data against expected numbers to find the Chi-Squared value, which is used to evaluate your hypothesis that the data is exponential."
+          },
+          {
+            "id": "ch20-content-en-037",
+            "kind": "paragraph",
+            "text": "Because we are going to introduce using Minitab for statistical analysis functions in the next few units, and because Minitab handles Chi-Squared Goodness-of-Fit testing and many other statistical calculations automatically, we won’t cover detailed steps for testing each type of data distribution in Excel. Because most of the tests that can be performed using the free Analysis ToolPak in Excel require"
+          },
+          {
+            "id": "ch20-content-en-038",
+            "kind": "paragraph",
+            "text": "normally distributed data, the steps for testing for normal data in Excel in chapter 18 should be sufficient for much of your Excel-only based work."
+          },
+          {
+            "id": "ch20-content-en-039",
+            "kind": "heading",
+            "text": "Lognormal Distribution"
+          },
+          {
+            "id": "ch20-content-en-040",
+            "kind": "paragraph",
+            "text": "At first, the lognormal distribution might appear to be an exponential distribution, but on a graphical analysis, it is obviously constrained by zero. The lognormal distribution on a histogram is asymmetrical, with the trend line appearing more as a wave that moves across the page. The location and size of the wave varies with each data set, and the shape can even be very different from the one below."
+          },
+          {
+            "id": "ch20-content-en-041",
+            "kind": "paragraph",
+            "text": "Lognormal distributions are often used when working with data sets that describe time durations, such as the time a process or machine is down, or distribution of assets or wealth among the population. Anytime data has a positive skew, which means it the tail of the data is to the right, then a lognormal distribution might be possible. Consider the example of wealth within a population. If we only consider the amount of income each household within a population reports, almost no household will report an income of zero, and it’s impossible to have an income of less than zero. (Yes, you can have a net worth that is negative, and you can have a cash flow that is negative if you consider income and expenses, but for our example, we’re only discussing income.)"
+          },
+          {
+            "id": "ch20-content-en-042",
+            "kind": "paragraph",
+            "text": "Now, in a random sample of income from across a large population – a city, for example -- data is likely to be lognormal. As you move further right in the bins on a histogram – representing increasing dollar figures of income – there are fewer households that will fall into each bin. As you reach the highest dollar bins, you’ll likely see the fewest households represented on a histogram. While the effect is similar to the positive exponential distribution seen above, there are some differences. The lognormal distribution of the wealth doesn’t typically begin with the highest number of data points in the first bin;"
+          },
+          {
+            "id": "ch20-content-en-043",
+            "kind": "paragraph",
+            "text": "more often, you’ll see a small number of or no data points in the first bin, followed by a quick rise to a median point, and then a sloping trail to the right."
+          },
+          {
+            "id": "ch20-content-en-044",
+            "kind": "paragraph",
+            "text": "The lognormal distribution:"
+          },
+          {
+            "id": "ch20-content-en-045",
+            "kind": "listItem",
+            "text": "Typically describes a data set with values in large ranges"
+          },
+          {
+            "id": "ch20-content-en-046",
+            "kind": "listItem",
+            "text": "Can be described with both mean and standard deviation"
+          },
+          {
+            "id": "ch20-content-en-047",
+            "kind": "listItem",
+            "text": "Always has a positive skew"
+          },
+          {
+            "id": "ch20-content-en-048",
+            "kind": "paragraph",
+            "text": "Here is another image of a lognormal distribution, generated from Minitab."
+          },
+          {
+            "id": "ch20-content-en-049",
+            "kind": "heading",
+            "text": "Weibull Distribution"
+          },
+          {
+            "id": "ch20-content-en-050",
+            "kind": "paragraph",
+            "text": "Just to make things more confusing, probabilities can fall into families of distributions, such as the Weibull distributions. Data that fits a Weibull distribution might also fit another distribution, including all of those discussed previously in this chapter. Note that Weibull distributions relate to continuous data, so the data would not likely fit a discrete data distribution."
+          },
+          {
+            "id": "ch20-content-en-051",
+            "kind": "paragraph",
+            "text": "Look at the Weibull distributions below, which were created in Minitab. Do these images look familiar?"
+          },
+          {
+            "id": "ch20-content-en-052",
+            "kind": "paragraph",
+            "text": "The curves appear to fit the lognormal, exponential, and normal distributions, respectively, even though they each also fit the Weibull distribution."
+          },
+          {
+            "id": "ch20-content-en-053",
+            "kind": "paragraph",
+            "text": "Weibull distributions can describe many data types and are often used when working with reliability applications and failure probabilities that change or vary with time. For example, the chance that a plasma screen will be damaged by burn-in increases both over the time the screen is used and over the time that a single still image is displayed on a screen. Data associated with such a concern might feature a Weibull distribution."
+          },
+          {
+            "id": "ch20-content-en-054",
+            "kind": "heading",
+            "text": "Other Types of Continuous Distributions"
+          },
+          {
+            "id": "ch20-content-en-055",
+            "kind": "paragraph",
+            "text": "As previously stated, you will commonly work with normal distributions when applying statistical analysis. Even if the underlying distribution of your data set is not normal, if you have a large, random sample of continuous data, you are usually able to perform statistical analyses that are reserved for normal data thanks to the Central Limit Theorem. The Central Limit Theorem states that the distribution of the mean of a large, identically distributed number of independent variables will approximate the normal curve. Because of this, you’ll be able to use software like Minitab to apply statistical analysis to a number of data sets."
+          },
+          {
+            "id": "ch20-content-en-056",
+            "kind": "paragraph",
+            "text": "It’s still a good idea to be able to recognize common continuous distributions that are not normal, including those listed above. In this section, we’ll highlight a few other non-normal continuous distributions and provide images."
+          },
+          {
+            "id": "ch20-content-en-057",
+            "kind": "heading",
+            "text": "Cauchy Distribution"
+          },
+          {
+            "id": "ch20-content-en-058",
+            "kind": "paragraph",
+            "text": "In a graphical representation, the Cauchy distribution often looks like an elongated normal curve with a tighter peak. While the Cauchy distribution does share some characteristics with the normal curve, the"
+          },
+          {
+            "id": "ch20-content-en-059",
+            "kind": "paragraph",
+            "text": "data itself is not normal. In fact, the distribution doesn’t have a defined mean or variance, which makes it not useful for many common statistical analysis tools used in Six Sigma."
+          },
+          {
+            "id": "ch20-content-en-060",
+            "kind": "heading",
+            "text": "Logistic Distribution"
+          },
+          {
+            "id": "ch20-content-en-061",
+            "kind": "paragraph",
+            "text": "The logistic distribution also appears to approximate the normal curve, and is, in fact, used in some science and math functions to approximate other symmetrical distributions. This is because the CDF of a logistic distribution is more consistently calculable. Remember that the CDF is the cumulative density function and calculates the probability that a given data point is less than or equal to X, where X is any point on the x-axis of a probability curve."
+          },
+          {
+            "id": "ch20-content-en-062",
+            "kind": "heading",
+            "text": "Laplace Distribution"
+          },
+          {
+            "id": "ch20-content-en-063",
+            "kind": "paragraph",
+            "text": "The Laplace Distribution is often referred to as the bilateral exponential distribution or the double- exponential distribution. You can see from the image below, the Laplace distribution does seem to pair exponential distributions back to back."
+          },
+          {
+            "id": "ch20-content-en-064",
+            "kind": "heading",
+            "text": "Uniform Distribution"
+          },
+          {
+            "id": "ch20-content-en-065",
+            "kind": "paragraph",
+            "text": "A uniform distribution occurs when data points are divided evenly among bins. Exact uniform distributions are almost never going to occur in randomly-sampled data, which means Six Sigma teams that see such distributions in data should check the authenticity of the data. Uniformity often points to an error of measurement, problem with the measurement system, a non-random sample, or an issue with a process."
+          },
+          {
+            "id": "ch20-content-en-066",
+            "kind": "paragraph",
+            "text": "In some very specific cases, uniform distributions could point to success. For example, in a manufacturing plant, one machine might make dowels that are used later in the manufacturing process. If the dowels must measure 4 inches for functionality later, and a random sampling of dowels across all time buckets for the machine show 4-inch dowels being made, then uniformity equals success."
+          },
+          {
+            "id": "ch20-content-en-067",
+            "kind": "heading",
+            "text": "Beta Distribution"
+          },
+          {
+            "id": "ch20-content-en-068",
+            "kind": "paragraph",
+            "text": "Like Weibull distributions, Beta distributions can take on a number of shapes, two of which are pictured below. Beta distributions are considered extremely flexible, and can become stand-ins for other distributions given certain statistical parameters."
+          },
+          {
+            "id": "ch20-content-en-069",
+            "kind": "heading",
+            "text": "Gamma"
+          },
+          {
+            "id": "ch20-content-en-070",
+            "kind": "paragraph",
+            "text": "Gamma distributions are similar to Beta and Weibull distributions, in that they take on a number of shapes. In fact, some distributions that aren’t covered in this chapter are actually just more specific forms of the Gamma distribution. Gamma distributions are, however, always skewed to the right."
+          },
+          {
+            "id": "ch20-content-en-071",
+            "kind": "heading",
+            "text": "Triangular Distribution"
+          },
+          {
+            "id": "ch20-content-en-072",
+            "kind": "paragraph",
+            "text": "A triangular distribution is formed using the mode and the upper and lower limits of a data set."
+          },
+          {
+            "id": "ch20-content-en-073",
+            "kind": "heading",
+            "text": "Non-Normal Discrete Distributions"
+          },
+          {
+            "id": "ch20-content-en-074",
+            "kind": "heading",
+            "text": "Binomial Distribution"
+          },
+          {
+            "id": "ch20-content-en-075",
+            "kind": "paragraph",
+            "text": "A binomial distribution is used when you are dealing with discrete data and there are only two outcomes for each trial or sample. In short, binomial distributions relate to attribute data: Yes or no, pass or fail, one or the other."
+          },
+          {
+            "id": "ch20-content-en-076",
+            "kind": "paragraph",
+            "text": "A binomial distribution assumes that the outcome of any given trial is independent of the outcome of another trial. If you flip a coin, it will either be heads or tails. If you flip it again, it again will be heads or tails, with a 50 percent probability for either outcome. It doesn’t matter what happened with the first flip of the coin."
+          },
+          {
+            "id": "ch20-content-en-077",
+            "kind": "paragraph",
+            "text": "In most cases when considering attribute outcomes, the probability is not distributed evenly between the two events, as it is with a coin flip. Instead, there is a probability of success (notated as p) and a probability of failure (notated as 1 – p). For example, if a machine making parts creates defects in 5 percent of the parts, then you have two outcomes for each part made. Either the part will be defective, or it will not be defective."
+          },
+          {
+            "id": "ch20-content-en-078",
+            "kind": "paragraph",
+            "text": "For this example, p (the outcome that the part will be defective) equals 0.05, and 1 – p (the outcome that the part will not be defective) is 0.95. If you select one random part, the chance of getting a defective part is 0.05."
+          },
+          {
+            "id": "ch20-content-en-079",
+            "kind": "paragraph",
+            "text": "(It’s worth noting before moving on the seeming discrepancy in the above two paragraphs. First, we said that the probability of success was notated as p. Then, we said that the probability of pulling a defective part is p, or 0.05. In business terms, pulling a defective part would not be deemed a success. However, in statistical terms, we are not talking about the quality nature of the outcome. We are talking about whether an outcome will successfully match the definition we have created. In this case, whether the outcome will be defective.)"
+          },
+          {
+            "id": "ch20-content-en-080",
+            "kind": "paragraph",
+            "text": "The Binomial distribution of the data described above on a histogram might appear as follows:"
+          },
+          {
+            "id": "ch20-content-en-081",
+            "kind": "paragraph",
+            "text": "When you are dealing with binomial data sets, you can use the Binomial Distribution Probability Function to determine the probability of the number of successes you will have within a given number of trials given the sample data you have. The answers generated by the Binomial Distribution Probability Function correlate to the histogram generated by Minitab given the same information."
+          },
+          {
+            "id": "ch20-content-en-082",
+            "kind": "paragraph",
+            "text": "To understand what we mean by this, let’s consider the example of the coin toss again. For this example, imagine a coin is tossed 10 times, and we consider heads to be success. The chance of success (heads) for each coin flip is 0.5. Given that information, Minitab creates the histogram below."
+          },
+          {
+            "id": "ch20-content-en-083",
+            "kind": "paragraph",
+            "text": "This graph shows us that, if we toss the coin 10 times, the chance of getting 1 success in all those 10 tosses is very small – as is the chance of getting 9 successes. The chance of getting 5 successes out of 10 is much higher – but not actually 50 percent."
+          },
+          {
+            "id": "ch20-content-en-084",
+            "kind": "paragraph",
+            "text": "To apply this concept to a real-world situation, let’s look again at our machine process, which produces defective parts at a rate of 0.05. Again, the histogram below illustrates the data that might occur if we took 20 random samples from the process."
+          },
+          {
+            "id": "ch20-content-en-085",
+            "kind": "paragraph",
+            "text": "The probability that we will have 0 successes (defective parts) in our sample of 20 is a bit over 0.35. The probability that we will have 1 defective part is a bit higher, but the chance that we’ll have five defective parts in 20 is very, very small. The probability of more than 5 defective parts in our batch of 20 is almost nonexistent."
+          },
+          {
+            "id": "ch20-content-en-086",
+            "kind": "paragraph",
+            "text": "What does this tell a real-world Six Sigma team? Imagine a quality control team took 20 random samples from this process every day. For two weeks straight, the quality team records no defects within those samples. If the Six Sigma team believes a process generates 0.05 defective parts, then a lack of defective parts in the samples shows that (1) something has changed to improve the performance of the process, (2) the measurement system is defective, or (3) the samples are not actually random."
+          },
+          {
+            "id": "ch20-content-en-087",
+            "kind": "paragraph",
+            "text": "If you increase the number of trials to 100, the binomial distribution remains."
+          },
+          {
+            "id": "ch20-content-en-088",
+            "kind": "paragraph",
+            "text": "Here, you can see that the greatest likelihood for this process is that, within 100 samples, 4 or 5 will be defective. It is unlikely, given a defect rate of 0.05, that a random sample of 100 would ever have more than 11 or 12 defective parts."
+          },
+          {
+            "id": "ch20-content-en-089",
+            "kind": "paragraph",
+            "text": "What we have done graphically, you can also do mathematically using the Binomial Distribution Probability Function. The equation is provided below."
+          },
+          {
+            "id": "ch20-content-en-090",
+            "kind": "paragraph",
+            "text": "For this formula:"
+          },
+          {
+            "id": "ch20-content-en-091",
+            "kind": "listItem",
+            "text": "x is equal to the number of successes desired"
+          },
+          {
+            "id": "ch20-content-en-092",
+            "kind": "listItem",
+            "text": "n is equal to the number of trials"
+          },
+          {
+            "id": "ch20-content-en-093",
+            "kind": "listItem",
+            "text": "p is equal to the probability of success in each trial"
+          },
+          {
+            "id": "ch20-content-en-094",
+            "kind": "listItem",
+            "text": "q is equal to 1 – p"
+          },
+          {
+            "id": "ch20-content-en-095",
+            "kind": "listItem",
+            "text": "The exclamation point indicates a factorial."
+          },
+          {
+            "id": "ch20-content-en-096",
+            "kind": "paragraph",
+            "text": "o 3! = 3x2x1 = 6 o 4! = 4x3x2x1 = 24 o 5! = 5x4x3x2x1 = 120"
+          },
+          {
+            "id": "ch20-content-en-097",
+            "kind": "paragraph",
+            "text": "Using the Binomial Distribution Probability Function, we can calculate the probability that 20 trials will yield 4 defective parts in a process that delivers 0.05 defective parts."
+          },
+          {
+            "id": "ch20-content-en-098",
+            "kind": "paragraph",
+            "text": "The probability of pulling 4 defective parts is very low, as was shown on the distribution graph."
+          },
+          {
+            "id": "ch20-content-en-099",
+            "kind": "paragraph",
+            "text": "What are some reasons this type of calculation might matter in the business world or for Six Sigma teams?"
+          },
+          {
+            "id": "ch20-content-en-100",
+            "kind": "paragraph",
+            "text": "Consider a company that sells chocolates. If 20 chocolates come in each box, what is the chance that a customer might receive defective product in his or her box? What is the chance that a customer might receive more than one defective chocolate? Teams can calculate these probabilities after sampling data to determine how often a process generates defective product."
+          },
+          {
+            "id": "ch20-content-en-101",
+            "kind": "paragraph",
+            "text": "What if a Six Sigma team randomly samples the chocolate process and determines that the process operates at a 4-sigma level. Remember from Unit 1 that at 4 sigma, a process generates 6,210 defects per million opportunities. Let’s assume that means 6,210 defective chocolates per million created, or a chance of a chocolate being defective equal to 0.00621."
+          },
+          {
+            "id": "ch20-content-en-102",
+            "kind": "paragraph",
+            "text": "In a box of 20 chocolates, with p = 0.00621, Minitab generates the following binomial histogram."
+          },
+          {
+            "id": "ch20-content-en-103",
+            "kind": "paragraph",
+            "text": "From the above histogram, you can see that the likelihood of a box having no defective chocolates is approximately 88 percent. The likelihood of a box having one defective chocolate is approximately 10 percent. The likelihood of a box having two or more defective chocolates is almost nonexistent."
+          },
+          {
+            "id": "ch20-content-en-104",
+            "kind": "paragraph",
+            "text": "What does this mean for the business? It depends on the goals of the business or the Six Sigma project. If the Six Sigma team was tasked with improving customer satisfaction or decreasing the rate of return of chocolate boxes, then a 10 percent probability of a defective chocolate in a box might be something the team wants to address. However, if customer satisfaction is strong and return costs are low, then the potential complaints or returns associated with a small number of boxes might be acceptable to the business – particularly if a Six Sigma team discovers that reducing the error rate would cost well over the amount that it costs to handle the errors."
+          },
+          {
+            "id": "ch20-content-en-105",
+            "kind": "paragraph",
+            "text": "By applying the binomial distribution in this manner to pass/fail, yes/no, or defect/no defect, Six Sigma teams can calculate data that is useful in a variety of real-world situations. The ability to tie costs to"
+          },
+          {
+            "id": "ch20-content-en-106",
+            "kind": "paragraph",
+            "text": "defects makes it even more possible to evaluate this type of information using binomial probability, because teams can speak in terms of the probability that different processes or outcomes will cost varying amounts of money – or save varying amounts of money – both of which are metrics company leadership will be interested in hearing."
+          },
+          {
+            "id": "ch20-content-en-107",
+            "kind": "heading",
+            "text": "Poisson Distribution"
+          },
+          {
+            "id": "ch20-content-en-108",
+            "kind": "paragraph",
+            "text": "The Poisson distribution is often used when dealing with data that is distributed randomly within time, distance, or other unit of measurement. For example, the distribution might be relevant when dealing with calls per hour in a call center, traffic accidents per week on a specific block or street, or number of defects in a batch. In fact, the word “per” in a metric is a good indication that the Poisson distribution might be useful."
+          },
+          {
+            "id": "ch20-content-en-109",
+            "kind": "paragraph",
+            "text": "As you can see from the graph before, the Poisson distribution can look a little like the normal curve, but it is not symmetrical. This curve, based off a mean of 4, tails slightly to the right."
+          },
+          {
+            "id": "ch20-content-en-110",
+            "kind": "paragraph",
+            "text": "This graph of a Poisson distribution with a mean of 42 looks even more like the normal curve. If you look very close, however, and count the bins to the left and right of the mean, you see that the curve tails very slightly to the right. This is a good example of why statistical analysis is needed in addition to graphical analysis when working with data. Data can approximate the normal curve on a graph without being normal."
+          },
+          {
+            "id": "ch20-content-en-111",
+            "kind": "paragraph",
+            "text": "One interesting thing to note about the Poisson distribution is that it relates closely to the exponential distribution. Remember, the Poisson distribution is discrete, not continuous. The distribution is an analysis of how many of one thing occurs per another. For example, consider the number of errors in a data entry employee’s work each hour."
+          },
+          {
+            "id": "ch20-content-en-112",
+            "kind": "heading",
+            "text": "Errors Per Hour"
+          },
+          {
+            "id": "ch20-content-en-113",
+            "kind": "paragraph",
+            "text": "5 8 5 5 4 7 4 12"
+          },
+          {
+            "id": "ch20-content-en-114",
+            "kind": "paragraph",
+            "text": "3"
+          },
+          {
+            "id": "ch20-content-en-115",
+            "kind": "paragraph",
+            "text": "Here is the histogram of the above data:"
+          },
+          {
+            "id": "ch20-content-en-116",
+            "kind": "paragraph",
+            "text": "The data isn’t continuous. Instead, it is categorical. How many errors does the employee make in hour 1, hour 2, hour 3, and so forth. However, if the process is following a Poisson distribution, then the time between each event in the process when looked at continuously yields an exponential distribution. Understanding this relationship can help Six Sigma teams convert Poisson distributions to exponential distributions when necessary for statistical analysis. The use of this conversion within a Six Sigma environment is not likely to be common for most teams, but could be useful in special applications – some of which we’ll cover in the industry-specific sections at the end of this book."
+          },
+          {
+            "id": "ch20-content-en-117",
+            "kind": "paragraph",
+            "text": "The Poisson distribution might be applicable when the following statements can be used to describe your data:"
+          },
+          {
+            "id": "ch20-content-en-118",
+            "kind": "listItem",
+            "text": "Data describes events that occur at a random interval measurement – the word “per” is usually involved."
+          },
+          {
+            "id": "ch20-content-en-119",
+            "kind": "listItem",
+            "text": "The sample size (number of intervals) is at least 16. If you are measuring per hour, you have at least 16 hours’ worth of data. If you are measuring per foot, you have at least 16 feet of data."
+          },
+          {
+            "id": "ch20-content-en-120",
+            "kind": "listItem",
+            "text": "You know that the population size is 10 times the size of the sample or bigger. If you are measuring worker productivity, for example, you can’t take the first 16 hours the worker is on the job."
+          },
+          {
+            "id": "ch20-content-en-121",
+            "kind": "listItem",
+            "text": "Event occurrences are independent of each other. In our data-entry example, if we are counting each unnecessary keystroke as an error, we might count the backspace. However, the backspace is dependent on the person making another error. If the person types “b” when he or she meant “n,” that’s one error. If we count the backspace as error 2, then the errors are not independent."
+          },
+          {
+            "id": "ch20-content-en-122",
+            "kind": "listItem",
+            "text": "The probability of occurrences is less than 0.1. Consider the data-entry example above. When using a 10-key number pad, the average rate of entry for employees in the United States is approximately 8,000 per hour. If an employee is making 8 – 12 errors an hour, the probability of an error for each keystroke is well below 0.1."
+          },
+          {
+            "id": "ch20-content-en-123",
+            "kind": "listItem",
+            "text": "The rate of occurrence per interval is constant. The average number of phone calls per hour is 50; the average number of errors per hour is 6."
+          },
+          {
+            "id": "ch20-content-en-124",
+            "kind": "heading",
+            "text": "The Poisson equation is:"
+          },
+          {
+            "id": "ch20-content-en-125",
+            "kind": "paragraph",
+            "text": "𝑃(𝑥) = 𝑒−𝜇𝜇𝑥"
+          },
+          {
+            "id": "ch20-content-en-126",
+            "kind": "paragraph",
+            "text": "𝑥!"
+          },
+          {
+            "id": "ch20-content-en-127",
+            "kind": "heading",
+            "text": "Within the Poisson equation:"
+          },
+          {
+            "id": "ch20-content-en-128",
+            "kind": "listItem",
+            "text": "e equals the Poisson constant, which is 2.71828"
+          },
+          {
+            "id": "ch20-content-en-129",
+            "kind": "listItem",
+            "text": "𝜇 is the mean or average of the process"
+          },
+          {
+            "id": "ch20-content-en-130",
+            "kind": "listItem",
+            "text": "𝑋 is the specific case or data point; remember that the exclamation point indicates a factorial."
+          },
+          {
+            "id": "ch20-content-en-131",
+            "kind": "paragraph",
+            "text": "For example, if a Six Sigma team was working to improve processes in a call center, they might have gathered data that indicates the average number of people on hold for a customer service representative at any given time is 10. Given that information and a Poisson distribution when considering number of holds per increments of time, the team can use the Poisson equation to calculate probabilities related to various call scenarios."
+          },
+          {
+            "id": "ch20-content-en-132",
+            "kind": "paragraph",
+            "text": "What is the probability that there are 15 callers on hold at a given time?"
+          },
+          {
+            "id": "ch20-content-en-133",
+            "kind": "paragraph",
+            "text": "The probability of having exactly 15 callers on hold at a given time in the call center is 0.034, or approximately 3.4 percent."
+          },
+          {
+            "id": "ch20-content-en-134",
+            "kind": "paragraph",
+            "text": "That number in itself isn’t extremely helpful to a business or Six Sigma team unless there is a specific protocol or process problem that occurs only when call holds hit exactly 15. It’s not an extremely likely scenario. However, what if a Six Sigma team has noted that when the number of callers on hold hits 15 or above, a regularly staffed call center team is unlikely to catch up, resulting in continued high hold times and volumes. Knowing this, the team might inform the process owner that when hold numbers hit 15, it’s time to move some resources from other areas to answering calls."
+          },
+          {
+            "id": "ch20-content-en-135",
+            "kind": "paragraph",
+            "text": "But how does a process owner or Six Sigma team plan appropriately? Do other resources need to constantly be on hand? Is the probability of this situation occurring high or low?"
+          },
+          {
+            "id": "ch20-content-en-136",
+            "kind": "paragraph",
+            "text": "To answer the question, you can use the Poisson equation to find the probability of there being 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, and 14 callers on hold at any given time. Because the probability of all possible outcomes totals to 1, you would subtract the sum of all those probabilities from 1 to determine the probability of the number of holds being 15 or more."
+          },
+          {
+            "id": "ch20-content-en-137",
+            "kind": "paragraph",
+            "text": "Mathematically, the concept is written as:"
+          },
+          {
+            "id": "ch20-content-en-138",
+            "kind": "paragraph",
+            "text": "𝑃(𝑥≧15) = 1 −𝑃(0) + 𝑃(1) + 𝑃(2) +𝑃(3) +𝑃(4) +𝑃(5) +𝑃(6) +𝑃(7) +𝑃(8) +𝑃(9) +𝑃(10) +𝑃(11) + 𝑃(12) + 𝑃(13) + 𝑃(14)"
+          },
+          {
+            "id": "ch20-content-en-139",
+            "kind": "paragraph",
+            "text": "To manually calculate the above probability, you would have to use the Poisson equation for each P(x) listed above. You can also use statistical analysis software, such as Minitab, to make the calculations for you. We’ll cover how to handle such analysis in Minitab in later chapters. For now, though, consider the chart below, which shows the probability of each x."
+          },
+          {
+            "id": "ch20-content-en-140",
+            "kind": "paragraph",
+            "text": "Summing the probabilities for each X provides a total probability that x will be less than 15 of 0.916541."
+          },
+          {
+            "id": "ch20-content-en-141",
+            "kind": "paragraph",
+            "text": "Alternatively, you can use statistical software to determine the cumulative probability – the area under the curve to the left of a certain point. The cumulative probabilities of x being less than or equal to 14 is 0.916541."
+          },
+          {
+            "id": "ch20-content-en-142",
+            "kind": "paragraph",
+            "text": "Therefore, the probability of x being 15 or greater is 1 – 0.916541, or 0.083459."
+          },
+          {
+            "id": "ch20-content-en-143",
+            "kind": "paragraph",
+            "text": "The probability that there are 15 or more callers on hold at any given time is about 0.083, or just over 8 percent. Given this probability, call center leadership can make a more educated decision about whether they want to pay for more staff or take a risk at hitting the higher call volume and having to play catch up for the rest of the shift."
+          },
+          {
+            "id": "ch20-content-en-144",
+            "kind": "paragraph",
+            "text": "Teams can use the Poisson distribution and calculations in this manner to understand the probabilities of different events occurring. They can also tie financial data to such events to make even better data- driven decisions."
+          },
+          {
+            "id": "ch20-content-en-145",
+            "kind": "heading",
+            "text": "Other Types of Discrete Distributions"
+          },
+          {
+            "id": "ch20-content-en-146",
+            "kind": "heading",
+            "text": "Geometric Distribution"
+          },
+          {
+            "id": "ch20-content-en-147",
+            "kind": "paragraph",
+            "text": "The geometric distribution is used when there are two outcomes for a trial, trials are independent, and there is a waiting time before the first occurrence. As with the binomial distribution, the outcome of each trial must be independent. A real-world use of the geometric distribution might include the number of inspections that occur before finding a defective part or the number of resumes or applications a recruiter reviews before finding the first candidate that meets minimal job requirements."
+          },
+          {
+            "id": "ch20-content-en-148",
+            "kind": "paragraph",
+            "text": "An example of the geometric distribution is seen below."
+          },
+          {
+            "id": "ch20-content-en-149",
+            "kind": "heading",
+            "text": "Negative Binomial"
+          },
+          {
+            "id": "ch20-content-en-150",
+            "kind": "paragraph",
+            "text": "The negative binomial distribution is also used with attribute data – fail/pass and other situations where there are only two outcomes for each trial. Again, the outcomes must be independent of each other; the probability of an occurrence must be the same across each trial, just as with the binomial distribution. The negative binomial distribution is often used when teams are trying to determine the probability of a certain number of passes or fails before reaching the sth pass or fail."
+          },
+          {
+            "id": "ch20-content-en-151",
+            "kind": "heading",
+            "text": "Applying Data to Real-World Situations"
+          },
+          {
+            "id": "ch20-content-en-152",
+            "kind": "paragraph",
+            "text": "Throughout this chapter, we’ve touched on some ways that probability distributions let Six Sigma teams apply raw data about processes to real-world concerns and situations. As previously stated, many of the statistical analyses you will perform on data will be related to the normal curve. But understanding a few equations related to distributions such as Binomial or Poisson helps you expand your ability to create real-world assumptions about data."
+          },
+          {
+            "id": "ch20-content-en-153",
+            "kind": "paragraph",
+            "text": "When you can determine the probability for certain events or data points, you can make educated decisions about a process. What is the probability that a cost-heavy event will occur? Is the cost associated with an event enough to create a reason for working to reduce the likelihood of that event? If the probability of a low-cost defect is high, are the total expenses associated with that defect likely to be higher than the total expenses associated with a high-cost defect that has an extremely low probability? These are just some of the questions that teams can use statistics and probability distributions to answer."
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch20-content-zh-001",
+            "kind": "paragraph",
+            "text": "在第18章中，我们讨论了正态概率曲线，也称为高斯分布。虽然正态概率曲线确实是统计学中最重要、也是六西格玛团队最常用的分布，但也并不是每组数据都遵循正态概率分布。本章介绍非正态概率分布、如何通过图形分析识别一些更常见的分布，以及有关对此类分布使用统计分析的一些信息。"
+          },
+          {
+            "id": "ch20-content-zh-002",
+            "kind": "paragraph",
+            "text": "本章包含一些更简单的非正态概率分布统计计算，以及如何手动处理这些计算的详细信息。不包括所有提到的分布的计算，因为它们可能非常复杂，并且几乎没有人手动处理这些计算。在第 6 单元中，我们将介绍如何使用 Minitab 中的各种分布来计算概率。"
+          },
+          {
+            "id": "ch20-content-zh-003",
+            "kind": "heading",
+            "text": "检查正态概率分布"
+          },
+          {
+            "id": "ch20-content-zh-004",
+            "kind": "paragraph",
+            "text": "在继续之前，有必要回顾一下第 18 章中介绍的有关正态曲线的一些基本信息。首先，请记住正态分布与连续数据相关。这意味着您的数据与随机变量相关联，这些随机变量可以采用区间内无限多个点中任意点的形式。随时间变化的温度是一种连续类型的数据。是的，您可能永远不会看到房间温度低于 40 华氏度，但如果您测量的精度足够高，在 40 度和 80 度等范围内会有无数个连续数据点。"
+          },
+          {
+            "id": "ch20-content-zh-005",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Normal Distribution（正态分布）：常见钟形分布，许多统计推断方法以其为基础。"
+              ]
+            ],
+            "text": "术语说明 Normal Distribution（正态分布）：常见钟形分布，许多统计推断方法以其为基础。"
+          },
+          {
+            "id": "ch20-content-zh-006",
+            "kind": "paragraph",
+            "text": "请记住，离散数据本质上不是连续的。离散数据通常与分类事件有关。在某些情况下，离散数据可以转换为连续数据，以便六西格玛团队在处理信息时可以使用更多的统计分析工具。但是，如果不可能，则无法对离散数据使用正态曲线或相关统计分析。离散数据通常涉及二项分布或泊松分布；本章稍后将介绍这两个内容。"
+          },
+          {
+            "id": "ch20-content-zh-007",
+            "kind": "heading",
+            "text": "正态曲线的剖析"
+          },
+          {
+            "id": "ch20-content-zh-008",
+            "kind": "paragraph",
+            "text": "当以图形格式或直方图呈现时，正态曲线本质上通常是对称的。数据元素倾向于集中在曲线的中心，随着曲线逐渐下降到零，元素在两侧缓慢散开。"
+          },
+          {
+            "id": "ch20-content-zh-009",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Histogram（直方图）：展示数据分布形态和频数的柱状图。"
+              ]
+            ],
+            "text": "术语说明 Histogram（直方图）：展示数据分布形态和频数的柱状图。"
+          },
+          {
+            "id": "ch20-content-zh-010",
+            "kind": "paragraph",
+            "text": "虽然通过图形分析对数据进行目视检查可以帮助确定数据是否可能呈正态，但有几条连续分布曲线看起来很像正态曲线。这就是为什么我们应用统计检验（例如第 18 章中讨论的卡方拟合优度检验）来确定数据是否实际上是正态的。不要将卡方拟合优度检验与卡方拟合优度检验混淆"
+          },
+          {
+            "id": "ch20-content-zh-011",
+            "kind": "paragraph",
+            "text": "平方分布，将在本章后面出现。一种是统计检验，另一种是概率分布。"
+          },
+          {
+            "id": "ch20-content-zh-012",
+            "kind": "paragraph",
+            "text": "正常曲线："
+          },
+          {
+            "id": "ch20-content-zh-013",
+            "kind": "listItem",
+            "text": "是对称的"
+          },
+          {
+            "id": "ch20-content-zh-014",
+            "kind": "listItem",
+            "text": "最常用于推论统计"
+          },
+          {
+            "id": "ch20-content-zh-015",
+            "kind": "listItem",
+            "text": "使用平均值和标准差进行统计描述"
+          },
+          {
+            "id": "ch20-content-zh-016",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Standard Deviation（标准差）：衡量数据离散程度的统计量；标准差越大，波动越明显。"
+              ]
+            ],
+            "text": "术语说明 Standard Deviation（标准差）：衡量数据离散程度的统计量；标准差越大，波动越明显。"
+          },
+          {
+            "id": "ch20-content-zh-017",
+            "kind": "paragraph",
+            "text": "o 曲线以平均值为中心 o 偏离平均值的标准差数量改变了曲线下数据量的概率"
+          },
+          {
+            "id": "ch20-content-zh-018",
+            "kind": "heading",
+            "text": "非正态连续分布"
+          },
+          {
+            "id": "ch20-content-zh-019",
+            "kind": "heading",
+            "text": "指数分布"
+          },
+          {
+            "id": "ch20-content-zh-020",
+            "kind": "paragraph",
+            "text": "指数分布创建本质上呈指数分布的直方图或趋势线。当您穿过 x 轴时，它会呈指数下降。请参阅下图的示例。"
+          },
+          {
+            "id": "ch20-content-zh-021",
+            "kind": "paragraph",
+            "text": "在指数分布中，数据不像正态概率曲线那样围绕均值组织，而是在 x 轴的一端组织。用于创建上述直方图的数据的平均值为 24.79，但中位数为 16。通常，在处理非正态数据时，中位数是比图形分析平均值更适用的数据点。如果您在指数直方图的 x 轴上找到中位数，您就会知道 50% 的其他数据点位于它之前，50% 位于它之后。"
+          },
+          {
+            "id": "ch20-content-zh-022",
+            "kind": "paragraph",
+            "text": "当处理数据集时经常使用指数分布，这些数据集包括到达时间、过程中故障之间的平均时间、等待线理论或数据、过程或实验中有趣的发生点之间的时间或空间距离。 指数"
+          },
+          {
+            "id": "ch20-content-zh-023",
+            "kind": "paragraph",
+            "text": "在处理某些泊松分布时，分布尤其有价值。如果你还记得的话，泊松分布是离散的而不是连续的，这意味着六西格玛团队在可以使用哪些统计工具来分析数据方面受到限制。然而，指数分布通常可用于描述以泊松分布分布的数据的变化率，从而提供了一种创建可分析的连续数据的方法。"
+          },
+          {
+            "id": "ch20-content-zh-024",
+            "kind": "paragraph",
+            "text": "指数曲线："
+          },
+          {
+            "id": "ch20-content-zh-025",
+            "kind": "listItem",
+            "text": "永远不会显得对称"
+          },
+          {
+            "id": "ch20-content-zh-026",
+            "kind": "listItem",
+            "text": "通过数据平均值和称为 lambda 的值进行统计描述"
+          },
+          {
+            "id": "ch20-content-zh-027",
+            "kind": "paragraph",
+            "text": "这是 Minitab（统计分析软件）中生成的指数分布的另一个图形表示。"
+          },
+          {
+            "id": "ch20-content-zh-028",
+            "kind": "heading",
+            "text": "分布图"
+          },
+          {
+            "id": "ch20-content-zh-029",
+            "kind": "heading",
+            "text": "指数，尺度=1，阈值=0"
+          },
+          {
+            "id": "ch20-content-zh-030",
+            "kind": "paragraph",
+            "text": "1.0"
+          },
+          {
+            "id": "ch20-content-zh-031",
+            "kind": "paragraph",
+            "text": "0.8"
+          },
+          {
+            "id": "ch20-content-zh-032",
+            "kind": "paragraph",
+            "text": "0.6"
+          },
+          {
+            "id": "ch20-content-zh-033",
+            "kind": "paragraph",
+            "text": "密度"
+          },
+          {
+            "id": "ch20-content-zh-034",
+            "kind": "paragraph",
+            "text": "0.4"
+          },
+          {
+            "id": "ch20-content-zh-035",
+            "kind": "paragraph",
+            "text": "0.2"
+          },
+          {
+            "id": "ch20-content-zh-036",
+            "kind": "paragraph",
+            "text": "0.0"
+          },
+          {
+            "id": "ch20-content-zh-037",
+            "kind": "paragraph",
+            "text": "16 14 12 10 8 6 4 2 0"
+          },
+          {
+            "id": "ch20-content-zh-038",
+            "kind": "paragraph",
+            "text": "X"
+          },
+          {
+            "id": "ch20-content-zh-039",
+            "kind": "paragraph",
+            "text": "与正态分布一样，您可以在 Excel 中运行统计测试来确定数据是否呈指数分布。该检验基本上与我们在第 18 章中使用的卡方拟合优度检验相同。使用相同的想法：首先根据有关您的集合的统计数据，预测完美指数曲线中每个箱中会找到的数据点数量。然后，您可以将数据的实际细分与预期数字进行比较，以找到卡方值，该值用于评估数据呈指数分布的假设。"
+          },
+          {
+            "id": "ch20-content-zh-040",
+            "kind": "paragraph",
+            "text": "因为我们将在接下来的几个单元中介绍使用 Minitab 进行统计分析功能，并且 Minitab 自动处理卡方拟合优度检验和许多其他统计计算，所以我们不会介绍在 Excel 中测试每种类型的数据分布的详细步骤。因为可以使用 Excel 中的免费分析工具库执行的大多数测试都需要"
+          },
+          {
+            "id": "ch20-content-zh-041",
+            "kind": "paragraph",
+            "text": "对于正态分布的数据，第 18 章中在 Excel 中测试正态数据的步骤对于大部分仅基于 Excel 的工作来说应该足够了。"
+          },
+          {
+            "id": "ch20-content-zh-042",
+            "kind": "heading",
+            "text": "对数正态分布"
+          },
+          {
+            "id": "ch20-content-zh-043",
+            "kind": "paragraph",
+            "text": "起初，对数正态分布可能看起来是指数分布，但通过图形分析，它显然受零约束。 直方图上的对数正态分布是不对称的，趋势线更像是在页面上移动的波浪。波的位置和大小因每个数据集而异，形状甚至可能与下面的非常不同。"
+          },
+          {
+            "id": "ch20-content-zh-044",
+            "kind": "paragraph",
+            "text": "在处理描述持续时间的数据集时，通常会使用对数正态分布，例如流程或机器停机的时间，或者资产或财富在人群中的分布。任何时候数据存在正偏斜，这意味着数据的尾部位于右侧，则可能存在对数正态分布。考虑人口中财富的例子。如果我们只考虑人口中每个家庭报告的收入数额，几乎没有家庭会报告收入为零，而且收入不可能低于零。 （是的，如果考虑收入和支出，您的净资产可以为负，并且现金流量可以为负，但对于我们的示例，我们只讨论收入。）"
+          },
+          {
+            "id": "ch20-content-zh-045",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Population（总体）：研究对象的全部集合；实际项目中常通过样本推断总体。"
+              ]
+            ],
+            "text": "术语说明 Population（总体）：研究对象的全部集合；实际项目中常通过样本推断总体。"
+          },
+          {
+            "id": "ch20-content-zh-046",
+            "kind": "paragraph",
+            "text": "现在，在大量人口（例如城市）的收入随机样本中，数据可能呈对数正态分布。当您在直方图上的分箱中进一步向右移动时（代表收入的美元数字不断增加），落入每个分箱的家庭就会减少。当您到达最高的美元箱时，您可能会看到直方图上代表的家庭数量最少。虽然效果与上面看到的正指数分布类似，但也存在一些差异。财富的对数正态分布通常不会从第一个箱中的最高数量的数据点开始；"
+          },
+          {
+            "id": "ch20-content-zh-047",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Sample / Sampling（样本/抽样）：从总体中选取部分数据进行分析；样本应尽量代表总体。"
+              ]
+            ],
+            "text": "术语说明 Sample / Sampling（样本/抽样）：从总体中选取部分数据进行分析；样本应尽量代表总体。"
+          },
+          {
+            "id": "ch20-content-zh-048",
+            "kind": "paragraph",
+            "text": "更常见的是，您会在第一个箱中看到少量数据点或没有数据点，然后快速上升到中点，然后向右倾斜。"
+          },
+          {
+            "id": "ch20-content-zh-049",
+            "kind": "paragraph",
+            "text": "对数正态分布："
+          },
+          {
+            "id": "ch20-content-zh-050",
+            "kind": "listItem",
+            "text": "通常描述具有大范围值的数据集"
+          },
+          {
+            "id": "ch20-content-zh-051",
+            "kind": "listItem",
+            "text": "可以用平均值和标准差来描述"
+          },
+          {
+            "id": "ch20-content-zh-052",
+            "kind": "listItem",
+            "text": "始终呈正偏斜"
+          },
+          {
+            "id": "ch20-content-zh-053",
+            "kind": "paragraph",
+            "text": "这是 Minitab 生成的另一张对数正态分布图像。"
+          },
+          {
+            "id": "ch20-content-zh-054",
+            "kind": "heading",
+            "text": "威布尔分布"
+          },
+          {
+            "id": "ch20-content-zh-055",
+            "kind": "paragraph",
+            "text": "更令人困惑的是，概率可以分为分布族，例如威布尔分布。符合威布尔分布的数据也可能符合其他分布，包括本章前面讨论的所有分布。 请注意，威布尔分布与连续数据相关，因此数据不太可能适合离散数据分布。"
+          },
+          {
+            "id": "ch20-content-zh-056",
+            "kind": "paragraph",
+            "text": "查看下面的威布尔分布，它是在 Minitab 中创建的。这些图像看起来很熟悉吗？"
+          },
+          {
+            "id": "ch20-content-zh-057",
+            "kind": "paragraph",
+            "text": "这些曲线似乎分别符合对数正态分布、指数分布和正态分布，尽管它们也都符合威布尔分布。"
+          },
+          {
+            "id": "ch20-content-zh-058",
+            "kind": "paragraph",
+            "text": "威布尔分布可以描述许多数据类型，并且通常在处理随时间变化或变化的可靠性应用和故障概率时使用。例如，等离子屏幕因烧屏而损坏的可能性随着屏幕的使用时间和屏幕上显示单个静止图像的时间而增加。与此类问题相关的数据可能具有威布尔分布特征。"
+          },
+          {
+            "id": "ch20-content-zh-059",
+            "kind": "heading",
+            "text": "其他类型的连续分布"
+          },
+          {
+            "id": "ch20-content-zh-060",
+            "kind": "paragraph",
+            "text": "如前所述，在应用统计分析时，您通常会使用正态分布。即使数据集的基本分布不正常，如果您有大量连续数据的随机样本，由于中心极限定理，您通常能够执行为正态数据保留的统计分析。中心极限定理指出，大量相同分布的自变量的均值分布将近似于正态曲线。因此，您将能够使用 Minitab 等软件对多个数据集应用统计分析。"
+          },
+          {
+            "id": "ch20-content-zh-061",
+            "kind": "paragraph",
+            "text": "能够识别常见的非正态分布（包括上面列出的分布）仍然是一个好主意。在本节中，我们将重点介绍一些其他非正态连续分布并提供图像。"
+          },
+          {
+            "id": "ch20-content-zh-062",
+            "kind": "heading",
+            "text": "柯西分布"
+          },
+          {
+            "id": "ch20-content-zh-063",
+            "kind": "paragraph",
+            "text": "在图形表示中，柯西分布通常看起来像具有更紧密峰值的拉长正态曲线。虽然柯西分布确实与正态曲线有一些共同特征，但"
+          },
+          {
+            "id": "ch20-content-zh-064",
+            "kind": "paragraph",
+            "text": "数据本身就不正常。事实上，该分布没有定义的均值或方差，这使得它对于六西格玛中使用的许多常见统计分析工具没有用处。"
+          },
+          {
+            "id": "ch20-content-zh-065",
+            "kind": "heading",
+            "text": "物流配送"
+          },
+          {
+            "id": "ch20-content-zh-066",
+            "kind": "paragraph",
+            "text": "逻辑分布似乎也近似于正态曲线，事实上，在一些科学和数学函数中用于近似其他对称分布。 这是因为物流分布的 CDF 更容易计算。请记住，CDF 是累积密度函数，计算给定数据点小于或等于 X 的概率，其中 X 是概率曲线 x 轴上的任意点。"
+          },
+          {
+            "id": "ch20-content-zh-067",
+            "kind": "heading",
+            "text": "拉普拉斯分布"
+          },
+          {
+            "id": "ch20-content-zh-068",
+            "kind": "paragraph",
+            "text": "拉普拉斯分布通常称为双边指数分布或双指数分布。从下图中您可以看到，拉普拉斯分布似乎确实将指数分布背靠背配对。"
+          },
+          {
+            "id": "ch20-content-zh-069",
+            "kind": "heading",
+            "text": "均匀分布"
+          },
+          {
+            "id": "ch20-content-zh-070",
+            "kind": "paragraph",
+            "text": "当数据点均匀地分布在各个箱中时，就会出现均匀分布。在随机抽样的数据中几乎永远不会出现精确的均匀分布，这意味着在数据中看到这种分布的六西格玛团队应该检查数据的真实性。均匀性通常表明测量误差、测量系统问题、非随机样本或过程问题。"
+          },
+          {
+            "id": "ch20-content-zh-071",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 MSA（测量系统分析）：评估测量工具、人员和方法是否足以支持可靠决策。"
+              ]
+            ],
+            "text": "术语说明 MSA（测量系统分析）：评估测量工具、人员和方法是否足以支持可靠决策。"
+          },
+          {
+            "id": "ch20-content-zh-072",
+            "kind": "paragraph",
+            "text": "在一些非常具体的情况下，均匀分布可能意味着成功。例如，在制造工厂中，一台机器可能会制造稍后在制造过程中使用的销钉。如果稍后必须测量销钉的尺寸为 4 英寸才能实现功能，并且机器所有时间段内的销钉随机抽样显示正在制造 4 英寸的销钉，那么一致性就等于成功。"
+          },
+          {
+            "id": "ch20-content-zh-073",
+            "kind": "heading",
+            "text": "贝塔分布"
+          },
+          {
+            "id": "ch20-content-zh-074",
+            "kind": "paragraph",
+            "text": "与 Weibull 分布一样，Beta 分布可以呈现多种形状，其中两种如下图所示。 Beta 分布被认为非常灵活，并且可以在给定某些统计参数的情况下成为其他分布的替代品。"
+          },
+          {
+            "id": "ch20-content-zh-075",
+            "kind": "heading",
+            "text": "伽玛"
+          },
+          {
+            "id": "ch20-content-zh-076",
+            "kind": "paragraph",
+            "text": "伽玛分布与贝塔分布和威布尔分布类似，它们具有多种形状。事实上，本章未介绍的一些分布实际上只是伽玛分布的更具体形式。然而，伽马分布总是向右倾斜。"
+          },
+          {
+            "id": "ch20-content-zh-077",
+            "kind": "heading",
+            "text": "三角分布"
+          },
+          {
+            "id": "ch20-content-zh-078",
+            "kind": "paragraph",
+            "text": "使用数据集的众数以及上限和下限形成三角分布。"
+          },
+          {
+            "id": "ch20-content-zh-079",
+            "kind": "heading",
+            "text": "非正态离散分布"
+          },
+          {
+            "id": "ch20-content-zh-080",
+            "kind": "heading",
+            "text": "二项式分布"
+          },
+          {
+            "id": "ch20-content-zh-081",
+            "kind": "paragraph",
+            "text": "当处理离散数据并且每个试验或样本只有两个结果时，使用二项分布。 简而言之，二项式分布与属性数据相关：是或否、通过或失败、其中之一。"
+          },
+          {
+            "id": "ch20-content-zh-082",
+            "kind": "paragraph",
+            "text": "二项分布假设任何给定试验的结果独立于另一个试验的结果。如果你抛一枚硬币，要么是正面，要么是反面。如果你再次翻转它，它又会是正面或反面，两种结果的概率均为 50%。第一次抛硬币发生了什么并不重要。"
+          },
+          {
+            "id": "ch20-content-zh-083",
+            "kind": "paragraph",
+            "text": "在大多数情况下，在考虑属性结果时，两个事件之间的概率分布并不均匀，就像抛硬币一样。相反，存在成功的概率（记为 p）和失败的概率（记为 1 – p）。例如，如果制造零件的机器在 5% 的零件中产生缺陷，那么制造的每个零件都会有两种结果。该零件要么有缺陷，要么没有缺陷。"
+          },
+          {
+            "id": "ch20-content-zh-084",
+            "kind": "paragraph",
+            "text": "对于此示例，p（零件将有缺陷的结果）等于 0.05，1 – p（零件不会有缺陷的结果）为 0.95。如果您随机选择一个零件，则获得有缺陷零件的几率为 0.05。"
+          },
+          {
+            "id": "ch20-content-zh-085",
+            "kind": "paragraph",
+            "text": "（在讨论上面两段中看似存在的差异之前，值得注意的是。首先，我们说成功的概率记为 p。然后，我们说拉出有缺陷的零件的概率为 p，即 0.05。在商业术语中，拉出有缺陷的零件不会被视为成功。但是，在统计术语中，我们不是在谈论结果的质量本质。我们正在讨论结果是否会成功地符合我们创建的定义。在这种情况下，结果是否会成功？将会有缺陷。）"
+          },
+          {
+            "id": "ch20-content-zh-086",
+            "kind": "paragraph",
+            "text": "上述数据在直方图上的二项分布可能如下所示："
+          },
+          {
+            "id": "ch20-content-zh-087",
+            "kind": "paragraph",
+            "text": "当您处理二项式数据集时，您可以使用二项式分布概率函数来确定在给定样本数据的给定试验次数内成功次数的概率。在给定相同信息的情况下，二项式分布概率函数生成的答案与 Minitab 生成的直方图相关。"
+          },
+          {
+            "id": "ch20-content-zh-088",
+            "kind": "paragraph",
+            "text": "为了理解我们的意思，让我们再次考虑抛硬币的例子。对于这个例子，假设一枚硬币被抛掷 10 次，我们认为正面为成功。每次抛硬币成功的机会（正面）为 0.5。 根据该信息，Minitab 创建下面的直方图。"
+          },
+          {
+            "id": "ch20-content-zh-089",
+            "kind": "paragraph",
+            "text": "该图向我们表明，如果我们抛硬币 10 次，那么在这 10 次抛掷中获得 1 次成功的机会非常小，而获得 9 次成功的机会也非常小。 10 次成功中有 5 次的机会要高得多，但实际上不是 50%。"
+          },
+          {
+            "id": "ch20-content-zh-090",
+            "kind": "paragraph",
+            "text": "为了将这个概念应用到现实世界中，让我们再次看看我们的机器流程，它以 0.05 的比率生产缺陷零件。同样，下面的直方图说明了如果我们从过程中随机抽取 20 个样本可能会出现的数据。"
+          },
+          {
+            "id": "ch20-content-zh-091",
+            "kind": "paragraph",
+            "text": "在 20 个样本中，成功 0 件（有缺陷的部件）的概率略高于 0.35。我们有 1 个有缺陷的部件的概率稍高一些，但在 20 个部件中有 5 个有缺陷的部件的可能性非常非常小。在我们这批 20 个零件中，出现超过 5 个缺陷零件的可能性几乎不存在。"
+          },
+          {
+            "id": "ch20-content-zh-092",
+            "kind": "paragraph",
+            "text": "这对现实世界的六西格玛团队意味着什么？想象一下，质量控制团队每天从该流程中随机抽取 20 个样本。质量团队连续两周没有记录到这些样品中存在任何缺陷。如果六西格玛团队认为某个流程会产生 0.05 个缺陷零件，那么样本中缺少缺陷零件表明（1）为了提高流程性能而进行了某些更改，（2）测量系统有缺陷，或者（3）样本实际上不是随机的。"
+          },
+          {
+            "id": "ch20-content-zh-093",
+            "kind": "paragraph",
+            "text": "如果将试验次数增加到 100，二项分布仍然存在。"
+          },
+          {
+            "id": "ch20-content-zh-094",
+            "kind": "paragraph",
+            "text": "在这里，您可以看到，此过程的最大可能性是，在 100 个样品中，有 4 或 5 个样品存在缺陷。考虑到缺陷率为 0.05，100 个随机样本不可能有超过 11 或 12 个缺陷部件。"
+          },
+          {
+            "id": "ch20-content-zh-095",
+            "kind": "paragraph",
+            "text": "我们以图形方式完成的操作，您也可以使用二项式分布概率函数以数学方式完成。下面提供了方程。"
+          },
+          {
+            "id": "ch20-content-zh-096",
+            "kind": "paragraph",
+            "text": "对于这个公式："
+          },
+          {
+            "id": "ch20-content-zh-097",
+            "kind": "listItem",
+            "text": "x 等于所需的成功次数"
+          },
+          {
+            "id": "ch20-content-zh-098",
+            "kind": "listItem",
+            "text": "n 等于试验次数"
+          },
+          {
+            "id": "ch20-content-zh-099",
+            "kind": "listItem",
+            "text": "p 等于每次试验成功的概率"
+          },
+          {
+            "id": "ch20-content-zh-100",
+            "kind": "listItem",
+            "text": "q 等于 1 – p"
+          },
+          {
+            "id": "ch20-content-zh-101",
+            "kind": "listItem",
+            "text": "感叹号表示阶乘。"
+          },
+          {
+            "id": "ch20-content-zh-102",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Factorial（因子实验）：同时考察多个因素及其组合影响的实验设计。"
+              ]
+            ],
+            "text": "术语说明 Factorial（因子实验）：同时考察多个因素及其组合影响的实验设计。"
+          },
+          {
+            "id": "ch20-content-zh-103",
+            "kind": "paragraph",
+            "text": "哦3！ = 3x2x1 = 6 o 4！ = 4x​​3x2x1 = 24 o 5！ = 5x4x3x2x1 = 120"
+          },
+          {
+            "id": "ch20-content-zh-104",
+            "kind": "paragraph",
+            "text": "使用二项分布概率函数，我们可以计算在交付 0.05 个缺陷零件的过程中 20 次试验将产生 4 个缺陷零件的概率。"
+          },
+          {
+            "id": "ch20-content-zh-105",
+            "kind": "paragraph",
+            "text": "正如分布图所示，拉出 4 个缺陷零件的概率非常低。"
+          },
+          {
+            "id": "ch20-content-zh-106",
+            "kind": "paragraph",
+            "text": "这种类型的计算在商业世界或六西格玛团队中可能很重要的原因是什么？"
+          },
+          {
+            "id": "ch20-content-zh-107",
+            "kind": "paragraph",
+            "text": "考虑一家销售巧克力的公司。如果每个盒子里有 20 块巧克力，顾客在他或她的盒子里收到有缺陷的产品的可能性有多大？顾客收到多于一件有缺陷的巧克力的可能性有多大？团队可以在对数据进行采样后计算这些概率，以确定流程产生缺陷产品的频率。"
+          },
+          {
+            "id": "ch20-content-zh-108",
+            "kind": "paragraph",
+            "text": "如果六西格玛团队对巧克力工艺进行随机抽样并确定该工艺在 4-sigma 水平下运行，结果会怎样？请记住，在第 1 单元中，在 4 sigma 的情况下，流程每百万个机会会产生 6,210 个缺陷。我们假设这意味着每生产 100 万件巧克力就有 6,210 块有缺陷的巧克力，或者一块巧克力有缺陷的几率等于 0.00621。"
+          },
+          {
+            "id": "ch20-content-zh-109",
+            "kind": "termNote",
+            "rows": [
+              [
+                "术语说明 Sigma level（西格玛水平）：衡量过程缺陷率的尺度；水平越高，单位机会中产生缺陷的概率越低。"
+              ]
+            ],
+            "text": "术语说明 Sigma level（西格玛水平）：衡量过程缺陷率的尺度；水平越高，单位机会中产生缺陷的概率越低。"
+          },
+          {
+            "id": "ch20-content-zh-110",
+            "kind": "paragraph",
+            "text": "对于一盒 20 块巧克力，当 p = 0.00621 时，Minitab 生成以下二项式直方图。"
+          },
+          {
+            "id": "ch20-content-zh-111",
+            "kind": "paragraph",
+            "text": "从上面的直方图中，您可以看到盒子里没有缺陷巧克力的可能性约为 88%。一个盒子里有一颗有缺陷的巧克力的可能性约为 10%。一个盒子里有两块或更多有缺陷的巧克力的可能性几乎不存在。"
+          },
+          {
+            "id": "ch20-content-zh-112",
+            "kind": "paragraph",
+            "text": "这对企业意味着什么？这取决于业务或六西格玛项目的目标。如果六西格玛团队的任务是提高客户满意度或降低巧克力盒的退货率，那么盒子中 10% 的巧克力有缺陷的可能性可能就是该团队想要解决的问题。然而，如果客户满意度很高且退货成本较低，那么与少量盒子相关的潜在投诉或退货可能对企业来说是可以接受的——特别是如果六西格玛团队发现降低错误率的成本远远超过处理错误的成本。"
+          },
+          {
+            "id": "ch20-content-zh-113",
+            "kind": "paragraph",
+            "text": "通过以这种方式将二项式分布应用于通过/失败、是/否或缺陷/无缺陷，六西格玛团队可以计算出在各种现实情况下有用的数据。 将成本与成本挂钩的能力"
+          },
+          {
+            "id": "ch20-content-zh-114",
+            "kind": "paragraph",
+            "text": "缺陷使得使用二项式概率评估此类信息变得更加可能，因为团队可以用不同的流程或结果花费不同数量的资金（或节省不同数量的资金）的概率来表达，这两者都是公司领导层有兴趣听到的指标。"
+          },
+          {
+            "id": "ch20-content-zh-115",
+            "kind": "heading",
+            "text": "泊松分布"
+          },
+          {
+            "id": "ch20-content-zh-116",
+            "kind": "paragraph",
+            "text": "泊松分布通常用于处理在时间、距离或其他测量单位内随机分布的数据。例如，在处理呼叫中心每小时的呼叫数、特定街区或街道上每周的交通事故数或批次中的缺陷数时，分布可能相关。事实上，度量中的“per”一词很好地表明泊松分布可能有用。"
+          },
+          {
+            "id": "ch20-content-zh-117",
+            "kind": "paragraph",
+            "text": "从之前的图中可以看出，泊松分布看起来有点像正态曲线，但它并不对称。该曲线以平均值 4 为基础，略微向右倾斜。"
+          },
+          {
+            "id": "ch20-content-zh-118",
+            "kind": "paragraph",
+            "text": "这张平均值为 42 的泊松分布图看起来更像正态曲线。然而，如果您非常仔细地观察，并对均值左侧和右侧的箱进行计数，您会发现曲线稍微向右倾斜。这是一个很好的例子，说明了为什么在处理数据时除了图形分析之外还需要统计分析。数据可以近似于图表上的正态曲线，但并不呈正态。"
+          },
+          {
+            "id": "ch20-content-zh-119",
+            "kind": "paragraph",
+            "text": "关于泊松分布需要注意的一件有趣的事情是它与指数分布密切相关。请记住，泊松分布是离散的，而不是连续的。分布是对一件事发生在另一件事上的次数的分析。例如，考虑一下数据输入员工每小时工作中的错误数量。"
+          },
+          {
+            "id": "ch20-content-zh-120",
+            "kind": "heading",
+            "text": "每小时错误数"
+          },
+          {
+            "id": "ch20-content-zh-121",
+            "kind": "paragraph",
+            "text": "5 8 5 5 4 7 4 12"
+          },
+          {
+            "id": "ch20-content-zh-122",
+            "kind": "paragraph",
+            "text": "3"
+          },
+          {
+            "id": "ch20-content-zh-123",
+            "kind": "paragraph",
+            "text": "这是上述数据的直方图："
+          },
+          {
+            "id": "ch20-content-zh-124",
+            "kind": "paragraph",
+            "text": "数据不连续。相反，它是绝对的。该员工在第 1 小时、第 2 小时、第 3 小时等内犯了多少错误。但是，如果过程遵循泊松分布，则连续观察过程中每个事件之间的时间会产生指数分布。了解这种关系可以帮助六西格玛团队在统计分析需要时将泊松分布转换为指数分布。 在六西格玛环境中使用这种转换对于大多数团队来说不太常见，但在特殊应用中可能很有用——其中一些我们将在本书末尾的行业特定部分中介绍。"
+          },
+          {
+            "id": "ch20-content-zh-125",
+            "kind": "paragraph",
+            "text": "当可以使用以下语句来描述您的数据时，泊松分布可能适用："
+          },
+          {
+            "id": "ch20-content-zh-126",
+            "kind": "listItem",
+            "text": "数据描述以随机间隔测量发生的事件 - 通常涉及“per”一词。"
+          },
+          {
+            "id": "ch20-content-zh-127",
+            "kind": "listItem",
+            "text": "样本大小（间隔数）至少为 16。如果每小时测量，则至少有 16 小时的数据。如果您按英尺进行测量，则至少有 16 英尺的数据。"
+          },
+          {
+            "id": "ch20-content-zh-128",
+            "kind": "listItem",
+            "text": "您知道总体规模是样本规模的 10 倍或更大。例如，如果您要衡量工人的生产力，则不能考虑工人工作的前 16 个小时。"
+          },
+          {
+            "id": "ch20-content-zh-129",
+            "kind": "listItem",
+            "text": "事件的发生是相互独立的。在我们的数据输入示例中，如果我们将每个不必要的击键都算作错误，那么我们可能会将退格键算作错误。然而，退格键取决于犯另一个错误的人。如果这个人在他或她的意思是“n”时输入“b”，那就是一个错误。如果我们将退格算作错误 2，那么这些错误就不是独立的。"
+          },
+          {
+            "id": "ch20-content-zh-130",
+            "kind": "listItem",
+            "text": "发生的概率小于0.1。考虑上面的数据输入示例。使用 10 键数字键盘时，美国员工的平均输入速度约为每小时 8,000 次。如果一名员工每小时犯 8 – 12 次错误，则每次击键出错的概率远低于 0.1。"
+          },
+          {
+            "id": "ch20-content-zh-131",
+            "kind": "listItem",
+            "text": "每个时间间隔的发生率是恒定的。平均每小时拨打50通电话；每小时平均错误数为 6。"
+          },
+          {
+            "id": "ch20-content-zh-132",
+            "kind": "heading",
+            "text": "泊松方程为："
+          },
+          {
+            "id": "ch20-content-zh-133",
+            "kind": "paragraph",
+            "text": "𝑃(𝑥) = 𝑒−𝜇𝜇𝑥"
+          },
+          {
+            "id": "ch20-content-zh-134",
+            "kind": "paragraph",
+            "text": "𝑥！"
+          },
+          {
+            "id": "ch20-content-zh-135",
+            "kind": "heading",
+            "text": "在泊松方程中："
+          },
+          {
+            "id": "ch20-content-zh-136",
+            "kind": "listItem",
+            "text": "e 等于泊松常数，即 2.71828"
+          },
+          {
+            "id": "ch20-content-zh-137",
+            "kind": "listItem",
+            "text": "𝜇 是过程的均值或平均值"
+          },
+          {
+            "id": "ch20-content-zh-138",
+            "kind": "listItem",
+            "text": "𝑋是具体案例或数据点；请记住，感叹号表示阶乘。"
+          },
+          {
+            "id": "ch20-content-zh-139",
+            "kind": "paragraph",
+            "text": "例如，如果六西格玛团队致力于改进呼叫中心的流程，他们可能收集到的数据表明，在任何给定时间，客户服务代表平均等待的人数为 10 人。 考虑到每个时间增量的保持次数时，考虑到该信息和泊松分布，团队可以使用泊松方程来计算与各种呼叫场景相关的概率。"
+          },
+          {
+            "id": "ch20-content-zh-140",
+            "kind": "paragraph",
+            "text": "在给定时间有 15 个呼叫者处于等待状态的概率是多少？"
+          },
+          {
+            "id": "ch20-content-zh-141",
+            "kind": "paragraph",
+            "text": "在给定时间呼叫中心恰好有 15 个呼叫者处于等待状态的概率为 0.034，即大约 3.4%。"
+          },
+          {
+            "id": "ch20-content-zh-142",
+            "kind": "paragraph",
+            "text": "这个数字本身对企业或六西格玛团队来说并没有多大帮助，除非只有当呼叫保持恰好达到 15 时才会出现特定的协议或流程问题。这不是一种极有可能出现的情况。然而，如果六西格玛团队注意到，当等待呼叫的人数达到 15 或以上时，固定人员的呼叫中心团队不太可能赶上，导致等待时间和呼叫量持续居高不下，该怎么办？了解这一点后，团队可能会通知流程负责人，当等待数量达到 15 时，就需要将一些资源从其他区域转移到接听电话上。"
+          },
+          {
+            "id": "ch20-content-zh-143",
+            "kind": "paragraph",
+            "text": "但流程负责人或六西格玛团队如何进行适当的规划呢？是否需要随时准备其他资源？这种情况发生的概率是高还是低？"
+          },
+          {
+            "id": "ch20-content-zh-144",
+            "kind": "paragraph",
+            "text": "要回答这个问题，您可以使用泊松方程来计算在任何给定时间有 0、1、2、3、4、5、6、7、8、9、10、11、12、13 和 14 个呼叫者处于等待状态的概率。由于所有可能结果的概率总计为 1，因此您可以用 1 减去所有这些概率的总和来确定保留数量为 15 或更多的概率。"
+          },
+          {
+            "id": "ch20-content-zh-145",
+            "kind": "paragraph",
+            "text": "从数学上来说，这个概念可以写成："
+          },
+          {
+            "id": "ch20-content-zh-146",
+            "kind": "paragraph",
+            "text": "𝑃(𝑥≧15) = 1 −𝑃(0) + 𝑃(1) + 𝑃(2) +𝑃(3) +𝑃(4) +𝑃(5) +𝑃(6) +𝑃(7) +𝑃(8) +𝑃(9) +𝑃(10) +𝑃(11) + 𝑃(12) + 𝑃(13) + 𝑃(14)"
+          },
+          {
+            "id": "ch20-content-zh-147",
+            "kind": "paragraph",
+            "text": "要手动计算上述概率，您必须对上面列出的每个 P(x) 使用泊松方程。您还可以使用统计分析软件（例如 Minitab）来为您进行计算。我们将在后面的章节中介绍如何在 Minitab 中处理此类分析。不过，现在请考虑下面的图表，其中显示了每个 x 的概率。"
+          },
+          {
+            "id": "ch20-content-zh-148",
+            "kind": "paragraph",
+            "text": "对每个 X 的概率求和得出 x 小于 15 的总概率 0.916541。"
+          },
+          {
+            "id": "ch20-content-zh-149",
+            "kind": "paragraph",
+            "text": "或者，您可以使用统计软件来确定累积概率 - 某个点左侧的曲线下方的面积。 x 小于或等于 14 的累积概率为 0.916541。"
+          },
+          {
+            "id": "ch20-content-zh-150",
+            "kind": "paragraph",
+            "text": "因此，x 为 15 或更大的概率为 1 – 0.916541，或 0.083459。"
+          },
+          {
+            "id": "ch20-content-zh-151",
+            "kind": "paragraph",
+            "text": "在任何给定时间有 15 个或更多呼叫者处于等待状态的概率约为 0.083，即略高于 8%。考虑到这种可能性，呼叫中心领导层可以做出更明智的决定，决定是否愿意为更多员工支付费用，还是冒着达到更高呼叫量并必须赶上轮班剩余时间的风险。"
+          },
+          {
+            "id": "ch20-content-zh-152",
+            "kind": "paragraph",
+            "text": "团队可以通过这种方式使用泊松分布和计算来了解不同事件发生的概率。他们还可以将财务数据与此类事件联系起来，以做出更好的数据驱动决策。"
+          },
+          {
+            "id": "ch20-content-zh-153",
+            "kind": "heading",
+            "text": "其他类型的离散分布"
+          },
+          {
+            "id": "ch20-content-zh-154",
+            "kind": "heading",
+            "text": "几何分布"
+          },
+          {
+            "id": "ch20-content-zh-155",
+            "kind": "paragraph",
+            "text": "当试验有两个结果、试验是独立的并且在第一次出现之前有等待时间时，使用几何分布。与二项分布一样，每次试验的结果必须是独立的。几何分布的实际使用可能包括在发现有缺陷的部件之前进行的检查次数，或者招聘人员在找到第一个满足最低工作要求的候选人之前审查的简历或申请的数量。"
+          },
+          {
+            "id": "ch20-content-zh-156",
+            "kind": "paragraph",
+            "text": "几何分布的示例如下所示。"
+          },
+          {
+            "id": "ch20-content-zh-157",
+            "kind": "heading",
+            "text": "负二项式"
+          },
+          {
+            "id": "ch20-content-zh-158",
+            "kind": "paragraph",
+            "text": "负二项分布也用于属性数据——失败/通过以及每次试验只有两个结果的其他情况。同样，结果必须相互独立；每次试验中发生的概率必须相同，就像二项式分布一样。当团队试图确定在达到某次通过或失败之前一定次数的通过或失败的概率时，通常会使用负二项分布。"
+          },
+          {
+            "id": "ch20-content-zh-159",
+            "kind": "heading",
+            "text": "将数据应用于现实情况"
+          },
+          {
+            "id": "ch20-content-zh-160",
+            "kind": "paragraph",
+            "text": "在本章中，我们讨论了概率分布让六西格玛团队将有关流程的原始数据应用于现实世界的问题和情况的一些方法。如前所述，您将对数据执行的许多统计分析都与正态曲线相关。 但是，了解一些与分布相关的方程（例如二项式或泊松）可以帮助您扩展创建有关数据的现实世界假设的能力。"
+          },
+          {
+            "id": "ch20-content-zh-161",
+            "kind": "paragraph",
+            "text": "当您可以确定某些事件或数据点的概率时，您可以对流程做出明智的决策。发生成本高昂的事件的概率有多大？与事件相关的成本是否足以成为努力降低该事件发生可能性的理由？如果低成本缺陷的概率很高，那么与该缺陷相关的总费用是否可能高于与概率极低的高成本缺陷相关的总费用？这些只是团队可以使用统计数据和概率分布来回答的一些问题。"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 {
   "manual": "CSSC Six Sigma Black Belt Training Manual",
-  "version": "0.1.0",
+  "version": "0.2.0",
+  "pageCount": 449,
   "chapters": [
     {
       "id": "ch01",
@@ -12,6 +13,358 @@
       "pageStart": 6,
       "pageEnd": 13,
       "path": "chapters/ch01.json"
+    },
+    {
+      "id": "ch02",
+      "chapter": 2,
+      "title": {
+        "en": "Chapter 2: History and Application of Six Sigma",
+        "zh": "第 2 章：六西格玛的历史与应用"
+      },
+      "pageStart": 14,
+      "pageEnd": 21,
+      "path": "chapters/ch02.json"
+    },
+    {
+      "id": "ch03",
+      "chapter": 3,
+      "title": {
+        "en": "Chapter 3: Other Process Improvement and Quality Methods",
+        "zh": "第 3 章：其他流程改进与质量方法"
+      },
+      "pageStart": 22,
+      "pageEnd": 27,
+      "path": "chapters/ch03.json"
+    },
+    {
+      "id": "ch04",
+      "chapter": 4,
+      "title": {
+        "en": "Chapter 4: Lean Concepts",
+        "zh": "第 4 章：精益概念"
+      },
+      "pageStart": 28,
+      "pageEnd": 37,
+      "path": "chapters/ch04.json"
+    },
+    {
+      "id": "ch05",
+      "chapter": 5,
+      "title": {
+        "en": "Chapter 5: Basic Six Sigma Concepts",
+        "zh": "第 5 章：六西格玛基础概念"
+      },
+      "pageStart": 38,
+      "pageEnd": 51,
+      "path": "chapters/ch05.json"
+    },
+    {
+      "id": "ch06",
+      "chapter": 6,
+      "title": {
+        "en": "Chapter 6: Approaches to Problem Solving",
+        "zh": "第 6 章：处理问题的方法"
+      },
+      "pageStart": 52,
+      "pageEnd": 58,
+      "path": "chapters/ch06.json"
+    },
+    {
+      "id": "ch07",
+      "chapter": 7,
+      "title": {
+        "en": "Chapter 7: What is a Process?",
+        "zh": "第 7 章：什么是流程？"
+      },
+      "pageStart": 59,
+      "pageEnd": 71,
+      "path": "chapters/ch07.json"
+    },
+    {
+      "id": "ch08",
+      "chapter": 8,
+      "title": {
+        "en": "Chapter 8: Quality",
+        "zh": "第 8 章：质量"
+      },
+      "pageStart": 72,
+      "pageEnd": 79,
+      "path": "chapters/ch08.json"
+    },
+    {
+      "id": "ch09",
+      "chapter": 9,
+      "title": {
+        "en": "Chapter 9: Selecting the Right Projects",
+        "zh": "第 9 章：选择正确的项目"
+      },
+      "pageStart": 80,
+      "pageEnd": 90,
+      "path": "chapters/ch09.json"
+    },
+    {
+      "id": "ch10",
+      "chapter": 10,
+      "title": {
+        "en": "Chapter 10: Six Sigma Team Management Basics",
+        "zh": "第 10 章：六西格玛团队管理基础"
+      },
+      "pageStart": 91,
+      "pageEnd": 99,
+      "path": "chapters/ch10.json"
+    },
+    {
+      "id": "ch11",
+      "chapter": 11,
+      "title": {
+        "en": "Chapter 11: Introduction to DMAIC and DMADV",
+        "zh": "第 11 章：DMAIC 与 DMADV 入门"
+      },
+      "pageStart": 100,
+      "pageEnd": 109,
+      "path": "chapters/ch11.json"
+    },
+    {
+      "id": "ch12",
+      "chapter": 12,
+      "title": {
+        "en": "Chapter 12: Define",
+        "zh": "第 12 章：定义"
+      },
+      "pageStart": 110,
+      "pageEnd": 118,
+      "path": "chapters/ch12.json"
+    },
+    {
+      "id": "ch13",
+      "chapter": 13,
+      "title": {
+        "en": "Chapter 13: Measure",
+        "zh": "第 13 章：测量"
+      },
+      "pageStart": 119,
+      "pageEnd": 133,
+      "path": "chapters/ch13.json"
+    },
+    {
+      "id": "ch14",
+      "chapter": 14,
+      "title": {
+        "en": "Chapter 14: Analyze",
+        "zh": "第 14 章：分析"
+      },
+      "pageStart": 134,
+      "pageEnd": 144,
+      "path": "chapters/ch14.json"
+    },
+    {
+      "id": "ch15",
+      "chapter": 15,
+      "title": {
+        "en": "Chapter 15: Improve",
+        "zh": "第 15 章：改进"
+      },
+      "pageStart": 145,
+      "pageEnd": 150,
+      "path": "chapters/ch15.json"
+    },
+    {
+      "id": "ch16",
+      "chapter": 16,
+      "title": {
+        "en": "Chapter 16: Control",
+        "zh": "第 16 章：控制"
+      },
+      "pageStart": 151,
+      "pageEnd": 157,
+      "path": "chapters/ch16.json"
+    },
+    {
+      "id": "ch17",
+      "chapter": 17,
+      "title": {
+        "en": "Chapter 17: Intermediate Graphical Analysis",
+        "zh": "第 17 章：中级图形分析"
+      },
+      "pageStart": 158,
+      "pageEnd": 178,
+      "path": "chapters/ch17.json"
+    },
+    {
+      "id": "ch18",
+      "chapter": 18,
+      "title": {
+        "en": "Chapter 18: Normal Probability Distributions",
+        "zh": "第 18 章：正态概率分布"
+      },
+      "pageStart": 179,
+      "pageEnd": 204,
+      "path": "chapters/ch18.json"
+    },
+    {
+      "id": "ch19",
+      "chapter": 19,
+      "title": {
+        "en": "Chapter 19: Correlation and Regression",
+        "zh": "第 19 章：相关与回归"
+      },
+      "pageStart": 205,
+      "pageEnd": 221,
+      "path": "chapters/ch19.json"
+    },
+    {
+      "id": "ch20",
+      "chapter": 20,
+      "title": {
+        "en": "Chapter 20: Non-Normal Probability Distributions",
+        "zh": "第 20 章：非正态概率分布"
+      },
+      "pageStart": 222,
+      "pageEnd": 247,
+      "path": "chapters/ch20.json"
+    },
+    {
+      "id": "ch21",
+      "chapter": 21,
+      "title": {
+        "en": "Chapter 21: Hypothesis Testing",
+        "zh": "第 21 章：假设检验"
+      },
+      "pageStart": 248,
+      "pageEnd": 261,
+      "path": "chapters/ch21.json"
+    },
+    {
+      "id": "ch22",
+      "chapter": 22,
+      "title": {
+        "en": "Chapter 22: Sample Size",
+        "zh": "第 22 章：样本量"
+      },
+      "pageStart": 262,
+      "pageEnd": 273,
+      "path": "chapters/ch22.json"
+    },
+    {
+      "id": "ch23",
+      "chapter": 23,
+      "title": {
+        "en": "Chapter 23: Advanced Control Charts",
+        "zh": "第 23 章：高级控制图"
+      },
+      "pageStart": 274,
+      "pageEnd": 294,
+      "path": "chapters/ch23.json"
+    },
+    {
+      "id": "ch24",
+      "chapter": 24,
+      "title": {
+        "en": "Chapter 24: Applying Statistics to Business with Six Sigma",
+        "zh": "第 24 章：通过六西格玛将统计应用于业务场景"
+      },
+      "pageStart": 295,
+      "pageEnd": 304,
+      "path": "chapters/ch24.json"
+    },
+    {
+      "id": "ch25",
+      "chapter": 25,
+      "title": {
+        "en": "Chapter 25: Introduction to Minitab",
+        "zh": "第 25 章：Minitab 入门"
+      },
+      "pageStart": 305,
+      "pageEnd": 324,
+      "path": "chapters/ch25.json"
+    },
+    {
+      "id": "ch26",
+      "chapter": 26,
+      "title": {
+        "en": "Chapter 26: Graphs and Quality Tools in Minitab",
+        "zh": "第 26 章：Minitab 中的图形与质量工具"
+      },
+      "pageStart": 325,
+      "pageEnd": 360,
+      "path": "chapters/ch26.json"
+    },
+    {
+      "id": "ch27",
+      "chapter": 27,
+      "title": {
+        "en": "Chapter 27: The Stat Menu in Minitab",
+        "zh": "第 27 章：Minitab 的 Stat 菜单"
+      },
+      "pageStart": 361,
+      "pageEnd": 371,
+      "path": "chapters/ch27.json"
+    },
+    {
+      "id": "ch28",
+      "chapter": 28,
+      "title": {
+        "en": "Chapter 28: One-Way Analysis of Variance (ANOVA)",
+        "zh": "第 28 章：方差分析（单因素 ANOVA）"
+      },
+      "pageStart": 372,
+      "pageEnd": 389,
+      "path": "chapters/ch28.json"
+    },
+    {
+      "id": "ch29",
+      "chapter": 29,
+      "title": {
+        "en": "Chapter 29: Design of Experiments",
+        "zh": "第 29 章：实验设计"
+      },
+      "pageStart": 390,
+      "pageEnd": 408,
+      "path": "chapters/ch29.json"
+    },
+    {
+      "id": "ch30",
+      "chapter": 30,
+      "title": {
+        "en": "Chapter 30: Interactions, Multi-Level Factors, and Experiment Creation",
+        "zh": "第 30 章：交互作用、多水平因子与实验创建"
+      },
+      "pageStart": 409,
+      "pageEnd": 419,
+      "path": "chapters/ch30.json"
+    },
+    {
+      "id": "ch31",
+      "chapter": 31,
+      "title": {
+        "en": "Chapter 31: Brainstorming and Process Improvement Tools",
+        "zh": "第 31 章：头脑风暴与流程改进工具"
+      },
+      "pageStart": 420,
+      "pageEnd": 427,
+      "path": "chapters/ch31.json"
+    },
+    {
+      "id": "ch32",
+      "chapter": 32,
+      "title": {
+        "en": "Chapter 32: Process Maps",
+        "zh": "第 32 章：流程图"
+      },
+      "pageStart": 428,
+      "pageEnd": 438,
+      "path": "chapters/ch32.json"
+    },
+    {
+      "id": "ch33",
+      "chapter": 33,
+      "title": {
+        "en": "Chapter 33: Value Stream Maps",
+        "zh": "第 33 章：价值流图"
+      },
+      "pageStart": 439,
+      "pageEnd": 449,
+      "path": "chapters/ch33.json"
     }
   ],
   "dictionary": "dictionary/six-sigma-terms.json"
