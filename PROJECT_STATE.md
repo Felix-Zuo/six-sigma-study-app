@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 06:06 Asia/Shanghai
+Last updated: 2026-06-22 06:15 Asia/Shanghai
 
 ## Objective
 
@@ -19,10 +19,10 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest validated implementation commit: `8f5e22a Expand offline study dictionary`
+- Latest validated implementation commit: `c59e364 Add vocabulary CSV export`
 - Local worktree: expected clean after the state-sync commit that contains this note
-- Latest implementation GitHub Actions state: CI passed for `8f5e22a` in run `27918946391`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 69-entry offline study dictionary, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Latest implementation GitHub Actions state: CI passed for `c59e364` in run `27919147810`
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 69-entry offline study dictionary, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
 
@@ -97,6 +97,8 @@ The final product must support full-manual offline reading, position-preserving 
 - Added `scripts/qa-language-toggle-cdp.mjs` to run Android WebView CDP QA for Chapter 26 EN/ZH block-position preservation, horizontal overflow, and tap-to-lookup.
 - Expanded the generated offline dictionary from 16 to 69 entries covering high-frequency Six Sigma, statistics, Minitab/chart, lean, software-command, and basic study words.
 - Updated the Android WebView language-position QA script so tap-to-lookup fails if it falls back to the generic "not in dictionary" explanation.
+- Added vocabulary CSV export with Web Share, clipboard, and download fallbacks.
+- Added `scripts/qa-vocab-export-cdp.mjs` to seed Android WebView vocabulary data, verify CSV escaping, and check the export panel layout.
 
 ## Verification In Current Stage
 
@@ -329,6 +331,28 @@ The final product must support full-manual offline reading, position-preserving 
   - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
   - AAB `jarsigner -verify`: verified with expected self-signed certificate warnings
   - GitHub Actions CI for `8f5e22a`: passed in run `27918946391`
+- Vocabulary CSV export verification:
+  - `npm run typecheck`: passed
+  - `npm run build`: passed
+  - `npm run android:release-apk`: passed
+  - Release APK install and relaunch on `emulator-5554`: passed
+  - `node scripts\qa-vocab-export-cdp.mjs`: passed
+  - Android WebView QA seeded two vocabulary terms and verified:
+    - generated CSV has 3 rows including the header
+    - header starts with `term,translation,status`
+    - `Six Sigma` learning row is present
+    - quoted text with commas is escaped correctly
+    - export fallback copied CSV and showed the expected status message
+    - vocabulary panel horizontal overflow remained 0
+  - Local QA screenshot captured at `C:\findjob_sixsigma_app\qa\screenshots\vocab-export-qa.png` and ignored by Git.
+  - `npm run lint:content`: passed
+  - `npm run android:aab`: passed
+  - APK size: 37,325,443 bytes
+  - AAB size: 35,108,584 bytes
+  - APK/AAB package checks: 470 figure PNG files, `manual.json`, and `asset-manifest.json` are present
+  - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
+  - AAB `jarsigner -verify`: verified with expected self-signed certificate warnings
+  - GitHub Actions CI for `c59e364`: passed in run `27919147810`
 
 ## Known Limitations
 
@@ -368,7 +392,7 @@ After context compression or a new session, do this before making changes:
 
 ## Next Action
 
-Improve curated manual section mapping for normal-paragraph titles, expand toward a fuller English learner dictionary, run physical-phone long-press QA, add notes/highlights or vocabulary CSV export, perform low-end-device performance profiling, and continue full-source visual comparison for extracted figures/tables.
+Improve curated manual section mapping for normal-paragraph titles, expand toward a fuller English learner dictionary, run physical-phone long-press QA, add notes/highlights, perform low-end-device performance profiling, and continue full-source visual comparison for extracted figures/tables.
 
 ## Constraints
 

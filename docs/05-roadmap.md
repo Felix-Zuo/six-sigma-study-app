@@ -51,7 +51,7 @@ Goal: make vocabulary learning useful.
 - [x] new/learning/mastered statuses
 - [x] spaced repetition scheduling
 - [ ] expand toward a full general English learner dictionary
-- [ ] export vocabulary CSV
+- [x] export vocabulary CSV
 
 ## Phase 4: Native Packaging
 

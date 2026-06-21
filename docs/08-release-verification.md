@@ -6,8 +6,8 @@ This document records the current evidence that the Android study app is install
 
 - Repository: `https://github.com/Felix-Zuo/six-sigma-study-app`
 - Local path: `C:\findjob_sixsigma_app`
-- Latest verified implementation commit when this document was updated: `8f5e22a`
-- Latest verified implementation GitHub Actions run: `27918946391`
+- Latest verified implementation commit when this document was updated: `c59e364`
+- Latest verified implementation GitHub Actions run: `27919147810`
 - Release APK: `C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB: `C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab`
 
@@ -70,6 +70,7 @@ Verified on local emulator `SixSigmaQA` / `emulator-5554`.
 - Native Android: service worker registration is skipped and CacheStorage is cleared to avoid stale APK upgrades.
 - Vocabulary: persisted in localStorage under `six-sigma-study:vocab:v1`; old vocabulary records migrate to include `reviewCount`, `correctStreak`, and `nextReviewAt`.
 - Vocabulary review: Android WebView QA verified adding a term from lookup, due-count display, due/all filters, `认识` scheduling, `再记` scheduling, and 0 horizontal overflow in the vocabulary panel.
+- Vocabulary export: Android WebView QA verified CSV export with header, review fields, source text, quote/comma escaping, clipboard fallback, and 0 horizontal overflow.
 - Dictionary lookup: Android WebView QA verified a clicked word after EN/ZH round trip used a real dictionary entry (`to`) rather than the generic fallback explanation.
 
 ## Known Remaining Gaps

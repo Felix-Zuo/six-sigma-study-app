@@ -33,9 +33,9 @@ It intentionally does **not** commit the full manual DOCX/PDF/PNG assets. Those 
 - Android-first app: release APK and AAB build locally.
 - Full manual: all 33 chapters, 449 aligned study pages, 174 generated reader sections.
 - Offline runtime package: `manual.json`, 69-entry local study dictionary, local vocabulary store, and 470 bundled figure/table/formula PNG assets.
-- Reader interactions: EN/ZH toggle with block-aware position restoration, table-of-contents search, persisted dark mode and font size controls, tap-to-lookup, phrase selection lookup, bottom-sheet explanations, local vocabulary save/status, and due-based vocabulary review.
+- Reader interactions: EN/ZH toggle with block-aware position restoration, table-of-contents search, persisted dark mode and font size controls, tap-to-lookup, phrase selection lookup, bottom-sheet explanations, local vocabulary save/status, due-based vocabulary review, and vocabulary CSV export.
 - Long chapter handling: English word buttons are mounted only near the viewport to avoid huge DOMs.
-- Latest verified implementation CI at the time of this note: `27918946391` on commit `8f5e22a`.
+- Latest verified implementation CI at the time of this note: `27919147810` on commit `c59e364`.
 
 See [Release Verification](docs/08-release-verification.md) for the current evidence matrix.
 
