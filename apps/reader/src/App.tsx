@@ -58,6 +58,7 @@ type TermEntry = {
   term: string;
   translation: string;
   partOfSpeech?: string;
+  phonetic?: string;
   explanation: string;
   lookupKeys: string[];
   isSixSigmaTerm?: boolean;
@@ -203,6 +204,16 @@ function lookupFallback(term: string): TermEntry {
     lookupKeys: [term],
     explanation: "该词或短语还没有进入本地词库。后续会接入更完整的离线词典和六西格玛术语库。"
   };
+}
+
+function lookupCandidates(text: string): string[] {
+  const normalized = normalizeLookup(text);
+  const keys = normalized ? [normalized] : [];
+  const parts = normalized.split(" ").filter(Boolean);
+  if (parts.length > 1) {
+    keys.push(...parts);
+  }
+  return [...new Set(keys)];
 }
 
 function InlineReaderText({
@@ -746,8 +757,7 @@ export function App() {
   }
 
   function lookupText(text: string, page: number, sectionId: string, sourceText: string) {
-    const key = normalizeLookup(text);
-    const entry = termIndex.get(key) ?? lookupFallback(text);
+    const entry = lookupCandidates(text).map((key) => termIndex.get(key)).find(Boolean) ?? lookupFallback(text);
     ensureOverlayHistory();
     setShowToc(false);
     setShowVocab(false);
@@ -1233,6 +1243,7 @@ export function App() {
             <button className="closeButton" onClick={closeOverlayFromControl}>关闭</button>
           </div>
           <p className="translation">{activeLookup.entry.translation}</p>
+          {activeLookup.entry.phonetic && <p className="phonetic">/{activeLookup.entry.phonetic}/</p>}
           {activeLookup.entry.partOfSpeech && <p className="partOfSpeech">{activeLookup.entry.partOfSpeech}</p>}
           {activeLookup.entry.isSixSigmaTerm && <span className="termBadge">六西格玛术语</span>}
           <p className="explanation">{activeLookup.entry.explanation}</p>

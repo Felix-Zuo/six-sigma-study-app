@@ -15,6 +15,7 @@
     "android:aab": "npm run android:sync && cd android && gradlew.bat bundleRelease",
     "extract:ch01": "python scripts/extract_chapter_content.py",
     "extract:manual": "python scripts/extract_manual_content.py",
+    "build:dictionary": "python scripts/build_manual_dictionary.py",
     "lint:content": "python scripts/validate_content.py content/processed"
   },
   "devDependencies": {

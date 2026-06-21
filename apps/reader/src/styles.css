@@ -490,6 +490,12 @@ h1 {
   font-weight: 850;
 }
 
+.phonetic {
+  margin: 0 0 4px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
 .partOfSpeech {
   margin: 0 0 10px;
   color: var(--text-muted);

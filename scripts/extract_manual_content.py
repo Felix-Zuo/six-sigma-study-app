@@ -24,6 +24,7 @@ from extract_chapter_content import (
     serialize_block,
     write_json,
 )
+from build_manual_dictionary import DEFAULT_ECDICT_CSV, build_dictionary
 
 
 CN_NUMERALS = [
@@ -654,8 +655,18 @@ def main() -> None:
     parser.add_argument("--en-docx", type=Path, default=DEFAULT_EN_DOCX)
     parser.add_argument("--zh-docx", type=Path, default=DEFAULT_ZH_DOCX)
     parser.add_argument("--repo-root", type=Path, default=DEFAULT_REPO_ROOT)
+    parser.add_argument("--ecdict-csv", type=Path, default=DEFAULT_ECDICT_CSV)
     args = parser.parse_args()
     manual = build_manual(args.en_docx, args.zh_docx, args.repo_root)
+    if args.ecdict_csv.exists():
+        dictionary, stats = build_dictionary(manual, args.ecdict_csv)
+        manual["dictionary"] = dictionary
+        print(
+            "ok: built manual dictionary "
+            f"({stats['totalEntries']} entries, {stats['coveredManualForms']}/{stats['manualForms']} forms covered)"
+        )
+    else:
+        print(f"warning: ECDICT CSV not found, keeping curated dictionary only: {args.ecdict_csv}")
     write_outputs(args.repo_root, manual, args.en_docx, args.zh_docx)
     chapters = manual["chapters"]
     en_blocks = sum(len(section["content"]["en"]) for lesson in chapters for section in lesson["sections"])

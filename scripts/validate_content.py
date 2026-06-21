@@ -181,6 +181,11 @@ def validate_section_lesson(
 def validate_dictionary(path: Path, data: object, quiet: bool = False) -> None:
     if not isinstance(data, list) or not data:
         fail("dictionary must be a non-empty array")
+    if path.name == "six-sigma-terms.json":
+        if len(data) < 3000:
+            fail(f"production dictionary must contain at least 3000 entries: {len(data)}")
+        if not any(isinstance(entry, dict) and entry.get("source") == "ECDICT" for entry in data):
+            fail("production dictionary must include ECDICT-derived learner entries")
     seen_keys: dict[str, str] = {}
     for entry in data:
         if not isinstance(entry, dict):
