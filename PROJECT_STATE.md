@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 05:24 Asia/Shanghai
+Last updated: 2026-06-22 05:33 Asia/Shanghai
 
 ## Objective
 
@@ -19,10 +19,10 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest validated implementation commit: `9230257 Add reader comfort controls`
+- Latest validated implementation commit: `6e0335b Add table of contents search`
 - Local worktree: expected clean after the state-sync commit that contains this note
-- Latest implementation GitHub Actions state: CI passed for `9230257` in run `27917919176`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, section-preserving language toggle, persisted reading position across app restart, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Latest implementation GitHub Actions state: CI passed for `6e0335b` in run `27918135264`
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, section-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
 
@@ -87,6 +87,8 @@ The final product must support full-manual offline reading, position-preserving 
 - Added standard, large, and extra-large reader font controls from the sticky header.
 - Added long URL/reference wrapping so Chapter 1 source citations do not create page-level horizontal scroll at extra-large text size.
 - Updated Phase 5 roadmap tracking for long-session study comfort.
+- Added table-of-contents search by English/Chinese chapter title, English/Chinese section title, chapter number, and page number.
+- Added direct navigation from search results to either whole chapters or specific section anchors.
 
 ## Verification In Current Stage
 
@@ -239,6 +241,26 @@ The final product must support full-manual offline reading, position-preserving 
   - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
   - AAB `jarsigner -verify`: verified with expected self-signed certificate warnings
   - GitHub Actions CI for `9230257`: passed in run `27917919176`
+- Table-of-contents search verification:
+  - `npm run typecheck`: passed
+  - `npm run build`: passed
+  - `npm run lint:content`: passed
+  - `npm run android:release-apk`: passed
+  - Release APK install and relaunch on `emulator-5554`: passed
+  - Android WebView TOC search QA:
+    - `Minitab` returned 10 chapter/section results and jumping from the Chapter 26 result opened `Chapter 26: Graphs and Quality Tools in Minitab`
+    - `439` returned the Chapter 33 page-range result plus page 439 section results and jumping opened `Chapter 33: Value Stream Maps`
+    - `价值流图` matched Chinese title metadata while displaying English UI and jumping opened `Chapter 33: Value Stream Maps`
+    - no-match query showed `没有匹配的章节或页码。`
+    - each verified jump closed the TOC panel and left page-level horizontal overflow at 0
+  - Local QA screenshot captured at `C:\findjob_sixsigma_app\qa\screenshots\toc-search-ch33.png` and ignored by Git.
+  - `npm run android:aab`: passed
+  - APK size: 37,319,327 bytes
+  - AAB size: 35,102,470 bytes
+  - APK/AAB package checks: 470 figure PNG files, `manual.json`, and `asset-manifest.json` are present
+  - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
+  - AAB `jarsigner -verify`: verified with expected self-signed certificate warnings
+  - GitHub Actions CI for `6e0335b`: passed in run `27918135264`
 
 ## Known Limitations
 
@@ -276,7 +298,7 @@ After context compression or a new session, do this before making changes:
 
 ## Next Action
 
-Improve curated manual section mapping for normal-paragraph titles, add page/chapter search, run physical-phone long-press QA, perform low-end-device performance profiling, and continue full-source visual comparison for extracted figures/tables.
+Improve curated manual section mapping for normal-paragraph titles, run physical-phone long-press QA, add notes/highlights or vocabulary review scheduling, perform low-end-device performance profiling, and continue full-source visual comparison for extracted figures/tables.
 
 ## Constraints
 
