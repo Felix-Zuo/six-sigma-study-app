@@ -19,9 +19,9 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest validated implementation commit: pending commit for full figure asset integration
-- Local worktree: contains figure asset integration changes until committed
-- Latest implementation GitHub Actions state: CI passed for `ac01ed1`; current stage not pushed yet
+- Latest validated implementation commit: `84e1623 Preserve manual figure assets in reader`
+- Local worktree: expected clean after the state-sync commit that contains this note
+- Latest implementation GitHub Actions state: CI passed for `84e1623`
 - Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with section-preserving language toggle, persisted reading position across app restart, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
