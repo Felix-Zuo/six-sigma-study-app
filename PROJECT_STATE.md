@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 04:52 Asia/Shanghai
+Last updated: 2026-06-22 05:01 Asia/Shanghai
 
 ## Objective
 
@@ -19,9 +19,9 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest validated implementation commit: `2d794f7 Sectionize generic chapters from source TOC`
+- Latest validated implementation commit: `bf5a8d5 Track selected phrase source section`
 - Local worktree: expected clean after the state-sync commit that contains this note
-- Latest implementation GitHub Actions state: CI passed for `9a775a4` in run `27917184492`
+- Latest implementation GitHub Actions state: local validation passed for `bf5a8d5`; GitHub Actions verification pending push for this stage
 - Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, section-preserving language toggle, persisted reading position across app restart, viewport-bound English word tokenization, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
@@ -79,6 +79,8 @@ The final product must support full-manual offline reading, position-preserving 
 - Added `content/source/source_toc_sections.json` with 33 source chapters and 142 source TOC sections.
 - Updated full-manual extraction so Chapters 2-33 use source-TOC-guided section anchors where matching Word headings exist.
 - Regenerated app content with 174 total sections across 33 chapters; Chapter 28 intentionally remains one section because its TOC-like titles are normal paragraphs rather than reliable Word headings.
+- Updated phrase selection so selected phrases retain the actual source section and page from the DOM selection anchor instead of using the current active section as a proxy.
+- Phrase lookup now clears the text selection after opening the lookup bottom sheet, avoiding stale floating phrase-query controls.
 
 ## Verification In Current Stage
 
@@ -171,6 +173,22 @@ The final product must support full-manual offline reading, position-preserving 
   - AAB content check: 470 figure PNG files, `base/assets/public/content/assets/asset-manifest.json`, and `base/assets/public/content/manual.json` are present
   - `apksigner verify --print-certs android\app\build\outputs\apk\release\app-release.apk`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
   - `jarsigner -verify android\app\build\outputs\bundle\release\app-release.aab`: verified with expected self-signed certificate warnings
+- Phrase selection verification:
+  - `npm run typecheck`: passed
+  - `npm run build`: passed
+  - `npm run android:release-apk`: passed
+  - Android WebView Selection API QA on Chapter 7:
+    - selecting `inputs, outputs` inside `ch07-s02-major-process-components` displayed the phrase lookup button
+    - phrase lookup opened a bottom sheet titled `inputs, outputs` with `PAGE 61`
+    - text selection was cleared after lookup
+    - save-to-vocabulary persisted the phrase with `chapter: 7`, `page: 61`, and `sectionId: ch07-s02-major-process-components`
+    - no horizontal overflow
+  - `npm run android:aab`: passed
+  - APK size: 37,317,735 bytes
+  - AAB size: 35,100,886 bytes
+  - APK/AAB package checks: 470 figure PNG files, `manual.json`, and `asset-manifest.json` are present
+  - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
+  - AAB `jarsigner -verify`: verified with expected self-signed certificate warnings
   - `npm run lint:content`: passed
 - Source-TOC sectionization verification:
   - `scripts/extract_source_toc.py`: passed with 33 source chapters and 142 source sections
@@ -198,7 +216,7 @@ The final product must support full-manual offline reading, position-preserving 
 - The release signing key is a local self-signed key for this project; store upload key policy and distribution channel are not finalized.
 - Chapters 2-33 now use source-TOC-guided section anchors where reliable Word headings exist, but chapters whose section titles are normal paragraphs need curated manual mapping before further splitting.
 - Language position preservation is section-level, not sentence-level.
-- Phrase lookup UI exists through text selection, but still needs real touch-device QA.
+- Phrase lookup works through WebView text selection and stores the selected phrase's source section/page; physical long-press QA on a real phone is still pending.
 - English tables in Chapter 1 are partly represented as Word paragraph fragments; Chinese tables render as semantic tables.
 - Long chapters now use viewport-bound English tokenization; deeper low-end-device profiling is still pending.
 - Detailed paragraph-level anchors still need refinement beyond current section-level restoration.
