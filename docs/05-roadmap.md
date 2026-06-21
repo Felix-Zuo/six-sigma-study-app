@@ -74,7 +74,7 @@ Goal: comfortable long-session study.
 - [x] dark mode with persisted reader preference
 - [x] font size controls with standard, large, and extra-large reading sizes
 - [x] long URL/reference wrapping so extra-large text does not create page-level horizontal scroll
-- [ ] page/chapter search
+- [x] table-of-contents search by chapter title, section title, chapter number, and page number
 - [ ] notes and highlights
 - [ ] performance profiling on real phone
 - [ ] low-end-device profiling for long image-heavy chapters

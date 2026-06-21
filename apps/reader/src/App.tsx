@@ -77,6 +77,9 @@ type SelectedPhrase = {
 
 type OverlayName = "lookup" | "toc" | "vocab";
 type LookupTextHandler = (text: string, page: number, sectionId: string, sourceText: string) => void;
+type TocSearchResult =
+  | { kind: "chapter"; chapter: Lesson }
+  | { kind: "section"; chapter: Lesson; section: LessonSection };
 const readerPreferencesKey = "six-sigma-study:reader-preferences:v1";
 const textScaleOrder: TextScale[] = ["standard", "large", "xlarge"];
 
@@ -98,6 +101,53 @@ function loadReaderPreferences(): { theme: ThemeMode; textScale: TextScale } {
 
 function persistReaderPreferences(theme: ThemeMode, textScale: TextScale): void {
   window.localStorage.setItem(readerPreferencesKey, JSON.stringify({ theme, textScale }));
+}
+
+function normalizeTocQuery(value: string): string {
+  return value.trim().toLocaleLowerCase();
+}
+
+function titleMatches(title: Record<Language, string>, query: string): boolean {
+  return (
+    title.en.toLocaleLowerCase().includes(query) ||
+    title.zh.toLocaleLowerCase().includes(query)
+  );
+}
+
+function buildTocSearchResults(manual: ManualData | null, queryText: string): TocSearchResult[] {
+  if (!manual) {
+    return [];
+  }
+
+  const query = normalizeTocQuery(queryText);
+  if (!query) {
+    return manual.chapters.map((chapter) => ({ kind: "chapter", chapter }));
+  }
+
+  const numericQuery = /^\d+$/.test(query) ? Number(query) : null;
+  const results: TocSearchResult[] = [];
+  for (const chapter of manual.chapters) {
+    const chapterMatches =
+      titleMatches(chapter.title, query) ||
+      numericQuery === chapter.chapter ||
+      (numericQuery !== null && numericQuery >= chapter.pageStart && numericQuery <= chapter.pageEnd);
+
+    if (chapterMatches) {
+      results.push({ kind: "chapter", chapter });
+    }
+
+    for (const section of chapter.sections) {
+      const sectionMatches =
+        titleMatches(section.title, query) ||
+        (numericQuery !== null && numericQuery === section.page);
+
+      if (sectionMatches) {
+        results.push({ kind: "section", chapter, section });
+      }
+    }
+  }
+
+  return results.slice(0, 80);
 }
 
 function buildTermIndex(entries: TermEntry[]) {
@@ -217,13 +267,16 @@ export function App() {
   const [savedTerms, setSavedTerms] = useState<SavedTerm[]>(() => loadSavedTerms());
   const [showToc, setShowToc] = useState(false);
   const [showVocab, setShowVocab] = useState(false);
+  const [tocQuery, setTocQuery] = useState("");
   const readerRef = useRef<HTMLElement | null>(null);
   const overlayRef = useRef<OverlayName | null>(null);
   const overlayHistoryRef = useRef(false);
+  const pendingScrollSectionRef = useRef<string | null>(null);
 
   const lesson = manual?.chapters.find((chapter) => chapter.id === activeChapterId) ?? manual?.chapters[0];
   const activeSection = lesson?.sections.find((section) => section.id === activeSectionId) ?? lesson?.sections[0];
   const termIndex = useMemo(() => buildTermIndex(manual?.dictionary ?? []), [manual]);
+  const tocResults = useMemo(() => buildTocSearchResults(manual, tocQuery), [manual, tocQuery]);
   const savedSet = useMemo(
     () => new Set(savedTerms.map((item) => normalizeLookup(item.term))),
     [savedTerms]
@@ -392,6 +445,22 @@ export function App() {
   }, [language]);
 
   useEffect(() => {
+    const sectionId = pendingScrollSectionRef.current;
+    if (!sectionId || !lesson) {
+      return;
+    }
+
+    const handle = window.requestAnimationFrame(() => {
+      const node = document.querySelector(`[data-section-id="${sectionId}"]`);
+      if (node) {
+        node.scrollIntoView({ block: "start" });
+        pendingScrollSectionRef.current = null;
+      }
+    });
+    return () => window.cancelAnimationFrame(handle);
+  }, [lesson, activeSectionId]);
+
+  useEffect(() => {
     function handleSelectionChange() {
       const selection = window.getSelection();
       const text = selection?.toString().trim() ?? "";
@@ -507,10 +576,19 @@ export function App() {
     if (!nextLesson) {
       return;
     }
+    selectChapterSection(nextLesson.id, nextLesson.sections[0].id);
+  }
+
+  function selectChapterSection(chapterId: string, sectionId: string) {
+    const nextLesson = currentManual.chapters.find((chapter) => chapter.id === chapterId);
+    const nextSection = nextLesson?.sections.find((section) => section.id === sectionId);
+    if (!nextLesson || !nextSection) {
+      return;
+    }
+    pendingScrollSectionRef.current = nextSection.id;
     setActiveChapterId(nextLesson.id);
-    setActiveSectionId(nextLesson.sections[0].id);
+    setActiveSectionId(nextSection.id);
     closeOverlayFromControl();
-    window.requestAnimationFrame(() => window.scrollTo({ top: 0 }));
   }
 
   function updateTextScale(direction: -1 | 1) {
@@ -749,17 +827,50 @@ export function App() {
             <button className="closeButton" onClick={closeOverlayFromControl}>关闭</button>
           </div>
           <div className="tocList">
-            {currentManual.chapters.map((chapter) => (
-              <button
-                key={chapter.id}
-                className={chapter.id === currentLesson.id ? "tocItem active" : "tocItem"}
-                onClick={() => selectChapter(chapter.id)}
-              >
-                <span>第 {chapter.chapter} 章</span>
-                <strong>{chapter.title[language]}</strong>
-                <small>p. {chapter.pageStart}-{chapter.pageEnd}</small>
-              </button>
-            ))}
+            <div className="tocSearch">
+              <input
+                type="search"
+                value={tocQuery}
+                onChange={(event) => setTocQuery(event.target.value)}
+                placeholder="搜索章节、标题、页码"
+                aria-label="search chapters and pages"
+              />
+              {tocQuery && (
+                <button type="button" onClick={() => setTocQuery("")}>
+                  清除
+                </button>
+              )}
+            </div>
+            {tocResults.length === 0 ? (
+              <p className="tocEmpty">没有匹配的章节或页码。</p>
+            ) : (
+              tocResults.map((result) => {
+                const isSection = result.kind === "section";
+                const resultSection = isSection ? result.section : undefined;
+                const isActive = isSection
+                  ? result.chapter.id === currentLesson.id && resultSection?.id === currentSection.id
+                  : result.chapter.id === currentLesson.id;
+                return (
+                  <button
+                    key={isSection ? `${result.chapter.id}-${result.section.id}` : result.chapter.id}
+                    className={isActive ? "tocItem active" : "tocItem"}
+                    onClick={() =>
+                      isSection
+                        ? selectChapterSection(result.chapter.id, result.section.id)
+                        : selectChapter(result.chapter.id)
+                    }
+                  >
+                    <span>{isSection ? `p. ${result.section.page}` : `第 ${result.chapter.chapter} 章`}</span>
+                    <strong>{isSection ? result.section.title[language] : result.chapter.title[language]}</strong>
+                    <small>
+                      {isSection
+                        ? `Ch. ${result.chapter.chapter}`
+                        : `p. ${result.chapter.pageStart}-${result.chapter.pageEnd}`}
+                    </small>
+                  </button>
+                );
+              })
+            )}
           </div>
         </section>
       )}
