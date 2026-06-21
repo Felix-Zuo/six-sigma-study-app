@@ -4,6 +4,9 @@ import json
 import sys
 from pathlib import Path
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
+PUBLIC_CONTENT_ROOT = REPO_ROOT / "apps" / "reader" / "public" / "content"
+
 
 def fail(message: str) -> None:
     raise SystemExit(f"content validation failed: {message}")
@@ -27,11 +30,29 @@ def validate_legacy_lesson(path: Path, data: dict) -> None:
     print(f"ok: {path} ({len(data['paragraphs'])} legacy paragraphs)")
 
 
+def validate_image_asset(block: dict) -> None:
+    for key in ["assetId", "src", "width", "height"]:
+        if key not in block:
+            fail(f"image block missing {key}: {block.get('id')}")
+    src = str(block["src"])
+    if src.startswith("/") or ".." in Path(src).parts:
+        fail(f"unsafe image src in {block.get('id')}: {src}")
+    asset_path = PUBLIC_CONTENT_ROOT / src
+    if not asset_path.exists():
+        fail(f"image asset does not exist for {block.get('id')}: {asset_path}")
+    if asset_path.stat().st_size <= 0:
+        fail(f"image asset is empty for {block.get('id')}: {asset_path}")
+    if not isinstance(block["width"], int) or not isinstance(block["height"], int):
+        fail(f"image dimensions must be integers: {block.get('id')}")
+    if block["width"] <= 0 or block["height"] <= 0:
+        fail(f"image dimensions must be positive: {block.get('id')}")
+
+
 def validate_block(section_id: str, block: dict) -> None:
     if not block.get("id"):
         fail(f"block missing id in section {section_id}")
     kind = block.get("kind")
-    if kind not in {"paragraph", "listItem", "table", "termNote", "heading"}:
+    if kind not in {"paragraph", "listItem", "table", "termNote", "heading", "image"}:
         fail(f"invalid block kind in {block.get('id')}: {kind}")
     if kind in {"paragraph", "listItem", "termNote", "heading"} and not str(block.get("text", "")).strip():
         fail(f"text block is empty: {block.get('id')}")
@@ -41,6 +62,31 @@ def validate_block(section_id: str, block: dict) -> None:
             fail(f"table block missing rows: {block.get('id')}")
         if not any(any(str(cell).strip() for cell in row) for row in rows):
             fail(f"table block has no visible cells: {block.get('id')}")
+    if kind == "image":
+        validate_image_asset(block)
+
+
+def validate_assets(data: dict) -> None:
+    assets = data.get("assets", [])
+    if assets is None:
+        return
+    if not isinstance(assets, list):
+        fail(f"assets must be an array in {data.get('id')}")
+    seen_ids: set[str] = set()
+    for asset in assets:
+        for key in ["id", "type", "path", "page"]:
+            if key not in asset:
+                fail(f"asset missing {key}: {asset!r}")
+        if asset["id"] in seen_ids:
+            fail(f"duplicate asset id in {data.get('id')}: {asset['id']}")
+        seen_ids.add(asset["id"])
+        if asset["type"] not in {"figure", "table-image", "formula-image"}:
+            fail(f"invalid asset type for {asset['id']}: {asset['type']}")
+        if not isinstance(asset["page"], int) or asset["page"] < 1:
+            fail(f"invalid asset page for {asset['id']}")
+        asset_path = PUBLIC_CONTENT_ROOT / str(asset["path"])
+        if not asset_path.exists():
+            fail(f"asset file does not exist for {asset['id']}: {asset_path}")
 
 
 def validate_section_lesson(path: Path, data: dict, quiet: bool = False) -> None:
@@ -69,6 +115,7 @@ def validate_section_lesson(path: Path, data: dict, quiet: bool = False) -> None
                 fail(f"section {section['id']} missing {language} blocks")
             for block in blocks:
                 validate_block(section["id"], block)
+    validate_assets(data)
     if not quiet:
         print(f"ok: {path} ({len(data['sections'])} sections)")
 

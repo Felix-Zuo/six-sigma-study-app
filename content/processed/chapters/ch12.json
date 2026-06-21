@@ -330,173 +330,197 @@
           },
           {
             "id": "ch12-content-en-062",
-            "kind": "paragraph",
-            "text": "Provide the team with sticky notes. Ask them to write down possible stakeholders for a project or process. Stakeholders are anyone who has an interest in the project, who might benefit from the outcome of the project, or who might be impacted by the work done via the project. Take a few minutes to discuss the names that were brainstormed and discard any the team feels are not actually stakeholders."
+            "kind": "image",
+            "assetId": "fig-5ce73df164432d41",
+            "src": "assets/figures/fig-5ce73df164432d41.png",
+            "width": 1190,
+            "height": 806
           },
           {
             "id": "ch12-content-en-063",
             "kind": "paragraph",
-            "text": "Once the team decides who the stakeholders are, begin placing the names on the chart according to power and interest. People with both low power and little interest will be placed in the lower left corner. People with higher power and low interest are placed in the upper left; people with less power but a lot of interest are placed in the lower right corner, and people with high levels of power and a lot of interest are placed in the upper right corner. A name might be placed high and to the right of the lower-left corner if the stakeholder has a moderate amount of interest and power, but the team doesn’t feel like the person quite crosses the line. Likewise, a name placed at the lower bounds of any quadrant might show lower amounts of power than those placed nearer the top of the box; the stakeholder analysis lets teams prioritize stakeholders in this manner, even within the four quadrants."
+            "text": "Provide the team with sticky notes. Ask them to write down possible stakeholders for a project or process. Stakeholders are anyone who has an interest in the project, who might benefit from the outcome of the project, or who might be impacted by the work done via the project. Take a few minutes to discuss the names that were brainstormed and discard any the team feels are not actually stakeholders."
           },
           {
             "id": "ch12-content-en-064",
             "kind": "paragraph",
-            "text": "Each of the quadrants of the diagram correlate loosely to the type of stakeholder, providing some guidance on how the team might interact with each person or department listed."
+            "text": "Once the team decides who the stakeholders are, begin placing the names on the chart according to power and interest. People with both low power and little interest will be placed in the lower left corner. People with higher power and low interest are placed in the upper left; people with less power but a lot of interest are placed in the lower right corner, and people with high levels of power and a lot of interest are placed in the upper right corner. A name might be placed high and to the right of the lower-left corner if the stakeholder has a moderate amount of interest and power, but the team doesn’t feel like the person quite crosses the line. Likewise, a name placed at the lower bounds of any quadrant might show lower amounts of power than those placed nearer the top of the box; the stakeholder analysis lets teams prioritize stakeholders in this manner, even within the four quadrants."
           },
           {
             "id": "ch12-content-en-065",
+            "kind": "paragraph",
+            "text": "Each of the quadrants of the diagram correlate loosely to the type of stakeholder, providing some guidance on how the team might interact with each person or department listed."
+          },
+          {
+            "id": "ch12-content-en-066",
             "kind": "heading",
             "text": "Top Left: Keep Satisfied"
           },
           {
-            "id": "ch12-content-en-066",
+            "id": "ch12-content-en-067",
             "kind": "paragraph",
             "text": "Stakeholders that fall into the top left quadrant of the diagram have enough power that they could interfere with a project, but they aren’t extremely interested in the day-to-day outcomes. The team should ensure these individuals are satisfied in whatever way they do interact with the project. Teams"
           },
           {
-            "id": "ch12-content-en-067",
+            "id": "ch12-content-en-068",
             "kind": "paragraph",
             "text": "might also consult with these individuals at various times during the project. For example, a team working to solve problems of shipping in a warehouse might need to consult with procurement managers at some point because the team identifies a need for a different type of packing tape. Procurement leaders have power over obtaining the resource, but they might not have a great deal of interest in the project overall."
           },
           {
-            "id": "ch12-content-en-068",
+            "id": "ch12-content-en-069",
             "kind": "paragraph",
             "text": "Sometimes, teams might identify a stakeholder that falls into this section and realize that it would be valuable to the team for that particular stakeholder to be more invested in the project. Six Sigma leaders can work with stakeholders to try to move someone from low interest to high interest categories – this is a political tactic that some teams use to bolster support for a project."
           },
           {
-            "id": "ch12-content-en-069",
+            "id": "ch12-content-en-070",
             "kind": "heading",
             "text": "Bottom Left: Minimal Effort"
           },
           {
-            "id": "ch12-content-en-070",
+            "id": "ch12-content-en-071",
             "kind": "paragraph",
             "text": "Stakeholders that fall into the bottom left quadrant have the least important connection to a project. Teams will mostly communicate general information about a project via newsletters or email to these stakeholders. While these stakeholders take minimal effort from teams, some situations might exist where teams want to move stakeholders from this box to the lower-right box."
           },
           {
-            "id": "ch12-content-en-071",
+            "id": "ch12-content-en-072",
             "kind": "heading",
             "text": "Bottom Right: Keep Informed"
           },
           {
-            "id": "ch12-content-en-072",
+            "id": "ch12-content-en-073",
             "kind": "paragraph",
             "text": "Individuals in the lower-right box have a strong tie or interest in the project, but do not have access to power to support projects from a resource standpoint. These stakeholders might include employees in departments related to the process being improved or subject matter experts that will be consulted about individual aspects of a project."
           },
           {
-            "id": "ch12-content-en-073",
+            "id": "ch12-content-en-074",
             "kind": "paragraph",
             "text": "While stakeholders in the lower-right quadrant can’t usually bring resources to bear, they can act in support of a project, often in the form of a goodwill ambassador."
           },
           {
-            "id": "ch12-content-en-074",
+            "id": "ch12-content-en-075",
             "kind": "heading",
             "text": "Top Right: Key Player"
           },
           {
-            "id": "ch12-content-en-075",
+            "id": "ch12-content-en-076",
             "kind": "paragraph",
             "text": "Individuals in the top-right quadrant are either key players regarding a process or executive leaders with the ability to assign resources to a project. These are the individuals teams will report to at various tollgates; often, the executives responsible for the ultimate success of a process or project appear in the top-right quadrant."
           },
           {
-            "id": "ch12-content-en-076",
+            "id": "ch12-content-en-077",
             "kind": "heading",
             "text": "In and Out of the Box Method"
           },
           {
-            "id": "ch12-content-en-077",
+            "id": "ch12-content-en-078",
             "kind": "paragraph",
             "text": "The In and Out of the Box method is a quick and easy method that helps teams define project or process scope. Begin by drawing a large box on a whiteboard or flip chart. Provide markers and sticky notes for the team. Ask the team to write down elements of the process to be worked on, including resources, activities, and people. Each item should be written on a sticky note. Work together to create as complete a list as possible, placing the sticky notes on a wall or table as you go. Make sure everyone on the team understands that there are no wrong answers and the first phase of the exercise doesn’t require discussion. By brainstorming items with little-to-no discussion, teams can capture more ideas, leading to a more accurate picture of what is in and out of scope."
           },
           {
-            "id": "ch12-content-en-078",
+            "id": "ch12-content-en-079",
             "kind": "paragraph",
             "text": "Once a comprehensive list is made, begin working as a team to assign each item to a place inside, on the line, or outside of the box. Items outside of the box are those that will be considered out of scope for"
           },
           {
-            "id": "ch12-content-en-079",
+            "id": "ch12-content-en-080",
             "kind": "paragraph",
             "text": "the project. Teams might place items outside of the box because they don’t have access or control over the items, they don’t have time to work on the items, or they have specifically been told not to include the item in the project."
           },
           {
-            "id": "ch12-content-en-080",
+            "id": "ch12-content-en-081",
             "kind": "paragraph",
             "text": "Items that are within the box are considered in scope for the project. These should be elements of the process the team can reasonably be expected to influence. If the team isn’t sure yet where an item might fall, they should place it on the line. Items that go on the line might be ones that the team hopes to be able to impact but for which the team leader needs to seek permission or assistance from someone outside the team."
           },
           {
-            "id": "ch12-content-en-081",
+            "id": "ch12-content-en-082",
             "kind": "paragraph",
             "text": "Once all items are placed on, in, or outside of the box, review the placements as a team and make any changes. Document the exercise by photographing the diagram or recreating it on a computer. The team might reflect back on the diagram when attempting to control scope creep or considering who they should approach for help with a project."
           },
           {
-            "id": "ch12-content-en-082",
+            "id": "ch12-content-en-083",
             "kind": "heading",
             "text": "Is/Is Not Matrix"
           },
           {
-            "id": "ch12-content-en-083",
+            "id": "ch12-content-en-084",
             "kind": "paragraph",
             "text": "The Is/Is Not Matrix is another quick brainstorming tool teams can use to define scope. It can also be used to help define some of the information necessary to a problem statement. The matrix works by considering specific things about the process or project and coming up with both is and is not answers."
           },
           {
-            "id": "ch12-content-en-084",
+            "id": "ch12-content-en-085",
             "kind": "paragraph",
             "text": "For example, if a Six Sigma team is tasked with determining why the furnaces in a certain factory are not heating to proper temperatures, they might create an Is/Is Not Matrix like the one below."
           },
           {
-            "id": "ch12-content-en-085",
+            "id": "ch12-content-en-086",
             "kind": "heading",
             "text": "Is"
           },
           {
-            "id": "ch12-content-en-086",
+            "id": "ch12-content-en-087",
             "kind": "heading",
             "text": "Is Not"
           },
           {
-            "id": "ch12-content-en-087",
+            "id": "ch12-content-en-088",
             "kind": "heading",
             "text": "Where"
           },
           {
-            "id": "ch12-content-en-088",
+            "id": "ch12-content-en-089",
             "kind": "heading",
             "text": "South plant North or East plan"
           },
           {
-            "id": "ch12-content-en-089",
+            "id": "ch12-content-en-090",
             "kind": "heading",
             "text": "What"
           },
           {
-            "id": "ch12-content-en-090",
+            "id": "ch12-content-en-091",
             "kind": "heading",
             "text": "Steam furnaces Wood furnaces"
           },
           {
-            "id": "ch12-content-en-091",
+            "id": "ch12-content-en-092",
             "kind": "paragraph",
             "text": "When January 2015 Prior to January 2015"
           },
           {
-            "id": "ch12-content-en-092",
+            "id": "ch12-content-en-093",
             "kind": "paragraph",
             "text": "The matrix clearly shows that the scope of the project only includes work at the south plant on the steam furnaces. The problem was noted in January 2015, which provides the team with a starting point for gathering data. This is a very simple matrix; teams can ask as many questions as they like to narrow down scope or better understand processes and projects through the Is/Is Not structure."
           },
           {
-            "id": "ch12-content-en-093",
+            "id": "ch12-content-en-094",
             "kind": "heading",
             "text": "Define Tollgate Checklist"
           },
           {
-            "id": "ch12-content-en-094",
+            "id": "ch12-content-en-095",
             "kind": "paragraph",
             "text": "A successful define phase ends with all of the following deliverables:"
           },
           {
-            "id": "ch12-content-en-095",
+            "id": "ch12-content-en-096",
             "kind": "paragraph",
             "text": "o A comprehensive project statement o A team charter o An understanding of the process and a project diagram or map o An understanding of the Voice of the Customer o A definition of what success will look like that has been agreed on by the team members and any sponsors or executive leaders"
+          },
+          {
+            "id": "ch12-content-en-097",
+            "kind": "image",
+            "assetId": "fig-7d6d6621d629d1cf",
+            "src": "assets/figures/fig-7d6d6621d629d1cf.png",
+            "width": 1218,
+            "height": 1528
+          },
+          {
+            "id": "ch12-content-en-098",
+            "kind": "image",
+            "assetId": "fig-d2818c92d1da78cd",
+            "src": "assets/figures/fig-d2818c92d1da78cd.png",
+            "width": 1218,
+            "height": 905
           }
         ],
         "zh": [
@@ -897,176 +921,226 @@
           },
           {
             "id": "ch12-content-zh-071",
-            "kind": "paragraph",
-            "text": "为团队提供便签。要求他们写下项目或流程的可能利益相关者。利益相关者是指对项目感兴趣、可能从项目结果中受益或可能受到项目完成的工作影响的任何人。花几分钟时间讨论头脑风暴得出的名称，并丢弃团队认为实际上不是利益相关者的任何名称。"
+            "kind": "image",
+            "assetId": "fig-5ce73df164432d41",
+            "src": "assets/figures/fig-5ce73df164432d41.png",
+            "width": 1190,
+            "height": 806
           },
           {
             "id": "ch12-content-zh-072",
             "kind": "paragraph",
-            "text": "一旦团队决定了利益相关者是谁，就开始根据权力和兴趣将名字放在图表上。权力低且兴趣低的人将被放置在左下角。权力高、兴趣低的人放在左上方；权力较小但兴趣较多的人放置在右下角，权力较高且兴趣较多的人放置在右上角。如果利益相关者有一定的兴趣和权力，那么名字可能会被放在左下角右侧较高的位置，但团队并不觉得这个人太越界了。同样，放置在任何象限下限的名称可能会比放置在靠近盒子顶部的名称显示出更低的能量。 利益相关者分析使团队能够以这种方式对利益相关者进行优先级排序，即使在四个象限内也是如此。"
+            "text": "为团队提供便签。要求他们写下项目或流程的可能利益相关者。利益相关者是指对项目感兴趣、可能从项目结果中受益或可能受到项目完成的工作影响的任何人。花几分钟时间讨论头脑风暴得出的名称，并丢弃团队认为实际上不是利益相关者的任何名称。"
           },
           {
             "id": "ch12-content-zh-073",
             "kind": "paragraph",
-            "text": "图表的每个象限都与利益相关者的类型松散相关，为团队如何与列出的每个人或部门互动提供一些指导。"
+            "text": "一旦团队决定了利益相关者是谁，就开始根据权力和兴趣将名字放在图表上。权力低且兴趣低的人将被放置在左下角。权力高、兴趣低的人放在左上方；权力较小但兴趣较多的人放置在右下角，权力较高且兴趣较多的人放置在右上角。如果利益相关者有一定的兴趣和权力，那么名字可能会被放在左下角右侧较高的位置，但团队并不觉得这个人太越界了。同样，放置在任何象限下限的名称可能会比放置在靠近盒子顶部的名称显示出更低的能量。 利益相关者分析使团队能够以这种方式对利益相关者进行优先级排序，即使在四个象限内也是如此。"
           },
           {
             "id": "ch12-content-zh-074",
+            "kind": "paragraph",
+            "text": "图表的每个象限都与利益相关者的类型松散相关，为团队如何与列出的每个人或部门互动提供一些指导。"
+          },
+          {
+            "id": "ch12-content-zh-075",
             "kind": "heading",
             "text": "左上：保持满意"
           },
           {
-            "id": "ch12-content-zh-075",
+            "id": "ch12-content-zh-076",
             "kind": "paragraph",
             "text": "属于图表左上象限的利益相关者拥有足够的权力，可以干预项目，但他们对日常结果并不十分感兴趣。团队应确保这些人以任何与项目互动的方式感到满意。团队"
           },
           {
-            "id": "ch12-content-zh-076",
+            "id": "ch12-content-zh-077",
             "kind": "paragraph",
             "text": "也可能在项目期间的不同时间与这些人进行协商。例如，致力于解决仓库运输问题的团队可能需要在某个时候咨询采购经理，因为该团队确定需要不同类型的包装胶带。采购领导者有权获取资源，但他们可能对整个项目没有太大兴趣。"
           },
           {
-            "id": "ch12-content-zh-077",
+            "id": "ch12-content-zh-078",
             "kind": "paragraph",
             "text": "有时，团队可能会识别属于此部分的利益相关者，并意识到该特定利益相关者在项目中投入更多对团队来说是有价值的。 六西格玛领导者可以与利益相关者合作，试图将某人从低兴趣类别转移到高兴趣类别——这是一些团队用来支持项目的政治策略。"
           },
           {
-            "id": "ch12-content-zh-078",
+            "id": "ch12-content-zh-079",
             "kind": "heading",
             "text": "左下：最小的努力"
           },
           {
-            "id": "ch12-content-zh-079",
+            "id": "ch12-content-zh-080",
             "kind": "paragraph",
             "text": "属于左下象限的利益相关者与项目的联系最不重要。团队主要通过新闻通讯或电子邮件向这些利益相关者传达有关项目的一般信息。虽然这些利益相关者需要团队付出最少的努力，但在某些情况下，团队可能希望将利益相关者从该框移动到右下框。"
           },
           {
-            "id": "ch12-content-zh-080",
+            "id": "ch12-content-zh-081",
             "kind": "heading",
             "text": "右下：随时了解情况"
           },
           {
-            "id": "ch12-content-zh-081",
+            "id": "ch12-content-zh-082",
             "kind": "paragraph",
             "text": "右下框中的个人与该项目有很强的联系或兴趣，但从资源的角度来看，他们无权支持项目。这些利益相关者可能包括与正在改进的流程相关的部门的员工或将就项目的各个方面进行咨询的主题专家。"
           },
           {
-            "id": "ch12-content-zh-082",
+            "id": "ch12-content-zh-083",
             "kind": "paragraph",
             "text": "虽然右下象限的利益相关者通常无法提供资源，但他们可以以亲善大使的形式支持项目。"
           },
           {
-            "id": "ch12-content-zh-083",
+            "id": "ch12-content-zh-084",
             "kind": "heading",
             "text": "右上：关键人物"
           },
           {
-            "id": "ch12-content-zh-084",
+            "id": "ch12-content-zh-085",
             "kind": "paragraph",
             "text": "右上象限中的个人要么是流程的关键参与者，要么是能够为项目分配资源的执行领导者。这些是团队将在各个收费站向其报到的个人；通常，负责流程或项目最终成功的高管出现在右上象限。"
           },
           {
-            "id": "ch12-content-zh-085",
+            "id": "ch12-content-zh-086",
             "kind": "heading",
             "text": "开箱即用方法"
           },
           {
-            "id": "ch12-content-zh-086",
+            "id": "ch12-content-zh-087",
             "kind": "paragraph",
             "text": "“开箱即用”方法是一种快速、简单的方法，可帮助团队定义项目或流程范围。首先在白板或挂图上画一个大盒子。为团队提供标记和便签。要求团队写下要处理的流程要素，包括资源、活动和人员。每个项目都应该写在便利贴上。共同创建尽可能完整的列表，并将便签贴在墙上或桌子上。确保团队中的每个人都明白没有错误的答案，并且练习的第一阶段不需要讨论。通过对几乎没有讨论的项目进行头脑风暴，团队可以捕获更多想法，从而更准确地了解范围内和范围外的内容。"
           },
           {
-            "id": "ch12-content-zh-087",
+            "id": "ch12-content-zh-088",
             "kind": "paragraph",
             "text": "一旦制定了全面的清单，就开始作为一个团队工作，将每个项目分配到框内、线上或框外的位置。盒子外的物品将被视为超出范围"
           },
           {
-            "id": "ch12-content-zh-088",
+            "id": "ch12-content-zh-089",
             "kind": "paragraph",
             "text": "该项目。团队可能会将项目放在盒子之外，因为他们无权访问或控制这些项目，他们没有时间处理这些项目，或者他们被明确告知不要将该项目包含在项目中。"
           },
           {
-            "id": "ch12-content-zh-089",
+            "id": "ch12-content-zh-090",
             "kind": "paragraph",
             "text": "框中的项目被视为在项目范围内。这些应该是团队可以合理预期影响的流程要素。如果团队还不确定某个物品可能会落在哪里，他们应该将其放在线上。上线的项目可能是团队希望能够产生影响的项目，但团队领导者需要寻求团队外部人员的许可或帮助。"
           },
           {
-            "id": "ch12-content-zh-090",
+            "id": "ch12-content-zh-091",
             "kind": "paragraph",
             "text": "将所有物品放置在盒子上、盒子内或盒子外后，以团队形式检查放置情况并进行更改。 通过拍摄图表或在计算机上重新创建它来记录练习。当尝试控制范围蔓延或考虑他们应该向谁寻求项目帮助时，团队可能会回顾该图。"
           },
           {
-            "id": "ch12-content-zh-091",
+            "id": "ch12-content-zh-092",
             "kind": "heading",
             "text": "是/不是矩阵"
           },
           {
-            "id": "ch12-content-zh-092",
+            "id": "ch12-content-zh-093",
             "kind": "paragraph",
             "text": "是/不是矩阵是团队可以用来定义范围的另一个快速头脑风暴工具。它还可用于帮助定义问题陈述所需的一些信息。该矩阵的工作原理是考虑有关流程或项目的具体事项，并得出“是”和“不是”的答案。"
           },
           {
-            "id": "ch12-content-zh-093",
+            "id": "ch12-content-zh-094",
             "kind": "paragraph",
             "text": "例如，如果六西格玛团队的任务是确定为什么某个工厂的熔炉没有加热到适当的温度，他们可能会创建一个如下所示的“是/不是”矩阵。"
           },
           {
-            "id": "ch12-content-zh-094",
+            "id": "ch12-content-zh-095",
             "kind": "heading",
             "text": "是"
           },
           {
-            "id": "ch12-content-zh-095",
+            "id": "ch12-content-zh-096",
             "kind": "heading",
             "text": "不是"
           },
           {
-            "id": "ch12-content-zh-096",
+            "id": "ch12-content-zh-097",
             "kind": "heading",
             "text": "哪里"
           },
           {
-            "id": "ch12-content-zh-097",
+            "id": "ch12-content-zh-098",
             "kind": "heading",
             "text": "南厂北或东规划"
           },
           {
-            "id": "ch12-content-zh-098",
+            "id": "ch12-content-zh-099",
             "kind": "heading",
             "text": "什么"
           },
           {
-            "id": "ch12-content-zh-099",
+            "id": "ch12-content-zh-100",
             "kind": "heading",
             "text": "蒸汽炉 燃木炉"
           },
           {
-            "id": "ch12-content-zh-100",
+            "id": "ch12-content-zh-101",
             "kind": "heading",
             "text": "2015 年 1 月 2015 年 1 月之前"
           },
           {
-            "id": "ch12-content-zh-101",
+            "id": "ch12-content-zh-102",
             "kind": "paragraph",
             "text": "该矩阵清楚地表明，该项目的范围仅包括南厂蒸汽炉的工作。该问题于 2015 年 1 月被发现，为团队提供了收集数据的起点。这是一个非常简单的矩阵；团队可以提出任意多的问题，以缩小范围或通过“是/不是”结构更好地理解流程和项目。"
           },
           {
-            "id": "ch12-content-zh-102",
+            "id": "ch12-content-zh-103",
             "kind": "heading",
             "text": "定义收费站检查表"
           },
           {
-            "id": "ch12-content-zh-103",
+            "id": "ch12-content-zh-104",
             "kind": "paragraph",
             "text": "成功的定义阶段以以下所有可交付成果结束："
           },
           {
-            "id": "ch12-content-zh-104",
+            "id": "ch12-content-zh-105",
             "kind": "paragraph",
             "text": "o 全面的项目陈述 o 团队章程 o 对流程和项目图表或地图的理解 o 对客户之声（VOC）的理解 o 团队成员和任何发起人或执行领导者一致同意的成功定义"
+          },
+          {
+            "id": "ch12-content-zh-106",
+            "kind": "image",
+            "assetId": "fig-7d6d6621d629d1cf",
+            "src": "assets/figures/fig-7d6d6621d629d1cf.png",
+            "width": 1218,
+            "height": 1528
+          },
+          {
+            "id": "ch12-content-zh-107",
+            "kind": "image",
+            "assetId": "fig-d2818c92d1da78cd",
+            "src": "assets/figures/fig-d2818c92d1da78cd.png",
+            "width": 1218,
+            "height": 905
           }
         ]
       }
+    }
+  ],
+  "assets": [
+    {
+      "id": "fig-5ce73df164432d41",
+      "type": "table-image",
+      "path": "assets/figures/fig-5ce73df164432d41.png",
+      "page": 110,
+      "width": 1190,
+      "height": 806
+    },
+    {
+      "id": "fig-7d6d6621d629d1cf",
+      "type": "table-image",
+      "path": "assets/figures/fig-7d6d6621d629d1cf.png",
+      "page": 110,
+      "width": 1218,
+      "height": 1528
+    },
+    {
+      "id": "fig-d2818c92d1da78cd",
+      "type": "table-image",
+      "path": "assets/figures/fig-d2818c92d1da78cd.png",
+      "page": 110,
+      "width": 1218,
+      "height": 905
     }
   ]
 }

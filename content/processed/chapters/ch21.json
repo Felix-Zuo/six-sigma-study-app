@@ -1372,6 +1372,14 @@
             "id": "ch21-content-en-270",
             "kind": "paragraph",
             "text": "This chapter introduced a lot of new statistical terms, many of which will come up again in future chapters. Before moving to the next chapter, take a few minutes to review the terms that came up in this chapter."
+          },
+          {
+            "id": "ch21-content-en-271",
+            "kind": "image",
+            "assetId": "fig-be84c162a99313e2",
+            "src": "assets/figures/fig-be84c162a99313e2.png",
+            "width": 1183,
+            "height": 762
           }
         ],
         "zh": [
@@ -2834,9 +2842,27 @@
             "id": "ch21-content-zh-281",
             "kind": "paragraph",
             "text": "本章介绍了许多新的统计术语，其中许多术语将在以后的章节中再次出现。在进入下一章之前，请花几分钟回顾一下本章中出现的术语。"
+          },
+          {
+            "id": "ch21-content-zh-282",
+            "kind": "image",
+            "assetId": "fig-be84c162a99313e2",
+            "src": "assets/figures/fig-be84c162a99313e2.png",
+            "width": 1183,
+            "height": 762
           }
         ]
       }
+    }
+  ],
+  "assets": [
+    {
+      "id": "fig-be84c162a99313e2",
+      "type": "table-image",
+      "path": "assets/figures/fig-be84c162a99313e2.png",
+      "page": 248,
+      "width": 1183,
+      "height": 762
     }
   ]
 }

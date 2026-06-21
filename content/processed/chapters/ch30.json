@@ -50,571 +50,659 @@
           },
           {
             "id": "ch30-content-en-006",
+            "kind": "image",
+            "assetId": "fig-193958eea5fcf57f",
+            "src": "assets/figures/fig-193958eea5fcf57f.png",
+            "width": 1191,
+            "height": 588
+          },
+          {
+            "id": "ch30-content-en-007",
             "kind": "paragraph",
             "text": "Interactions are indicated in the interaction plots by lines that are not parallel. The less parallel the lines are, the greater the interaction. As you can see, most of these lines are close to parallel, which means that any interaction that does exist here is fairly weak. Consider the bottom left graph. The blue line indicates measurements taken when the department was below 80 percent capacity for patients. The red line indicates measurements taken when the department was above 80 percent capacity for patients. Regardless of the capacity status, the behavior of the measurements is roughly the same depending on whether the staff member had received the compliance training within the past six months or not. This means there is not much of an interaction – the setting of one factor does not seem to impact the way the settings for the other factor changes the result."
           },
           {
-            "id": "ch30-content-en-007",
+            "id": "ch30-content-en-008",
             "kind": "heading",
             "text": "Understanding the Main Effect"
           },
           {
-            "id": "ch30-content-en-008",
+            "id": "ch30-content-en-009",
             "kind": "paragraph",
             "text": "To better understand how interactions are measured, you first have to understand the main effect. Consider a real-world example, again with a 2-level factorial. In this example, a Six Sigma team within a chain of movie theaters is trying to positively impact the performance of concession stands. Specifically, the team has been tasked with increasing profits in the concession stand."
           },
           {
-            "id": "ch30-content-en-009",
+            "id": "ch30-content-en-010",
             "kind": "paragraph",
             "text": "One area the team is concentrating on is the popcorn process, and they have defined waste as a root cause of the problem in this part of the concession stand. The team believes the current popcorn- making process is generating waste because so many of the kernels introduced into the popcorn machine never pop. Those kernels are swept out of the machine regularly and thrown away, and the team believes the amount of kernels thrown away each day amounts to at least 10 large popcorn orders."
           },
           {
-            "id": "ch30-content-en-010",
+            "id": "ch30-content-en-011",
             "kind": "paragraph",
             "text": "While that might seem like a small amount of waste, the team calculates that the concession stand earns a profit of $2.65 for each large popcorn order, which means the stand is losing approximately $9,600 each year in lost popcorn kernels. If the team can use a designed experiment to identify a quick, inexpensive way to reduce kernel waste, it might be worth the effort."
           },
           {
-            "id": "ch30-content-en-011",
+            "id": "ch30-content-en-012",
             "kind": "paragraph",
             "text": "After finding out more about the kernel process, the team decides that the temperature of the machine at the time the popcorn is introduced is a factor. They also decide that the number of kernels placed in the machine and the brand of popcorn are factors as well."
           },
           {
-            "id": "ch30-content-en-012",
+            "id": "ch30-content-en-013",
             "kind": "paragraph",
             "text": "The team designs the following experiment:"
           },
           {
-            "id": "ch30-content-en-013",
+            "id": "ch30-content-en-014",
             "kind": "heading",
             "text": "Row Number"
           },
           {
-            "id": "ch30-content-en-014",
+            "id": "ch30-content-en-015",
             "kind": "heading",
             "text": "Brand Temperature Kernels"
-          },
-          {
-            "id": "ch30-content-en-015",
-            "kind": "paragraph",
-            "text": "1 A 400 degrees F 1 scoop"
           },
           {
             "id": "ch30-content-en-016",
             "kind": "paragraph",
-            "text": "2 A 400 degrees F 2 scoops"
+            "text": "1 A 400 degrees F 1 scoop"
           },
           {
             "id": "ch30-content-en-017",
             "kind": "paragraph",
-            "text": "3 A 600 degrees F 1 scoop"
+            "text": "2 A 400 degrees F 2 scoops"
           },
           {
             "id": "ch30-content-en-018",
             "kind": "paragraph",
-            "text": "4 A 600 degrees F 2 scoops"
+            "text": "3 A 600 degrees F 1 scoop"
           },
           {
             "id": "ch30-content-en-019",
             "kind": "paragraph",
-            "text": "5 B 400 degrees F 1 scoop"
+            "text": "4 A 600 degrees F 2 scoops"
           },
           {
             "id": "ch30-content-en-020",
             "kind": "paragraph",
-            "text": "6 B 400 degrees F 2 scoops"
+            "text": "5 B 400 degrees F 1 scoop"
           },
           {
             "id": "ch30-content-en-021",
             "kind": "paragraph",
-            "text": "7 B 600 degrees F 1 scoop"
+            "text": "6 B 400 degrees F 2 scoops"
           },
           {
             "id": "ch30-content-en-022",
             "kind": "paragraph",
-            "text": "8 B 600 degrees F 2 scoops"
+            "text": "7 B 600 degrees F 1 scoop"
           },
           {
             "id": "ch30-content-en-023",
             "kind": "paragraph",
-            "text": "Following good experiment protocol, the team decides on a sample size. Remember, the sample size for a designed experiment is what tells you how many replications of the overall experiment to run. In this case, the Six Sigma team decides to run 4 replications. Given the above design, that means the team is going to record 32 runs. Also following good experiment protocol, the team randomizes the runs so they aren’t recording the information in the same order each time through the experiment."
+            "text": "8 B 600 degrees F 2 scoops"
           },
           {
             "id": "ch30-content-en-024",
             "kind": "paragraph",
-            "text": "The Six Sigma expert on the team also knew that simply recording the amount of kernels left after each batch wouldn’t provide the ability to draw statistical conclusions about the three factors the team was considering. This is because one of the factors the team was considering was the volume of kernels entering the process. Naturally, if more kernels enter the process, there are likely to be more waste kernels – the team shouldn’t need an experiment to test if that is true. The team really wants to find out if a larger ratio of unpopped kernels is left when popping one or two scoops of certain popcorn brands at certain temperatures. The Six Sigma expert ensures the team records both total number of kernels and the percent, or ratio, of those kernels to the number of kernels that entered the process."
+            "text": "Following good experiment protocol, the team decides on a sample size. Remember, the sample size for a designed experiment is what tells you how many replications of the overall experiment to run. In this case, the Six Sigma team decides to run 4 replications. Given the above design, that means the team is going to record 32 runs. Also following good experiment protocol, the team randomizes the runs so they aren’t recording the information in the same order each time through the experiment."
           },
           {
             "id": "ch30-content-en-025",
             "kind": "paragraph",
-            "text": "The information recorded by the team is shown in the table below. Note that the data has been sorted by brand, then temperature, and then number of scoops for the purpose of analysis. This would not be the order in which the team ran the experiment since it would have been randomized."
+            "text": "The Six Sigma expert on the team also knew that simply recording the amount of kernels left after each batch wouldn’t provide the ability to draw statistical conclusions about the three factors the team was considering. This is because one of the factors the team was considering was the volume of kernels entering the process. Naturally, if more kernels enter the process, there are likely to be more waste kernels – the team shouldn’t need an experiment to test if that is true. The team really wants to find out if a larger ratio of unpopped kernels is left when popping one or two scoops of certain popcorn brands at certain temperatures. The Six Sigma expert ensures the team records both total number of kernels and the percent, or ratio, of those kernels to the number of kernels that entered the process."
           },
           {
             "id": "ch30-content-en-026",
-            "kind": "heading",
-            "text": "Row"
+            "kind": "paragraph",
+            "text": "The information recorded by the team is shown in the table below. Note that the data has been sorted by brand, then temperature, and then number of scoops for the purpose of analysis. This would not be the order in which the team ran the experiment since it would have been randomized."
           },
           {
             "id": "ch30-content-en-027",
             "kind": "heading",
-            "text": "Number Brand Temperature Kernels Est. No Kernals"
+            "text": "Row"
           },
           {
             "id": "ch30-content-en-028",
             "kind": "heading",
-            "text": "Kernels"
+            "text": "Number Brand Temperature Kernels Est. No Kernals"
           },
           {
             "id": "ch30-content-en-029",
             "kind": "heading",
-            "text": "Left Percent Left"
+            "text": "Kernels"
           },
           {
             "id": "ch30-content-en-030",
-            "kind": "paragraph",
-            "text": "1 A 400 degrees F 1 scoop 2300 125 5.43% 9 A 400 degrees F 1 scoop 2300 115 5.00% 17 A 400 degrees F 1 scoop 2300 118 5.13% 25 A 400 degrees F 1 scoop 2300 127 5.52% 2 A 400 degrees F 2 scoops 4600 298 6.48% 10 A 400 degrees F 2 scoops 4600 275 5.98% 18 A 400 degrees F 2 scoops 4600 298 6.48% 26 A 400 degrees F 2 scoops 4600 275 5.98% 3 A 600 degrees F 1 scoop 4600 98 2.13% 11 A 600 degrees F 1 scoop 4600 101 2.20% 19 A 600 degrees F 1 scoop 4600 99 2.15% 27 A 600 degrees F 1 scoop 4600 105 2.28% 4 A 600 degrees F 2 scoops 4600 187 4.07% 12 A 600 degrees F 2 scoops 4600 192 4.17% 20 A 600 degrees F 2 scoops 4600 175 3.80% 28 A 600 degrees F 2 scoops 4600 201 4.37% 5 B 400 degrees F 1 scoop 4600 145 3.15% 13 B 400 degrees F 1 scoop 4600 129 2.80% 21 B 400 degrees F 1 scoop 4600 138 3.00% 29 B 400 degrees F 1 scoop 4600 142 3.09%"
+            "kind": "heading",
+            "text": "Left Percent Left"
           },
           {
             "id": "ch30-content-en-031",
             "kind": "paragraph",
-            "text": "6 B 400 degrees F 2 scoops 4600 324 7.04% 14 B 400 degrees F 2 scoops 4600 298 6.48% 22 B 400 degrees F 2 scoops 4600 307 6.67% 30 B 400 degrees F 2 scoops 4600 399 8.67% 7 B 600 degrees F 1 scoop 4600 109 2.37% 15 B 600 degrees F 1 scoop 4600 138 3.00% 23 B 600 degrees F 1 scoop 4600 109 2.37% 31 B 600 degrees F 1 scoop 4600 124 2.70% 8 B 600 degrees F 2 scoops 4600 202 4.39% 16 B 600 degrees F 2 scoops 4600 225 4.89% 24 B 600 degrees F 2 scoops 4600 198 4.30% 32 B 600 degrees F 2 scoops 4600 225 4.89%"
+            "text": "1 A 400 degrees F 1 scoop 2300 125 5.43% 9 A 400 degrees F 1 scoop 2300 115 5.00% 17 A 400 degrees F 1 scoop 2300 118 5.13% 25 A 400 degrees F 1 scoop 2300 127 5.52% 2 A 400 degrees F 2 scoops 4600 298 6.48% 10 A 400 degrees F 2 scoops 4600 275 5.98% 18 A 400 degrees F 2 scoops 4600 298 6.48% 26 A 400 degrees F 2 scoops 4600 275 5.98% 3 A 600 degrees F 1 scoop 4600 98 2.13% 11 A 600 degrees F 1 scoop 4600 101 2.20% 19 A 600 degrees F 1 scoop 4600 99 2.15% 27 A 600 degrees F 1 scoop 4600 105 2.28% 4 A 600 degrees F 2 scoops 4600 187 4.07% 12 A 600 degrees F 2 scoops 4600 192 4.17% 20 A 600 degrees F 2 scoops 4600 175 3.80% 28 A 600 degrees F 2 scoops 4600 201 4.37% 5 B 400 degrees F 1 scoop 4600 145 3.15% 13 B 400 degrees F 1 scoop 4600 129 2.80% 21 B 400 degrees F 1 scoop 4600 138 3.00% 29 B 400 degrees F 1 scoop 4600 142 3.09%"
           },
           {
             "id": "ch30-content-en-032",
             "kind": "paragraph",
-            "text": "The effect in a designed experiment is the measurement of the change in the result based on changing the levels of factors. The main effect describes the measurement of change in the result based on changes in a single factor. The main effect of each individual factor can be roughly calculated by comparing the average of the results at both the low and high end of the factor."
+            "text": "6 B 400 degrees F 2 scoops 4600 324 7.04% 14 B 400 degrees F 2 scoops 4600 298 6.48% 22 B 400 degrees F 2 scoops 4600 307 6.67% 30 B 400 degrees F 2 scoops 4600 399 8.67% 7 B 600 degrees F 1 scoop 4600 109 2.37% 15 B 600 degrees F 1 scoop 4600 138 3.00% 23 B 600 degrees F 1 scoop 4600 109 2.37% 31 B 600 degrees F 1 scoop 4600 124 2.70% 8 B 600 degrees F 2 scoops 4600 202 4.39% 16 B 600 degrees F 2 scoops 4600 225 4.89% 24 B 600 degrees F 2 scoops 4600 198 4.30% 32 B 600 degrees F 2 scoops 4600 225 4.89%"
           },
           {
             "id": "ch30-content-en-033",
             "kind": "paragraph",
-            "text": "For example, the average percent left for Brand A is 4.45. The average left for Brand B is 4.36. The difference is 0.09. Immediately, it appears that there is not much of an effect for kernel-popping performance between the two brands of popcorn. Remember, though, that a statistical difference doesn’t necessarily require a large numerical difference. Whether the difference is worth considering depends on other factors, such as the range of difference the team is hoping to record and the main effect of other factors in the experiment."
+            "text": "The effect in a designed experiment is the measurement of the change in the result based on changing the levels of factors. The main effect describes the measurement of change in the result based on changes in a single factor. The main effect of each individual factor can be roughly calculated by comparing the average of the results at both the low and high end of the factor."
           },
           {
             "id": "ch30-content-en-034",
             "kind": "paragraph",
-            "text": "The same calculation can be completed for each of the factors in the experiment. The average percent of kernels left for runs with a temperature of 400 degrees F is approximately 5.43; the average percent left for runs with a temperature of 600 degrees F is 3.38. The main effect for this factor is larger than that for brand; the difference between the averages for 400 degrees and 600 degrees is 2.05."
+            "text": "For example, the average percent left for Brand A is 4.45. The average left for Brand B is 4.36. The difference is 0.09. Immediately, it appears that there is not much of an effect for kernel-popping performance between the two brands of popcorn. Remember, though, that a statistical difference doesn’t necessarily require a large numerical difference. Whether the difference is worth considering depends on other factors, such as the range of difference the team is hoping to record and the main effect of other factors in the experiment."
           },
           {
             "id": "ch30-content-en-035",
             "kind": "paragraph",
-            "text": "The average percent of kernels left when the team started with one scoop was approximately 3.27. The"
+            "text": "The same calculation can be completed for each of the factors in the experiment. The average percent of kernels left for runs with a temperature of 400 degrees F is approximately 5.43; the average percent left for runs with a temperature of 600 degrees F is 3.38. The main effect for this factor is larger than that for brand; the difference between the averages for 400 degrees and 600 degrees is 2.05."
           },
           {
             "id": "ch30-content-en-036",
             "kind": "paragraph",
-            "text": "percent left when starting with two scoops was approximately 5.54; the difference is 2.27."
+            "text": "The average percent of kernels left when the team started with one scoop was approximately 3.27. The"
           },
           {
             "id": "ch30-content-en-037",
-            "kind": "heading",
-            "text": "Understanding Interaction Plots"
+            "kind": "image",
+            "assetId": "fig-852058c41aaa16a2",
+            "src": "assets/figures/fig-852058c41aaa16a2.png",
+            "width": 1186,
+            "height": 1375
           },
           {
             "id": "ch30-content-en-038",
             "kind": "paragraph",
-            "text": "When plotted on a line graph the main effects from the above experiment look something like the image below. These images are generated in Excel, but Minitab and other statistical analysis software generate such graphs as part of the overall analysis when running designed experiments."
+            "text": "percent left when starting with two scoops was approximately 5.54; the difference is 2.27."
           },
           {
             "id": "ch30-content-en-039",
-            "kind": "paragraph",
-            "text": "This image makes it easy to see: there isn’t much of a main effect for the brand of popcorn, but there are major changes based on temperature and scoop. Since the team wants to reduce the percentage of unpopped kernels, it would seem that they would want to set temperature at a higher level but use only one scoop of popcorn at a time."
+            "kind": "heading",
+            "text": "Understanding Interaction Plots"
           },
           {
             "id": "ch30-content-en-040",
             "kind": "paragraph",
-            "text": "But the main effects graph doesn’t always take into account any interaction between the factors, which is why it’s important to consider interaction plots. You can use Minitab to generate interaction plots, or create your own in Excel. To create interaction plots in Excel, follow the steps below."
+            "text": "When plotted on a line graph the main effects from the above experiment look something like the image below. These images are generated in Excel, but Minitab and other statistical analysis software generate such graphs as part of the overall analysis when running designed experiments."
           },
           {
             "id": "ch30-content-en-041",
-            "kind": "paragraph",
-            "text": "1. Import your data, with headers, into Excel. For this example, you can use the data grid provided for the popcorn scenario above. 2. Calculate the average of the result for each combination of two factors. In the popcorn scenario, you would calculate the average of the percent results for three sets of graph data."
+            "kind": "image",
+            "assetId": "fig-834f39dd732fbc35",
+            "src": "assets/figures/fig-834f39dd732fbc35.png",
+            "width": 910,
+            "height": 544
           },
           {
             "id": "ch30-content-en-042",
             "kind": "paragraph",
-            "text": "a. Graph 1 (Scoops * Temperature)"
+            "text": "This image makes it easy to see: there isn’t much of a main effect for the brand of popcorn, but there are major changes based on temperature and scoop. Since the team wants to reduce the percentage of unpopped kernels, it would seem that they would want to set temperature at a higher level but use only one scoop of popcorn at a time."
           },
           {
             "id": "ch30-content-en-043",
             "kind": "paragraph",
-            "text": "i. All rows where scoops equals 1 and temperature equals 400 ii. All rows where scoops equals 1 and temperature equals 600 iii. All rows where scoops equals 2 and temperature equals 400 iv. All rows where scoops equals 2 and temperature equals 600 b. Graph 2 (Scoops * Brand)"
+            "text": "But the main effects graph doesn’t always take into account any interaction between the factors, which is why it’s important to consider interaction plots. You can use Minitab to generate interaction plots, or create your own in Excel. To create interaction plots in Excel, follow the steps below."
           },
           {
             "id": "ch30-content-en-044",
             "kind": "paragraph",
-            "text": "i. All rows where scoops equals 1 and brand equals A ii. All rows where scoops equals 1 and brand equals B iii. All rows where scoops equals 2 and brand equals A"
+            "text": "1. Import your data, with headers, into Excel. For this example, you can use the data grid provided for the popcorn scenario above. 2. Calculate the average of the result for each combination of two factors. In the popcorn scenario, you would calculate the average of the percent results for three sets of graph data."
           },
           {
             "id": "ch30-content-en-045",
             "kind": "paragraph",
-            "text": "iv. All rows where scoops equals 2 and brand equals B c. Graph 3 (Brand * Temperature)"
+            "text": "a. Graph 1 (Scoops * Temperature)"
           },
           {
             "id": "ch30-content-en-046",
             "kind": "paragraph",
-            "text": "i. All rows where brand equals A and temperature equals 400 ii. All rows where brand equals A and temperature equals 600 iii. All rows where brand equals B and temperature equals 400 iv. All rows where brand equals B and temperature equals 600 3. Arrange the results into three small data tables that resemble the data table for the temperature and scoop set below."
+            "text": "i. All rows where scoops equals 1 and temperature equals 400 ii. All rows where scoops equals 1 and temperature equals 600 iii. All rows where scoops equals 2 and temperature equals 400 iv. All rows where scoops equals 2 and temperature equals 600 b. Graph 2 (Scoops * Brand)"
           },
           {
             "id": "ch30-content-en-047",
             "kind": "paragraph",
-            "text": "Temperature Scoops Average 400 1 4.14 600 1 2.4 400 2 6.72 600 2 4.36"
+            "text": "i. All rows where scoops equals 1 and brand equals A ii. All rows where scoops equals 1 and brand equals B iii. All rows where scoops equals 2 and brand equals A"
           },
           {
             "id": "ch30-content-en-048",
             "kind": "paragraph",
-            "text": "4. Use each of the small data tables to create a line graph."
+            "text": "iv. All rows where scoops equals 2 and brand equals B c. Graph 3 (Brand * Temperature)"
           },
           {
             "id": "ch30-content-en-049",
             "kind": "paragraph",
-            "text": "a. Select Insert > Charts > Line Charts > Multi line graph with markers"
+            "text": "i. All rows where brand equals A and temperature equals 400 ii. All rows where brand equals A and temperature equals 600 iii. All rows where brand equals B and temperature equals 400 iv. All rows where brand equals B and temperature equals 600 3. Arrange the results into three small data tables that resemble the data table for the temperature and scoop set below."
           },
           {
             "id": "ch30-content-en-050",
-            "kind": "heading",
-            "text": "b. Click on “Select Data.”"
+            "kind": "paragraph",
+            "text": "Temperature Scoops Average 400 1 4.14 600 1 2.4 400 2 6.72 600 2 4.36"
           },
           {
             "id": "ch30-content-en-051",
-            "kind": "heading",
-            "text": "c. Click “Add” under “Legend Entries (Series)”"
+            "kind": "paragraph",
+            "text": "4. Use each of the small data tables to create a line graph."
           },
           {
             "id": "ch30-content-en-052",
             "kind": "paragraph",
-            "text": "d. Enter “1 scoop” as the name for the first series. Select the averages for 1 scoop from your small data table into the range for “series values”."
+            "text": "a. Select Insert > Charts > Line Charts > Multi line graph with markers"
           },
           {
             "id": "ch30-content-en-053",
-            "kind": "paragraph",
-            "text": "e. Click OK. f. Click Add again, and repeat step d to create a series for 2 scoops. g. Click OK. h. Click Edit under “Horizontal (Category) Axis Labels."
+            "kind": "image",
+            "assetId": "fig-c19e53febdd9a4ee",
+            "src": "assets/figures/fig-c19e53febdd9a4ee.png",
+            "width": 1191,
+            "height": 327
           },
           {
             "id": "ch30-content-en-054",
-            "kind": "paragraph",
-            "text": "i. Select two cells that hold the names for the other factor settings (in this case, it is the temperature settings) into the Axis labels box."
+            "kind": "heading",
+            "text": "b. Click on “Select Data.”"
           },
           {
             "id": "ch30-content-en-055",
-            "kind": "paragraph",
-            "text": "j. Click OK. k. Click OK again. l. Use Excel chart options to add a title and legends as desired so that your chart looks something like the image below."
+            "kind": "image",
+            "assetId": "fig-ec712a0daf904044",
+            "src": "assets/figures/fig-ec712a0daf904044.png",
+            "width": 424,
+            "height": 319
           },
           {
             "id": "ch30-content-en-056",
-            "kind": "paragraph",
-            "text": "These are the same style of interaction plots that are displayed by Minitab if you run DOE analysis in that program, and they show some interaction that was not apparent when simply considering the raw data or even the main effects plots."
+            "kind": "heading",
+            "text": "c. Click “Add” under “Legend Entries (Series)”"
           },
           {
             "id": "ch30-content-en-057",
-            "kind": "paragraph",
-            "text": "Analysis of the first interaction plot shows what the Six Sigma team might already have gleaned from the main effects. The lowest leftover kernel percentage seems to come when you combine 1 scoop of kernels and the higher temperature setting. This plot doesn’t show an interaction – the lines are almost parallel. Regardless of the number of scoops you start with, the highest temperature yields the least waste. Regardless of the temperature setting, the lowest scoop start yields the least waste."
+            "kind": "image",
+            "assetId": "fig-699513da44d083b4",
+            "src": "assets/figures/fig-699513da44d083b4.png",
+            "width": 578,
+            "height": 325
           },
           {
             "id": "ch30-content-en-058",
             "kind": "paragraph",
-            "text": "The second graph, to the right of the first, shows the interaction between brand and temperature. Remember, the main effects analysis seemed to indicate that the choice of brand of popcorn was not important. When brand is analyzed with another factor, though, this doesn’t seem to hold true. In this graph, you can see that brand does make a difference in how the change in temperature setting works."
+            "text": "d. Enter “1 scoop” as the name for the first series. Select the averages for 1 scoop from your small data table into the range for “series values”."
           },
           {
             "id": "ch30-content-en-059",
-            "kind": "paragraph",
-            "text": "At 600 degrees F, brand A performs better than brand B. At 400 degrees F, brand B performs better. Even though all of this is true, both brands generate less waste at the higher temperature setting when compared to their own performance at the lower temperature setting."
+            "kind": "image",
+            "assetId": "fig-7ac990da64468eeb",
+            "src": "assets/figures/fig-7ac990da64468eeb.png",
+            "width": 573,
+            "height": 355
           },
           {
             "id": "ch30-content-en-060",
             "kind": "paragraph",
-            "text": "The third graph also shows some interaction between brand and number of scoops. Brand B performs better at the lower scoop setting than brand A, and the reverse is true at the higher scoop setting. Again, both brands generate less waste at the lower scoop setting than when compared to their own performance at the higher scoop setting."
+            "text": "e. Click OK. f. Click Add again, and repeat step d to create a series for 2 scoops. g. Click OK. h. Click Edit under “Horizontal (Category) Axis Labels."
           },
           {
             "id": "ch30-content-en-061",
-            "kind": "paragraph",
-            "text": "Based on all of the information above, the Six Sigma team is likely to choose to start the popcorn process with 1 scoop and use the 600 degree F temperature setting. Choosing a brand of popcorn, however, is a little tougher. Opting for brand A saves approximately 0.5 percent of waste over brand B when considering the interaction with temperature. However, brand B saves almost 1 percent of waste over brand A when considering the interaction with number of scoops."
+            "kind": "image",
+            "assetId": "fig-ae88a8a7717d842e",
+            "src": "assets/figures/fig-ae88a8a7717d842e.png",
+            "width": 672,
+            "height": 335
           },
           {
             "id": "ch30-content-en-062",
             "kind": "paragraph",
-            "text": "Given all of the information and analysis in this experiment, a Six Sigma team might either say brand is not a big enough factor (so the concession stand could choose brand based on other factors, such as cost) or recommend that brand B be purchased when it is equal to or less than brand A in price because brand B is associated with the highest percentage of waste savings. If brand B is more expensive than brand A, the small waste savings associated with brand B would likely be mitigated, though, making brand A the better choice. This is a good illustration of how other data should play a role in decision making – a designed experiment doesn’t exist in a vacuum."
+            "text": "i. Select two cells that hold the names for the other factor settings (in this case, it is the temperature settings) into the Axis labels box."
           },
           {
             "id": "ch30-content-en-063",
-            "kind": "paragraph",
-            "text": "This was a basic analysis to help you understand how interactions work. Minitab and other statistical analysis software runs all of this analysis automatically, reducing the workload on the Six Sigma expert. Most such software will also consider all possible interactions and present the factors with the most impact in the analysis. If you have a 2k factorial experiment with three factors, each with two settings, and those factors are A, B, and C, you could have the following possible effects on the result:"
+            "kind": "image",
+            "assetId": "fig-3495a6c12bf57bbd",
+            "src": "assets/figures/fig-3495a6c12bf57bbd.png",
+            "width": 616,
+            "height": 419
           },
           {
             "id": "ch30-content-en-064",
-            "kind": "listItem",
-            "text": "A (the impact of changing only A)"
+            "kind": "paragraph",
+            "text": "j. Click OK. k. Click OK again. l. Use Excel chart options to add a title and legends as desired so that your chart looks something like the image below."
           },
           {
             "id": "ch30-content-en-065",
-            "kind": "listItem",
-            "text": "B (the impact of changing only B)"
+            "kind": "image",
+            "assetId": "fig-bae0fed045569b01",
+            "src": "assets/figures/fig-bae0fed045569b01.png",
+            "width": 791,
+            "height": 390
           },
           {
             "id": "ch30-content-en-066",
-            "kind": "listItem",
-            "text": "C (the impact of changing only C)"
+            "kind": "image",
+            "assetId": "fig-ee799413204fba48",
+            "src": "assets/figures/fig-ee799413204fba48.png",
+            "width": 1191,
+            "height": 861
           },
           {
             "id": "ch30-content-en-067",
-            "kind": "listItem",
-            "text": "AB (the interaction of A and B)"
+            "kind": "paragraph",
+            "text": "These are the same style of interaction plots that are displayed by Minitab if you run DOE analysis in that program, and they show some interaction that was not apparent when simply considering the raw data or even the main effects plots."
           },
           {
             "id": "ch30-content-en-068",
-            "kind": "listItem",
-            "text": "AC (the interaction of A and C)"
+            "kind": "paragraph",
+            "text": "Analysis of the first interaction plot shows what the Six Sigma team might already have gleaned from the main effects. The lowest leftover kernel percentage seems to come when you combine 1 scoop of kernels and the higher temperature setting. This plot doesn’t show an interaction – the lines are almost parallel. Regardless of the number of scoops you start with, the highest temperature yields the least waste. Regardless of the temperature setting, the lowest scoop start yields the least waste."
           },
           {
             "id": "ch30-content-en-069",
-            "kind": "listItem",
-            "text": "BC (the interaction of B and C)"
+            "kind": "paragraph",
+            "text": "The second graph, to the right of the first, shows the interaction between brand and temperature. Remember, the main effects analysis seemed to indicate that the choice of brand of popcorn was not important. When brand is analyzed with another factor, though, this doesn’t seem to hold true. In this graph, you can see that brand does make a difference in how the change in temperature setting works."
           },
           {
             "id": "ch30-content-en-070",
-            "kind": "listItem",
-            "text": "ABC (the interaction of all three factors)"
+            "kind": "paragraph",
+            "text": "At 600 degrees F, brand A performs better than brand B. At 400 degrees F, brand B performs better. Even though all of this is true, both brands generate less waste at the higher temperature setting when compared to their own performance at the lower temperature setting."
           },
           {
             "id": "ch30-content-en-071",
             "kind": "paragraph",
-            "text": "Adding additional factors makes this analysis increasingly complicated; adding additional levels at each factor does the same thing."
+            "text": "The third graph also shows some interaction between brand and number of scoops. Brand B performs better at the lower scoop setting than brand A, and the reverse is true at the higher scoop setting. Again, both brands generate less waste at the lower scoop setting than when compared to their own performance at the higher scoop setting."
           },
           {
             "id": "ch30-content-en-072",
             "kind": "paragraph",
-            "text": "2k Factorials Versus Multi-Level Factorials"
+            "text": "Based on all of the information above, the Six Sigma team is likely to choose to start the popcorn process with 1 scoop and use the 600 degree F temperature setting. Choosing a brand of popcorn, however, is a little tougher. Opting for brand A saves approximately 0.5 percent of waste over brand B when considering the interaction with temperature. However, brand B saves almost 1 percent of waste over brand A when considering the interaction with number of scoops."
           },
           {
             "id": "ch30-content-en-073",
             "kind": "paragraph",
-            "text": "So far in this unit, all the DOE scenarios used have been two-level (or 2k) factorial experiments. In each experiment, Six Sigma teams chose to set the levels of each factor at no more than two – typically at a high and a low."
+            "text": "Given all of the information and analysis in this experiment, a Six Sigma team might either say brand is not a big enough factor (so the concession stand could choose brand based on other factors, such as cost) or recommend that brand B be purchased when it is equal to or less than brand A in price because brand B is associated with the highest percentage of waste savings. If brand B is more expensive than brand A, the small waste savings associated with brand B would likely be mitigated, though, making brand A the better choice. This is a good illustration of how other data should play a role in decision making – a designed experiment doesn’t exist in a vacuum."
           },
           {
             "id": "ch30-content-en-074",
             "kind": "paragraph",
-            "text": "Why would a Six Sigma team choose to do this? Wouldn’t an experiment with multiple factor levels provide more information for the team? In the popcorn example, why would the team choose the high"
+            "text": "This was a basic analysis to help you understand how interactions work. Minitab and other statistical analysis software runs all of this analysis automatically, reducing the workload on the Six Sigma expert. Most such software will also consider all possible interactions and present the factors with the most impact in the analysis. If you have a 2k factorial experiment with three factors, each with two settings, and those factors are A, B, and C, you could have the following possible effects on the result:"
           },
           {
             "id": "ch30-content-en-075",
-            "kind": "paragraph",
-            "text": "and low temperature settings? What happens when the temperature is set at 500 degrees F? What about 425, 450, 475, etc.? How does the team know that 400 and 600 are the two most optimal settings?"
+            "kind": "listItem",
+            "text": "A (the impact of changing only A)"
           },
           {
             "id": "ch30-content-en-076",
-            "kind": "paragraph",
-            "text": "The truth is that the team doesn’t know those are the most optimal settings, but adding multiple levels for one or more factors adds to the number of runs that have to be completed. One replication of the popcorn experiment previously described required eight runs. Just adding one more factor for temperature – 500 degrees F – adds four runs to the experiment."
+            "kind": "listItem",
+            "text": "B (the impact of changing only B)"
           },
           {
             "id": "ch30-content-en-077",
-            "kind": "heading",
-            "text": "Row Number"
+            "kind": "listItem",
+            "text": "C (the impact of changing only C)"
           },
           {
             "id": "ch30-content-en-078",
-            "kind": "heading",
-            "text": "Brand Temperature Kernels"
+            "kind": "listItem",
+            "text": "AB (the interaction of A and B)"
           },
           {
             "id": "ch30-content-en-079",
-            "kind": "paragraph",
-            "text": "1 A 400 degrees F 1 scoop"
+            "kind": "listItem",
+            "text": "AC (the interaction of A and C)"
           },
           {
             "id": "ch30-content-en-080",
-            "kind": "paragraph",
-            "text": "2 A 400 degrees F 2 scoops"
+            "kind": "listItem",
+            "text": "BC (the interaction of B and C)"
           },
           {
             "id": "ch30-content-en-081",
-            "kind": "paragraph",
-            "text": "3 A 500 degrees F 1 scoop"
+            "kind": "listItem",
+            "text": "ABC (the interaction of all three factors)"
           },
           {
             "id": "ch30-content-en-082",
             "kind": "paragraph",
-            "text": "4 A 500 degrees F 2 scoops"
+            "text": "Adding additional factors makes this analysis increasingly complicated; adding additional levels at each factor does the same thing."
           },
           {
             "id": "ch30-content-en-083",
             "kind": "paragraph",
-            "text": "5 A 600 degrees F 1 scoop"
+            "text": "2k Factorials Versus Multi-Level Factorials"
           },
           {
             "id": "ch30-content-en-084",
             "kind": "paragraph",
-            "text": "6 A 600 degrees F 2 scoops"
+            "text": "So far in this unit, all the DOE scenarios used have been two-level (or 2k) factorial experiments. In each experiment, Six Sigma teams chose to set the levels of each factor at no more than two – typically at a high and a low."
           },
           {
             "id": "ch30-content-en-085",
             "kind": "paragraph",
-            "text": "7 B 400 degrees F 1 scoop"
+            "text": "Why would a Six Sigma team choose to do this? Wouldn’t an experiment with multiple factor levels provide more information for the team? In the popcorn example, why would the team choose the high"
           },
           {
             "id": "ch30-content-en-086",
             "kind": "paragraph",
-            "text": "8 B 400 degrees F 2 scoops"
+            "text": "and low temperature settings? What happens when the temperature is set at 500 degrees F? What about 425, 450, 475, etc.? How does the team know that 400 and 600 are the two most optimal settings?"
           },
           {
             "id": "ch30-content-en-087",
             "kind": "paragraph",
-            "text": "9 B 500 degrees F 1 scoop"
+            "text": "The truth is that the team doesn’t know those are the most optimal settings, but adding multiple levels for one or more factors adds to the number of runs that have to be completed. One replication of the popcorn experiment previously described required eight runs. Just adding one more factor for temperature – 500 degrees F – adds four runs to the experiment."
           },
           {
             "id": "ch30-content-en-088",
-            "kind": "paragraph",
-            "text": "10 B 500 degrees F 2 scoops"
+            "kind": "heading",
+            "text": "Row Number"
           },
           {
             "id": "ch30-content-en-089",
-            "kind": "paragraph",
-            "text": "11 B 600 degrees F 1 scoop"
+            "kind": "heading",
+            "text": "Brand Temperature Kernels"
           },
           {
             "id": "ch30-content-en-090",
             "kind": "paragraph",
-            "text": "12 B 600 degrees F 2 scoops"
+            "text": "1 A 400 degrees F 1 scoop"
           },
           {
             "id": "ch30-content-en-091",
             "kind": "paragraph",
-            "text": "Now, instead of 32 runs for a designed experiment that includes four replications, the team would have 48 runs. That’s 16 additional runs where the time and resources of the team and the company are being used. If the team wanted to also test temperature settings of 425, 450, 475, 525, 550, and 575, that would entail 24 additional runs for every replication, or 96 additional runs for four replications. If the team also decided to add additional levels to other factors, such as a third brand or an attempt at 1.5 scoops of kernels, the team could be looking at an experiment with hundreds of runs required to achieve the appropriate sample size."
+            "text": "2 A 400 degrees F 2 scoops"
           },
           {
             "id": "ch30-content-en-092",
             "kind": "paragraph",
-            "text": "For these reasons, 2k factorial experiments are typically the most commonly used among Six Sigma experts. Minitab lets you run these experiments with up to 15 different factors, providing a powerful ability to analyze processes. Minitab also lets you run experiments with more than two factors."
+            "text": "3 A 500 degrees F 1 scoop"
           },
           {
             "id": "ch30-content-en-093",
             "kind": "paragraph",
-            "text": "Multi-factor experiments are handled in much the same way 2k factorial experiments are handled. Obviously, if you are handling analysis manually, you’ll want to limit the levels and factors as much as possible. Minitab removes the need to limit data because of analysis requirements – as long as the team"
+            "text": "4 A 500 degrees F 2 scoops"
           },
           {
             "id": "ch30-content-en-094",
             "kind": "paragraph",
-            "text": "can define a need for including factors and levels in an experiment and has been given permission and access to use the resources needed to run an appropriate number of replications for accurate statistical conclusions, then Six Sigma teams can certainly run multi-level factor experiments."
+            "text": "5 A 600 degrees F 1 scoop"
           },
           {
             "id": "ch30-content-en-095",
-            "kind": "heading",
-            "text": "Tips for Creating Successful Designed Experiments"
+            "kind": "paragraph",
+            "text": "6 A 600 degrees F 2 scoops"
           },
           {
             "id": "ch30-content-en-096",
             "kind": "paragraph",
-            "text": "As with almost any other tool in the Six Sigma arena, ANOVA and design of experiment are only as strong as the foundation you create each time you run an experiment and associated analysis. In addition to the instructions and information in this unit, this section provides some tips for successful experiments and analysis."
+            "text": "7 B 400 degrees F 1 scoop"
           },
           {
             "id": "ch30-content-en-097",
             "kind": "paragraph",
-            "text": "Take Time to Think About the Y, or Response, of Your Experiment In chapter 29, defining the Y, or response, of the experiment is one of the first steps in the procedure for conducting a DOE. Remember, a good response is related to the overall DMAIC process or the overall need associated with the experiment. The team must know what it wants to address and whether the response it is considering is a good measurement."
+            "text": "8 B 400 degrees F 2 scoops"
           },
           {
             "id": "ch30-content-en-098",
             "kind": "paragraph",
-            "text": "Often, training materials or tips for DOE in Six Sigma provide two pieces of common advice:"
+            "text": "9 B 500 degrees F 1 scoop"
           },
           {
             "id": "ch30-content-en-099",
-            "kind": "listItem",
-            "text": "Ensure that the Y is continuous for the purpose of later analysis"
+            "kind": "paragraph",
+            "text": "10 B 500 degrees F 2 scoops"
           },
           {
             "id": "ch30-content-en-100",
-            "kind": "listItem",
-            "text": "Take the Y from brainstorming or other work done in previous phases – specifically from Define or Analyze tools such as fishbone diagrams."
+            "kind": "paragraph",
+            "text": "11 B 600 degrees F 1 scoop"
           },
           {
             "id": "ch30-content-en-101",
             "kind": "paragraph",
-            "text": "While those are both pieces of good advice, Six Sigma teams shouldn’t be afraid to think outside of the box when it comes to the response for an experiment. Ultimately, the response should be something that will help you truly understand what you set out to understand at the beginning of the experiment. In the popcorn experiment used as an example in this chapter, the team could have chosen any number of responses. Possible responses from the popcorn popping process might include how long the overall process took, how many kernels were popped, how many orders were generated by each process, or customer satisfaction with the taste of the popcorn that was popped. But the team wasn’t seeking answers to questions related to production efficiency or product performance with this particular experiment. The team was asking questions about waste of raw materials, and the amount of unpopped kernels let the team know exactly how much waste was created in the process."
+            "text": "12 B 600 degrees F 2 scoops"
           },
           {
             "id": "ch30-content-en-102",
             "kind": "paragraph",
-            "text": "When considering an appropriate Y for your experiment, don’t get too caught up in the current metrics a process or department uses to measure success. The concession stand probably never considered unpopped popcorn before this experiment – it likely used number of sales or sales dollars as a metric for success. If you’re having trouble identifying a Y that you think will help answer the questions the team is asking, consider conducting a brand new brainstorming exercise focused solely on coming up with an appropriate result type."
+            "text": "Now, instead of 32 runs for a designed experiment that includes four replications, the team would have 48 runs. That’s 16 additional runs where the time and resources of the team and the company are being used. If the team wanted to also test temperature settings of 425, 450, 475, 525, 550, and 575, that would entail 24 additional runs for every replication, or 96 additional runs for four replications. If the team also decided to add additional levels to other factors, such as a third brand or an attempt at 1.5 scoops of kernels, the team could be looking at an experiment with hundreds of runs required to achieve the appropriate sample size."
           },
           {
             "id": "ch30-content-en-103",
-            "kind": "heading",
-            "text": "Plan Ahead, and Keep Excellent Documents"
+            "kind": "paragraph",
+            "text": "For these reasons, 2k factorial experiments are typically the most commonly used among Six Sigma experts. Minitab lets you run these experiments with up to 15 different factors, providing a powerful ability to analyze processes. Minitab also lets you run experiments with more than two factors."
           },
           {
             "id": "ch30-content-en-104",
             "kind": "paragraph",
-            "text": "You’ve seen throughout this unit that experiments and ANOVA analysis can become complex quickly. First, you have to validate all assumptions, select the right method, and choose an appropriate sample size. Then, you have to run the experiments and record all the data. Finally, you have to conduct the analysis. At any point in the process, you might introduce an error or create confusion. Planning and documentation are critical to keeping this from happening, and they can be equally important when you"
+            "text": "Multi-factor experiments are handled in much the same way 2k factorial experiments are handled. Obviously, if you are handling analysis manually, you’ll want to limit the levels and factors as much as possible. Minitab removes the need to limit data because of analysis requirements – as long as the team"
           },
           {
             "id": "ch30-content-en-105",
             "kind": "paragraph",
-            "text": "present the conclusions of your experiment to others. Some specific areas where documentation is especially important are highlighted below."
+            "text": "can define a need for including factors and levels in an experiment and has been given permission and access to use the resources needed to run an appropriate number of replications for accurate statistical conclusions, then Six Sigma teams can certainly run multi-level factor experiments."
           },
           {
             "id": "ch30-content-en-106",
-            "kind": "listItem",
-            "text": "Take notes when working through either the ANOVA steps in chapter 28 or the DOE steps from chapter 29. You will forget or confuse some number or element of the analysis at some point and need to refer back to the notes. Consider recording:"
+            "kind": "heading",
+            "text": "Tips for Creating Successful Designed Experiments"
           },
           {
             "id": "ch30-content-en-107",
             "kind": "paragraph",
-            "text": "o Your reasons for choosing a specific method or test. o Lists of responses, inputs, factors, and levels with a reason for choosing each. You might need this information to justify the number of runs in your experiment. o The process for choosing sample size and any data or assumptions used in that process."
+            "text": "As with almost any other tool in the Six Sigma arena, ANOVA and design of experiment are only as strong as the foundation you create each time you run an experiment and associated analysis. In addition to the instructions and information in this unit, this section provides some tips for successful experiments and analysis."
           },
           {
             "id": "ch30-content-en-108",
-            "kind": "listItem",
-            "text": "Record any outside assumptions made regarding the experiment, the components of the experiment, or the result. You might need to review these assumptions or data linked to the assumptions to rule out outliers or understand what might seem like otherwise unexplainable experiment behavior."
+            "kind": "paragraph",
+            "text": "Take Time to Think About the Y, or Response, of Your Experiment In chapter 29, defining the Y, or response, of the experiment is one of the first steps in the procedure for conducting a DOE. Remember, a good response is related to the overall DMAIC process or the overall need associated with the experiment. The team must know what it wants to address and whether the response it is considering is a good measurement."
           },
           {
             "id": "ch30-content-en-109",
-            "kind": "listItem",
-            "text": "Document any instructions or information provided to any operator within the experiment. Your sponsor or other decision-makers will likely want to understand exactly how the experiment was performed before they make decisions based off of the results."
+            "kind": "paragraph",
+            "text": "Often, training materials or tips for DOE in Six Sigma provide two pieces of common advice:"
           },
           {
             "id": "ch30-content-en-110",
             "kind": "listItem",
-            "text": "The outcome of any measurement system analysis, particularly as it relates to the confidence in experiment outcomes."
+            "text": "Ensure that the Y is continuous for the purpose of later analysis"
           },
           {
             "id": "ch30-content-en-111",
-            "kind": "heading",
-            "text": "Account for Confidence Levels"
+            "kind": "listItem",
+            "text": "Take the Y from brainstorming or other work done in previous phases – specifically from Define or Analyze tools such as fishbone diagrams."
           },
           {
             "id": "ch30-content-en-112",
             "kind": "paragraph",
-            "text": "In any type of statistical analysis, testing, or DOE, the Six Sigma expert is always mindful of confidence levels. There is always some chance of an incorrect conclusion – the alpha and beta errors covered in the chapters on hypothesis testing tell us this. More accurate data, larger sample sizes, and choosing the right test or experiment help reduce the chance of these errors, but decision-makers do need to know how big of a possibility such an error might be."
+            "text": "While those are both pieces of good advice, Six Sigma teams shouldn’t be afraid to think outside of the box when it comes to the response for an experiment. Ultimately, the response should be something that will help you truly understand what you set out to understand at the beginning of the experiment. In the popcorn experiment used as an example in this chapter, the team could have chosen any number of responses. Possible responses from the popcorn popping process might include how long the overall process took, how many kernels were popped, how many orders were generated by each process, or customer satisfaction with the taste of the popcorn that was popped. But the team wasn’t seeking answers to questions related to production efficiency or product performance with this particular experiment. The team was asking questions about waste of raw materials, and the amount of unpopped kernels let the team know exactly how much waste was created in the process."
           },
           {
             "id": "ch30-content-en-113",
             "kind": "paragraph",
-            "text": "When reporting the outcome of a designed experiment, make sure you take all confidence levels into account. The confidence interval for the actual experiment is not always the only relevant consideration. Did you make assumptions based on previous analysis to help you set up the experiment? What were the confidence intervals associated with those analyses? Consider the popcorn example again: how sure is the team that each scoop holds an average of 2,300 kernels? What is the variation of that measurement? The answers to both of these questions contribute to the accuracy of the experiment analysis."
+            "text": "When considering an appropriate Y for your experiment, don’t get too caught up in the current metrics a process or department uses to measure success. The concession stand probably never considered unpopped popcorn before this experiment – it likely used number of sales or sales dollars as a metric for success. If you’re having trouble identifying a Y that you think will help answer the questions the team is asking, consider conducting a brand new brainstorming exercise focused solely on coming up with an appropriate result type."
           },
           {
             "id": "ch30-content-en-114",
-            "kind": "paragraph",
-            "text": "If enterprise leadership or a Six Sigma team will be basing resource-heavy or resource-contingent decisions on DOE analysis, then those decision-makers must know how confident the Six Sigma expert is in what he or she is presenting. You should always do everything you can statistically to increase confidence – such as validating data and assumptions and choosing proper sample sizes – but you should never falsely inflate confidence in a conclusion to encourage leadership to support a certain decision."
+            "kind": "heading",
+            "text": "Plan Ahead, and Keep Excellent Documents"
           },
           {
             "id": "ch30-content-en-115",
-            "kind": "heading",
-            "text": "Use Multiple Analysis and Experiments Together"
+            "kind": "paragraph",
+            "text": "You’ve seen throughout this unit that experiments and ANOVA analysis can become complex quickly. First, you have to validate all assumptions, select the right method, and choose an appropriate sample size. Then, you have to run the experiments and record all the data. Finally, you have to conduct the analysis. At any point in the process, you might introduce an error or create confusion. Planning and documentation are critical to keeping this from happening, and they can be equally important when you"
           },
           {
             "id": "ch30-content-en-116",
             "kind": "paragraph",
-            "text": "You should not – and often cannot – do everything you want to do in a single experiment. If there are 25 possible factors, do you really want them all in a single, unwieldy experiment that could become costly to run and impossible to control? Often, when you are considering running an experiment with so many"
+            "text": "present the conclusions of your experiment to others. Some specific areas where documentation is especially important are highlighted below."
           },
           {
             "id": "ch30-content-en-117",
-            "kind": "paragraph",
-            "text": "factors, you are actually trying to integrate multiple experiments into one. Stop and consider the possibility that you are comparing apples and oranges in an experiment when you really should run separate experiments for various product types or processes."
+            "kind": "listItem",
+            "text": "Take notes when working through either the ANOVA steps in chapter 28 or the DOE steps from chapter 29. You will forget or confuse some number or element of the analysis at some point and need to refer back to the notes. Consider recording:"
           },
           {
             "id": "ch30-content-en-118",
             "kind": "paragraph",
-            "text": "If you are actually working on a single product type or process, consider that you might need to run experiments serially. You might need to find out a certain piece of information or narrow down interactions and factors to better set up other experiments with new factors and level settings. For example, the Six Sigma team in the popcorn example isn’t done with their project just because they’ve found out how to best pop the popcorn to reduce waste. There are other ways to increase profits. Since brand wasn’t a major factor in the waste-related experiment, the team might conduct a second experiment to find out which brand customers like more and whether increased customer satisfaction drives increased sales."
+            "text": "o Your reasons for choosing a specific method or test. o Lists of responses, inputs, factors, and levels with a reason for choosing each. You might need this information to justify the number of runs in your experiment. o The process for choosing sample size and any data or assumptions used in that process."
           },
           {
             "id": "ch30-content-en-119",
+            "kind": "listItem",
+            "text": "Record any outside assumptions made regarding the experiment, the components of the experiment, or the result. You might need to review these assumptions or data linked to the assumptions to rule out outliers or understand what might seem like otherwise unexplainable experiment behavior."
+          },
+          {
+            "id": "ch30-content-en-120",
+            "kind": "listItem",
+            "text": "Document any instructions or information provided to any operator within the experiment. Your sponsor or other decision-makers will likely want to understand exactly how the experiment was performed before they make decisions based off of the results."
+          },
+          {
+            "id": "ch30-content-en-121",
+            "kind": "listItem",
+            "text": "The outcome of any measurement system analysis, particularly as it relates to the confidence in experiment outcomes."
+          },
+          {
+            "id": "ch30-content-en-122",
+            "kind": "heading",
+            "text": "Account for Confidence Levels"
+          },
+          {
+            "id": "ch30-content-en-123",
+            "kind": "paragraph",
+            "text": "In any type of statistical analysis, testing, or DOE, the Six Sigma expert is always mindful of confidence levels. There is always some chance of an incorrect conclusion – the alpha and beta errors covered in the chapters on hypothesis testing tell us this. More accurate data, larger sample sizes, and choosing the right test or experiment help reduce the chance of these errors, but decision-makers do need to know how big of a possibility such an error might be."
+          },
+          {
+            "id": "ch30-content-en-124",
+            "kind": "paragraph",
+            "text": "When reporting the outcome of a designed experiment, make sure you take all confidence levels into account. The confidence interval for the actual experiment is not always the only relevant consideration. Did you make assumptions based on previous analysis to help you set up the experiment? What were the confidence intervals associated with those analyses? Consider the popcorn example again: how sure is the team that each scoop holds an average of 2,300 kernels? What is the variation of that measurement? The answers to both of these questions contribute to the accuracy of the experiment analysis."
+          },
+          {
+            "id": "ch30-content-en-125",
+            "kind": "paragraph",
+            "text": "If enterprise leadership or a Six Sigma team will be basing resource-heavy or resource-contingent decisions on DOE analysis, then those decision-makers must know how confident the Six Sigma expert is in what he or she is presenting. You should always do everything you can statistically to increase confidence – such as validating data and assumptions and choosing proper sample sizes – but you should never falsely inflate confidence in a conclusion to encourage leadership to support a certain decision."
+          },
+          {
+            "id": "ch30-content-en-126",
+            "kind": "heading",
+            "text": "Use Multiple Analysis and Experiments Together"
+          },
+          {
+            "id": "ch30-content-en-127",
+            "kind": "paragraph",
+            "text": "You should not – and often cannot – do everything you want to do in a single experiment. If there are 25 possible factors, do you really want them all in a single, unwieldy experiment that could become costly to run and impossible to control? Often, when you are considering running an experiment with so many"
+          },
+          {
+            "id": "ch30-content-en-128",
+            "kind": "paragraph",
+            "text": "factors, you are actually trying to integrate multiple experiments into one. Stop and consider the possibility that you are comparing apples and oranges in an experiment when you really should run separate experiments for various product types or processes."
+          },
+          {
+            "id": "ch30-content-en-129",
+            "kind": "paragraph",
+            "text": "If you are actually working on a single product type or process, consider that you might need to run experiments serially. You might need to find out a certain piece of information or narrow down interactions and factors to better set up other experiments with new factors and level settings. For example, the Six Sigma team in the popcorn example isn’t done with their project just because they’ve found out how to best pop the popcorn to reduce waste. There are other ways to increase profits. Since brand wasn’t a major factor in the waste-related experiment, the team might conduct a second experiment to find out which brand customers like more and whether increased customer satisfaction drives increased sales."
+          },
+          {
+            "id": "ch30-content-en-130",
             "kind": "paragraph",
             "text": "Designed experiments are one of the more challenging aspects of Six Sigma to learn because exact rules don’t always exist. Six Sigma teams can set up experiments in a variety of ways, which increases the flexibility of the tool but can also make it difficult to know exactly how to proceed. This is an area where experience pays off, so the more experiments and analysis you handle, the better you are at setting up DOE. This is also a reason it’s a good idea to work with a more experienced Six Sigma expert or a Master Black Belt, who can act as a sounding board for your ideas and guide you in creating the best possible experiment."
           }
@@ -697,26 +785,34 @@
           },
           {
             "id": "ch30-content-zh-011",
+            "kind": "image",
+            "assetId": "fig-193958eea5fcf57f",
+            "src": "assets/figures/fig-193958eea5fcf57f.png",
+            "width": 1191,
+            "height": 588
+          },
+          {
+            "id": "ch30-content-zh-012",
             "kind": "paragraph",
             "text": "交互作用在交互作用图中用不平行的线表示。线的平行度越低，相互作用就越大。正如您所看到的，这些线中的大多数都接近平行，这意味着这里确实存在的任何相互作用都相当弱。考虑左下图。蓝线表示当科室的患者容量低于 80% 时进行的测量。红线表示当科室的患者容量超过 80% 时进行的测量。 无论容量状态如何，测量的行为大致相同，具体取决于工作人员在过去六个月内是否接受过合规培训。这意味着没有太多的交互作用——一个因素的设置似乎不会影响另一因素的设置改变结果的方式。"
           },
           {
-            "id": "ch30-content-zh-012",
+            "id": "ch30-content-zh-013",
             "kind": "heading",
             "text": "了解主要效果"
           },
           {
-            "id": "ch30-content-zh-013",
+            "id": "ch30-content-zh-014",
             "kind": "paragraph",
             "text": "为了更好地理解如何衡量交互作用，您首先必须了解主效应。考虑一个现实世界的例子，同样是一个 2 级阶乘。在此示例中，连锁电影院内的六西格玛团队正试图对特许摊位的绩效产生积极影响。具体来说，该团队的任务是增加特许摊位的利润。"
           },
           {
-            "id": "ch30-content-zh-014",
+            "id": "ch30-content-zh-015",
             "kind": "paragraph",
             "text": "该团队重点关注的一个领域是爆米花加工过程，他们将浪费定义为特许摊位这部分问题的根本原因。该团队认为，当前的爆米花制作过程正在产生废物，因为许多放入爆米花机的玉米粒从未爆开。这些玉米粒会定期从机器中扫出并扔掉，该团队相信每天扔掉的玉米粒数量至少相当于 10 个大份爆米花订单。"
           },
           {
-            "id": "ch30-content-zh-015",
+            "id": "ch30-content-zh-016",
             "kind": "termNote",
             "rows": [
               [
@@ -726,447 +822,527 @@
             "text": "术语说明 Root Cause（根本原因）：真正驱动问题发生的原因；解决它才能防止问题反复出现。"
           },
           {
-            "id": "ch30-content-zh-016",
+            "id": "ch30-content-zh-017",
             "kind": "paragraph",
             "text": "虽然这看起来只是少量浪费，但该团队计算出，每个大爆米花订单的特许摊位可赚取 2.65 美元的利润，这意味着该摊位每年因爆米花仁的丢失而损失约 9,600 美元。如果团队可以使用设计好的实验来找到一种快速、廉价的方法来减少内核浪费，那么这可能是值得的。"
           },
           {
-            "id": "ch30-content-zh-017",
+            "id": "ch30-content-zh-018",
             "kind": "paragraph",
             "text": "在了解有关内核过程的更多信息后，团队确定引入爆米花时机器的温度是一个因素。他们还认为，放入机器中的玉米粒数量和爆米花的品牌也是因素。"
           },
           {
-            "id": "ch30-content-zh-018",
+            "id": "ch30-content-zh-019",
             "kind": "paragraph",
             "text": "该团队设计了以下实验："
           },
           {
-            "id": "ch30-content-zh-019",
+            "id": "ch30-content-zh-020",
             "kind": "heading",
             "text": "行号"
           },
           {
-            "id": "ch30-content-zh-020",
+            "id": "ch30-content-zh-021",
             "kind": "heading",
             "text": "品牌温度内核"
-          },
-          {
-            "id": "ch30-content-zh-021",
-            "kind": "paragraph",
-            "text": "1 A 400 华氏度 1 勺"
           },
           {
             "id": "ch30-content-zh-022",
             "kind": "paragraph",
-            "text": "2 A 400 华氏度 2 勺"
+            "text": "1 A 400 华氏度 1 勺"
           },
           {
             "id": "ch30-content-zh-023",
             "kind": "paragraph",
-            "text": "3 A 600 华氏度 1 勺"
+            "text": "2 A 400 华氏度 2 勺"
           },
           {
             "id": "ch30-content-zh-024",
             "kind": "paragraph",
-            "text": "4 A 600 华氏度 2 勺"
+            "text": "3 A 600 华氏度 1 勺"
           },
           {
             "id": "ch30-content-zh-025",
             "kind": "paragraph",
-            "text": "5 B 400 华氏度 1 勺"
+            "text": "4 A 600 华氏度 2 勺"
           },
           {
             "id": "ch30-content-zh-026",
             "kind": "paragraph",
-            "text": "6 B 400 华氏度 2 勺"
+            "text": "5 B 400 华氏度 1 勺"
           },
           {
             "id": "ch30-content-zh-027",
             "kind": "paragraph",
-            "text": "7 B 600 华氏度 1 勺"
+            "text": "6 B 400 华氏度 2 勺"
           },
           {
             "id": "ch30-content-zh-028",
             "kind": "paragraph",
-            "text": "8 B 600 华氏度 2 勺"
+            "text": "7 B 600 华氏度 1 勺"
           },
           {
             "id": "ch30-content-zh-029",
             "kind": "paragraph",
-            "text": "根据良好的实验方案，团队决定样本量。请记住，设计实验的样本量告诉您要运行整个实验的重复次数。在这种情况下，六西格玛团队决定进行 4 次重复。鉴于上述设计，这意味着球队将记录 32 场比赛。此外，遵循良好的实验方案，团队将运行随机化，这样他们就不会在每次实验中都以相同的顺序记录信息。"
+            "text": "8 B 600 华氏度 2 勺"
           },
           {
             "id": "ch30-content-zh-030",
             "kind": "paragraph",
-            "text": "团队中的六西格玛专家也知道，仅仅记录每批后剩余的玉米粒数量并不能提供关于团队正在考虑的三个因素的统计结论。这是因为团队考虑的因素之一是进入该过程的内核数量。当然，如果更多的内核进入这个过程，可能会有更多的废弃内核——团队不需要进行实验来测试这是否属实。该团队确实想知道，在特定温度下爆开一两勺某些品牌的爆米花时，是否会留下更大比例的未爆开的玉米粒。六西格玛专家确保团队记录玉米粒总数以及这些玉米粒占进入流程的玉米粒数量的百分比或比率。"
+            "text": "根据良好的实验方案，团队决定样本量。请记住，设计实验的样本量告诉您要运行整个实验的重复次数。在这种情况下，六西格玛团队决定进行 4 次重复。鉴于上述设计，这意味着球队将记录 32 场比赛。此外，遵循良好的实验方案，团队将运行随机化，这样他们就不会在每次实验中都以相同的顺序记录信息。"
           },
           {
             "id": "ch30-content-zh-031",
             "kind": "paragraph",
-            "text": "团队记录的信息如下表所示。请注意，出于分析目的，数据已按品牌、温度和勺数排序。这不会是团队进行实验的顺序，因为它是随机的。"
+            "text": "团队中的六西格玛专家也知道，仅仅记录每批后剩余的玉米粒数量并不能提供关于团队正在考虑的三个因素的统计结论。这是因为团队考虑的因素之一是进入该过程的内核数量。当然，如果更多的内核进入这个过程，可能会有更多的废弃内核——团队不需要进行实验来测试这是否属实。该团队确实想知道，在特定温度下爆开一两勺某些品牌的爆米花时，是否会留下更大比例的未爆开的玉米粒。六西格玛专家确保团队记录玉米粒总数以及这些玉米粒占进入流程的玉米粒数量的百分比或比率。"
           },
           {
             "id": "ch30-content-zh-032",
-            "kind": "heading",
-            "text": "行"
+            "kind": "paragraph",
+            "text": "团队记录的信息如下表所示。请注意，出于分析目的，数据已按品牌、温度和勺数排序。这不会是团队进行实验的顺序，因为它是随机的。"
           },
           {
             "id": "ch30-content-zh-033",
             "kind": "heading",
-            "text": "编号 品牌 温度内核 估计值 无内核"
+            "text": "行"
           },
           {
             "id": "ch30-content-zh-034",
             "kind": "heading",
-            "text": "内核"
+            "text": "编号 品牌 温度内核 估计值 无内核"
           },
           {
             "id": "ch30-content-zh-035",
             "kind": "heading",
-            "text": "左侧百分比"
+            "text": "内核"
           },
           {
             "id": "ch30-content-zh-036",
-            "kind": "paragraph",
-            "text": "1 A 400 华氏度 1 勺 2300 125 5.43% 9 A 400 华氏度 1 勺 2300 115 5.00% 17 A 400 华氏度 1 勺 2300 118 5.13% 25 A 400 华氏度 1 勺 2300 127 5.52% 2 A 400 华氏度 2 勺 4600 298 6.48% 10 A 400 华氏度 2 勺 4600 275 5.98% 18 A 400 华氏度 2 勺 4600 298 6.48% 26 A 400 华氏度 2 勺 4600 275 5.98% 3 A 600°F 1 勺 4600 98 2.13% 11 A 600°F 1 勺 4600 101 2.20% 19 A 600°F 1 勺 4600 99 2.15% 27 A 600°F 1 勺 4600 105 2.28% 4 A 600华氏度 2 勺 4600 187 4.07% 12 A 600 华氏度 2 勺 4600 192 4.17% 20 A 600 华氏度 2 勺 4600 175 3.80% 28 A 600 华氏度 2 勺 4600 201 4.37% 5 B 400 华氏度 1 勺 4600 145 3.15% 13 B 400 华氏度 1 勺 4600 129 2.80% 21 B 400 华氏度 1 勺 4600 138 3.00% 29 B 400 华氏度 1 勺 4600 142 3.09%"
+            "kind": "heading",
+            "text": "左侧百分比"
           },
           {
             "id": "ch30-content-zh-037",
             "kind": "paragraph",
-            "text": "6 B 400 华氏度 2 勺 4600 324 7.04% 14 B 400 华氏度 2 勺 4600 298 6.48% 22 B 400 华氏度 2 勺 4600 307 6.67% 30 B 400 华氏度 2 勺 4600 399 8.67% 7 B 600 华氏度 1 勺 4600 109 2.37% 15 B 600 华氏度 1 勺 4600 138 3.00% 23 B 600 华氏度 1 勺 4600 109 2.37% 31 B 600 华氏度 1 勺 4600 124 2.70% 8 B 600 华氏度 2 勺 4600 202 4.39% 16 B 600 华氏度 2 勺 4600 225 4.89% 24 B 600 华氏度 2 勺 4600 198 4.30% 32 B 600 华氏度 2 勺 4600 225 4.89%"
+            "text": "1 A 400 华氏度 1 勺 2300 125 5.43% 9 A 400 华氏度 1 勺 2300 115 5.00% 17 A 400 华氏度 1 勺 2300 118 5.13% 25 A 400 华氏度 1 勺 2300 127 5.52% 2 A 400 华氏度 2 勺 4600 298 6.48% 10 A 400 华氏度 2 勺 4600 275 5.98% 18 A 400 华氏度 2 勺 4600 298 6.48% 26 A 400 华氏度 2 勺 4600 275 5.98% 3 A 600°F 1 勺 4600 98 2.13% 11 A 600°F 1 勺 4600 101 2.20% 19 A 600°F 1 勺 4600 99 2.15% 27 A 600°F 1 勺 4600 105 2.28% 4 A 600华氏度 2 勺 4600 187 4.07% 12 A 600 华氏度 2 勺 4600 192 4.17% 20 A 600 华氏度 2 勺 4600 175 3.80% 28 A 600 华氏度 2 勺 4600 201 4.37% 5 B 400 华氏度 1 勺 4600 145 3.15% 13 B 400 华氏度 1 勺 4600 129 2.80% 21 B 400 华氏度 1 勺 4600 138 3.00% 29 B 400 华氏度 1 勺 4600 142 3.09%"
           },
           {
             "id": "ch30-content-zh-038",
             "kind": "paragraph",
-            "text": "设计实验中的效果是基于因素水平变化对结果变化的测量。主效应描述了基于单个因素变化的结果变化的测量。通过比较该因素低端和高端结果的平均值，可以粗略地计算出每个因素的主效应。"
+            "text": "6 B 400 华氏度 2 勺 4600 324 7.04% 14 B 400 华氏度 2 勺 4600 298 6.48% 22 B 400 华氏度 2 勺 4600 307 6.67% 30 B 400 华氏度 2 勺 4600 399 8.67% 7 B 600 华氏度 1 勺 4600 109 2.37% 15 B 600 华氏度 1 勺 4600 138 3.00% 23 B 600 华氏度 1 勺 4600 109 2.37% 31 B 600 华氏度 1 勺 4600 124 2.70% 8 B 600 华氏度 2 勺 4600 202 4.39% 16 B 600 华氏度 2 勺 4600 225 4.89% 24 B 600 华氏度 2 勺 4600 198 4.30% 32 B 600 华氏度 2 勺 4600 225 4.89%"
           },
           {
             "id": "ch30-content-zh-039",
             "kind": "paragraph",
-            "text": "例如，品牌 A 的平均剩余百分比为 4.45。品牌 B 的平均剩余值为 4.36。差异为0.09。立即看来，这两个品牌的爆米花对爆米花性能没有太大影响。但请记住，统计差异并不一定需要很大的数值差异。这种差异是否值得考虑取决于其他因素，例如团队希望记录的差异范围以及实验中其他因素的主要影响。"
+            "text": "设计实验中的效果是基于因素水平变化对结果变化的测量。主效应描述了基于单个因素变化的结果变化的测量。通过比较该因素低端和高端结果的平均值，可以粗略地计算出每个因素的主效应。"
           },
           {
             "id": "ch30-content-zh-040",
             "kind": "paragraph",
-            "text": "对于实验中的每个因素都可以完成相同的计算。 在 400 华氏度温度下运行时留下的谷粒的平均百分比约为 5.43；温度为 600 华氏度时运行的平均剩余百分比为 3.38。该因素的主效应大于品牌； 400 度和 600 度的平均值之间的差异为 2.05。"
+            "text": "例如，品牌 A 的平均剩余百分比为 4.45。品牌 B 的平均剩余值为 4.36。差异为0.09。立即看来，这两个品牌的爆米花对爆米花性能没有太大影响。但请记住，统计差异并不一定需要很大的数值差异。这种差异是否值得考虑取决于其他因素，例如团队希望记录的差异范围以及实验中其他因素的主要影响。"
           },
           {
             "id": "ch30-content-zh-041",
             "kind": "paragraph",
-            "text": "当团队开始用一勺时，剩余的谷粒平均百分比约为 3.27。的"
+            "text": "对于实验中的每个因素都可以完成相同的计算。 在 400 华氏度温度下运行时留下的谷粒的平均百分比约为 5.43；温度为 600 华氏度时运行的平均剩余百分比为 3.38。该因素的主效应大于品牌； 400 度和 600 度的平均值之间的差异为 2.05。"
           },
           {
             "id": "ch30-content-zh-042",
             "kind": "paragraph",
-            "text": "从两勺开始时剩余百分比约为 5.54；差异为2.27。"
+            "text": "当团队开始用一勺时，剩余的谷粒平均百分比约为 3.27。的"
           },
           {
             "id": "ch30-content-zh-043",
-            "kind": "heading",
-            "text": "了解交互作用图"
+            "kind": "image",
+            "assetId": "fig-852058c41aaa16a2",
+            "src": "assets/figures/fig-852058c41aaa16a2.png",
+            "width": 1186,
+            "height": 1375
           },
           {
             "id": "ch30-content-zh-044",
             "kind": "paragraph",
-            "text": "当绘制在线图时，上述实验的主要效果如下图所示。这些图像是在 Excel 中生成的，但 Minitab 和其他统计分析软件在运行设计的实验时会生成此类图表作为整体分析的一部分。"
+            "text": "从两勺开始时剩余百分比约为 5.54；差异为2.27。"
           },
           {
             "id": "ch30-content-zh-045",
-            "kind": "paragraph",
-            "text": "这张图很容易看出：爆米花的品牌没有太大的主要影响，但根据温度和勺子有很大的变化。由于该团队希望减少未爆开的玉米粒的百分比，因此他们似乎希望将温度设置在更高的水平，但一次只使用一勺爆米花。"
+            "kind": "heading",
+            "text": "了解交互作用图"
           },
           {
             "id": "ch30-content-zh-046",
             "kind": "paragraph",
-            "text": "但主效应图并不总是考虑因素之间的任何相互作用，这就是为什么考虑相互作用图很重要。您可以使用 Minitab 生成交互作用图，或在 Excel 中创建自己的交互作用图。要在 Excel 中创建交互作用图，请按照以下步骤操作。"
+            "text": "当绘制在线图时，上述实验的主要效果如下图所示。这些图像是在 Excel 中生成的，但 Minitab 和其他统计分析软件在运行设计的实验时会生成此类图表作为整体分析的一部分。"
           },
           {
             "id": "ch30-content-zh-047",
-            "kind": "paragraph",
-            "text": "1. 将带标题的数据导入 Excel。对于此示例，您可以使用为上面的爆米花场景提供的数据网格。 2. 计算两个因素的每个组合的结果平均值。在爆米花场景中，您将计算三组图形数据的百分比结果的平均值。"
+            "kind": "image",
+            "assetId": "fig-834f39dd732fbc35",
+            "src": "assets/figures/fig-834f39dd732fbc35.png",
+            "width": 910,
+            "height": 544
           },
           {
             "id": "ch30-content-zh-048",
             "kind": "paragraph",
-            "text": "a.图 1（勺数 * 温度）"
+            "text": "这张图很容易看出：爆米花的品牌没有太大的主要影响，但根据温度和勺子有很大的变化。由于该团队希望减少未爆开的玉米粒的百分比，因此他们似乎希望将温度设置在更高的水平，但一次只使用一勺爆米花。"
           },
           {
             "id": "ch30-content-zh-049",
             "kind": "paragraph",
-            "text": "岛勺数等于 1 且温度等于 400 ii 的所有行。勺数等于 1 且温度等于 600 的所有行 iii.勺数等于 2 且温度等于 400 iv 的所有行。 b. 勺数等于 2、温度等于 600 的所有行。图2（勺数*品牌）"
+            "text": "但主效应图并不总是考虑因素之间的任何相互作用，这就是为什么考虑相互作用图很重要。您可以使用 Minitab 生成交互作用图，或在 Excel 中创建自己的交互作用图。要在 Excel 中创建交互作用图，请按照以下步骤操作。"
           },
           {
             "id": "ch30-content-zh-050",
             "kind": "paragraph",
-            "text": "岛勺子等于 1 且品牌等于 A 的所有行 ii。勺数等于 1 且品牌等于 B 的所有行 iii。勺数等于 2 且品牌等于 A 的所有行"
+            "text": "1. 将带标题的数据导入 Excel。对于此示例，您可以使用为上面的爆米花场景提供的数据网格。 2. 计算两个因素的每个组合的结果平均值。在爆米花场景中，您将计算三组图形数据的百分比结果的平均值。"
           },
           {
             "id": "ch30-content-zh-051",
             "kind": "paragraph",
-            "text": "四.勺数等于 2 且品牌等于 B 的所有行 c。 图3（品牌*温度）"
+            "text": "a.图 1（勺数 * 温度）"
           },
           {
             "id": "ch30-content-zh-052",
             "kind": "paragraph",
-            "text": "岛品牌等于 A、温度等于 400 ii 的所有行。品牌等于 A、温度等于 600 的所有行 iii。品牌等于 B、温度等于 400 iv 的所有行。品牌等于 B、温度等于 600 的所有行 3. 将结果排列到三个小数据表中，类似于下面设置的温度和勺的数据表。"
+            "text": "岛勺数等于 1 且温度等于 400 ii 的所有行。勺数等于 1 且温度等于 600 的所有行 iii.勺数等于 2 且温度等于 400 iv 的所有行。 b. 勺数等于 2、温度等于 600 的所有行。图2（勺数*品牌）"
           },
           {
             "id": "ch30-content-zh-053",
             "kind": "paragraph",
-            "text": "温度勺 平均值 400 1 4.14 600 1 2.4 400 2 6.72 600 2 4.36"
+            "text": "岛勺子等于 1 且品牌等于 A 的所有行 ii。勺数等于 1 且品牌等于 B 的所有行 iii。勺数等于 2 且品牌等于 A 的所有行"
           },
           {
             "id": "ch30-content-zh-054",
             "kind": "paragraph",
-            "text": "4. 使用每个小数据表创建折线图。"
+            "text": "四.勺数等于 2 且品牌等于 B 的所有行 c。 图3（品牌*温度）"
           },
           {
             "id": "ch30-content-zh-055",
             "kind": "paragraph",
-            "text": "a.选择“插入”>“图表”>“折线图”>“带标记的多线图”"
+            "text": "岛品牌等于 A、温度等于 400 ii 的所有行。品牌等于 A、温度等于 600 的所有行 iii。品牌等于 B、温度等于 400 iv 的所有行。品牌等于 B、温度等于 600 的所有行 3. 将结果排列到三个小数据表中，类似于下面设置的温度和勺的数据表。"
           },
           {
             "id": "ch30-content-zh-056",
-            "kind": "heading",
-            "text": "b.单击“选择数据”。"
+            "kind": "paragraph",
+            "text": "温度勺 平均值 400 1 4.14 600 1 2.4 400 2 6.72 600 2 4.36"
           },
           {
             "id": "ch30-content-zh-057",
-            "kind": "heading",
-            "text": "c.单击“图例条目（系列）”下的“添加”"
+            "kind": "paragraph",
+            "text": "4. 使用每个小数据表创建折线图。"
           },
           {
             "id": "ch30-content-zh-058",
             "kind": "paragraph",
-            "text": "d.输入“1 scoop”作为第一个系列的名称。从小数据表中选择 1 勺的平均值到“系列值”范围内。"
+            "text": "a.选择“插入”>“图表”>“折线图”>“带标记的多线图”"
           },
           {
             "id": "ch30-content-zh-059",
-            "kind": "paragraph",
-            "text": "e.单击“确定”。 f.再次单击“添加”，然后重复步骤 d 以创建 2 勺的系列。 g。单击“确定”。 h.单击“水平（类别）轴标签”下的编辑。"
+            "kind": "image",
+            "assetId": "fig-c19e53febdd9a4ee",
+            "src": "assets/figures/fig-c19e53febdd9a4ee.png",
+            "width": 1191,
+            "height": 327
           },
           {
             "id": "ch30-content-zh-060",
-            "kind": "paragraph",
-            "text": "岛选择两个保存其他因子设置名称（在本例中为温度设置）的单元格到“轴标签”框中。"
+            "kind": "heading",
+            "text": "b.单击“选择数据”。"
           },
           {
             "id": "ch30-content-zh-061",
-            "kind": "paragraph",
-            "text": "j。单击“确定”。 k.再次单击“确定”。湖使用 Excel 图表选项根据需要添加标题和图例，以便您的图表如下图所示。"
+            "kind": "image",
+            "assetId": "fig-ec712a0daf904044",
+            "src": "assets/figures/fig-ec712a0daf904044.png",
+            "width": 424,
+            "height": 319
           },
           {
             "id": "ch30-content-zh-062",
-            "kind": "paragraph",
-            "text": "如果您在该程序中运行 DOE 分析，这些交互作用图与 Minitab 显示的交互作用图的样式相同，并且它们显示了一些在仅考虑原始数据甚至主效应图时并不明显的交互作用。"
+            "kind": "heading",
+            "text": "c.单击“图例条目（系列）”下的“添加”"
           },
           {
             "id": "ch30-content-zh-063",
-            "kind": "paragraph",
-            "text": "对第一个交互图的分析显示了六西格玛团队可能已经从主效应中收集到了什么。当您将 1 勺玉米粒和较高的温度设置结合起来时，剩余玉米粒的百分比似乎会达到最低。该图没有显示交互作用——线条几乎是平行的。无论您开始使用多少勺，最高温度都会产生最少的浪费。无论温度设置如何，最低的勺启动产生的浪费最少。"
+            "kind": "image",
+            "assetId": "fig-699513da44d083b4",
+            "src": "assets/figures/fig-699513da44d083b4.png",
+            "width": 578,
+            "height": 325
           },
           {
             "id": "ch30-content-zh-064",
             "kind": "paragraph",
-            "text": "第二张图位于第一张图的右侧，显示了品牌与温度之间的相互作用。请记住，主效应分析似乎表明爆米花品牌的选择并不重要。然而，当用另一个因素来分析品牌时，这似乎并不成立。 在此图中，您可以看到品牌确实对温度设置的变化产生影响。"
+            "text": "d.输入“1 scoop”作为第一个系列的名称。从小数据表中选择 1 勺的平均值到“系列值”范围内。"
           },
           {
             "id": "ch30-content-zh-065",
-            "kind": "paragraph",
-            "text": "在 600 华氏度时，品牌 A 的表现优于品牌 B。在 400 华氏度时，品牌 B 的表现更好。尽管所有这些都是事实，但与较低温度设置下的性能相比，两个品牌在较高温度设置下产生的废物较少。"
+            "kind": "image",
+            "assetId": "fig-7ac990da64468eeb",
+            "src": "assets/figures/fig-7ac990da64468eeb.png",
+            "width": 573,
+            "height": 355
           },
           {
             "id": "ch30-content-zh-066",
             "kind": "paragraph",
-            "text": "第三张图还显示了品牌和勺数之间的一些相互作用。品牌 B 在较低勺设置下的表现优于品牌 A，而在较高勺设置下则相反。同样，与在较高勺设置下的性能相比，两个品牌在较低勺设置下产生的浪费更少。"
+            "text": "e.单击“确定”。 f.再次单击“添加”，然后重复步骤 d 以创建 2 勺的系列。 g。单击“确定”。 h.单击“水平（类别）轴标签”下的编辑。"
           },
           {
             "id": "ch30-content-zh-067",
-            "kind": "paragraph",
-            "text": "根据上述所有信息，六西格玛团队很可能选择从 1 勺开始爆米花过程并使用 600 华氏度的温度设置。然而，选择爆米花品牌有点困难。考虑到与温度的相互作用，选择品牌 A 比品牌 B 节省约 0.5% 的浪费。然而，考虑到与勺数的相互作用，品牌 B 比品牌 A 节省了近 1% 的浪费。"
+            "kind": "image",
+            "assetId": "fig-ae88a8a7717d842e",
+            "src": "assets/figures/fig-ae88a8a7717d842e.png",
+            "width": 672,
+            "height": 335
           },
           {
             "id": "ch30-content-zh-068",
             "kind": "paragraph",
-            "text": "考虑到本实验中的所有信息和分析，六西格玛团队可能会说品牌不是一个足够大的因素（因此特许摊位可以根据其他因素（例如成本）来选择品牌），或者建议当品牌B的价格等于或低于品牌A时购买，因为品牌B与最高的浪费百分比相关。如果品牌 B 比品牌 A 更贵，那么与品牌 B 相关的少量浪费可能会减少，从而使品牌 A 成为更好的选择。这很好地说明了其他数据应如何在决策中发挥作用——设计好的实验并不存在于真空中。"
+            "text": "岛选择两个保存其他因子设置名称（在本例中为温度设置）的单元格到“轴标签”框中。"
           },
           {
             "id": "ch30-content-zh-069",
-            "kind": "paragraph",
-            "text": "这是一个基本分析，可帮助您了解交互如何工作。 Minitab等统计分析软件自动运行所有这些分析，减少了六西格玛专家的工作量。大多数此类软件还将考虑所有可能的相互作用，并呈现在分析中影响最大的因素。如果您有一个包含三个因子的 2k 阶乘实验，每个因子有两个设置，并且这些因子是 A、B 和 C，则可能会对结果产生以下影响："
+            "kind": "image",
+            "assetId": "fig-3495a6c12bf57bbd",
+            "src": "assets/figures/fig-3495a6c12bf57bbd.png",
+            "width": 616,
+            "height": 419
           },
           {
             "id": "ch30-content-zh-070",
-            "kind": "listItem",
-            "text": "A（仅更改 A 的影响）"
+            "kind": "paragraph",
+            "text": "j。单击“确定”。 k.再次单击“确定”。湖使用 Excel 图表选项根据需要添加标题和图例，以便您的图表如下图所示。"
           },
           {
             "id": "ch30-content-zh-071",
-            "kind": "listItem",
-            "text": "B（仅改变B的影响）"
+            "kind": "image",
+            "assetId": "fig-bae0fed045569b01",
+            "src": "assets/figures/fig-bae0fed045569b01.png",
+            "width": 791,
+            "height": 390
           },
           {
             "id": "ch30-content-zh-072",
-            "kind": "listItem",
-            "text": "C（仅更改 C 的影响）"
+            "kind": "image",
+            "assetId": "fig-ee799413204fba48",
+            "src": "assets/figures/fig-ee799413204fba48.png",
+            "width": 1191,
+            "height": 861
           },
           {
             "id": "ch30-content-zh-073",
-            "kind": "listItem",
-            "text": "AB（A 和 B 的相互作用）"
+            "kind": "paragraph",
+            "text": "如果您在该程序中运行 DOE 分析，这些交互作用图与 Minitab 显示的交互作用图的样式相同，并且它们显示了一些在仅考虑原始数据甚至主效应图时并不明显的交互作用。"
           },
           {
             "id": "ch30-content-zh-074",
-            "kind": "listItem",
-            "text": "AC（A 和 C 的相互作用）"
+            "kind": "paragraph",
+            "text": "对第一个交互图的分析显示了六西格玛团队可能已经从主效应中收集到了什么。当您将 1 勺玉米粒和较高的温度设置结合起来时，剩余玉米粒的百分比似乎会达到最低。该图没有显示交互作用——线条几乎是平行的。无论您开始使用多少勺，最高温度都会产生最少的浪费。无论温度设置如何，最低的勺启动产生的浪费最少。"
           },
           {
             "id": "ch30-content-zh-075",
-            "kind": "listItem",
-            "text": "BC（B 和 C 的相互作用）"
+            "kind": "paragraph",
+            "text": "第二张图位于第一张图的右侧，显示了品牌与温度之间的相互作用。请记住，主效应分析似乎表明爆米花品牌的选择并不重要。然而，当用另一个因素来分析品牌时，这似乎并不成立。 在此图中，您可以看到品牌确实对温度设置的变化产生影响。"
           },
           {
             "id": "ch30-content-zh-076",
-            "kind": "listItem",
-            "text": "ABC（所有三个因素的相互作用）"
+            "kind": "paragraph",
+            "text": "在 600 华氏度时，品牌 A 的表现优于品牌 B。在 400 华氏度时，品牌 B 的表现更好。尽管所有这些都是事实，但与较低温度设置下的性能相比，两个品牌在较高温度设置下产生的废物较少。"
           },
           {
             "id": "ch30-content-zh-077",
             "kind": "paragraph",
-            "text": "添加额外的因素会使分析变得更加复杂；在每个因素上添加额外的水平会起到同样的作用。"
+            "text": "第三张图还显示了品牌和勺数之间的一些相互作用。品牌 B 在较低勺设置下的表现优于品牌 A，而在较高勺设置下则相反。同样，与在较高勺设置下的性能相比，两个品牌在较低勺设置下产生的浪费更少。"
           },
           {
             "id": "ch30-content-zh-078",
             "kind": "paragraph",
-            "text": "2k 阶乘与多级阶乘"
+            "text": "根据上述所有信息，六西格玛团队很可能选择从 1 勺开始爆米花过程并使用 600 华氏度的温度设置。然而，选择爆米花品牌有点困难。考虑到与温度的相互作用，选择品牌 A 比品牌 B 节省约 0.5% 的浪费。然而，考虑到与勺数的相互作用，品牌 B 比品牌 A 节省了近 1% 的浪费。"
           },
           {
             "id": "ch30-content-zh-079",
             "kind": "paragraph",
-            "text": "到目前为止，在本单元中，使用的所有 DOE 场景都是二级（或 2k）阶乘实验。在每个实验中，六西格玛团队选择将每个因素的水平设置为不超过两个——通常是高和低。"
+            "text": "考虑到本实验中的所有信息和分析，六西格玛团队可能会说品牌不是一个足够大的因素（因此特许摊位可以根据其他因素（例如成本）来选择品牌），或者建议当品牌B的价格等于或低于品牌A时购买，因为品牌B与最高的浪费百分比相关。如果品牌 B 比品牌 A 更贵，那么与品牌 B 相关的少量浪费可能会减少，从而使品牌 A 成为更好的选择。这很好地说明了其他数据应如何在决策中发挥作用——设计好的实验并不存在于真空中。"
           },
           {
             "id": "ch30-content-zh-080",
             "kind": "paragraph",
-            "text": "六西格玛团队为何会选择这么做？多因素水平的实验不会为团队提供更多信息吗？在爆米花的例子中，为什么团队会选择高的"
+            "text": "这是一个基本分析，可帮助您了解交互如何工作。 Minitab等统计分析软件自动运行所有这些分析，减少了六西格玛专家的工作量。大多数此类软件还将考虑所有可能的相互作用，并呈现在分析中影响最大的因素。如果您有一个包含三个因子的 2k 阶乘实验，每个因子有两个设置，并且这些因子是 A、B 和 C，则可能会对结果产生以下影响："
           },
           {
             "id": "ch30-content-zh-081",
-            "kind": "paragraph",
-            "text": "和低温设置？当温度设置为 500 华氏度时会发生什么？ 425、450、475 等呢？团队如何知道 400 和 600 是两个最佳设置？"
+            "kind": "listItem",
+            "text": "A（仅更改 A 的影响）"
           },
           {
             "id": "ch30-content-zh-082",
-            "kind": "paragraph",
-            "text": "事实上，团队并不知道这些是最佳设置，但为一个或多个因素添加多个级别会增加必须完成的运行次数。先前描述的爆米花实验的一次重复需要运行八次。只需再添加一个温度因素（500 华氏度）即可增加实验四次。"
+            "kind": "listItem",
+            "text": "B（仅改变B的影响）"
           },
           {
             "id": "ch30-content-zh-083",
-            "kind": "heading",
-            "text": "行号"
+            "kind": "listItem",
+            "text": "C（仅更改 C 的影响）"
           },
           {
             "id": "ch30-content-zh-084",
-            "kind": "heading",
-            "text": "品牌温度内核"
+            "kind": "listItem",
+            "text": "AB（A 和 B 的相互作用）"
           },
           {
             "id": "ch30-content-zh-085",
-            "kind": "paragraph",
-            "text": "1 A 400 华氏度 1 勺"
+            "kind": "listItem",
+            "text": "AC（A 和 C 的相互作用）"
           },
           {
             "id": "ch30-content-zh-086",
-            "kind": "paragraph",
-            "text": "2 A 400 华氏度 2 勺"
+            "kind": "listItem",
+            "text": "BC（B 和 C 的相互作用）"
           },
           {
             "id": "ch30-content-zh-087",
-            "kind": "paragraph",
-            "text": "3 A 500 华氏度 1 勺"
+            "kind": "listItem",
+            "text": "ABC（所有三个因素的相互作用）"
           },
           {
             "id": "ch30-content-zh-088",
             "kind": "paragraph",
-            "text": "4 A 500 华氏度 2 勺"
+            "text": "添加额外的因素会使分析变得更加复杂；在每个因素上添加额外的水平会起到同样的作用。"
           },
           {
             "id": "ch30-content-zh-089",
             "kind": "paragraph",
-            "text": "5 A 600 华氏度 1 勺"
+            "text": "2k 阶乘与多级阶乘"
           },
           {
             "id": "ch30-content-zh-090",
             "kind": "paragraph",
-            "text": "6 A 600 华氏度 2 勺"
+            "text": "到目前为止，在本单元中，使用的所有 DOE 场景都是二级（或 2k）阶乘实验。在每个实验中，六西格玛团队选择将每个因素的水平设置为不超过两个——通常是高和低。"
           },
           {
             "id": "ch30-content-zh-091",
             "kind": "paragraph",
-            "text": "7 B 400 华氏度 1 勺"
+            "text": "六西格玛团队为何会选择这么做？多因素水平的实验不会为团队提供更多信息吗？在爆米花的例子中，为什么团队会选择高的"
           },
           {
             "id": "ch30-content-zh-092",
             "kind": "paragraph",
-            "text": "8 B 400 华氏度 2 勺"
+            "text": "和低温设置？当温度设置为 500 华氏度时会发生什么？ 425、450、475 等呢？团队如何知道 400 和 600 是两个最佳设置？"
           },
           {
             "id": "ch30-content-zh-093",
             "kind": "paragraph",
-            "text": "9 B 500 华氏度 1 勺"
+            "text": "事实上，团队并不知道这些是最佳设置，但为一个或多个因素添加多个级别会增加必须完成的运行次数。先前描述的爆米花实验的一次重复需要运行八次。只需再添加一个温度因素（500 华氏度）即可增加实验四次。"
           },
           {
             "id": "ch30-content-zh-094",
-            "kind": "paragraph",
-            "text": "10 B 500 华氏度 2 勺"
+            "kind": "heading",
+            "text": "行号"
           },
           {
             "id": "ch30-content-zh-095",
-            "kind": "paragraph",
-            "text": "11 B 600 华氏度 1 勺"
+            "kind": "heading",
+            "text": "品牌温度内核"
           },
           {
             "id": "ch30-content-zh-096",
             "kind": "paragraph",
-            "text": "12 B 600 华氏度 2 勺"
+            "text": "1 A 400 华氏度 1 勺"
           },
           {
             "id": "ch30-content-zh-097",
             "kind": "paragraph",
-            "text": "现在，该团队将进行 48 次运行，而不是包含四次重复的设计实验的 32 次运行。这需要 16 次额外的运行，需要使用团队和公司的时间和资源。 如果团队还想测试 425、450、475、525、550 和 575 的温度设置，则每次复制需要额外运行 24 次，或者四次复制需要额外运行 96 次。如果团队还决定对其他因素添加额外的水平，例如第三个品牌或尝试使用 1.5 勺玉米粒，则团队可能会考虑进行数百次运行的实验，以达到适当的样本量。"
+            "text": "2 A 400 华氏度 2 勺"
           },
           {
             "id": "ch30-content-zh-098",
             "kind": "paragraph",
-            "text": "由于这些原因，2k 因子实验通常是六西格玛专家中最常用的。 Minitab 允许您使用多达 15 个不同因素运行这些实验，从而提供强大的过程分析能力。 Minitab 还允许您运行两个以上因子的实验。"
+            "text": "3 A 500 华氏度 1 勺"
           },
           {
             "id": "ch30-content-zh-099",
             "kind": "paragraph",
-            "text": "多因子实验的处理方式与 2k 因子实验的处理方式大致相同。显然，如果您手动处理分析，您将希望尽可能地限制级别和因素。 Minitab 消除了由于分析要求而限制数据的需要 – 只要团队"
+            "text": "4 A 500 华氏度 2 勺"
           },
           {
             "id": "ch30-content-zh-100",
             "kind": "paragraph",
-            "text": "如果能够定义一个实验中需要包含的因素和水平，并且已被授予使用运行适当数量的重复次数以获得准确统计结论所需的资源的权限和权限，那么六西格玛团队当然可以运行多水平因素实验。"
+            "text": "5 A 600 华氏度 1 勺"
           },
           {
             "id": "ch30-content-zh-101",
-            "kind": "heading",
-            "text": "创建成功设计实验的技巧"
+            "kind": "paragraph",
+            "text": "6 A 600 华氏度 2 勺"
           },
           {
             "id": "ch30-content-zh-102",
             "kind": "paragraph",
-            "text": "与六西格玛领域中的几乎任何其他工具一样，方差分析（ANOVA）和实验设计的可靠性取决于您每次运行实验和相关分析时创建的基础。除了本单元中的说明和信息之外，本节还提供了一些成功实验和分析的提示。"
+            "text": "7 B 400 华氏度 1 勺"
           },
           {
             "id": "ch30-content-zh-103",
             "kind": "paragraph",
-            "text": "花时间思考实验的 Y（即响应） 在第 29 章中，定义实验的 Y（即响应）是进行 DOE 过程中的首要步骤之一。请记住，良好的响应与整个 DMAIC 流程或与实验相关的总体需求有关。团队必须知道它想要解决什么问题，以及它正在考虑的响应是否是一个很好的衡量标准。"
+            "text": "8 B 400 华氏度 2 勺"
           },
           {
             "id": "ch30-content-zh-104",
+            "kind": "paragraph",
+            "text": "9 B 500 华氏度 1 勺"
+          },
+          {
+            "id": "ch30-content-zh-105",
+            "kind": "paragraph",
+            "text": "10 B 500 华氏度 2 勺"
+          },
+          {
+            "id": "ch30-content-zh-106",
+            "kind": "paragraph",
+            "text": "11 B 600 华氏度 1 勺"
+          },
+          {
+            "id": "ch30-content-zh-107",
+            "kind": "paragraph",
+            "text": "12 B 600 华氏度 2 勺"
+          },
+          {
+            "id": "ch30-content-zh-108",
+            "kind": "paragraph",
+            "text": "现在，该团队将进行 48 次运行，而不是包含四次重复的设计实验的 32 次运行。这需要 16 次额外的运行，需要使用团队和公司的时间和资源。 如果团队还想测试 425、450、475、525、550 和 575 的温度设置，则每次复制需要额外运行 24 次，或者四次复制需要额外运行 96 次。如果团队还决定对其他因素添加额外的水平，例如第三个品牌或尝试使用 1.5 勺玉米粒，则团队可能会考虑进行数百次运行的实验，以达到适当的样本量。"
+          },
+          {
+            "id": "ch30-content-zh-109",
+            "kind": "paragraph",
+            "text": "由于这些原因，2k 因子实验通常是六西格玛专家中最常用的。 Minitab 允许您使用多达 15 个不同因素运行这些实验，从而提供强大的过程分析能力。 Minitab 还允许您运行两个以上因子的实验。"
+          },
+          {
+            "id": "ch30-content-zh-110",
+            "kind": "paragraph",
+            "text": "多因子实验的处理方式与 2k 因子实验的处理方式大致相同。显然，如果您手动处理分析，您将希望尽可能地限制级别和因素。 Minitab 消除了由于分析要求而限制数据的需要 – 只要团队"
+          },
+          {
+            "id": "ch30-content-zh-111",
+            "kind": "paragraph",
+            "text": "如果能够定义一个实验中需要包含的因素和水平，并且已被授予使用运行适当数量的重复次数以获得准确统计结论所需的资源的权限和权限，那么六西格玛团队当然可以运行多水平因素实验。"
+          },
+          {
+            "id": "ch30-content-zh-112",
+            "kind": "heading",
+            "text": "创建成功设计实验的技巧"
+          },
+          {
+            "id": "ch30-content-zh-113",
+            "kind": "paragraph",
+            "text": "与六西格玛领域中的几乎任何其他工具一样，方差分析（ANOVA）和实验设计的可靠性取决于您每次运行实验和相关分析时创建的基础。除了本单元中的说明和信息之外，本节还提供了一些成功实验和分析的提示。"
+          },
+          {
+            "id": "ch30-content-zh-114",
+            "kind": "paragraph",
+            "text": "花时间思考实验的 Y（即响应） 在第 29 章中，定义实验的 Y（即响应）是进行 DOE 过程中的首要步骤之一。请记住，良好的响应与整个 DMAIC 流程或与实验相关的总体需求有关。团队必须知道它想要解决什么问题，以及它正在考虑的响应是否是一个很好的衡量标准。"
+          },
+          {
+            "id": "ch30-content-zh-115",
             "kind": "termNote",
             "rows": [
               [
@@ -1176,22 +1352,22 @@
             "text": "术语说明 DMAIC：定义、测量、分析、改进、控制；适用于改进已有流程。"
           },
           {
-            "id": "ch30-content-zh-105",
+            "id": "ch30-content-zh-116",
             "kind": "paragraph",
             "text": "通常，六西格玛的 DOE 培训材料或提示提供两条常见建议："
           },
           {
-            "id": "ch30-content-zh-106",
+            "id": "ch30-content-zh-117",
             "kind": "listItem",
             "text": "确保Y连续，以便后面分析"
           },
           {
-            "id": "ch30-content-zh-107",
+            "id": "ch30-content-zh-118",
             "kind": "listItem",
             "text": "从头脑风暴或之前阶段完成的其他工作中获取 Y，特别是从定义或分析工具（例如鱼骨图）中获取 Y。"
           },
           {
-            "id": "ch30-content-zh-108",
+            "id": "ch30-content-zh-119",
             "kind": "termNote",
             "rows": [
               [
@@ -1201,57 +1377,57 @@
             "text": "术语说明 Fishbone / Ishikawa（鱼骨图）：按类别梳理潜在原因的根因分析工具。"
           },
           {
-            "id": "ch30-content-zh-109",
+            "id": "ch30-content-zh-120",
             "kind": "paragraph",
             "text": "虽然这些都是很好的建议，但六西格玛团队在考虑实验响应时不应该害怕跳出框框思考。最终，响应应该能够帮助你真正理解你在实验开始时想要理解的内容。在本章用作示例的爆米花实验中，团队可以选择任意数量的响应。爆米花过程的可能响应可能包括整个过程需要多长时间、爆出多少粒玉米粒、每个过程生成多少订单或客户对爆米花味道的满意度。但该团队并不是通过这个特定的实验来寻找与生产效率或产品性能相关的问题的答案。该团队询问了有关原材料浪费的问题，未爆开的玉米粒的数量让团队确切地知道在此过程中产生了多少废物。"
           },
           {
-            "id": "ch30-content-zh-110",
+            "id": "ch30-content-zh-121",
             "kind": "paragraph",
             "text": "在为您的实验考虑合适的 Y 时，不要太关注流程或部门用来衡量成功的当前指标。在这次实验之前，小卖部可能从未考虑过未爆开的爆米花——它很可能使用销售额或销售额作为成功的衡量标准。如果您无法确定您认为有助于回答团队提出的问题的 Y，请考虑进行一次全新的头脑风暴练习，仅专注于提出适当的结果类型。"
           },
           {
-            "id": "ch30-content-zh-111",
+            "id": "ch30-content-zh-122",
             "kind": "heading",
             "text": "提前计划并保留优秀的文件"
           },
           {
-            "id": "ch30-content-zh-112",
+            "id": "ch30-content-zh-123",
             "kind": "paragraph",
             "text": "在本单元中您已经看到，实验和方差分析（ANOVA）可能很快就会变得复杂。首先，您必须验证所有假设，选择正确的方法，并选择适当的样本量。然后，您必须运行实验并记录所有数据。最后，你必须进行分析。在此过程中的任何时候，您都可能会引入错误或造成混乱。规划和文档对于防止这种情况发生至关重要，并且当您"
           },
           {
-            "id": "ch30-content-zh-113",
+            "id": "ch30-content-zh-124",
             "kind": "paragraph",
             "text": "向他人展示你的实验结论。下面重点介绍了文档特别重要的一些特定领域。"
           },
           {
-            "id": "ch30-content-zh-114",
+            "id": "ch30-content-zh-125",
             "kind": "listItem",
             "text": "在执行第 28 章中的 ANOVA 步骤或第 29 章中的 DOE 步骤时记笔记。在某些时候，您可能会忘记或混淆分析的某些数字或元素，需要回顾注释。考虑记录："
           },
           {
-            "id": "ch30-content-zh-115",
+            "id": "ch30-content-zh-126",
             "kind": "paragraph",
             "text": "o 您选择特定方法或测试的原因。 o 反应、输入、因素和水平的列表以及选择每个因素的原因。您可能需要此信息来证明实验中运行次数的合理性。 o 选择样本量以及该过程中使用的任何数据或假设的过程。"
           },
           {
-            "id": "ch30-content-zh-116",
+            "id": "ch30-content-zh-127",
             "kind": "listItem",
             "text": "记录有关实验、实验组成部分或结果的任何外部假设。您可能需要检查这些假设或与假设相关的数据，以排除异常值或了解可能看似无法解释的实验行为。"
           },
           {
-            "id": "ch30-content-zh-117",
+            "id": "ch30-content-zh-128",
             "kind": "listItem",
             "text": "记录实验中向任何操作员提供的任何说明或信息。您的申办者或其他决策者可能希望在根据结果做出决策之前准确了解实验是如何进行的。"
           },
           {
-            "id": "ch30-content-zh-118",
+            "id": "ch30-content-zh-129",
             "kind": "listItem",
             "text": "任何测量系统分析的结果，尤其是与实验结果的置信度相关的结果。"
           },
           {
-            "id": "ch30-content-zh-119",
+            "id": "ch30-content-zh-130",
             "kind": "termNote",
             "rows": [
               [
@@ -1261,17 +1437,17 @@
             "text": "术语说明 MSA（测量系统分析）：评估测量工具、人员和方法是否足以支持可靠决策。"
           },
           {
-            "id": "ch30-content-zh-120",
+            "id": "ch30-content-zh-131",
             "kind": "heading",
             "text": "考虑置信水平"
           },
           {
-            "id": "ch30-content-zh-121",
+            "id": "ch30-content-zh-132",
             "kind": "paragraph",
             "text": "在任何类型的统计分析、测试或 DOE 中，六西格玛专家始终关注置信度。总是有可能得出错误的结论——假设检验章节中涵盖的阿尔法和贝塔错误告诉我们这一点。更准确的数据、更大的样本量以及选择正确的测试或实验有助于减少出现这些错误的可能性，但决策者确实需要知道这种错误的可能性有多大。"
           },
           {
-            "id": "ch30-content-zh-122",
+            "id": "ch30-content-zh-133",
             "kind": "termNote",
             "rows": [
               [
@@ -1281,42 +1457,132 @@
             "text": "术语说明 Hypothesis Test（假设检验）：用样本数据判断某个统计假设是否有足够证据被拒绝。"
           },
           {
-            "id": "ch30-content-zh-123",
+            "id": "ch30-content-zh-134",
             "kind": "paragraph",
             "text": "在报告设计实验的结果时，请确保考虑到所有置信水平。实际实验的置信区间并不总是唯一相关的考虑因素。您是否根据之前的分析做出假设来帮助您设置实验？与这些分析相关的置信区间是多少？再次考虑爆米花的例子：团队对每勺平均含有 2,300 颗爆米花的把握有多大？该测量的变化是什么？这两个问题的答案都有助于实验分析的准确性。"
           },
           {
-            "id": "ch30-content-zh-124",
+            "id": "ch30-content-zh-135",
             "kind": "paragraph",
             "text": "如果企业领导层或六西格玛团队将根据DOE分析做出资源密集型或资源偶然型决策，那么决策者必须知道六西格玛专家对他或她所展示的内容有多大信心。您应该始终尽一切努力从统计角度来增强信心，例如验证数据和假设以及选择适当的样本量，但您绝不能错误地夸大结论的信心，以鼓励领导层支持某个决策。"
           },
           {
-            "id": "ch30-content-zh-125",
+            "id": "ch30-content-zh-136",
             "kind": "heading",
             "text": "结合使用多种分析和实验"
           },
           {
-            "id": "ch30-content-zh-126",
+            "id": "ch30-content-zh-137",
             "kind": "paragraph",
             "text": "您不应该（而且通常也不能）在一次实验中完成您想做的所有事情。如果有 25 个可能的因素，您是否真的希望将所有这些因素都集中在一个笨拙的实验中，而且运行成本可能会很高并且无法控制？通常，当您考虑进行如此多的实验时"
           },
           {
-            "id": "ch30-content-zh-127",
+            "id": "ch30-content-zh-138",
             "kind": "paragraph",
             "text": "因素，你实际上是在尝试将多个实验整合为一个。当您确实应该对各种产品类型或流程进行单独的实验时，停下来考虑一下您在实验中比较苹果和橙子的可能性。"
           },
           {
-            "id": "ch30-content-zh-128",
+            "id": "ch30-content-zh-139",
             "kind": "paragraph",
             "text": "如果您实际上正在研究单一产品类型或流程，请考虑您可能需要连续运行实验。您可能需要找出某条信息或缩小交互作用和因素的范围，以便更好地使用新因素和水平设置来设置其他实验。例如，爆米花示例中的六西格玛团队并不仅仅因为找到了如何最好地爆爆米花以减少浪费而完成了他们的项目。还有其他方法可以增加利润。由于品牌并不是浪费相关实验的主要因素，因此团队可能会进行第二次实验，以找出客户更喜欢哪个品牌，以及客户满意度的提高是否会带动销量的增加。"
           },
           {
-            "id": "ch30-content-zh-129",
+            "id": "ch30-content-zh-140",
             "kind": "paragraph",
             "text": "设计实验是六西格玛中更具挑战性的方面之一，因为确切的规则并不总是存在。 六西格玛团队可以通过多种方式设置实验，这增加了工具的灵活性，但也可能让人很难确切地知道如何进行。这是一个经验丰富的领域，因此您处理的实验和分析越多，您就越能更好地设置 DOE。 这也是与更有经验的六西格玛专家或黑带大师合作的好主意，他们可以为你的想法提供共鸣，并指导你创造最好的实验。"
           }
         ]
       }
+    }
+  ],
+  "assets": [
+    {
+      "id": "fig-193958eea5fcf57f",
+      "type": "table-image",
+      "path": "assets/figures/fig-193958eea5fcf57f.png",
+      "page": 409,
+      "width": 1191,
+      "height": 588
+    },
+    {
+      "id": "fig-3495a6c12bf57bbd",
+      "type": "figure",
+      "path": "assets/figures/fig-3495a6c12bf57bbd.png",
+      "page": 409,
+      "width": 616,
+      "height": 419
+    },
+    {
+      "id": "fig-699513da44d083b4",
+      "type": "figure",
+      "path": "assets/figures/fig-699513da44d083b4.png",
+      "page": 409,
+      "width": 578,
+      "height": 325
+    },
+    {
+      "id": "fig-7ac990da64468eeb",
+      "type": "figure",
+      "path": "assets/figures/fig-7ac990da64468eeb.png",
+      "page": 409,
+      "width": 573,
+      "height": 355
+    },
+    {
+      "id": "fig-834f39dd732fbc35",
+      "type": "table-image",
+      "path": "assets/figures/fig-834f39dd732fbc35.png",
+      "page": 409,
+      "width": 910,
+      "height": 544
+    },
+    {
+      "id": "fig-852058c41aaa16a2",
+      "type": "table-image",
+      "path": "assets/figures/fig-852058c41aaa16a2.png",
+      "page": 409,
+      "width": 1186,
+      "height": 1375
+    },
+    {
+      "id": "fig-ae88a8a7717d842e",
+      "type": "figure",
+      "path": "assets/figures/fig-ae88a8a7717d842e.png",
+      "page": 409,
+      "width": 672,
+      "height": 335
+    },
+    {
+      "id": "fig-bae0fed045569b01",
+      "type": "figure",
+      "path": "assets/figures/fig-bae0fed045569b01.png",
+      "page": 409,
+      "width": 791,
+      "height": 390
+    },
+    {
+      "id": "fig-c19e53febdd9a4ee",
+      "type": "table-image",
+      "path": "assets/figures/fig-c19e53febdd9a4ee.png",
+      "page": 409,
+      "width": 1191,
+      "height": 327
+    },
+    {
+      "id": "fig-ec712a0daf904044",
+      "type": "figure",
+      "path": "assets/figures/fig-ec712a0daf904044.png",
+      "page": 409,
+      "width": 424,
+      "height": 319
+    },
+    {
+      "id": "fig-ee799413204fba48",
+      "type": "table-image",
+      "path": "assets/figures/fig-ee799413204fba48.png",
+      "page": 409,
+      "width": 1191,
+      "height": 861
     }
   ]
 }

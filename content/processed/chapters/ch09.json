@@ -310,138 +310,242 @@
           },
           {
             "id": "ch09-content-en-058",
+            "kind": "image",
+            "assetId": "fig-f1e6a5c609baf365",
+            "src": "assets/figures/fig-f1e6a5c609baf365.png",
+            "width": 1218,
+            "height": 200
+          },
+          {
+            "id": "ch09-content-en-059",
+            "kind": "image",
+            "assetId": "fig-63170a5a45a883f3",
+            "src": "assets/figures/fig-63170a5a45a883f3.png",
+            "width": 1218,
+            "height": 105
+          },
+          {
+            "id": "ch09-content-en-060",
             "kind": "paragraph",
             "text": "3 10 2 2 2 16 In the table above, you can see that Project 1 has low expected savings, but the team also estimates it will have a low overall cost, drive a high increase in revenue, and has easy access to resources. Project 3, on the other hand, has a high expected savings, but negative ratings in all other categories."
           },
           {
-            "id": "ch09-content-en-059",
+            "id": "ch09-content-en-061",
             "kind": "paragraph",
             "text": "To rank projects, add up the scores for all categories and order the projects from highest to lowest by total score."
           },
           {
-            "id": "ch09-content-en-060",
+            "id": "ch09-content-en-062",
             "kind": "heading",
             "text": "The Project Viability Model"
           },
           {
-            "id": "ch09-content-en-061",
+            "id": "ch09-content-en-063",
             "kind": "paragraph",
             "text": "Teams can choose to create their own criteria for a project selection matrix, or they can use a 15-point viability model as defined below. One benefit of the project viability model is that it provides some weighting, letting teams make some criteria more important than others. It also removes some of the objective nature of the selection matrix defined in the previous section."
           },
           {
-            "id": "ch09-content-en-062",
+            "id": "ch09-content-en-064",
             "kind": "paragraph",
             "text": "This model is based on 15 criteria, which are defined in the table below."
           },
           {
-            "id": "ch09-content-en-063",
-            "kind": "paragraph",
-            "text": "Based on the above criteria, teams create a matrix."
-          },
-          {
-            "id": "ch09-content-en-064",
-            "kind": "paragraph",
-            "text": "Teams then apply a numerical weight to each criterion. Weight each criterion on a scale of 1 to 5, with 1 being least important and 5 being most important. For example, our team with the carpet installation issue might create weights as follows:"
-          },
-          {
             "id": "ch09-content-en-065",
-            "kind": "paragraph",
-            "text": "Next, teams should answer each question by marking a 1 in the relevant box on the grid; the answers correspond with no, mostly no, possibly, mostly yes, and yes. The complete grid for our carpet installation problem is featured below."
+            "kind": "image",
+            "assetId": "fig-b172c5f0f497fb35",
+            "src": "assets/figures/fig-b172c5f0f497fb35.png",
+            "width": 1218,
+            "height": 1060
           },
           {
             "id": "ch09-content-en-066",
-            "kind": "paragraph",
-            "text": "Once a matrix is completed for each project, teams must calculate and compare the score for potential projects. These calculations are completed via the following steps."
+            "kind": "image",
+            "assetId": "fig-c8b5c9f87a96023b",
+            "src": "assets/figures/fig-c8b5c9f87a96023b.png",
+            "width": 1218,
+            "height": 1075
           },
           {
             "id": "ch09-content-en-067",
             "kind": "paragraph",
-            "text": "1. Divide each weight by 3; a weight of 3 equals 1, but a weight of 5 equals 5/3, or 1.7"
+            "text": "Based on the above criteria, teams create a matrix."
           },
           {
             "id": "ch09-content-en-068",
-            "kind": "paragraph",
-            "text": "2. Convert each of the 1s listed on your grid to a weighted value by multiplying it by the converted weight from step one. For example, the weight for the first question on the grid above is 3. We divided 3/3 to get 1. We would multiple 1 * 1 for the first row. The next row is weighted 4; 4/3 is 1.3. The numbers have all been converted in the grid below."
+            "kind": "image",
+            "assetId": "fig-1814155c0dd0e052",
+            "src": "assets/figures/fig-1814155c0dd0e052.png",
+            "width": 1290,
+            "height": 425
           },
           {
             "id": "ch09-content-en-069",
-            "kind": "paragraph",
-            "text": "4. Multiply each of the summed weighted scores by the number at the top of the column. For example, the sum of the column for the “No” answers is 1.3. Multiplying that by 1 equals 1.3. The other columns are calculated as:"
+            "kind": "image",
+            "assetId": "fig-e9b666e9ab1a2f09",
+            "src": "assets/figures/fig-e9b666e9ab1a2f09.png",
+            "width": 1290,
+            "height": 335
           },
           {
             "id": "ch09-content-en-070",
-            "kind": "listItem",
-            "text": "4.4 * 2 = 8.8"
+            "kind": "paragraph",
+            "text": "Teams then apply a numerical weight to each criterion. Weight each criterion on a scale of 1 to 5, with 1 being least important and 5 being most important. For example, our team with the carpet installation issue might create weights as follows:"
           },
           {
             "id": "ch09-content-en-071",
-            "kind": "listItem",
-            "text": "4.7 * 3 = 14.1"
+            "kind": "image",
+            "assetId": "fig-f4e8721534187243",
+            "src": "assets/figures/fig-f4e8721534187243.png",
+            "width": 780,
+            "height": 730
           },
           {
             "id": "ch09-content-en-072",
-            "kind": "listItem",
-            "text": "3.3 * 4 = 13.2"
+            "kind": "paragraph",
+            "text": "Next, teams should answer each question by marking a 1 in the relevant box on the grid; the answers correspond with no, mostly no, possibly, mostly yes, and yes. The complete grid for our carpet installation problem is featured below."
           },
           {
             "id": "ch09-content-en-073",
-            "kind": "listItem",
-            "text": "4.4 * 5 = 22"
+            "kind": "image",
+            "assetId": "fig-57b564a2b91008ec",
+            "src": "assets/figures/fig-57b564a2b91008ec.png",
+            "width": 1290,
+            "height": 220
           },
           {
             "id": "ch09-content-en-074",
-            "kind": "paragraph",
-            "text": "5. Add up the answers from the previous step. In this case, the total is 59.4."
+            "kind": "image",
+            "assetId": "fig-5f976cf13004a848",
+            "src": "assets/figures/fig-5f976cf13004a848.png",
+            "width": 1290,
+            "height": 605
           },
           {
             "id": "ch09-content-en-075",
             "kind": "paragraph",
-            "text": "6. Divide the sum from step five by the sum of the weighted totals from step three. In this case, 59.4 / 18.1 = 3.28"
+            "text": "Once a matrix is completed for each project, teams must calculate and compare the score for potential projects. These calculations are completed via the following steps."
           },
           {
             "id": "ch09-content-en-076",
             "kind": "paragraph",
-            "text": "7. The answer from step 6 is the score for your project."
+            "text": "1. Divide each weight by 3; a weight of 3 equals 1, but a weight of 5 equals 5/3, or 1.7"
           },
           {
             "id": "ch09-content-en-077",
             "kind": "paragraph",
-            "text": "Once you score each potential project, you can determine if it is a viable project within a DMAIC methodology with the following key:"
+            "text": "2. Convert each of the 1s listed on your grid to a weighted value by multiplying it by the converted weight from step one. For example, the weight for the first question on the grid above is 3. We divided 3/3 to get 1. We would multiple 1 * 1 for the first row. The next row is weighted 4; 4/3 is 1.3. The numbers have all been converted in the grid below."
           },
           {
             "id": "ch09-content-en-078",
-            "kind": "paragraph",
-            "text": "It should be noted that the 15-point matrix described above can only be used to determine if a project is viable within a DMAIC structure. A process might still need to be improved even though it doesn’t fit DMAIC methodology; in the case of a redesign, the DMADV structure might let Six Sigma teams approach the improvement. The differences between DMAIC and DMADV methodologies, and how to determine which method is best for a project, are covered more in-depth in Chapter 11."
+            "kind": "image",
+            "assetId": "fig-1bfd778ab8fa78d5",
+            "src": "assets/figures/fig-1bfd778ab8fa78d5.png",
+            "width": 1363,
+            "height": 700
           },
           {
             "id": "ch09-content-en-079",
-            "kind": "heading",
-            "text": "Project Selection at a Process Level"
+            "kind": "image",
+            "assetId": "fig-dec641aa9a8f149b",
+            "src": "assets/figures/fig-dec641aa9a8f149b.png",
+            "width": 1363,
+            "height": 1040
           },
           {
             "id": "ch09-content-en-080",
             "kind": "paragraph",
-            "text": "The goal of a Six Sigma team is not to define appropriate projects at an enterprise level. A department or team responsible for only a few processes might be seeking to make an improvement. In an organization where Six Sigma is important to business culture, departmental leaders are likely familiar with some Six Sigma tools and might even be Green Belts or Black Belts themselves. While these leaders have daily responsibilities that are not Six Sigma related, they can bring Six Sigma thought processes to their department."
+            "text": "4. Multiply each of the summed weighted scores by the number at the top of the column. For example, the sum of the column for the “No” answers is 1.3. Multiplying that by 1 equals 1.3. The other columns are calculated as:"
           },
           {
             "id": "ch09-content-en-081",
+            "kind": "listItem",
+            "text": "4.4 * 2 = 8.8"
+          },
+          {
+            "id": "ch09-content-en-082",
+            "kind": "listItem",
+            "text": "4.7 * 3 = 14.1"
+          },
+          {
+            "id": "ch09-content-en-083",
+            "kind": "listItem",
+            "text": "3.3 * 4 = 13.2"
+          },
+          {
+            "id": "ch09-content-en-084",
+            "kind": "listItem",
+            "text": "4.4 * 5 = 22"
+          },
+          {
+            "id": "ch09-content-en-085",
+            "kind": "paragraph",
+            "text": "5. Add up the answers from the previous step. In this case, the total is 59.4."
+          },
+          {
+            "id": "ch09-content-en-086",
+            "kind": "paragraph",
+            "text": "6. Divide the sum from step five by the sum of the weighted totals from step three. In this case, 59.4 / 18.1 = 3.28"
+          },
+          {
+            "id": "ch09-content-en-087",
+            "kind": "paragraph",
+            "text": "7. The answer from step 6 is the score for your project."
+          },
+          {
+            "id": "ch09-content-en-088",
+            "kind": "paragraph",
+            "text": "Once you score each potential project, you can determine if it is a viable project within a DMAIC methodology with the following key:"
+          },
+          {
+            "id": "ch09-content-en-089",
+            "kind": "image",
+            "assetId": "fig-29a5412d2e095b74",
+            "src": "assets/figures/fig-29a5412d2e095b74.png",
+            "width": 1218,
+            "height": 300
+          },
+          {
+            "id": "ch09-content-en-090",
+            "kind": "paragraph",
+            "text": "It should be noted that the 15-point matrix described above can only be used to determine if a project is viable within a DMAIC structure. A process might still need to be improved even though it doesn’t fit DMAIC methodology; in the case of a redesign, the DMADV structure might let Six Sigma teams approach the improvement. The differences between DMAIC and DMADV methodologies, and how to determine which method is best for a project, are covered more in-depth in Chapter 11."
+          },
+          {
+            "id": "ch09-content-en-091",
+            "kind": "heading",
+            "text": "Project Selection at a Process Level"
+          },
+          {
+            "id": "ch09-content-en-092",
+            "kind": "paragraph",
+            "text": "The goal of a Six Sigma team is not to define appropriate projects at an enterprise level. A department or team responsible for only a few processes might be seeking to make an improvement. In an organization where Six Sigma is important to business culture, departmental leaders are likely familiar with some Six Sigma tools and might even be Green Belts or Black Belts themselves. While these leaders have daily responsibilities that are not Six Sigma related, they can bring Six Sigma thought processes to their department."
+          },
+          {
+            "id": "ch09-content-en-093",
             "kind": "paragraph",
             "text": "Departmental leaders might want to identify potential opportunities to present to leadership. They might also want to identify areas where they and their teams can work toward improvement themselves. In some organizations, department leaders can run smaller versions of projects with the guidance of on-staff Six Sigma experts – especially when such projects would require little in the way of capital or resources."
           },
           {
-            "id": "ch09-content-en-082",
+            "id": "ch09-content-en-094",
             "kind": "paragraph",
             "text": "Departmental staff can use all of the tools in this chapter to identify possible projects. Often, though, they are close enough to the situation that they can identify possibilities for improvement without going through brainstorming stages. If data is already present, departmental staff might use Pareto charts to identify some areas where improvement would create results; they can then use the selections matrix to validate those assumptions and prioritize efforts."
           },
           {
-            "id": "ch09-content-en-083",
+            "id": "ch09-content-en-095",
             "kind": "heading",
             "text": "See for Yourself"
           },
           {
-            "id": "ch09-content-en-084",
+            "id": "ch09-content-en-096",
             "kind": "paragraph",
             "text": "Consider a problem or need for improvement in your own company or one you faced in a past work experience. Practice completing the project viability matrix using the template below."
+          },
+          {
+            "id": "ch09-content-en-097",
+            "kind": "image",
+            "assetId": "fig-292cf25894013b99",
+            "src": "assets/figures/fig-292cf25894013b99.png",
+            "width": 1290,
+            "height": 850
           }
         ],
         "zh": [
@@ -762,111 +866,207 @@
           },
           {
             "id": "ch09-content-zh-061",
+            "kind": "image",
+            "assetId": "fig-f1e6a5c609baf365",
+            "src": "assets/figures/fig-f1e6a5c609baf365.png",
+            "width": 1218,
+            "height": 200
+          },
+          {
+            "id": "ch09-content-zh-062",
+            "kind": "image",
+            "assetId": "fig-63170a5a45a883f3",
+            "src": "assets/figures/fig-63170a5a45a883f3.png",
+            "width": 1218,
+            "height": 105
+          },
+          {
+            "id": "ch09-content-zh-063",
             "kind": "paragraph",
             "text": "3 10 2 2 2 16 在上表中，您可以看到项目 1 的预期节省较低，但团队还估计其总体成本较低，收入大幅增长，并且易于获取资源。另一方面，项目 3 的预期节省很高，但在所有其他类别中的评级均为负面。"
           },
           {
-            "id": "ch09-content-zh-062",
+            "id": "ch09-content-zh-064",
             "kind": "paragraph",
             "text": "要对项目进行排名，请将所有类别的分数相加，并按总分从最高到最低对项目进行排序。"
           },
           {
-            "id": "ch09-content-zh-063",
+            "id": "ch09-content-zh-065",
             "kind": "heading",
             "text": "项目可行性模型"
           },
           {
-            "id": "ch09-content-zh-064",
+            "id": "ch09-content-zh-066",
             "kind": "paragraph",
             "text": "团队可以选择创建自己的项目选择矩阵标准，也可以使用如下定义的 15 点可行性模型。项目可行性模型的好处之一是它提供了一些权重，让团队可以使某些标准比其他标准更重要。它还消除了上一节中定义的选择矩阵的一些客观性质。"
           },
           {
-            "id": "ch09-content-zh-065",
+            "id": "ch09-content-zh-067",
             "kind": "paragraph",
             "text": "该模型基于下表中定义的 15 条标准。"
           },
           {
-            "id": "ch09-content-zh-066",
-            "kind": "paragraph",
-            "text": "根据上述标准，团队创建一个矩阵。"
-          },
-          {
-            "id": "ch09-content-zh-067",
-            "kind": "paragraph",
-            "text": "然后，团队对每个标准应用数字权重。按 1 到 5 的等级对每个标准进行加权，1 表示最不重要，5 表示最重要。例如，我们处理地毯安装问题的团队可能会创建如下权重："
-          },
-          {
             "id": "ch09-content-zh-068",
-            "kind": "paragraph",
-            "text": "接下来，团队应通过在网格上的相关框中标记 1 来回答每个问题；答案分别是“否”、“大部分否”、“可能”、“大部分是”和“是”。下面是我们地毯安装问题的完整网格。"
+            "kind": "image",
+            "assetId": "fig-b172c5f0f497fb35",
+            "src": "assets/figures/fig-b172c5f0f497fb35.png",
+            "width": 1218,
+            "height": 1060
           },
           {
             "id": "ch09-content-zh-069",
-            "kind": "paragraph",
-            "text": "一旦每个项目的矩阵完成，团队必须计算并比较潜在项目的分数。这些计算是通过以下步骤完成的。"
+            "kind": "image",
+            "assetId": "fig-c8b5c9f87a96023b",
+            "src": "assets/figures/fig-c8b5c9f87a96023b.png",
+            "width": 1218,
+            "height": 1075
           },
           {
             "id": "ch09-content-zh-070",
             "kind": "paragraph",
-            "text": "1.将每个权重除以3；权重 3 等于 1，但权重 5 等于 5/3，即 1.7"
+            "text": "根据上述标准，团队创建一个矩阵。"
           },
           {
             "id": "ch09-content-zh-071",
-            "kind": "paragraph",
-            "text": "2. 将网格中列出的每个 1 乘以步骤一中转换后的权重，将其转换为加权值。例如，上面网格中第一个问题的权重是 3。我们除以 3/3 得到 1。我们将为第一行乘以 1 * 1。下一行的权重为 4； 4/3 是 1.3。下面的网格中的数字已全部转换。"
+            "kind": "image",
+            "assetId": "fig-1814155c0dd0e052",
+            "src": "assets/figures/fig-1814155c0dd0e052.png",
+            "width": 1290,
+            "height": 425
           },
           {
             "id": "ch09-content-zh-072",
-            "kind": "paragraph",
-            "text": "4. 将每个加权分数总和乘以列顶部的数字。例如，“否”答案列的总和为 1.3。乘以 1 等于 1.3。其他列计算如下："
+            "kind": "image",
+            "assetId": "fig-e9b666e9ab1a2f09",
+            "src": "assets/figures/fig-e9b666e9ab1a2f09.png",
+            "width": 1290,
+            "height": 335
           },
           {
             "id": "ch09-content-zh-073",
-            "kind": "listItem",
-            "text": "4.4 * 2 = 8.8"
+            "kind": "paragraph",
+            "text": "然后，团队对每个标准应用数字权重。按 1 到 5 的等级对每个标准进行加权，1 表示最不重要，5 表示最重要。例如，我们处理地毯安装问题的团队可能会创建如下权重："
           },
           {
             "id": "ch09-content-zh-074",
-            "kind": "listItem",
-            "text": "4.7 * 3 = 14.1"
+            "kind": "image",
+            "assetId": "fig-f4e8721534187243",
+            "src": "assets/figures/fig-f4e8721534187243.png",
+            "width": 780,
+            "height": 730
           },
           {
             "id": "ch09-content-zh-075",
-            "kind": "listItem",
-            "text": "3.3 * 4 = 13.2"
+            "kind": "paragraph",
+            "text": "接下来，团队应通过在网格上的相关框中标记 1 来回答每个问题；答案分别是“否”、“大部分否”、“可能”、“大部分是”和“是”。下面是我们地毯安装问题的完整网格。"
           },
           {
             "id": "ch09-content-zh-076",
-            "kind": "listItem",
-            "text": "4.4 * 5 = 22"
+            "kind": "image",
+            "assetId": "fig-57b564a2b91008ec",
+            "src": "assets/figures/fig-57b564a2b91008ec.png",
+            "width": 1290,
+            "height": 220
           },
           {
             "id": "ch09-content-zh-077",
-            "kind": "paragraph",
-            "text": "5. 将上一步的答案相加。在本例中，总数为 59.4。"
+            "kind": "image",
+            "assetId": "fig-5f976cf13004a848",
+            "src": "assets/figures/fig-5f976cf13004a848.png",
+            "width": 1290,
+            "height": 605
           },
           {
             "id": "ch09-content-zh-078",
             "kind": "paragraph",
-            "text": "6. 将第五步的总和除以第三步的加权总和。在这种情况下，59.4 / 18.1 = 3.28"
+            "text": "一旦每个项目的矩阵完成，团队必须计算并比较潜在项目的分数。这些计算是通过以下步骤完成的。"
           },
           {
             "id": "ch09-content-zh-079",
             "kind": "paragraph",
-            "text": "7. 第 6 步的答案是您项目的分数。"
+            "text": "1.将每个权重除以3；权重 3 等于 1，但权重 5 等于 5/3，即 1.7"
           },
           {
             "id": "ch09-content-zh-080",
             "kind": "paragraph",
-            "text": "对每个潜在项目进行评分后，您可以使用以下关键字确定它是否是 DMAIC 方法中可行的项目："
+            "text": "2. 将网格中列出的每个 1 乘以步骤一中转换后的权重，将其转换为加权值。例如，上面网格中第一个问题的权重是 3。我们除以 3/3 得到 1。我们将为第一行乘以 1 * 1。下一行的权重为 4； 4/3 是 1.3。下面的网格中的数字已全部转换。"
           },
           {
             "id": "ch09-content-zh-081",
+            "kind": "image",
+            "assetId": "fig-1bfd778ab8fa78d5",
+            "src": "assets/figures/fig-1bfd778ab8fa78d5.png",
+            "width": 1363,
+            "height": 700
+          },
+          {
+            "id": "ch09-content-zh-082",
+            "kind": "image",
+            "assetId": "fig-dec641aa9a8f149b",
+            "src": "assets/figures/fig-dec641aa9a8f149b.png",
+            "width": 1363,
+            "height": 1040
+          },
+          {
+            "id": "ch09-content-zh-083",
+            "kind": "paragraph",
+            "text": "4. 将每个加权分数总和乘以列顶部的数字。例如，“否”答案列的总和为 1.3。乘以 1 等于 1.3。其他列计算如下："
+          },
+          {
+            "id": "ch09-content-zh-084",
+            "kind": "listItem",
+            "text": "4.4 * 2 = 8.8"
+          },
+          {
+            "id": "ch09-content-zh-085",
+            "kind": "listItem",
+            "text": "4.7 * 3 = 14.1"
+          },
+          {
+            "id": "ch09-content-zh-086",
+            "kind": "listItem",
+            "text": "3.3 * 4 = 13.2"
+          },
+          {
+            "id": "ch09-content-zh-087",
+            "kind": "listItem",
+            "text": "4.4 * 5 = 22"
+          },
+          {
+            "id": "ch09-content-zh-088",
+            "kind": "paragraph",
+            "text": "5. 将上一步的答案相加。在本例中，总数为 59.4。"
+          },
+          {
+            "id": "ch09-content-zh-089",
+            "kind": "paragraph",
+            "text": "6. 将第五步的总和除以第三步的加权总和。在这种情况下，59.4 / 18.1 = 3.28"
+          },
+          {
+            "id": "ch09-content-zh-090",
+            "kind": "paragraph",
+            "text": "7. 第 6 步的答案是您项目的分数。"
+          },
+          {
+            "id": "ch09-content-zh-091",
+            "kind": "paragraph",
+            "text": "对每个潜在项目进行评分后，您可以使用以下关键字确定它是否是 DMAIC 方法中可行的项目："
+          },
+          {
+            "id": "ch09-content-zh-092",
+            "kind": "image",
+            "assetId": "fig-29a5412d2e095b74",
+            "src": "assets/figures/fig-29a5412d2e095b74.png",
+            "width": 1218,
+            "height": 300
+          },
+          {
+            "id": "ch09-content-zh-093",
             "kind": "paragraph",
             "text": "应该注意的是，上述 15 点矩阵只能用于确定项目在 DMAIC 结构内是否可行。即使不符合 DMAIC 方法，流程仍可能需要改进；如果重新设计，DMADV结构可能会让六西格玛团队接近改进。第 11 章更深入地介绍了 DMAIC 和 DMADV 方法之间的差异，以及如何确定哪种方法最适合项目。"
           },
           {
-            "id": "ch09-content-zh-082",
+            "id": "ch09-content-zh-094",
             "kind": "termNote",
             "rows": [
               [
@@ -876,27 +1076,27 @@
             "text": "术语说明 DMADV：定义、测量、分析、设计、验证；常用于设计新流程或新产品。"
           },
           {
-            "id": "ch09-content-zh-083",
+            "id": "ch09-content-zh-095",
             "kind": "heading",
             "text": "流程层面的项目选择"
           },
           {
-            "id": "ch09-content-zh-084",
+            "id": "ch09-content-zh-096",
             "kind": "paragraph",
             "text": "六西格玛团队的目标不是在企业层面定义合适的项目。仅负责少数流程的部门或团队可能正在寻求改进。在六西格玛对企业文化至关重要的组织中，部门领导很可能熟悉一些六西格玛工具，甚至可能自己就是绿带人员或黑带人员。虽然这些领导者的日常职责与六西格玛无关，但他们可以将六西格玛的思维过程带到他们的部门。"
           },
           {
-            "id": "ch09-content-zh-085",
+            "id": "ch09-content-zh-097",
             "kind": "paragraph",
             "text": "部门领导可能希望找出向领导层展示的潜在机会。他们可能还想确定他们和他们的团队可以努力改进的领域。在一些组织中，部门领导可以在六西格玛专家的指导下运行较小版本的项目——特别是当此类项目几乎不需要资本或资源时。"
           },
           {
-            "id": "ch09-content-zh-086",
+            "id": "ch09-content-zh-098",
             "kind": "paragraph",
             "text": "部门工作人员可以使用本章中的所有工具来识别可能的项目。 不过，通常情况下，他们足够接近实际情况，无需经过头脑风暴阶段就能确定改进的可能性。如果数据已经存在，部门工作人员可能会使用帕累托图来确定一些可以改进的领域；然后，他们可以使用选择矩阵来验证这些假设并确定工作的优先顺序。"
           },
           {
-            "id": "ch09-content-zh-087",
+            "id": "ch09-content-zh-099",
             "kind": "termNote",
             "rows": [
               [
@@ -906,17 +1106,131 @@
             "text": "术语说明 Pareto（帕累托）：按影响大小排序，常用于找出“少数关键原因”。"
           },
           {
-            "id": "ch09-content-zh-088",
+            "id": "ch09-content-zh-100",
             "kind": "heading",
             "text": "亲自看看"
           },
           {
-            "id": "ch09-content-zh-089",
+            "id": "ch09-content-zh-101",
             "kind": "paragraph",
             "text": "考虑一下您自己的公司或您在过去的工作经历中遇到的问题或需要改进的问题。使用下面的模板练习完成项目可行性矩阵。"
+          },
+          {
+            "id": "ch09-content-zh-102",
+            "kind": "image",
+            "assetId": "fig-292cf25894013b99",
+            "src": "assets/figures/fig-292cf25894013b99.png",
+            "width": 1290,
+            "height": 850
           }
         ]
       }
+    }
+  ],
+  "assets": [
+    {
+      "id": "fig-1814155c0dd0e052",
+      "type": "table-image",
+      "path": "assets/figures/fig-1814155c0dd0e052.png",
+      "page": 80,
+      "width": 1290,
+      "height": 425
+    },
+    {
+      "id": "fig-1bfd778ab8fa78d5",
+      "type": "table-image",
+      "path": "assets/figures/fig-1bfd778ab8fa78d5.png",
+      "page": 80,
+      "width": 1363,
+      "height": 700
+    },
+    {
+      "id": "fig-292cf25894013b99",
+      "type": "table-image",
+      "path": "assets/figures/fig-292cf25894013b99.png",
+      "page": 80,
+      "width": 1290,
+      "height": 850
+    },
+    {
+      "id": "fig-29a5412d2e095b74",
+      "type": "table-image",
+      "path": "assets/figures/fig-29a5412d2e095b74.png",
+      "page": 80,
+      "width": 1218,
+      "height": 300
+    },
+    {
+      "id": "fig-57b564a2b91008ec",
+      "type": "table-image",
+      "path": "assets/figures/fig-57b564a2b91008ec.png",
+      "page": 80,
+      "width": 1290,
+      "height": 220
+    },
+    {
+      "id": "fig-5f976cf13004a848",
+      "type": "table-image",
+      "path": "assets/figures/fig-5f976cf13004a848.png",
+      "page": 80,
+      "width": 1290,
+      "height": 605
+    },
+    {
+      "id": "fig-63170a5a45a883f3",
+      "type": "formula-image",
+      "path": "assets/figures/fig-63170a5a45a883f3.png",
+      "page": 80,
+      "width": 1218,
+      "height": 105
+    },
+    {
+      "id": "fig-b172c5f0f497fb35",
+      "type": "table-image",
+      "path": "assets/figures/fig-b172c5f0f497fb35.png",
+      "page": 80,
+      "width": 1218,
+      "height": 1060
+    },
+    {
+      "id": "fig-c8b5c9f87a96023b",
+      "type": "table-image",
+      "path": "assets/figures/fig-c8b5c9f87a96023b.png",
+      "page": 80,
+      "width": 1218,
+      "height": 1075
+    },
+    {
+      "id": "fig-dec641aa9a8f149b",
+      "type": "table-image",
+      "path": "assets/figures/fig-dec641aa9a8f149b.png",
+      "page": 80,
+      "width": 1363,
+      "height": 1040
+    },
+    {
+      "id": "fig-e9b666e9ab1a2f09",
+      "type": "table-image",
+      "path": "assets/figures/fig-e9b666e9ab1a2f09.png",
+      "page": 80,
+      "width": 1290,
+      "height": 335
+    },
+    {
+      "id": "fig-f1e6a5c609baf365",
+      "type": "table-image",
+      "path": "assets/figures/fig-f1e6a5c609baf365.png",
+      "page": 80,
+      "width": 1218,
+      "height": 200
+    },
+    {
+      "id": "fig-f4e8721534187243",
+      "type": "figure",
+      "path": "assets/figures/fig-f4e8721534187243.png",
+      "page": 80,
+      "width": 780,
+      "height": 730
     }
   ]
 }

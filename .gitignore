@@ -11,6 +11,7 @@ coverage/
 devserver.log
 devserver*.log
 *.tsbuildinfo
+qa/
 
 # Local environment
 .env
@@ -32,6 +33,10 @@ content/processed/*
 *.png
 *.jpg
 *.jpeg
+!apps/reader/public/content/assets/
+!apps/reader/public/content/assets/asset-manifest.json
+!apps/reader/public/content/assets/figures/
+!apps/reader/public/content/assets/figures/*.png
 
 # OS/editor
 .DS_Store

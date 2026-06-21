@@ -8,9 +8,14 @@ type Language = "en" | "zh";
 
 type ContentBlock = {
   id: string;
-  kind: "paragraph" | "listItem" | "table" | "termNote" | "heading";
+  kind: "paragraph" | "listItem" | "table" | "termNote" | "heading" | "image";
   text?: string;
   rows?: string[][];
+  assetId?: string;
+  src?: string;
+  width?: number;
+  height?: number;
+  alt?: string;
 };
 
 type LessonSection = {
@@ -28,6 +33,14 @@ type Lesson = {
   pageEnd: number;
   title: Record<Language, string>;
   sections: LessonSection[];
+  assets?: {
+    id: string;
+    type: "figure" | "table-image" | "formula-image";
+    path: string;
+    page: number;
+    width?: number;
+    height?: number;
+  }[];
 };
 
 type TermEntry = {
@@ -409,6 +422,23 @@ export function App() {
   }
 
   function renderBlock(block: ContentBlock, section: LessonSection) {
+    if (block.kind === "image") {
+      const imageSrc = block.src ? `content/${block.src}` : "";
+      const imageAlt = block.alt || `${currentLesson.title.en} page ${section.page} figure`;
+      return (
+        <figure key={block.id} className="figureBlock">
+          <img
+            src={imageSrc}
+            alt={imageAlt}
+            loading="lazy"
+            decoding="async"
+            width={block.width}
+            height={block.height}
+          />
+        </figure>
+      );
+    }
+
     if (block.kind === "table") {
       return (
         <div key={block.id} className="tableScroller">

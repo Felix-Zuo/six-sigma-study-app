@@ -60,726 +60,942 @@
           },
           {
             "id": "ch23-content-en-008",
+            "kind": "image",
+            "assetId": "fig-09208e68971931f0",
+            "src": "assets/figures/fig-09208e68971931f0.png",
+            "width": 1190,
+            "height": 745
+          },
+          {
+            "id": "ch23-content-en-009",
             "kind": "heading",
             "text": "X-bar & S Chart"
           },
           {
-            "id": "ch23-content-en-009",
+            "id": "ch23-content-en-010",
             "kind": "paragraph",
             "text": "- Data is variable (continuous) - Data can be grouped into subgroups, letting you chart the mean of each group - Data count in each subgroup is more than 8 - Sigma can be easily calculated (otherwise, use x-bar &R) - Presents two charts"
           },
           {
-            "id": "ch23-content-en-010",
+            "id": "ch23-content-en-011",
             "kind": "paragraph",
             "text": "o The x-bar control chart plots the mean of each subgroup o The S chart plots the standard deviation"
           },
           {
-            "id": "ch23-content-en-011",
+            "id": "ch23-content-en-012",
+            "kind": "image",
+            "assetId": "fig-a3d7877381f35b70",
+            "src": "assets/figures/fig-a3d7877381f35b70.png",
+            "width": 1218,
+            "height": 770
+          },
+          {
+            "id": "ch23-content-en-013",
             "kind": "heading",
             "text": "I & MR Chart"
           },
           {
-            "id": "ch23-content-en-012",
+            "id": "ch23-content-en-014",
             "kind": "paragraph",
             "text": "- Data is variable (continuous) - Data cannot be easily grouped into reasonable subgroups, so you must track individual data points instead of subgroup means"
           },
           {
-            "id": "ch23-content-en-013",
+            "id": "ch23-content-en-015",
             "kind": "paragraph",
             "text": "o Data is very difficult or expensive to obtain o Production is very slow, so waiting for enough data to create subgroups would take too much time (for example, tracking data about surgeries performed in a small outpatient facility) o Products have a low cycle time"
           },
           {
-            "id": "ch23-content-en-014",
-            "kind": "heading",
-            "text": "P-Chart"
-          },
-          {
-            "id": "ch23-content-en-015",
-            "kind": "paragraph",
-            "text": "- Data is discrete - Data is presented as a percent (percent defective) rather than a count - Doesn’t require a constant sample/subgroup size - Plots the proportion of units that are nonconforming (are defective, don’t meet specifications) - Use when:"
-          },
-          {
             "id": "ch23-content-en-016",
-            "kind": "paragraph",
-            "text": "o it is impossible, very time-consuming, or not financially feasible to measure or analyze numerical measurements o sample or subgroup sizes are not equal, so the percent of defect is more important that the number of defects per group (as you can’t compare numbers in a smaller group with numbers in a larger group accurately) o data is rate-based because it comes from a binomial or attribute process: the measurement or process is pass/fail, go/no go, etc. You can’t plot 1 or 0 on a control chart, but you can plot the percent of 1 or 0 in each sample."
+            "kind": "image",
+            "assetId": "fig-34a41ae5042b4629",
+            "src": "assets/figures/fig-34a41ae5042b4629.png",
+            "width": 1218,
+            "height": 770
           },
           {
             "id": "ch23-content-en-017",
-            "kind": "paragraph",
-            "text": "NP-Chart"
+            "kind": "heading",
+            "text": "P-Chart"
           },
           {
             "id": "ch23-content-en-018",
             "kind": "paragraph",
-            "text": "- Data is discrete - Data is presented as a percent (percent defective) rather than a count - Does require a constant sample size to be of use; other than this, you can use it for anything that you would use a p-chart for - Plots the number of units that are nonconforming in each sample size"
+            "text": "- Data is discrete - Data is presented as a percent (percent defective) rather than a count - Doesn’t require a constant sample/subgroup size - Plots the proportion of units that are nonconforming (are defective, don’t meet specifications) - Use when:"
           },
           {
             "id": "ch23-content-en-019",
-            "kind": "heading",
-            "text": "U-Chart"
+            "kind": "paragraph",
+            "text": "o it is impossible, very time-consuming, or not financially feasible to measure or analyze numerical measurements o sample or subgroup sizes are not equal, so the percent of defect is more important that the number of defects per group (as you can’t compare numbers in a smaller group with numbers in a larger group accurately) o data is rate-based because it comes from a binomial or attribute process: the measurement or process is pass/fail, go/no go, etc. You can’t plot 1 or 0 on a control chart, but you can plot the percent of 1 or 0 in each sample."
           },
           {
             "id": "ch23-content-en-020",
-            "kind": "paragraph",
-            "text": "- Data is discrete - Data is presented as a count (number of defects) - Doesn’t require a constant sample/subgroup size - Plots the number of defects per unit - Use when data is about the defects themselves, not the overall defective product"
+            "kind": "image",
+            "assetId": "fig-9a023343575fbe39",
+            "src": "assets/figures/fig-9a023343575fbe39.png",
+            "width": 1218,
+            "height": 770
           },
           {
             "id": "ch23-content-en-021",
-            "kind": "heading",
-            "text": "C-Chart"
+            "kind": "paragraph",
+            "text": "NP-Chart"
           },
           {
             "id": "ch23-content-en-022",
             "kind": "paragraph",
-            "text": "- Data is discrete - Data is presented as a count (number of defects) - Does require a constant sample/subgroup size - Plots the number of defects per sample - Use when data is about the defects themselves, not the overall defective product"
+            "text": "- Data is discrete - Data is presented as a percent (percent defective) rather than a count - Does require a constant sample size to be of use; other than this, you can use it for anything that you would use a p-chart for - Plots the number of units that are nonconforming in each sample size"
           },
           {
             "id": "ch23-content-en-023",
-            "kind": "heading",
-            "text": "Creating and Reading Control Charts in Minitab"
+            "kind": "image",
+            "assetId": "fig-97517612a9c4e2fb",
+            "src": "assets/figures/fig-97517612a9c4e2fb.png",
+            "width": 1218,
+            "height": 770
           },
           {
             "id": "ch23-content-en-024",
             "kind": "heading",
-            "text": "X-Bar & R Charts or X-Bar & S Charts"
+            "text": "U-Chart"
           },
           {
             "id": "ch23-content-en-025",
             "kind": "paragraph",
-            "text": "To better understand the X-Bar & R Chart process in Minitab, consider a real-world scenario. A call center is tracking the number of calls on hold. The calls center randomly records the number of calls on hold at a given moment five times each hour. That data is presented below for a 10-hour shift."
+            "text": "- Data is discrete - Data is presented as a count (number of defects) - Doesn’t require a constant sample/subgroup size - Plots the number of defects per unit - Use when data is about the defects themselves, not the overall defective product"
           },
           {
             "id": "ch23-content-en-026",
-            "kind": "paragraph",
-            "text": "Calls On Hold 1 14 1 12 1 15 1 11 1 10 2 25 2 10 2 13 2 15 2 9 3 15 3 10"
+            "kind": "image",
+            "assetId": "fig-894c7d104b2fa4cc",
+            "src": "assets/figures/fig-894c7d104b2fa4cc.png",
+            "width": 1218,
+            "height": 770
           },
           {
             "id": "ch23-content-en-027",
-            "kind": "paragraph",
-            "text": "Hour"
+            "kind": "heading",
+            "text": "C-Chart"
           },
           {
             "id": "ch23-content-en-028",
             "kind": "paragraph",
-            "text": "3 13 3 10 3 11 4 12 4 13 4 10 4 15 4 15 5 9 5 11 5 13 5 8 5 16 6 15 6 13 6 11 6 13 6 12 7 10 7 10 7 12 7 11 7 10 8 13 8 13 8 9 8 12 8 6 9 12 9 15 9 14 9 11 9 12 10 15 10 14 10 14 10 8 10 9"
+            "text": "- Data is discrete - Data is presented as a count (number of defects) - Does require a constant sample/subgroup size - Plots the number of defects per sample - Use when data is about the defects themselves, not the overall defective product"
           },
           {
             "id": "ch23-content-en-029",
-            "kind": "paragraph",
-            "text": "Copy this information into Minitab if you are following along with the analysis on your own. If you aren’t sure how to use Minitab’s basic data entry or navigation functions, see chapter 25 for additional information."
+            "kind": "image",
+            "assetId": "fig-f84009929e21ed26",
+            "src": "assets/figures/fig-f84009929e21ed26.png",
+            "width": 1218,
+            "height": 770
           },
           {
             "id": "ch23-content-en-030",
-            "kind": "paragraph",
-            "text": "All of the control charts are found under Stat > Control Charts"
+            "kind": "heading",
+            "text": "Creating and Reading Control Charts in Minitab"
           },
           {
             "id": "ch23-content-en-031",
             "kind": "heading",
-            "text": "Select Stat > Control Charts > Variables for Subgroups > Xbar- R"
+            "text": "X-Bar & R Charts or X-Bar & S Charts"
           },
           {
             "id": "ch23-content-en-032",
             "kind": "paragraph",
-            "text": "Click into the box under “All observations for a chart are in one column.”"
+            "text": "To better understand the X-Bar & R Chart process in Minitab, consider a real-world scenario. A call center is tracking the number of calls on hold. The calls center randomly records the number of calls on hold at a given moment five times each hour. That data is presented below for a 10-hour shift."
           },
           {
             "id": "ch23-content-en-033",
-            "kind": "heading",
-            "text": "Click on “Calls on Hold” and click “Select”"
+            "kind": "paragraph",
+            "text": "Calls On Hold 1 14 1 12 1 15 1 11 1 10 2 25 2 10 2 13 2 15 2 9 3 15 3 10"
           },
           {
             "id": "ch23-content-en-034",
             "kind": "paragraph",
-            "text": "Since the data was sampled 5 times per hour, enter “5” in the subgroup size. Then click “Xbar-R Options”."
+            "text": "Hour"
           },
           {
             "id": "ch23-content-en-035",
-            "kind": "heading",
-            "text": "In the Xbar-R Options dialogue box, click “Tests”"
+            "kind": "paragraph",
+            "text": "3 13 3 10 3 11 4 12 4 13 4 10 4 15 4 15 5 9 5 11 5 13 5 8 5 16 6 15 6 13 6 11 6 13 6 12 7 10 7 10 7 12 7 11 7 10 8 13 8 13 8 9 8 12 8 6 9 12 9 15 9 14 9 11 9 12 10 15 10 14 10 14 10 8 10 9"
           },
           {
             "id": "ch23-content-en-036",
             "kind": "paragraph",
-            "text": "In the drop down menu on the Tests tab, select “Perform all tests for special causes.”"
+            "text": "Copy this information into Minitab if you are following along with the analysis on your own. If you aren’t sure how to use Minitab’s basic data entry or navigation functions, see chapter 25 for additional information."
           },
           {
             "id": "ch23-content-en-037",
             "kind": "paragraph",
-            "text": "This option tells Minitab to perform the control tests covered in chapter 16. If a data point or series of data points on the control chart fails any of these tests, Minitab will highlight them in red, making it easy for Six Sigma experts to tell if a process might be out of control."
+            "text": "All of the control charts are found under Stat > Control Charts"
           },
           {
             "id": "ch23-content-en-038",
-            "kind": "paragraph",
-            "text": "Click OK on the options dialogue box."
+            "kind": "image",
+            "assetId": "fig-9e82795e8c317a12",
+            "src": "assets/figures/fig-9e82795e8c317a12.png",
+            "width": 861,
+            "height": 651
           },
           {
             "id": "ch23-content-en-039",
-            "kind": "paragraph",
-            "text": "Click OK on the Xbar-R chart dialogue box."
+            "kind": "heading",
+            "text": "Select Stat > Control Charts > Variables for Subgroups > Xbar- R"
           },
           {
             "id": "ch23-content-en-040",
-            "kind": "paragraph",
-            "text": "Minitab generates a chart and a text description for any failed control tests."
+            "kind": "image",
+            "assetId": "fig-7cd5fc16b152c988",
+            "src": "assets/figures/fig-7cd5fc16b152c988.png",
+            "width": 1163,
+            "height": 166
           },
           {
             "id": "ch23-content-en-041",
-            "kind": "heading",
-            "text": "Test Results for R Chart of Calls On Hold"
+            "kind": "paragraph",
+            "text": "Click into the box under “All observations for a chart are in one column.”"
           },
           {
             "id": "ch23-content-en-042",
-            "kind": "paragraph",
-            "text": "TEST 1. One point more than 3.00 standard deviations from center line. Test Failed at points: 2"
+            "kind": "image",
+            "assetId": "fig-d66f225c1df80f69",
+            "src": "assets/figures/fig-d66f225c1df80f69.png",
+            "width": 991,
+            "height": 655
           },
           {
             "id": "ch23-content-en-043",
-            "kind": "paragraph",
-            "text": "You can see above, the control chart for the range failed at point 2 – one point is beyond 3 standard deviations from the center line. All other points are within control parameters, and the sample mean (x- bar) chart is also within control. That means that the average number of calls on hold within each hour was controlled. However, without hour 2, the specific data points ranged much more than in other hours, which means one or more samples collected was very high."
+            "kind": "heading",
+            "text": "Click on “Calls on Hold” and click “Select”"
           },
           {
             "id": "ch23-content-en-044",
-            "kind": "paragraph",
-            "text": "Someone viewing this chart would not likely consider the process to be completely out of control, but they would want to investigate the samples for hour 2. What happened to make a drastic change in the range? Was a number recorded incorrectly? Did several employees take short, unplanned breaks that caused a sudden increase in calls on hold? Control charts can point to small problems such as these before they become bigger, systemic problems."
+            "kind": "image",
+            "assetId": "fig-3343115411aabf88",
+            "src": "assets/figures/fig-3343115411aabf88.png",
+            "width": 987,
+            "height": 661
           },
           {
             "id": "ch23-content-en-045",
             "kind": "paragraph",
-            "text": "The steps for creating an X-bar & S chart are the same as those described above, except you would start with Stat > Control Charts > Variables for Subgroups > Xbar- S"
+            "text": "Since the data was sampled 5 times per hour, enter “5” in the subgroup size. Then click “Xbar-R Options”."
           },
           {
             "id": "ch23-content-en-046",
-            "kind": "heading",
-            "text": "I-MR Chart"
+            "kind": "image",
+            "assetId": "fig-ece51dbd56c8e5c6",
+            "src": "assets/figures/fig-ece51dbd56c8e5c6.png",
+            "width": 985,
+            "height": 672
           },
           {
             "id": "ch23-content-en-047",
-            "kind": "paragraph",
-            "text": "The I-MR (individual and moving range) chart is used when you aren’t grouping data into subgroups. Either it isn’t feasible to gather enough samples for subgrouping or it is important for some reason to view the chart at the data-point level."
+            "kind": "heading",
+            "text": "In the Xbar-R Options dialogue box, click “Tests”"
           },
           {
             "id": "ch23-content-en-048",
-            "kind": "paragraph",
-            "text": "For example, a medium-sized car dealership wants to measure the number of sales closed on a daily basis. Most car dealers aren’t closing hundreds of sales a day, so tracking per hour or in batch sizes won’t provide much information for data in a single month. If looking at a year’s worth of data, the dealership might subgroup by week; otherwise, the I-MR chart is a good option."
+            "kind": "image",
+            "assetId": "fig-50ee2a1e8da4d287",
+            "src": "assets/figures/fig-50ee2a1e8da4d287.png",
+            "width": 849,
+            "height": 741
           },
           {
             "id": "ch23-content-en-049",
             "kind": "paragraph",
-            "text": "To work along with this example, copy the sales data below into Minitab."
+            "text": "In the drop down menu on the Tests tab, select “Perform all tests for special causes.”"
           },
           {
             "id": "ch23-content-en-050",
-            "kind": "paragraph",
-            "text": "Sales closed daily"
+            "kind": "image",
+            "assetId": "fig-89ad850a55df058e",
+            "src": "assets/figures/fig-89ad850a55df058e.png",
+            "width": 867,
+            "height": 741
           },
           {
             "id": "ch23-content-en-051",
             "kind": "paragraph",
-            "text": "19 17 17 17 20 23 22 18 19 19 18 20 21 19 24 16 15 21 21 20 19 20"
+            "text": "This option tells Minitab to perform the control tests covered in chapter 16. If a data point or series of data points on the control chart fails any of these tests, Minitab will highlight them in red, making it easy for Six Sigma experts to tell if a process might be out of control."
           },
           {
             "id": "ch23-content-en-052",
-            "kind": "heading",
-            "text": "Select Stat > Control Charts > Variables for Individuals > I-MR"
+            "kind": "paragraph",
+            "text": "Click OK on the options dialogue box."
           },
           {
             "id": "ch23-content-en-053",
             "kind": "paragraph",
-            "text": "Complete steps similar to the steps completed for the X-bar & R chart:"
+            "text": "Click OK on the Xbar-R chart dialogue box."
           },
           {
             "id": "ch23-content-en-054",
             "kind": "paragraph",
-            "text": "1. Click in the box under “variables.” 2. Click on “Sales closed daily” in the list of columns and click select. 3. Click on I-MR Options 4. Click on Tests 5. In the drop down box, select “Perform all tests for special causes.” 6. Click OK 7. Click OK"
+            "text": "Minitab generates a chart and a text description for any failed control tests."
           },
           {
             "id": "ch23-content-en-055",
-            "kind": "paragraph",
-            "text": "Minitab generates the I-MR chart and data about whether any test was failed."
+            "kind": "image",
+            "assetId": "fig-527bbee4aa614eec",
+            "src": "assets/figures/fig-527bbee4aa614eec.png",
+            "width": 1218,
+            "height": 770
           },
           {
             "id": "ch23-content-en-056",
             "kind": "heading",
-            "text": "I-MR Chart of Sales closed daily"
+            "text": "Test Results for R Chart of Calls On Hold"
           },
           {
             "id": "ch23-content-en-057",
-            "kind": "heading",
-            "text": "Test Results for MR Chart of Sales closed daily"
+            "kind": "paragraph",
+            "text": "TEST 1. One point more than 3.00 standard deviations from center line. Test Failed at points: 2"
           },
           {
             "id": "ch23-content-en-058",
             "kind": "paragraph",
-            "text": "TEST 1. One point more than 3.00 standard deviations from center line."
+            "text": "You can see above, the control chart for the range failed at point 2 – one point is beyond 3 standard deviations from the center line. All other points are within control parameters, and the sample mean (x- bar) chart is also within control. That means that the average number of calls on hold within each hour was controlled. However, without hour 2, the specific data points ranged much more than in other hours, which means one or more samples collected was very high."
           },
           {
             "id": "ch23-content-en-059",
             "kind": "paragraph",
-            "text": "Test Failed at points: 16"
+            "text": "Someone viewing this chart would not likely consider the process to be completely out of control, but they would want to investigate the samples for hour 2. What happened to make a drastic change in the range? Was a number recorded incorrectly? Did several employees take short, unplanned breaks that caused a sudden increase in calls on hold? Control charts can point to small problems such as these before they become bigger, systemic problems."
           },
           {
             "id": "ch23-content-en-060",
             "kind": "paragraph",
-            "text": "In this particular case, the number of sales per month, which is depicted on the top individual chart, are within control. The moving range – how much change there is between the numbers for each day – is in control except for point 16. If you look at the data, you see that between point 16 and point 17, there is an 8-sale difference. This is the point with the biggest difference in day-to-day data points, which likely accounts for the test failure."
+            "text": "The steps for creating an X-bar & S chart are the same as those described above, except you would start with Stat > Control Charts > Variables for Subgroups > Xbar- S"
           },
           {
             "id": "ch23-content-en-061",
-            "kind": "paragraph",
-            "text": "A car dealership or Six Sigma team working with this data would probably not be too concerned about that one point. When you consider it in practical terms, it could be that some sales that might have begun the day before didn’t close, which bumped up the day’s numbers artificially and caused the sudden wider-than-normal spread. In this case, the dealership or Six Sigma team would simply note the point and keep an eye on the control chart for similar test failures in the future that might indicate some type of pattern or problem with the process."
+            "kind": "heading",
+            "text": "I-MR Chart"
           },
           {
             "id": "ch23-content-en-062",
-            "kind": "heading",
-            "text": "P-Chart"
+            "kind": "paragraph",
+            "text": "The I-MR (individual and moving range) chart is used when you aren’t grouping data into subgroups. Either it isn’t feasible to gather enough samples for subgrouping or it is important for some reason to view the chart at the data-point level."
           },
           {
             "id": "ch23-content-en-063",
             "kind": "paragraph",
-            "text": "Remember, a p-Chart is used to track attribute, rate data. It’s probably one of the most-used attribute- based control charts because rates are often easier to work with than actual attribute data, particularly because you don’t have to worry about ensuring the same sample or subgroup size. You can also combine multiple types of defects in the same report, because p-charts are typically concerned with whether the product, part, or test passed or failed – not with the specifics about the defects that caused the pass or fail."
+            "text": "For example, a medium-sized car dealership wants to measure the number of sales closed on a daily basis. Most car dealers aren’t closing hundreds of sales a day, so tracking per hour or in batch sizes won’t provide much information for data in a single month. If looking at a year’s worth of data, the dealership might subgroup by week; otherwise, the I-MR chart is a good option."
           },
           {
             "id": "ch23-content-en-064",
             "kind": "paragraph",
-            "text": "The type of data that is reported at a management level also tends to be complemented by the p-Chart characteristics. Executive leadership often want to know audit results, first-run yields, scrap rates, or defect rates, all of which can be illustrated with p-Charts."
+            "text": "To work along with this example, copy the sales data below into Minitab."
           },
           {
             "id": "ch23-content-en-065",
             "kind": "paragraph",
-            "text": "Proportion data is usually one of the first available to Six Sigma teams – even before a Six Sigma team is associated with a process, many business operators and managers capture pass/fail type data. This means that a Six Sigma team might be able to create a first baseline control chart from proportion data and see rates improve as process improvements are made."
+            "text": "Sales closed daily"
           },
           {
             "id": "ch23-content-en-066",
             "kind": "paragraph",
-            "text": "To understand how to create a p-Chart in Minitab, consider the following real-world scenario. A professional printing company discovers a possible problem with a printing process used to print business cards. Customer are reporting high rates of defects. The company begins monitoring the process more closely, reviewing 100 samples daily to determine if there are any defects on each printed card. The results are recorded in the data table below."
+            "text": "19 17 17 17 20 23 22 18 19 19 18 20 21 19 24 16 15 21 21 20 19 20"
           },
           {
             "id": "ch23-content-en-067",
-            "kind": "paragraph",
-            "text": "Copy this data into Minitab if you are following along with creating control charts."
+            "kind": "heading",
+            "text": "Select Stat > Control Charts > Variables for Individuals > I-MR"
           },
           {
             "id": "ch23-content-en-068",
-            "kind": "heading",
-            "text": "Samples Defects"
+            "kind": "image",
+            "assetId": "fig-a1488d1ffb80f86b",
+            "src": "assets/figures/fig-a1488d1ffb80f86b.png",
+            "width": 1077,
+            "height": 177
           },
           {
             "id": "ch23-content-en-069",
             "kind": "paragraph",
-            "text": "100 5 100 2 100 1 100 0 100 0 100 2 100 1 100 0 100 6 100 0 100 7 100 0 100 9 100 0 100 0 100 1 100 2 100 0 100 7 100 0"
+            "text": "Complete steps similar to the steps completed for the X-bar & R chart:"
           },
           {
             "id": "ch23-content-en-070",
             "kind": "paragraph",
-            "text": "To create a p-Chart given this data, begin by going to Stat > Control Charts > Attribute Charts > P"
+            "text": "1. Click in the box under “variables.” 2. Click on “Sales closed daily” in the list of columns and click select. 3. Click on I-MR Options 4. Click on Tests 5. In the drop down box, select “Perform all tests for special causes.” 6. Click OK 7. Click OK"
           },
           {
             "id": "ch23-content-en-071",
             "kind": "paragraph",
-            "text": "Follow the steps below to enter data in the dialogue box, as pictured below the steps."
+            "text": "Minitab generates the I-MR chart and data about whether any test was failed."
           },
           {
             "id": "ch23-content-en-072",
-            "kind": "paragraph",
-            "text": "1. Click in the box under Variables. 2. Click on “Defects” in the left column. 3. Click Select under the left column to select “Defects” into the Variables box. 4. Click on the box next to “Subgroup sizes”. 5. Click on “Samples” in the left column. 6. Click Select under the left column to select “Samples” into the Subgroup box. 7. Click P-Chart Options."
+            "kind": "image",
+            "assetId": "fig-0ac7c08332bcde2e",
+            "src": "assets/figures/fig-0ac7c08332bcde2e.png",
+            "width": 1218,
+            "height": 770
           },
           {
             "id": "ch23-content-en-073",
-            "kind": "paragraph",
-            "text": "8. Click Tests"
+            "kind": "heading",
+            "text": "I-MR Chart of Sales closed daily"
           },
           {
             "id": "ch23-content-en-074",
-            "kind": "paragraph",
-            "text": "9. In the drop down box, select “Perform all tests for special causes”"
+            "kind": "heading",
+            "text": "Test Results for MR Chart of Sales closed daily"
           },
           {
             "id": "ch23-content-en-075",
             "kind": "paragraph",
-            "text": "10. Click OK. 11. Click OK."
+            "text": "TEST 1. One point more than 3.00 standard deviations from center line."
           },
           {
             "id": "ch23-content-en-076",
             "kind": "paragraph",
-            "text": "Minitab generates the control chart of defect rates along with the test results from the control tests."
+            "text": "Test Failed at points: 16"
           },
           {
             "id": "ch23-content-en-077",
-            "kind": "heading",
-            "text": "Test Results for P Chart of Defects"
+            "kind": "paragraph",
+            "text": "In this particular case, the number of sales per month, which is depicted on the top individual chart, are within control. The moving range – how much change there is between the numbers for each day – is in control except for point 16. If you look at the data, you see that between point 16 and point 17, there is an 8-sale difference. This is the point with the biggest difference in day-to-day data points, which likely accounts for the test failure."
           },
           {
             "id": "ch23-content-en-078",
             "kind": "paragraph",
-            "text": "TEST 1. One point more than 3.00 standard deviations from center line. Test Failed at points: 11, 13, 19"
+            "text": "A car dealership or Six Sigma team working with this data would probably not be too concerned about that one point. When you consider it in practical terms, it could be that some sales that might have begun the day before didn’t close, which bumped up the day’s numbers artificially and caused the sudden wider-than-normal spread. In this case, the dealership or Six Sigma team would simply note the point and keep an eye on the control chart for similar test failures in the future that might indicate some type of pattern or problem with the process."
           },
           {
             "id": "ch23-content-en-079",
-            "kind": "paragraph",
-            "text": "In this case, there is likely a problem of control within the process, given the failure of three points. The process owner or Six Sigma team associated with this process would want to investigate both the samples and the process to find out if there is an ongoing process problem or a sample-specific issue here."
+            "kind": "heading",
+            "text": "P-Chart"
           },
           {
             "id": "ch23-content-en-080",
             "kind": "paragraph",
-            "text": "The steps for creating other attribute control charts, including np, u, and c charts, are the same as those for creating the p-chart."
+            "text": "Remember, a p-Chart is used to track attribute, rate data. It’s probably one of the most-used attribute- based control charts because rates are often easier to work with than actual attribute data, particularly because you don’t have to worry about ensuring the same sample or subgroup size. You can also combine multiple types of defects in the same report, because p-charts are typically concerned with whether the product, part, or test passed or failed – not with the specifics about the defects that caused the pass or fail."
           },
           {
             "id": "ch23-content-en-081",
-            "kind": "heading",
-            "text": "Practice Interpreting Control Charts"
+            "kind": "paragraph",
+            "text": "The type of data that is reported at a management level also tends to be complemented by the p-Chart characteristics. Executive leadership often want to know audit results, first-run yields, scrap rates, or defect rates, all of which can be illustrated with p-Charts."
           },
           {
             "id": "ch23-content-en-082",
             "kind": "paragraph",
-            "text": "With Minitab, creating control charts simply requires following the steps outlined above and some practice determining which control chart is correct for the situation and setting up data for the control chart. The harder part is interpreting control charts to make valid business decisions or recommendations. In this section, you’ll review control charts for a variety of real-world scenarios and practice interpreting them."
+            "text": "Proportion data is usually one of the first available to Six Sigma teams – even before a Six Sigma team is associated with a process, many business operators and managers capture pass/fail type data. This means that a Six Sigma team might be able to create a first baseline control chart from proportion data and see rates improve as process improvements are made."
           },
           {
             "id": "ch23-content-en-083",
-            "kind": "heading",
-            "text": "Help Desk Ticket Process"
+            "kind": "paragraph",
+            "text": "To understand how to create a p-Chart in Minitab, consider the following real-world scenario. A professional printing company discovers a possible problem with a printing process used to print business cards. Customer are reporting high rates of defects. The company begins monitoring the process more closely, reviewing 100 samples daily to determine if there are any defects on each printed card. The results are recorded in the data table below."
           },
           {
             "id": "ch23-content-en-084",
             "kind": "paragraph",
-            "text": "The technical support desk in an office tracks the number of tickets opened and closed each hour. That data is found in the table below."
+            "text": "Copy this data into Minitab if you are following along with creating control charts."
           },
           {
             "id": "ch23-content-en-085",
             "kind": "heading",
-            "text": "Incoming"
+            "text": "Samples Defects"
           },
           {
             "id": "ch23-content-en-086",
-            "kind": "heading",
-            "text": "Tickets"
+            "kind": "paragraph",
+            "text": "100 5 100 2 100 1 100 0 100 0 100 2 100 1 100 0 100 6 100 0 100 7 100 0 100 9 100 0 100 0 100 1 100 2 100 0 100 7 100 0"
           },
           {
             "id": "ch23-content-en-087",
             "kind": "paragraph",
-            "text": "Complete Tickets 10 8 12 10 15 12 7 9 2 5 8 9 9 8 11 12 1 2 16 14 18 17 5 6 8 7 14 13 7 6 6 7 17 12 8 10 5 6"
+            "text": "To create a p-Chart given this data, begin by going to Stat > Control Charts > Attribute Charts > P"
           },
           {
             "id": "ch23-content-en-088",
-            "kind": "paragraph",
-            "text": "Management wants to know whether the help desk process is performing well given only this information. A Six Sigma expert can do a few things to provide a preliminary answer to management."
+            "kind": "image",
+            "assetId": "fig-429f69c13d957cb0",
+            "src": "assets/figures/fig-429f69c13d957cb0.png",
+            "width": 1053,
+            "height": 258
           },
           {
             "id": "ch23-content-en-089",
             "kind": "paragraph",
-            "text": "First, you might create an I-MR chart for the Complete Tasks data. Why use an I-MR chart? We don’t have enough data to create an X-bar chart, because we would only have a few subgroups."
+            "text": "Follow the steps below to enter data in the dialogue box, as pictured below the steps."
           },
           {
             "id": "ch23-content-en-090",
             "kind": "paragraph",
-            "text": "The I-MR chart is shown below, and you can see that there are no control failures for either the moving range or the number of tickets closed per hour."
+            "text": "1. Click in the box under Variables. 2. Click on “Defects” in the left column. 3. Click Select under the left column to select “Defects” into the Variables box. 4. Click on the box next to “Subgroup sizes”. 5. Click on “Samples” in the left column. 6. Click Select under the left column to select “Samples” into the Subgroup box. 7. Click P-Chart Options."
           },
           {
             "id": "ch23-content-en-091",
-            "kind": "paragraph",
-            "text": "Someone might point out, though, that a control chart of the number of tickets completed only tells us there isn’t a great deal of deviation in the amount of work completed each hour, and this is true. This control chart does not actually take into account the amount of work that came in each hour and whether the help desk was clearing that work."
+            "kind": "image",
+            "assetId": "fig-63d83b99ed7bdc85",
+            "src": "assets/figures/fig-63d83b99ed7bdc85.png",
+            "width": 975,
+            "height": 651
           },
           {
             "id": "ch23-content-en-092",
             "kind": "paragraph",
-            "text": "So, a Six Sigma expert might add another column to the data. This column keeps a running total of how many tickets at that point of the day remain open."
+            "text": "8. Click Tests"
           },
           {
             "id": "ch23-content-en-093",
-            "kind": "heading",
-            "text": "Incoming"
+            "kind": "paragraph",
+            "text": "9. In the drop down box, select “Perform all tests for special causes”"
           },
           {
             "id": "ch23-content-en-094",
-            "kind": "heading",
-            "text": "Tickets"
+            "kind": "image",
+            "assetId": "fig-e9d85972bbdec852",
+            "src": "assets/figures/fig-e9d85972bbdec852.png",
+            "width": 849,
+            "height": 741
           },
           {
             "id": "ch23-content-en-095",
-            "kind": "heading",
-            "text": "Complete"
+            "kind": "image",
+            "assetId": "fig-305049f26143b29d",
+            "src": "assets/figures/fig-305049f26143b29d.png",
+            "width": 1172,
+            "height": 215
           },
           {
             "id": "ch23-content-en-096",
-            "kind": "heading",
-            "text": "Tickets"
+            "kind": "paragraph",
+            "text": "10. Click OK. 11. Click OK."
           },
           {
             "id": "ch23-content-en-097",
             "kind": "paragraph",
-            "text": "Tickets Left Unresolved 10 8 2 12 10 4 15 12 7 7 9 5 2 5 2 8 9 1 9 8 2 11 12 1 1 2 0"
+            "text": "Minitab generates the control chart of defect rates along with the test results from the control tests."
           },
           {
             "id": "ch23-content-en-098",
-            "kind": "paragraph",
-            "text": "16 14 2 18 17 3 5 6 2 8 7 3 14 13 4 7 6 5 6 7 4 17 12 9 8 10 7 5 6 6"
+            "kind": "image",
+            "assetId": "fig-1e7697d62648ff83",
+            "src": "assets/figures/fig-1e7697d62648ff83.png",
+            "width": 1218,
+            "height": 770
           },
           {
             "id": "ch23-content-en-099",
-            "kind": "paragraph",
-            "text": "Creating an I-MR chart of this figure yields very different results."
+            "kind": "heading",
+            "text": "Test Results for P Chart of Defects"
           },
           {
             "id": "ch23-content-en-100",
             "kind": "paragraph",
-            "text": "Test Results for I Chart of Tickets Left Unresolved TEST 1. One point more than 3.00 standard deviations from center line. Test Failed at points: 17 TEST 2. 9 points in a row on same side of center line. Test Failed at points: 13 TEST 5. 2 out of 3 points more than 2 standard deviations from center line (on one side of CL). Test Failed at points: 18"
+            "text": "TEST 1. One point more than 3.00 standard deviations from center line. Test Failed at points: 11, 13, 19"
           },
           {
             "id": "ch23-content-en-101",
             "kind": "paragraph",
-            "text": "TEST 6. 4 out of 5 points more than 1 standard deviation from center line (on one side of CL). Test Failed at points: 8, 9, 10, 12"
+            "text": "In this case, there is likely a problem of control within the process, given the failure of three points. The process owner or Six Sigma team associated with this process would want to investigate both the samples and the process to find out if there is an ongoing process problem or a sample-specific issue here."
           },
           {
             "id": "ch23-content-en-102",
             "kind": "paragraph",
-            "text": "Numerous tests are failed at numerous points on the chart. Is this a bad thing? Not necessarily, given an understanding of the process. The first five points that fail do so because they are below the centerline. That means the process was leaving fewer tickets open per hour than might be expected. Several reasons could exist for such results:"
+            "text": "The steps for creating other attribute control charts, including np, u, and c charts, are the same as those for creating the p-chart."
           },
           {
             "id": "ch23-content-en-103",
-            "kind": "paragraph",
-            "text": "- The team was just especially efficient at closing tickets those hours. - The team received tickets that were abnormally easy to deal with and close during those hours. - The team closed tickets without really resolving them. - The team simply received fewer tickets to work on."
+            "kind": "heading",
+            "text": "Practice Interpreting Control Charts"
           },
           {
             "id": "ch23-content-en-104",
             "kind": "paragraph",
-            "text": "The first two reasons are positive, and the third could point to a problem with the team. The last reason could be positive or negative: Were there fewer tickets because everything was working better than normal, or was there a problem with the ticketing software?"
+            "text": "With Minitab, creating control charts simply requires following the steps outlined above and some practice determining which control chart is correct for the situation and setting up data for the control chart. The harder part is interpreting control charts to make valid business decisions or recommendations. In this section, you’ll review control charts for a variety of real-world scenarios and practice interpreting them."
           },
           {
             "id": "ch23-content-en-105",
-            "kind": "paragraph",
-            "text": "All of these questions are worth looking into – they not only tell the team whether the process is possibly out of control, but they also provide valuable business information."
+            "kind": "heading",
+            "text": "Help Desk Ticket Process"
           },
           {
             "id": "ch23-content-en-106",
             "kind": "paragraph",
-            "text": "The next two points that are out of control on this chart are due to upward trend – something a help desk manager would not want to see. He or she would want to continue monitoring this chart to see if the process corrects itself or continues to trend upward."
+            "text": "The technical support desk in an office tracks the number of tickets opened and closed each hour. That data is found in the table below."
           },
           {
             "id": "ch23-content-en-107",
             "kind": "heading",
-            "text": "Running a Hypothesis Test"
+            "text": "Incoming"
           },
           {
             "id": "ch23-content-en-108",
-            "kind": "paragraph",
-            "text": "Given all of this information, a Six Sigma expert might even run a hypothesis test to go along with any control charts. He or she might run a 2-Sample T test to determine whether the team is closing on average the same number of tickets that are being opened. If the answer is yes, then the help desk is probably performing well. If the answer is no, then the team might ask “how many tickets on average is the help desk not closing?”"
+            "kind": "heading",
+            "text": "Tickets"
           },
           {
             "id": "ch23-content-en-109",
             "kind": "paragraph",
-            "text": "The results of running the 2-Sample T test in Minitab are seen below."
+            "text": "Complete Tickets 10 8 12 10 15 12 7 9 2 5 8 9 9 8 11 12 1 2 16 14 18 17 5 6 8 7 14 13 7 6 6 7 17 12 8 10 5 6"
           },
           {
             "id": "ch23-content-en-110",
             "kind": "paragraph",
-            "text": "Two-Sample T-Test and CI: Incoming Tickets, Complete Tickets Two-sample T for Incoming Tickets vs Complete Tickets N Mean StDev SE Mean Incoming Tickets 19 9.42 4.89 1.1 Complete Tickets 19 9.11 3.62 0.83 Difference = μ (Incoming Tickets) - μ (Complete Tickets) Estimate for difference: 0.32 95% CI for difference: (-2.52, 3.16) T-Test of difference = 0 (vs ≠): T-Value = 0.23 P-Value = 0.822 DF = 33"
+            "text": "Management wants to know whether the help desk process is performing well given only this information. A Six Sigma expert can do a few things to provide a preliminary answer to management."
           },
           {
             "id": "ch23-content-en-111",
             "kind": "paragraph",
-            "text": "Granted, with a sample size of 19, the chance of a Type II error is relatively high, but the p-Value is also very strong in favor of accepting the null hypothesis that the mean is statistically the same between the data for opened tickets and closing tickets. Given this information, the Six Sigma team might accumulate more data before running another test to verify these results."
+            "text": "First, you might create an I-MR chart for the Complete Tasks data. Why use an I-MR chart? We don’t have enough data to create an X-bar chart, because we would only have a few subgroups."
           },
           {
             "id": "ch23-content-en-112",
-            "kind": "heading",
-            "text": "Yarn Skeins"
+            "kind": "paragraph",
+            "text": "The I-MR chart is shown below, and you can see that there are no control failures for either the moving range or the number of tickets closed per hour."
           },
           {
             "id": "ch23-content-en-113",
-            "kind": "paragraph",
-            "text": "At a company that produces yarn skeins for retail sales, each 244-yard skein features a certain color or color pattern. The company allows slight defects in dye at a rate of 10 per 244-yard yarn length before the skein is considered defective overall."
+            "kind": "image",
+            "assetId": "fig-0636555fbc9e16ac",
+            "src": "assets/figures/fig-0636555fbc9e16ac.png",
+            "width": 1218,
+            "height": 773
           },
           {
             "id": "ch23-content-en-114",
             "kind": "paragraph",
-            "text": "A team has been tasked with controlling the quality of this process. This team reviews 10 lengths of sampled yarn each day before it is wound into a skein to determine the number of defects. Over several days, the team gathers data and creates a control chart to indicate whether its process is in control."
+            "text": "Someone might point out, though, that a control chart of the number of tickets completed only tells us there isn’t a great deal of deviation in the amount of work completed each hour, and this is true. This control chart does not actually take into account the amount of work that came in each hour and whether the help desk was clearing that work."
           },
           {
             "id": "ch23-content-en-115",
             "kind": "paragraph",
-            "text": "The team generates the following data table."
+            "text": "So, a Six Sigma expert might add another column to the data. This column keeps a running total of how many tickets at that point of the day remain open."
           },
           {
             "id": "ch23-content-en-116",
             "kind": "heading",
-            "text": "Skein"
+            "text": "Incoming"
           },
           {
             "id": "ch23-content-en-117",
             "kind": "heading",
-            "text": "Sampled"
+            "text": "Tickets"
           },
           {
             "id": "ch23-content-en-118",
-            "kind": "paragraph",
-            "text": "Defects Found 10 8 10 2 10 12 10 15 10 22 10 6 10 8 10 14 10 9 10 23 10 24 10 26 10 10 10 7 10 5 10 12 10 15 10 18 10 19 10 14 10 27 Because all the sample sizes are the same and the team is concerned with the number of defects, it chooses to create a c-chart in Minitab."
+            "kind": "heading",
+            "text": "Complete"
           },
           {
             "id": "ch23-content-en-119",
             "kind": "heading",
-            "text": "Test Results for C Chart of Defects Found"
+            "text": "Tickets"
           },
           {
             "id": "ch23-content-en-120",
             "kind": "paragraph",
-            "text": "TEST 1. One point more than 3.00 standard deviations from center line. Test Failed at points: 2, 12, 21"
+            "text": "Tickets Left Unresolved 10 8 2 12 10 4 15 12 7 7 9 5 2 5 2 8 9 1 9 8 2 11 12 1 1 2 0"
           },
           {
             "id": "ch23-content-en-121",
             "kind": "paragraph",
-            "text": "Based on three points that fail the control tests, this process is not completely in control and should be reviewed."
+            "text": "16 14 2 18 17 3 5 6 2 8 7 3 14 13 4 7 6 5 6 7 4 17 12 9 8 10 7 5 6 6"
           },
           {
             "id": "ch23-content-en-122",
-            "kind": "heading",
-            "text": "Call-Center Compliance"
+            "kind": "paragraph",
+            "text": "Creating an I-MR chart of this figure yields very different results."
           },
           {
             "id": "ch23-content-en-123",
-            "kind": "paragraph",
-            "text": "A banking call center monitors its employees for compliance with numerous federal regulations as well as internal policies and procedures. The monitoring comes from a quality assurance team who randomly listens to phone calls and records information about errors that team members might make when on the phone. Team members can make more than one error on each phone call; for example, a team member might forget to let the caller know the call is being recorded and not provide the caller with the right information."
+            "kind": "image",
+            "assetId": "fig-4882bcbf59715519",
+            "src": "assets/figures/fig-4882bcbf59715519.png",
+            "width": 1218,
+            "height": 770
           },
           {
             "id": "ch23-content-en-124",
             "kind": "paragraph",
-            "text": "In a 10-hour shift, the quality assurance team monitored calls each hour and created the following data table."
+            "text": "Test Results for I Chart of Tickets Left Unresolved TEST 1. One point more than 3.00 standard deviations from center line. Test Failed at points: 17 TEST 2. 9 points in a row on same side of center line. Test Failed at points: 13 TEST 5. 2 out of 3 points more than 2 standard deviations from center line (on one side of CL). Test Failed at points: 18"
           },
           {
             "id": "ch23-content-en-125",
             "kind": "paragraph",
-            "text": "Calls Monitored Errors 1 15 3"
+            "text": "TEST 6. 4 out of 5 points more than 1 standard deviation from center line (on one side of CL). Test Failed at points: 8, 9, 10, 12"
           },
           {
             "id": "ch23-content-en-126",
             "kind": "paragraph",
-            "text": "Hour"
+            "text": "Numerous tests are failed at numerous points on the chart. Is this a bad thing? Not necessarily, given an understanding of the process. The first five points that fail do so because they are below the centerline. That means the process was leaving fewer tickets open per hour than might be expected. Several reasons could exist for such results:"
           },
           {
             "id": "ch23-content-en-127",
             "kind": "paragraph",
-            "text": "2 13 5 3 18 4 4 10 0 5 12 2 6 9 2 7 11 4 8 12 5 9 8 0 10 7 1 The sample size, which is indicated by the number of calls monitored each hour, is not consistent in this example. Reasons for inconsistent subgroups in this case could be that the number of calls received each hour vary and the quality assurance team only reviews a certain portion of calls. It could also be that some calls take longer – and thus take longer to review. Regardless of the reason for inconsistent subgroup sizes, it leads us to choose the u-Chart, which is concerned with the number of errors per unit. In this case, that would be calculated by dividing errors by calls monitored, creating rate or proportion data so that the actual sample size isn’t as important."
+            "text": "- The team was just especially efficient at closing tickets those hours. - The team received tickets that were abnormally easy to deal with and close during those hours. - The team closed tickets without really resolving them. - The team simply received fewer tickets to work on."
           },
           {
             "id": "ch23-content-en-128",
             "kind": "paragraph",
-            "text": "When plugging data into Minitab to create this control chart, Errors are the Variables and Calls Monitored are the Subgroup size."
+            "text": "The first two reasons are positive, and the third could point to a problem with the team. The last reason could be positive or negative: Were there fewer tickets because everything was working better than normal, or was there a problem with the ticketing software?"
           },
           {
             "id": "ch23-content-en-129",
             "kind": "paragraph",
-            "text": "Minitab generates the following control chart."
+            "text": "All of these questions are worth looking into – they not only tell the team whether the process is possibly out of control, but they also provide valuable business information."
           },
           {
             "id": "ch23-content-en-130",
             "kind": "paragraph",
-            "text": "You can see that no tests are failed, which indicates the process is in control. You’ll also note that the upper control limit seems to stair-step all over the place. This is because each sample was a different size, so each upper control limit is calculated at a different value."
+            "text": "The next two points that are out of control on this chart are due to upward trend – something a help desk manager would not want to see. He or she would want to continue monitoring this chart to see if the process corrects itself or continues to trend upward."
           },
           {
             "id": "ch23-content-en-131",
-            "kind": "paragraph",
-            "text": "What if call center management was especially concerned with a specific error?"
+            "kind": "heading",
+            "text": "Running a Hypothesis Test"
           },
           {
             "id": "ch23-content-en-132",
             "kind": "paragraph",
-            "text": "If call center management was concerned with PCI-compliance (compliance with the regulations for the payment card industry), they might want to dig into the data to see information about the number of errors related to PCI-compliance. They might ask the quality assurance team to check a box when reviewing a call to denote whether the call was compliant with PCI standards or not."
+            "text": "Given all of this information, a Six Sigma expert might even run a hypothesis test to go along with any control charts. He or she might run a 2-Sample T test to determine whether the team is closing on average the same number of tickets that are being opened. If the answer is yes, then the help desk is probably performing well. If the answer is no, then the team might ask “how many tickets on average is the help desk not closing?”"
           },
           {
             "id": "ch23-content-en-133",
             "kind": "paragraph",
-            "text": "The new data table is seen below."
+            "text": "The results of running the 2-Sample T test in Minitab are seen below."
           },
           {
             "id": "ch23-content-en-134",
-            "kind": "heading",
-            "text": "Calls"
+            "kind": "paragraph",
+            "text": "Two-Sample T-Test and CI: Incoming Tickets, Complete Tickets Two-sample T for Incoming Tickets vs Complete Tickets N Mean StDev SE Mean Incoming Tickets 19 9.42 4.89 1.1 Complete Tickets 19 9.11 3.62 0.83 Difference = μ (Incoming Tickets) - μ (Complete Tickets) Estimate for difference: 0.32 95% CI for difference: (-2.52, 3.16) T-Test of difference = 0 (vs ≠): T-Value = 0.23 P-Value = 0.822 DF = 33"
           },
           {
             "id": "ch23-content-en-135",
-            "kind": "heading",
-            "text": "Monitored Errors"
+            "kind": "paragraph",
+            "text": "Granted, with a sample size of 19, the chance of a Type II error is relatively high, but the p-Value is also very strong in favor of accepting the null hypothesis that the mean is statistically the same between the data for opened tickets and closing tickets. Given this information, the Six Sigma team might accumulate more data before running another test to verify these results."
           },
           {
             "id": "ch23-content-en-136",
-            "kind": "paragraph",
-            "text": "PCI Non- compliance 1 15 3 1 2 13 5 0 3 18 4 1 4 10 0 0 5 12 2 1 6 9 2 1 7 11 4 2 8 12 5 2 9 8 0 0 10 7 1 1"
+            "kind": "heading",
+            "text": "Yarn Skeins"
           },
           {
             "id": "ch23-content-en-137",
             "kind": "paragraph",
-            "text": "Hour"
+            "text": "At a company that produces yarn skeins for retail sales, each 244-yard skein features a certain color or color pattern. The company allows slight defects in dye at a rate of 10 per 244-yard yarn length before the skein is considered defective overall."
           },
           {
             "id": "ch23-content-en-138",
             "kind": "paragraph",
-            "text": "Instead of worrying about the number of errors per call, we want to understand the rate of PCI errors occurring. We can use a p-chart for that purpose."
+            "text": "A team has been tasked with controlling the quality of this process. This team reviews 10 lengths of sampled yarn each day before it is wound into a skein to determine the number of defects. Over several days, the team gathers data and creates a control chart to indicate whether its process is in control."
           },
           {
             "id": "ch23-content-en-139",
             "kind": "paragraph",
-            "text": "This chart is a great illustration of how an in-control process can still be a problematic process. This process is in control, but four of the last five points are above the 0.10 proportion mark. That means that out of 10 samples, four had a fail rate of 10 percent or more when it comes to PCI compliance."
+            "text": "The team generates the following data table."
           },
           {
             "id": "ch23-content-en-140",
-            "kind": "paragraph",
-            "text": "In the banking world, PCI compliance issues can cost a great deal of money, which means banking call centers will want to see PCI compliance error rates as close to zero as possible. The process owner for this call center is likely to take action to reduce the mean proportion of this process, even though it is in control."
+            "kind": "heading",
+            "text": "Skein"
           },
           {
             "id": "ch23-content-en-141",
             "kind": "heading",
-            "text": "Common Cause versus Special Cause Variation"
+            "text": "Sampled"
           },
           {
             "id": "ch23-content-en-142",
             "kind": "paragraph",
-            "text": "When selecting the control tests in Minitab, you’ll note that we selected to perform all tests for special causes. This lets Minitab know to perform all the tests for special cause variation – special cause variation is that which is caused by something outside of the normal expectations within a process."
+            "text": "Defects Found 10 8 10 2 10 12 10 15 10 22 10 6 10 8 10 14 10 9 10 23 10 24 10 26 10 10 10 7 10 5 10 12 10 15 10 18 10 19 10 14 10 27 Because all the sample sizes are the same and the team is concerned with the number of defects, it chooses to create a c-chart in Minitab."
           },
           {
             "id": "ch23-content-en-143",
-            "kind": "paragraph",
-            "text": "Any process is going to have some amount of variation. The normal variation within a process – the variation that is caused by the process itself – is called common cause variation. For example, a phone operator working at a call center is going to make an occasional speaking or typing error while performing job duties. That variation is accounted for on a control chart. However, an operator who is working too many hours, has a bad headset, or is new on the job might make more than the normal amount of errors. That abnormality is likely to show up on a control chart and it is explained by the special causes such as a malfunctioning headset."
+            "kind": "image",
+            "assetId": "fig-58d625a234d523dc",
+            "src": "assets/figures/fig-58d625a234d523dc.png",
+            "width": 1218,
+            "height": 770
           },
           {
             "id": "ch23-content-en-144",
             "kind": "heading",
-            "text": "Additional Minitab Control Charts"
+            "text": "Test Results for C Chart of Defects Found"
           },
           {
             "id": "ch23-content-en-145",
             "kind": "paragraph",
-            "text": "Minitab offers a variety of other control charts. We have covered the most commonly used control charts in this chapter, but highlight a few others briefly below."
+            "text": "TEST 1. One point more than 3.00 standard deviations from center line. Test Failed at points: 2, 12, 21"
           },
           {
             "id": "ch23-content-en-146",
-            "kind": "heading",
-            "text": "The I & MR Chart (Within/Between)"
+            "kind": "paragraph",
+            "text": "Based on three points that fail the control tests, this process is not completely in control and should be reviewed."
           },
           {
             "id": "ch23-content-en-147",
-            "kind": "paragraph",
-            "text": "Not to be confused with the aforementioned I-MR (Individual Moving Range) chart, the I & MR (Within/Between) chart provides a three-way chart that indicates variation within a group and between groups. You might use this chart when the variation between batches is high compared to variation within batches or when variation is not randomly distributed. For example, when working with a process that spans shifts, you might have subgroups within shift groups, and differences might appear between the shifts."
+            "kind": "heading",
+            "text": "Call-Center Compliance"
           },
           {
             "id": "ch23-content-en-148",
             "kind": "paragraph",
-            "text": "You can find this chart under Stat > Control Charts > Variables for Subgroups"
+            "text": "A banking call center monitors its employees for compliance with numerous federal regulations as well as internal policies and procedures. The monitoring comes from a quality assurance team who randomly listens to phone calls and records information about errors that team members might make when on the phone. Team members can make more than one error on each phone call; for example, a team member might forget to let the caller know the call is being recorded and not provide the caller with the right information."
           },
           {
             "id": "ch23-content-en-149",
-            "kind": "heading",
-            "text": "Exponentially Weighted Moving Average"
+            "kind": "paragraph",
+            "text": "In a 10-hour shift, the quality assurance team monitored calls each hour and created the following data table."
           },
           {
             "id": "ch23-content-en-150",
             "kind": "paragraph",
-            "text": "The EWMA chart delivers an individual and moving range graph. This chart is rarely used in common statistical analysis, as it is difficult to work with. Most often, the EWMA chart is used when dealing with automatic data systems."
+            "text": "Calls Monitored Errors 1 15 3"
           },
           {
             "id": "ch23-content-en-151",
+            "kind": "paragraph",
+            "text": "Hour"
+          },
+          {
+            "id": "ch23-content-en-152",
+            "kind": "paragraph",
+            "text": "2 13 5 3 18 4 4 10 0 5 12 2 6 9 2 7 11 4 8 12 5 9 8 0 10 7 1 The sample size, which is indicated by the number of calls monitored each hour, is not consistent in this example. Reasons for inconsistent subgroups in this case could be that the number of calls received each hour vary and the quality assurance team only reviews a certain portion of calls. It could also be that some calls take longer – and thus take longer to review. Regardless of the reason for inconsistent subgroup sizes, it leads us to choose the u-Chart, which is concerned with the number of errors per unit. In this case, that would be calculated by dividing errors by calls monitored, creating rate or proportion data so that the actual sample size isn’t as important."
+          },
+          {
+            "id": "ch23-content-en-153",
+            "kind": "paragraph",
+            "text": "When plugging data into Minitab to create this control chart, Errors are the Variables and Calls Monitored are the Subgroup size."
+          },
+          {
+            "id": "ch23-content-en-154",
+            "kind": "paragraph",
+            "text": "Minitab generates the following control chart."
+          },
+          {
+            "id": "ch23-content-en-155",
+            "kind": "image",
+            "assetId": "fig-d5234b4a1f080038",
+            "src": "assets/figures/fig-d5234b4a1f080038.png",
+            "width": 1218,
+            "height": 773
+          },
+          {
+            "id": "ch23-content-en-156",
+            "kind": "paragraph",
+            "text": "You can see that no tests are failed, which indicates the process is in control. You’ll also note that the upper control limit seems to stair-step all over the place. This is because each sample was a different size, so each upper control limit is calculated at a different value."
+          },
+          {
+            "id": "ch23-content-en-157",
+            "kind": "paragraph",
+            "text": "What if call center management was especially concerned with a specific error?"
+          },
+          {
+            "id": "ch23-content-en-158",
+            "kind": "paragraph",
+            "text": "If call center management was concerned with PCI-compliance (compliance with the regulations for the payment card industry), they might want to dig into the data to see information about the number of errors related to PCI-compliance. They might ask the quality assurance team to check a box when reviewing a call to denote whether the call was compliant with PCI standards or not."
+          },
+          {
+            "id": "ch23-content-en-159",
+            "kind": "paragraph",
+            "text": "The new data table is seen below."
+          },
+          {
+            "id": "ch23-content-en-160",
+            "kind": "heading",
+            "text": "Calls"
+          },
+          {
+            "id": "ch23-content-en-161",
+            "kind": "heading",
+            "text": "Monitored Errors"
+          },
+          {
+            "id": "ch23-content-en-162",
+            "kind": "paragraph",
+            "text": "PCI Non- compliance 1 15 3 1 2 13 5 0 3 18 4 1 4 10 0 0 5 12 2 1 6 9 2 1 7 11 4 2 8 12 5 2 9 8 0 0 10 7 1 1"
+          },
+          {
+            "id": "ch23-content-en-163",
+            "kind": "paragraph",
+            "text": "Hour"
+          },
+          {
+            "id": "ch23-content-en-164",
+            "kind": "paragraph",
+            "text": "Instead of worrying about the number of errors per call, we want to understand the rate of PCI errors occurring. We can use a p-chart for that purpose."
+          },
+          {
+            "id": "ch23-content-en-165",
+            "kind": "image",
+            "assetId": "fig-4a21984327284287",
+            "src": "assets/figures/fig-4a21984327284287.png",
+            "width": 1218,
+            "height": 770
+          },
+          {
+            "id": "ch23-content-en-166",
+            "kind": "paragraph",
+            "text": "This chart is a great illustration of how an in-control process can still be a problematic process. This process is in control, but four of the last five points are above the 0.10 proportion mark. That means that out of 10 samples, four had a fail rate of 10 percent or more when it comes to PCI compliance."
+          },
+          {
+            "id": "ch23-content-en-167",
+            "kind": "paragraph",
+            "text": "In the banking world, PCI compliance issues can cost a great deal of money, which means banking call centers will want to see PCI compliance error rates as close to zero as possible. The process owner for this call center is likely to take action to reduce the mean proportion of this process, even though it is in control."
+          },
+          {
+            "id": "ch23-content-en-168",
+            "kind": "heading",
+            "text": "Common Cause versus Special Cause Variation"
+          },
+          {
+            "id": "ch23-content-en-169",
+            "kind": "paragraph",
+            "text": "When selecting the control tests in Minitab, you’ll note that we selected to perform all tests for special causes. This lets Minitab know to perform all the tests for special cause variation – special cause variation is that which is caused by something outside of the normal expectations within a process."
+          },
+          {
+            "id": "ch23-content-en-170",
+            "kind": "paragraph",
+            "text": "Any process is going to have some amount of variation. The normal variation within a process – the variation that is caused by the process itself – is called common cause variation. For example, a phone operator working at a call center is going to make an occasional speaking or typing error while performing job duties. That variation is accounted for on a control chart. However, an operator who is working too many hours, has a bad headset, or is new on the job might make more than the normal amount of errors. That abnormality is likely to show up on a control chart and it is explained by the special causes such as a malfunctioning headset."
+          },
+          {
+            "id": "ch23-content-en-171",
+            "kind": "heading",
+            "text": "Additional Minitab Control Charts"
+          },
+          {
+            "id": "ch23-content-en-172",
+            "kind": "paragraph",
+            "text": "Minitab offers a variety of other control charts. We have covered the most commonly used control charts in this chapter, but highlight a few others briefly below."
+          },
+          {
+            "id": "ch23-content-en-173",
+            "kind": "heading",
+            "text": "The I & MR Chart (Within/Between)"
+          },
+          {
+            "id": "ch23-content-en-174",
+            "kind": "paragraph",
+            "text": "Not to be confused with the aforementioned I-MR (Individual Moving Range) chart, the I & MR (Within/Between) chart provides a three-way chart that indicates variation within a group and between groups. You might use this chart when the variation between batches is high compared to variation within batches or when variation is not randomly distributed. For example, when working with a process that spans shifts, you might have subgroups within shift groups, and differences might appear between the shifts."
+          },
+          {
+            "id": "ch23-content-en-175",
+            "kind": "paragraph",
+            "text": "You can find this chart under Stat > Control Charts > Variables for Subgroups"
+          },
+          {
+            "id": "ch23-content-en-176",
+            "kind": "heading",
+            "text": "Exponentially Weighted Moving Average"
+          },
+          {
+            "id": "ch23-content-en-177",
+            "kind": "paragraph",
+            "text": "The EWMA chart delivers an individual and moving range graph. This chart is rarely used in common statistical analysis, as it is difficult to work with. Most often, the EWMA chart is used when dealing with automatic data systems."
+          },
+          {
+            "id": "ch23-content-en-178",
             "kind": "heading",
             "text": "Cumulative Sum"
           },
           {
-            "id": "ch23-content-en-152",
+            "id": "ch23-content-en-179",
             "kind": "paragraph",
             "text": "The CUSUM chart deals with the cumulative sums of the deviations of each sample as they relate to a target value. CUSUM is very adept at detecting a small shift from a target, particularly in a process that is in control. Like the EWMA, CUSUM is not a commonly used control chart for most business environments."
           }
@@ -872,21 +1088,29 @@
           },
           {
             "id": "ch23-content-zh-013",
+            "kind": "image",
+            "assetId": "fig-09208e68971931f0",
+            "src": "assets/figures/fig-09208e68971931f0.png",
+            "width": 1190,
+            "height": 745
+          },
+          {
+            "id": "ch23-content-zh-014",
             "kind": "heading",
             "text": "X 形图和 S 形图"
           },
           {
-            "id": "ch23-content-zh-014",
+            "id": "ch23-content-zh-015",
             "kind": "paragraph",
             "text": "- 数据是可变的（连续） - 数据可以分组为子组，让您绘制每个组的平均值 - 每个子组中的数据计数超过 8 - 可以轻松计算西格玛（否则，使用 x 条形图和 R） - 呈现两个图表"
           },
           {
-            "id": "ch23-content-zh-015",
+            "id": "ch23-content-zh-016",
             "kind": "paragraph",
             "text": "o X 条形控制图绘制每个子组的平均值 o S 控制图绘制标准差"
           },
           {
-            "id": "ch23-content-zh-016",
+            "id": "ch23-content-zh-017",
             "kind": "termNote",
             "rows": [
               [
@@ -896,282 +1120,410 @@
             "text": "术语说明 Standard Deviation（标准差）：衡量数据离散程度的统计量；标准差越大，波动越明显。"
           },
           {
-            "id": "ch23-content-zh-017",
+            "id": "ch23-content-zh-018",
+            "kind": "image",
+            "assetId": "fig-a3d7877381f35b70",
+            "src": "assets/figures/fig-a3d7877381f35b70.png",
+            "width": 1218,
+            "height": 770
+          },
+          {
+            "id": "ch23-content-zh-019",
             "kind": "heading",
             "text": "I & MR 图"
           },
           {
-            "id": "ch23-content-zh-018",
+            "id": "ch23-content-zh-020",
             "kind": "paragraph",
             "text": "- 数据是可变的（连续的） - 数据无法轻松分组为合理的子组，因此您必须跟踪单个数据点而不是子组均值"
           },
           {
-            "id": "ch23-content-zh-019",
+            "id": "ch23-content-zh-021",
             "kind": "paragraph",
             "text": "o 获取数据非常困难或昂贵 o 生产速度非常慢，因此等待足够的数据来创建子组将花费太多时间（例如，跟踪有关小型门诊设施中进行的手术的数据） o 产品周期时间短"
           },
           {
-            "id": "ch23-content-zh-020",
-            "kind": "heading",
-            "text": "P图"
-          },
-          {
-            "id": "ch23-content-zh-021",
-            "kind": "paragraph",
-            "text": "- 数据是离散的 - 数据以百分比（缺陷百分比）而不是计数的形式呈现 - 不需要恒定的样本/子组大小 - 绘制不合格单位（有缺陷、不符合规格）的比例 - 在以下情况下使用："
-          },
-          {
             "id": "ch23-content-zh-022",
-            "kind": "paragraph",
-            "text": "o 测量或分析数值测量是不可能的、非常耗时的，或者在经济上不可行 o 样本或子组大小不相等，因此缺陷百分比比每组缺陷数更重要（因为您无法准确比较较小组中的数字与较大组中的数字） o 数据是基于速率的，因为它来自二项式或属性过程：测量或过程是通过/失败、通过/不通过等。您不能在控制图上绘制 1 或 0，但您可以绘制每个样本中 1 或 0 的百分比。"
+            "kind": "image",
+            "assetId": "fig-34a41ae5042b4629",
+            "src": "assets/figures/fig-34a41ae5042b4629.png",
+            "width": 1218,
+            "height": 770
           },
           {
             "id": "ch23-content-zh-023",
-            "kind": "paragraph",
-            "text": "NP 图"
+            "kind": "heading",
+            "text": "P图"
           },
           {
             "id": "ch23-content-zh-024",
             "kind": "paragraph",
-            "text": "- 数据是离散的 - 数据以百分比（缺陷百分比）而不是计数的形式呈现 - 确实需要恒定的样本量才能使用；除此之外，您可以将它用于任何需要使用 p 图的地方 - 绘制每个样本大小中不合格的单位数"
+            "text": "- 数据是离散的 - 数据以百分比（缺陷百分比）而不是计数的形式呈现 - 不需要恒定的样本/子组大小 - 绘制不合格单位（有缺陷、不符合规格）的比例 - 在以下情况下使用："
           },
           {
             "id": "ch23-content-zh-025",
-            "kind": "heading",
-            "text": "U型图"
+            "kind": "paragraph",
+            "text": "o 测量或分析数值测量是不可能的、非常耗时的，或者在经济上不可行 o 样本或子组大小不相等，因此缺陷百分比比每组缺陷数更重要（因为您无法准确比较较小组中的数字与较大组中的数字） o 数据是基于速率的，因为它来自二项式或属性过程：测量或过程是通过/失败、通过/不通过等。您不能在控制图上绘制 1 或 0，但您可以绘制每个样本中 1 或 0 的百分比。"
           },
           {
             "id": "ch23-content-zh-026",
-            "kind": "paragraph",
-            "text": "- 数据是离散的 - 数据以计数（缺陷数量）的形式呈现 - 不需要恒定的样本/子组大小 - 绘制每个单位的缺陷数量 - 当数据涉及缺陷本身而不是总体缺陷产品时使用"
+            "kind": "image",
+            "assetId": "fig-9a023343575fbe39",
+            "src": "assets/figures/fig-9a023343575fbe39.png",
+            "width": 1218,
+            "height": 770
           },
           {
             "id": "ch23-content-zh-027",
-            "kind": "heading",
-            "text": "C图表"
+            "kind": "paragraph",
+            "text": "NP 图"
           },
           {
             "id": "ch23-content-zh-028",
             "kind": "paragraph",
-            "text": "- 数据是离散的 - 数据以计数（缺陷数量）的形式呈现 - 是否需要恒定的样本/子组大小 - 绘制每个样本的缺陷数量 - 当数据涉及缺陷本身而不是总体缺陷产品时使用"
+            "text": "- 数据是离散的 - 数据以百分比（缺陷百分比）而不是计数的形式呈现 - 确实需要恒定的样本量才能使用；除此之外，您可以将它用于任何需要使用 p 图的地方 - 绘制每个样本大小中不合格的单位数"
           },
           {
             "id": "ch23-content-zh-029",
-            "kind": "heading",
-            "text": "在 Minitab 中创建和读取控制图"
+            "kind": "image",
+            "assetId": "fig-97517612a9c4e2fb",
+            "src": "assets/figures/fig-97517612a9c4e2fb.png",
+            "width": 1218,
+            "height": 770
           },
           {
             "id": "ch23-content-zh-030",
             "kind": "heading",
-            "text": "X 条形图和 R 控制图或 X 条形图和 S 控制图"
+            "text": "U型图"
           },
           {
             "id": "ch23-content-zh-031",
             "kind": "paragraph",
-            "text": "为了更好地理解 Minitab 中的 X-Bar & R Chart 流程，请考虑一个现实场景。呼叫中心正在跟踪保持的呼叫数量。呼叫中心每小时随机记录 5 次特定时刻的保持呼叫数量。下面列出了 10 小时轮班的数据。"
+            "text": "- 数据是离散的 - 数据以计数（缺陷数量）的形式呈现 - 不需要恒定的样本/子组大小 - 绘制每个单位的缺陷数量 - 当数据涉及缺陷本身而不是总体缺陷产品时使用"
           },
           {
             "id": "ch23-content-zh-032",
-            "kind": "heading",
-            "text": "呼叫保持 1 14 1 12 1 15 1 11 1 10 2 25 2 10 2 13 2 15 2 9 3 15 3 10"
+            "kind": "image",
+            "assetId": "fig-894c7d104b2fa4cc",
+            "src": "assets/figures/fig-894c7d104b2fa4cc.png",
+            "width": 1218,
+            "height": 770
           },
           {
             "id": "ch23-content-zh-033",
             "kind": "heading",
-            "text": "小时"
+            "text": "C图表"
           },
           {
             "id": "ch23-content-zh-034",
             "kind": "paragraph",
-            "text": "3 13 3 10 3 11 4 12 4 13 4 10 4 15 4 15 5 9 5 11 5 13 5 8 5 16 6 15 6 13 6 11 6 13 6 12 7 10 7 10 7 12 7 11 7 10 8 13 8 13 8 9 8 12 8 6 9 12 9 15 9 14 9 11 9 12 10 15 10 14 10 14 10 8 10 9"
+            "text": "- 数据是离散的 - 数据以计数（缺陷数量）的形式呈现 - 是否需要恒定的样本/子组大小 - 绘制每个样本的缺陷数量 - 当数据涉及缺陷本身而不是总体缺陷产品时使用"
           },
           {
             "id": "ch23-content-zh-035",
-            "kind": "paragraph",
-            "text": "如果您自己进行分析，请将此信息复制到 Minitab 中。如果您不确定如何使用 Minitab 的基本数据输入或导航功能，请参阅第 25 章了解更多信息。"
+            "kind": "image",
+            "assetId": "fig-f84009929e21ed26",
+            "src": "assets/figures/fig-f84009929e21ed26.png",
+            "width": 1218,
+            "height": 770
           },
           {
             "id": "ch23-content-zh-036",
-            "kind": "paragraph",
-            "text": "所有控制图均可在统计 > 控制图下找到"
+            "kind": "heading",
+            "text": "在 Minitab 中创建和读取控制图"
           },
           {
             "id": "ch23-content-zh-037",
             "kind": "heading",
-            "text": "选择统计 > 控制图 > 子组变量 > Xbar- R"
+            "text": "X 条形图和 R 控制图或 X 条形图和 S 控制图"
           },
           {
             "id": "ch23-content-zh-038",
             "kind": "paragraph",
-            "text": "单击“图表的所有观察结果都在一列中”下的框。"
+            "text": "为了更好地理解 Minitab 中的 X-Bar & R Chart 流程，请考虑一个现实场景。呼叫中心正在跟踪保持的呼叫数量。呼叫中心每小时随机记录 5 次特定时刻的保持呼叫数量。下面列出了 10 小时轮班的数据。"
           },
           {
             "id": "ch23-content-zh-039",
             "kind": "heading",
-            "text": "单击“呼叫保持”，然后单击“选择”"
+            "text": "呼叫保持 1 14 1 12 1 15 1 11 1 10 2 25 2 10 2 13 2 15 2 9 3 15 3 10"
           },
           {
             "id": "ch23-content-zh-040",
-            "kind": "paragraph",
-            "text": "由于每小时对数据采样 5 次，因此在子组大小中输入“5”。然后单击“Xbar-R 选项”。"
+            "kind": "heading",
+            "text": "小时"
           },
           {
             "id": "ch23-content-zh-041",
-            "kind": "heading",
-            "text": "在 Xbar-R 选项对话框中，单击“测试”"
+            "kind": "paragraph",
+            "text": "3 13 3 10 3 11 4 12 4 13 4 10 4 15 4 15 5 9 5 11 5 13 5 8 5 16 6 15 6 13 6 11 6 13 6 12 7 10 7 10 7 12 7 11 7 10 8 13 8 13 8 9 8 12 8 6 9 12 9 15 9 14 9 11 9 12 10 15 10 14 10 14 10 8 10 9"
           },
           {
             "id": "ch23-content-zh-042",
             "kind": "paragraph",
-            "text": "在“测试”选项卡的下拉菜单中，选择“执行所有特殊原因测试”。"
+            "text": "如果您自己进行分析，请将此信息复制到 Minitab 中。如果您不确定如何使用 Minitab 的基本数据输入或导航功能，请参阅第 25 章了解更多信息。"
           },
           {
             "id": "ch23-content-zh-043",
             "kind": "paragraph",
-            "text": "该选项告诉 Minitab 执行第 16 章中介绍的控制检验。如果控制图上的一个数据点或一系列数据点未通过这些检验中的任何一个，Minitab 将以红色突出显示它们，以便六西格玛专家轻松判断过程是否可能失控。"
+            "text": "所有控制图均可在统计 > 控制图下找到"
           },
           {
             "id": "ch23-content-zh-044",
-            "kind": "paragraph",
-            "text": "单击选项对话框上的“确定”。"
+            "kind": "image",
+            "assetId": "fig-9e82795e8c317a12",
+            "src": "assets/figures/fig-9e82795e8c317a12.png",
+            "width": 861,
+            "height": 651
           },
           {
             "id": "ch23-content-zh-045",
-            "kind": "paragraph",
-            "text": "单击 Xbar-R 图表对话框中的确定。"
+            "kind": "heading",
+            "text": "选择统计 > 控制图 > 子组变量 > Xbar- R"
           },
           {
             "id": "ch23-content-zh-046",
-            "kind": "paragraph",
-            "text": "Minitab 会为任何失败的控制检验生成图表和文本描述。"
+            "kind": "image",
+            "assetId": "fig-7cd5fc16b152c988",
+            "src": "assets/figures/fig-7cd5fc16b152c988.png",
+            "width": 1163,
+            "height": 166
           },
           {
             "id": "ch23-content-zh-047",
-            "kind": "heading",
-            "text": "保留呼叫的 R 图表的测试结果"
+            "kind": "paragraph",
+            "text": "单击“图表的所有观察结果都在一列中”下的框。"
           },
           {
             "id": "ch23-content-zh-048",
-            "kind": "paragraph",
-            "text": "测试 1. 距中心线超过 3.00 个标准差的一个点。测试失败点：2"
+            "kind": "image",
+            "assetId": "fig-d66f225c1df80f69",
+            "src": "assets/figures/fig-d66f225c1df80f69.png",
+            "width": 991,
+            "height": 655
           },
           {
             "id": "ch23-content-zh-049",
-            "kind": "paragraph",
-            "text": "您可以在上面看到，范围的控制图在点 2 处失败 - 有一个点距中心线超过 3 个标准差。所有其他点均在控制参数范围内，并且样本均值（x 条形图）图表也在控制范围内。这意味着每小时平均等待呼叫的数量受到控制。然而，如果没有第 2 小时，具体数据点的范围比其他小时大得多，这意味着收集的一个或多个样本非常高。"
+            "kind": "heading",
+            "text": "单击“呼叫保持”，然后单击“选择”"
           },
           {
             "id": "ch23-content-zh-050",
-            "kind": "paragraph",
-            "text": "查看此图表的人可能不会认为该过程完全失控，但他们会想要研究第 2 小时的样本。发生了什么导致范围发生巨大变化？是否记录了错误的号码？是否有多名员工进行了短暂的、计划外的休息，导致等待的电话突然增加？控制图可以在这些小问题变成更大的系统性问题之前指出它们。"
+            "kind": "image",
+            "assetId": "fig-3343115411aabf88",
+            "src": "assets/figures/fig-3343115411aabf88.png",
+            "width": 987,
+            "height": 661
           },
           {
             "id": "ch23-content-zh-051",
             "kind": "paragraph",
-            "text": "创建 X 条形图和 S 控制图的步骤与上述步骤相同，但您可以从统计 > 控制图 > 子组变量 > Xbar-S 开始"
+            "text": "由于每小时对数据采样 5 次，因此在子组大小中输入“5”。然后单击“Xbar-R 选项”。"
           },
           {
             "id": "ch23-content-zh-052",
-            "kind": "heading",
-            "text": "I-MR图"
+            "kind": "image",
+            "assetId": "fig-ece51dbd56c8e5c6",
+            "src": "assets/figures/fig-ece51dbd56c8e5c6.png",
+            "width": 985,
+            "height": 672
           },
           {
             "id": "ch23-content-zh-053",
-            "kind": "paragraph",
-            "text": "当您不将数据分组为子组时，将使用 I-MR（个体和移动极差）图表。收集足够的样本进行分组是不可行的，或者由于某种原因在数据点级别查看图表很重要。"
+            "kind": "heading",
+            "text": "在 Xbar-R 选项对话框中，单击“测试”"
           },
           {
             "id": "ch23-content-zh-054",
-            "kind": "paragraph",
-            "text": "例如，一家中型汽车经销商想要衡量每天完成的销售数量。 大多数汽车经销商每天不会完成数百笔销售，因此每小时或批量跟踪不会为单月数据提供太多信息。如果查看一年的数据，经销商可能会按周进行分组；否则，I-MR 图是一个不错的选择。"
+            "kind": "image",
+            "assetId": "fig-50ee2a1e8da4d287",
+            "src": "assets/figures/fig-50ee2a1e8da4d287.png",
+            "width": 849,
+            "height": 741
           },
           {
             "id": "ch23-content-zh-055",
             "kind": "paragraph",
-            "text": "要使用此示例，请将下面的销售数据复制到 Minitab 中。"
+            "text": "在“测试”选项卡的下拉菜单中，选择“执行所有特殊原因测试”。"
           },
           {
             "id": "ch23-content-zh-056",
-            "kind": "paragraph",
-            "text": "每日销售结束"
+            "kind": "image",
+            "assetId": "fig-89ad850a55df058e",
+            "src": "assets/figures/fig-89ad850a55df058e.png",
+            "width": 867,
+            "height": 741
           },
           {
             "id": "ch23-content-zh-057",
             "kind": "paragraph",
-            "text": "19 17 17 17 20 23 22 18 19 19 18 20 21 19 24 16 15 21 21 20 19 20"
+            "text": "该选项告诉 Minitab 执行第 16 章中介绍的控制检验。如果控制图上的一个数据点或一系列数据点未通过这些检验中的任何一个，Minitab 将以红色突出显示它们，以便六西格玛专家轻松判断过程是否可能失控。"
           },
           {
             "id": "ch23-content-zh-058",
-            "kind": "heading",
-            "text": "选择统计 > 控制图 > 个体变量 > I-MR"
+            "kind": "paragraph",
+            "text": "单击选项对话框上的“确定”。"
           },
           {
             "id": "ch23-content-zh-059",
             "kind": "paragraph",
-            "text": "完成类似于 X 条形图和 R 图表完成的步骤的步骤："
+            "text": "单击 Xbar-R 图表对话框中的确定。"
           },
           {
             "id": "ch23-content-zh-060",
             "kind": "paragraph",
-            "text": "1. 单击“变量”下的框。 2. 单击列列表中的“每日关闭销售”，然后单击选择。 3. 单击“I-MR 选项” 4. 单击“测试” 5. 在下拉框中，选择“执行所有特殊原因测试”。 6. 单击“确定” 7. 单击“确定”"
+            "text": "Minitab 会为任何失败的控制检验生成图表和文本描述。"
           },
           {
             "id": "ch23-content-zh-061",
-            "kind": "paragraph",
-            "text": "Minitab 生成 I-MR 图表以及有关是否有测试失败的数据。"
+            "kind": "image",
+            "assetId": "fig-527bbee4aa614eec",
+            "src": "assets/figures/fig-527bbee4aa614eec.png",
+            "width": 1218,
+            "height": 770
           },
           {
             "id": "ch23-content-zh-062",
             "kind": "heading",
-            "text": "I-MR 每日关闭销售图表"
+            "text": "保留呼叫的 R 图表的测试结果"
           },
           {
             "id": "ch23-content-zh-063",
-            "kind": "heading",
-            "text": "MR 销售图表测试结果每日关闭"
+            "kind": "paragraph",
+            "text": "测试 1. 距中心线超过 3.00 个标准差的一个点。测试失败点：2"
           },
           {
             "id": "ch23-content-zh-064",
             "kind": "paragraph",
-            "text": "测试 1. 距中心线超过 3.00 个标准差的一个点。"
+            "text": "您可以在上面看到，范围的控制图在点 2 处失败 - 有一个点距中心线超过 3 个标准差。所有其他点均在控制参数范围内，并且样本均值（x 条形图）图表也在控制范围内。这意味着每小时平均等待呼叫的数量受到控制。然而，如果没有第 2 小时，具体数据点的范围比其他小时大得多，这意味着收集的一个或多个样本非常高。"
           },
           {
             "id": "ch23-content-zh-065",
-            "kind": "heading",
-            "text": "测试失败点：16"
+            "kind": "paragraph",
+            "text": "查看此图表的人可能不会认为该过程完全失控，但他们会想要研究第 2 小时的样本。发生了什么导致范围发生巨大变化？是否记录了错误的号码？是否有多名员工进行了短暂的、计划外的休息，导致等待的电话突然增加？控制图可以在这些小问题变成更大的系统性问题之前指出它们。"
           },
           {
             "id": "ch23-content-zh-066",
             "kind": "paragraph",
-            "text": "在这种特殊情况下，顶部单独图表中描绘的每月销售数量处于控制范围内。移动极差（每天的数字之间有多少变化）受到控制，但点 16 除外。如果查看数据，您会发现点 16 和点 17 之间存在 8 销售差异。这是日常数据点差异最大的点，这可能是测试失败的原因。"
+            "text": "创建 X 条形图和 S 控制图的步骤与上述步骤相同，但您可以从统计 > 控制图 > 子组变量 > Xbar-S 开始"
           },
           {
             "id": "ch23-content-zh-067",
-            "kind": "paragraph",
-            "text": "处理这些数据的汽车经销商或六西格玛团队可能不会太在意这一点。当你从实际角度考虑时，可能是一些前一天开始的销售没有结束，这人为地增加了当天的数量，并导致价差突然超出正常水平。在这种情况下，经销商或六西格玛团队只需记下这一点，并密切关注控制图，以防止将来发生类似的测试失败，这些失败可能表明流程中存在某种类型的模式或问题。"
+            "kind": "heading",
+            "text": "I-MR图"
           },
           {
             "id": "ch23-content-zh-068",
-            "kind": "heading",
-            "text": "P图"
+            "kind": "paragraph",
+            "text": "当您不将数据分组为子组时，将使用 I-MR（个体和移动极差）图表。收集足够的样本进行分组是不可行的，或者由于某种原因在数据点级别查看图表很重要。"
           },
           {
             "id": "ch23-content-zh-069",
             "kind": "paragraph",
-            "text": "请记住，p 图用于跟踪属性、比率数据。 它可能是最常用的基于属性的控制图之一，因为比率通常比实际属性数据更容易使用，特别是因为您不必担心确保相同的样本或子组大小。您还可以在同一报告中组合多种类型的缺陷，因为 p 图通常关注的是产品、零件或测试是否通过或失败，而不是导致通过或失败的缺陷的具体情况。"
+            "text": "例如，一家中型汽车经销商想要衡量每天完成的销售数量。 大多数汽车经销商每天不会完成数百笔销售，因此每小时或批量跟踪不会为单月数据提供太多信息。如果查看一年的数据，经销商可能会按周进行分组；否则，I-MR 图是一个不错的选择。"
           },
           {
             "id": "ch23-content-zh-070",
             "kind": "paragraph",
-            "text": "在管理层报告的数据类型也往往由 p 图特征来补充。执行领导通常想了解审核结果、首轮良率、废品率或缺陷率，所有这些都可以用 p 图表来说明。"
+            "text": "要使用此示例，请将下面的销售数据复制到 Minitab 中。"
           },
           {
             "id": "ch23-content-zh-071",
             "kind": "paragraph",
-            "text": "比例数据通常是六西格玛团队最先获得的数据之一——甚至在六西格玛团队与流程关联之前，许多业务操作员和经理都会捕获通过/失败类型的数据。这意味着六西格玛团队也许能够根据比例数据创建第一个基线控制图，并看到随着流程改进，比率有所提高。"
+            "text": "每日销售结束"
           },
           {
             "id": "ch23-content-zh-072",
+            "kind": "paragraph",
+            "text": "19 17 17 17 20 23 22 18 19 19 18 20 21 19 24 16 15 21 21 20 19 20"
+          },
+          {
+            "id": "ch23-content-zh-073",
+            "kind": "heading",
+            "text": "选择统计 > 控制图 > 个体变量 > I-MR"
+          },
+          {
+            "id": "ch23-content-zh-074",
+            "kind": "image",
+            "assetId": "fig-a1488d1ffb80f86b",
+            "src": "assets/figures/fig-a1488d1ffb80f86b.png",
+            "width": 1077,
+            "height": 177
+          },
+          {
+            "id": "ch23-content-zh-075",
+            "kind": "paragraph",
+            "text": "完成类似于 X 条形图和 R 图表完成的步骤的步骤："
+          },
+          {
+            "id": "ch23-content-zh-076",
+            "kind": "paragraph",
+            "text": "1. 单击“变量”下的框。 2. 单击列列表中的“每日关闭销售”，然后单击选择。 3. 单击“I-MR 选项” 4. 单击“测试” 5. 在下拉框中，选择“执行所有特殊原因测试”。 6. 单击“确定” 7. 单击“确定”"
+          },
+          {
+            "id": "ch23-content-zh-077",
+            "kind": "paragraph",
+            "text": "Minitab 生成 I-MR 图表以及有关是否有测试失败的数据。"
+          },
+          {
+            "id": "ch23-content-zh-078",
+            "kind": "image",
+            "assetId": "fig-0ac7c08332bcde2e",
+            "src": "assets/figures/fig-0ac7c08332bcde2e.png",
+            "width": 1218,
+            "height": 770
+          },
+          {
+            "id": "ch23-content-zh-079",
+            "kind": "heading",
+            "text": "I-MR 每日关闭销售图表"
+          },
+          {
+            "id": "ch23-content-zh-080",
+            "kind": "heading",
+            "text": "MR 销售图表测试结果每日关闭"
+          },
+          {
+            "id": "ch23-content-zh-081",
+            "kind": "paragraph",
+            "text": "测试 1. 距中心线超过 3.00 个标准差的一个点。"
+          },
+          {
+            "id": "ch23-content-zh-082",
+            "kind": "heading",
+            "text": "测试失败点：16"
+          },
+          {
+            "id": "ch23-content-zh-083",
+            "kind": "paragraph",
+            "text": "在这种特殊情况下，顶部单独图表中描绘的每月销售数量处于控制范围内。移动极差（每天的数字之间有多少变化）受到控制，但点 16 除外。如果查看数据，您会发现点 16 和点 17 之间存在 8 销售差异。这是日常数据点差异最大的点，这可能是测试失败的原因。"
+          },
+          {
+            "id": "ch23-content-zh-084",
+            "kind": "paragraph",
+            "text": "处理这些数据的汽车经销商或六西格玛团队可能不会太在意这一点。当你从实际角度考虑时，可能是一些前一天开始的销售没有结束，这人为地增加了当天的数量，并导致价差突然超出正常水平。在这种情况下，经销商或六西格玛团队只需记下这一点，并密切关注控制图，以防止将来发生类似的测试失败，这些失败可能表明流程中存在某种类型的模式或问题。"
+          },
+          {
+            "id": "ch23-content-zh-085",
+            "kind": "heading",
+            "text": "P图"
+          },
+          {
+            "id": "ch23-content-zh-086",
+            "kind": "paragraph",
+            "text": "请记住，p 图用于跟踪属性、比率数据。 它可能是最常用的基于属性的控制图之一，因为比率通常比实际属性数据更容易使用，特别是因为您不必担心确保相同的样本或子组大小。您还可以在同一报告中组合多种类型的缺陷，因为 p 图通常关注的是产品、零件或测试是否通过或失败，而不是导致通过或失败的缺陷的具体情况。"
+          },
+          {
+            "id": "ch23-content-zh-087",
+            "kind": "paragraph",
+            "text": "在管理层报告的数据类型也往往由 p 图特征来补充。执行领导通常想了解审核结果、首轮良率、废品率或缺陷率，所有这些都可以用 p 图表来说明。"
+          },
+          {
+            "id": "ch23-content-zh-088",
+            "kind": "paragraph",
+            "text": "比例数据通常是六西格玛团队最先获得的数据之一——甚至在六西格玛团队与流程关联之前，许多业务操作员和经理都会捕获通过/失败类型的数据。这意味着六西格玛团队也许能够根据比例数据创建第一个基线控制图，并看到随着流程改进，比率有所提高。"
+          },
+          {
+            "id": "ch23-content-zh-089",
             "kind": "termNote",
             "rows": [
               [
@@ -1181,232 +1533,288 @@
             "text": "术语说明 Baseline（基线）：改进前的当前表现水平，是后续比较改进效果的参照。"
           },
           {
-            "id": "ch23-content-zh-073",
+            "id": "ch23-content-zh-090",
             "kind": "paragraph",
             "text": "要了解如何在 Minitab 中创建 p 图表，请考虑以下实际场景。一家专业印刷公司发现用于打印名片的打印过程可能存在问题。客户报告缺陷率很高。该公司开始更密切地监控流程，每天检查 100 个样本，以确定每张印刷卡上是否存在任何缺陷。结果记录在下面的数据表中。"
           },
           {
-            "id": "ch23-content-zh-074",
+            "id": "ch23-content-zh-091",
             "kind": "paragraph",
             "text": "如果您正在创建控制图，请将此数据复制到 Minitab 中。"
           },
           {
-            "id": "ch23-content-zh-075",
+            "id": "ch23-content-zh-092",
             "kind": "heading",
             "text": "样品缺陷"
           },
           {
-            "id": "ch23-content-zh-076",
+            "id": "ch23-content-zh-093",
             "kind": "paragraph",
             "text": "100 5 100 2 100 1 100 0 100 0 100 2 100 1 100 0 100 6 100 0 100 7 100 0 100 9 100 0 100 0 100 1 100 2 100 0 100 7 100 0"
           },
           {
-            "id": "ch23-content-zh-077",
+            "id": "ch23-content-zh-094",
             "kind": "paragraph",
             "text": "要根据此数据创建 p 图表，请首先转至统计 > 控制图 > 属性图 > P"
           },
           {
-            "id": "ch23-content-zh-078",
-            "kind": "paragraph",
-            "text": "按照以下步骤在对话框中输入数据，如下图所示。"
-          },
-          {
-            "id": "ch23-content-zh-079",
-            "kind": "paragraph",
-            "text": "1. 单击变量下的框。 2. 单击左栏中的“缺陷”。 3. 单击左栏下方的“选择”，在“变量”框中选择“缺陷”。 4. 单击“子组大小”旁边的框。 5. 单击左栏中的“样本”。 6. 单击左栏下方的“选择”，将“样本”选择到“子组”框中。 7. 单击 P 图表选项。"
-          },
-          {
-            "id": "ch23-content-zh-080",
-            "kind": "heading",
-            "text": "8. 单击“测试”"
-          },
-          {
-            "id": "ch23-content-zh-081",
-            "kind": "paragraph",
-            "text": "9. 在下拉框中选择“执行所有特殊原因测试”"
-          },
-          {
-            "id": "ch23-content-zh-082",
-            "kind": "paragraph",
-            "text": "10. 单击“确定”。 11. 单击“确定”。"
-          },
-          {
-            "id": "ch23-content-zh-083",
-            "kind": "paragraph",
-            "text": "Minitab 生成缺陷率控制图以及控制测试的测试结果。"
-          },
-          {
-            "id": "ch23-content-zh-084",
-            "kind": "heading",
-            "text": "缺陷 P 图的测试结果"
-          },
-          {
-            "id": "ch23-content-zh-085",
-            "kind": "paragraph",
-            "text": "测试 1. 距中心线超过 3.00 个标准差的一个点。测试失败点：11、13、19"
-          },
-          {
-            "id": "ch23-content-zh-086",
-            "kind": "paragraph",
-            "text": "在这种情况下，考虑到三点失败，过程中可能存在控制问题。流程所有者或与此流程相关的六西格玛团队希望调查样本和流程，以查明此处是否存在持续的流程问题或特定于样本的问题。"
-          },
-          {
-            "id": "ch23-content-zh-087",
-            "kind": "paragraph",
-            "text": "创建其他属性控制图（包括 np、u、c 控制图）的步骤与创建 p 图的步骤相同。"
-          },
-          {
-            "id": "ch23-content-zh-088",
-            "kind": "heading",
-            "text": "练习解释控制图"
-          },
-          {
-            "id": "ch23-content-zh-089",
-            "kind": "paragraph",
-            "text": "使用 Minitab，创建控制图只需遵循上述步骤并进行一些练习即可确定哪个控制图适合具体情况，并为控制图设置数据。更困难的部分是解释控制图以做出有效的业务决策或建议。在本节中，您将查看各种现实场景的控制图并练习解释它们。"
-          },
-          {
-            "id": "ch23-content-zh-090",
-            "kind": "heading",
-            "text": "帮助台票务流程"
-          },
-          {
-            "id": "ch23-content-zh-091",
-            "kind": "paragraph",
-            "text": "办公室的技术支持台每小时跟踪打开和关闭的票证数量。该数据可在下表中找到。"
-          },
-          {
-            "id": "ch23-content-zh-092",
-            "kind": "heading",
-            "text": "传入"
-          },
-          {
-            "id": "ch23-content-zh-093",
-            "kind": "heading",
-            "text": "门票"
-          },
-          {
-            "id": "ch23-content-zh-094",
-            "kind": "paragraph",
-            "text": "完整门票 10 8 12 10 15 12 7 9 2 5 8 9 9 8 11 12 1 2 16 14 18 17 5 6 8 7 14 13 7 6 6 7 17 12 8 10 5 6"
-          },
-          {
             "id": "ch23-content-zh-095",
-            "kind": "paragraph",
-            "text": "管理层希望仅根据这些信息就可以了解帮助台流程是否运行良好。六西格玛专家可以做一些事情来为管理层提供初步答案。"
+            "kind": "image",
+            "assetId": "fig-429f69c13d957cb0",
+            "src": "assets/figures/fig-429f69c13d957cb0.png",
+            "width": 1053,
+            "height": 258
           },
           {
             "id": "ch23-content-zh-096",
             "kind": "paragraph",
-            "text": "首先，您可以为完整任务数据创建 I-MR 图表。为什么使用 I-MR 图？我们没有足够的数据来创建 X 条形图，因为我们只有几个子组。"
+            "text": "按照以下步骤在对话框中输入数据，如下图所示。"
           },
           {
             "id": "ch23-content-zh-097",
             "kind": "paragraph",
-            "text": "I-MR 图表如下所示，您可以看到移动范围或每小时关闭的票数都没有控制失败。"
+            "text": "1. 单击变量下的框。 2. 单击左栏中的“缺陷”。 3. 单击左栏下方的“选择”，在“变量”框中选择“缺陷”。 4. 单击“子组大小”旁边的框。 5. 单击左栏中的“样本”。 6. 单击左栏下方的“选择”，将“样本”选择到“子组”框中。 7. 单击 P 图表选项。"
           },
           {
             "id": "ch23-content-zh-098",
-            "kind": "paragraph",
-            "text": "不过，有人可能会指出，完成的工单数量的控制图只能告诉我们每小时完成的工作量没有太大偏差，这是事实。该控制图实际上并未考虑每小时的工作量以及服务台是否正在清理该工作。"
+            "kind": "image",
+            "assetId": "fig-63d83b99ed7bdc85",
+            "src": "assets/figures/fig-63d83b99ed7bdc85.png",
+            "width": 975,
+            "height": 651
           },
           {
             "id": "ch23-content-zh-099",
-            "kind": "paragraph",
-            "text": "因此，六西格玛专家可能会在数据中添加另一列。此列记录了当天该时刻仍有多少张门票处于开放状态。"
+            "kind": "heading",
+            "text": "8. 单击“测试”"
           },
           {
             "id": "ch23-content-zh-100",
-            "kind": "heading",
-            "text": "传入"
+            "kind": "paragraph",
+            "text": "9. 在下拉框中选择“执行所有特殊原因测试”"
           },
           {
             "id": "ch23-content-zh-101",
-            "kind": "heading",
-            "text": "门票"
+            "kind": "image",
+            "assetId": "fig-e9d85972bbdec852",
+            "src": "assets/figures/fig-e9d85972bbdec852.png",
+            "width": 849,
+            "height": 741
           },
           {
             "id": "ch23-content-zh-102",
-            "kind": "heading",
-            "text": "完成"
+            "kind": "image",
+            "assetId": "fig-305049f26143b29d",
+            "src": "assets/figures/fig-305049f26143b29d.png",
+            "width": 1172,
+            "height": 215
           },
           {
             "id": "ch23-content-zh-103",
-            "kind": "heading",
-            "text": "门票"
+            "kind": "paragraph",
+            "text": "10. 单击“确定”。 11. 单击“确定”。"
           },
           {
             "id": "ch23-content-zh-104",
-            "kind": "heading",
-            "text": "未解决的工单 10 8 2 12 10 4 15 12 7 7 9 5 2 5 2 8 9 1 9 8 2 11 12 1 1 2 0"
+            "kind": "paragraph",
+            "text": "Minitab 生成缺陷率控制图以及控制测试的测试结果。"
           },
           {
             "id": "ch23-content-zh-105",
-            "kind": "paragraph",
-            "text": "16 14 2 18 17 3 5 6 2 8 7 3 14 13 4 7 6 5 6 7 4 17 12 9 8 10 7 5 6 6"
+            "kind": "image",
+            "assetId": "fig-1e7697d62648ff83",
+            "src": "assets/figures/fig-1e7697d62648ff83.png",
+            "width": 1218,
+            "height": 770
           },
           {
             "id": "ch23-content-zh-106",
-            "kind": "paragraph",
-            "text": "创建该图的 I-MR 图表会产生截然不同的结果。"
+            "kind": "heading",
+            "text": "缺陷 P 图的测试结果"
           },
           {
             "id": "ch23-content-zh-107",
             "kind": "paragraph",
-            "text": "未解决的票据 I 图表的测试结果 测试 1. 与中心线的标准偏差超过 3.00 个点。测试失败点：17 测试 2。在中心线同一侧连续 9 个点。测试失败点： 13 测试 5。 3 个点中的 2 个与中心线（CL 一侧）的标准差超过 2 个。测试失败点：18"
+            "text": "测试 1. 距中心线超过 3.00 个标准差的一个点。测试失败点：11、13、19"
           },
           {
             "id": "ch23-content-zh-108",
             "kind": "paragraph",
-            "text": "测试 6。 5 个点中的 4 个与中心线（CL 一侧）的标准差超过 1 个。测试失败点：8、9、10、12"
+            "text": "在这种情况下，考虑到三点失败，过程中可能存在控制问题。流程所有者或与此流程相关的六西格玛团队希望调查样本和流程，以查明此处是否存在持续的流程问题或特定于样本的问题。"
           },
           {
             "id": "ch23-content-zh-109",
             "kind": "paragraph",
-            "text": "图表上的许多点的许多测试都失败了。这是一件坏事吗？不一定，只要理解了这个过程。失败的前五个点之所以失败，是因为它们位于中心线下方。这意味着该流程每小时留下的未处理票数比预期要少。造成这样的结果可能有几个原因："
+            "text": "创建其他属性控制图（包括 np、u、c 控制图）的步骤与创建 p 图的步骤相同。"
           },
           {
             "id": "ch23-content-zh-110",
-            "kind": "paragraph",
-            "text": "- 该团队在这些时间关闭门票方面特别高效。 - 该团队收到的票证在这些时间内异常容易处理和关闭。 - 团队在没有真正解决问题的情况下关闭了票证。 - 团队收到的工作票数减少了。"
+            "kind": "heading",
+            "text": "练习解释控制图"
           },
           {
             "id": "ch23-content-zh-111",
             "kind": "paragraph",
-            "text": "前两个原因是积极的，第三个原因可能表明团队存在问题。最后一个原因可能是积极的，也可能是消极的：票数减少是因为一切都比正常情况更好，还是票务软件存在问题？"
+            "text": "使用 Minitab，创建控制图只需遵循上述步骤并进行一些练习即可确定哪个控制图适合具体情况，并为控制图设置数据。更困难的部分是解释控制图以做出有效的业务决策或建议。在本节中，您将查看各种现实场景的控制图并练习解释它们。"
           },
           {
             "id": "ch23-content-zh-112",
-            "kind": "paragraph",
-            "text": "所有这些问题都值得研究——它们不仅告诉团队流程是否可能失控，而且还提供了有价值的业务信息。"
+            "kind": "heading",
+            "text": "帮助台票务流程"
           },
           {
             "id": "ch23-content-zh-113",
             "kind": "paragraph",
-            "text": "该图表上接下来失控的两点是由于上升趋势造成的——这是服务台经理不希望看到的。他或她希望继续监控该图表，看看该过程是否会自行纠正或继续呈上升趋势。"
+            "text": "办公室的技术支持台每小时跟踪打开和关闭的票证数量。该数据可在下表中找到。"
           },
           {
             "id": "ch23-content-zh-114",
             "kind": "heading",
-            "text": "运行假设检验"
+            "text": "传入"
           },
           {
             "id": "ch23-content-zh-115",
-            "kind": "paragraph",
-            "text": "有了所有这些信息，六西格玛专家甚至可以根据任何控制图进行假设检验。他或她可能会运行 2 样本 T 检验，以确定团队平均关闭的工单数量是否与打开的工单数量相同。如果答案是肯定的，那么帮助台可能表现良好。如果答案是否定的，那么团队可能会问“平均有多少票没有关闭服务台？”"
+            "kind": "heading",
+            "text": "门票"
           },
           {
             "id": "ch23-content-zh-116",
             "kind": "paragraph",
-            "text": "在 Minitab 中运行 2 样本 T 检验的结果如下所示。"
+            "text": "完整门票 10 8 12 10 15 12 7 9 2 5 8 9 9 8 11 12 1 2 16 14 18 17 5 6 8 7 14 13 7 6 6 7 17 12 8 10 5 6"
           },
           {
             "id": "ch23-content-zh-117",
             "kind": "paragraph",
-            "text": "两个样本 T 检验和 CI：传入门票、完整门票 传入门票与完整门票的两个样本 T N 均值 StDev SE 平均传入门票 19 9.42 4.89 1.1 完整门票 19 9.11 3.62 0.83 差异 = μ（传入门票）- μ（完整门票） 差异估计值：0.32 差异的 95% CI： (-2.52, 3.16) 差异 T 检验 = 0（vs ≠）：T 值 = 0.23 P 值 = 0.822 DF = 33"
+            "text": "管理层希望仅根据这些信息就可以了解帮助台流程是否运行良好。六西格玛专家可以做一些事情来为管理层提供初步答案。"
           },
           {
             "id": "ch23-content-zh-118",
+            "kind": "paragraph",
+            "text": "首先，您可以为完整任务数据创建 I-MR 图表。为什么使用 I-MR 图？我们没有足够的数据来创建 X 条形图，因为我们只有几个子组。"
+          },
+          {
+            "id": "ch23-content-zh-119",
+            "kind": "paragraph",
+            "text": "I-MR 图表如下所示，您可以看到移动范围或每小时关闭的票数都没有控制失败。"
+          },
+          {
+            "id": "ch23-content-zh-120",
+            "kind": "image",
+            "assetId": "fig-0636555fbc9e16ac",
+            "src": "assets/figures/fig-0636555fbc9e16ac.png",
+            "width": 1218,
+            "height": 773
+          },
+          {
+            "id": "ch23-content-zh-121",
+            "kind": "paragraph",
+            "text": "不过，有人可能会指出，完成的工单数量的控制图只能告诉我们每小时完成的工作量没有太大偏差，这是事实。该控制图实际上并未考虑每小时的工作量以及服务台是否正在清理该工作。"
+          },
+          {
+            "id": "ch23-content-zh-122",
+            "kind": "paragraph",
+            "text": "因此，六西格玛专家可能会在数据中添加另一列。此列记录了当天该时刻仍有多少张门票处于开放状态。"
+          },
+          {
+            "id": "ch23-content-zh-123",
+            "kind": "heading",
+            "text": "传入"
+          },
+          {
+            "id": "ch23-content-zh-124",
+            "kind": "heading",
+            "text": "门票"
+          },
+          {
+            "id": "ch23-content-zh-125",
+            "kind": "heading",
+            "text": "完成"
+          },
+          {
+            "id": "ch23-content-zh-126",
+            "kind": "heading",
+            "text": "门票"
+          },
+          {
+            "id": "ch23-content-zh-127",
+            "kind": "heading",
+            "text": "未解决的工单 10 8 2 12 10 4 15 12 7 7 9 5 2 5 2 8 9 1 9 8 2 11 12 1 1 2 0"
+          },
+          {
+            "id": "ch23-content-zh-128",
+            "kind": "paragraph",
+            "text": "16 14 2 18 17 3 5 6 2 8 7 3 14 13 4 7 6 5 6 7 4 17 12 9 8 10 7 5 6 6"
+          },
+          {
+            "id": "ch23-content-zh-129",
+            "kind": "paragraph",
+            "text": "创建该图的 I-MR 图表会产生截然不同的结果。"
+          },
+          {
+            "id": "ch23-content-zh-130",
+            "kind": "image",
+            "assetId": "fig-4882bcbf59715519",
+            "src": "assets/figures/fig-4882bcbf59715519.png",
+            "width": 1218,
+            "height": 770
+          },
+          {
+            "id": "ch23-content-zh-131",
+            "kind": "paragraph",
+            "text": "未解决的票据 I 图表的测试结果 测试 1. 与中心线的标准偏差超过 3.00 个点。测试失败点：17 测试 2。在中心线同一侧连续 9 个点。测试失败点： 13 测试 5。 3 个点中的 2 个与中心线（CL 一侧）的标准差超过 2 个。测试失败点：18"
+          },
+          {
+            "id": "ch23-content-zh-132",
+            "kind": "paragraph",
+            "text": "测试 6。 5 个点中的 4 个与中心线（CL 一侧）的标准差超过 1 个。测试失败点：8、9、10、12"
+          },
+          {
+            "id": "ch23-content-zh-133",
+            "kind": "paragraph",
+            "text": "图表上的许多点的许多测试都失败了。这是一件坏事吗？不一定，只要理解了这个过程。失败的前五个点之所以失败，是因为它们位于中心线下方。这意味着该流程每小时留下的未处理票数比预期要少。造成这样的结果可能有几个原因："
+          },
+          {
+            "id": "ch23-content-zh-134",
+            "kind": "paragraph",
+            "text": "- 该团队在这些时间关闭门票方面特别高效。 - 该团队收到的票证在这些时间内异常容易处理和关闭。 - 团队在没有真正解决问题的情况下关闭了票证。 - 团队收到的工作票数减少了。"
+          },
+          {
+            "id": "ch23-content-zh-135",
+            "kind": "paragraph",
+            "text": "前两个原因是积极的，第三个原因可能表明团队存在问题。最后一个原因可能是积极的，也可能是消极的：票数减少是因为一切都比正常情况更好，还是票务软件存在问题？"
+          },
+          {
+            "id": "ch23-content-zh-136",
+            "kind": "paragraph",
+            "text": "所有这些问题都值得研究——它们不仅告诉团队流程是否可能失控，而且还提供了有价值的业务信息。"
+          },
+          {
+            "id": "ch23-content-zh-137",
+            "kind": "paragraph",
+            "text": "该图表上接下来失控的两点是由于上升趋势造成的——这是服务台经理不希望看到的。他或她希望继续监控该图表，看看该过程是否会自行纠正或继续呈上升趋势。"
+          },
+          {
+            "id": "ch23-content-zh-138",
+            "kind": "heading",
+            "text": "运行假设检验"
+          },
+          {
+            "id": "ch23-content-zh-139",
+            "kind": "paragraph",
+            "text": "有了所有这些信息，六西格玛专家甚至可以根据任何控制图进行假设检验。他或她可能会运行 2 样本 T 检验，以确定团队平均关闭的工单数量是否与打开的工单数量相同。如果答案是肯定的，那么帮助台可能表现良好。如果答案是否定的，那么团队可能会问“平均有多少票没有关闭服务台？”"
+          },
+          {
+            "id": "ch23-content-zh-140",
+            "kind": "paragraph",
+            "text": "在 Minitab 中运行 2 样本 T 检验的结果如下所示。"
+          },
+          {
+            "id": "ch23-content-zh-141",
+            "kind": "paragraph",
+            "text": "两个样本 T 检验和 CI：传入门票、完整门票 传入门票与完整门票的两个样本 T N 均值 StDev SE 平均传入门票 19 9.42 4.89 1.1 完整门票 19 9.11 3.62 0.83 差异 = μ（传入门票）- μ（完整门票） 差异估计值：0.32 差异的 95% CI： (-2.52, 3.16) 差异 T 检验 = 0（vs ≠）：T 值 = 0.23 P 值 = 0.822 DF = 33"
+          },
+          {
+            "id": "ch23-content-zh-142",
             "kind": "termNote",
             "rows": [
               [
@@ -1416,217 +1824,459 @@
             "text": "术语说明 p-value（p 值）：在原假设成立时观察到当前或更极端结果的概率；常用于判断显著性。"
           },
           {
-            "id": "ch23-content-zh-119",
+            "id": "ch23-content-zh-143",
             "kind": "paragraph",
             "text": "诚然，在样本量为 19 的情况下，出现 II 类错误的可能性相对较高，但 p 值也非常有利于接受原假设，即已开票和已结票的数据在统计上是相同的。有了这些信息，六西格玛团队可能会积累更多数据，然后再进行另一次测试来验证这些结果。"
           },
           {
-            "id": "ch23-content-zh-120",
+            "id": "ch23-content-zh-144",
             "kind": "heading",
             "text": "绞纱"
           },
           {
-            "id": "ch23-content-zh-121",
+            "id": "ch23-content-zh-145",
             "kind": "paragraph",
             "text": "在一家生产用于零售的绞纱的公司中，每个 244 码的绞纱都具有特定的颜色或颜色图案。该公司允许每 244 码纱线长度 10 个染料轻微缺陷，然后绞纱才被视为整体缺陷。"
           },
           {
-            "id": "ch23-content-zh-122",
+            "id": "ch23-content-zh-146",
             "kind": "paragraph",
             "text": "一个团队的任务是控制该过程的质量。该团队每天在将纱线卷绕成绞纱之前检查 10 段取样纱线，以确定缺陷数量。在几天的时间里，团队收集数据并创建控制图以表明其过程是否受控。"
           },
           {
-            "id": "ch23-content-zh-123",
+            "id": "ch23-content-zh-147",
             "kind": "paragraph",
             "text": "该团队生成了以下数据表。"
           },
           {
-            "id": "ch23-content-zh-124",
+            "id": "ch23-content-zh-148",
             "kind": "heading",
             "text": "绞纱"
           },
           {
-            "id": "ch23-content-zh-125",
+            "id": "ch23-content-zh-149",
             "kind": "heading",
             "text": "取样"
           },
           {
-            "id": "ch23-content-zh-126",
+            "id": "ch23-content-zh-150",
             "kind": "paragraph",
             "text": "发现缺陷 10 8 10 2 10 12 10 15 10 22 10 6 10 8 10 14 10 9 10 23 10 24 10 26 10 10 10 7 10 5 10 12 10 15 10 18 10 19 10 14 10 27 由于所有样本量都相同，并且团队关心缺陷数量，因此选择在 Minitab 中创建 c 控制图。"
           },
           {
-            "id": "ch23-content-zh-127",
-            "kind": "heading",
-            "text": "已发现缺陷 C 图表的测试结果"
-          },
-          {
-            "id": "ch23-content-zh-128",
-            "kind": "paragraph",
-            "text": "测试 1. 距中心线超过 3.00 个标准差的一个点。测试在以下点失败：2、12、21"
-          },
-          {
-            "id": "ch23-content-zh-129",
-            "kind": "paragraph",
-            "text": "根据未通过控制测试的三个点，该过程未完全受控，应进行审查。"
-          },
-          {
-            "id": "ch23-content-zh-130",
-            "kind": "heading",
-            "text": "呼叫中心合规性"
-          },
-          {
-            "id": "ch23-content-zh-131",
-            "kind": "paragraph",
-            "text": "银行呼叫中心监控其员工是否遵守众多联邦法规以及内部政策和程序。监控来自质量保证团队，他们随机监听电话并记录团队成员在打电话时可能犯的错误信息。团队成员在每次通话中可能会犯多个错误；例如，团队成员可能忘记让呼叫者知道呼叫正在录音，并且没有向呼叫者提供正确的信息。"
-          },
-          {
-            "id": "ch23-content-zh-132",
-            "kind": "paragraph",
-            "text": "在 10 小时轮班中，质量保证团队每小时监控一次呼叫并创建以下数据表。"
-          },
-          {
-            "id": "ch23-content-zh-133",
-            "kind": "heading",
-            "text": "呼叫监控错误 1 15 3"
-          },
-          {
-            "id": "ch23-content-zh-134",
-            "kind": "heading",
-            "text": "小时"
-          },
-          {
-            "id": "ch23-content-zh-135",
-            "kind": "paragraph",
-            "text": "2 13 5 3 18 4 4 10 0 5 12 2 6 9 2 7 11 4 8 12 5 9 8 0 10 7 1 样本大小（以每小时监控的呼叫数表示）在本示例中不一致。在这种情况下，子组不一致的原因可能是每小时收到的呼叫数量有所不同，并且质量保证团队仅审查呼叫的特定部分。也可能有些电话需要更长的时间 - 因此需要更长的时间来审查。不管子组大小不一致的原因是什么，它都会导致我们选择 u 图表，它与每单位的错误数有关。在这种情况下，可以通过将误差除以监控的呼叫来计算，创建比率或比例数据，以便实际样本大小不那么重要。"
-          },
-          {
-            "id": "ch23-content-zh-136",
-            "kind": "paragraph",
-            "text": "将数据插入 Minitab 来创建此控制图时，错误是变量，监控的调用是子组大小。"
-          },
-          {
-            "id": "ch23-content-zh-137",
-            "kind": "paragraph",
-            "text": "Minitab 生成以下控制图。"
-          },
-          {
-            "id": "ch23-content-zh-138",
-            "kind": "paragraph",
-            "text": "您可以看到没有测试失败，这表明该过程处于控制之中。您还会注意到，控制上限似乎到处都是阶梯式的。这是因为每个样本的大小不同，因此每个控制上限是按不同的值计算的。"
-          },
-          {
-            "id": "ch23-content-zh-139",
-            "kind": "paragraph",
-            "text": "如果呼叫中心管理层特别关注特定错误怎么办？"
-          },
-          {
-            "id": "ch23-content-zh-140",
-            "kind": "paragraph",
-            "text": "如果呼叫中心管理层关心 PCI 合规性（遵守支付卡行业的法规），他们可能需要深入研究数据以查看与 PCI 合规性相关的错误数量信息。他们可能会要求质量保证团队在审查呼叫时选中一个复选框，以表明该呼叫是否符合 PCI 标准。"
-          },
-          {
-            "id": "ch23-content-zh-141",
-            "kind": "paragraph",
-            "text": "新的数据表如下所示。"
-          },
-          {
-            "id": "ch23-content-zh-142",
-            "kind": "heading",
-            "text": "通话"
-          },
-          {
-            "id": "ch23-content-zh-143",
-            "kind": "heading",
-            "text": "监控的错误"
-          },
-          {
-            "id": "ch23-content-zh-144",
-            "kind": "paragraph",
-            "text": "PCI 不合规 1 15 3 1 2 13 5 0 3 18 4 1 4 10 0 0 5 12 2 1 6 9 2 1 7 11 4 2 8 12 5 2 9 8 0 0 10 7 1 1"
-          },
-          {
-            "id": "ch23-content-zh-145",
-            "kind": "heading",
-            "text": "小时"
-          },
-          {
-            "id": "ch23-content-zh-146",
-            "kind": "paragraph",
-            "text": "我们不想担心每次调用的错误数量，而是想了解 PCI 错误发生率。为此，我们可以使用 p 图。"
-          },
-          {
-            "id": "ch23-content-zh-147",
-            "kind": "paragraph",
-            "text": "该图表很好地说明了受控流程仍然可能是一个有问题的流程。此过程处于控制之中，但最后 5 个点中有 4 个点高于 0.10 比例标记。这意味着在 PCI 合规性方面，10 个样本中有 4 个样本的失败率为 10% 或更高。"
-          },
-          {
-            "id": "ch23-content-zh-148",
-            "kind": "paragraph",
-            "text": "在银行业，PCI 合规问题可能会花费大量资金，这意味着银行呼叫中心希望看到 PCI 合规错误率尽可能接近于零。该呼叫中心的流程所有者可能会采取行动来减少该流程的平均比例，即使它处于控制之中。"
-          },
-          {
-            "id": "ch23-content-zh-149",
-            "kind": "heading",
-            "text": "常见原因与特殊原因变异"
-          },
-          {
-            "id": "ch23-content-zh-150",
-            "kind": "paragraph",
-            "text": "在 Minitab 中选择控制检验时，您会注意到我们选择执行所有特殊原因检验。这让 Minitab 知道要执行特殊原因变异的所有检验 - 特殊原因变异是由过程中正常预期之外的事物引起的。"
-          },
-          {
             "id": "ch23-content-zh-151",
-            "kind": "paragraph",
-            "text": "任何过程都会有一定程度的变化。过程中的正常变异（由过程本身引起的变异）称为共因变异。 例如，在呼叫中心工作的电话接线员在履行工作职责时偶尔会出现说话或打字错误。这种变化在控制图上得到了说明。然而，操作员如果工作时间过长、耳机质量不好或者是新工作人员，可能会犯下比正常情况更多的错误。这种异常可能会出现在控制图上，并且可以通过特殊原因（例如耳机故障）来解释。"
+            "kind": "image",
+            "assetId": "fig-58d625a234d523dc",
+            "src": "assets/figures/fig-58d625a234d523dc.png",
+            "width": 1218,
+            "height": 770
           },
           {
             "id": "ch23-content-zh-152",
             "kind": "heading",
-            "text": "其他 Minitab 控制图"
+            "text": "已发现缺陷 C 图表的测试结果"
           },
           {
             "id": "ch23-content-zh-153",
             "kind": "paragraph",
-            "text": "Minitab 提供了各种其他控制图。我们在本章中介绍了最常用的控制图，但下面简要介绍了其他一些控制图。"
+            "text": "测试 1. 距中心线超过 3.00 个标准差的一个点。测试在以下点失败：2、12、21"
           },
           {
             "id": "ch23-content-zh-154",
-            "kind": "heading",
-            "text": "I 和 MR 图表（内/间）"
+            "kind": "paragraph",
+            "text": "根据未通过控制测试的三个点，该过程未完全受控，应进行审查。"
           },
           {
             "id": "ch23-content-zh-155",
-            "kind": "paragraph",
-            "text": "不要与前面提到的 I-MR（独立移动极差）图表混淆，I & MR（组内/组间）图表提供了一个三向图表，指示组内和组间的变化。当批次之间的变异与批次内的变异相比较大或变异不是随机分布时，您可以使用此图表。例如，在处理跨班次的流程时，班次组内可能有子组，并且班次之间可能会出现差异。"
+            "kind": "heading",
+            "text": "呼叫中心合规性"
           },
           {
             "id": "ch23-content-zh-156",
             "kind": "paragraph",
-            "text": "您可以在统计 > 控制图 > 子组变量下找到此图表"
+            "text": "银行呼叫中心监控其员工是否遵守众多联邦法规以及内部政策和程序。监控来自质量保证团队，他们随机监听电话并记录团队成员在打电话时可能犯的错误信息。团队成员在每次通话中可能会犯多个错误；例如，团队成员可能忘记让呼叫者知道呼叫正在录音，并且没有向呼叫者提供正确的信息。"
           },
           {
             "id": "ch23-content-zh-157",
-            "kind": "heading",
-            "text": "指数加权移动平均线"
+            "kind": "paragraph",
+            "text": "在 10 小时轮班中，质量保证团队每小时监控一次呼叫并创建以下数据表。"
           },
           {
             "id": "ch23-content-zh-158",
-            "kind": "paragraph",
-            "text": "EWMA 图表提供单独的移动极差图。该图表很少用于常见的统计分析，因为它很难使用。最常见的是，EWMA 图表在处理自动数据系统时使用。"
+            "kind": "heading",
+            "text": "呼叫监控错误 1 15 3"
           },
           {
             "id": "ch23-content-zh-159",
             "kind": "heading",
-            "text": "累计金额"
+            "text": "小时"
           },
           {
             "id": "ch23-content-zh-160",
+            "kind": "paragraph",
+            "text": "2 13 5 3 18 4 4 10 0 5 12 2 6 9 2 7 11 4 8 12 5 9 8 0 10 7 1 样本大小（以每小时监控的呼叫数表示）在本示例中不一致。在这种情况下，子组不一致的原因可能是每小时收到的呼叫数量有所不同，并且质量保证团队仅审查呼叫的特定部分。也可能有些电话需要更长的时间 - 因此需要更长的时间来审查。不管子组大小不一致的原因是什么，它都会导致我们选择 u 图表，它与每单位的错误数有关。在这种情况下，可以通过将误差除以监控的呼叫来计算，创建比率或比例数据，以便实际样本大小不那么重要。"
+          },
+          {
+            "id": "ch23-content-zh-161",
+            "kind": "paragraph",
+            "text": "将数据插入 Minitab 来创建此控制图时，错误是变量，监控的调用是子组大小。"
+          },
+          {
+            "id": "ch23-content-zh-162",
+            "kind": "paragraph",
+            "text": "Minitab 生成以下控制图。"
+          },
+          {
+            "id": "ch23-content-zh-163",
+            "kind": "image",
+            "assetId": "fig-d5234b4a1f080038",
+            "src": "assets/figures/fig-d5234b4a1f080038.png",
+            "width": 1218,
+            "height": 773
+          },
+          {
+            "id": "ch23-content-zh-164",
+            "kind": "paragraph",
+            "text": "您可以看到没有测试失败，这表明该过程处于控制之中。您还会注意到，控制上限似乎到处都是阶梯式的。这是因为每个样本的大小不同，因此每个控制上限是按不同的值计算的。"
+          },
+          {
+            "id": "ch23-content-zh-165",
+            "kind": "paragraph",
+            "text": "如果呼叫中心管理层特别关注特定错误怎么办？"
+          },
+          {
+            "id": "ch23-content-zh-166",
+            "kind": "paragraph",
+            "text": "如果呼叫中心管理层关心 PCI 合规性（遵守支付卡行业的法规），他们可能需要深入研究数据以查看与 PCI 合规性相关的错误数量信息。他们可能会要求质量保证团队在审查呼叫时选中一个复选框，以表明该呼叫是否符合 PCI 标准。"
+          },
+          {
+            "id": "ch23-content-zh-167",
+            "kind": "paragraph",
+            "text": "新的数据表如下所示。"
+          },
+          {
+            "id": "ch23-content-zh-168",
+            "kind": "heading",
+            "text": "通话"
+          },
+          {
+            "id": "ch23-content-zh-169",
+            "kind": "heading",
+            "text": "监控的错误"
+          },
+          {
+            "id": "ch23-content-zh-170",
+            "kind": "paragraph",
+            "text": "PCI 不合规 1 15 3 1 2 13 5 0 3 18 4 1 4 10 0 0 5 12 2 1 6 9 2 1 7 11 4 2 8 12 5 2 9 8 0 0 10 7 1 1"
+          },
+          {
+            "id": "ch23-content-zh-171",
+            "kind": "heading",
+            "text": "小时"
+          },
+          {
+            "id": "ch23-content-zh-172",
+            "kind": "paragraph",
+            "text": "我们不想担心每次调用的错误数量，而是想了解 PCI 错误发生率。为此，我们可以使用 p 图。"
+          },
+          {
+            "id": "ch23-content-zh-173",
+            "kind": "image",
+            "assetId": "fig-4a21984327284287",
+            "src": "assets/figures/fig-4a21984327284287.png",
+            "width": 1218,
+            "height": 770
+          },
+          {
+            "id": "ch23-content-zh-174",
+            "kind": "paragraph",
+            "text": "该图表很好地说明了受控流程仍然可能是一个有问题的流程。此过程处于控制之中，但最后 5 个点中有 4 个点高于 0.10 比例标记。这意味着在 PCI 合规性方面，10 个样本中有 4 个样本的失败率为 10% 或更高。"
+          },
+          {
+            "id": "ch23-content-zh-175",
+            "kind": "paragraph",
+            "text": "在银行业，PCI 合规问题可能会花费大量资金，这意味着银行呼叫中心希望看到 PCI 合规错误率尽可能接近于零。该呼叫中心的流程所有者可能会采取行动来减少该流程的平均比例，即使它处于控制之中。"
+          },
+          {
+            "id": "ch23-content-zh-176",
+            "kind": "heading",
+            "text": "常见原因与特殊原因变异"
+          },
+          {
+            "id": "ch23-content-zh-177",
+            "kind": "paragraph",
+            "text": "在 Minitab 中选择控制检验时，您会注意到我们选择执行所有特殊原因检验。这让 Minitab 知道要执行特殊原因变异的所有检验 - 特殊原因变异是由过程中正常预期之外的事物引起的。"
+          },
+          {
+            "id": "ch23-content-zh-178",
+            "kind": "paragraph",
+            "text": "任何过程都会有一定程度的变化。过程中的正常变异（由过程本身引起的变异）称为共因变异。 例如，在呼叫中心工作的电话接线员在履行工作职责时偶尔会出现说话或打字错误。这种变化在控制图上得到了说明。然而，操作员如果工作时间过长、耳机质量不好或者是新工作人员，可能会犯下比正常情况更多的错误。这种异常可能会出现在控制图上，并且可以通过特殊原因（例如耳机故障）来解释。"
+          },
+          {
+            "id": "ch23-content-zh-179",
+            "kind": "heading",
+            "text": "其他 Minitab 控制图"
+          },
+          {
+            "id": "ch23-content-zh-180",
+            "kind": "paragraph",
+            "text": "Minitab 提供了各种其他控制图。我们在本章中介绍了最常用的控制图，但下面简要介绍了其他一些控制图。"
+          },
+          {
+            "id": "ch23-content-zh-181",
+            "kind": "heading",
+            "text": "I 和 MR 图表（内/间）"
+          },
+          {
+            "id": "ch23-content-zh-182",
+            "kind": "paragraph",
+            "text": "不要与前面提到的 I-MR（独立移动极差）图表混淆，I & MR（组内/组间）图表提供了一个三向图表，指示组内和组间的变化。当批次之间的变异与批次内的变异相比较大或变异不是随机分布时，您可以使用此图表。例如，在处理跨班次的流程时，班次组内可能有子组，并且班次之间可能会出现差异。"
+          },
+          {
+            "id": "ch23-content-zh-183",
+            "kind": "paragraph",
+            "text": "您可以在统计 > 控制图 > 子组变量下找到此图表"
+          },
+          {
+            "id": "ch23-content-zh-184",
+            "kind": "heading",
+            "text": "指数加权移动平均线"
+          },
+          {
+            "id": "ch23-content-zh-185",
+            "kind": "paragraph",
+            "text": "EWMA 图表提供单独的移动极差图。该图表很少用于常见的统计分析，因为它很难使用。最常见的是，EWMA 图表在处理自动数据系统时使用。"
+          },
+          {
+            "id": "ch23-content-zh-186",
+            "kind": "heading",
+            "text": "累计金额"
+          },
+          {
+            "id": "ch23-content-zh-187",
             "kind": "paragraph",
             "text": "CUSUM 图处理每个样本与目标值相关的偏差的累积和。 CUSUM 非常擅长检测目标的微小变化，特别是在受控过程中。与 EWMA 一样，CUSUM 并不是大多数业务环境中常用的控制图。"
           }
         ]
       }
+    }
+  ],
+  "assets": [
+    {
+      "id": "fig-0636555fbc9e16ac",
+      "type": "table-image",
+      "path": "assets/figures/fig-0636555fbc9e16ac.png",
+      "page": 274,
+      "width": 1218,
+      "height": 773
+    },
+    {
+      "id": "fig-09208e68971931f0",
+      "type": "table-image",
+      "path": "assets/figures/fig-09208e68971931f0.png",
+      "page": 274,
+      "width": 1190,
+      "height": 745
+    },
+    {
+      "id": "fig-0ac7c08332bcde2e",
+      "type": "table-image",
+      "path": "assets/figures/fig-0ac7c08332bcde2e.png",
+      "page": 274,
+      "width": 1218,
+      "height": 770
+    },
+    {
+      "id": "fig-1e7697d62648ff83",
+      "type": "table-image",
+      "path": "assets/figures/fig-1e7697d62648ff83.png",
+      "page": 274,
+      "width": 1218,
+      "height": 770
+    },
+    {
+      "id": "fig-305049f26143b29d",
+      "type": "table-image",
+      "path": "assets/figures/fig-305049f26143b29d.png",
+      "page": 274,
+      "width": 1172,
+      "height": 215
+    },
+    {
+      "id": "fig-3343115411aabf88",
+      "type": "table-image",
+      "path": "assets/figures/fig-3343115411aabf88.png",
+      "page": 274,
+      "width": 987,
+      "height": 661
+    },
+    {
+      "id": "fig-34a41ae5042b4629",
+      "type": "table-image",
+      "path": "assets/figures/fig-34a41ae5042b4629.png",
+      "page": 274,
+      "width": 1218,
+      "height": 770
+    },
+    {
+      "id": "fig-429f69c13d957cb0",
+      "type": "table-image",
+      "path": "assets/figures/fig-429f69c13d957cb0.png",
+      "page": 274,
+      "width": 1053,
+      "height": 258
+    },
+    {
+      "id": "fig-4882bcbf59715519",
+      "type": "table-image",
+      "path": "assets/figures/fig-4882bcbf59715519.png",
+      "page": 274,
+      "width": 1218,
+      "height": 770
+    },
+    {
+      "id": "fig-4a21984327284287",
+      "type": "table-image",
+      "path": "assets/figures/fig-4a21984327284287.png",
+      "page": 274,
+      "width": 1218,
+      "height": 770
+    },
+    {
+      "id": "fig-50ee2a1e8da4d287",
+      "type": "figure",
+      "path": "assets/figures/fig-50ee2a1e8da4d287.png",
+      "page": 274,
+      "width": 849,
+      "height": 741
+    },
+    {
+      "id": "fig-527bbee4aa614eec",
+      "type": "table-image",
+      "path": "assets/figures/fig-527bbee4aa614eec.png",
+      "page": 274,
+      "width": 1218,
+      "height": 770
+    },
+    {
+      "id": "fig-58d625a234d523dc",
+      "type": "table-image",
+      "path": "assets/figures/fig-58d625a234d523dc.png",
+      "page": 274,
+      "width": 1218,
+      "height": 770
+    },
+    {
+      "id": "fig-63d83b99ed7bdc85",
+      "type": "table-image",
+      "path": "assets/figures/fig-63d83b99ed7bdc85.png",
+      "page": 274,
+      "width": 975,
+      "height": 651
+    },
+    {
+      "id": "fig-7cd5fc16b152c988",
+      "type": "formula-image",
+      "path": "assets/figures/fig-7cd5fc16b152c988.png",
+      "page": 274,
+      "width": 1163,
+      "height": 166
+    },
+    {
+      "id": "fig-894c7d104b2fa4cc",
+      "type": "table-image",
+      "path": "assets/figures/fig-894c7d104b2fa4cc.png",
+      "page": 274,
+      "width": 1218,
+      "height": 770
+    },
+    {
+      "id": "fig-89ad850a55df058e",
+      "type": "figure",
+      "path": "assets/figures/fig-89ad850a55df058e.png",
+      "page": 274,
+      "width": 867,
+      "height": 741
+    },
+    {
+      "id": "fig-97517612a9c4e2fb",
+      "type": "table-image",
+      "path": "assets/figures/fig-97517612a9c4e2fb.png",
+      "page": 274,
+      "width": 1218,
+      "height": 770
+    },
+    {
+      "id": "fig-9a023343575fbe39",
+      "type": "table-image",
+      "path": "assets/figures/fig-9a023343575fbe39.png",
+      "page": 274,
+      "width": 1218,
+      "height": 770
+    },
+    {
+      "id": "fig-9e82795e8c317a12",
+      "type": "figure",
+      "path": "assets/figures/fig-9e82795e8c317a12.png",
+      "page": 274,
+      "width": 861,
+      "height": 651
+    },
+    {
+      "id": "fig-a1488d1ffb80f86b",
+      "type": "formula-image",
+      "path": "assets/figures/fig-a1488d1ffb80f86b.png",
+      "page": 274,
+      "width": 1077,
+      "height": 177
+    },
+    {
+      "id": "fig-a3d7877381f35b70",
+      "type": "table-image",
+      "path": "assets/figures/fig-a3d7877381f35b70.png",
+      "page": 274,
+      "width": 1218,
+      "height": 770
+    },
+    {
+      "id": "fig-d5234b4a1f080038",
+      "type": "table-image",
+      "path": "assets/figures/fig-d5234b4a1f080038.png",
+      "page": 274,
+      "width": 1218,
+      "height": 773
+    },
+    {
+      "id": "fig-d66f225c1df80f69",
+      "type": "table-image",
+      "path": "assets/figures/fig-d66f225c1df80f69.png",
+      "page": 274,
+      "width": 991,
+      "height": 655
+    },
+    {
+      "id": "fig-e9d85972bbdec852",
+      "type": "figure",
+      "path": "assets/figures/fig-e9d85972bbdec852.png",
+      "page": 274,
+      "width": 849,
+      "height": 741
+    },
+    {
+      "id": "fig-ece51dbd56c8e5c6",
+      "type": "table-image",
+      "path": "assets/figures/fig-ece51dbd56c8e5c6.png",
+      "page": 274,
+      "width": 985,
+      "height": 672
+    },
+    {
+      "id": "fig-f84009929e21ed26",
+      "type": "table-image",
+      "path": "assets/figures/fig-f84009929e21ed26.png",
+      "page": 274,
+      "width": 1218,
+      "height": 770
     }
   ]
 }

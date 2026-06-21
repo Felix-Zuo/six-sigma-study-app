@@ -55,411 +55,435 @@
           },
           {
             "id": "ch02-content-en-007",
-            "kind": "paragraph",
-            "text": "In the early part of the 20th century, statistical process control received another big boost thanks to contributions from an engineer and scholar named Walter Shewhart. Shewhart's contributions to quality are many, but two specific ideas stand out. First, Shewhart was the first person"
+            "kind": "image",
+            "assetId": "fig-575d849f639b6d2e",
+            "src": "assets/figures/fig-575d849f639b6d2e.png",
+            "width": 456,
+            "height": 285
           },
           {
             "id": "ch02-content-en-008",
             "kind": "paragraph",
-            "text": "to closely relate sigma level and quality. He defined a process in need of correction as one that is performing at three sigma. If you look back to Chapter 1 and the theoretical Amazon example, the cost difference between four sigma and three sigma is over $78 million; in comparison, the difference between five and four sigma is only approximately $7.6 million. Because errors and costs exponentially increase as sigma level decreases, Shewhart’s definition has very practical applications in business. While Six Sigma as a method seeks to move ever toward less than 3.4 defects per million opportunities (dpmo), it is also true that if the quality of a process decreases, as it approaches three sigma, the costs associated with errors increase substantially."
+            "text": "In the early part of the 20th century, statistical process control received another big boost thanks to contributions from an engineer and scholar named Walter Shewhart. Shewhart's contributions to quality are many, but two specific ideas stand out. First, Shewhart was the first person"
           },
           {
             "id": "ch02-content-en-009",
             "kind": "paragraph",
-            "text": "Second, Shewhart is considered the father of control charts. Control charts, which are covered in depth in the chapters on advanced statistics, are a critical component of statistical process control that lets organizations maintain improved performance after a Six Sigma initiative. At a time when scholars were writing about the theoretical application of statistics in a growing number of fields, Shewhart developed ways to apply these concepts to manufacturing and industrial processes specifically."
+            "text": "to closely relate sigma level and quality. He defined a process in need of correction as one that is performing at three sigma. If you look back to Chapter 1 and the theoretical Amazon example, the cost difference between four sigma and three sigma is over $78 million; in comparison, the difference between five and four sigma is only approximately $7.6 million. Because errors and costs exponentially increase as sigma level decreases, Shewhart’s definition has very practical applications in business. While Six Sigma as a method seeks to move ever toward less than 3.4 defects per million opportunities (dpmo), it is also true that if the quality of a process decreases, as it approaches three sigma, the costs associated with errors increase substantially."
           },
           {
             "id": "ch02-content-en-010",
             "kind": "paragraph",
-            "text": "During the same time period, W. Edwards Deming was working for the U.S. Department of Agriculture. A physicist and mathematician, Deming was in charge of teaching courses at the agency’s graduate school and he arranged for Shewhart to come and speak there. Later, Deming brought Shewhart's statistical concepts to the United States Census Bureau, applying his theories outside of an industrial or manufacturing environment for possibly the first time."
+            "text": "Second, Shewhart is considered the father of control charts. Control charts, which are covered in depth in the chapters on advanced statistics, are a critical component of statistical process control that lets organizations maintain improved performance after a Six Sigma initiative. At a time when scholars were writing about the theoretical application of statistics in a growing number of fields, Shewhart developed ways to apply these concepts to manufacturing and industrial processes specifically."
           },
           {
             "id": "ch02-content-en-011",
             "kind": "paragraph",
-            "text": "One of Deming’s ideas is called the PDCA cycle, or plan-do-check-act cycle. The idea is that improvement comes when you recognize there is a need for change and make a plan to create improvement. Next, you do something by testing your ideas. Using the results of the test, you check or verify that your improvements are working. Then you act, bringing your improvements to a production environment or scaling improvements outside of the test environment. The fact that PDCA is a cycle means it never ends; there are always improvements to be made. This is a core tenet of Six Sigma."
+            "text": "During the same time period, W. Edwards Deming was working for the U.S. Department of Agriculture. A physicist and mathematician, Deming was in charge of teaching courses at the agency’s graduate school and he arranged for Shewhart to come and speak there. Later, Deming brought Shewhart's statistical concepts to the United States Census Bureau, applying his theories outside of an industrial or manufacturing environment for possibly the first time."
           },
           {
             "id": "ch02-content-en-012",
             "kind": "paragraph",
-            "text": "Following World War II, Deming worked in Japan on behalf of the United States government in several capacities. While in post-war Japan, Deming befriended statisticians and convinced at least one notable engineer that statistical process control was relevant to Japan's need to drastically drive economic and production performance to overcome damage from the war. In the end, Deming became a valued teacher and consultant to manufacturing companies in Japan, planting the ideas and concepts that would soon become the Toyota Production System, or Lean Six Sigma."
+            "text": "One of Deming’s ideas is called the PDCA cycle, or plan-do-check-act cycle. The idea is that improvement comes when you recognize there is a need for change and make a plan to create improvement. Next, you do something by testing your ideas. Using the results of the test, you check or verify that your improvements are working. Then you act, bringing your improvements to a production environment or scaling improvements outside of the test environment. The fact that PDCA is a cycle means it never ends; there are always improvements to be made. This is a core tenet of Six Sigma."
           },
           {
             "id": "ch02-content-en-013",
-            "kind": "heading",
-            "text": "Continuous Process Improvement: Toyota and Lean"
+            "kind": "image",
+            "assetId": "fig-2554c4901575590b",
+            "src": "assets/figures/fig-2554c4901575590b.png",
+            "width": 461,
+            "height": 380
           },
           {
             "id": "ch02-content-en-014",
             "kind": "paragraph",
-            "text": "Deming's teachings and the need for Japanese industry to make a successful comeback following a catastrophic war combined to bear fruit for Toyota. Toyota’s leadership had visited the concepts of quality prior to WWII, but improved performance and efficiency became a more critical goal given the nature of Japan's economy and resources in the 1940s and 50s. Taking manufacturing ideas attributed to Henry Ford, Toyota leaders applied statistics and new quality concepts to create a system they felt would increase production and allow for variable products while reducing costs and ensuring quality."
+            "text": "Following World War II, Deming worked in Japan on behalf of the United States government in several capacities. While in post-war Japan, Deming befriended statisticians and convinced at least one notable engineer that statistical process control was relevant to Japan's need to drastically drive economic and production performance to overcome damage from the war. In the end, Deming became a valued teacher and consultant to manufacturing companies in Japan, planting the ideas and concepts that would soon become the Toyota Production System, or Lean Six Sigma."
           },
           {
             "id": "ch02-content-en-015",
-            "kind": "paragraph",
-            "text": "Several individuals were instrumental in the ultimate development of the Toyota Production System. They infused the process with automated machinery, quality controls to keep defects from occurring, and efficiency tools that had not yet been applied with such detail and consistency. One man, Kiichiro Toyoda, had previous factory experience. In his previous jobs, he added efficiencies to processes in textile mills through conveyor and other automated systems. Toyoda introduced the same concepts on certain lines in the Toyota manufacturing process. Later, Eiji Toyoda and Taiichi Ohno introduced concepts known as Just-in-Time and jidoka, which are the pillars of the Toyota Production System."
+            "kind": "heading",
+            "text": "Continuous Process Improvement: Toyota and Lean"
           },
           {
             "id": "ch02-content-en-016",
             "kind": "paragraph",
-            "text": "The principles driving Toyota's system, and later, the foundation of Lean Process Management or Lean Six Sigma, include:"
+            "text": "Deming's teachings and the need for Japanese industry to make a successful comeback following a catastrophic war combined to bear fruit for Toyota. Toyota’s leadership had visited the concepts of quality prior to WWII, but improved performance and efficiency became a more critical goal given the nature of Japan's economy and resources in the 1940s and 50s. Taking manufacturing ideas attributed to Henry Ford, Toyota leaders applied statistics and new quality concepts to create a system they felt would increase production and allow for variable products while reducing costs and ensuring quality."
           },
           {
             "id": "ch02-content-en-017",
-            "kind": "listItem",
-            "text": "Defining customer values"
+            "kind": "image",
+            "assetId": "fig-234ac682b91cec16",
+            "src": "assets/figures/fig-234ac682b91cec16.png",
+            "width": 483,
+            "height": 725
           },
           {
             "id": "ch02-content-en-018",
-            "kind": "listItem",
-            "text": "Identifying the value stream for customer needs and desires"
+            "kind": "paragraph",
+            "text": "Several individuals were instrumental in the ultimate development of the Toyota Production System. They infused the process with automated machinery, quality controls to keep defects from occurring, and efficiency tools that had not yet been applied with such detail and consistency. One man, Kiichiro Toyoda, had previous factory experience. In his previous jobs, he added efficiencies to processes in textile mills through conveyor and other automated systems. Toyoda introduced the same concepts on certain lines in the Toyota manufacturing process. Later, Eiji Toyoda and Taiichi Ohno introduced concepts known as Just-in-Time and jidoka, which are the pillars of the Toyota Production System."
           },
           {
             "id": "ch02-content-en-019",
-            "kind": "listItem",
-            "text": "Identifying waste in the process"
+            "kind": "paragraph",
+            "text": "The principles driving Toyota's system, and later, the foundation of Lean Process Management or Lean Six Sigma, include:"
           },
           {
             "id": "ch02-content-en-020",
             "kind": "listItem",
-            "text": "Creation of a continuous process flow"
+            "text": "Defining customer values"
           },
           {
             "id": "ch02-content-en-021",
             "kind": "listItem",
-            "text": "Continually working to reduce the number of steps and time it takes to reach customer satisfaction"
+            "text": "Identifying the value stream for customer needs and desires"
           },
           {
             "id": "ch02-content-en-022",
-            "kind": "paragraph",
-            "text": "Lean management is highly concerned with removing waste from any process. Waste increases costs and time spent on a process, making it undesirable in any form."
+            "kind": "listItem",
+            "text": "Identifying waste in the process"
           },
           {
             "id": "ch02-content-en-023",
-            "kind": "heading",
-            "text": "Motorola’s Focus on Defects"
+            "kind": "listItem",
+            "text": "Creation of a continuous process flow"
           },
           {
             "id": "ch02-content-en-024",
-            "kind": "paragraph",
-            "text": "Though the basis for Six Sigma was laid in the late 19th and early 20th centuries, it wasn't until the mid- 1980s that these concepts saw large-scale success in the United States. Decades after Toyota developed its system, engineers at Motorola began to question how effective their quality management programs were. Those questions first arose after a Japanese company took over a Motorola television"
+            "kind": "listItem",
+            "text": "Continually working to reduce the number of steps and time it takes to reach customer satisfaction"
           },
           {
             "id": "ch02-content-en-025",
             "kind": "paragraph",
-            "text": "manufacturing plant. By applying Lean concepts, the new company began creating televisions that demonstrated 1/20th the amount of defects as Motorola’s own television sets."
+            "text": "Lean management is highly concerned with removing waste from any process. Waste increases costs and time spent on a process, making it undesirable in any form."
           },
           {
             "id": "ch02-content-en-026",
-            "kind": "paragraph",
-            "text": "At the time, departments across Motorola measured defects as a ratio of a thousand opportunities. Bob Galvin, the CEO of Motorola, issued a challenge to his team. He wanted to see an improvement in quality and production—not just any improvement; he wanted a ten-fold improvement in half a decade. Engineer Bill Smith and a new addition to the Motorola team – Dr. Mikel Harry – began to work on the problem."
+            "kind": "heading",
+            "text": "Motorola’s Focus on Defects"
           },
           {
             "id": "ch02-content-en-027",
             "kind": "paragraph",
-            "text": "The team realized that measuring errors against a thousand opportunities didn't provide the level of detail needed for true statistical process control. Instead, the engineers wanted to measure defects against a million opportunities. We know that sigma levels were already defined and the idea of using sigma levels as a measure of quality began with Shewhart. It wasn't a long jump for the Motorola engineers to make from their desire for more accurate data to the basic concepts of Six Sigma as both a goal and a methodology."
+            "text": "Though the basis for Six Sigma was laid in the late 19th and early 20th centuries, it wasn't until the mid- 1980s that these concepts saw large-scale success in the United States. Decades after Toyota developed its system, engineers at Motorola began to question how effective their quality management programs were. Those questions first arose after a Japanese company took over a Motorola television"
           },
           {
             "id": "ch02-content-en-028",
             "kind": "paragraph",
-            "text": "Throughout the next two decades, Motorola worked to perfect its Six Sigma methodology, seeing positive results along the way. In addition to statistical tools, the team created a step-by-step process by which any team--in almost any industry--could make gains and improvements. For the first time, this type of statistical process control was taken out of the manufacturing environment on a large scale company-wide. Motorola applied the method to customer service, engineering, and technical support. It used the process to create a collaborative environment between stakeholders inside and outside of the organization. It was highly successful; according to Motorola, the company saved more than $16 billion as a result of continuous process improvement initiatives within 12 years.5"
+            "text": "manufacturing plant. By applying Lean concepts, the new company began creating televisions that demonstrated 1/20th the amount of defects as Motorola’s own television sets."
           },
           {
             "id": "ch02-content-en-029",
             "kind": "paragraph",
-            "text": "Motorola did more than improve its own systems and products, though. Galvin directed his team to share Six Sigma with the world. Motorola and its team published articles and books on the Six Sigma method and implemented efforts to train others. In this way, they created a methodology based on statistics that could be taught and implemented within any organization or industry."
+            "text": "At the time, departments across Motorola measured defects as a ratio of a thousand opportunities. Bob Galvin, the CEO of Motorola, issued a challenge to his team. He wanted to see an improvement in quality and production—not just any improvement; he wanted a ten-fold improvement in half a decade. Engineer Bill Smith and a new addition to the Motorola team – Dr. Mikel Harry – began to work on the problem."
           },
           {
             "id": "ch02-content-en-030",
-            "kind": "heading",
-            "text": "ABB, Allied Signal, and General Electric"
+            "kind": "paragraph",
+            "text": "The team realized that measuring errors against a thousand opportunities didn't provide the level of detail needed for true statistical process control. Instead, the engineers wanted to measure defects against a million opportunities. We know that sigma levels were already defined and the idea of using sigma levels as a measure of quality began with Shewhart. It wasn't a long jump for the Motorola engineers to make from their desire for more accurate data to the basic concepts of Six Sigma as both a goal and a methodology."
           },
           {
             "id": "ch02-content-en-031",
             "kind": "paragraph",
-            "text": "After leaving Motorola, Dr. Harry joined Asea Brown Boveri. At ABB, Harry worked with Richard Schroeder, who would also become a champion for Six Sigma. In fact, the two men later cofounded the Six Sigma Academy. At ABB, Harry came to realize a key idea in the evolution of Six Sigma: business, or profits, in some ways came before quality. Quality, in fact, was a driving factor of business. Customers didn’t make purchases if quality was poor. Because the individuals with the ability to decide in favor of Six Sigma initiatives were highly motivated by dollars, Harry incorporated financial tactics into the Six Sigma methodology. For the first time, the method was focused on the bottom-line as a primary goal with other concerns and goals stemming from financially-led goals."
+            "text": "Throughout the next two decades, Motorola worked to perfect its Six Sigma methodology, seeing positive results along the way. In addition to statistical tools, the team created a step-by-step process by which any team--in almost any industry--could make gains and improvements. For the first time, this type of statistical process control was taken out of the manufacturing environment on a large scale company-wide. Motorola applied the method to customer service, engineering, and technical support. It used the process to create a collaborative environment between stakeholders inside and outside of the organization. It was highly successful; according to Motorola, the company saved more than $16 billion as a result of continuous process improvement initiatives within 12 years.5"
           },
           {
             "id": "ch02-content-en-032",
             "kind": "paragraph",
-            "text": "In 1993, both Schroeder and Harry changed jobs, joining the team at Allied Signal. Allied Signal’s CEO at the time was Larry Bossidy. He was interested in Six Sigma but realized that executives and other high- level leaders experienced knowledge barriers while attempting to interact and collaborate with analysts, process engineers, and Six Sigma experts. Bossidy suggested that leadership at a company had to be"
+            "text": "Motorola did more than improve its own systems and products, though. Galvin directed his team to share Six Sigma with the world. Motorola and its team published articles and books on the Six Sigma method and implemented efforts to train others. In this way, they created a methodology based on statistics that could be taught and implemented within any organization or industry."
           },
           {
             "id": "ch02-content-en-033",
-            "kind": "paragraph",
-            "text": "5 “The History of Six Sigma,” iSixSigma. http://www.isixsigma.com/new-to-six-sigma/history/history-six-sigma/"
+            "kind": "heading",
+            "text": "ABB, Allied Signal, and General Electric"
           },
           {
             "id": "ch02-content-en-034",
             "kind": "paragraph",
-            "text": "well-versed in Six Sigma to pick the right projects for success and support those projects on a company- wide basis to ensure success."
+            "text": "After leaving Motorola, Dr. Harry joined Asea Brown Boveri. At ABB, Harry worked with Richard Schroeder, who would also become a champion for Six Sigma. In fact, the two men later cofounded the Six Sigma Academy. At ABB, Harry came to realize a key idea in the evolution of Six Sigma: business, or profits, in some ways came before quality. Quality, in fact, was a driving factor of business. Customers didn’t make purchases if quality was poor. Because the individuals with the ability to decide in favor of Six Sigma initiatives were highly motivated by dollars, Harry incorporated financial tactics into the Six Sigma methodology. For the first time, the method was focused on the bottom-line as a primary goal with other concerns and goals stemming from financially-led goals."
           },
           {
             "id": "ch02-content-en-035",
             "kind": "paragraph",
-            "text": "Harry, who is sometimes referred to as the father of Six Sigma, created a system for educating executive leaders. In conjunction with others at Allied Signal, he developed systems that allowed Six Sigma to be effectively deployed by leadership throughout an organization in its entirety."
+            "text": "In 1993, both Schroeder and Harry changed jobs, joining the team at Allied Signal. Allied Signal’s CEO at the time was Larry Bossidy. He was interested in Six Sigma but realized that executives and other high- level leaders experienced knowledge barriers while attempting to interact and collaborate with analysts, process engineers, and Six Sigma experts. Bossidy suggested that leadership at a company had to be"
           },
           {
             "id": "ch02-content-en-036",
             "kind": "paragraph",
-            "text": "Around the same time, GE CEO Jack Welch entered into the Six Sigma arena. Prior to learning about Six Sigma, Welch had stated he was not a proponent of quality measures. He’d previously criticized quality programs as heavy-handed approaches that did little to deliver results. Welch invited Larry Bossidy to speak at a GE corporate meeting in 1995. He also requested an analysis regarding the benefits of implementing Six Sigma at GE. At that time, GE was performing at between three and four sigma. The potential savings should the company rise to six sigma were enormous; estimates were $7 to $10 billion.6"
+            "text": "5 “The History of Six Sigma,” iSixSigma. http://www.isixsigma.com/new-to-six-sigma/history/history-six-sigma/"
           },
           {
             "id": "ch02-content-en-037",
             "kind": "paragraph",
-            "text": "Welch is known as a champion of Six Sigma not because he contributed in major ways to the development of statistical process controls or the Six Sigma toolsets, but because he demonstrated exactly how leaders should approach Six Sigma. He also made GE a historically successful Six Sigma organization by tying Six Sigma goals to employee reward structures. Employees were no longer only compensated based on financial performance factors; they were also evaluated based on Six Sigma performance. Suddenly, employees at every level had a personal reason to become involved in continuous process improvement, and employees and managers were supplied with the Six Sigma training to succeed."
+            "text": "well-versed in Six Sigma to pick the right projects for success and support those projects on a company- wide basis to ensure success."
           },
           {
             "id": "ch02-content-en-038",
-            "kind": "heading",
-            "text": "Continued Growth of Six Sigma"
+            "kind": "paragraph",
+            "text": "Harry, who is sometimes referred to as the father of Six Sigma, created a system for educating executive leaders. In conjunction with others at Allied Signal, he developed systems that allowed Six Sigma to be effectively deployed by leadership throughout an organization in its entirety."
           },
           {
             "id": "ch02-content-en-039",
             "kind": "paragraph",
-            "text": "Following the success of corporations such as GE and Motorola, companies across the country rushed to implement Six Sigma. Unfortunately, in the rush to implement the process, many organizations executed improvements poorly or failed to gain an adequate understanding of statistical process control before moving forward with improvements. Although Six Sigma methods have been used by organizations to gain millions—even billions—in savings and efficiencies, some companies walked away with a bad taste for the process. That bad taste has resulted in the following misconceptions and myths that are still prevalent today in many industries:"
+            "text": "Around the same time, GE CEO Jack Welch entered into the Six Sigma arena. Prior to learning about Six Sigma, Welch had stated he was not a proponent of quality measures. He’d previously criticized quality programs as heavy-handed approaches that did little to deliver results. Welch invited Larry Bossidy to speak at a GE corporate meeting in 1995. He also requested an analysis regarding the benefits of implementing Six Sigma at GE. At that time, GE was performing at between three and four sigma. The potential savings should the company rise to six sigma were enormous; estimates were $7 to $10 billion.6"
           },
           {
             "id": "ch02-content-en-040",
-            "kind": "listItem",
-            "text": "Six Sigma is solely concerned with metrics and ignores common sense. The opposite is actually true: Six Sigma often starts with traditional common sense ideas, often arrived at through brainstorming, and validates those assumptions with data. The reason for this myth is twofold. First, managers and others who are used to making calls without being questioned are suddenly questioned in a Six Sigma environment. Not only are they questioned, but hard data sometimes proves them wrong. Second, in some cases data is improperly used to support conclusions that are against common sense or tradition. When those conclusions turn out to be faulty, it’s easy to blame the process of Six Sigma there is a lack of adequate understanding of the statistical theories involved."
+            "kind": "paragraph",
+            "text": "Welch is known as a champion of Six Sigma not because he contributed in major ways to the development of statistical process controls or the Six Sigma toolsets, but because he demonstrated exactly how leaders should approach Six Sigma. He also made GE a historically successful Six Sigma organization by tying Six Sigma goals to employee reward structures. Employees were no longer only compensated based on financial performance factors; they were also evaluated based on Six Sigma performance. Suddenly, employees at every level had a personal reason to become involved in continuous process improvement, and employees and managers were supplied with the Six Sigma training to succeed."
           },
           {
             "id": "ch02-content-en-041",
-            "kind": "listItem",
-            "text": "Six Sigma is too expensive. While enterprise-wide adoption of Six Sigma can be costly at first, due in part to training needs, slowly integrating the concepts into a company often costs very"
+            "kind": "heading",
+            "text": "Continued Growth of Six Sigma"
           },
           {
             "id": "ch02-content-en-042",
             "kind": "paragraph",
-            "text": "6 “The Evolution of Six Sigma,” PQA.net. http://www.pqa.net/ProdServices/sixsigma/W06002009.html"
+            "text": "Following the success of corporations such as GE and Motorola, companies across the country rushed to implement Six Sigma. Unfortunately, in the rush to implement the process, many organizations executed improvements poorly or failed to gain an adequate understanding of statistical process control before moving forward with improvements. Although Six Sigma methods have been used by organizations to gain millions—even billions—in savings and efficiencies, some companies walked away with a bad taste for the process. That bad taste has resulted in the following misconceptions and myths that are still prevalent today in many industries:"
           },
           {
             "id": "ch02-content-en-043",
-            "kind": "paragraph",
-            "text": "little in the long run. Organizations have to balance how they adopt Six Sigma with budgetary concerns—but when implemented correctly, Six Sigma generally leads to savings that more than cover its initial investment."
+            "kind": "listItem",
+            "text": "Six Sigma is solely concerned with metrics and ignores common sense. The opposite is actually true: Six Sigma often starts with traditional common sense ideas, often arrived at through brainstorming, and validates those assumptions with data. The reason for this myth is twofold. First, managers and others who are used to making calls without being questioned are suddenly questioned in a Six Sigma environment. Not only are they questioned, but hard data sometimes proves them wrong. Second, in some cases data is improperly used to support conclusions that are against common sense or tradition. When those conclusions turn out to be faulty, it’s easy to blame the process of Six Sigma there is a lack of adequate understanding of the statistical theories involved."
           },
           {
             "id": "ch02-content-en-044",
             "kind": "listItem",
-            "text": "Six Sigma can fix anything. Opposite the nay-sayers are Six Sigma cheerleaders who believe they can apply the method like a salve to any problem. While Six Sigma can be applied to any problem of process, it’s not always relevant to problems of culture or people. If morale or other human resource problems are at the root of an issue, statistics can’t help. However, if morale is low because a process is difficult to work with or is performing poorly, Six Sigma can be used to improve the process, thereby improving morale."
+            "text": "Six Sigma is too expensive. While enterprise-wide adoption of Six Sigma can be costly at first, due in part to training needs, slowly integrating the concepts into a company often costs very"
           },
           {
             "id": "ch02-content-en-045",
-            "kind": "heading",
-            "text": "Applying Six Sigma Knowledge"
+            "kind": "paragraph",
+            "text": "6 “The Evolution of Six Sigma,” PQA.net. http://www.pqa.net/ProdServices/sixsigma/W06002009.html"
           },
           {
             "id": "ch02-content-en-046",
             "kind": "paragraph",
-            "text": "Six Sigma is applied via a controlled project selection and management process. Once areas of concern are identified, leaders usually turn to analysts, Six Sigma experts, and subject-matter-experts for cost- benefit analyses. Six Sigma teams attempt to quantify how broken a process is (by calculating sigma level, costs of defects, downtime, and other metrics) and how much it might cost to address the problem. Problems are then prioritized according to severity as well as an organization’s ability to address the issue. Teams begin working through the priority list, returning to the analysis from time to time to ensure the list has not changed. The majority of this book covers the methods by which teams identify and address problems using Six Sigma."
+            "text": "little in the long run. Organizations have to balance how they adopt Six Sigma with budgetary concerns—but when implemented correctly, Six Sigma generally leads to savings that more than cover its initial investment."
           },
           {
             "id": "ch02-content-en-047",
+            "kind": "listItem",
+            "text": "Six Sigma can fix anything. Opposite the nay-sayers are Six Sigma cheerleaders who believe they can apply the method like a salve to any problem. While Six Sigma can be applied to any problem of process, it’s not always relevant to problems of culture or people. If morale or other human resource problems are at the root of an issue, statistics can’t help. However, if morale is low because a process is difficult to work with or is performing poorly, Six Sigma can be used to improve the process, thereby improving morale."
+          },
+          {
+            "id": "ch02-content-en-048",
+            "kind": "heading",
+            "text": "Applying Six Sigma Knowledge"
+          },
+          {
+            "id": "ch02-content-en-049",
+            "kind": "paragraph",
+            "text": "Six Sigma is applied via a controlled project selection and management process. Once areas of concern are identified, leaders usually turn to analysts, Six Sigma experts, and subject-matter-experts for cost- benefit analyses. Six Sigma teams attempt to quantify how broken a process is (by calculating sigma level, costs of defects, downtime, and other metrics) and how much it might cost to address the problem. Problems are then prioritized according to severity as well as an organization’s ability to address the issue. Teams begin working through the priority list, returning to the analysis from time to time to ensure the list has not changed. The majority of this book covers the methods by which teams identify and address problems using Six Sigma."
+          },
+          {
+            "id": "ch02-content-en-050",
             "kind": "heading",
             "text": "The Levels of Six Sigma Certification"
           },
           {
-            "id": "ch02-content-en-048",
+            "id": "ch02-content-en-051",
             "kind": "paragraph",
             "text": "Possessing a Six Sigma certification proves that an individual has demonstrated practical applications and knowledge of Six Sigma. Some organizations offer in-house certification processes. Most people seek certification by enrolling in online or onsite Six Sigma training course. Most organizations that offer Six Sigma education also offer a path to certification. You can take courses for certification at various levels; Six Sigma levels are differentiated by belt level."
           },
           {
-            "id": "ch02-content-en-049",
+            "id": "ch02-content-en-052",
             "kind": "heading",
             "text": "White Belt"
           },
           {
-            "id": "ch02-content-en-050",
+            "id": "ch02-content-en-053",
             "kind": "paragraph",
             "text": "A certified Six Sigma White belt is familiar with the basic tenets of the Six Sigma methodology, though they aren’t often regular members of process improvement teams. White belt training is a good introduction to Six Sigma for auxiliary staff members within an organization and can provide the information necessary for understanding why project teams do what they do. The training lets employees review project processes, understand information presented in milestone meetings, and better participate in project selection processes. White belt training can also be used across all levels of employees when organizations are attempting to implement a Six Sigma culture. It is worth noting that White Belt training usually only provides a very basic introduction and overview of Six Sigma, so much so that not all Six Sigma professionals recognize it as a true Six Sigma certification."
           },
           {
-            "id": "ch02-content-en-051",
+            "id": "ch02-content-en-054",
             "kind": "heading",
             "text": "Yellow Belt"
           },
           {
-            "id": "ch02-content-en-052",
+            "id": "ch02-content-en-055",
             "kind": "paragraph",
             "text": "A yellow belt certification is a step above white belt: it is still considered a basic introduction to the concepts of Six Sigma, but a yellow belt learns basic information about the DMAIC method often used to improve processes. The following concepts are often included in Six Sigma yellow belt training:"
           },
           {
-            "id": "ch02-content-en-053",
+            "id": "ch02-content-en-056",
             "kind": "listItem",
             "text": "Six Sigma roles"
           },
           {
-            "id": "ch02-content-en-054",
+            "id": "ch02-content-en-057",
             "kind": "listItem",
             "text": "Team development and management"
           },
           {
-            "id": "ch02-content-en-055",
+            "id": "ch02-content-en-058",
             "kind": "listItem",
             "text": "Basic quality tools such as Pareto charts, run charts, scatter diagrams and histograms"
           },
           {
-            "id": "ch02-content-en-056",
+            "id": "ch02-content-en-059",
             "kind": "listItem",
             "text": "Common Six Sigma metrics"
           },
           {
-            "id": "ch02-content-en-057",
+            "id": "ch02-content-en-060",
             "kind": "listItem",
             "text": "Data collection"
           },
           {
-            "id": "ch02-content-en-058",
+            "id": "ch02-content-en-061",
             "kind": "listItem",
             "text": "Measurement system analysis"
           },
           {
-            "id": "ch02-content-en-059",
+            "id": "ch02-content-en-062",
             "kind": "listItem",
             "text": "Root cause analysis"
           },
           {
-            "id": "ch02-content-en-060",
+            "id": "ch02-content-en-063",
             "kind": "listItem",
             "text": "An introduction to hypothesis testing"
           },
           {
-            "id": "ch02-content-en-061",
+            "id": "ch02-content-en-064",
             "kind": "paragraph",
             "text": "At the yellow belt level, training is often geared toward understanding of the overall methodology and basic data collection. Yellow belts don’t need to know how to conduct hypothesis testing, but they must understand the language of hypothesis testing and the conclusions that are drawn from such tests. Yellow belts are often employees who need to know about the overall process and why it is being implemented."
           },
           {
-            "id": "ch02-content-en-062",
+            "id": "ch02-content-en-065",
             "kind": "heading",
             "text": "Green Belt"
           },
           {
-            "id": "ch02-content-en-063",
+            "id": "ch02-content-en-066",
             "kind": "paragraph",
             "text": "Certified green belts work within Six Sigma teams, usually under the supervision of a black belt or master black belt. In some cases, green belts might lead or handle smaller projects on their own. Green belts are generally equipped with intermediate statistical analysis capabilities; they might address data and analysis concerns, help Black Belts apply Six Sigma tools to a project, or teach others within an organization about the overall Six Sigma methodology."
           },
           {
-            "id": "ch02-content-en-064",
+            "id": "ch02-content-en-067",
             "kind": "paragraph",
             "text": "Green Belts can be middle managers, business analysts, project managers, and others who have a reason to be involved regularly with process improvement initiatives but who might not be a full-time Six Sigma expert within an organization. Sometimes, Green Belts are considered the worker bees of the Six Sigma methodology because they undertake most of the statistical data collection and analysis under the supervision of certified Black Belts."
           },
           {
-            "id": "ch02-content-en-065",
+            "id": "ch02-content-en-068",
             "kind": "paragraph",
             "text": "The following concepts are often included in Green Belt training:"
           },
           {
-            "id": "ch02-content-en-066",
+            "id": "ch02-content-en-069",
             "kind": "listItem",
             "text": "All of the information listed for yellow belt certification"
           },
           {
-            "id": "ch02-content-en-067",
+            "id": "ch02-content-en-070",
             "kind": "listItem",
             "text": "Failure mode and effects analysis"
           },
           {
-            "id": "ch02-content-en-068",
+            "id": "ch02-content-en-071",
             "kind": "listItem",
             "text": "Project and team management"
           },
           {
-            "id": "ch02-content-en-069",
+            "id": "ch02-content-en-072",
             "kind": "listItem",
             "text": "Probability and the Central Limit Theorem"
           },
           {
-            "id": "ch02-content-en-070",
+            "id": "ch02-content-en-073",
             "kind": "listItem",
             "text": "Statistical distributions"
           },
           {
-            "id": "ch02-content-en-071",
+            "id": "ch02-content-en-074",
             "kind": "listItem",
             "text": "Descriptive statistics"
           },
           {
-            "id": "ch02-content-en-072",
+            "id": "ch02-content-en-075",
             "kind": "listItem",
             "text": "How to perform basic hypothesis testing"
           },
           {
-            "id": "ch02-content-en-073",
+            "id": "ch02-content-en-076",
             "kind": "listItem",
             "text": "Waste elimination and Kaizen"
           },
           {
-            "id": "ch02-content-en-074",
+            "id": "ch02-content-en-077",
             "kind": "listItem",
             "text": "Basic control charts"
           },
           {
-            "id": "ch02-content-en-075",
+            "id": "ch02-content-en-078",
             "kind": "heading",
             "text": "Black Belt"
           },
           {
-            "id": "ch02-content-en-076",
+            "id": "ch02-content-en-079",
             "kind": "paragraph",
             "text": "A certified Six Sigma Black Belt usually works as the project leader on process improvement projects. They might also work within management, analyst, or planning roles throughout a company. Common minimum requirements for black belt certification include everything listed for yellow and green belts in addition to:"
           },
           {
-            "id": "ch02-content-en-077",
+            "id": "ch02-content-en-080",
             "kind": "listItem",
             "text": "Advanced project and team management skills"
           },
           {
-            "id": "ch02-content-en-078",
+            "id": "ch02-content-en-081",
             "kind": "listItem",
             "text": "Knowledge of the expansive list of Six Sigma brainstorming and project tools"
           },
           {
-            "id": "ch02-content-en-079",
+            "id": "ch02-content-en-082",
             "kind": "listItem",
             "text": "Intermediate to advanced statistics"
           },
           {
-            "id": "ch02-content-en-080",
+            "id": "ch02-content-en-083",
             "kind": "listItem",
             "text": "An understanding of other process improvement and quality programs, including Lean and Total Quality Management"
           },
           {
-            "id": "ch02-content-en-081",
+            "id": "ch02-content-en-084",
             "kind": "listItem",
             "text": "An ability to design processes"
           },
           {
-            "id": "ch02-content-en-082",
+            "id": "ch02-content-en-085",
             "kind": "listItem",
             "text": "Advanced capabilities for diagraming processes, including flow charts and value stream maps"
           },
           {
-            "id": "ch02-content-en-083",
+            "id": "ch02-content-en-086",
             "kind": "listItem",
             "text": "Use of software to conduct analysis, such as Excel or Minitab"
           },
           {
-            "id": "ch02-content-en-084",
+            "id": "ch02-content-en-087",
             "kind": "heading",
             "text": "Master Black Belt"
           },
           {
-            "id": "ch02-content-en-085",
+            "id": "ch02-content-en-088",
             "kind": "paragraph",
             "text": "A Master Black Belt is the highest certification level achievable for Six Sigma. Within a business organization, Master Black Belts usually manage Black Belts and Green Belts, consult on especially difficult project concerns, offer advice and education about challenging statistical concepts, and train others in Six Sigma methodology."
           },
           {
-            "id": "ch02-content-en-086",
+            "id": "ch02-content-en-089",
             "kind": "heading",
             "text": "Certification Exams"
           },
           {
-            "id": "ch02-content-en-087",
+            "id": "ch02-content-en-090",
             "kind": "paragraph",
             "text": "Most certification programs require individuals to pass an exam for certification; some require that green and black belt candidates also demonstrate their knowledge in the form of Six Sigma project experience."
           },
           {
-            "id": "ch02-content-en-088",
+            "id": "ch02-content-en-091",
             "kind": "paragraph",
             "text": "If an exam is required for white or yellow belt certification, it is usually fairly short and covers basic concepts about the methodology. Green belt exams are longer and might include questions about statistics and some basic calculations. Black belt exams often take up to four hours to complete; they test for understanding and application. Exams might include difficult statistical problems or questions about how a project leader might handle various situations. While exams differ by organization, this book is designed based on The Council for Six Sigma Certification’s (CSSC) published body-of-knowledge requirements."
           }
@@ -537,16 +561,24 @@
           },
           {
             "id": "ch02-content-zh-011",
-            "kind": "paragraph",
-            "text": "20 世纪初，由于工程师兼学者沃尔特·休哈特 (Walter Shewhart) 的贡献，统计过程控制再次得到了巨大的推动。休哈特对质量的贡献很多，但有两个具体的想法脱颖而出。首先，休哈特是第一人"
+            "kind": "image",
+            "assetId": "fig-575d849f639b6d2e",
+            "src": "assets/figures/fig-575d849f639b6d2e.png",
+            "width": 456,
+            "height": 285
           },
           {
             "id": "ch02-content-zh-012",
             "kind": "paragraph",
-            "text": "将西格玛水平和质量密切相关。他将需要修正的流程定义为正在三西格玛执行的流程。如果你回顾一下第一章和理论上的亚马逊例子，四西格玛和三西格玛之间的成本差异超过 7800 万美元；相比之下，五格玛和四西格玛之间的差距仅约为760万美元。由于随着西格玛水平的降低，错误和成本呈指数级增加，因此休哈特的定义在商业中具有非常实际的应用。虽然六西格玛作为一种方法力求朝着每百万机会缺陷数数数数 (DPMO) 低于 3.4 的目标迈进，但如果流程的质量随着接近三西格玛而下降，与错误相关的成本也会大幅增加，这也是事实。"
+            "text": "20 世纪初，由于工程师兼学者沃尔特·休哈特 (Walter Shewhart) 的贡献，统计过程控制再次得到了巨大的推动。休哈特对质量的贡献很多，但有两个具体的想法脱颖而出。首先，休哈特是第一人"
           },
           {
             "id": "ch02-content-zh-013",
+            "kind": "paragraph",
+            "text": "将西格玛水平和质量密切相关。他将需要修正的流程定义为正在三西格玛执行的流程。如果你回顾一下第一章和理论上的亚马逊例子，四西格玛和三西格玛之间的成本差异超过 7800 万美元；相比之下，五格玛和四西格玛之间的差距仅约为760万美元。由于随着西格玛水平的降低，错误和成本呈指数级增加，因此休哈特的定义在商业中具有非常实际的应用。虽然六西格玛作为一种方法力求朝着每百万机会缺陷数数数数 (DPMO) 低于 3.4 的目标迈进，但如果流程的质量随着接近三西格玛而下降，与错误相关的成本也会大幅增加，这也是事实。"
+          },
+          {
+            "id": "ch02-content-zh-014",
             "kind": "termNote",
             "rows": [
               [
@@ -556,12 +588,12 @@
             "text": "术语说明 Sigma level（西格玛水平）：衡量过程缺陷率的尺度；水平越高，单位机会中产生缺陷的概率越低。"
           },
           {
-            "id": "ch02-content-zh-014",
+            "id": "ch02-content-zh-015",
             "kind": "paragraph",
             "text": "其次，休哈特被认为是控制图之父。控制图在高级统计章节中进行了深入介绍，它是统计过程控制的重要组成部分，可以让组织在实施六西格玛计划后保持改进的绩效。当学者们在越来越多的领域撰写有关统计理论应用的文章时，休哈特开发了将这些概念专门应用于制造和工业过程的方法。"
           },
           {
-            "id": "ch02-content-zh-015",
+            "id": "ch02-content-zh-016",
             "kind": "termNote",
             "rows": [
               [
@@ -571,102 +603,118 @@
             "text": "术语说明 Control Chart（控制图）：用时间序列和控制界限判断过程是否处于受控状态。"
           },
           {
-            "id": "ch02-content-zh-016",
+            "id": "ch02-content-zh-017",
             "kind": "paragraph",
             "text": "同一时期，爱德华兹·戴明在美国农业部工作。戴明是一位物理学家和数学家，负责该机构研究生院的课程教学，他安排休哈特到那里演讲。后来，戴明将休哈特的统计概念带到了美国人口普查局，这可能是第一次将他的理论应用到工业或制造环境之外。"
           },
           {
-            "id": "ch02-content-zh-017",
+            "id": "ch02-content-zh-018",
             "kind": "paragraph",
             "text": "戴明的想法之一被称为 PDCA 循环，或计划-执行-检查-行动循环。 这个想法是，当您认识到需要改变并制定改进计划时，就会出现改进。接下来，你通过测试你的想法来做一些事情。使用测试结果，您可以检查或验证您的改进是否有效。然后您采取行动，将您的改进引入生产环境或将改进扩展到测试环境之外。 PDCA 是一个循环，这意味着它永远不会结束；总有需要改进的地方。这是六西格玛的核心宗旨。"
           },
           {
-            "id": "ch02-content-zh-018",
-            "kind": "paragraph",
-            "text": "第二次世界大战后，戴明在日本代表美国政府担任多种职务。在战后的日本，戴明与统计学家成为了朋友，并说服了至少一位著名工程师，统计过程控制与日本需要大幅推动经济和生产绩效以克服战争造成的损害有关。最终，戴明成为日本制造公司的一位受人尊敬的老师和顾问，植入了很快成为丰田生产系统（Toyota Production System）或精益六西格玛的思想和概念。"
-          },
-          {
             "id": "ch02-content-zh-019",
-            "kind": "heading",
-            "text": "持续流程改进：丰田和精益"
+            "kind": "image",
+            "assetId": "fig-2554c4901575590b",
+            "src": "assets/figures/fig-2554c4901575590b.png",
+            "width": 461,
+            "height": 380
           },
           {
             "id": "ch02-content-zh-020",
             "kind": "paragraph",
-            "text": "戴明的教导和日本工业在灾难性战争后成功东山再起的需要相结合，为丰田带来了成果。丰田领导层在二战之前就已经考虑过质量概念，但考虑到 20 世纪 40 年代和 50 年代日本经济和资源的性质，提高性能和效率成为更重要的目标。丰田领导者借鉴亨利·福特的制造理念，应用统计数据和新的质量概念创建了一个系统，他们认为该系统可以提高产量并允许生产可变产品，同时降低成本并确保质量。"
+            "text": "第二次世界大战后，戴明在日本代表美国政府担任多种职务。在战后的日本，戴明与统计学家成为了朋友，并说服了至少一位著名工程师，统计过程控制与日本需要大幅推动经济和生产绩效以克服战争造成的损害有关。最终，戴明成为日本制造公司的一位受人尊敬的老师和顾问，植入了很快成为丰田生产系统（Toyota Production System）或精益六西格玛的思想和概念。"
           },
           {
             "id": "ch02-content-zh-021",
-            "kind": "paragraph",
-            "text": "有几个人在丰田生产系统的最终发展中发挥了重要作用。他们在流程中注入了自动化机械、防止缺陷发生的质量控制以及尚未应用如此详细和一致性的效率工具。丰田喜一郎（Kiichiro Toyoda）曾有过工厂工作经验。在之前的工作中，他通过输送机和其他自动化系统提高了纺织厂的流程效率。丰田章男在丰田制造过程中的某些生产线上引入了相同的概念。后来，丰田英二（Eiji Toyoda）和大野耐一（Taiichi Ohno）引入了“准时生产”（Just-in-Time）和“自动化”（Jidoka）的概念，它们是丰田生产系统的支柱。"
+            "kind": "heading",
+            "text": "持续流程改进：丰田和精益"
           },
           {
             "id": "ch02-content-zh-022",
             "kind": "paragraph",
-            "text": "驱动丰田系统的原则以及后来的精益流程管理或精益六西格玛的基础包括："
+            "text": "戴明的教导和日本工业在灾难性战争后成功东山再起的需要相结合，为丰田带来了成果。丰田领导层在二战之前就已经考虑过质量概念，但考虑到 20 世纪 40 年代和 50 年代日本经济和资源的性质，提高性能和效率成为更重要的目标。丰田领导者借鉴亨利·福特的制造理念，应用统计数据和新的质量概念创建了一个系统，他们认为该系统可以提高产量并允许生产可变产品，同时降低成本并确保质量。"
           },
           {
             "id": "ch02-content-zh-023",
-            "kind": "listItem",
-            "text": "定义客户价值"
+            "kind": "image",
+            "assetId": "fig-234ac682b91cec16",
+            "src": "assets/figures/fig-234ac682b91cec16.png",
+            "width": 483,
+            "height": 725
           },
           {
             "id": "ch02-content-zh-024",
-            "kind": "listItem",
-            "text": "确定客户需求和愿望的价值流"
+            "kind": "paragraph",
+            "text": "有几个人在丰田生产系统的最终发展中发挥了重要作用。他们在流程中注入了自动化机械、防止缺陷发生的质量控制以及尚未应用如此详细和一致性的效率工具。丰田喜一郎（Kiichiro Toyoda）曾有过工厂工作经验。在之前的工作中，他通过输送机和其他自动化系统提高了纺织厂的流程效率。丰田章男在丰田制造过程中的某些生产线上引入了相同的概念。后来，丰田英二（Eiji Toyoda）和大野耐一（Taiichi Ohno）引入了“准时生产”（Just-in-Time）和“自动化”（Jidoka）的概念，它们是丰田生产系统的支柱。"
           },
           {
             "id": "ch02-content-zh-025",
-            "kind": "listItem",
-            "text": "识别过程中的浪费"
+            "kind": "paragraph",
+            "text": "驱动丰田系统的原则以及后来的精益流程管理或精益六西格玛的基础包括："
           },
           {
             "id": "ch02-content-zh-026",
             "kind": "listItem",
-            "text": "创建连续的工艺流程"
+            "text": "定义客户价值"
           },
           {
             "id": "ch02-content-zh-027",
             "kind": "listItem",
-            "text": "不断努力减少达到客户满意度所需的步骤数量和时间"
+            "text": "确定客户需求和愿望的价值流"
           },
           {
             "id": "ch02-content-zh-028",
-            "kind": "paragraph",
-            "text": "精益管理高度关注消除任何流程中的浪费。浪费会增加流程的成本和时间，因此任何形式的浪费都是不可取的。"
+            "kind": "listItem",
+            "text": "识别过程中的浪费"
           },
           {
             "id": "ch02-content-zh-029",
-            "kind": "heading",
-            "text": "摩托罗拉对缺陷的关注"
+            "kind": "listItem",
+            "text": "创建连续的工艺流程"
           },
           {
             "id": "ch02-content-zh-030",
-            "kind": "paragraph",
-            "text": "虽然六西格玛的基础是在19世纪末20世纪初奠定的，但直到20世纪80年代中期这些概念才在美国获得大规模成功。丰田开发其系统几十年后，摩托罗拉的工程师开始质疑他们的质量管理计划的有效性。这些问题在一家日本公司收购摩托罗拉电视后首次出现"
+            "kind": "listItem",
+            "text": "不断努力减少达到客户满意度所需的步骤数量和时间"
           },
           {
             "id": "ch02-content-zh-031",
             "kind": "paragraph",
-            "text": "制造工厂。通过应用精益概念，新公司开始生产缺陷数量仅为摩托罗拉自家电视机 1/20 的电视机。"
+            "text": "精益管理高度关注消除任何流程中的浪费。浪费会增加流程的成本和时间，因此任何形式的浪费都是不可取的。"
           },
           {
             "id": "ch02-content-zh-032",
-            "kind": "paragraph",
-            "text": "当时，摩托罗拉各部门将缺陷与一千个机会的比率来衡量。摩托罗拉首席执行官鲍勃·高尔文(Bob Galvin)向他的团队提出了挑战。他希望看到质量和产量的提高——不仅仅是任何改进；而是任何改进。他希望在五年内将业绩提高十倍。工程师 Bill Smith 和摩托罗拉团队的新成员 Mikel Harry 博士开始研究这个问题。"
+            "kind": "heading",
+            "text": "摩托罗拉对缺陷的关注"
           },
           {
             "id": "ch02-content-zh-033",
             "kind": "paragraph",
-            "text": "该团队意识到，根据一千个机会来衡量错误并不能提供真正的统计过程控制所需的详细程度。相反，工程师们想要针对一百万个机会来衡量缺陷。我们知道西格玛水平已经被定义，使用西格玛水平作为质量衡量标准的想法始于休哈特。对于摩托罗拉工程师来说，从对更准确数据的渴望到将六西格玛的基本概念作为目标和方法论，并不是一个漫长的跳跃。"
+            "text": "虽然六西格玛的基础是在19世纪末20世纪初奠定的，但直到20世纪80年代中期这些概念才在美国获得大规模成功。丰田开发其系统几十年后，摩托罗拉的工程师开始质疑他们的质量管理计划的有效性。这些问题在一家日本公司收购摩托罗拉电视后首次出现"
           },
           {
             "id": "ch02-content-zh-034",
             "kind": "paragraph",
-            "text": "在接下来的二十年里，摩托罗拉致力于完善其六西格玛方法论，并在此过程中看到了积极的成果。 除了统计工具之外，该团队还创建了一个循序渐进的流程，几乎任何行业的任何团队都可以通过该流程取得收益和改进。这种类型的统计过程控制首次在全公司范围内大规模地脱离制造环境。摩托罗拉将该方法应用于客户服务、工程和技术支持。它使用该流程在组织内部和外部的利益相关者之间创建协作环境。它非常成功；据摩托罗拉称，该公司在 12 年内通过持续的流程改进举措节省了超过 160 亿美元。 5"
+            "text": "制造工厂。通过应用精益概念，新公司开始生产缺陷数量仅为摩托罗拉自家电视机 1/20 的电视机。"
           },
           {
             "id": "ch02-content-zh-035",
+            "kind": "paragraph",
+            "text": "当时，摩托罗拉各部门将缺陷与一千个机会的比率来衡量。摩托罗拉首席执行官鲍勃·高尔文(Bob Galvin)向他的团队提出了挑战。他希望看到质量和产量的提高——不仅仅是任何改进；而是任何改进。他希望在五年内将业绩提高十倍。工程师 Bill Smith 和摩托罗拉团队的新成员 Mikel Harry 博士开始研究这个问题。"
+          },
+          {
+            "id": "ch02-content-zh-036",
+            "kind": "paragraph",
+            "text": "该团队意识到，根据一千个机会来衡量错误并不能提供真正的统计过程控制所需的详细程度。相反，工程师们想要针对一百万个机会来衡量缺陷。我们知道西格玛水平已经被定义，使用西格玛水平作为质量衡量标准的想法始于休哈特。对于摩托罗拉工程师来说，从对更准确数据的渴望到将六西格玛的基本概念作为目标和方法论，并不是一个漫长的跳跃。"
+          },
+          {
+            "id": "ch02-content-zh-037",
+            "kind": "paragraph",
+            "text": "在接下来的二十年里，摩托罗拉致力于完善其六西格玛方法论，并在此过程中看到了积极的成果。 除了统计工具之外，该团队还创建了一个循序渐进的流程，几乎任何行业的任何团队都可以通过该流程取得收益和改进。这种类型的统计过程控制首次在全公司范围内大规模地脱离制造环境。摩托罗拉将该方法应用于客户服务、工程和技术支持。它使用该流程在组织内部和外部的利益相关者之间创建协作环境。它非常成功；据摩托罗拉称，该公司在 12 年内通过持续的流程改进举措节省了超过 160 亿美元。 5"
+          },
+          {
+            "id": "ch02-content-zh-038",
             "kind": "termNote",
             "rows": [
               [
@@ -676,142 +724,142 @@
             "text": "术语说明 Stakeholder（相关方）：会影响项目或被项目影响的人或组织。"
           },
           {
-            "id": "ch02-content-zh-036",
+            "id": "ch02-content-zh-039",
             "kind": "paragraph",
             "text": "不过，摩托罗拉所做的不仅仅是改进自己的系统和产品。高尔文带领他的团队与世界分享六西格玛。摩托罗拉及其团队发表了有关六西格玛方法的文章和书籍，并努力培训其他人。通过这种方式，他们创建了一种基于统计的方法，可以在任何组织或行业内教授和实施。"
           },
           {
-            "id": "ch02-content-zh-037",
+            "id": "ch02-content-zh-040",
             "kind": "heading",
             "text": "ABB、Allied Signal 和通用电气"
           },
           {
-            "id": "ch02-content-zh-038",
+            "id": "ch02-content-zh-041",
             "kind": "paragraph",
             "text": "离开摩托罗拉后，Harry 博士加入了 Asea Brown Boveri。在ABB，哈利与理查德·施罗德合作，后者也成为了六西格玛的冠军。事实上，两人后来共同创办了六西格玛学院。在ABB，哈利逐渐认识到六西格玛演变过程中的一个关键理念：商业，或者说利润，在某些方面先于质量。事实上，质量是业务的驱动因素。如果质量不好，顾客就不会购买。由于有能力做出支持六西格玛计划的个人都受到金钱的高度激励，哈利将财务策略纳入了六西格玛的方法论中。该方法首次将利润底线作为主要目标，其他关注点和目标源于财务主导的目标。"
           },
           {
-            "id": "ch02-content-zh-039",
+            "id": "ch02-content-zh-042",
             "kind": "paragraph",
             "text": "1993 年，施罗德和哈利都换了工作，加入了 Allied Signal 的团队。 Allied Signal 当时的首席执行官是拉里·博西迪 (Larry Bossidy)。他对六西格玛很感兴趣，但意识到高管和其他高层领导在尝试与分析师、流程工程师和六西格玛专家互动和协作时遇到了知识障碍。 Bossidy 建议公司的领导力必须是"
           },
           {
-            "id": "ch02-content-zh-040",
+            "id": "ch02-content-zh-043",
             "kind": "paragraph",
             "text": "5 《六西格玛的历史》，iSixSigma。 http://www.isixsigma.com/new-to-six-sigma/history/history-six-sigma/"
           },
           {
-            "id": "ch02-content-zh-041",
+            "id": "ch02-content-zh-044",
             "kind": "paragraph",
             "text": "精通六西格玛，能够选择成功的正确项目，并在全公司范围内支持这些项目，以确保成功。"
           },
           {
-            "id": "ch02-content-zh-042",
+            "id": "ch02-content-zh-045",
             "kind": "paragraph",
             "text": "哈利有时被称为六西格玛之父，他创建了一个教育行政领导人的系统。他与 Allied Signal 的其他人一起开发了系统，使六西格玛能够由整个组织的领导层有效部署。"
           },
           {
-            "id": "ch02-content-zh-043",
+            "id": "ch02-content-zh-046",
             "kind": "paragraph",
             "text": "大约在同一时间，GE首席执行官杰克·韦尔奇进入了六西格玛的舞台。在了解六西格玛之前，韦尔奇曾表示他并不是质量衡量标准的支持者。他此前曾批评质量计划是一种严厉的方法，对取得成果几乎没有作用。 1995年，韦尔奇邀请Larry Bossidy在GE公司会议上发言。他还要求分析GE实施六西格玛的好处。当时，GE正在三点到四西格玛之间表演。如果公司升级到六西格玛，潜在的节省成本是巨大的；估计为 7 至 100 亿美元。6"
           },
           {
-            "id": "ch02-content-zh-044",
+            "id": "ch02-content-zh-047",
             "kind": "paragraph",
             "text": "韦尔奇被称为六西格玛的拥护者，并不是因为他对统计过程控制或六西格玛工具集的开发做出了重大贡献，而是因为他准确地展示了领导者应该如何对待六西格玛。他还将六西格玛目标与员工奖励结构挂钩，使通用电气成为历史上成功的六西格玛组织。员工的薪酬不再仅仅基于财务绩效因素；他们还根据六西格玛的表现进行评估。突然之间，各级员工都有了参与持续流程改进的个人理由，并且为员工和经理提供了六西格玛培训以取得成功。"
           },
           {
-            "id": "ch02-content-zh-045",
+            "id": "ch02-content-zh-048",
             "kind": "heading",
             "text": "六西格玛的持续成长"
           },
           {
-            "id": "ch02-content-zh-046",
+            "id": "ch02-content-zh-049",
             "kind": "paragraph",
             "text": "继GE、摩托罗拉等企业的成功之后，全国各地企业纷纷实施六西格玛。不幸的是，在急于实施该流程的过程中，许多组织执行的改进效果不佳，或者在继续改进之前未能充分了解统计过程控制。尽管六西格玛方法已被各组织用来节省数百万甚至数十亿美元并提高效率，但一些公司对这一过程的品味不佳。这种糟糕的品味导致了以下误解和神话，这些误解和神话至今在许多行业仍然普遍存在："
           },
           {
-            "id": "ch02-content-zh-047",
+            "id": "ch02-content-zh-050",
             "kind": "listItem",
             "text": "六西格玛只关注指标，忽视常识。事实上恰恰相反：六西格玛通常从传统的常识想法开始，通常是通过头脑风暴得出的，并用数据验证这些假设。这个神话的原因是双重的。首先，习惯于打电话而不被询问的管理者和其他人突然在六西格玛的环境中受到询问。他们不仅受到质疑，而且有时硬数据证明他们是错误的。其次，在某些情况下，数据被不适当地用于支持违背常识或传统的结论。当这些结论被证明是错误的时，人们很容易指责六西格玛的过程对所涉及的统计理论缺乏足够的理解。"
           },
           {
-            "id": "ch02-content-zh-048",
+            "id": "ch02-content-zh-051",
             "kind": "listItem",
             "text": "六西格玛太贵了。虽然一开始在整个企业范围内采用六西格玛的成本可能会很高，部分原因是培训需要，但慢慢地将这些概念融入公司往往成本非常高"
           },
           {
-            "id": "ch02-content-zh-049",
+            "id": "ch02-content-zh-052",
             "kind": "paragraph",
             "text": "6 “六西格玛的演变”，PQA.net。 http://www.pqa.net/ProdServices/sixsigma/W06002009.html"
           },
           {
-            "id": "ch02-content-zh-050",
+            "id": "ch02-content-zh-053",
             "kind": "paragraph",
             "text": "从长远来看很少。组织必须在采用六西格玛的方式与预算问题之间取得平衡，但如果实施得当，六西格玛所带来的节省通常会超过其初始投资。"
           },
           {
-            "id": "ch02-content-zh-051",
+            "id": "ch02-content-zh-054",
             "kind": "listItem",
             "text": "六西格玛可以解决任何问题。与反对者相反的是六西格玛的热烈拥护者，他们相信自己可以像药膏一样使用这种方法来解决任何问题。虽然六西格玛可以应用于任何流程问题，但它并不总是与文化或人的问题相关。如果士气或其他人力资源问题是问题的根源，那么统计数据就无济于事。然而，如果由于流程难以配合或表现不佳而导致士气低落，则可以使用六西格玛来改进流程，从而提高士气。"
           },
           {
-            "id": "ch02-content-zh-052",
+            "id": "ch02-content-zh-055",
             "kind": "heading",
             "text": "运用六西格玛知识"
           },
           {
-            "id": "ch02-content-zh-053",
+            "id": "ch02-content-zh-056",
             "kind": "paragraph",
             "text": "六西格玛是通过受控的项目选择和管理流程来应用的。一旦确定了关注领域，领导者通常会向分析师、六西格玛专家和主题专家寻求成本效益分析。 六西格玛团队试图量化流程的损坏程度（通过计算西格玛水平、缺陷成本、停机时间和其他指标）以及解决问题可能需要花费多少费用。然后根据严重性以及组织解决问题的能力对问题进行优先级排序。团队开始研究优先级列表，不时返回分析以确保列表没有改变。 本书的大部分内容涵盖了团队使用六西格玛识别和解决问题的方法。"
           },
           {
-            "id": "ch02-content-zh-054",
+            "id": "ch02-content-zh-057",
             "kind": "heading",
             "text": "六西格玛认证的级别"
           },
           {
-            "id": "ch02-content-zh-055",
+            "id": "ch02-content-zh-058",
             "kind": "paragraph",
             "text": "拥有六西格玛认证证明个人已表现出六西格玛的实际应用和知识。一些组织提供内部认证流程。大多数人通过参加在线或现场六西格玛培训课程来寻求认证。大多数提供六西格玛教育的组织也提供认证途径。您可以参加各种级别的认证课程； 六西格玛的等级是根据腰带等级来区分的。"
           },
           {
-            "id": "ch02-content-zh-056",
+            "id": "ch02-content-zh-059",
             "kind": "heading",
             "text": "白带"
           },
           {
-            "id": "ch02-content-zh-057",
+            "id": "ch02-content-zh-060",
             "kind": "paragraph",
             "text": "经过认证的六西格玛白带熟悉六西格玛方法论的基本原则，尽管他们通常不是流程改进团队的正式成员。 白带培训对于组织内的辅助人员来说是对六西格玛的一个很好的介绍，并且可以提供理解项目团队为何这样做所需的信息。该培训使员工能够审查项目流程，了解里程碑会议中提供的信息，并更好地参与项目选择流程。 当组织试图实施六西格玛文化时，白带培训也可以应用于所有级别的员工。值得注意的是，白带培训通常只提供对六西格玛非常基本的介绍和概述，以至于并非所有六西格玛专业人士都认可它是真正的六西格玛认证。"
           },
           {
-            "id": "ch02-content-zh-058",
+            "id": "ch02-content-zh-061",
             "kind": "heading",
             "text": "黄带"
           },
           {
-            "id": "ch02-content-zh-059",
+            "id": "ch02-content-zh-062",
             "kind": "paragraph",
             "text": "黄带认证比白带高一级：它仍然被认为是六西格玛概念的基本介绍，但黄带学习了经常用于改进流程的 DMAIC 方法的基本信息。六西格玛黄带培训中经常包含以下概念："
           },
           {
-            "id": "ch02-content-zh-060",
+            "id": "ch02-content-zh-063",
             "kind": "listItem",
             "text": "六西格玛角色"
           },
           {
-            "id": "ch02-content-zh-061",
+            "id": "ch02-content-zh-064",
             "kind": "listItem",
             "text": "团队发展与管理"
           },
           {
-            "id": "ch02-content-zh-062",
+            "id": "ch02-content-zh-065",
             "kind": "listItem",
             "text": "基本质量工具，例如帕累托图、运行图、散点图和直方图"
           },
           {
-            "id": "ch02-content-zh-063",
+            "id": "ch02-content-zh-066",
             "kind": "termNote",
             "rows": [
               [
@@ -821,22 +869,22 @@
             "text": "术语说明 Pareto（帕累托）：按影响大小排序，常用于找出“少数关键原因”。"
           },
           {
-            "id": "ch02-content-zh-064",
+            "id": "ch02-content-zh-067",
             "kind": "listItem",
             "text": "常见六西格玛指标"
           },
           {
-            "id": "ch02-content-zh-065",
+            "id": "ch02-content-zh-068",
             "kind": "listItem",
             "text": "数据收集"
           },
           {
-            "id": "ch02-content-zh-066",
+            "id": "ch02-content-zh-069",
             "kind": "listItem",
             "text": "测量系统分析"
           },
           {
-            "id": "ch02-content-zh-067",
+            "id": "ch02-content-zh-070",
             "kind": "termNote",
             "rows": [
               [
@@ -846,12 +894,12 @@
             "text": "术语说明 MSA（测量系统分析）：评估测量工具、人员和方法是否足以支持可靠决策。"
           },
           {
-            "id": "ch02-content-zh-068",
+            "id": "ch02-content-zh-071",
             "kind": "listItem",
             "text": "根本原因分析"
           },
           {
-            "id": "ch02-content-zh-069",
+            "id": "ch02-content-zh-072",
             "kind": "termNote",
             "rows": [
               [
@@ -861,12 +909,12 @@
             "text": "术语说明 Root Cause（根本原因）：真正驱动问题发生的原因；解决它才能防止问题反复出现。"
           },
           {
-            "id": "ch02-content-zh-070",
+            "id": "ch02-content-zh-073",
             "kind": "listItem",
             "text": "假设检验简介"
           },
           {
-            "id": "ch02-content-zh-071",
+            "id": "ch02-content-zh-074",
             "kind": "termNote",
             "rows": [
               [
@@ -876,72 +924,72 @@
             "text": "术语说明 Hypothesis Test（假设检验）：用样本数据判断某个统计假设是否有足够证据被拒绝。"
           },
           {
-            "id": "ch02-content-zh-072",
+            "id": "ch02-content-zh-075",
             "kind": "paragraph",
             "text": "在黄带层面，培训通常旨在了解整体方法和基本数据收集。 黄带人员不需要知道如何进行假设检验，但必须了解假设检验的语言以及从假设检验中得出的结论。 黄带人员通常是需要了解整个流程以及实施原因的员工。"
           },
           {
-            "id": "ch02-content-zh-073",
+            "id": "ch02-content-zh-076",
             "kind": "heading",
             "text": "绿带"
           },
           {
-            "id": "ch02-content-zh-074",
+            "id": "ch02-content-zh-077",
             "kind": "paragraph",
             "text": "获得认证的绿带人员在六西格玛团队内工作，通常在黑带或黑带大师的监督下。在某些情况下，绿带人员可能会自己领导或处理较小的项目。 绿带人员一般具备中级统计分析能力；他们可能会解决数据和分析问题，帮助黑带人员将六西格玛工具应用到项目中，或者向组织内的其他人传授整体六西格玛方法论。"
           },
           {
-            "id": "ch02-content-zh-075",
+            "id": "ch02-content-zh-078",
             "kind": "paragraph",
             "text": "绿带人员可以是中层管理人员、业务分析师、项目经理以及其他有理由定期参与流程改进计划但可能不是组织内全职六西格玛专家的人员。有时，绿带人员被认为是六西格玛方法论的工蜂，因为他们在经过认证的黑带人员的监督下承担了大部分统计数据的收集和分析工作。"
           },
           {
-            "id": "ch02-content-zh-076",
+            "id": "ch02-content-zh-079",
             "kind": "paragraph",
             "text": "绿带培训中经常包含以下概念："
           },
           {
-            "id": "ch02-content-zh-077",
+            "id": "ch02-content-zh-080",
             "kind": "listItem",
             "text": "黄带认证所列全部信息"
           },
           {
-            "id": "ch02-content-zh-078",
+            "id": "ch02-content-zh-081",
             "kind": "listItem",
             "text": "失效模式及影响分析"
           },
           {
-            "id": "ch02-content-zh-079",
+            "id": "ch02-content-zh-082",
             "kind": "listItem",
             "text": "项目和团队管理"
           },
           {
-            "id": "ch02-content-zh-080",
+            "id": "ch02-content-zh-083",
             "kind": "listItem",
             "text": "概率和中心极限定理"
           },
           {
-            "id": "ch02-content-zh-081",
+            "id": "ch02-content-zh-084",
             "kind": "listItem",
             "text": "统计分布"
           },
           {
-            "id": "ch02-content-zh-082",
+            "id": "ch02-content-zh-085",
             "kind": "listItem",
             "text": "描述性统计"
           },
           {
-            "id": "ch02-content-zh-083",
+            "id": "ch02-content-zh-086",
             "kind": "listItem",
             "text": "如何进行基本假设检验"
           },
           {
-            "id": "ch02-content-zh-084",
+            "id": "ch02-content-zh-087",
             "kind": "listItem",
             "text": "消除废物和改善"
           },
           {
-            "id": "ch02-content-zh-085",
+            "id": "ch02-content-zh-088",
             "kind": "termNote",
             "rows": [
               [
@@ -951,82 +999,108 @@
             "text": "术语说明 Kaizen（改善）：强调小步、持续、全员参与的改进方式。"
           },
           {
-            "id": "ch02-content-zh-086",
+            "id": "ch02-content-zh-089",
             "kind": "listItem",
             "text": "基本控制图"
           },
           {
-            "id": "ch02-content-zh-087",
+            "id": "ch02-content-zh-090",
             "kind": "heading",
             "text": "黑带"
           },
           {
-            "id": "ch02-content-zh-088",
+            "id": "ch02-content-zh-091",
             "kind": "paragraph",
             "text": "经过认证的六西格玛黑带通常担任流程改进项目的项目负责人。他们还可能在整个公司担任管理、分析师或规划职务。黑带认证的常见最低要求包括为黄带和绿带人员列出的所有内容，此外还包括："
           },
           {
-            "id": "ch02-content-zh-089",
+            "id": "ch02-content-zh-092",
             "kind": "listItem",
             "text": "先进的项目和团队管理技能"
           },
           {
-            "id": "ch02-content-zh-090",
+            "id": "ch02-content-zh-093",
             "kind": "listItem",
             "text": "了解六西格玛头脑风暴和项目工具的广泛列表"
           },
           {
-            "id": "ch02-content-zh-091",
+            "id": "ch02-content-zh-094",
             "kind": "listItem",
             "text": "中级到高级统计"
           },
           {
-            "id": "ch02-content-zh-092",
+            "id": "ch02-content-zh-095",
             "kind": "listItem",
             "text": "了解其他流程改进和质量计划，包括精益和全面质量管理"
           },
           {
-            "id": "ch02-content-zh-093",
+            "id": "ch02-content-zh-096",
             "kind": "listItem",
             "text": "设计流程的能力"
           },
           {
-            "id": "ch02-content-zh-094",
+            "id": "ch02-content-zh-097",
             "kind": "listItem",
             "text": "用于绘制流程图表的高级功能，包括流程图和价值流图"
           },
           {
-            "id": "ch02-content-zh-095",
+            "id": "ch02-content-zh-098",
             "kind": "listItem",
             "text": "使用Excel或Minitab等软件进行分析"
           },
           {
-            "id": "ch02-content-zh-096",
+            "id": "ch02-content-zh-099",
             "kind": "heading",
             "text": "黑带大师"
           },
           {
-            "id": "ch02-content-zh-097",
+            "id": "ch02-content-zh-100",
             "kind": "paragraph",
             "text": "黑带大师是六西格玛所能达到的最高认证级别。 在商业组织内，黑带人员大师通常管理黑带人员和绿带人员，就特别困难的项目问题提供咨询，提供有关挑战性统计概念的建议和教育，并对其他人进行六西格玛方法论的培训。"
           },
           {
-            "id": "ch02-content-zh-098",
+            "id": "ch02-content-zh-101",
             "kind": "heading",
             "text": "认证考试"
           },
           {
-            "id": "ch02-content-zh-099",
+            "id": "ch02-content-zh-102",
             "kind": "paragraph",
             "text": "大多数认证计划要求个人通过认证考试；有些要求绿带和黑带候选人还以六西格玛项目经验的形式展示他们的知识。"
           },
           {
-            "id": "ch02-content-zh-100",
+            "id": "ch02-content-zh-103",
             "kind": "paragraph",
             "text": "如果白人或黄带认证需要考试，考试通常相当短，涵盖了方法论的基本概念。 绿带考试时间较长，可能包括有关统计和一些基本计算的问题。 黑带考试通常需要四个小时才能完成；他们测试理解和应用。考试可能包括困难的统计问题或有关项目负责人如何处理各种情况的问题。虽然考试因组织而异，但本书是根据六西格玛认证委员会 (CSSC) 发布的知识体系要求设计的。"
           }
         ]
       }
+    }
+  ],
+  "assets": [
+    {
+      "id": "fig-234ac682b91cec16",
+      "type": "figure",
+      "path": "assets/figures/fig-234ac682b91cec16.png",
+      "page": 14,
+      "width": 483,
+      "height": 725
+    },
+    {
+      "id": "fig-2554c4901575590b",
+      "type": "figure",
+      "path": "assets/figures/fig-2554c4901575590b.png",
+      "page": 14,
+      "width": 461,
+      "height": 380
+    },
+    {
+      "id": "fig-575d849f639b6d2e",
+      "type": "figure",
+      "path": "assets/figures/fig-575d849f639b6d2e.png",
+      "page": 14,
+      "width": 456,
+      "height": 285
     }
   ]
 }

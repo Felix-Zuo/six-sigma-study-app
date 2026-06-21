@@ -285,256 +285,280 @@
           },
           {
             "id": "ch24-content-en-053",
-            "kind": "paragraph",
-            "text": "Not all questions require all elements of the above slide. Sometimes, it makes sense to provide the answer in concise text. For example, you might ask “What problem is the team trying to solve?” The right content for that slide would be the problem statement as written in the Define phase."
+            "kind": "image",
+            "assetId": "fig-3cf0f9c2787b974a",
+            "src": "assets/figures/fig-3cf0f9c2787b974a.png",
+            "width": 1191,
+            "height": 663
           },
           {
             "id": "ch24-content-en-054",
             "kind": "paragraph",
-            "text": "Sometimes, the only thing you need to include on the slide is a graph or chart. Consider the slide below."
+            "text": "Not all questions require all elements of the above slide. Sometimes, it makes sense to provide the answer in concise text. For example, you might ask “What problem is the team trying to solve?” The right content for that slide would be the problem statement as written in the Define phase."
           },
           {
             "id": "ch24-content-en-055",
             "kind": "paragraph",
-            "text": "This slide asks what is causing defective orders to be sent out, and it answers the question with a Pareto chart. Even if someone is not familiar with the Pareto chart, it’s fairly obvious given the labels and data that the issue creating the biggest number of defects is in product finishing. Someone who knows about Pareto charts could see within seconds that finishing errors and defective raw inputs account for over 60 percent of the errors; if you add “wrong product selected,” you account for 80 percent of the errors."
+            "text": "Sometimes, the only thing you need to include on the slide is a graph or chart. Consider the slide below."
           },
           {
             "id": "ch24-content-en-056",
-            "kind": "paragraph",
-            "text": "Some Six Sigma tools, such as the Pareto chart, are easy to explain to audience members who don’t have a pre-existing understanding of data analysis or Six Sigma. Given a minute or two of presentation time, you could sufficiently explain how the above chart answers the slide’s question, and this is one reason Pareto (and other bar-type charts) are popular in such presentations."
+            "kind": "image",
+            "assetId": "fig-d4f924190390244f",
+            "src": "assets/figures/fig-d4f924190390244f.png",
+            "width": 1191,
+            "height": 673
           },
           {
             "id": "ch24-content-en-057",
-            "kind": "heading",
-            "text": "Be Clear and Concise"
+            "kind": "paragraph",
+            "text": "This slide asks what is causing defective orders to be sent out, and it answers the question with a Pareto chart. Even if someone is not familiar with the Pareto chart, it’s fairly obvious given the labels and data that the issue creating the biggest number of defects is in product finishing. Someone who knows about Pareto charts could see within seconds that finishing errors and defective raw inputs account for over 60 percent of the errors; if you add “wrong product selected,” you account for 80 percent of the errors."
           },
           {
             "id": "ch24-content-en-058",
             "kind": "paragraph",
-            "text": "No matter how you are presenting your data, make sure each slide – and each element on the slide – is clear and concise. This means writing in active language as much as possible, avoiding long text explanation, and ensuring everything is spelled correctly and that you didn’t use the wrong word by accident. When including statistics in a presentation, it can be easy to make an incorrect word choice that changes the meaning of your entire statement. Simply saying “greater than” when you meant “less than” or “decrease” when you meant “increase” can skew the information you are providing or make it confusing to your audience."
+            "text": "Some Six Sigma tools, such as the Pareto chart, are easy to explain to audience members who don’t have a pre-existing understanding of data analysis or Six Sigma. Given a minute or two of presentation time, you could sufficiently explain how the above chart answers the slide’s question, and this is one reason Pareto (and other bar-type charts) are popular in such presentations."
           },
           {
             "id": "ch24-content-en-059",
-            "kind": "paragraph",
-            "text": "Clarity isn’t just a concern in word choice and sentence structure. You should also be concerned with how elements on your slide come together. Don’t put so much information on a single slide that words or images become unintelligible to the audience. In some cases, you might need to ask a question and answer it over a series of slides."
+            "kind": "heading",
+            "text": "Be Clear and Concise"
           },
           {
             "id": "ch24-content-en-060",
             "kind": "paragraph",
-            "text": "Be cognizant of the fact that a projected slide image is never as clear as the image on your computer. Because of this, you should always avoid layering light font or images over a light background or layer dark font or images over a dark background. Don’t minimize fonts to something as small as 12-point just to fit all the information -- remember, your audience could be sitting feet away or yards away. You also don’t need to include every bit of information on a slide – the slide should act as the visual reference point for the audience while you add information verbally."
+            "text": "No matter how you are presenting your data, make sure each slide – and each element on the slide – is clear and concise. This means writing in active language as much as possible, avoiding long text explanation, and ensuring everything is spelled correctly and that you didn’t use the wrong word by accident. When including statistics in a presentation, it can be easy to make an incorrect word choice that changes the meaning of your entire statement. Simply saying “greater than” when you meant “less than” or “decrease” when you meant “increase” can skew the information you are providing or make it confusing to your audience."
           },
           {
             "id": "ch24-content-en-061",
             "kind": "paragraph",
-            "text": "The text and images you add directly to the slide shouldn’t be your only concern. You also need to make sure text and images within graphs are as clear and concise as possible. Consider the two boxplots below."
+            "text": "Clarity isn’t just a concern in word choice and sentence structure. You should also be concerned with how elements on your slide come together. Don’t put so much information on a single slide that words or images become unintelligible to the audience. In some cases, you might need to ask a question and answer it over a series of slides."
           },
           {
             "id": "ch24-content-en-062",
             "kind": "paragraph",
-            "text": "Boxplot of C1, C2"
+            "text": "Be cognizant of the fact that a projected slide image is never as clear as the image on your computer. Because of this, you should always avoid layering light font or images over a light background or layer dark font or images over a dark background. Don’t minimize fonts to something as small as 12-point just to fit all the information -- remember, your audience could be sitting feet away or yards away. You also don’t need to include every bit of information on a slide – the slide should act as the visual reference point for the audience while you add information verbally."
           },
           {
             "id": "ch24-content-en-063",
             "kind": "paragraph",
-            "text": "14"
+            "text": "The text and images you add directly to the slide shouldn’t be your only concern. You also need to make sure text and images within graphs are as clear and concise as possible. Consider the two boxplots below."
           },
           {
             "id": "ch24-content-en-064",
             "kind": "paragraph",
-            "text": "12"
+            "text": "Boxplot of C1, C2"
           },
           {
             "id": "ch24-content-en-065",
             "kind": "paragraph",
-            "text": "10"
+            "text": "14"
           },
           {
             "id": "ch24-content-en-066",
             "kind": "paragraph",
-            "text": "8"
+            "text": "12"
           },
           {
             "id": "ch24-content-en-067",
             "kind": "paragraph",
-            "text": "Data"
+            "text": "10"
           },
           {
             "id": "ch24-content-en-068",
             "kind": "paragraph",
-            "text": "6"
+            "text": "8"
           },
           {
             "id": "ch24-content-en-069",
             "kind": "paragraph",
-            "text": "4"
+            "text": "Data"
           },
           {
             "id": "ch24-content-en-070",
             "kind": "paragraph",
-            "text": "2"
+            "text": "6"
           },
           {
             "id": "ch24-content-en-071",
             "kind": "paragraph",
-            "text": "0"
+            "text": "4"
           },
           {
             "id": "ch24-content-en-072",
             "kind": "paragraph",
-            "text": "C2"
+            "text": "2"
           },
           {
             "id": "ch24-content-en-073",
             "kind": "paragraph",
-            "text": "C1"
+            "text": "0"
           },
           {
             "id": "ch24-content-en-074",
-            "kind": "heading",
-            "text": "Average Production Per Hour for Application Workflow"
+            "kind": "paragraph",
+            "text": "C2"
           },
           {
             "id": "ch24-content-en-075",
             "kind": "paragraph",
-            "text": "14"
+            "text": "C1"
           },
           {
             "id": "ch24-content-en-076",
-            "kind": "paragraph",
-            "text": "12"
+            "kind": "heading",
+            "text": "Average Production Per Hour for Application Workflow"
           },
           {
             "id": "ch24-content-en-077",
-            "kind": "heading",
-            "text": "Average Production Per Hour"
+            "kind": "paragraph",
+            "text": "14"
           },
           {
             "id": "ch24-content-en-078",
             "kind": "paragraph",
-            "text": "10"
+            "text": "12"
           },
           {
             "id": "ch24-content-en-079",
-            "kind": "paragraph",
-            "text": "8"
+            "kind": "heading",
+            "text": "Average Production Per Hour"
           },
           {
             "id": "ch24-content-en-080",
             "kind": "paragraph",
-            "text": "6"
+            "text": "10"
           },
           {
             "id": "ch24-content-en-081",
             "kind": "paragraph",
-            "text": "4"
+            "text": "8"
           },
           {
             "id": "ch24-content-en-082",
             "kind": "paragraph",
-            "text": "2"
+            "text": "6"
           },
           {
             "id": "ch24-content-en-083",
             "kind": "paragraph",
-            "text": "0"
+            "text": "4"
           },
           {
             "id": "ch24-content-en-084",
+            "kind": "paragraph",
+            "text": "2"
+          },
+          {
+            "id": "ch24-content-en-085",
+            "kind": "paragraph",
+            "text": "0"
+          },
+          {
+            "id": "ch24-content-en-086",
             "kind": "heading",
             "text": "NewProcess"
           },
           {
-            "id": "ch24-content-en-085",
+            "id": "ch24-content-en-087",
             "kind": "heading",
             "text": "OldProcess"
           },
           {
-            "id": "ch24-content-en-086",
+            "id": "ch24-content-en-088",
             "kind": "paragraph",
             "text": "The first boxplot, on its own, doesn’t provide much information to an audience. Someone who understands boxplots would simply be able to tell that two things were being charted and that the average of one was higher than the average of the other."
           },
           {
-            "id": "ch24-content-en-087",
+            "id": "ch24-content-en-089",
             "kind": "paragraph",
             "text": "The second boxplot is the same as the first, but the title and data labels have been edited. Now, you can see that the graph provides information about the application workflow. Specifically, the graph is illustrating the average production rates per hour for that workflow, and the new workflow process seems to be more productive than the old one."
           },
           {
-            "id": "ch24-content-en-088",
+            "id": "ch24-content-en-090",
             "kind": "paragraph",
             "text": "Creating graphical analyses that tell a small story all on their own – with the help of data labels and titles – is important. First, as the Six Sigma presenter, labels provide cues that help you verbally explain the slide or graph. After several slides with similar-looking graphs or charts, even you can get confused about what specific data you are talking about. Second, appropriate labels on such images let you reuse the image without the context of the presentation or slide. This means you waste less time and can reuse your work when communicating about your project or data – effectively reducing muda of rework. Finally, you don’t have to worry as much about someone taking your data or analysis and misinterpreting it or getting the wrong idea from it. If graphs are properly labeled, then it is harder for someone seeing the information outside of your presentation to draw the wrong conclusions."
           },
           {
-            "id": "ch24-content-en-089",
+            "id": "ch24-content-en-091",
             "kind": "paragraph",
             "text": "You can also edit colors of data on charts in both Minitab and Excel, making it even easier for an audience to draw appropriate conclusions from the illustration. Consider the Pareto chart below. This is the same Pareto chart shown earlier in this chapter, but in this version, the top three categories are presented in red. The color change emphasizes those categories, which account for 80 percent of the errors, making it easier for the audience to draw the conclusion that these are the issues that the team will concentrate on."
           },
           {
-            "id": "ch24-content-en-090",
+            "id": "ch24-content-en-092",
+            "kind": "image",
+            "assetId": "fig-c818be182f172b4c",
+            "src": "assets/figures/fig-c818be182f172b4c.png",
+            "width": 1191,
+            "height": 692
+          },
+          {
+            "id": "ch24-content-en-093",
             "kind": "heading",
             "text": "Don’t Misuse Your Tools"
           },
           {
-            "id": "ch24-content-en-091",
+            "id": "ch24-content-en-094",
             "kind": "paragraph",
             "text": "A final tip for creating business-friendly presentations is: don’t misuse the tools, knowledge, and resources you have for creating a presentations or communicating ideas."
           },
           {
-            "id": "ch24-content-en-092",
+            "id": "ch24-content-en-095",
             "kind": "paragraph",
             "text": "Don’t misuse PowerPoint, for example. Most audience members don’t want to see a 100-slide presentation. Just because you can include it, doesn’t mean you should. Likewise, try to avoid animating every aspect of your presentation. Yes, there is a time for fade-in or fly-in, but the time is not every single bullet point or image. Use animations sparingly – if at all – for impact about very important conclusions or elements of your presentation. For the most part, a strong Six Sigma presentation should rely on clarity and data over gimmicks and animations."
           },
           {
-            "id": "ch24-content-en-093",
+            "id": "ch24-content-en-096",
             "kind": "paragraph",
             "text": "Don’t misuse Minitab or your other statistical analysis software. It takes mere seconds to perform certain tests or create graphs in Minitab, as you’ll see in the next Unit. Because of that, Six Sigma analysts and teams tend to accumulate a lot of versions of data. Treat Minitab graphs and analysis as you do PowerPoint animations. Use them as needed, but don’t use them because they are there. One good rule is no more than one graph or chart per slide or data-related question. This forces you to choose the graph or chart that you feel most powerfully or appropriately illustrates your data. There are exceptions to this rule, and you might need to include two charts if one chart helps explain another or you are comparing information about data or multiple data sets."
           },
           {
-            "id": "ch24-content-en-094",
+            "id": "ch24-content-en-097",
             "kind": "paragraph",
             "text": "Don’t misuse your data analysis skills. Misuse of data analysis can come in two forms: either you make a data analysis error inadvertently or you force an analysis to fit a desired outcome or conclusion. The first step is more of an error than a misuse; you can avoid presenting such errors to others by double checking all conclusions and inferences and having someone else knowledgeable about Six Sigma review your analysis before you finalize a presentation. This is why many Six Sigma organizations have at least"
           },
           {
-            "id": "ch24-content-en-095",
+            "id": "ch24-content-en-098",
             "kind": "paragraph",
             "text": "one Master Black Belt on staff – Black Belts and Green Belts can call on the Master Black Belt if they have analysis questions or simply want to confirm they are on the right track with analysis."
           },
           {
-            "id": "ch24-content-en-096",
+            "id": "ch24-content-en-099",
             "kind": "paragraph",
             "text": "No one is infallible, and mistakes can happen. As a Six Sigma expert, however, you can never allow biases to force statistical conclusions that aren’t supported by the data. And you certainly should never cloud analysis by presenting it in a way that makes it hard for your audience to see the appropriate conclusion because you want them to draw another conclusion. For example, the trick used above to highlight a certain part of the Pareto chart with color can be used inappropriately. You can draw attention to a certain part of a graph or bar chart with color, increasing the chance that the audience will conclude that the colored portion is of more relevance or more important than other data on the graph. While this is sometimes true, Six Sigma teams and presenters must be careful when using such tactics – only create this scenario when the data supports such an emphasis."
           },
           {
-            "id": "ch24-content-en-097",
+            "id": "ch24-content-en-100",
             "kind": "paragraph",
             "text": "Another example of creating bias in a presentation comes when you present analysis information knowing the sample size was not big enough for strong conclusions, but you don’t make that known when you present the information. This can result in leadership or others making decisions based on your data without understanding the risks that the conclusions might be wrong."
           },
           {
-            "id": "ch24-content-en-098",
+            "id": "ch24-content-en-101",
             "kind": "paragraph",
             "text": "Similarly, if you run four types of test in Minitab and three support one conclusion while only a single test supports the conclusion the team originally wanted to present, you shouldn’t present only the results of the single test. Before presenting anything, you should review each of the tests to understand why there is a difference in one; you should also ensure that the tests you are using are appropriate for the data, question, and sample size at hand. If you verify the statistics are all correct, then you usually go with the conclusion supported by the greater number of tests."
           },
           {
-            "id": "ch24-content-en-099",
+            "id": "ch24-content-en-102",
             "kind": "heading",
             "text": "Don’t Let the Presentation Drive the Project"
           },
           {
-            "id": "ch24-content-en-100",
+            "id": "ch24-content-en-103",
             "kind": "paragraph",
             "text": "Given the decision-making processes and requirements in a corporate business world, presentations are a requirement of the DMAIC process. Six Sigma teams and experts are going to have to present their findings at some point, so presentation skills are something you do need to work on."
           },
           {
-            "id": "ch24-content-en-101",
+            "id": "ch24-content-en-104",
             "kind": "paragraph",
             "text": "That being said, it is important that you never let the need for a good presentation drive any part of the process. Six Sigma teams should never make decisions about data gathering, graphical analysis, process mapping, brainstorming, or any other Six Sigma function because they think it will be good or look good for the presentation. Instead, the presentation of information to the business must come after the work is done."
           },
           {
-            "id": "ch24-content-en-102",
+            "id": "ch24-content-en-105",
             "kind": "paragraph",
             "text": "This truth is relevant any time you are presenting information to the business or business staff – not just when you are standing in front of a conference room with a PowerPoint behind you. For example, Black Belts often communicate with sponsors or business leaders regularly during the course of a DMAIC project. Perhaps the team provides a daily email or a weekend update to the sponsor; whatever the mode of communication is, all of the tips in this chapter are relevant."
           },
           {
-            "id": "ch24-content-en-103",
+            "id": "ch24-content-en-106",
             "kind": "heading",
             "text": "Unit 6: Advanced Control"
           }
@@ -872,21 +896,37 @@
           },
           {
             "id": "ch24-content-zh-060",
-            "kind": "paragraph",
-            "text": "并非所有问题都需要上述幻灯片的所有要素。有时，以简洁的文字提供答案是有意义的。例如，您可能会问“团队试图解决什么问题？”该幻灯片的正确内容是在定义阶段编写的问题陈述。"
+            "kind": "image",
+            "assetId": "fig-3cf0f9c2787b974a",
+            "src": "assets/figures/fig-3cf0f9c2787b974a.png",
+            "width": 1191,
+            "height": 663
           },
           {
             "id": "ch24-content-zh-061",
             "kind": "paragraph",
-            "text": "有时，您需要在幻灯片上包含的唯一内容是图形或图表。考虑下面的幻灯片。"
+            "text": "并非所有问题都需要上述幻灯片的所有要素。有时，以简洁的文字提供答案是有意义的。例如，您可能会问“团队试图解决什么问题？”该幻灯片的正确内容是在定义阶段编写的问题陈述。"
           },
           {
             "id": "ch24-content-zh-062",
             "kind": "paragraph",
-            "text": "这张幻灯片询问了是什么导致发出有缺陷的订单，并用帕累托图回答了这个问题。即使有人不熟悉帕累托图，考虑到标签和数据，很明显，造成最多缺陷的问题是在产品精加工中。了解 Pareto 图的人可以在几秒钟内发现整理错误和有缺陷的原始输入占错误的 60% 以上；如果添加“选择了错误的产品”，则 80% 的错误都是由您造成的。"
+            "text": "有时，您需要在幻灯片上包含的唯一内容是图形或图表。考虑下面的幻灯片。"
           },
           {
             "id": "ch24-content-zh-063",
+            "kind": "image",
+            "assetId": "fig-d4f924190390244f",
+            "src": "assets/figures/fig-d4f924190390244f.png",
+            "width": 1191,
+            "height": 673
+          },
+          {
+            "id": "ch24-content-zh-064",
+            "kind": "paragraph",
+            "text": "这张幻灯片询问了是什么导致发出有缺陷的订单，并用帕累托图回答了这个问题。即使有人不熟悉帕累托图，考虑到标签和数据，很明显，造成最多缺陷的问题是在产品精加工中。了解 Pareto 图的人可以在几秒钟内发现整理错误和有缺陷的原始输入占错误的 60% 以上；如果添加“选择了错误的产品”，则 80% 的错误都是由您造成的。"
+          },
+          {
+            "id": "ch24-content-zh-065",
             "kind": "termNote",
             "rows": [
               [
@@ -896,247 +936,281 @@
             "text": "术语说明 Pareto（帕累托）：按影响大小排序，常用于找出“少数关键原因”。"
           },
           {
-            "id": "ch24-content-zh-064",
+            "id": "ch24-content-zh-066",
             "kind": "paragraph",
             "text": "一些六西格玛工具，例如帕累托图，很容易向那些对数据分析或六西格玛没有了解的观众解释。给定一两分钟的演示时间，您可以充分解释上面的图表如何回答幻灯片的问题，这就是帕累托图（和其他条形图）在此类演示中受欢迎的原因之一。"
           },
           {
-            "id": "ch24-content-zh-065",
+            "id": "ch24-content-zh-067",
             "kind": "heading",
             "text": "清晰简洁"
           },
           {
-            "id": "ch24-content-zh-066",
+            "id": "ch24-content-zh-068",
             "kind": "paragraph",
             "text": "无论您如何呈现数据，请确保每张幻灯片以及幻灯片上的每个元素都清晰简洁。 这意味着尽可能使用活跃的语言进行写作，避免长文本解释，并确保所有内容拼写正确，并且不会意外使用错误的单词。当在演示文稿中包含统计数据时，很容易做出错误的用词选择，从而改变整个陈述的含义。当你的意思是“小于”时简单地说“大于”，或者当你的意思是“增加”时简单地说“减少”可能会扭曲你所提供的信息或让你的听众感到困惑。"
           },
           {
-            "id": "ch24-content-zh-067",
+            "id": "ch24-content-zh-069",
             "kind": "paragraph",
             "text": "清晰度不仅仅是单词选择和句子结构的问题。您还应该关注幻灯片上的元素如何组合在一起。不要在一张幻灯片上放置太多信息，以免观众无法理解文字或图像。在某些情况下，您可能需要提出问题并通过一系列幻灯片来回答。"
           },
           {
-            "id": "ch24-content-zh-068",
+            "id": "ch24-content-zh-070",
             "kind": "paragraph",
             "text": "请注意，投影的幻灯片图像永远不会像计算机上的图像那么清晰。因此，您应该始终避免在浅色背景上分层浅色字体或图像，或在深色背景上分层深色字体或图像。不要为了容纳所有信息而将字体最小化为 12 号——记住，您的观众可能坐在几英尺远或几码远的地方。您也不需要在幻灯片上包含所有信息 - 当您口头添加信息时，幻灯片应该充当观众的视觉参考点。"
           },
           {
-            "id": "ch24-content-zh-069",
+            "id": "ch24-content-zh-071",
             "kind": "paragraph",
             "text": "直接添加到幻灯片中的文本和图像不应该是您唯一关心的问题。您还需要确保图表中的文本和图像尽可能清晰简洁。考虑下面的两个箱线图。"
           },
           {
-            "id": "ch24-content-zh-070",
+            "id": "ch24-content-zh-072",
             "kind": "heading",
             "text": "C1、C2 的箱线图"
           },
           {
-            "id": "ch24-content-zh-071",
-            "kind": "paragraph",
-            "text": "14"
-          },
-          {
-            "id": "ch24-content-zh-072",
-            "kind": "paragraph",
-            "text": "12"
-          },
-          {
             "id": "ch24-content-zh-073",
             "kind": "paragraph",
-            "text": "10"
+            "text": "14"
           },
           {
             "id": "ch24-content-zh-074",
             "kind": "paragraph",
-            "text": "8"
-          },
-          {
-            "id": "ch24-content-zh-075",
-            "kind": "heading",
-            "text": "数据"
-          },
-          {
-            "id": "ch24-content-zh-076",
-            "kind": "paragraph",
-            "text": "6"
-          },
-          {
-            "id": "ch24-content-zh-077",
-            "kind": "paragraph",
-            "text": "4"
-          },
-          {
-            "id": "ch24-content-zh-078",
-            "kind": "paragraph",
-            "text": "2"
-          },
-          {
-            "id": "ch24-content-zh-079",
-            "kind": "paragraph",
-            "text": "0"
-          },
-          {
-            "id": "ch24-content-zh-080",
-            "kind": "heading",
-            "text": "C2"
-          },
-          {
-            "id": "ch24-content-zh-081",
-            "kind": "heading",
-            "text": "C1"
-          },
-          {
-            "id": "ch24-content-zh-082",
-            "kind": "heading",
-            "text": "应用程序工作流程的平均每小时产量"
-          },
-          {
-            "id": "ch24-content-zh-083",
-            "kind": "paragraph",
-            "text": "14"
-          },
-          {
-            "id": "ch24-content-zh-084",
-            "kind": "paragraph",
             "text": "12"
           },
           {
-            "id": "ch24-content-zh-085",
-            "kind": "heading",
-            "text": "每小时平均产量"
-          },
-          {
-            "id": "ch24-content-zh-086",
+            "id": "ch24-content-zh-075",
             "kind": "paragraph",
             "text": "10"
           },
           {
-            "id": "ch24-content-zh-087",
+            "id": "ch24-content-zh-076",
             "kind": "paragraph",
             "text": "8"
           },
           {
-            "id": "ch24-content-zh-088",
+            "id": "ch24-content-zh-077",
+            "kind": "heading",
+            "text": "数据"
+          },
+          {
+            "id": "ch24-content-zh-078",
             "kind": "paragraph",
             "text": "6"
           },
           {
-            "id": "ch24-content-zh-089",
+            "id": "ch24-content-zh-079",
             "kind": "paragraph",
             "text": "4"
           },
           {
-            "id": "ch24-content-zh-090",
+            "id": "ch24-content-zh-080",
             "kind": "paragraph",
             "text": "2"
           },
           {
-            "id": "ch24-content-zh-091",
+            "id": "ch24-content-zh-081",
             "kind": "paragraph",
             "text": "0"
           },
           {
+            "id": "ch24-content-zh-082",
+            "kind": "heading",
+            "text": "C2"
+          },
+          {
+            "id": "ch24-content-zh-083",
+            "kind": "heading",
+            "text": "C1"
+          },
+          {
+            "id": "ch24-content-zh-084",
+            "kind": "heading",
+            "text": "应用程序工作流程的平均每小时产量"
+          },
+          {
+            "id": "ch24-content-zh-085",
+            "kind": "paragraph",
+            "text": "14"
+          },
+          {
+            "id": "ch24-content-zh-086",
+            "kind": "paragraph",
+            "text": "12"
+          },
+          {
+            "id": "ch24-content-zh-087",
+            "kind": "heading",
+            "text": "每小时平均产量"
+          },
+          {
+            "id": "ch24-content-zh-088",
+            "kind": "paragraph",
+            "text": "10"
+          },
+          {
+            "id": "ch24-content-zh-089",
+            "kind": "paragraph",
+            "text": "8"
+          },
+          {
+            "id": "ch24-content-zh-090",
+            "kind": "paragraph",
+            "text": "6"
+          },
+          {
+            "id": "ch24-content-zh-091",
+            "kind": "paragraph",
+            "text": "4"
+          },
+          {
             "id": "ch24-content-zh-092",
+            "kind": "paragraph",
+            "text": "2"
+          },
+          {
+            "id": "ch24-content-zh-093",
+            "kind": "paragraph",
+            "text": "0"
+          },
+          {
+            "id": "ch24-content-zh-094",
             "kind": "heading",
             "text": "新流程"
           },
           {
-            "id": "ch24-content-zh-093",
+            "id": "ch24-content-zh-095",
             "kind": "heading",
             "text": "旧进程"
           },
           {
-            "id": "ch24-content-zh-094",
+            "id": "ch24-content-zh-096",
             "kind": "paragraph",
             "text": "第一个箱线图本身并没有向观众提供太多信息。了解箱线图的人可以简单地看出正在绘制两件事，并且其中一件事的平均值高于另一件事的平均值。"
           },
           {
-            "id": "ch24-content-zh-095",
+            "id": "ch24-content-zh-097",
             "kind": "paragraph",
             "text": "第二个箱线图与第一个箱线图相同，但标题和数据标签已被编辑。现在，您可以看到该图提供了有关应用程序工作流程的信息。具体来说，该图显示了该工作流程每小时的平均生产率，并且新的工作流程似乎比旧的流程更具生产力。"
           },
           {
-            "id": "ch24-content-zh-096",
+            "id": "ch24-content-zh-098",
             "kind": "paragraph",
             "text": "借助数据标签和标题，创建能够独立讲述一个小故事的图形分析非常重要。首先，作为六西格玛的演示者，标签提供了提示，帮助您口头解释幻灯片或图表。在看了几张具有相似图形或图表的幻灯片之后，甚至您也会对您正在谈论的具体数据感到困惑。其次，此类图像上的适当标签使您可以在没有演示文稿或幻灯片上下文的情况下重复使用该图像。这意味着您浪费的时间更少，并且在交流项目或数据时可以重复使用您的工作成果，从而有效减少返工的混乱。最后，您不必太担心有人获取您的数据或分析并误解它或从中得出错误的想法。如果图表被正确标记，那么人们在看到演示文稿之外的信息时就很难得出错误的结论。"
           },
           {
-            "id": "ch24-content-zh-097",
+            "id": "ch24-content-zh-099",
             "kind": "paragraph",
             "text": "您还可以在 Minitab 和 Excel 中编辑图表上的数据颜色，使观众更容易从插图中得出适当的结论。考虑下面的帕累托图。这与本章前面显示的帕累托图相同，但在此版本中，前三个类别以红色显示。颜色变化强调了这些类别，这些类别占错误的 80%，使观众更容易得出结论，这些是团队将重点关注的问题。"
           },
           {
-            "id": "ch24-content-zh-098",
+            "id": "ch24-content-zh-100",
+            "kind": "image",
+            "assetId": "fig-c818be182f172b4c",
+            "src": "assets/figures/fig-c818be182f172b4c.png",
+            "width": 1191,
+            "height": 692
+          },
+          {
+            "id": "ch24-content-zh-101",
             "kind": "heading",
             "text": "不要滥用你的工具"
           },
           {
-            "id": "ch24-content-zh-099",
+            "id": "ch24-content-zh-102",
             "kind": "paragraph",
             "text": "创建商业友好型演示文稿的最后一个技巧是：不要滥用您用于创建演示文稿或交流想法的工具、知识和资源。"
           },
           {
-            "id": "ch24-content-zh-100",
+            "id": "ch24-content-zh-103",
             "kind": "paragraph",
             "text": "例如，不要滥用 PowerPoint。大多数观众不希望看到 100 张幻灯片的演示文稿。仅仅因为您可以包含它，并不意味着您应该包含它。同样，尽量避免演示文稿的各个方面都充满活力。是的，有淡入或飞入的时间，但时间并不是每个要点或图像。 谨慎使用动画（如果有的话），以影响非常重要的结论或演示文稿的元素。在大多数情况下，一个强大的六西格玛演示应该依赖于清晰度和数据，而不是噱头和动画。"
           },
           {
-            "id": "ch24-content-zh-101",
+            "id": "ch24-content-zh-104",
             "kind": "paragraph",
             "text": "不要滥用 Minitab 或其他统计分析软件。在 Minitab 中执行某些测试或创建图形只需几秒钟，您将在下一个单元中看到。正因为如此，六西格玛的分析师和团队往往会积累大量版本的数据。像对待 PowerPoint 动画一样对待 Minitab 图形和分析。根据需要使用它们，但不要因为它们就在那里而使用它们。一个好的规则是每张幻灯片或与数据相关的问题不超过一个图表或图表。这迫使您选择您认为最有力或最恰当地说明您的数据的图形或图表。此规则也有例外，如果一个图表有助于解释另一个图表，或者您正在比较有关数据或多个数据集的信息，则您可能需要包含两个图表。"
           },
           {
-            "id": "ch24-content-zh-102",
+            "id": "ch24-content-zh-105",
             "kind": "paragraph",
             "text": "不要滥用您的数据分析技能。数据分析的滥用有两种形式：要么无意中犯了数据分析错误，要么强迫分析符合期望的结果或结论。第一步与其说是误用，不如说是错误；您可以在完成演示之前仔细检查所有结论和推论，并让其他了解六西格玛的人审查您的分析，从而避免向他人展示此类错误。这就是为什么许多六西格玛组织至少有"
           },
           {
-            "id": "ch24-content-zh-103",
+            "id": "ch24-content-zh-106",
             "kind": "paragraph",
             "text": "一名黑带大师 - 如果黑带人员和绿带人员有分析问题或只是想确认分析是否正确，可以致电黑带大师。"
           },
           {
-            "id": "ch24-content-zh-104",
+            "id": "ch24-content-zh-107",
             "kind": "paragraph",
             "text": "没有人是绝对正确的，错误也可能发生。然而，作为六西格玛专家，你绝不能允许偏见强加没有数据支持的统计结论。当然，您绝对不应该以一种让观众很难看到适当结论的方式来呈现分析，因为您希望他们得出另一个结论。例如，上面使用颜色突出显示 Pareto 图的某个部分的技巧可能会被不适当地使用。您可以用颜色吸引人们对图表或条形图的特定部分的注意，从而增加观众得出结论的可能性：彩色部分比图表上的其他数据更相关或更重要。 虽然有时确实如此，但六西格玛团队和主持人在使用这种策略时必须小心——只有在数据支持这种强调时才创建这种场景。"
           },
           {
-            "id": "ch24-content-zh-105",
+            "id": "ch24-content-zh-108",
             "kind": "paragraph",
             "text": "另一个在演示中产生偏见的例子是，当您在提供分析信息时知道样本量不足以得出强有力的结论，但在提供信息时却没有让人们知道这一点。这可能会导致领导层或其他人根据您的数据做出决策，而不了解结论可能错误的风险。"
           },
           {
-            "id": "ch24-content-zh-106",
+            "id": "ch24-content-zh-109",
             "kind": "paragraph",
             "text": "同样，如果您在 Minitab 中运行四种类型的测试，其中三种测试支持一个结论，而只有一个测试支持团队最初想要呈现的结论，则您不应仅呈现单个测试的结果。在展示任何内容之前，您应该回顾每项测试，以了解为什么其中存在差异；您还应该确保您使用的测试适合手头的数据、问题和样本量。如果您验证统计数据全部正确，那么您通常会接受更多测试支持的结论。"
           },
           {
-            "id": "ch24-content-zh-107",
+            "id": "ch24-content-zh-110",
             "kind": "heading",
             "text": "不要让演示驱动项目"
           },
           {
-            "id": "ch24-content-zh-108",
+            "id": "ch24-content-zh-111",
             "kind": "paragraph",
             "text": "鉴于企业业务领域的决策流程和要求，演示是 DMAIC 流程的要求。 六西格玛团队和专家总有一天要展示他们的发现，所以展示技巧是你需要努力的。"
           },
           {
-            "id": "ch24-content-zh-109",
+            "id": "ch24-content-zh-112",
             "kind": "paragraph",
             "text": "话虽这么说，重要的是永远不要让良好演示的需求驱动过程的任何部分。 六西格玛团队绝不能因为认为数据收集、图形分析、流程图、头脑风暴或任何其他六西格玛功能对演示有利或看起来不错而做出决定。相反，向企业提供信息必须在工作完成之后进行。"
           },
           {
-            "id": "ch24-content-zh-110",
+            "id": "ch24-content-zh-113",
             "kind": "paragraph",
             "text": "每当您向业务或业务人员演示信息时，这一事实都适用，而不仅仅是当您站在会议室前面、身后放着 PowerPoint 时。例如，黑带人员在 DMAIC 项目过程中经常与赞助商或企业领导人定期沟通。也许团队会向赞助商提供每日电子邮件或周末更新；无论沟通方式是什么，本章中的所有提示都是相关的。"
           },
           {
-            "id": "ch24-content-zh-111",
+            "id": "ch24-content-zh-114",
             "kind": "heading",
             "text": "第 6 单元：高级控制"
           }
         ]
       }
+    }
+  ],
+  "assets": [
+    {
+      "id": "fig-3cf0f9c2787b974a",
+      "type": "table-image",
+      "path": "assets/figures/fig-3cf0f9c2787b974a.png",
+      "page": 295,
+      "width": 1191,
+      "height": 663
+    },
+    {
+      "id": "fig-c818be182f172b4c",
+      "type": "table-image",
+      "path": "assets/figures/fig-c818be182f172b4c.png",
+      "page": 295,
+      "width": 1191,
+      "height": 692
+    },
+    {
+      "id": "fig-d4f924190390244f",
+      "type": "table-image",
+      "path": "assets/figures/fig-d4f924190390244f.png",
+      "page": 295,
+      "width": 1191,
+      "height": 673
     }
   ]
 }

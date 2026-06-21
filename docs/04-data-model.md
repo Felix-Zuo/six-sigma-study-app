@@ -6,21 +6,42 @@
 type Lesson = {
   id: string;
   chapter: number;
+  pageStart: number;
+  pageEnd: number;
   title: { en: string; zh: string };
-  paragraphs: ParagraphPair[];
+  sections: LessonSection[];
   assets?: Asset[];
 };
 ```
 
-## Paragraph Pair
+## Lesson Section
 
 ```ts
-type ParagraphPair = {
+type LessonSection = {
   id: string;
   page: number;
-  en: string;
-  zh: string;
-  assetIds?: string[];
+  level: 1 | 2 | 3;
+  title: { en: string; zh: string };
+  content: {
+    en: ContentBlock[];
+    zh: ContentBlock[];
+  };
+};
+```
+
+## Content Block
+
+```ts
+type ContentBlock = {
+  id: string;
+  kind: "paragraph" | "listItem" | "table" | "termNote" | "heading" | "image";
+  text?: string;
+  rows?: string[][];
+  assetId?: string;
+  src?: string;
+  width?: number;
+  height?: number;
+  alt?: string;
 };
 ```
 
@@ -70,6 +91,8 @@ type Asset = {
   type: "figure" | "table-image" | "formula-image";
   path: string;
   page: number;
+  width?: number;
+  height?: number;
   caption?: { en?: string; zh?: string };
 };
 ```
@@ -84,4 +107,3 @@ type LookupResult = {
   entry: TermEntry;
 };
 ```
-

@@ -78,6 +78,8 @@
           "type": { "enum": ["figure", "table-image", "formula-image"] },
           "path": { "type": "string" },
           "page": { "type": "integer" },
+          "width": { "type": "integer", "minimum": 1 },
+          "height": { "type": "integer", "minimum": 1 },
           "caption": {
             "type": "object",
             "properties": {
@@ -95,8 +97,13 @@
       "required": ["id", "kind"],
       "properties": {
         "id": { "type": "string" },
-        "kind": { "enum": ["paragraph", "listItem", "table", "termNote", "heading"] },
+        "kind": { "enum": ["paragraph", "listItem", "table", "termNote", "heading", "image"] },
         "text": { "type": "string" },
+        "assetId": { "type": "string" },
+        "src": { "type": "string" },
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 },
+        "alt": { "type": "string" },
         "rows": {
           "type": "array",
           "items": {

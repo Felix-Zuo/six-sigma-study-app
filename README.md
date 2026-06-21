@@ -44,7 +44,13 @@ npm run dev
 - `C:\findjob_sixsigma_sources\manual_en_aligned.docx`
 - `C:\findjob_sixsigma_sources\manual_zh_aligned.docx`
 
-The script generates structured content for all 33 chapters into `content/processed`, then copies the full manual package into `apps/reader/public/content/manual.json` for runtime loading.
+The script generates structured content for all 33 chapters into `content/processed`, then copies the full manual package into `apps/reader/public/content/manual.json` for runtime loading. It also extracts DOCX-embedded figures and table screenshots, deduplicates them by content hash, and writes the app assets under `apps/reader/public/content/assets/`.
+
+Current generated figure package:
+
+- 470 PNG assets
+- about 31.7 MB before APK compression
+- bundled into both release APK and release AAB
 
 ## Key Folders
 
@@ -54,6 +60,7 @@ The script generates structured content for all 33 chapters into `content/proces
 - `content/processed/manual.json`: generated full-manual bilingual content package
 - `content/processed/dictionary/six-sigma-terms.json`: curated local terminology seed
 - `content/processed/manual.sample.json`: small legacy sample lesson for UI development
+- `apps/reader/public/content/assets`: generated offline figure assets used by the app
 - `scripts`: validation and extraction tools
 - `docs`: PRD, architecture, roadmap, research, and ADRs
 
@@ -89,6 +96,8 @@ Release outputs:
 C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk
 C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab
 ```
+
+Build APK and AAB sequentially. Running both Android release scripts in parallel can make Vite compete over the same `apps\reader\dist` directory.
 
 ## Android Emulator QA
 

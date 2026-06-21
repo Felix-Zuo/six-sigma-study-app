@@ -365,171 +365,179 @@
           },
           {
             "id": "ch16-content-en-069",
-            "kind": "paragraph",
-            "text": "Above is an example of a control chart. The middle line, which is black, is the x-bar line. The x-bar line is bounded by green lines on both sides, indicating 1 and 2 standard deviations away from the mid-line. Those lines are bounded by orange lines on either side: at the top, the upper control limit, and on bottom, the lower control limit. Between the various lines are areas of the control chart, designated as C, B, and A going in either direction. These distinct areas are important for understanding if a process might be out of control. They are also called Zones 1, 2, and 3."
+            "kind": "image",
+            "assetId": "fig-74f8614c59d5d939",
+            "src": "assets/figures/fig-74f8614c59d5d939.png",
+            "width": 1189,
+            "height": 439
           },
           {
             "id": "ch16-content-en-070",
             "kind": "paragraph",
-            "text": "A control chart is best displayed using an automated reporting system or dashboard, where process owners or responsible employees can view it as needed. If automated data collection and control charting is not possible, then a business analyst can be tasked with collecting data and presenting it in this format periodically, though periodic graphical analysis is less likely to catch a problem of control within a process."
+            "text": "Above is an example of a control chart. The middle line, which is black, is the x-bar line. The x-bar line is bounded by green lines on both sides, indicating 1 and 2 standard deviations away from the mid-line. Those lines are bounded by orange lines on either side: at the top, the upper control limit, and on bottom, the lower control limit. Between the various lines are areas of the control chart, designated as C, B, and A going in either direction. These distinct areas are important for understanding if a process might be out of control. They are also called Zones 1, 2, and 3."
           },
           {
             "id": "ch16-content-en-071",
+            "kind": "paragraph",
+            "text": "A control chart is best displayed using an automated reporting system or dashboard, where process owners or responsible employees can view it as needed. If automated data collection and control charting is not possible, then a business analyst can be tasked with collecting data and presenting it in this format periodically, though periodic graphical analysis is less likely to catch a problem of control within a process."
+          },
+          {
+            "id": "ch16-content-en-072",
             "kind": "heading",
             "text": "Statistical Process Control Tests: Control Charts"
           },
           {
-            "id": "ch16-content-en-072",
+            "id": "ch16-content-en-073",
             "kind": "paragraph",
             "text": "Eight tests exist that can quickly tell someone viewing a control chart if a process is out of control."
           },
           {
-            "id": "ch16-content-en-073",
+            "id": "ch16-content-en-074",
             "kind": "listItem",
             "text": "Test one: A single point on the control chart appears outside of the upper or lower control limits. If this occurs, process owners should take immediate action, because it is evidence of a major problem within a process. While there is a very remote possibility that shifts outside of three standard deviations can occur randomly, the likelihood is only 3 in 1,000."
           },
           {
-            "id": "ch16-content-en-074",
+            "id": "ch16-content-en-075",
             "kind": "listItem",
             "text": "Test two: Nine points in a row appear on one side of the center line. This indicates that a change occurred in the process; if the process owner knows what change caused the shift and it was intentional change, nothing needs to be done and the control chart will right itself over time with the new data. Otherwise, the process owner should investigate the process."
           },
           {
-            "id": "ch16-content-en-075",
+            "id": "ch16-content-en-076",
             "kind": "listItem",
             "text": "Test three: Six points on the control chart increase or decrease in a row, indicating the process is becoming less or more efficient or is generating fewer or more errors. Process owners should investigate unless there is a known reason for the trend."
           },
           {
-            "id": "ch16-content-en-076",
+            "id": "ch16-content-en-077",
             "kind": "listItem",
             "text": "Test four: Fourteen points on the control chart in a row alternate moving up and down. This could indicate variation in machines, employees, shifts, or over correction."
           },
           {
-            "id": "ch16-content-en-077",
+            "id": "ch16-content-en-078",
             "kind": "listItem",
             "text": "Test five: Two out of three points in a row on the control chart are in the upper A section or in the lower A section. This might indicate some type of special cause creating sudden high variation."
           },
           {
-            "id": "ch16-content-en-078",
+            "id": "ch16-content-en-079",
             "kind": "listItem",
             "text": "Test six: Four out of five points in a row on the control chart are located in the upper B section (or beyond) or the lower B section (or beyond). This can indicate a problem of major causation or a shift problem similar to that of test four."
           },
           {
-            "id": "ch16-content-en-079",
+            "id": "ch16-content-en-080",
             "kind": "listItem",
             "text": "Test seven: Fifteen points in a row are located within the C section above or below the centerline. This can indicate that control limits are no longer relevant to the process; if a team has improved variation of a process, they should recalculate control limits to new parameters. Alternatively, this might occur temporarily when short-term variation is high or low relative to the rest of the points on a control chart."
           },
           {
-            "id": "ch16-content-en-080",
+            "id": "ch16-content-en-081",
             "kind": "listItem",
             "text": "Test eight: Eight points in a row on the control chart are located on either side of the center line, but none are located in the C section above or below the line. This could indicate an issue of mixed resources or processes; a team might think they are measuring a single process when they are actually measuring two process, for example. Alternatively, it could indicate a major difference in processing for two employees or teams."
           },
           {
-            "id": "ch16-content-en-081",
+            "id": "ch16-content-en-082",
             "kind": "paragraph",
             "text": "When it’s possible to create control charts and display current data on a regular basis, these charts make a good addition to a control plan. Individuals don’t have to be well-versed in statistical process control to learn about the eight tests, and business teams with the benefit of control charts can spend more time working on production or correcting issues and less time collecting and documenting measurements."
           },
           {
-            "id": "ch16-content-en-082",
+            "id": "ch16-content-en-083",
             "kind": "heading",
             "text": "Control Versus Capability"
           },
           {
-            "id": "ch16-content-en-083",
+            "id": "ch16-content-en-084",
             "kind": "paragraph",
             "text": "It’s important to note the distinction between a controlled process and one that is capable of meeting customer requirements. We touched on this concept in unit 1: controlled processes don’t have a lot of variation. Capable processes don’t have a lot of variation and the outputs center around a customer requirement. This is why both control limits and specification limits are important."
           },
           {
-            "id": "ch16-content-en-084",
+            "id": "ch16-content-en-085",
             "kind": "paragraph",
             "text": "Consider the example used earlier in this chapter about sugar in the chocolate mix. The specification limits ranged from 4.9 to 5.1 cups of sugar in each batch. It’s possible for a control chart to show that the process is in control if the measurements range from 3.5 to 3.6 cups of sugar per batch, but the process owner should know that those measurements aren’t going to contribute to a product that meets critical to customer quality requirements."
           },
           {
-            "id": "ch16-content-en-085",
+            "id": "ch16-content-en-086",
             "kind": "paragraph",
             "text": "To understand how a process is performing against specification limits, Six Sigma teams can calculate sigma level and process capability."
           },
           {
-            "id": "ch16-content-en-086",
+            "id": "ch16-content-en-087",
             "kind": "heading",
             "text": "Sigma Level"
           },
           {
-            "id": "ch16-content-en-087",
+            "id": "ch16-content-en-088",
             "kind": "paragraph",
             "text": "Sigma level is the number of standard deviations between the current process center, as measured by the median, and the nearest specification limit (not control limit.) The equation for sigma level is the smaller of the following calculations:"
           },
           {
-            "id": "ch16-content-en-088",
+            "id": "ch16-content-en-089",
             "kind": "paragraph",
             "text": "𝑈𝑆𝐿−𝑥̅"
           },
           {
-            "id": "ch16-content-en-089",
+            "id": "ch16-content-en-090",
             "kind": "paragraph",
             "text": "𝜎 𝑜𝑟 𝐿𝑆𝐿−𝑥̅"
           },
           {
-            "id": "ch16-content-en-090",
+            "id": "ch16-content-en-091",
             "kind": "paragraph",
             "text": "𝜎"
           },
           {
-            "id": "ch16-content-en-091",
+            "id": "ch16-content-en-092",
             "kind": "paragraph",
             "text": "For example, if a process has an USL of 5 and a LSL of 3, a standard deviation of .25 and a median of 4.2, then you would calculate from the USL, since the median is closer to the USL."
           },
           {
-            "id": "ch16-content-en-092",
+            "id": "ch16-content-en-093",
             "kind": "paragraph",
             "text": "5−4.2"
           },
           {
-            "id": "ch16-content-en-093",
+            "id": "ch16-content-en-094",
             "kind": "paragraph",
             "text": ".25 = 3.2 = sigma level"
           },
           {
-            "id": "ch16-content-en-094",
+            "id": "ch16-content-en-095",
             "kind": "heading",
             "text": "Process Capability"
           },
           {
-            "id": "ch16-content-en-095",
+            "id": "ch16-content-en-096",
             "kind": "paragraph",
             "text": "Process capability is calculated by dividing the sigma level by 3. In the case of the example, the capability is 1.06."
           },
           {
-            "id": "ch16-content-en-096",
+            "id": "ch16-content-en-097",
             "kind": "paragraph",
             "text": "Process capability is denoted as Cpk. A process capability of 1.33 is equal to a sigma level of 4, which is what most experts agree is the minimal level at which most customers will be satisfied. Under statistical process control, many organizations aim for a process capability of 2.0 with minimal acceptable process capability at 1.5."
           },
           {
-            "id": "ch16-content-en-097",
+            "id": "ch16-content-en-098",
             "kind": "heading",
             "text": "Team Celebration and Reflection"
           },
           {
-            "id": "ch16-content-en-098",
+            "id": "ch16-content-en-099",
             "kind": "paragraph",
             "text": "When Six Sigma teams deem improvements and the related process to be capable and in control, and they’ve passed those processes back to business and process owner control, they should take time to celebrate and reflect on the outcome of the project. This is usually done following the final tollgate review with a sponsor or champion, and can be a quick meeting to close loose ends, recognize the work done by the team, and discuss lessons learned within the process."
           },
           {
-            "id": "ch16-content-en-099",
+            "id": "ch16-content-en-100",
             "kind": "paragraph",
             "text": "The celebration and reflection meeting is also a great time for team members to bring up ideas for possible improvement projects. While improvements – and the related problems and causes – are still fresh on the team’s minds, they can effectively brainstorm ideas for next steps. As with any brainstorming session, no idea should be automatically held off the table because it seems silly, would be too hard to implement, is too costly, or seems too big. Not all of the ideas will become future projects, but the team’s input provides valuable information that the Black Belt can later share with Six Sigma leadership panels."
           },
           {
-            "id": "ch16-content-en-100",
+            "id": "ch16-content-en-101",
             "kind": "heading",
             "text": "Control Tollgate Checklist"
           },
           {
-            "id": "ch16-content-en-101",
+            "id": "ch16-content-en-102",
             "kind": "paragraph",
             "text": "o The team has calculated the performance and capability of the new process o The team has written a control plan and communicated it to the process owner o The team has created a monitor for the process, either through procedures for manual data collection or automated generation of control charts o The team has provided the process owner and business team with all tools and information required to maintain improvements o The sponsor, champion, or executive leadership has been informed about the state of the improvements o The team met to reflect on the project and generate a list of ideas for future improvements"
           },
           {
-            "id": "ch16-content-en-102",
+            "id": "ch16-content-en-103",
             "kind": "heading",
             "text": "Unit 4: Beginner Statistics"
           }
@@ -957,91 +965,99 @@
           },
           {
             "id": "ch16-content-zh-077",
-            "kind": "paragraph",
-            "text": "上面是控制图的示例。中间的黑色线是 x 条线。 x 条线两侧以绿线为界，表示距中线 1 和 2 个标准差。这些线的两侧以橙色线为界：顶部为控制上限，底部为控制下限。各条线之间是控制图的区域，指定为任一方向的 C、B 和 A。这些不同的区域对于了解流程是否可能失控非常重要。它们也称为 1 区、2 区和 3 区。"
+            "kind": "image",
+            "assetId": "fig-74f8614c59d5d939",
+            "src": "assets/figures/fig-74f8614c59d5d939.png",
+            "width": 1189,
+            "height": 439
           },
           {
             "id": "ch16-content-zh-078",
             "kind": "paragraph",
-            "text": "控制图最好使用自动报告系统或仪表板来显示，流程所有者或负责的员工可以根据需要查看它。如果无法实现自动数据收集和控制图表，则业务分析师可以负责收集数据并定期以这种格式呈现数据，尽管定期图形分析不太可能发现流程中的控制问题。"
+            "text": "上面是控制图的示例。中间的黑色线是 x 条线。 x 条线两侧以绿线为界，表示距中线 1 和 2 个标准差。这些线的两侧以橙色线为界：顶部为控制上限，底部为控制下限。各条线之间是控制图的区域，指定为任一方向的 C、B 和 A。这些不同的区域对于了解流程是否可能失控非常重要。它们也称为 1 区、2 区和 3 区。"
           },
           {
             "id": "ch16-content-zh-079",
+            "kind": "paragraph",
+            "text": "控制图最好使用自动报告系统或仪表板来显示，流程所有者或负责的员工可以根据需要查看它。如果无法实现自动数据收集和控制图表，则业务分析师可以负责收集数据并定期以这种格式呈现数据，尽管定期图形分析不太可能发现流程中的控制问题。"
+          },
+          {
+            "id": "ch16-content-zh-080",
             "kind": "heading",
             "text": "统计过程控制测试：控制图"
           },
           {
-            "id": "ch16-content-zh-080",
+            "id": "ch16-content-zh-081",
             "kind": "paragraph",
             "text": "存在八种测试，可以快速告诉查看控制图的人流程是否失控。"
           },
           {
-            "id": "ch16-content-zh-081",
+            "id": "ch16-content-zh-082",
             "kind": "listItem",
             "text": "测试一：控制图上的单个点出现在控制上限或下限之外。如果发生这种情况，流程所有者应立即采取行动，因为这是流程中存在重大问题的证据。虽然随机发生超出三个标准偏差的可能性非常小，但这种可能性仅为千分之三。"
           },
           {
-            "id": "ch16-content-zh-082",
+            "id": "ch16-content-zh-083",
             "kind": "listItem",
             "text": "测试二：连续九个点出现在中心线的一侧。 这表明流程发生了变化；如果流程所有者知道是什么变化导致了这种转变，并且这是有意的变化，则无需执行任何操作，并且控制图将随着时间的推移使用新数据自行纠正。否则，流程所有者应调查该流程。"
           },
           {
-            "id": "ch16-content-zh-083",
+            "id": "ch16-content-zh-084",
             "kind": "listItem",
             "text": "测试三：控制图上的六个点连续增加或减少，表明过程的效率正在变得更低或更高，或者产生的错误更少或更多。除非有已知的趋势原因，否则流程所有者应该进行调查。"
           },
           {
-            "id": "ch16-content-zh-084",
+            "id": "ch16-content-zh-085",
             "kind": "listItem",
             "text": "测试四：控制图上的十四个点连续交替上下移动。这可能表明机器、员工、轮班的变化或过度修正。"
           },
           {
-            "id": "ch16-content-zh-085",
+            "id": "ch16-content-zh-086",
             "kind": "listItem",
             "text": "测试五：控制图上连续的三个点中有两个位于上 A 部分或下 A 部分。这可能表明某种类型的特殊原因造成突然的高变化。"
           },
           {
-            "id": "ch16-content-zh-086",
+            "id": "ch16-content-zh-087",
             "kind": "listItem",
             "text": "测试六：控制图上连续的五个点中有四个位于上 B 部分（或之外）或下 B 部分（或之外）。这可能表明存在重大因果关系问题或类似于测试四的转移问题。"
           },
           {
-            "id": "ch16-content-zh-087",
+            "id": "ch16-content-zh-088",
             "kind": "listItem",
             "text": "测试七：连续十五个点位于中心线上方或下方的 C 部分内。这可以表明控制限值不再与过程相关；如果团队改进了过程的变化，他们应该重新计算新参数的控制限制。或者，当短期变化相对于控制图上的其余点较高或较低时，这种情况可能会暂时发生。"
           },
           {
-            "id": "ch16-content-zh-088",
+            "id": "ch16-content-zh-089",
             "kind": "listItem",
             "text": "测试八：控制图上连续八个点位于中心线的两侧，但没有一个点位于中心线上方或下方的 C 部分。这可能表明存在混合资源或流程的问题；例如，团队可能认为他们正在测量单个流程，但实际上他们正在测量两个流程。或者，它可能表明两个员工或团队的处理存在重大差异。"
           },
           {
-            "id": "ch16-content-zh-089",
+            "id": "ch16-content-zh-090",
             "kind": "paragraph",
             "text": "当可以创建控制图并定期显示当前数据时，这些图表可以很好地补充控制计划。 个人无需精通统计过程控制即可了解八项测试，而借助控制图的业务团队可以将更多时间用于生产或纠正问题，并减少收集和记录测量结果的时间。"
           },
           {
-            "id": "ch16-content-zh-090",
+            "id": "ch16-content-zh-091",
             "kind": "heading",
             "text": "控制与能力"
           },
           {
-            "id": "ch16-content-zh-091",
+            "id": "ch16-content-zh-092",
             "kind": "paragraph",
             "text": "重要的是要注意受控流程和能够满足客户要求的流程之间的区别。我们在第一单元中谈到了这个概念：受控过程没有太多变化。有效的流程没有太多变化，并且输出以客户需求为中心。这就是控制限和规格限都很重要的原因。"
           },
           {
-            "id": "ch16-content-zh-092",
+            "id": "ch16-content-zh-093",
             "kind": "paragraph",
             "text": "考虑本章前面使用的有关巧克力混合物中糖的示例。每批次的规格限制范围为 4.9 至 5.1 杯糖。如果每批次的测量范围为 3.5 至 3.6 杯糖，则控制图可以显示过程处于受控状态，但流程负责人应该知道这些测量结果不会有助于生产出满足客户关键质量要求的产品。"
           },
           {
-            "id": "ch16-content-zh-093",
+            "id": "ch16-content-zh-094",
             "kind": "paragraph",
             "text": "为了了解流程在规格限制下的执行情况，六西格玛团队可以计算西格玛水平和流程能力。"
           },
           {
-            "id": "ch16-content-zh-094",
+            "id": "ch16-content-zh-095",
             "kind": "termNote",
             "rows": [
               [
@@ -1051,7 +1067,7 @@
             "text": "术语说明 Sigma level（西格玛水平）：衡量过程缺陷率的尺度；水平越高，单位机会中产生缺陷的概率越低。"
           },
           {
-            "id": "ch16-content-zh-095",
+            "id": "ch16-content-zh-096",
             "kind": "termNote",
             "rows": [
               [
@@ -1061,37 +1077,37 @@
             "text": "术语说明 Process Capability（过程能力）：过程稳定满足规格要求的能力，常用 Cp、Cpk 等指标描述。"
           },
           {
-            "id": "ch16-content-zh-096",
+            "id": "ch16-content-zh-097",
             "kind": "heading",
             "text": "西格玛水平"
           },
           {
-            "id": "ch16-content-zh-097",
+            "id": "ch16-content-zh-098",
             "kind": "paragraph",
             "text": "西格玛水平是当前过程中心（按中值测量）与最近的规格限（不是控制限）之间的标准偏差数。西格玛水平的方程是以下计算中较小的一个："
           },
           {
-            "id": "ch16-content-zh-098",
+            "id": "ch16-content-zh-099",
             "kind": "paragraph",
             "text": "𝑈𝑆𝐿−𝑥̅"
           },
           {
-            "id": "ch16-content-zh-099",
+            "id": "ch16-content-zh-100",
             "kind": "paragraph",
             "text": "𝜎 𝑜𝑟 𝐿𝑆𝐿−𝑥̅"
           },
           {
-            "id": "ch16-content-zh-100",
+            "id": "ch16-content-zh-101",
             "kind": "paragraph",
             "text": "𝜎"
           },
           {
-            "id": "ch16-content-zh-101",
+            "id": "ch16-content-zh-102",
             "kind": "paragraph",
             "text": "例如，如果某个流程的 USL 为 5，LSL 为 3，标准差为 0.25，中位数为 4.2，那么您将根据 USL 进行计算，因为中位数更接近 USL。"
           },
           {
-            "id": "ch16-content-zh-102",
+            "id": "ch16-content-zh-103",
             "kind": "termNote",
             "rows": [
               [
@@ -1101,62 +1117,72 @@
             "text": "术语说明 Standard Deviation（标准差）：衡量数据离散程度的统计量；标准差越大，波动越明显。"
           },
           {
-            "id": "ch16-content-zh-103",
+            "id": "ch16-content-zh-104",
             "kind": "paragraph",
             "text": "5−4.2"
           },
           {
-            "id": "ch16-content-zh-104",
+            "id": "ch16-content-zh-105",
             "kind": "paragraph",
             "text": ".25 = 3.2 = 西格玛水平"
           },
           {
-            "id": "ch16-content-zh-105",
+            "id": "ch16-content-zh-106",
             "kind": "heading",
             "text": "制程能力"
           },
           {
-            "id": "ch16-content-zh-106",
+            "id": "ch16-content-zh-107",
             "kind": "paragraph",
             "text": "过程能力是通过将西格玛水平除以 3 来计算的。在本例中，能力为 1.06。"
           },
           {
-            "id": "ch16-content-zh-107",
+            "id": "ch16-content-zh-108",
             "kind": "paragraph",
             "text": "过程能力表示为Cpk。 1.33 的过程能力等于 4 的西格玛水平，这是大多数专家认为大多数客户满意的最低水平。在统计过程控制下，许多组织的目标是过程能力达到 2.0，可接受的最低过程能力为 1.5。"
           },
           {
-            "id": "ch16-content-zh-108",
+            "id": "ch16-content-zh-109",
             "kind": "heading",
             "text": "团队庆祝和反思"
           },
           {
-            "id": "ch16-content-zh-109",
+            "id": "ch16-content-zh-110",
             "kind": "paragraph",
             "text": "当六西格玛团队认为改进和相关流程是有能力且可控的，并且他们已将这些流程交回给业务和流程所有者控制时，他们应该花时间庆祝和反思项目的结果。这通常是在与赞助商或支持者进行最终收费站审查之后完成的，并且可以是一次快速会议，以结束未解决的问题，认可团队所做的工作，并讨论在此过程中吸取的经验教训。"
           },
           {
-            "id": "ch16-content-zh-110",
+            "id": "ch16-content-zh-111",
             "kind": "paragraph",
             "text": "庆祝和反思会议也是团队成员提出可能的改进项目想法的好时机。虽然改进以及相关的问题和原因对团队来说仍然记忆犹新，但他们可以有效地集思广益，为下一步采取行动。与任何头脑风暴会议一样，任何想法都不应因为看起来愚蠢、实施起来太困难、成本太高或看起来太大而自动被搁置。并非所有的想法都会成为未来的项目，但团队的投入提供了有价值的信息，黑带随后可以与六西格玛领导小组分享。"
           },
           {
-            "id": "ch16-content-zh-111",
+            "id": "ch16-content-zh-112",
             "kind": "heading",
             "text": "控制收费站检查表"
           },
           {
-            "id": "ch16-content-zh-112",
+            "id": "ch16-content-zh-113",
             "kind": "paragraph",
             "text": "o 团队计算了新流程的绩效和能力 o 团队编写了控制计划并将其传达给流程所有者 o 团队通过手动数据收集程序或自动生成控制图为流程创建了监控器 o 团队为流程所有者和业务团队提供了维持改进所需的所有工具和信息 o 发起人、拥护者或执行领导层已获悉改进的状态 o 团队开会反思项目并生成未来改进的想法列表"
           },
           {
-            "id": "ch16-content-zh-113",
+            "id": "ch16-content-zh-114",
             "kind": "heading",
             "text": "第 4 单元：初级统计"
           }
         ]
       }
+    }
+  ],
+  "assets": [
+    {
+      "id": "fig-74f8614c59d5d939",
+      "type": "table-image",
+      "path": "assets/figures/fig-74f8614c59d5d939.png",
+      "page": 151,
+      "width": 1189,
+      "height": 439
     }
   ]
 }

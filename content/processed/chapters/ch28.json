@@ -90,456 +90,648 @@
           },
           {
             "id": "ch28-content-en-014",
-            "kind": "paragraph",
-            "text": "𝜇1= 𝜇2= . . . 𝜇x"
+            "kind": "image",
+            "assetId": "fig-c2f7ebd81b2f1182",
+            "src": "assets/figures/fig-c2f7ebd81b2f1182.png",
+            "width": 573,
+            "height": 845
           },
           {
             "id": "ch28-content-en-015",
             "kind": "paragraph",
-            "text": "The alternative hypothesis is that at least one of the means is not statistically the same."
+            "text": "𝜇1= 𝜇2= . . . 𝜇x"
           },
           {
             "id": "ch28-content-en-016",
             "kind": "paragraph",
-            "text": "After stating the null and alternative hypothesis, a Six Sigma expert should verify that any assumptions within the model are appropriate. This includes assumptions about errors as well as some basic assumptions about the ANOVA model."
+            "text": "The alternative hypothesis is that at least one of the means is not statistically the same."
           },
           {
             "id": "ch28-content-en-017",
             "kind": "paragraph",
-            "text": "First, the samples used for the ANOVA must be randomly selected. Remember, this is always a necessary assumption for inferential statistics."
+            "text": "After stating the null and alternative hypothesis, a Six Sigma expert should verify that any assumptions within the model are appropriate. This includes assumptions about errors as well as some basic assumptions about the ANOVA model."
           },
           {
             "id": "ch28-content-en-018",
             "kind": "paragraph",
-            "text": "After ensuring samples are randomly selected, Six Sigma experts must validate six other assumptions about data before running a 1-way ANOVA test."
+            "text": "First, the samples used for the ANOVA must be randomly selected. Remember, this is always a necessary assumption for inferential statistics."
           },
           {
             "id": "ch28-content-en-019",
             "kind": "paragraph",
-            "text": "1. The dependent variable, or outcome, must be continuous in nature. This means that it is a ratio or an interval. In previous examples, the dependent variable included the customer satisfaction score (numerical), the number of calls handled per day, and the cycle"
+            "text": "After ensuring samples are randomly selected, Six Sigma experts must validate six other assumptions about data before running a 1-way ANOVA test."
           },
           {
             "id": "ch28-content-en-020",
             "kind": "paragraph",
-            "text": "time for a specific output. All of these are examples of continuous data. Anything that can be measured in time, temperature, feet and inches (or centimeters and meters), money, or ratios is typically continuous in nature. 2. The independent variable list contains two or more unrelated groups or categories. Teams A, B, and C are three independent variables. If you are measuring performance for five different workers, then you might have five independent variables. In the example about restaurants, the five different restaurants are independent variables. Categorical variables can include people, times, shifts, teams, departments, locations, various demographic groups (age, gender, ethnicity), or professions. 3. Observations are independent. First, you must ensure there are no dependencies within groups. If you are measuring the performance of three different teams in a department but several employees work on multiple teams, then the results are not completely independent. Second, you must ensure that observations within groups are not dependent. 4. Significant outliers don’t exist in your data. Outliers throw off the accuracy of the 1-way ANOVA, but you don’t have to scrap the entire test because of a single explainable outlier. As a Six Sigma expert, you do have to review your data, investigate outliers, and discard them appropriately. For example, if a Six Sigma expert is reviewing the response times for customer emails, he or she might review data samples from nine different employees. The data for one employee includes three outliers where emails were responded to after a much longer amount of time than all other samples seem to indicate. The Six Sigma expert might investigate this and note that the employee in question was on a short medical leave, which skewed results. The Six Sigma expert could remove those three data points from his or her calculations, but it would be important to note these outliers. The fact that this particular problem can happen is still important to the overall process improvement. The Six Sigma team might recommend instituting a process change that addresses this issue, but they might analyze data minus these outliers to draw other conclusions. 5. The dependent variable (as described in number 1 above) should be normally distributed or approximate the normal curve within each group. In the example above, the Six Sigma team gathers data for nine employees. Within each of these nine data sets, the data should be normally distributed. 6. The variance within each set has to be statistically equal to the variances of other sets – also called homogeneity of variances. The test for equal variance can be run in Minitab and will be covered later in this chapter."
+            "text": "1. The dependent variable, or outcome, must be continuous in nature. This means that it is a ratio or an interval. In previous examples, the dependent variable included the customer satisfaction score (numerical), the number of calls handled per day, and the cycle"
           },
           {
             "id": "ch28-content-en-021",
             "kind": "paragraph",
-            "text": "After validating assumptions and setting up the hypotheses, a Six Sigma expert can run the 1-way ANOVA manually or using statistical analysis software. In this chapter, we’ll use Minitab to run the tests. When using statistical analysis software, you typically spend more time on validating some of the assumptions than you do running the test itself."
+            "text": "time for a specific output. All of these are examples of continuous data. Anything that can be measured in time, temperature, feet and inches (or centimeters and meters), money, or ratios is typically continuous in nature. 2. The independent variable list contains two or more unrelated groups or categories. Teams A, B, and C are three independent variables. If you are measuring performance for five different workers, then you might have five independent variables. In the example about restaurants, the five different restaurants are independent variables. Categorical variables can include people, times, shifts, teams, departments, locations, various demographic groups (age, gender, ethnicity), or professions. 3. Observations are independent. First, you must ensure there are no dependencies within groups. If you are measuring the performance of three different teams in a department but several employees work on multiple teams, then the results are not completely independent. Second, you must ensure that observations within groups are not dependent. 4. Significant outliers don’t exist in your data. Outliers throw off the accuracy of the 1-way ANOVA, but you don’t have to scrap the entire test because of a single explainable outlier. As a Six Sigma expert, you do have to review your data, investigate outliers, and discard them appropriately. For example, if a Six Sigma expert is reviewing the response times for customer emails, he or she might review data samples from nine different employees. The data for one employee includes three outliers where emails were responded to after a much longer amount of time than all other samples seem to indicate. The Six Sigma expert might investigate this and note that the employee in question was on a short medical leave, which skewed results. The Six Sigma expert could remove those three data points from his or her calculations, but it would be important to note these outliers. The fact that this particular problem can happen is still important to the overall process improvement. The Six Sigma team might recommend instituting a process change that addresses this issue, but they might analyze data minus these outliers to draw other conclusions. 5. The dependent variable (as described in number 1 above) should be normally distributed or approximate the normal curve within each group. In the example above, the Six Sigma team gathers data for nine employees. Within each of these nine data sets, the data should be normally distributed. 6. The variance within each set has to be statistically equal to the variances of other sets – also called homogeneity of variances. The test for equal variance can be run in Minitab and will be covered later in this chapter."
           },
           {
             "id": "ch28-content-en-022",
             "kind": "paragraph",
-            "text": "Running a 1-Way ANOVA"
+            "text": "After validating assumptions and setting up the hypotheses, a Six Sigma expert can run the 1-way ANOVA manually or using statistical analysis software. In this chapter, we’ll use Minitab to run the tests. When using statistical analysis software, you typically spend more time on validating some of the assumptions than you do running the test itself."
           },
           {
             "id": "ch28-content-en-023",
             "kind": "paragraph",
-            "text": "To understand how to validate all the assumptions, run the 1-Way ANOVA, and interpret the results, consider a real-world example."
+            "text": "Running a 1-Way ANOVA"
           },
           {
             "id": "ch28-content-en-024",
             "kind": "paragraph",
-            "text": "A mail-order book company wants to improve customer satisfaction with deliveries. A Six Sigma team working on the process has identified packing materials as a possible factor in negative customer"
+            "text": "To understand how to validate all the assumptions, run the 1-Way ANOVA, and interpret the results, consider a real-world example."
           },
           {
             "id": "ch28-content-en-025",
             "kind": "paragraph",
-            "text": "satisfaction scores. The mail-order company currently ships books via cardboard boxes with no other protection, which the team believes is contributing to an increased amount of damage to shipments before they reach the customer or when the customer opens the package."
+            "text": "A mail-order book company wants to improve customer satisfaction with deliveries. A Six Sigma team working on the process has identified packing materials as a possible factor in negative customer"
           },
           {
             "id": "ch28-content-en-026",
             "kind": "paragraph",
-            "text": "To test this theory and pilot two proposed solutions, the team implements additional packing options. Some books will be shipped in the regular packaging – the box without any additional materials. Others will be shipped in boxes with packing peanuts and still others in padded envelopes. The team implements the different packing methods at three different shipping stations and records an overall customer satisfaction score for each shipment based on a scale from 1 to 10 with 10 being the most satisfied. That data is presented below."
+            "text": "satisfaction scores. The mail-order company currently ships books via cardboard boxes with no other protection, which the team believes is contributing to an increased amount of damage to shipments before they reach the customer or when the customer opens the package."
           },
           {
             "id": "ch28-content-en-027",
-            "kind": "heading",
-            "text": "Original"
+            "kind": "paragraph",
+            "text": "To test this theory and pilot two proposed solutions, the team implements additional packing options. Some books will be shipped in the regular packaging – the box without any additional materials. Others will be shipped in boxes with packing peanuts and still others in padded envelopes. The team implements the different packing methods at three different shipping stations and records an overall customer satisfaction score for each shipment based on a scale from 1 to 10 with 10 being the most satisfied. That data is presented below."
           },
           {
             "id": "ch28-content-en-028",
             "kind": "heading",
-            "text": "Packaging"
+            "text": "Original"
           },
           {
             "id": "ch28-content-en-029",
             "kind": "heading",
-            "text": "Padded"
+            "text": "Packaging"
           },
           {
             "id": "ch28-content-en-030",
             "kind": "heading",
-            "text": "Envelope"
+            "text": "Padded"
           },
           {
             "id": "ch28-content-en-031",
-            "kind": "paragraph",
-            "text": "Packing Peanuts 5 5 6 5 5 8 4 3 8 6 6 6 4 6 5 6 8 5 6 7 8 6 6 7 5 7 8 4 5 6 6 6 6 6 5 10 5 6 7 4 4 9 5 6 6"
+            "kind": "heading",
+            "text": "Envelope"
           },
           {
             "id": "ch28-content-en-032",
             "kind": "paragraph",
-            "text": "To follow along with the 1-Way ANOVA for this example, copy the above data into Minitab."
+            "text": "Packing Peanuts 5 5 6 5 5 8 4 3 8 6 6 6 4 6 5 6 8 5 6 7 8 6 6 7 5 7 8 4 5 6 6 6 6 6 5 10 5 6 7 4 4 9 5 6 6"
           },
           {
             "id": "ch28-content-en-033",
+            "kind": "paragraph",
+            "text": "To follow along with the 1-Way ANOVA for this example, copy the above data into Minitab."
+          },
+          {
+            "id": "ch28-content-en-034",
             "kind": "heading",
             "text": "Validate Assumptions:"
           },
           {
-            "id": "ch28-content-en-034",
+            "id": "ch28-content-en-035",
             "kind": "paragraph",
             "text": "Is the dependent variable continuous?"
           },
           {
-            "id": "ch28-content-en-035",
+            "id": "ch28-content-en-036",
             "kind": "paragraph",
             "text": "Yes, it is measured in interval form."
           },
           {
-            "id": "ch28-content-en-036",
+            "id": "ch28-content-en-037",
             "kind": "paragraph",
             "text": "Is the independent variable made up of two or more unrelated groups?"
           },
           {
-            "id": "ch28-content-en-037",
+            "id": "ch28-content-en-038",
             "kind": "paragraph",
             "text": "Yes, the independent variable is how the book is packaged."
           },
           {
-            "id": "ch28-content-en-038",
+            "id": "ch28-content-en-039",
             "kind": "paragraph",
             "text": "Is there independence of observation?"
           },
           {
-            "id": "ch28-content-en-039",
+            "id": "ch28-content-en-040",
             "kind": "paragraph",
             "text": "Yes, the three packing methods don’t have anything to do with each other and are not combined. The team wouldn’t pack one book in a padded envelop and also put it in a box, for example."
           },
           {
-            "id": "ch28-content-en-040",
+            "id": "ch28-content-en-041",
             "kind": "paragraph",
             "text": "It is worth noting here that the team has implemented the various packing at three different stations. It would be a good idea for the team to ensure that the packing stations were otherwise treated identically to keep any other factors from influencing the outcome of the pilot."
           },
           {
-            "id": "ch28-content-en-041",
+            "id": "ch28-content-en-042",
             "kind": "paragraph",
             "text": "Are there any significant outliers in the data?"
           },
           {
-            "id": "ch28-content-en-042",
+            "id": "ch28-content-en-043",
             "kind": "paragraph",
             "text": "Graphical analysis can be an easy way to check for outliers. The box plot (also called the box and whisper plot) is a good way to check quickly for outliers. Boxplotting in Minitab was covered in Unit 6, but you can run one on the data above now."
           },
           {
-            "id": "ch28-content-en-043",
+            "id": "ch28-content-en-044",
             "kind": "paragraph",
             "text": "1. Click Graph > Boxplot 2. Select multiple Ys 3. Click OK 4. Select all three data columns into the Graph Variables box 5. Click OK."
           },
           {
-            "id": "ch28-content-en-044",
-            "kind": "paragraph",
-            "text": "Minitab returns the graph above, which shows no outliers for any of the three sets of data. What if someone recording the customer satisfaction scores made a mistake and entered the number 20 for one shipment? The boxplot analysis changes."
-          },
-          {
             "id": "ch28-content-en-045",
-            "kind": "paragraph",
-            "text": "In the graph above, you can see an outlier dot high above the box for packing peanuts. A Six Sigma expert reviewing this graph would see that outlier and realize that it was a measurement error – remember, the scale for customer satisfaction was only supposed to go up to 10. Because there is an explanation for the outlier, it can be removed."
+            "kind": "image",
+            "assetId": "fig-841b7e73e01f8262",
+            "src": "assets/figures/fig-841b7e73e01f8262.png",
+            "width": 1115,
+            "height": 678
           },
           {
             "id": "ch28-content-en-046",
             "kind": "paragraph",
-            "text": "Is the data in each group normal?"
+            "text": "Minitab returns the graph above, which shows no outliers for any of the three sets of data. What if someone recording the customer satisfaction scores made a mistake and entered the number 20 for one shipment? The boxplot analysis changes."
           },
           {
             "id": "ch28-content-en-047",
-            "kind": "paragraph",
-            "text": "The quickest way to test normality for each set of data is probably to run a graphical analysis in Minitab. This was also covered in Unit 6."
+            "kind": "image",
+            "assetId": "fig-48a66ceb1ddcd7d0",
+            "src": "assets/figures/fig-48a66ceb1ddcd7d0.png",
+            "width": 1115,
+            "height": 715
           },
           {
             "id": "ch28-content-en-048",
             "kind": "paragraph",
-            "text": "1. Select Stat > Basic Statistics > Graphical Summary"
+            "text": "In the graph above, you can see an outlier dot high above the box for packing peanuts. A Six Sigma expert reviewing this graph would see that outlier and realize that it was a measurement error – remember, the scale for customer satisfaction was only supposed to go up to 10. Because there is an explanation for the outlier, it can be removed."
           },
           {
             "id": "ch28-content-en-049",
             "kind": "paragraph",
-            "text": "2. Select the column for the first set of data into the Variables box. 3. Make sure the confidence level is set to 95.0. 4. Click OK."
+            "text": "Is the data in each group normal?"
           },
           {
             "id": "ch28-content-en-050",
             "kind": "paragraph",
-            "text": "Minitab returns the following chart and data."
+            "text": "The quickest way to test normality for each set of data is probably to run a graphical analysis in Minitab. This was also covered in Unit 6."
           },
           {
             "id": "ch28-content-en-051",
-            "kind": "heading",
-            "text": "Summary Report for Original Packaging"
+            "kind": "paragraph",
+            "text": "1. Select Stat > Basic Statistics > Graphical Summary"
           },
           {
             "id": "ch28-content-en-052",
             "kind": "paragraph",
-            "text": "The p-value for the Anderson-Darling normality test is 0.405. Remember, when testing for normalcy, the null hypothesis is that there is no difference between the data and the normal curve. Since the p-value is above our alpha level (0.05), then we fail to reject the null hypothesis and accept that the data is normal."
+            "text": "2. Select the column for the first set of data into the Variables box. 3. Make sure the confidence level is set to 95.0. 4. Click OK."
           },
           {
             "id": "ch28-content-en-053",
             "kind": "paragraph",
-            "text": "The graphs generated for the other two sets of data are included below. You can see that the p-values for each also allow us to accept the null hypothesis and validate this assumption. Yes, the data for each group approximates the normal distribution."
+            "text": "Minitab returns the following chart and data."
           },
           {
             "id": "ch28-content-en-054",
             "kind": "heading",
-            "text": "Summary Report for Padded Envelope"
+            "text": "Summary Report for Original Packaging"
           },
           {
             "id": "ch28-content-en-055",
-            "kind": "heading",
-            "text": "Summary Report for Packing Peanuts"
+            "kind": "image",
+            "assetId": "fig-607b30ad96dba91d",
+            "src": "assets/figures/fig-607b30ad96dba91d.png",
+            "width": 1290,
+            "height": 737
           },
           {
             "id": "ch28-content-en-056",
             "kind": "paragraph",
-            "text": "Is there a homogeneity of variances? Are the variances between groups relatively equal?"
+            "text": "The p-value for the Anderson-Darling normality test is 0.405. Remember, when testing for normalcy, the null hypothesis is that there is no difference between the data and the normal curve. Since the p-value is above our alpha level (0.05), then we fail to reject the null hypothesis and accept that the data is normal."
           },
           {
             "id": "ch28-content-en-057",
             "kind": "paragraph",
-            "text": "Minitab includes an option for testing for equal variances that provides two different p-values. One is the p-value for the Multiple Comparisons test and one is for Levene’s test. Levene’s test is commonly used to test for equal assumptions when data within each group is normal. This test was not previously covered in Unit 6."
+            "text": "The graphs generated for the other two sets of data are included below. You can see that the p-values for each also allow us to accept the null hypothesis and validate this assumption. Yes, the data for each group approximates the normal distribution."
           },
           {
             "id": "ch28-content-en-058",
-            "kind": "paragraph",
-            "text": "1. Select Stat > ANOVA > Test for Equal Variances"
+            "kind": "heading",
+            "text": "Summary Report for Padded Envelope"
           },
           {
             "id": "ch28-content-en-059",
-            "kind": "paragraph",
-            "text": "2. In the drop down box, select “Response data are in a separate column for each factor level.”"
+            "kind": "image",
+            "assetId": "fig-d9aa4f7c937a0e31",
+            "src": "assets/figures/fig-d9aa4f7c937a0e31.png",
+            "width": 1328,
+            "height": 770
           },
           {
             "id": "ch28-content-en-060",
-            "kind": "paragraph",
-            "text": "3. Select all the data columns into the Responses box."
+            "kind": "heading",
+            "text": "Summary Report for Packing Peanuts"
           },
           {
             "id": "ch28-content-en-061",
-            "kind": "paragraph",
-            "text": "4. Click OK."
+            "kind": "image",
+            "assetId": "fig-481560651bdba802",
+            "src": "assets/figures/fig-481560651bdba802.png",
+            "width": 1323,
+            "height": 750
           },
           {
             "id": "ch28-content-en-062",
             "kind": "paragraph",
-            "text": "Minitab returns an interval graph of all the columns of data along with two statistical values."
+            "text": "Is there a homogeneity of variances? Are the variances between groups relatively equal?"
           },
           {
             "id": "ch28-content-en-063",
             "kind": "paragraph",
-            "text": "For the test for equal variance, you are usually concerned with the p-value for Levene’s Test. In this case, it is above 0.05 (Minitab’s default alpha setting), so you can fail to reject the null hypothesis, which is that there is no difference in the variance among the data. In this case, even a look at the interval graph helps you make this determination. The ranges are certainly different, but the intervals are not extremely different in length."
+            "text": "Minitab includes an option for testing for equal variances that provides two different p-values. One is the p-value for the Multiple Comparisons test and one is for Levene’s test. Levene’s test is commonly used to test for equal assumptions when data within each group is normal. This test was not previously covered in Unit 6."
           },
           {
             "id": "ch28-content-en-064",
             "kind": "paragraph",
-            "text": "To consider a contrasting example, copy the following data table into Minitab."
+            "text": "1. Select Stat > ANOVA > Test for Equal Variances"
           },
           {
             "id": "ch28-content-en-065",
-            "kind": "paragraph",
-            "text": "A B 4.01 10.00 4.91 10.06 6.38 10.04 7.98 10.00 6.00 10.06 10.00 9.97 6.50 9.96 4.14 10.01 9.00 10.05 6.45 10.08"
+            "kind": "image",
+            "assetId": "fig-35868beeff5f465c",
+            "src": "assets/figures/fig-35868beeff5f465c.png",
+            "width": 689,
+            "height": 478
           },
           {
             "id": "ch28-content-en-066",
             "kind": "paragraph",
-            "text": "Run the test for equal variance under the ANOVA menu using just the two columns of data from the above table."
+            "text": "2. In the drop down box, select “Response data are in a separate column for each factor level.”"
           },
           {
             "id": "ch28-content-en-067",
-            "kind": "paragraph",
-            "text": "You can quickly see that these two sets of data do not have equal variance. First, the intervals make it fairly obvious. The variance in set B is much smaller. The p-value for Levene’s Test is much smaller than the alpha value, which means you reject the null hypothesis and accept the alternative hypothesis that there is a difference in the variance."
+            "kind": "image",
+            "assetId": "fig-2128e92a832f9384",
+            "src": "assets/figures/fig-2128e92a832f9384.png",
+            "width": 961,
+            "height": 656
           },
           {
             "id": "ch28-content-en-068",
             "kind": "paragraph",
-            "text": "You can change the alpha value for the tests by selecting Options on the Test for Equal Variances dialogue box."
+            "text": "3. Select all the data columns into the Responses box."
           },
           {
             "id": "ch28-content-en-069",
-            "kind": "paragraph",
-            "text": "You can change the type of graph displayed by selecting Graphs from the Test for Equal Variances dialogue box."
+            "kind": "image",
+            "assetId": "fig-73a73d3130a4a7a7",
+            "src": "assets/figures/fig-73a73d3130a4a7a7.png",
+            "width": 942,
+            "height": 648
           },
           {
             "id": "ch28-content-en-070",
             "kind": "paragraph",
-            "text": "Here are the original three sets of data graphed via box plot."
+            "text": "4. Click OK."
           },
           {
             "id": "ch28-content-en-071",
             "kind": "paragraph",
-            "text": "10 9 8 7 6 5 4 3"
+            "text": "Minitab returns an interval graph of all the columns of data along with two statistical values."
           },
           {
             "id": "ch28-content-en-072",
-            "kind": "paragraph",
-            "text": "Data"
+            "kind": "image",
+            "assetId": "fig-74a327799f952732",
+            "src": "assets/figures/fig-74a327799f952732.png",
+            "width": 1165,
+            "height": 770
           },
           {
             "id": "ch28-content-en-073",
             "kind": "paragraph",
-            "text": "Run the 1-Way ANOVA Test"
+            "text": "For the test for equal variance, you are usually concerned with the p-value for Levene’s Test. In this case, it is above 0.05 (Minitab’s default alpha setting), so you can fail to reject the null hypothesis, which is that there is no difference in the variance among the data. In this case, even a look at the interval graph helps you make this determination. The ranges are certainly different, but the intervals are not extremely different in length."
           },
           {
             "id": "ch28-content-en-074",
             "kind": "paragraph",
-            "text": "Now that all the assumptions are verified, you can run the 1-Way ANOVA test."
+            "text": "To consider a contrasting example, copy the following data table into Minitab."
           },
           {
             "id": "ch28-content-en-075",
             "kind": "paragraph",
-            "text": "Select Stat > ANOVA > One-Way."
+            "text": "A B 4.01 10.00 4.91 10.06 6.38 10.04 7.98 10.00 6.00 10.06 10.00 9.97 6.50 9.96 4.14 10.01 9.00 10.05 6.45 10.08"
           },
           {
             "id": "ch28-content-en-076",
             "kind": "paragraph",
-            "text": "Select the drop down option that response data are in separate columns."
+            "text": "Run the test for equal variance under the ANOVA menu using just the two columns of data from the above table."
           },
           {
             "id": "ch28-content-en-077",
-            "kind": "paragraph",
-            "text": "Select all three of the data columns (the data for the original packing, padded envelopes, and packing peanuts) into the Responses box."
+            "kind": "image",
+            "assetId": "fig-9dd958605f9ad0e9",
+            "src": "assets/figures/fig-9dd958605f9ad0e9.png",
+            "width": 1165,
+            "height": 735
           },
           {
             "id": "ch28-content-en-078",
             "kind": "paragraph",
-            "text": "You can click Options to set the confidence interval or ensure it is still set at 95%, if desired. Then click OK."
+            "text": "You can quickly see that these two sets of data do not have equal variance. First, the intervals make it fairly obvious. The variance in set B is much smaller. The p-value for Levene’s Test is much smaller than the alpha value, which means you reject the null hypothesis and accept the alternative hypothesis that there is a difference in the variance."
           },
           {
             "id": "ch28-content-en-079",
             "kind": "paragraph",
-            "text": "Click OK on the main dialogue box. Minitab will perform the 1-Way ANOVA calculations. Depending on how much data is in columns when you run this test, it can take a few seconds."
+            "text": "You can change the alpha value for the tests by selecting Options on the Test for Equal Variances dialogue box."
           },
           {
             "id": "ch28-content-en-080",
-            "kind": "paragraph",
-            "text": "Minitab defaults to returning two things: a graphical analysis of the data and the ANOVA results in the session window."
+            "kind": "image",
+            "assetId": "fig-9f0eca60b905370c",
+            "src": "assets/figures/fig-9f0eca60b905370c.png",
+            "width": 940,
+            "height": 640
           },
           {
             "id": "ch28-content-en-081",
             "kind": "paragraph",
-            "text": "The data from the session window is included above. Highlighted are the hypothesis and the p-value. The null hypothesis is that all the means are equal. The alternative is that at least one of the means is statistically different."
+            "text": "You can change the type of graph displayed by selecting Graphs from the Test for Equal Variances dialogue box."
           },
           {
             "id": "ch28-content-en-082",
-            "kind": "paragraph",
-            "text": "The p-value is less than the alpha value of 0.05, which means you reject the null hypothesis and accept the alternative hypothesis that at least one of the means is different."
+            "kind": "image",
+            "assetId": "fig-f6d8376f0d84aa3a",
+            "src": "assets/figures/fig-f6d8376f0d84aa3a.png",
+            "width": 940,
+            "height": 639
           },
           {
             "id": "ch28-content-en-083",
             "kind": "paragraph",
-            "text": "In business terms, the Six Sigma team now knows that “one of these things is not like the other.” That might prompt them to work on additional analysis or indicate that there might be an issue with one or more processes. If the team was comparing mean production times between various teams on the same process, they might assume that the teams would complete work in roughly the same time. If the 1-Way ANOVA indicates that isn’t true, the Six Sigma team can then ask itself: What is it that makes the outcome statistically different? Is there a team doing it better than everyone else? If so, can the Six Sigma team implement solutions from that group across the other groups? Is there a team performing worse than everyone else? If so, what is going on with that team and how can an improvement be made?"
+            "text": "Here are the original three sets of data graphed via box plot."
           },
           {
             "id": "ch28-content-en-084",
-            "kind": "paragraph",
-            "text": "What if Variances Aren’t Equal?"
+            "kind": "image",
+            "assetId": "fig-18060786fbf833bc",
+            "src": "assets/figures/fig-18060786fbf833bc.png",
+            "width": 1070,
+            "height": 620
           },
           {
             "id": "ch28-content-en-085",
             "kind": "paragraph",
-            "text": "If you can’t validate the sixth assumption about equal variances between your subgroups, you can still run a 1-Way ANOVA test in Minitab. Minitab uses a different statistical calculation, known as Welch’s test, to provide a p-value in such a case."
+            "text": "10 9 8 7 6 5 4 3"
           },
           {
             "id": "ch28-content-en-086",
             "kind": "paragraph",
-            "text": "Use the data we previously found to have unequal variances to run this test in Minitab."
+            "text": "Data"
           },
           {
             "id": "ch28-content-en-087",
             "kind": "paragraph",
-            "text": "A B 4.01 10.00 4.91 10.06 6.38 10.04 7.98 10.00 6.00 10.06 10.00 9.97 6.50 9.96 4.14 10.01 9.00 10.05 6.45 10.08"
+            "text": "Run the 1-Way ANOVA Test"
           },
           {
             "id": "ch28-content-en-088",
             "kind": "paragraph",
-            "text": "Select Stat > ANOVA > One-Way."
+            "text": "Now that all the assumptions are verified, you can run the 1-Way ANOVA test."
           },
           {
             "id": "ch28-content-en-089",
             "kind": "paragraph",
-            "text": "Select the drop down option that response data are in separate columns."
+            "text": "Select Stat > ANOVA > One-Way."
           },
           {
             "id": "ch28-content-en-090",
             "kind": "paragraph",
-            "text": "Select the data columns for A and B into the Responses box."
+            "text": "Select the drop down option that response data are in separate columns."
           },
           {
             "id": "ch28-content-en-091",
             "kind": "paragraph",
-            "text": "Select Options."
+            "text": "Select all three of the data columns (the data for the original packing, padded envelopes, and packing peanuts) into the Responses box."
           },
           {
             "id": "ch28-content-en-092",
-            "kind": "paragraph",
-            "text": "Uncheck the box for assume equal variances."
+            "kind": "image",
+            "assetId": "fig-01c4005f9cca345b",
+            "src": "assets/figures/fig-01c4005f9cca345b.png",
+            "width": 965,
+            "height": 749
           },
           {
             "id": "ch28-content-en-093",
             "kind": "paragraph",
-            "text": "Click OK. Click OK again."
+            "text": "You can click Options to set the confidence interval or ensure it is still set at 95%, if desired. Then click OK."
           },
           {
             "id": "ch28-content-en-094",
             "kind": "paragraph",
-            "text": "As in the previous example, Minitab generates both a graphical analysis and the test data in the session window."
+            "text": "Click OK on the main dialogue box. Minitab will perform the 1-Way ANOVA calculations. Depending on how much data is in columns when you run this test, it can take a few seconds."
           },
           {
             "id": "ch28-content-en-095",
             "kind": "paragraph",
-            "text": "You can see from the Minitab results, equal variance was not assumed for this data. You also have a p- value that is effectively 0, which means you reject the null hypothesis and accept the alternative that one of the means is statistically different: something we already did just by looking at the graphical interpretation of this data before. As stated previously, data doesn’t always look so different when viewed graphically, which often necessitates statistical analysis."
+            "text": "Minitab defaults to returning two things: a graphical analysis of the data and the ANOVA results in the session window."
           },
           {
             "id": "ch28-content-en-096",
-            "kind": "heading",
-            "text": "The Hypothesis Test Assistance in Minitab"
+            "kind": "image",
+            "assetId": "fig-a76ae2f69859ca95",
+            "src": "assets/figures/fig-a76ae2f69859ca95.png",
+            "width": 1165,
+            "height": 1570
           },
           {
             "id": "ch28-content-en-097",
             "kind": "paragraph",
-            "text": "At the end of the last unit, we noted that you could use the help menu in Minitab to look up information about all of the functions and read in-depth instructions and summaries on various types of tests. You can also use the Minitab Assistant to help you choose a hypothesis test – including a 1-Way ANOVA – and run that test."
+            "text": "The data from the session window is included above. Highlighted are the hypothesis and the p-value. The null hypothesis is that all the means are equal. The alternative is that at least one of the means is statistically different."
           },
           {
             "id": "ch28-content-en-098",
             "kind": "paragraph",
-            "text": "Select Assistant > Hypothesis Tests."
+            "text": "The p-value is less than the alpha value of 0.05, which means you reject the null hypothesis and accept the alternative hypothesis that at least one of the means is different."
           },
           {
             "id": "ch28-content-en-099",
             "kind": "paragraph",
-            "text": "You can have Minitab help you choose a test to compare one sample with a target, two samples with each other, or more than two samples. Minitab will apply the same information included in this chapter and the previous chapter on hypothesis testing to help you make this choice, but this is a good tool to"
+            "text": "In business terms, the Six Sigma team now knows that “one of these things is not like the other.” That might prompt them to work on additional analysis or indicate that there might be an issue with one or more processes. If the team was comparing mean production times between various teams on the same process, they might assume that the teams would complete work in roughly the same time. If the 1-Way ANOVA indicates that isn’t true, the Six Sigma team can then ask itself: What is it that makes the outcome statistically different? Is there a team doing it better than everyone else? If so, can the Six Sigma team implement solutions from that group across the other groups? Is there a team performing worse than everyone else? If so, what is going on with that team and how can an improvement be made?"
           },
           {
             "id": "ch28-content-en-100",
             "kind": "paragraph",
-            "text": "use if you get confused, don’t remember which test to choose, or think you might need to use a less common test that wasn’t covered in detail in this book."
+            "text": "What if Variances Aren’t Equal?"
           },
           {
             "id": "ch28-content-en-101",
             "kind": "paragraph",
-            "text": "If you click “Help me choose” under the option for comparing more than two samples, Minitab presents you with a second diagram."
+            "text": "If you can’t validate the sixth assumption about equal variances between your subgroups, you can still run a 1-Way ANOVA test in Minitab. Minitab uses a different statistical calculation, known as Welch’s test, to provide a p-value in such a case."
           },
           {
             "id": "ch28-content-en-102",
             "kind": "paragraph",
-            "text": "If you are comparing the means for more than two samples of continuous data, you would use the 1- Way ANOVA described in this chapter. If you are comparing standard deviations, however, you use a different test. If you are comparing attributed data, then you would use the chi-square tests. You can hover over any of the tests and click and Minitab will open the dialogue box for performing that test."
+            "text": "Use the data we previously found to have unequal variances to run this test in Minitab."
           },
           {
             "id": "ch28-content-en-103",
             "kind": "paragraph",
-            "text": "Minitab offers several assistant wizards. For example, below is a screenshot of the graphical analysis assistant menu."
+            "text": "A B 4.01 10.00 4.91 10.06 6.38 10.04 7.98 10.00 6.00 10.06 10.00 9.97 6.50 9.96 4.14 10.01 9.00 10.05 6.45 10.08"
           },
           {
             "id": "ch28-content-en-104",
+            "kind": "paragraph",
+            "text": "Select Stat > ANOVA > One-Way."
+          },
+          {
+            "id": "ch28-content-en-105",
+            "kind": "paragraph",
+            "text": "Select the drop down option that response data are in separate columns."
+          },
+          {
+            "id": "ch28-content-en-106",
+            "kind": "paragraph",
+            "text": "Select the data columns for A and B into the Responses box."
+          },
+          {
+            "id": "ch28-content-en-107",
+            "kind": "image",
+            "assetId": "fig-458c20f6c732086c",
+            "src": "assets/figures/fig-458c20f6c732086c.png",
+            "width": 942,
+            "height": 745
+          },
+          {
+            "id": "ch28-content-en-108",
+            "kind": "paragraph",
+            "text": "Select Options."
+          },
+          {
+            "id": "ch28-content-en-109",
+            "kind": "paragraph",
+            "text": "Uncheck the box for assume equal variances."
+          },
+          {
+            "id": "ch28-content-en-110",
+            "kind": "image",
+            "assetId": "fig-ad1aa4a6ec5ee3c6",
+            "src": "assets/figures/fig-ad1aa4a6ec5ee3c6.png",
+            "width": 893,
+            "height": 338
+          },
+          {
+            "id": "ch28-content-en-111",
+            "kind": "paragraph",
+            "text": "Click OK. Click OK again."
+          },
+          {
+            "id": "ch28-content-en-112",
+            "kind": "paragraph",
+            "text": "As in the previous example, Minitab generates both a graphical analysis and the test data in the session window."
+          },
+          {
+            "id": "ch28-content-en-113",
+            "kind": "image",
+            "assetId": "fig-4e9c04c598533ff9",
+            "src": "assets/figures/fig-4e9c04c598533ff9.png",
+            "width": 1165,
+            "height": 740
+          },
+          {
+            "id": "ch28-content-en-114",
+            "kind": "image",
+            "assetId": "fig-08b2614b772fe48a",
+            "src": "assets/figures/fig-08b2614b772fe48a.png",
+            "width": 1003,
+            "height": 888
+          },
+          {
+            "id": "ch28-content-en-115",
+            "kind": "paragraph",
+            "text": "You can see from the Minitab results, equal variance was not assumed for this data. You also have a p- value that is effectively 0, which means you reject the null hypothesis and accept the alternative that one of the means is statistically different: something we already did just by looking at the graphical interpretation of this data before. As stated previously, data doesn’t always look so different when viewed graphically, which often necessitates statistical analysis."
+          },
+          {
+            "id": "ch28-content-en-116",
+            "kind": "heading",
+            "text": "The Hypothesis Test Assistance in Minitab"
+          },
+          {
+            "id": "ch28-content-en-117",
+            "kind": "paragraph",
+            "text": "At the end of the last unit, we noted that you could use the help menu in Minitab to look up information about all of the functions and read in-depth instructions and summaries on various types of tests. You can also use the Minitab Assistant to help you choose a hypothesis test – including a 1-Way ANOVA – and run that test."
+          },
+          {
+            "id": "ch28-content-en-118",
+            "kind": "paragraph",
+            "text": "Select Assistant > Hypothesis Tests."
+          },
+          {
+            "id": "ch28-content-en-119",
+            "kind": "image",
+            "assetId": "fig-24721629aa784350",
+            "src": "assets/figures/fig-24721629aa784350.png",
+            "width": 1191,
+            "height": 898
+          },
+          {
+            "id": "ch28-content-en-120",
+            "kind": "paragraph",
+            "text": "You can have Minitab help you choose a test to compare one sample with a target, two samples with each other, or more than two samples. Minitab will apply the same information included in this chapter and the previous chapter on hypothesis testing to help you make this choice, but this is a good tool to"
+          },
+          {
+            "id": "ch28-content-en-121",
+            "kind": "paragraph",
+            "text": "use if you get confused, don’t remember which test to choose, or think you might need to use a less common test that wasn’t covered in detail in this book."
+          },
+          {
+            "id": "ch28-content-en-122",
+            "kind": "paragraph",
+            "text": "If you click “Help me choose” under the option for comparing more than two samples, Minitab presents you with a second diagram."
+          },
+          {
+            "id": "ch28-content-en-123",
+            "kind": "image",
+            "assetId": "fig-087722a263743c96",
+            "src": "assets/figures/fig-087722a263743c96.png",
+            "width": 1191,
+            "height": 907
+          },
+          {
+            "id": "ch28-content-en-124",
+            "kind": "paragraph",
+            "text": "If you are comparing the means for more than two samples of continuous data, you would use the 1- Way ANOVA described in this chapter. If you are comparing standard deviations, however, you use a different test. If you are comparing attributed data, then you would use the chi-square tests. You can hover over any of the tests and click and Minitab will open the dialogue box for performing that test."
+          },
+          {
+            "id": "ch28-content-en-125",
+            "kind": "image",
+            "assetId": "fig-19b56c69219d9166",
+            "src": "assets/figures/fig-19b56c69219d9166.png",
+            "width": 502,
+            "height": 449
+          },
+          {
+            "id": "ch28-content-en-126",
+            "kind": "paragraph",
+            "text": "Minitab offers several assistant wizards. For example, below is a screenshot of the graphical analysis assistant menu."
+          },
+          {
+            "id": "ch28-content-en-127",
+            "kind": "image",
+            "assetId": "fig-013a6f33753f3400",
+            "src": "assets/figures/fig-013a6f33753f3400.png",
+            "width": 1191,
+            "height": 907
+          },
+          {
+            "id": "ch28-content-en-128",
             "kind": "paragraph",
             "text": "Here, Minitab helps you choose a graph or visual analysis that best matches your data and purposes. You can use the assistant tool for help with regression analysis, measurement system analysis, control charts, and design of experiments, which will be covered in the next chapter."
           }
@@ -672,201 +864,233 @@
           },
           {
             "id": "ch28-content-zh-020",
-            "kind": "paragraph",
-            "text": "𝜇1= 𝜇2=。。。 𝜇x"
+            "kind": "image",
+            "assetId": "fig-c2f7ebd81b2f1182",
+            "src": "assets/figures/fig-c2f7ebd81b2f1182.png",
+            "width": 573,
+            "height": 845
           },
           {
             "id": "ch28-content-zh-021",
             "kind": "paragraph",
-            "text": "另一种假设是至少其中一个平均值在统计上不相同。"
+            "text": "𝜇1= 𝜇2=。。。 𝜇x"
           },
           {
             "id": "ch28-content-zh-022",
             "kind": "paragraph",
-            "text": "在陈述原假设和备择假设后，六西格玛专家应验证模型中的任何假设是否正确。这包括关于误差的假设以及关于方差分析（ANOVA）模型的一些基本假设。"
+            "text": "另一种假设是至少其中一个平均值在统计上不相同。"
           },
           {
             "id": "ch28-content-zh-023",
             "kind": "paragraph",
-            "text": "首先，用于方差分析（ANOVA）的样本必须是随机选择的。请记住，这始终是推论统计的必要假设。"
+            "text": "在陈述原假设和备择假设后，六西格玛专家应验证模型中的任何假设是否正确。这包括关于误差的假设以及关于方差分析（ANOVA）模型的一些基本假设。"
           },
           {
             "id": "ch28-content-zh-024",
             "kind": "paragraph",
-            "text": "在确保随机选择样本后，六西格玛专家必须在运行单向方差分析（ANOVA）检验之前验证有关数据的其他六个假设。"
+            "text": "首先，用于方差分析（ANOVA）的样本必须是随机选择的。请记住，这始终是推论统计的必要假设。"
           },
           {
             "id": "ch28-content-zh-025",
             "kind": "paragraph",
-            "text": "1. 因变量或结果本质上必须是连续的。这意味着它是一个比率或一个区间。在前面的示例中，因变量包括客户满意度评分（数字）、每天处理的呼叫数量以及周期"
+            "text": "在确保随机选择样本后，六西格玛专家必须在运行单向方差分析（ANOVA）检验之前验证有关数据的其他六个假设。"
           },
           {
             "id": "ch28-content-zh-026",
             "kind": "paragraph",
-            "text": "特定输出的时间。所有这些都是连续数据的例子。任何可以用时间、温度、英尺和英寸（或厘米和米）、金钱或比率来衡量的东西本质上通常都是连续的。 2.自变量列表包含两个或多个不相关的组或类别。 A、B、C 队是三个自变量。如果您正在衡量五名不同员工的绩效，那么您可能有五个自变量。在有关餐馆的示例中，五家不同的餐馆是自变量。分类变量可以包括人员、时间、轮班、团队、部门、地点、各种人口群体（年龄、性别、种族）或职业。 3. 观察是独立的。首先，您必须确保组内不存在依赖关系。如果您正在衡量一个部门中三个不同团队的绩效，但有多名员工在多个团队中工作，那么结果并不完全独立。其次，您必须确保组内的观察结果不相互依赖。 4. 您的数据中不存在显着的异常值。异常值会降低单向方差分析（ANOVA）的准确性，但您不必因为单个可解释的异常值而放弃整个测试。作为六西格玛专家，你必须检查你的数据，调查异常值，并适当地丢弃它们。例如，如果六西格玛专家正在检查客户电子邮件的响应时间，他或她可能会检查来自九个不同员工的数据样本。 一名员工的数据包括三个异常值，其中电子邮件的回复时间比所有其他样本显示的时间要长得多。六西格玛专家可能会对此进行调查，并指出该员工正在休短期病假，这会扭曲结果。六西格玛专家可以从他或她的计算中删除这三个数据点，但重要的是要注意这些异常值。事实上，这个特定问题可能发生对于整个流程的改进仍然很重要。六西格玛团队可能会建议进行流程更改来解决此问题，但他们可能会分析减去这些异常值的数据以得出其他结论。 5. 因变量（如上面第 1 项所述）应呈正态分布或近似于每组内的正态曲线。在上面的示例中，六西格玛团队收集了 9 名员工的数据。在这九个数据集中，数据应呈正态分布。 6. 每个集合内的方差必须在统计上等于其他集合的方差——也称为方差同质性。等方差检验可以在 Minitab 中运行，本章稍后将介绍。"
+            "text": "1. 因变量或结果本质上必须是连续的。这意味着它是一个比率或一个区间。在前面的示例中，因变量包括客户满意度评分（数字）、每天处理的呼叫数量以及周期"
           },
           {
             "id": "ch28-content-zh-027",
             "kind": "paragraph",
-            "text": "在验证假设并建立假设后，六西格玛专家可以手动或使用统计分析软件运行单向方差分析（ANOVA）。在本章中，我们将使用 Minitab 来运行测试。使用统计分析软件时，您通常会花费比运行测试本身更多的时间来验证某些假设。"
+            "text": "特定输出的时间。所有这些都是连续数据的例子。任何可以用时间、温度、英尺和英寸（或厘米和米）、金钱或比率来衡量的东西本质上通常都是连续的。 2.自变量列表包含两个或多个不相关的组或类别。 A、B、C 队是三个自变量。如果您正在衡量五名不同员工的绩效，那么您可能有五个自变量。在有关餐馆的示例中，五家不同的餐馆是自变量。分类变量可以包括人员、时间、轮班、团队、部门、地点、各种人口群体（年龄、性别、种族）或职业。 3. 观察是独立的。首先，您必须确保组内不存在依赖关系。如果您正在衡量一个部门中三个不同团队的绩效，但有多名员工在多个团队中工作，那么结果并不完全独立。其次，您必须确保组内的观察结果不相互依赖。 4. 您的数据中不存在显着的异常值。异常值会降低单向方差分析（ANOVA）的准确性，但您不必因为单个可解释的异常值而放弃整个测试。作为六西格玛专家，你必须检查你的数据，调查异常值，并适当地丢弃它们。例如，如果六西格玛专家正在检查客户电子邮件的响应时间，他或她可能会检查来自九个不同员工的数据样本。 一名员工的数据包括三个异常值，其中电子邮件的回复时间比所有其他样本显示的时间要长得多。六西格玛专家可能会对此进行调查，并指出该员工正在休短期病假，这会扭曲结果。六西格玛专家可以从他或她的计算中删除这三个数据点，但重要的是要注意这些异常值。事实上，这个特定问题可能发生对于整个流程的改进仍然很重要。六西格玛团队可能会建议进行流程更改来解决此问题，但他们可能会分析减去这些异常值的数据以得出其他结论。 5. 因变量（如上面第 1 项所述）应呈正态分布或近似于每组内的正态曲线。在上面的示例中，六西格玛团队收集了 9 名员工的数据。在这九个数据集中，数据应呈正态分布。 6. 每个集合内的方差必须在统计上等于其他集合的方差——也称为方差同质性。等方差检验可以在 Minitab 中运行，本章稍后将介绍。"
           },
           {
             "id": "ch28-content-zh-028",
             "kind": "paragraph",
-            "text": "运行单向方差分析（ANOVA）"
+            "text": "在验证假设并建立假设后，六西格玛专家可以手动或使用统计分析软件运行单向方差分析（ANOVA）。在本章中，我们将使用 Minitab 来运行测试。使用统计分析软件时，您通常会花费比运行测试本身更多的时间来验证某些假设。"
           },
           {
             "id": "ch28-content-zh-029",
             "kind": "paragraph",
-            "text": "要了解如何验证所有假设、运行单向方差分析（ANOVA）并解释结果，请考虑一个现实世界的示例。"
+            "text": "运行单向方差分析（ANOVA）"
           },
           {
             "id": "ch28-content-zh-030",
             "kind": "paragraph",
-            "text": "一家邮购图书公司希望提高客户对递送的满意度。负责该流程的六西格玛团队已确定包装材料可能是造成负面客户的因素"
+            "text": "要了解如何验证所有假设、运行单向方差分析（ANOVA）并解释结果，请考虑一个现实世界的示例。"
           },
           {
             "id": "ch28-content-zh-031",
             "kind": "paragraph",
-            "text": "满意度分数。该邮购公司目前通过纸板箱运送书籍，没有其他保护，该团队认为，这导致货物在到达客户之前或客户打开包裹时造成的损坏增加。"
+            "text": "一家邮购图书公司希望提高客户对递送的满意度。负责该流程的六西格玛团队已确定包装材料可能是造成负面客户的因素"
           },
           {
             "id": "ch28-content-zh-032",
             "kind": "paragraph",
-            "text": "为了测试这一理论并试验两个提出的解决方案，该团队实施了额外的包装选项。有些书籍将采用常规包装运输——即没有任何其他材料的盒子。 其他的将装在装有花生的盒子中运输，还有一些则装在带衬垫的信封中。该团队在三个不同的运输站实施不同的包装方法，并根据 1 到 10 的等级记录每批货物的总体客户满意度评分，其中 10 表示最满意。该数据如下所示。"
+            "text": "满意度分数。该邮购公司目前通过纸板箱运送书籍，没有其他保护，该团队认为，这导致货物在到达客户之前或客户打开包裹时造成的损坏增加。"
           },
           {
             "id": "ch28-content-zh-033",
-            "kind": "heading",
-            "text": "原创"
+            "kind": "paragraph",
+            "text": "为了测试这一理论并试验两个提出的解决方案，该团队实施了额外的包装选项。有些书籍将采用常规包装运输——即没有任何其他材料的盒子。 其他的将装在装有花生的盒子中运输，还有一些则装在带衬垫的信封中。该团队在三个不同的运输站实施不同的包装方法，并根据 1 到 10 的等级记录每批货物的总体客户满意度评分，其中 10 表示最满意。该数据如下所示。"
           },
           {
             "id": "ch28-content-zh-034",
             "kind": "heading",
-            "text": "包装"
+            "text": "原创"
           },
           {
             "id": "ch28-content-zh-035",
             "kind": "heading",
-            "text": "带衬垫"
+            "text": "包装"
           },
           {
             "id": "ch28-content-zh-036",
             "kind": "heading",
-            "text": "信封"
+            "text": "带衬垫"
           },
           {
             "id": "ch28-content-zh-037",
-            "kind": "paragraph",
-            "text": "包装花生 5 5 6 5 5 8 4 3 8 6 6 6 4 6 5 6 8 5 6 7 8 6 6 7 5 7 8 4 5 6 6 6 6 6 5 10 5 6 7 4 4 9 5 6 6"
+            "kind": "heading",
+            "text": "信封"
           },
           {
             "id": "ch28-content-zh-038",
             "kind": "paragraph",
-            "text": "要遵循本示例的单向方差分析（ANOVA），请将上述数据复制到 Minitab 中。"
+            "text": "包装花生 5 5 6 5 5 8 4 3 8 6 6 6 4 6 5 6 8 5 6 7 8 6 6 7 5 7 8 4 5 6 6 6 6 6 5 10 5 6 7 4 4 9 5 6 6"
           },
           {
             "id": "ch28-content-zh-039",
+            "kind": "paragraph",
+            "text": "要遵循本示例的单向方差分析（ANOVA），请将上述数据复制到 Minitab 中。"
+          },
+          {
+            "id": "ch28-content-zh-040",
             "kind": "heading",
             "text": "验证假设："
           },
           {
-            "id": "ch28-content-zh-040",
+            "id": "ch28-content-zh-041",
             "kind": "paragraph",
             "text": "因变量是连续的吗？"
           },
           {
-            "id": "ch28-content-zh-041",
+            "id": "ch28-content-zh-042",
             "kind": "paragraph",
             "text": "是的，它是以区间形式测量的。"
           },
           {
-            "id": "ch28-content-zh-042",
+            "id": "ch28-content-zh-043",
             "kind": "paragraph",
             "text": "自变量是否由两个或多个不相关的组组成？"
           },
           {
-            "id": "ch28-content-zh-043",
+            "id": "ch28-content-zh-044",
             "kind": "paragraph",
             "text": "是的，自变量是这本书的包装方式。"
           },
           {
-            "id": "ch28-content-zh-044",
+            "id": "ch28-content-zh-045",
             "kind": "paragraph",
             "text": "观察有独立性吗？"
           },
           {
-            "id": "ch28-content-zh-045",
+            "id": "ch28-content-zh-046",
             "kind": "paragraph",
             "text": "是的，这三种打包方式没有任何关系，也不组合。例如，团队不会将一本书装在带衬垫的信封中，然后将其放入盒子中。"
           },
           {
-            "id": "ch28-content-zh-046",
+            "id": "ch28-content-zh-047",
             "kind": "paragraph",
             "text": "这里值得注意的是，团队在三个不同的站点实施了各种包装。对于团队来说，最好确保包装站得到相同的处理，以防止任何其他因素影响试点结果。"
           },
           {
-            "id": "ch28-content-zh-047",
+            "id": "ch28-content-zh-048",
             "kind": "paragraph",
             "text": "数据中是否存在显着的异常值？"
           },
           {
-            "id": "ch28-content-zh-048",
+            "id": "ch28-content-zh-049",
             "kind": "paragraph",
             "text": "图形分析是检查异常值的简单方法。箱线图（也称为箱线图和耳语图）是快速检查异常值的好方法。第 6 单元介绍了 Minitab 中的箱线图，但您现在可以对上面的数据运行箱线图。"
           },
           {
-            "id": "ch28-content-zh-049",
+            "id": "ch28-content-zh-050",
             "kind": "paragraph",
             "text": "1. 单击图形 > 箱线图 2. 选择多个 Y 3. 单击确定 4. 将所有三个数据列选择到图形变量框中 5. 单击确定。"
           },
           {
-            "id": "ch28-content-zh-050",
-            "kind": "paragraph",
-            "text": "Minitab 返回上面的图表，其中显示三组数据中的任何一组都没有异常值。如果记录客户满意度分数的人犯了一个错误，为一批货物输入了数字 20，该怎么办？箱线图分析发生变化。"
-          },
-          {
             "id": "ch28-content-zh-051",
-            "kind": "paragraph",
-            "text": "在上图中，您可以看到花生包装盒上方高处有一个离群点。 六西格玛专家审阅此图时会看到该异常值，并意识到这是一个测量错误 - 请记住，客户满意度的等级只能达到 10。因为对异常值有解释，所以可以将其删除。"
+            "kind": "image",
+            "assetId": "fig-841b7e73e01f8262",
+            "src": "assets/figures/fig-841b7e73e01f8262.png",
+            "width": 1115,
+            "height": 678
           },
           {
             "id": "ch28-content-zh-052",
             "kind": "paragraph",
-            "text": "各组数据是否正常？"
+            "text": "Minitab 返回上面的图表，其中显示三组数据中的任何一组都没有异常值。如果记录客户满意度分数的人犯了一个错误，为一批货物输入了数字 20，该怎么办？箱线图分析发生变化。"
           },
           {
             "id": "ch28-content-zh-053",
-            "kind": "paragraph",
-            "text": "测试每组数据正态性的最快方法可能是在 Minitab 中运行图形分析。第 6 单元也对此进行了介绍。"
+            "kind": "image",
+            "assetId": "fig-48a66ceb1ddcd7d0",
+            "src": "assets/figures/fig-48a66ceb1ddcd7d0.png",
+            "width": 1115,
+            "height": 715
           },
           {
             "id": "ch28-content-zh-054",
             "kind": "paragraph",
-            "text": "1. 选择统计 > 基本统计 > 图形摘要"
+            "text": "在上图中，您可以看到花生包装盒上方高处有一个离群点。 六西格玛专家审阅此图时会看到该异常值，并意识到这是一个测量错误 - 请记住，客户满意度的等级只能达到 10。因为对异常值有解释，所以可以将其删除。"
           },
           {
             "id": "ch28-content-zh-055",
             "kind": "paragraph",
-            "text": "2. 在变量框中选择第一组数据的列。 3. 确保置信水平设置为 95.0。 4. 单击“确定”。"
+            "text": "各组数据是否正常？"
           },
           {
             "id": "ch28-content-zh-056",
             "kind": "paragraph",
-            "text": "Minitab 返回以下图表和数据。"
+            "text": "测试每组数据正态性的最快方法可能是在 Minitab 中运行图形分析。第 6 单元也对此进行了介绍。"
           },
           {
             "id": "ch28-content-zh-057",
-            "kind": "heading",
-            "text": "原包装汇总报告"
+            "kind": "paragraph",
+            "text": "1. 选择统计 > 基本统计 > 图形摘要"
           },
           {
             "id": "ch28-content-zh-058",
             "kind": "paragraph",
-            "text": "Anderson-Darling 正态性检验的 p 值为 0.405。请记住，在检验正态性时，原假设是数据与正态曲线之间没有差异。由于 p 值高于我们的 alpha 水平 (0.05)，因此我们无法拒绝零假设并接受数据是正态的。"
+            "text": "2. 在变量框中选择第一组数据的列。 3. 确保置信水平设置为 95.0。 4. 单击“确定”。"
           },
           {
             "id": "ch28-content-zh-059",
+            "kind": "paragraph",
+            "text": "Minitab 返回以下图表和数据。"
+          },
+          {
+            "id": "ch28-content-zh-060",
+            "kind": "heading",
+            "text": "原包装汇总报告"
+          },
+          {
+            "id": "ch28-content-zh-061",
+            "kind": "image",
+            "assetId": "fig-607b30ad96dba91d",
+            "src": "assets/figures/fig-607b30ad96dba91d.png",
+            "width": 1290,
+            "height": 737
+          },
+          {
+            "id": "ch28-content-zh-062",
+            "kind": "paragraph",
+            "text": "Anderson-Darling 正态性检验的 p 值为 0.405。请记住，在检验正态性时，原假设是数据与正态曲线之间没有差异。由于 p 值高于我们的 alpha 水平 (0.05)，因此我们无法拒绝零假设并接受数据是正态的。"
+          },
+          {
+            "id": "ch28-content-zh-063",
             "kind": "termNote",
             "rows": [
               [
@@ -876,12 +1100,12 @@
             "text": "术语说明 p-value（p 值）：在原假设成立时观察到当前或更极端结果的概率；常用于判断显著性。"
           },
           {
-            "id": "ch28-content-zh-060",
+            "id": "ch28-content-zh-064",
             "kind": "paragraph",
             "text": "下面包括为其他两组数据生成的图表。您可以看到每个 p 值也允许我们接受原假设并验证该假设。是的，每组的数据近似正态分布。"
           },
           {
-            "id": "ch28-content-zh-061",
+            "id": "ch28-content-zh-065",
             "kind": "termNote",
             "rows": [
               [
@@ -891,262 +1115,422 @@
             "text": "术语说明 Normal Distribution（正态分布）：常见钟形分布，许多统计推断方法以其为基础。"
           },
           {
-            "id": "ch28-content-zh-062",
+            "id": "ch28-content-zh-066",
             "kind": "heading",
             "text": "软垫信封总结报告"
           },
           {
-            "id": "ch28-content-zh-063",
+            "id": "ch28-content-zh-067",
+            "kind": "image",
+            "assetId": "fig-d9aa4f7c937a0e31",
+            "src": "assets/figures/fig-d9aa4f7c937a0e31.png",
+            "width": 1328,
+            "height": 770
+          },
+          {
+            "id": "ch28-content-zh-068",
             "kind": "heading",
             "text": "包装花生总结报告"
           },
           {
-            "id": "ch28-content-zh-064",
-            "kind": "paragraph",
-            "text": "方差是否具有同质性？各组之间的方差是否相对相等？"
-          },
-          {
-            "id": "ch28-content-zh-065",
-            "kind": "paragraph",
-            "text": "Minitab 包含一个用于检验等方差的选项，该选项提供两个不同的 p 值。一种是多重比较检验的 p 值，一种是 Levene 检验的 p 值。当每组内的数据正常时，Levene 检验通常用于检验相等假设。之前第 6 单元中未涵盖此测试。"
-          },
-          {
-            "id": "ch28-content-zh-066",
-            "kind": "paragraph",
-            "text": "1. 选择统计 > 方差分析（ANOVA）> 等方差检验"
-          },
-          {
-            "id": "ch28-content-zh-067",
-            "kind": "paragraph",
-            "text": "2. 在下拉框中，选择“响应数据位于每个因子水平的单独列中”。"
-          },
-          {
-            "id": "ch28-content-zh-068",
-            "kind": "paragraph",
-            "text": "3. 选择“响应”框中的所有数据列。"
-          },
-          {
             "id": "ch28-content-zh-069",
-            "kind": "paragraph",
-            "text": "4. 单击“确定”。"
+            "kind": "image",
+            "assetId": "fig-481560651bdba802",
+            "src": "assets/figures/fig-481560651bdba802.png",
+            "width": 1323,
+            "height": 750
           },
           {
             "id": "ch28-content-zh-070",
             "kind": "paragraph",
-            "text": "Minitab 返回所有数据列的区间图以及两个统计值。"
+            "text": "方差是否具有同质性？各组之间的方差是否相对相等？"
           },
           {
             "id": "ch28-content-zh-071",
             "kind": "paragraph",
-            "text": "对于等方差检验，您通常关心 Levene 检验的 p 值。 在本例中，它高于 0.05（Minitab 的默认 alpha 设置），因此您无法拒绝原假设，即数据之间的方差没有差异。在这种情况下，即使查看区间图也能帮助您做出决定。范围当然不同，但间隔的长度并没有太大差异。"
+            "text": "Minitab 包含一个用于检验等方差的选项，该选项提供两个不同的 p 值。一种是多重比较检验的 p 值，一种是 Levene 检验的 p 值。当每组内的数据正常时，Levene 检验通常用于检验相等假设。之前第 6 单元中未涵盖此测试。"
           },
           {
             "id": "ch28-content-zh-072",
             "kind": "paragraph",
-            "text": "要考虑对比示例，请将以下数据表复制到 Minitab 中。"
+            "text": "1. 选择统计 > 方差分析（ANOVA）> 等方差检验"
           },
           {
             "id": "ch28-content-zh-073",
-            "kind": "paragraph",
-            "text": "A B 4.01 10.00 4.91 10.06 6.38 10.04 7.98 10.00 6.00 10.06 10.00 9.97 6.50 9.96 4.14 10.01 9.00 10.05 6.45 10.08"
+            "kind": "image",
+            "assetId": "fig-35868beeff5f465c",
+            "src": "assets/figures/fig-35868beeff5f465c.png",
+            "width": 689,
+            "height": 478
           },
           {
             "id": "ch28-content-zh-074",
             "kind": "paragraph",
-            "text": "仅使用上表中的两列数据在方差分析（ANOVA）菜单下运行等方差检验。"
+            "text": "2. 在下拉框中，选择“响应数据位于每个因子水平的单独列中”。"
           },
           {
             "id": "ch28-content-zh-075",
-            "kind": "paragraph",
-            "text": "您很快就会发现这两组数据的方差并不相等。首先，间隔使其相当明显。 B 组的方差要小得多。 Levene 检验的 p 值远小于 alpha 值，这意味着您拒绝原假设并接受方差存在差异的备择假设。"
+            "kind": "image",
+            "assetId": "fig-2128e92a832f9384",
+            "src": "assets/figures/fig-2128e92a832f9384.png",
+            "width": 961,
+            "height": 656
           },
           {
             "id": "ch28-content-zh-076",
             "kind": "paragraph",
-            "text": "您可以通过选择“等方差检验”对话框中的“选项”来更改检验的 alpha 值。"
+            "text": "3. 选择“响应”框中的所有数据列。"
           },
           {
             "id": "ch28-content-zh-077",
-            "kind": "paragraph",
-            "text": "您可以通过从“等方差检验”对话框中选择“图形”来更改显示的图形类型。"
+            "kind": "image",
+            "assetId": "fig-73a73d3130a4a7a7",
+            "src": "assets/figures/fig-73a73d3130a4a7a7.png",
+            "width": 942,
+            "height": 648
           },
           {
             "id": "ch28-content-zh-078",
             "kind": "paragraph",
-            "text": "以下是通过箱线图绘制的原始三组数据。"
+            "text": "4. 单击“确定”。"
           },
           {
             "id": "ch28-content-zh-079",
             "kind": "paragraph",
-            "text": "10 9 8 7 6 5 4 3"
+            "text": "Minitab 返回所有数据列的区间图以及两个统计值。"
           },
           {
             "id": "ch28-content-zh-080",
-            "kind": "paragraph",
-            "text": "数据"
+            "kind": "image",
+            "assetId": "fig-74a327799f952732",
+            "src": "assets/figures/fig-74a327799f952732.png",
+            "width": 1165,
+            "height": 770
           },
           {
             "id": "ch28-content-zh-081",
             "kind": "paragraph",
-            "text": "运行单向方差分析（ANOVA）测试"
+            "text": "对于等方差检验，您通常关心 Levene 检验的 p 值。 在本例中，它高于 0.05（Minitab 的默认 alpha 设置），因此您无法拒绝原假设，即数据之间的方差没有差异。在这种情况下，即使查看区间图也能帮助您做出决定。范围当然不同，但间隔的长度并没有太大差异。"
           },
           {
             "id": "ch28-content-zh-082",
             "kind": "paragraph",
-            "text": "现在所有假设均已验证，您可以运行单向方差分析（ANOVA）检验。"
+            "text": "要考虑对比示例，请将以下数据表复制到 Minitab 中。"
           },
           {
             "id": "ch28-content-zh-083",
             "kind": "paragraph",
-            "text": "选择统计 > 方差分析（ANOVA）> 单向。"
+            "text": "A B 4.01 10.00 4.91 10.06 6.38 10.04 7.98 10.00 6.00 10.06 10.00 9.97 6.50 9.96 4.14 10.01 9.00 10.05 6.45 10.08"
           },
           {
             "id": "ch28-content-zh-084",
             "kind": "paragraph",
-            "text": "选择响应数据位于单独列中的下拉选项。"
+            "text": "仅使用上表中的两列数据在方差分析（ANOVA）菜单下运行等方差检验。"
           },
           {
             "id": "ch28-content-zh-085",
-            "kind": "paragraph",
-            "text": "将所有三个数据列（原始包装、填充信封和包装花生的数据）选择到“响应”框中。"
+            "kind": "image",
+            "assetId": "fig-9dd958605f9ad0e9",
+            "src": "assets/figures/fig-9dd958605f9ad0e9.png",
+            "width": 1165,
+            "height": 735
           },
           {
             "id": "ch28-content-zh-086",
             "kind": "paragraph",
-            "text": "如果需要，您可以单击选项来设置置信区间或确保其仍设置为 95%。然后单击“确定”。"
+            "text": "您很快就会发现这两组数据的方差并不相等。首先，间隔使其相当明显。 B 组的方差要小得多。 Levene 检验的 p 值远小于 alpha 值，这意味着您拒绝原假设并接受方差存在差异的备择假设。"
           },
           {
             "id": "ch28-content-zh-087",
             "kind": "paragraph",
-            "text": "单击主对话框上的“确定”。 Minitab 将执行单向方差分析（ANOVA）计算。根据运行此测试时列中的数据量，可能需要几秒钟的时间。"
+            "text": "您可以通过选择“等方差检验”对话框中的“选项”来更改检验的 alpha 值。"
           },
           {
             "id": "ch28-content-zh-088",
-            "kind": "paragraph",
-            "text": "Minitab 默认返回两件事：数据的图形分析和会话窗口中的方差分析（ANOVA）结果。"
+            "kind": "image",
+            "assetId": "fig-9f0eca60b905370c",
+            "src": "assets/figures/fig-9f0eca60b905370c.png",
+            "width": 940,
+            "height": 640
           },
           {
             "id": "ch28-content-zh-089",
             "kind": "paragraph",
-            "text": "会话窗口中的数据包含在上面。突出显示的是假设和 p 值。原假设是所有均值相等。 另一种方法是至少其中一个平均值在统计上是不同的。"
+            "text": "您可以通过从“等方差检验”对话框中选择“图形”来更改显示的图形类型。"
           },
           {
             "id": "ch28-content-zh-090",
-            "kind": "paragraph",
-            "text": "p 值小于 alpha 值 0.05，这意味着您拒绝原假设并接受至少一个均值不同的备择假设。"
+            "kind": "image",
+            "assetId": "fig-f6d8376f0d84aa3a",
+            "src": "assets/figures/fig-f6d8376f0d84aa3a.png",
+            "width": 940,
+            "height": 639
           },
           {
             "id": "ch28-content-zh-091",
             "kind": "paragraph",
-            "text": "从商业角度来说，六西格玛团队现在知道“其中一个与另一个不同”。这可能会促使他们进行额外的分析，或者表明一个或多个流程可能存在问题。如果团队比较同一流程中不同团队之间的平均生产时间，他们可能会假设这些团队将在大致相同的时间内完成工作。如果单向方差分析（ANOVA）表明情况并非如此，那么六西格玛团队就可以问自己：是什么导致结果在统计上有所不同？有没有一个团队比其他人做得更好？如果是这样，六西格玛团队能否将该组的解决方案应用于其他组？有没有一个团队表现比其他团队差？如果是这样，该团队的情况如何以及如何改进？"
+            "text": "以下是通过箱线图绘制的原始三组数据。"
           },
           {
             "id": "ch28-content-zh-092",
-            "kind": "paragraph",
-            "text": "如果方差不相等怎么办？"
+            "kind": "image",
+            "assetId": "fig-18060786fbf833bc",
+            "src": "assets/figures/fig-18060786fbf833bc.png",
+            "width": 1070,
+            "height": 620
           },
           {
             "id": "ch28-content-zh-093",
             "kind": "paragraph",
-            "text": "如果您无法验证关于子组之间方差相等的第六个假设，您仍然可以在 Minitab 中运行单向方差分析（ANOVA）检验。 Minitab 使用不同的统计计算（称为 Welch 检验）在这种情况下提供 p 值。"
+            "text": "10 9 8 7 6 5 4 3"
           },
           {
             "id": "ch28-content-zh-094",
             "kind": "paragraph",
-            "text": "使用我们之前发现的方差不等的数据在 Minitab 中运行此检验。"
+            "text": "数据"
           },
           {
             "id": "ch28-content-zh-095",
             "kind": "paragraph",
-            "text": "A B 4.01 10.00 4.91 10.06 6.38 10.04 7.98 10.00 6.00 10.06 10.00 9.97 6.50 9.96 4.14 10.01 9.00 10.05 6.45 10.08"
+            "text": "运行单向方差分析（ANOVA）测试"
           },
           {
             "id": "ch28-content-zh-096",
             "kind": "paragraph",
-            "text": "选择统计 > 方差分析（ANOVA）> 单向。"
+            "text": "现在所有假设均已验证，您可以运行单向方差分析（ANOVA）检验。"
           },
           {
             "id": "ch28-content-zh-097",
             "kind": "paragraph",
-            "text": "选择响应数据位于单独列中的下拉选项。"
+            "text": "选择统计 > 方差分析（ANOVA）> 单向。"
           },
           {
             "id": "ch28-content-zh-098",
             "kind": "paragraph",
-            "text": "在“响应”框中选择 A 和 B 的数据列。"
+            "text": "选择响应数据位于单独列中的下拉选项。"
           },
           {
             "id": "ch28-content-zh-099",
             "kind": "paragraph",
-            "text": "选择选项。"
+            "text": "将所有三个数据列（原始包装、填充信封和包装花生的数据）选择到“响应”框中。"
           },
           {
             "id": "ch28-content-zh-100",
-            "kind": "paragraph",
-            "text": "取消选中假设方差相等的框。"
+            "kind": "image",
+            "assetId": "fig-01c4005f9cca345b",
+            "src": "assets/figures/fig-01c4005f9cca345b.png",
+            "width": 965,
+            "height": 749
           },
           {
             "id": "ch28-content-zh-101",
             "kind": "paragraph",
-            "text": "单击“确定”。再次单击“确定”。"
+            "text": "如果需要，您可以单击选项来设置置信区间或确保其仍设置为 95%。然后单击“确定”。"
           },
           {
             "id": "ch28-content-zh-102",
             "kind": "paragraph",
-            "text": "与前面的示例一样，Minitab 在会话窗口中生成图形分析和测试数据。"
+            "text": "单击主对话框上的“确定”。 Minitab 将执行单向方差分析（ANOVA）计算。根据运行此测试时列中的数据量，可能需要几秒钟的时间。"
           },
           {
             "id": "ch28-content-zh-103",
             "kind": "paragraph",
-            "text": "您可以从 Minitab 结果中看到，未假设该数据具有相等方差。您还有一个实际上为 0 的 p 值，这意味着您拒绝原假设并接受其中一个均值在统计上不同的替代方案：我们之前通过查看此数据的图形解释已经做到了这一点。 如前所述，以图形方式查看数据时，数据并不总是看起来如此不同，这通常需要统计分析。"
+            "text": "Minitab 默认返回两件事：数据的图形分析和会话窗口中的方差分析（ANOVA）结果。"
           },
           {
             "id": "ch28-content-zh-104",
-            "kind": "heading",
-            "text": "Minitab 中的假设检验辅助"
+            "kind": "image",
+            "assetId": "fig-a76ae2f69859ca95",
+            "src": "assets/figures/fig-a76ae2f69859ca95.png",
+            "width": 1165,
+            "height": 1570
           },
           {
             "id": "ch28-content-zh-105",
             "kind": "paragraph",
-            "text": "在上一个单元结束时，我们注意到您可以使用 Minitab 中的帮助菜单来查找有关所有函数的信息，并阅读有关各种类型测试的深入说明和摘要。您还可以使用 Minitab Assistant 帮助您选择假设检验（包括单向方差分析（ANOVA））并运行该检验。"
+            "text": "会话窗口中的数据包含在上面。突出显示的是假设和 p 值。原假设是所有均值相等。 另一种方法是至少其中一个平均值在统计上是不同的。"
           },
           {
             "id": "ch28-content-zh-106",
             "kind": "paragraph",
-            "text": "选择助手 > 假设检验。"
+            "text": "p 值小于 alpha 值 0.05，这意味着您拒绝原假设并接受至少一个均值不同的备择假设。"
           },
           {
             "id": "ch28-content-zh-107",
             "kind": "paragraph",
-            "text": "您可以让 Minitab 帮助您选择一种检验来比较一个样本与目标、两个样本之间或两个以上样本。 Minitab 将应用本章和上一章有关假设检验的相同信息来帮助您做出选择，但这是一个很好的工具"
+            "text": "从商业角度来说，六西格玛团队现在知道“其中一个与另一个不同”。这可能会促使他们进行额外的分析，或者表明一个或多个流程可能存在问题。如果团队比较同一流程中不同团队之间的平均生产时间，他们可能会假设这些团队将在大致相同的时间内完成工作。如果单向方差分析（ANOVA）表明情况并非如此，那么六西格玛团队就可以问自己：是什么导致结果在统计上有所不同？有没有一个团队比其他人做得更好？如果是这样，六西格玛团队能否将该组的解决方案应用于其他组？有没有一个团队表现比其他团队差？如果是这样，该团队的情况如何以及如何改进？"
           },
           {
             "id": "ch28-content-zh-108",
             "kind": "paragraph",
-            "text": "如果您感到困惑，不记得要选择哪个测试，或者认为您可能需要使用本书中未详细介绍的不太常见的测试，请使用该测试。"
+            "text": "如果方差不相等怎么办？"
           },
           {
             "id": "ch28-content-zh-109",
             "kind": "paragraph",
-            "text": "如果您单击用于比较两个以上样本的选项下的“帮助我选择”，Minitab 会向您显示第二个图表。"
+            "text": "如果您无法验证关于子组之间方差相等的第六个假设，您仍然可以在 Minitab 中运行单向方差分析（ANOVA）检验。 Minitab 使用不同的统计计算（称为 Welch 检验）在这种情况下提供 p 值。"
           },
           {
             "id": "ch28-content-zh-110",
             "kind": "paragraph",
-            "text": "如果您要比较两个以上连续数据样本的均值，您将使用本章中描述的单向方差分析（ANOVA）。但是，如果您要比较标准差，则需要使用不同的检验。如果您要比较归因数据，那么您将使用卡方检验。您可以将鼠标悬停在任何测试上并单击，Minitab 将打开用于执行该测试的对话框。"
+            "text": "使用我们之前发现的方差不等的数据在 Minitab 中运行此检验。"
           },
           {
             "id": "ch28-content-zh-111",
             "kind": "paragraph",
-            "text": "Minitab 提供了多个辅助向导。例如，下面是图形分析助手菜单的屏幕截图。"
+            "text": "A B 4.01 10.00 4.91 10.06 6.38 10.04 7.98 10.00 6.00 10.06 10.00 9.97 6.50 9.96 4.14 10.01 9.00 10.05 6.45 10.08"
           },
           {
             "id": "ch28-content-zh-112",
             "kind": "paragraph",
-            "text": "在这里，Minitab 可以帮助您选择最适合您的数据和目的的图形或可视化分析。您可以使用辅助工具来帮助进行回归分析、测量系统分析、控制图和实验设计，这些将在下一章中介绍。"
+            "text": "选择统计 > 方差分析（ANOVA）> 单向。"
           },
           {
             "id": "ch28-content-zh-113",
+            "kind": "paragraph",
+            "text": "选择响应数据位于单独列中的下拉选项。"
+          },
+          {
+            "id": "ch28-content-zh-114",
+            "kind": "paragraph",
+            "text": "在“响应”框中选择 A 和 B 的数据列。"
+          },
+          {
+            "id": "ch28-content-zh-115",
+            "kind": "image",
+            "assetId": "fig-458c20f6c732086c",
+            "src": "assets/figures/fig-458c20f6c732086c.png",
+            "width": 942,
+            "height": 745
+          },
+          {
+            "id": "ch28-content-zh-116",
+            "kind": "paragraph",
+            "text": "选择选项。"
+          },
+          {
+            "id": "ch28-content-zh-117",
+            "kind": "paragraph",
+            "text": "取消选中假设方差相等的框。"
+          },
+          {
+            "id": "ch28-content-zh-118",
+            "kind": "image",
+            "assetId": "fig-ad1aa4a6ec5ee3c6",
+            "src": "assets/figures/fig-ad1aa4a6ec5ee3c6.png",
+            "width": 893,
+            "height": 338
+          },
+          {
+            "id": "ch28-content-zh-119",
+            "kind": "paragraph",
+            "text": "单击“确定”。再次单击“确定”。"
+          },
+          {
+            "id": "ch28-content-zh-120",
+            "kind": "paragraph",
+            "text": "与前面的示例一样，Minitab 在会话窗口中生成图形分析和测试数据。"
+          },
+          {
+            "id": "ch28-content-zh-121",
+            "kind": "image",
+            "assetId": "fig-4e9c04c598533ff9",
+            "src": "assets/figures/fig-4e9c04c598533ff9.png",
+            "width": 1165,
+            "height": 740
+          },
+          {
+            "id": "ch28-content-zh-122",
+            "kind": "image",
+            "assetId": "fig-08b2614b772fe48a",
+            "src": "assets/figures/fig-08b2614b772fe48a.png",
+            "width": 1003,
+            "height": 888
+          },
+          {
+            "id": "ch28-content-zh-123",
+            "kind": "paragraph",
+            "text": "您可以从 Minitab 结果中看到，未假设该数据具有相等方差。您还有一个实际上为 0 的 p 值，这意味着您拒绝原假设并接受其中一个均值在统计上不同的替代方案：我们之前通过查看此数据的图形解释已经做到了这一点。 如前所述，以图形方式查看数据时，数据并不总是看起来如此不同，这通常需要统计分析。"
+          },
+          {
+            "id": "ch28-content-zh-124",
+            "kind": "heading",
+            "text": "Minitab 中的假设检验辅助"
+          },
+          {
+            "id": "ch28-content-zh-125",
+            "kind": "paragraph",
+            "text": "在上一个单元结束时，我们注意到您可以使用 Minitab 中的帮助菜单来查找有关所有函数的信息，并阅读有关各种类型测试的深入说明和摘要。您还可以使用 Minitab Assistant 帮助您选择假设检验（包括单向方差分析（ANOVA））并运行该检验。"
+          },
+          {
+            "id": "ch28-content-zh-126",
+            "kind": "paragraph",
+            "text": "选择助手 > 假设检验。"
+          },
+          {
+            "id": "ch28-content-zh-127",
+            "kind": "image",
+            "assetId": "fig-24721629aa784350",
+            "src": "assets/figures/fig-24721629aa784350.png",
+            "width": 1191,
+            "height": 898
+          },
+          {
+            "id": "ch28-content-zh-128",
+            "kind": "paragraph",
+            "text": "您可以让 Minitab 帮助您选择一种检验来比较一个样本与目标、两个样本之间或两个以上样本。 Minitab 将应用本章和上一章有关假设检验的相同信息来帮助您做出选择，但这是一个很好的工具"
+          },
+          {
+            "id": "ch28-content-zh-129",
+            "kind": "paragraph",
+            "text": "如果您感到困惑，不记得要选择哪个测试，或者认为您可能需要使用本书中未详细介绍的不太常见的测试，请使用该测试。"
+          },
+          {
+            "id": "ch28-content-zh-130",
+            "kind": "paragraph",
+            "text": "如果您单击用于比较两个以上样本的选项下的“帮助我选择”，Minitab 会向您显示第二个图表。"
+          },
+          {
+            "id": "ch28-content-zh-131",
+            "kind": "image",
+            "assetId": "fig-087722a263743c96",
+            "src": "assets/figures/fig-087722a263743c96.png",
+            "width": 1191,
+            "height": 907
+          },
+          {
+            "id": "ch28-content-zh-132",
+            "kind": "paragraph",
+            "text": "如果您要比较两个以上连续数据样本的均值，您将使用本章中描述的单向方差分析（ANOVA）。但是，如果您要比较标准差，则需要使用不同的检验。如果您要比较归因数据，那么您将使用卡方检验。您可以将鼠标悬停在任何测试上并单击，Minitab 将打开用于执行该测试的对话框。"
+          },
+          {
+            "id": "ch28-content-zh-133",
+            "kind": "image",
+            "assetId": "fig-19b56c69219d9166",
+            "src": "assets/figures/fig-19b56c69219d9166.png",
+            "width": 502,
+            "height": 449
+          },
+          {
+            "id": "ch28-content-zh-134",
+            "kind": "paragraph",
+            "text": "Minitab 提供了多个辅助向导。例如，下面是图形分析助手菜单的屏幕截图。"
+          },
+          {
+            "id": "ch28-content-zh-135",
+            "kind": "image",
+            "assetId": "fig-013a6f33753f3400",
+            "src": "assets/figures/fig-013a6f33753f3400.png",
+            "width": 1191,
+            "height": 907
+          },
+          {
+            "id": "ch28-content-zh-136",
+            "kind": "paragraph",
+            "text": "在这里，Minitab 可以帮助您选择最适合您的数据和目的的图形或可视化分析。您可以使用辅助工具来帮助进行回归分析、测量系统分析、控制图和实验设计，这些将在下一章中介绍。"
+          },
+          {
+            "id": "ch28-content-zh-137",
             "kind": "termNote",
             "rows": [
               [
@@ -1156,7 +1540,7 @@
             "text": "术语说明 MSA（测量系统分析）：评估测量工具、人员和方法是否足以支持可靠决策。"
           },
           {
-            "id": "ch28-content-zh-114",
+            "id": "ch28-content-zh-138",
             "kind": "termNote",
             "rows": [
               [
@@ -1166,7 +1550,7 @@
             "text": "术语说明 Control Chart（控制图）：用时间序列和控制界限判断过程是否处于受控状态。"
           },
           {
-            "id": "ch28-content-zh-115",
+            "id": "ch28-content-zh-139",
             "kind": "termNote",
             "rows": [
               [
@@ -1177,6 +1561,200 @@
           }
         ]
       }
+    }
+  ],
+  "assets": [
+    {
+      "id": "fig-013a6f33753f3400",
+      "type": "table-image",
+      "path": "assets/figures/fig-013a6f33753f3400.png",
+      "page": 372,
+      "width": 1191,
+      "height": 907
+    },
+    {
+      "id": "fig-01c4005f9cca345b",
+      "type": "table-image",
+      "path": "assets/figures/fig-01c4005f9cca345b.png",
+      "page": 372,
+      "width": 965,
+      "height": 749
+    },
+    {
+      "id": "fig-087722a263743c96",
+      "type": "table-image",
+      "path": "assets/figures/fig-087722a263743c96.png",
+      "page": 372,
+      "width": 1191,
+      "height": 907
+    },
+    {
+      "id": "fig-08b2614b772fe48a",
+      "type": "table-image",
+      "path": "assets/figures/fig-08b2614b772fe48a.png",
+      "page": 372,
+      "width": 1003,
+      "height": 888
+    },
+    {
+      "id": "fig-18060786fbf833bc",
+      "type": "table-image",
+      "path": "assets/figures/fig-18060786fbf833bc.png",
+      "page": 372,
+      "width": 1070,
+      "height": 620
+    },
+    {
+      "id": "fig-19b56c69219d9166",
+      "type": "figure",
+      "path": "assets/figures/fig-19b56c69219d9166.png",
+      "page": 372,
+      "width": 502,
+      "height": 449
+    },
+    {
+      "id": "fig-2128e92a832f9384",
+      "type": "table-image",
+      "path": "assets/figures/fig-2128e92a832f9384.png",
+      "page": 372,
+      "width": 961,
+      "height": 656
+    },
+    {
+      "id": "fig-24721629aa784350",
+      "type": "table-image",
+      "path": "assets/figures/fig-24721629aa784350.png",
+      "page": 372,
+      "width": 1191,
+      "height": 898
+    },
+    {
+      "id": "fig-35868beeff5f465c",
+      "type": "figure",
+      "path": "assets/figures/fig-35868beeff5f465c.png",
+      "page": 372,
+      "width": 689,
+      "height": 478
+    },
+    {
+      "id": "fig-458c20f6c732086c",
+      "type": "table-image",
+      "path": "assets/figures/fig-458c20f6c732086c.png",
+      "page": 372,
+      "width": 942,
+      "height": 745
+    },
+    {
+      "id": "fig-481560651bdba802",
+      "type": "table-image",
+      "path": "assets/figures/fig-481560651bdba802.png",
+      "page": 372,
+      "width": 1323,
+      "height": 750
+    },
+    {
+      "id": "fig-48a66ceb1ddcd7d0",
+      "type": "table-image",
+      "path": "assets/figures/fig-48a66ceb1ddcd7d0.png",
+      "page": 372,
+      "width": 1115,
+      "height": 715
+    },
+    {
+      "id": "fig-4e9c04c598533ff9",
+      "type": "table-image",
+      "path": "assets/figures/fig-4e9c04c598533ff9.png",
+      "page": 372,
+      "width": 1165,
+      "height": 740
+    },
+    {
+      "id": "fig-607b30ad96dba91d",
+      "type": "table-image",
+      "path": "assets/figures/fig-607b30ad96dba91d.png",
+      "page": 372,
+      "width": 1290,
+      "height": 737
+    },
+    {
+      "id": "fig-73a73d3130a4a7a7",
+      "type": "table-image",
+      "path": "assets/figures/fig-73a73d3130a4a7a7.png",
+      "page": 372,
+      "width": 942,
+      "height": 648
+    },
+    {
+      "id": "fig-74a327799f952732",
+      "type": "table-image",
+      "path": "assets/figures/fig-74a327799f952732.png",
+      "page": 372,
+      "width": 1165,
+      "height": 770
+    },
+    {
+      "id": "fig-841b7e73e01f8262",
+      "type": "table-image",
+      "path": "assets/figures/fig-841b7e73e01f8262.png",
+      "page": 372,
+      "width": 1115,
+      "height": 678
+    },
+    {
+      "id": "fig-9dd958605f9ad0e9",
+      "type": "table-image",
+      "path": "assets/figures/fig-9dd958605f9ad0e9.png",
+      "page": 372,
+      "width": 1165,
+      "height": 735
+    },
+    {
+      "id": "fig-9f0eca60b905370c",
+      "type": "table-image",
+      "path": "assets/figures/fig-9f0eca60b905370c.png",
+      "page": 372,
+      "width": 940,
+      "height": 640
+    },
+    {
+      "id": "fig-a76ae2f69859ca95",
+      "type": "table-image",
+      "path": "assets/figures/fig-a76ae2f69859ca95.png",
+      "page": 372,
+      "width": 1165,
+      "height": 1570
+    },
+    {
+      "id": "fig-ad1aa4a6ec5ee3c6",
+      "type": "figure",
+      "path": "assets/figures/fig-ad1aa4a6ec5ee3c6.png",
+      "page": 372,
+      "width": 893,
+      "height": 338
+    },
+    {
+      "id": "fig-c2f7ebd81b2f1182",
+      "type": "figure",
+      "path": "assets/figures/fig-c2f7ebd81b2f1182.png",
+      "page": 372,
+      "width": 573,
+      "height": 845
+    },
+    {
+      "id": "fig-d9aa4f7c937a0e31",
+      "type": "table-image",
+      "path": "assets/figures/fig-d9aa4f7c937a0e31.png",
+      "page": 372,
+      "width": 1328,
+      "height": 770
+    },
+    {
+      "id": "fig-f6d8376f0d84aa3a",
+      "type": "table-image",
+      "path": "assets/figures/fig-f6d8376f0d84aa3a.png",
+      "page": 372,
+      "width": 940,
+      "height": 639
     }
   ]
 }

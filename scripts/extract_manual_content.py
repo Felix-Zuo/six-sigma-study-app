@@ -1,11 +1,13 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import shutil
 from pathlib import Path
 from typing import Any
+from zipfile import ZipFile
 
 from docx import Document
 
@@ -14,6 +16,7 @@ from extract_chapter_content import (
     DEFAULT_EN_DOCX,
     DEFAULT_REPO_ROOT,
     DEFAULT_ZH_DOCX,
+    attach_assets_to_lesson,
     build_lesson,
     iter_doc_items,
     normalize_heading_item,
@@ -145,7 +148,7 @@ def generic_chapter(
     zh_body = normalize_items_for_chapter(zh_items[1:], "zh")
     en_blocks = [serialize_block(item, section_id, "en", idx) for idx, item in enumerate(en_body, start=1)]
     zh_blocks = [serialize_block(item, section_id, "zh", idx) for idx, item in enumerate(zh_body, start=1)]
-    return {
+    return attach_assets_to_lesson({
         "id": chapter_id,
         "chapter": chapter,
         "pageStart": page_start,
@@ -174,7 +177,62 @@ def generic_chapter(
                 },
             }
         ],
-    }
+    })
+
+
+def collect_referenced_assets(manual: dict[str, Any]) -> dict[str, str]:
+    assets: dict[str, str] = {}
+    for chapter in manual["chapters"]:
+        for asset in chapter.get("assets", []):
+            assets[asset["id"]] = asset["path"]
+    return assets
+
+
+def read_docx_media(docx_path: Path) -> dict[str, bytes]:
+    assets: dict[str, bytes] = {}
+    with ZipFile(docx_path) as archive:
+        for name in archive.namelist():
+            if not name.startswith("word/media/"):
+                continue
+            blob = archive.read(name)
+            digest = hashlib.sha256(blob).hexdigest()
+            asset_id = f"fig-{digest[:16]}"
+            assets.setdefault(asset_id, blob)
+    return assets
+
+
+def write_asset_files(repo_root: Path, manual: dict[str, Any], en_docx: Path, zh_docx: Path) -> None:
+    referenced_assets = collect_referenced_assets(manual)
+    public_content_dir = repo_root / "apps" / "reader" / "public" / "content"
+    public_figures_dir = public_content_dir / "assets" / "figures"
+    processed_figures_dir = repo_root / "content" / "processed" / "assets" / "figures"
+    for directory in [public_figures_dir, processed_figures_dir]:
+        if directory.exists():
+            shutil.rmtree(directory)
+        directory.mkdir(parents=True, exist_ok=True)
+
+    media_assets = read_docx_media(en_docx)
+    media_assets.update(read_docx_media(zh_docx))
+    missing = sorted(asset_id for asset_id in referenced_assets if asset_id not in media_assets)
+    if missing:
+        raise RuntimeError(f"Missing media blobs for referenced assets: {', '.join(missing[:5])}")
+
+    manifest_assets: list[dict[str, Any]] = []
+    for asset_id, relative_path in sorted(referenced_assets.items()):
+        blob = media_assets[asset_id]
+        output_name = Path(relative_path).name
+        for directory in [public_figures_dir, processed_figures_dir]:
+            (directory / output_name).write_bytes(blob)
+        manifest_assets.append({"id": asset_id, "path": relative_path, "bytes": len(blob)})
+
+    write_json(
+        public_content_dir / "assets" / "asset-manifest.json",
+        {
+            "version": manual["version"],
+            "assetCount": len(manifest_assets),
+            "assets": manifest_assets,
+        },
+    )
 
 
 def build_manual(en_docx: Path, zh_docx: Path) -> dict[str, Any]:
@@ -226,7 +284,7 @@ def build_manual(en_docx: Path, zh_docx: Path) -> dict[str, Any]:
     }
 
 
-def write_outputs(repo_root: Path, manual: dict[str, Any]) -> None:
+def write_outputs(repo_root: Path, manual: dict[str, Any], en_docx: Path, zh_docx: Path) -> None:
     processed_dir = repo_root / "content" / "processed"
     chapters_dir = processed_dir / "chapters"
     chapters_dir.mkdir(parents=True, exist_ok=True)
@@ -262,6 +320,7 @@ def write_outputs(repo_root: Path, manual: dict[str, Any]) -> None:
     public_content_dir = repo_root / "apps" / "reader" / "public" / "content"
     public_content_dir.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(processed_dir / "manual.json", public_content_dir / "manual.json")
+    write_asset_files(repo_root, manual, en_docx, zh_docx)
 
 
 def main() -> None:
@@ -271,7 +330,7 @@ def main() -> None:
     parser.add_argument("--repo-root", type=Path, default=DEFAULT_REPO_ROOT)
     args = parser.parse_args()
     manual = build_manual(args.en_docx, args.zh_docx)
-    write_outputs(args.repo_root, manual)
+    write_outputs(args.repo_root, manual, args.en_docx, args.zh_docx)
     chapters = manual["chapters"]
     en_blocks = sum(len(section["content"]["en"]) for lesson in chapters for section in lesson["sections"])
     zh_blocks = sum(len(section["content"]["zh"]) for lesson in chapters for section in lesson["sections"])

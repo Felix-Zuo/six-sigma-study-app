@@ -605,291 +605,387 @@
           },
           {
             "id": "ch13-content-en-117",
-            "kind": "paragraph",
-            "text": "From the Gage R&R above, you can see that the measurement system is reproducible only 50 percent of the time, making it a poor measurement system. It is repeatable 90 percent of the time for Appraiser 1"
+            "kind": "image",
+            "assetId": "fig-f2a5e0f0126f751c",
+            "src": "assets/figures/fig-f2a5e0f0126f751c.png",
+            "width": 1218,
+            "height": 723
           },
           {
             "id": "ch13-content-en-118",
             "kind": "paragraph",
-            "text": "and 80 percent of the time for Appraiser 2, and the appraisers are accurate 80 percent and 70 percent of the time respectively. Given these results, a Six Sigma team might determine that there is some problem of clarity with instructions for how to determine whether a sample is a pass or a fail. The chart above only provides data for a set of 10 samples; more accurate attribute Gage R&R testing usually requires at least 20 data points."
+            "text": "From the Gage R&R above, you can see that the measurement system is reproducible only 50 percent of the time, making it a poor measurement system. It is repeatable 90 percent of the time for Appraiser 1"
           },
           {
             "id": "ch13-content-en-119",
+            "kind": "paragraph",
+            "text": "and 80 percent of the time for Appraiser 2, and the appraisers are accurate 80 percent and 70 percent of the time respectively. Given these results, a Six Sigma team might determine that there is some problem of clarity with instructions for how to determine whether a sample is a pass or a fail. The chart above only provides data for a set of 10 samples; more accurate attribute Gage R&R testing usually requires at least 20 data points."
+          },
+          {
+            "id": "ch13-content-en-120",
             "kind": "heading",
             "text": "Variable Gage R&R"
           },
           {
-            "id": "ch13-content-en-120",
+            "id": "ch13-content-en-121",
             "kind": "paragraph",
             "text": "Not all data is attribute data, which is why teams can also perform variable Gage R&R tests. While the raw data from a variable Gage R&R test can provide a Six Sigma team with a picture of whether a measurement system is obviously failing or not, statistical analysis is usually required to make a true determination about the performance of a measurement system. This is because, with variable measurements, some differences between measurements and operators is likely, particularly when measuring to very small or large figures or capturing data in a moving measurement."
           },
           {
-            "id": "ch13-content-en-121",
+            "id": "ch13-content-en-122",
             "kind": "paragraph",
             "text": "Set up a variable Gage R&R test in much the same way you set up an attribute test, using two to three appraisers and at least five to ten outputs to be measured. Have each appraiser measure each sample two or three times, randomizing the order in which samples are presented to avoid appraisers remembering the measurements initially entered. Record all data on a variable Gage R&R template, such as the example below."
           },
           {
-            "id": "ch13-content-en-122",
+            "id": "ch13-content-en-123",
+            "kind": "image",
+            "assetId": "fig-c03546763bdea6ae",
+            "src": "assets/figures/fig-c03546763bdea6ae.png",
+            "width": 1218,
+            "height": 535
+          },
+          {
+            "id": "ch13-content-en-124",
             "kind": "paragraph",
             "text": "The statistical analysis performed in Excel SPC or Minitab by a Black Belt or Green Belt typically returns four figures:"
           },
           {
-            "id": "ch13-content-en-123",
+            "id": "ch13-content-en-125",
             "kind": "listItem",
             "text": "% Study Variation"
           },
           {
-            "id": "ch13-content-en-124",
+            "id": "ch13-content-en-126",
             "kind": "listItem",
             "text": "% Tolerance"
           },
           {
-            "id": "ch13-content-en-125",
+            "id": "ch13-content-en-127",
             "kind": "listItem",
             "text": "% Contribution"
           },
           {
-            "id": "ch13-content-en-126",
+            "id": "ch13-content-en-128",
             "kind": "listItem",
             "text": "Number of distinct categories"
           },
           {
-            "id": "ch13-content-en-127",
+            "id": "ch13-content-en-129",
             "kind": "paragraph",
             "text": "Teams should look to ensure all four elements of a variable Gage R&R test calculation are in what are considered “safe” ranges. Commonly, each element comes with a scale for safe, or green, zones along with caution zones and failure zones. If one of the elements falls into a caution zone and all others into"
           },
           {
-            "id": "ch13-content-en-128",
+            "id": "ch13-content-en-130",
             "kind": "paragraph",
             "text": "the green, then a team will likely conclude that the measurement system is sufficient. In some cases, all or a majority of caution zone scores might be deemed acceptable, particularly if making the measurement system any more accurate would be costly or cause application issues for other processes. Measurement systems that score in the failure zone for any element should probably be repaired or replaced."
           },
           {
-            "id": "ch13-content-en-129",
+            "id": "ch13-content-en-131",
             "kind": "paragraph",
             "text": "Common criteria used to judge each element of the variable Gage R&R calculations are as follows:"
           },
           {
-            "id": "ch13-content-en-130",
-            "kind": "paragraph",
-            "text": "Note: Another tool that is effective in identifying variation in a measurement system is called the ANOVA, or Analysis of Variance. ANOVA is also useful for analyzing variation of any type, and will be covered in Unit 5 on intermediate statistics."
-          },
-          {
-            "id": "ch13-content-en-131",
-            "kind": "heading",
-            "text": "Collecting Data Samples"
-          },
-          {
             "id": "ch13-content-en-132",
-            "kind": "paragraph",
-            "text": "Once teams are sure the best possible measurement tools are in place, they can begin collecting data to be used in the analyze phase of the DMAIC project. The most accurate conclusions come when a team can analyze data for the entire population, but that is rarely possible due to time and cost constraints. If you can gain access to automated data or data warehouses, you might be able to collect population data or extremely large sample sizes that better approximate population data. Otherwise, Six Sigma teams must randomly sample the population that is available and use those samples to draw conclusions about the population as a whole."
+            "kind": "image",
+            "assetId": "fig-fb38cade4e9af21a",
+            "src": "assets/figures/fig-fb38cade4e9af21a.png",
+            "width": 1218,
+            "height": 320
           },
           {
             "id": "ch13-content-en-133",
             "kind": "paragraph",
-            "text": "To ensure samples can be used to draw statistical conclusions, they must be handled correctly and be the appropriate size. In this section, we’ll simply cover the types of sampling strategies that Six Sigma teams might use and why."
+            "text": "Note: Another tool that is effective in identifying variation in a measurement system is called the ANOVA, or Analysis of Variance. ANOVA is also useful for analyzing variation of any type, and will be covered in Unit 5 on intermediate statistics."
           },
           {
             "id": "ch13-content-en-134",
             "kind": "heading",
-            "text": "Simple Random Sampling"
+            "text": "Collecting Data Samples"
           },
           {
             "id": "ch13-content-en-135",
             "kind": "paragraph",
-            "text": "Simple random sampling works when there is an equal chance that any item within the population will be chosen. For example, if you put 20 marbles of the exact size, weight, and texture in a bag and blindly select one, each marble in the bag has a 1 in 20 chance at being selected. If the marbles are different sizes or weights, those differing attributes can impact the chance that each marble will be selected. Heavier marbles might sort to the bottom of the bag; bigger marbles might be more likely to be picked up."
+            "text": "Once teams are sure the best possible measurement tools are in place, they can begin collecting data to be used in the analyze phase of the DMAIC project. The most accurate conclusions come when a team can analyze data for the entire population, but that is rarely possible due to time and cost constraints. If you can gain access to automated data or data warehouses, you might be able to collect population data or extremely large sample sizes that better approximate population data. Otherwise, Six Sigma teams must randomly sample the population that is available and use those samples to draw conclusions about the population as a whole."
           },
           {
             "id": "ch13-content-en-136",
             "kind": "paragraph",
-            "text": "Random sampling for statistical analysis requires that the sample will represent similar attributes and percentages as the entire population. The population is “N” items large. The sample size is “n” items large. How big the sample needs to be to statistically represent the population is decided by a number of factors."
+            "text": "To ensure samples can be used to draw statistical conclusions, they must be handled correctly and be the appropriate size. In this section, we’ll simply cover the types of sampling strategies that Six Sigma teams might use and why."
           },
           {
             "id": "ch13-content-en-137",
             "kind": "heading",
-            "text": "Stratified Sampling"
+            "text": "Simple Random Sampling"
           },
           {
             "id": "ch13-content-en-138",
             "kind": "paragraph",
-            "text": "Stratified sampling occurs when the population as a whole is divided or can be divided into subgroups with differing attributes. For example, if a shipping company wants to test the accuracy of its estimated shipping times against actual shipping times, it might assume that the results will vary according to the distance a package has to travel. By randomly selecting samples from the entire package population, there’s a chance the company might only end up with samples for packages delivered within a 200-mile radius."
+            "text": "Simple random sampling works when there is an equal chance that any item within the population will be chosen. For example, if you put 20 marbles of the exact size, weight, and texture in a bag and blindly select one, each marble in the bag has a 1 in 20 chance at being selected. If the marbles are different sizes or weights, those differing attributes can impact the chance that each marble will be selected. Heavier marbles might sort to the bottom of the bag; bigger marbles might be more likely to be picked up."
           },
           {
             "id": "ch13-content-en-139",
             "kind": "paragraph",
-            "text": "To prevent bias in the data, the shipping company might divide the population into four subgroups:"
+            "text": "Random sampling for statistical analysis requires that the sample will represent similar attributes and percentages as the entire population. The population is “N” items large. The sample size is “n” items large. How big the sample needs to be to statistically represent the population is decided by a number of factors."
           },
           {
             "id": "ch13-content-en-140",
-            "kind": "listItem",
-            "text": "Deliveries within 200-mile radius"
+            "kind": "heading",
+            "text": "Stratified Sampling"
           },
           {
             "id": "ch13-content-en-141",
-            "kind": "listItem",
-            "text": "Deliveries within 201 to 400-mile radius"
+            "kind": "paragraph",
+            "text": "Stratified sampling occurs when the population as a whole is divided or can be divided into subgroups with differing attributes. For example, if a shipping company wants to test the accuracy of its estimated shipping times against actual shipping times, it might assume that the results will vary according to the distance a package has to travel. By randomly selecting samples from the entire package population, there’s a chance the company might only end up with samples for packages delivered within a 200-mile radius."
           },
           {
             "id": "ch13-content-en-142",
-            "kind": "listItem",
-            "text": "Deliveries within 401 to 600-mile radius"
+            "kind": "paragraph",
+            "text": "To prevent bias in the data, the shipping company might divide the population into four subgroups:"
           },
           {
             "id": "ch13-content-en-143",
             "kind": "listItem",
-            "text": "Deliveries over 600 miles"
+            "text": "Deliveries within 200-mile radius"
           },
           {
             "id": "ch13-content-en-144",
+            "kind": "listItem",
+            "text": "Deliveries within 201 to 400-mile radius"
+          },
+          {
+            "id": "ch13-content-en-145",
+            "kind": "listItem",
+            "text": "Deliveries within 401 to 600-mile radius"
+          },
+          {
+            "id": "ch13-content-en-146",
+            "kind": "listItem",
+            "text": "Deliveries over 600 miles"
+          },
+          {
+            "id": "ch13-content-en-147",
             "kind": "paragraph",
             "text": "By sampling randomly from the stratified subgroups, the team ensures a sample size with less bias."
           },
           {
-            "id": "ch13-content-en-145",
+            "id": "ch13-content-en-148",
             "kind": "heading",
             "text": "Sequential Sampling"
           },
           {
-            "id": "ch13-content-en-146",
+            "id": "ch13-content-en-149",
             "kind": "paragraph",
             "text": "Sequential sampling involves selecting every X item for inclusion in the sampling. Sequential sampling can be used when teams are collecting data at intervals such as time. The team might collect data every 10 minutes. Sequential sampling can also be used to sample physical items; every 5th item on a product line might be reviewed. Given the right parameters and enough time, sequential sampling can provide valid statistical results. Teams must be cognizant, however, that the sequence of the sampling could, in rare cases, skew results. It is possible, for example, that something occurs during every 5th iteration of a process that causes a difference to occur."
           },
           {
-            "id": "ch13-content-en-147",
+            "id": "ch13-content-en-150",
             "kind": "heading",
             "text": "Samples that Aren’t Random"
           },
           {
-            "id": "ch13-content-en-148",
+            "id": "ch13-content-en-151",
             "kind": "paragraph",
             "text": "Non-random sampling should not be used when dealing with statistical analysis because it is more likely to introduce user or sampling error. While all sampling comes with some form of error, random sampling errors can be calculated and accounted for in analysis. The same cannot be said of non-random samples."
           },
           {
-            "id": "ch13-content-en-149",
+            "id": "ch13-content-en-152",
             "kind": "paragraph",
             "text": "Non-random sampling includes convenience or judgment sampling. Convenience sampling occurs when a team takes the most convenient measurements. “We want to know about the process right now, so let’s review the next dozen items that come off the line.” That type of analysis only truly tells the team how the process performed at that exact moment in time."
           },
           {
-            "id": "ch13-content-en-150",
+            "id": "ch13-content-en-153",
             "kind": "paragraph",
             "text": "Judgment sampling occurs when an expert or knowledgeable person is tasked with “selecting” appropriate samples. A supervisor might say to his or her team members, “Select some of your work that represents the normal way you function in a given day.” In most cases, the team members select what they believe is better quality work, skewing any results from the sample."
           },
           {
-            "id": "ch13-content-en-151",
+            "id": "ch13-content-en-154",
             "kind": "heading",
             "text": "Delivering a Baseline Metric"
           },
           {
-            "id": "ch13-content-en-152",
+            "id": "ch13-content-en-155",
             "kind": "paragraph",
             "text": "One of the major deliverables coming out of define and measure phases is the baseline metric. How is the process performing now, and what measurement will the team use to compare current performance to post-improvement performance?"
           },
           {
-            "id": "ch13-content-en-153",
+            "id": "ch13-content-en-156",
             "kind": "paragraph",
             "text": "Baseline metrics are numbers, but most teams find that presenting the metric graphically resonates best with business resources and executives. Visual representations also provide teams with a quick way to determine if progress is occurring."
           },
           {
-            "id": "ch13-content-en-154",
+            "id": "ch13-content-en-157",
             "kind": "paragraph",
             "text": "The type of visual representation you use depends on whether your major metric is discrete or continuous. Discrete data can be displayed on Pareto charts (see Chapter 5) and continuous data can be displayed via run charts. You can also use variation or other calculations to convert discrete data to continuous data for display in run charts and control charts (see Chapter 16 for information about control charts)."
           },
           {
-            "id": "ch13-content-en-155",
+            "id": "ch13-content-en-158",
             "kind": "heading",
             "text": "Run Charts"
           },
           {
-            "id": "ch13-content-en-156",
+            "id": "ch13-content-en-159",
             "kind": "paragraph",
             "text": "A run chart can be used to monitor the performance of any variable or process over time. With a single, intuitive chart, Six Sigma teams can display trends, shifts, and cycles within a process; they can also monitor a process for concerns, though run charts are not as effective at this as the very similar control chart is."
           },
           {
-            "id": "ch13-content-en-157",
+            "id": "ch13-content-en-160",
             "kind": "paragraph",
             "text": "A basic run chart is simply a line plot of the data over time, which means anyone can create the chart. Most Six Sigma run charts also feature a line representing the median of all data points for visual reference. Depending on the type of information being charted, you may need to convert data to a ratio for a more accurate run chart. For example, if you are plotting the temperature of a surface over time, there is no need to convert data. If you are plotting the number of patients readmitted to a hospital within 30 days of being discharged, then it helps to convert the data to a percentage of the number of patients discharged within the same time period. In a 30-day period where 10,000 patients were discharged, you can expect a higher number of returns than a period during which only 5,000 patients are discharged."
           },
           {
-            "id": "ch13-content-en-158",
+            "id": "ch13-content-en-161",
             "kind": "paragraph",
             "text": "The figure below illustrates a run chart of temperature over time. You can see how temperature changes through time and begin to see some possible trends. A Six Sigma team would be able to zoom out, viewing the run chart over more time to validate trend assumptions. You can also see that the median temperature for the process is 33."
           },
           {
-            "id": "ch13-content-en-159",
-            "kind": "paragraph",
-            "text": "The run chart below indicates the number of returns per hundred sales for each month of the year. You can see that returns as a rate of sales increases steadily during the first part of the year before holding steady from May through November. The orange line indicates the median returns per hundreds sales, which is just under 7."
-          },
-          {
-            "id": "ch13-content-en-160",
-            "kind": "heading",
-            "text": "Create Basic Run Charts in Excel"
-          },
-          {
-            "id": "ch13-content-en-161",
-            "kind": "paragraph",
-            "text": "Statistical analysis software, including Minitab and Excel SPC, creates all elements of a run chart automatically from entered data, but anyone can use basic Excel functions to create a run chart if needed."
-          },
-          {
             "id": "ch13-content-en-162",
-            "kind": "paragraph",
-            "text": "First, create a data table."
+            "kind": "image",
+            "assetId": "fig-2bdb3ba134df10e9",
+            "src": "assets/figures/fig-2bdb3ba134df10e9.png",
+            "width": 921,
+            "height": 561
           },
           {
             "id": "ch13-content-en-163",
             "kind": "paragraph",
-            "text": "Creating a data table for a single attribute, such as temperature, just requires entering the time labels in one column and the attribute measurements in another. For the example, we’ll walk through creating a rate data table, since it involves additional steps."
+            "text": "The run chart below indicates the number of returns per hundred sales for each month of the year. You can see that returns as a rate of sales increases steadily during the first part of the year before holding steady from May through November. The orange line indicates the median returns per hundreds sales, which is just under 7."
           },
           {
             "id": "ch13-content-en-164",
-            "kind": "paragraph",
-            "text": "1. Enter the data labels (month, week, hour, etc.) in the first column of Excel. 2. In the next column, enter the corresponding measurements for the attribute you are interested in: in this case, the total number of returns per month. 3. In the third column, enter the total number of items you are comparing the attribute to: in this case, the total number of sales per month."
+            "kind": "image",
+            "assetId": "fig-5b8219086c023295",
+            "src": "assets/figures/fig-5b8219086c023295.png",
+            "width": 892,
+            "height": 553
           },
           {
             "id": "ch13-content-en-165",
-            "kind": "paragraph",
-            "text": "4. In the fourth column, calculate the percentage the first column of data is of the second. In this case, the percentage of returns per sales for each month. The calculation is achieved in this case by the formula =B2/C2 for January, =B3/C3 for February, and so forth."
+            "kind": "heading",
+            "text": "Create Basic Run Charts in Excel"
           },
           {
             "id": "ch13-content-en-166",
             "kind": "paragraph",
-            "text": "5. Decide whether you want to create a run chart showing percentages, or if you would like to create the chart illustrating rate per 100, per 1,000, etc. 6. If you want to illustrate a rate per (x), multiply the percentage calculation in the fourth column by (x). In this case, the figures in column D are multiplied by 100."
+            "text": "Statistical analysis software, including Minitab and Excel SPC, creates all elements of a run chart automatically from entered data, but anyone can use basic Excel functions to create a run chart if needed."
           },
           {
             "id": "ch13-content-en-167",
             "kind": "paragraph",
-            "text": "7. Use Excel to calculate the median of the number you plan to chart. The median is calculated with the formula =Median(Number 1, Number 2,…), where the numbers in the formula correlate with the range of all the charted data points. In this case, the median is 6.96679 8. Highlight the data labels (in this case, column A) and the figures to be charted (column E)"
+            "text": "First, create a data table."
           },
           {
             "id": "ch13-content-en-168",
             "kind": "paragraph",
-            "text": "9. Select Insert > Charts > Line Chart to insert a line chart of the attribute or attribute calculation."
+            "text": "Creating a data table for a single attribute, such as temperature, just requires entering the time labels in one column and the attribute measurements in another. For the example, we’ll walk through creating a rate data table, since it involves additional steps."
           },
           {
             "id": "ch13-content-en-169",
             "kind": "paragraph",
-            "text": "10. Select Insert > Shape > Draw Line."
+            "text": "1. Enter the data labels (month, week, hour, etc.) in the first column of Excel. 2. In the next column, enter the corresponding measurements for the attribute you are interested in: in this case, the total number of returns per month. 3. In the third column, enter the total number of items you are comparing the attribute to: in this case, the total number of sales per month."
           },
           {
             "id": "ch13-content-en-170",
-            "kind": "paragraph",
-            "text": "11. Draw a line on your run chart approximately where the median would be. Use Excel tools to select a color and thickness for the line that you desire."
+            "kind": "image",
+            "assetId": "fig-e4ac92095bc7c563",
+            "src": "assets/figures/fig-e4ac92095bc7c563.png",
+            "width": 651,
+            "height": 597
           },
           {
             "id": "ch13-content-en-171",
             "kind": "paragraph",
-            "text": "The completed run chart can be used to present information to the Six Sigma team or include a graphical representation of baseline process performance in a measure phase tollgate presentation. Again, it should be noted that manual creation of a run chart is not required for most Black Belts and Green Belts, who will have access to statistical analysis software."
+            "text": "4. In the fourth column, calculate the percentage the first column of data is of the second. In this case, the percentage of returns per sales for each month. The calculation is achieved in this case by the formula =B2/C2 for January, =B3/C3 for February, and so forth."
           },
           {
             "id": "ch13-content-en-172",
-            "kind": "heading",
-            "text": "Measure Tollgate Checklist"
+            "kind": "image",
+            "assetId": "fig-09baa21ea23fca46",
+            "src": "assets/figures/fig-09baa21ea23fca46.png",
+            "width": 963,
+            "height": 546
           },
           {
             "id": "ch13-content-en-173",
             "kind": "paragraph",
-            "text": "Use the checklist below to determine whether a team is ready to move from the measure phase to the analyze phase of a DMAIC project."
+            "text": "5. Decide whether you want to create a run chart showing percentages, or if you would like to create the chart illustrating rate per 100, per 1,000, etc. 6. If you want to illustrate a rate per (x), multiply the percentage calculation in the fourth column by (x). In this case, the figures in column D are multiplied by 100."
           },
           {
             "id": "ch13-content-en-174",
+            "kind": "image",
+            "assetId": "fig-03086be1c77dea3c",
+            "src": "assets/figures/fig-03086be1c77dea3c.png",
+            "width": 1190,
+            "height": 520
+          },
+          {
+            "id": "ch13-content-en-175",
+            "kind": "paragraph",
+            "text": "7. Use Excel to calculate the median of the number you plan to chart. The median is calculated with the formula =Median(Number 1, Number 2,…), where the numbers in the formula correlate with the range of all the charted data points. In this case, the median is 6.96679 8. Highlight the data labels (in this case, column A) and the figures to be charted (column E)"
+          },
+          {
+            "id": "ch13-content-en-176",
+            "kind": "image",
+            "assetId": "fig-a2163cc399e95168",
+            "src": "assets/figures/fig-a2163cc399e95168.png",
+            "width": 1191,
+            "height": 518
+          },
+          {
+            "id": "ch13-content-en-177",
+            "kind": "paragraph",
+            "text": "9. Select Insert > Charts > Line Chart to insert a line chart of the attribute or attribute calculation."
+          },
+          {
+            "id": "ch13-content-en-178",
+            "kind": "image",
+            "assetId": "fig-2e70e1a44096a755",
+            "src": "assets/figures/fig-2e70e1a44096a755.png",
+            "width": 979,
+            "height": 576
+          },
+          {
+            "id": "ch13-content-en-179",
+            "kind": "paragraph",
+            "text": "10. Select Insert > Shape > Draw Line."
+          },
+          {
+            "id": "ch13-content-en-180",
+            "kind": "image",
+            "assetId": "fig-42ac2cf82504ad01",
+            "src": "assets/figures/fig-42ac2cf82504ad01.png",
+            "width": 523,
+            "height": 361
+          },
+          {
+            "id": "ch13-content-en-181",
+            "kind": "paragraph",
+            "text": "11. Draw a line on your run chart approximately where the median would be. Use Excel tools to select a color and thickness for the line that you desire."
+          },
+          {
+            "id": "ch13-content-en-182",
+            "kind": "image",
+            "assetId": "fig-5b8219086c023295",
+            "src": "assets/figures/fig-5b8219086c023295.png",
+            "width": 892,
+            "height": 553
+          },
+          {
+            "id": "ch13-content-en-183",
+            "kind": "paragraph",
+            "text": "The completed run chart can be used to present information to the Six Sigma team or include a graphical representation of baseline process performance in a measure phase tollgate presentation. Again, it should be noted that manual creation of a run chart is not required for most Black Belts and Green Belts, who will have access to statistical analysis software."
+          },
+          {
+            "id": "ch13-content-en-184",
+            "kind": "heading",
+            "text": "Measure Tollgate Checklist"
+          },
+          {
+            "id": "ch13-content-en-185",
+            "kind": "paragraph",
+            "text": "Use the checklist below to determine whether a team is ready to move from the measure phase to the analyze phase of a DMAIC project."
+          },
+          {
+            "id": "ch13-content-en-186",
             "kind": "paragraph",
             "text": "o The team has agreed upon the key measurements and come up with a baseline measurement of process performance. o The team has analyzed measurement systems and identified any issues that might contribute to analysis errors. o Where possible, the team has corrected measurement systems to remove error risks. o The team has calculated process variation and sigma level. o The team has conducted appropriate sampling to allow for statistically valid conclusions in the next phase. o The sponsor or champion has reviewed and signed off on all elements of the measure phase."
           }
@@ -1607,46 +1703,62 @@
           },
           {
             "id": "ch13-content-zh-130",
-            "kind": "paragraph",
-            "text": "从上面的量具 R&R 中，您可以看到测量系统只有 50% 的时间可重复，这使其成为一个较差的测量系统。对于评估者 1，它在 90% 的时间内是可重复的"
+            "kind": "image",
+            "assetId": "fig-f2a5e0f0126f751c",
+            "src": "assets/figures/fig-f2a5e0f0126f751c.png",
+            "width": 1218,
+            "height": 723
           },
           {
             "id": "ch13-content-zh-131",
             "kind": "paragraph",
-            "text": "评估员 2 的准确率分别为 80% 和 80%，评估员的准确率分别为 80% 和 70%。鉴于这些结果，六西格玛团队可能会确定如何确定样本是通过还是失败的说明存在一些清晰度问题。上图仅提供了一组10个样本的数据；更准确的属性 Gage R&R 测试通常需要至少 20 个数据点。"
+            "text": "从上面的量具 R&R 中，您可以看到测量系统只有 50% 的时间可重复，这使其成为一个较差的测量系统。对于评估者 1，它在 90% 的时间内是可重复的"
           },
           {
             "id": "ch13-content-zh-132",
+            "kind": "paragraph",
+            "text": "评估员 2 的准确率分别为 80% 和 80%，评估员的准确率分别为 80% 和 70%。鉴于这些结果，六西格玛团队可能会确定如何确定样本是通过还是失败的说明存在一些清晰度问题。上图仅提供了一组10个样本的数据；更准确的属性 Gage R&R 测试通常需要至少 20 个数据点。"
+          },
+          {
+            "id": "ch13-content-zh-133",
             "kind": "heading",
             "text": "可变量具 R&R"
           },
           {
-            "id": "ch13-content-zh-133",
+            "id": "ch13-content-zh-134",
             "kind": "paragraph",
             "text": "并非所有数据都是属性数据，这就是团队还可以执行可变量具 R&R 测试的原因。虽然可变量具 R&R 测试的原始数据可以为六西格玛团队提供测量系统是否明显失效的情况，但通常需要统计分析才能真正确定测量系统的性能。这是因为，对于可变测量，测量值和操作员之间可能存在一些差异，特别是在测量非常小或很大的数字或在移动测量中捕获数据时。"
           },
           {
-            "id": "ch13-content-zh-134",
+            "id": "ch13-content-zh-135",
             "kind": "paragraph",
             "text": "设置变量量具 R&R 测试的方式与设置属性测试的方式大致相同，使用两到三个评估员和至少五到十个要测量的输出。让每个评估员对每个样本进行两次或三次测量，随机化样本的呈现顺序，以避免评估员记住最初输入的测量值。在可变量具 R&R 模板上记录所有数据，如下例所示。"
           },
           {
-            "id": "ch13-content-zh-135",
+            "id": "ch13-content-zh-136",
+            "kind": "image",
+            "assetId": "fig-c03546763bdea6ae",
+            "src": "assets/figures/fig-c03546763bdea6ae.png",
+            "width": 1218,
+            "height": 535
+          },
+          {
+            "id": "ch13-content-zh-137",
             "kind": "paragraph",
             "text": "在 Excel SPC 或 Minitab 中由黑带或绿带执行的统计分析通常返回四位数："
           },
           {
-            "id": "ch13-content-zh-136",
+            "id": "ch13-content-zh-138",
             "kind": "listItem",
             "text": "研究变异百分比"
           },
           {
-            "id": "ch13-content-zh-137",
+            "id": "ch13-content-zh-139",
             "kind": "listItem",
             "text": "% 公差"
           },
           {
-            "id": "ch13-content-zh-138",
+            "id": "ch13-content-zh-140",
             "kind": "termNote",
             "rows": [
               [
@@ -1656,37 +1768,45 @@
             "text": "术语说明 Tolerance（公差）：产品或过程指标允许偏离目标值的范围。"
           },
           {
-            "id": "ch13-content-zh-139",
+            "id": "ch13-content-zh-141",
             "kind": "listItem",
             "text": "贡献百分比"
           },
           {
-            "id": "ch13-content-zh-140",
+            "id": "ch13-content-zh-142",
             "kind": "listItem",
             "text": "不同类别的数量"
           },
           {
-            "id": "ch13-content-zh-141",
+            "id": "ch13-content-zh-143",
             "kind": "paragraph",
             "text": "团队应确保可变量具 R&R 测试计算的所有四个要素都在被认为是“安全”的范围内。通常，每个元素都带有安全区或绿色区以及警告区和故障区的范围。如果其中一个元素落入警戒区，而所有其他元素落入警戒区"
           },
           {
-            "id": "ch13-content-zh-142",
+            "id": "ch13-content-zh-144",
             "kind": "paragraph",
             "text": "绿色，那么团队可能会得出结论，测量系统是足够的。在某些情况下，所有或大部分警戒区分数可能被认为是可接受的，特别是如果使测量系统变得更准确将是昂贵的或导致其他过程的应用问题。对于任何元件在故障区域得分的测量系统可能应该进行维修或更换。"
           },
           {
-            "id": "ch13-content-zh-143",
+            "id": "ch13-content-zh-145",
             "kind": "paragraph",
             "text": "用于判断变量量具 R&R 计算的每个元素的通用标准如下："
           },
           {
-            "id": "ch13-content-zh-144",
+            "id": "ch13-content-zh-146",
+            "kind": "image",
+            "assetId": "fig-fb38cade4e9af21a",
+            "src": "assets/figures/fig-fb38cade4e9af21a.png",
+            "width": 1218,
+            "height": 320
+          },
+          {
+            "id": "ch13-content-zh-147",
             "kind": "paragraph",
             "text": "注意：另一种有效识别测量系统变异的工具称为方差分析（ANOVA）。方差分析（ANOVA）对于分析任何类型的变异也很有用，并将在第 5 单元的中间统计中介绍。"
           },
           {
-            "id": "ch13-content-zh-145",
+            "id": "ch13-content-zh-148",
             "kind": "termNote",
             "rows": [
               [
@@ -1696,227 +1816,389 @@
             "text": "术语说明 ANOVA（方差分析）：比较多个组均值差异是否显著的统计方法。"
           },
           {
-            "id": "ch13-content-zh-146",
+            "id": "ch13-content-zh-149",
             "kind": "heading",
             "text": "收集数据样本"
           },
           {
-            "id": "ch13-content-zh-147",
+            "id": "ch13-content-zh-150",
             "kind": "paragraph",
             "text": "一旦团队确定最佳测量工具已就位，他们就可以开始收集数据以用于 DMAIC 项目的分析阶段。当团队可以分析整个人群的数据时，就会得出最准确的结论，但由于时间和成本的限制，这几乎是不可能的。如果您可以访问自动化数据或数据仓库，您也许能够收集人口数据或能够更好地近似人口数据的极大样本量。否则，六西格玛团队必须对现有人口进行随机抽样，并使用这些样本得出关于整个人口的结论。"
           },
           {
-            "id": "ch13-content-zh-148",
+            "id": "ch13-content-zh-151",
             "kind": "paragraph",
             "text": "为了确保样本能够用于得出统计结论，样本必须被正确处理并且大小合适。在本节中，我们将简单介绍六西格玛团队可能使用的抽样策略类型以及原因。"
           },
           {
-            "id": "ch13-content-zh-149",
+            "id": "ch13-content-zh-152",
             "kind": "heading",
             "text": "简单随机抽样"
           },
           {
-            "id": "ch13-content-zh-150",
+            "id": "ch13-content-zh-153",
             "kind": "paragraph",
             "text": "当总体中的任何项目被选择的机会均等时，简单随机抽样就有效。例如，如果您将 20 颗大小、重量和质地完全相同的弹珠放入一个袋子中并盲目选择一颗，那么袋子中的每个弹珠有二十分之一的机会被选中。如果弹珠的尺寸或重量不同，这些不同的属性可能会影响每个弹珠被选择的机会。较重的弹珠可能会被分类到袋子的底部；较大的弹珠可能更有可能被捡起。"
           },
           {
-            "id": "ch13-content-zh-151",
+            "id": "ch13-content-zh-154",
             "kind": "paragraph",
             "text": "用于统计分析的随机抽样要求样本代表与整个总体相似的属性和百分比。人口有“N”项大。样本量为“n”项大。需要多大的样本才能在统计上代表总体，由许多因素决定。"
           },
           {
-            "id": "ch13-content-zh-152",
+            "id": "ch13-content-zh-155",
             "kind": "heading",
             "text": "分层抽样"
           },
           {
-            "id": "ch13-content-zh-153",
+            "id": "ch13-content-zh-156",
             "kind": "paragraph",
             "text": "当总体总体被划分或可以被划分为具有不同属性的子组时，就会发生分层抽样。例如，如果运输公司想要测试其估计运输时间与实际运输时间的准确性，它可能会假设结果会根据包裹必须运输的距离而变化。通过从整个包裹群体中随机选择样本，该公司最终可能只会获得 200 英里半径内递送的包裹样本。"
           },
           {
-            "id": "ch13-content-zh-154",
+            "id": "ch13-content-zh-157",
             "kind": "paragraph",
             "text": "为了防止数据出现偏差，运输公司可能会将人群分为四个子组："
           },
           {
-            "id": "ch13-content-zh-155",
+            "id": "ch13-content-zh-158",
             "kind": "listItem",
             "text": "200英里半径内送货"
           },
           {
-            "id": "ch13-content-zh-156",
+            "id": "ch13-content-zh-159",
             "kind": "listItem",
             "text": "201 至 400 英里半径内的送货"
           },
           {
-            "id": "ch13-content-zh-157",
+            "id": "ch13-content-zh-160",
             "kind": "listItem",
             "text": "401 至 600 英里半径范围内的送货"
           },
           {
-            "id": "ch13-content-zh-158",
+            "id": "ch13-content-zh-161",
             "kind": "listItem",
             "text": "送货超过 600 英里"
           },
           {
-            "id": "ch13-content-zh-159",
+            "id": "ch13-content-zh-162",
             "kind": "paragraph",
             "text": "通过从分层子组中随机抽样，团队确保了样本量的偏差较小。"
           },
           {
-            "id": "ch13-content-zh-160",
+            "id": "ch13-content-zh-163",
             "kind": "heading",
             "text": "顺序采样"
           },
           {
-            "id": "ch13-content-zh-161",
+            "id": "ch13-content-zh-164",
             "kind": "paragraph",
             "text": "顺序抽样涉及选择每个 X 项目以包含在抽样中。当团队按时间间隔收集数据时，可以使用顺序抽样。该团队可能每 10 分钟收集一次数据。顺序抽样也可用于对实物进行抽样；产品线上的每 5 个项目都可能会被审查。给定正确的参数和足够的时间，顺序采样可以提供有效的统计结果。然而，团队必须认识到，在极少数情况下，采样顺序可能会扭曲结果。例如，在流程的每 5 次迭代期间可能会发生一些导致差异发生的情况。"
           },
           {
-            "id": "ch13-content-zh-162",
+            "id": "ch13-content-zh-165",
             "kind": "heading",
             "text": "非随机样本"
           },
           {
-            "id": "ch13-content-zh-163",
+            "id": "ch13-content-zh-166",
             "kind": "paragraph",
             "text": "在进行统计分析时不应使用非随机抽样，因为它更可能引入用户或抽样误差。虽然所有抽样都存在某种形式的误差，但可以计算随机抽样误差并在分析中加​​以考虑。对于非随机样本则不能这样说。"
           },
           {
-            "id": "ch13-content-zh-164",
+            "id": "ch13-content-zh-167",
             "kind": "paragraph",
             "text": "非随机抽样包括方便抽样或判断抽样。当团队进行最方便的测量时，就会发生方便抽样。 “我们现在想了解整个流程，所以让我们回顾一下接下来下线的十几个项目。”这种类型的分析只能真实地告诉团队该流程在该特定时刻的执行情况。"
           },
           {
-            "id": "ch13-content-zh-165",
+            "id": "ch13-content-zh-168",
             "kind": "paragraph",
             "text": "当专家或知识渊博的人负责“选择”适当的样本时，就会发生判断抽样。主管可能会对他或她的团队成员说：“选择一些代表你在某一天的正常运作方式的工作。”在大多数情况下，团队成员会选择他们认为质量更好的工作，从而扭曲样本中的任何结果。"
           },
           {
-            "id": "ch13-content-zh-166",
+            "id": "ch13-content-zh-169",
             "kind": "heading",
             "text": "提供基准指标"
           },
           {
-            "id": "ch13-content-zh-167",
+            "id": "ch13-content-zh-170",
             "kind": "paragraph",
             "text": "定义和测量阶段的主要交付成果之一是基线指标。 该流程现在的表现如何？团队将使用什么衡量标准来比较当前绩效与改进后的绩效？"
           },
           {
-            "id": "ch13-content-zh-168",
+            "id": "ch13-content-zh-171",
             "kind": "paragraph",
             "text": "基线指标是数字，但大多数团队发现以图形方式呈现指标最能引起业务资源和高管的共鸣。视觉表示还为团队提供了一种快速方法来确定是否正在发生进展。"
           },
           {
-            "id": "ch13-content-zh-169",
+            "id": "ch13-content-zh-172",
             "kind": "paragraph",
             "text": "您使用的视觉表示类型取决于您的主要指标是离散的还是连续的。离散数据可以显示在 Pareto 图上（参见第 5 章），连续数据可以通过运行图显示。您还可以使用变化或其他计算将离散数据转换为连续数据，以便在运行图和控制图中显示（有关控制图的信息，请参阅第 16 章）。"
           },
           {
-            "id": "ch13-content-zh-170",
+            "id": "ch13-content-zh-173",
             "kind": "heading",
             "text": "运行图"
           },
           {
-            "id": "ch13-content-zh-171",
+            "id": "ch13-content-zh-174",
             "kind": "paragraph",
             "text": "运行图可用于监控任何变量或过程随时间的表现。通过一个直观的图表，六西格玛团队可以显示流程中的趋势、变化和周期；他们还可以监视流程中的问题，尽管运行图在这方面不如非常相似的控制图那么有效。"
           },
           {
-            "id": "ch13-content-zh-172",
+            "id": "ch13-content-zh-175",
             "kind": "paragraph",
             "text": "基本运行图只是数据随时间变化的线图，这意味着任何人都可以创建该图表。大多数六西格玛运行图还具有代表所有数据点中位数的线，以供视觉参考。根据绘制图表的信息类型，您可能需要将数据转换为比率以获得更准确的运行图。例如，如果您要绘制表面随时间变化的温度，则无需转换数据。如果您要绘制出院后 30 天内重新入院的患者人数，则有助于将数据转换为同一时间段内出院患者人数的百分比。在 30 天内，有 10,000 名患者出院，您预计的回访人数将高于仅 5,000 名患者出院的时期。"
           },
           {
-            "id": "ch13-content-zh-173",
+            "id": "ch13-content-zh-176",
             "kind": "paragraph",
             "text": "下图显示了温度随时间变化的运行图。您可以看到温度如何随时间变化，并开始看到一些可能的趋势。六西格玛团队将能够缩小范围，在更多时间内查看运行图以验证趋势假设。您还可以看到该过程的中位温度为 33。"
           },
           {
-            "id": "ch13-content-zh-174",
-            "kind": "paragraph",
-            "text": "下面的运行图显示了一年中每个月每百次销售的退货数量。 您可以看到，回报率在今年上半年稳步上升，然后从 5 月到 11 月保持稳定。橙色线表示每百次销售的平均回报率，略低于 7。"
-          },
-          {
-            "id": "ch13-content-zh-175",
-            "kind": "heading",
-            "text": "在 Excel 中创建基本运行图"
-          },
-          {
-            "id": "ch13-content-zh-176",
-            "kind": "paragraph",
-            "text": "统计分析软件（包括 Minitab 和 Excel SPC）会根据输入的数据自动创建运行图的所有元素，但如果需要，任何人都可以使用基本的 Excel 功能来创建运行图。"
-          },
-          {
             "id": "ch13-content-zh-177",
-            "kind": "paragraph",
-            "text": "首先，创建一个数据表。"
+            "kind": "image",
+            "assetId": "fig-2bdb3ba134df10e9",
+            "src": "assets/figures/fig-2bdb3ba134df10e9.png",
+            "width": 921,
+            "height": 561
           },
           {
             "id": "ch13-content-zh-178",
             "kind": "paragraph",
-            "text": "为单个属性（例如温度）创建数据表只需在一列中输入时间标签，在另一列中输入属性测量值。例如，我们将逐步创建费率数据表，因为它涉及其他步骤。"
+            "text": "下面的运行图显示了一年中每个月每百次销售的退货数量。 您可以看到，回报率在今年上半年稳步上升，然后从 5 月到 11 月保持稳定。橙色线表示每百次销售的平均回报率，略低于 7。"
           },
           {
             "id": "ch13-content-zh-179",
-            "kind": "paragraph",
-            "text": "1. 在Excel的第一列中输入数据标签（月、周、小时等）。 2. 在下一列中，输入您感兴趣的属性的相应测量值：在本例中为每月退货总数。 3. 在第三列中，输入您要与属性进行比较的商品总数：在本例中为每月销售总数。"
+            "kind": "image",
+            "assetId": "fig-5b8219086c023295",
+            "src": "assets/figures/fig-5b8219086c023295.png",
+            "width": 892,
+            "height": 553
           },
           {
             "id": "ch13-content-zh-180",
-            "kind": "paragraph",
-            "text": "4. 在第四列中，计算第一列数据占第二列数据的百分比。在本例中，为每月每笔销售的退货百分比。在本例中，一月的计算公式为 =B2/C2，二月的公式为 =B3/C3，依此类推。"
+            "kind": "heading",
+            "text": "在 Excel 中创建基本运行图"
           },
           {
             "id": "ch13-content-zh-181",
             "kind": "paragraph",
-            "text": "5. 决定是否要创建显示百分比的运行图，或者是否要创建说明每 100、每 1,000 等比率的图表。 6. 如果要说明每 (x) 的比率，请将第四列中的百分比计算乘以 (x)。在本例中，D 列中的数字乘以 100。"
+            "text": "统计分析软件（包括 Minitab 和 Excel SPC）会根据输入的数据自动创建运行图的所有元素，但如果需要，任何人都可以使用基本的 Excel 功能来创建运行图。"
           },
           {
             "id": "ch13-content-zh-182",
             "kind": "paragraph",
-            "text": "7. 使用 Excel 计算您计划绘制图表的数字的中位数。中位数使用公式 =Median(Number 1, Number 2,…) 计算，其中公式中的数字与所有图表数据点的范围相关。在本例中，中位数为 6.96679 8. 突出显示数据标签（在本例中为 A 列）和要绘制图表的数字（E 列）"
+            "text": "首先，创建一个数据表。"
           },
           {
             "id": "ch13-content-zh-183",
             "kind": "paragraph",
-            "text": "9. 选择“插入”>“图表”>“折线图”以插入属性或属性计算的折线图。"
+            "text": "为单个属性（例如温度）创建数据表只需在一列中输入时间标签，在另一列中输入属性测量值。例如，我们将逐步创建费率数据表，因为它涉及其他步骤。"
           },
           {
             "id": "ch13-content-zh-184",
             "kind": "paragraph",
-            "text": "10. 选择“插入”>“形状”>“绘制线条”。"
+            "text": "1. 在Excel的第一列中输入数据标签（月、周、小时等）。 2. 在下一列中，输入您感兴趣的属性的相应测量值：在本例中为每月退货总数。 3. 在第三列中，输入您要与属性进行比较的商品总数：在本例中为每月销售总数。"
           },
           {
             "id": "ch13-content-zh-185",
-            "kind": "paragraph",
-            "text": "11. 在运行图上大约中位数的位置画一条线。 使用 Excel 工具选择所需线条的颜色和粗细。"
+            "kind": "image",
+            "assetId": "fig-e4ac92095bc7c563",
+            "src": "assets/figures/fig-e4ac92095bc7c563.png",
+            "width": 651,
+            "height": 597
           },
           {
             "id": "ch13-content-zh-186",
             "kind": "paragraph",
-            "text": "完成的运行图可用于向六西格玛团队提供信息，或在测量阶段收费站演示中包含基线过程性能的图形表示。再次值得注意的是，大多数黑带人员和绿带人员不需要手动创建运行图，他们可以使用统计分析软件。"
+            "text": "4. 在第四列中，计算第一列数据占第二列数据的百分比。在本例中，为每月每笔销售的退货百分比。在本例中，一月的计算公式为 =B2/C2，二月的公式为 =B3/C3，依此类推。"
           },
           {
             "id": "ch13-content-zh-187",
-            "kind": "heading",
-            "text": "测量收费站检查表"
+            "kind": "image",
+            "assetId": "fig-09baa21ea23fca46",
+            "src": "assets/figures/fig-09baa21ea23fca46.png",
+            "width": 963,
+            "height": 546
           },
           {
             "id": "ch13-content-zh-188",
             "kind": "paragraph",
-            "text": "使用下面的清单来确定团队是否准备好从 DMAIC 项目的测量阶段进入分析阶段。"
+            "text": "5. 决定是否要创建显示百分比的运行图，或者是否要创建说明每 100、每 1,000 等比率的图表。 6. 如果要说明每 (x) 的比率，请将第四列中的百分比计算乘以 (x)。在本例中，D 列中的数字乘以 100。"
           },
           {
             "id": "ch13-content-zh-189",
+            "kind": "image",
+            "assetId": "fig-03086be1c77dea3c",
+            "src": "assets/figures/fig-03086be1c77dea3c.png",
+            "width": 1190,
+            "height": 520
+          },
+          {
+            "id": "ch13-content-zh-190",
+            "kind": "paragraph",
+            "text": "7. 使用 Excel 计算您计划绘制图表的数字的中位数。中位数使用公式 =Median(Number 1, Number 2,…) 计算，其中公式中的数字与所有图表数据点的范围相关。在本例中，中位数为 6.96679 8. 突出显示数据标签（在本例中为 A 列）和要绘制图表的数字（E 列）"
+          },
+          {
+            "id": "ch13-content-zh-191",
+            "kind": "image",
+            "assetId": "fig-a2163cc399e95168",
+            "src": "assets/figures/fig-a2163cc399e95168.png",
+            "width": 1191,
+            "height": 518
+          },
+          {
+            "id": "ch13-content-zh-192",
+            "kind": "paragraph",
+            "text": "9. 选择“插入”>“图表”>“折线图”以插入属性或属性计算的折线图。"
+          },
+          {
+            "id": "ch13-content-zh-193",
+            "kind": "image",
+            "assetId": "fig-2e70e1a44096a755",
+            "src": "assets/figures/fig-2e70e1a44096a755.png",
+            "width": 979,
+            "height": 576
+          },
+          {
+            "id": "ch13-content-zh-194",
+            "kind": "paragraph",
+            "text": "10. 选择“插入”>“形状”>“绘制线条”。"
+          },
+          {
+            "id": "ch13-content-zh-195",
+            "kind": "image",
+            "assetId": "fig-42ac2cf82504ad01",
+            "src": "assets/figures/fig-42ac2cf82504ad01.png",
+            "width": 523,
+            "height": 361
+          },
+          {
+            "id": "ch13-content-zh-196",
+            "kind": "paragraph",
+            "text": "11. 在运行图上大约中位数的位置画一条线。 使用 Excel 工具选择所需线条的颜色和粗细。"
+          },
+          {
+            "id": "ch13-content-zh-197",
+            "kind": "image",
+            "assetId": "fig-5b8219086c023295",
+            "src": "assets/figures/fig-5b8219086c023295.png",
+            "width": 892,
+            "height": 553
+          },
+          {
+            "id": "ch13-content-zh-198",
+            "kind": "paragraph",
+            "text": "完成的运行图可用于向六西格玛团队提供信息，或在测量阶段收费站演示中包含基线过程性能的图形表示。再次值得注意的是，大多数黑带人员和绿带人员不需要手动创建运行图，他们可以使用统计分析软件。"
+          },
+          {
+            "id": "ch13-content-zh-199",
+            "kind": "heading",
+            "text": "测量收费站检查表"
+          },
+          {
+            "id": "ch13-content-zh-200",
+            "kind": "paragraph",
+            "text": "使用下面的清单来确定团队是否准备好从 DMAIC 项目的测量阶段进入分析阶段。"
+          },
+          {
+            "id": "ch13-content-zh-201",
             "kind": "paragraph",
             "text": "o 团队已就关键衡量标准达成一致，并提出了流程绩效的基准衡量标准。 o 团队分析了测量系统并确定了可能导致分析错误的任何问题。 o 在可能的情况下，团队已纠正测量系统以消除错误风险。 o 团队已计算过程变异和西格玛水平。 o 该团队已进行适当的抽样，以便在下一阶段得出统计上有效的结论。 o 发起人或支持者已审查并签署了措施阶段的所有要素。"
           }
         ]
       }
+    }
+  ],
+  "assets": [
+    {
+      "id": "fig-03086be1c77dea3c",
+      "type": "table-image",
+      "path": "assets/figures/fig-03086be1c77dea3c.png",
+      "page": 119,
+      "width": 1190,
+      "height": 520
+    },
+    {
+      "id": "fig-09baa21ea23fca46",
+      "type": "table-image",
+      "path": "assets/figures/fig-09baa21ea23fca46.png",
+      "page": 119,
+      "width": 963,
+      "height": 546
+    },
+    {
+      "id": "fig-2bdb3ba134df10e9",
+      "type": "table-image",
+      "path": "assets/figures/fig-2bdb3ba134df10e9.png",
+      "page": 119,
+      "width": 921,
+      "height": 561
+    },
+    {
+      "id": "fig-2e70e1a44096a755",
+      "type": "table-image",
+      "path": "assets/figures/fig-2e70e1a44096a755.png",
+      "page": 119,
+      "width": 979,
+      "height": 576
+    },
+    {
+      "id": "fig-42ac2cf82504ad01",
+      "type": "figure",
+      "path": "assets/figures/fig-42ac2cf82504ad01.png",
+      "page": 119,
+      "width": 523,
+      "height": 361
+    },
+    {
+      "id": "fig-5b8219086c023295",
+      "type": "figure",
+      "path": "assets/figures/fig-5b8219086c023295.png",
+      "page": 119,
+      "width": 892,
+      "height": 553
+    },
+    {
+      "id": "fig-a2163cc399e95168",
+      "type": "table-image",
+      "path": "assets/figures/fig-a2163cc399e95168.png",
+      "page": 119,
+      "width": 1191,
+      "height": 518
+    },
+    {
+      "id": "fig-c03546763bdea6ae",
+      "type": "table-image",
+      "path": "assets/figures/fig-c03546763bdea6ae.png",
+      "page": 119,
+      "width": 1218,
+      "height": 535
+    },
+    {
+      "id": "fig-e4ac92095bc7c563",
+      "type": "figure",
+      "path": "assets/figures/fig-e4ac92095bc7c563.png",
+      "page": 119,
+      "width": 651,
+      "height": 597
+    },
+    {
+      "id": "fig-f2a5e0f0126f751c",
+      "type": "table-image",
+      "path": "assets/figures/fig-f2a5e0f0126f751c.png",
+      "page": 119,
+      "width": 1218,
+      "height": 723
+    },
+    {
+      "id": "fig-fb38cade4e9af21a",
+      "type": "table-image",
+      "path": "assets/figures/fig-fb38cade4e9af21a.png",
+      "page": 119,
+      "width": 1218,
+      "height": 320
     }
   ]
 }

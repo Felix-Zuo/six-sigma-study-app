@@ -170,531 +170,891 @@
           },
           {
             "id": "ch18-content-en-030",
-            "kind": "paragraph",
-            "text": "Histograms can also have several other common shapes, especially when presenting non-normal data or data that has an error or issue. If the histogram appears very random, as in the first example below, then it’s possible an error lies within the data measurement process. The measurement might not be adequate to capture the true picture of the process, or the definition of the operation and how to collect data might be at fault. The same is true if the histogram depicts an almost even distribution of data elements among bins."
+            "kind": "image",
+            "assetId": "fig-4d364bca3b2140db",
+            "src": "assets/figures/fig-4d364bca3b2140db.png",
+            "width": 553,
+            "height": 426
           },
           {
             "id": "ch18-content-en-031",
-            "kind": "paragraph",
-            "text": "A skewed distribution, seen in the second diagram above, features data that is clustered at only one end of the graph. Skewed histograms are common with certain types of data, particularly when data “falls off” at a natural cut-off time. For example, in a call center, you might measure the time it takes representatives to complete a certain type of phone call. A natural end-point for that data is 0 – it will always take more than 0 seconds to complete a phone call. Usually, it will take more than a few seconds, so you won’t have many data points in the lower end of the range. Perhaps this particular phone call follows a script and the majority of the calls end at the 7 to 8-minute mark. A histogram for length of calls might look something like the chart below."
+            "kind": "image",
+            "assetId": "fig-878269f751a28483",
+            "src": "assets/figures/fig-878269f751a28483.png",
+            "width": 571,
+            "height": 411
           },
           {
             "id": "ch18-content-en-032",
             "kind": "paragraph",
-            "text": "Consider the basic example below to understand histograms further."
+            "text": "Histograms can also have several other common shapes, especially when presenting non-normal data or data that has an error or issue. If the histogram appears very random, as in the first example below, then it’s possible an error lies within the data measurement process. The measurement might not be adequate to capture the true picture of the process, or the definition of the operation and how to collect data might be at fault. The same is true if the histogram depicts an almost even distribution of data elements among bins."
           },
           {
             "id": "ch18-content-en-033",
-            "kind": "paragraph",
-            "text": "A local distribution company wants to understand more about how well delivery drivers are meeting estimated arrival times. The team pulls a random sample of deliveries from a week’s worth of information and considers two data points for each delivery: the estimated time of delivery and the actual time of delivery. They subtracted the actual time from the estimated time to determine how far off one way or the other the deliveries were. The result was the following data table."
+            "kind": "image",
+            "assetId": "fig-9dc5f47bfd23571e",
+            "src": "assets/figures/fig-9dc5f47bfd23571e.png",
+            "width": 515,
+            "height": 375
           },
           {
             "id": "ch18-content-en-034",
-            "kind": "paragraph",
-            "text": "To create a histogram, the team sorted the selection by difference in minutes and discovered the range as -27 to 48. The team decided to create a histogram from -30 to 50 with a bin size of 10. The resulting data is as follows:"
+            "kind": "image",
+            "assetId": "fig-4e0470ab4d1b2b75",
+            "src": "assets/figures/fig-4e0470ab4d1b2b75.png",
+            "width": 499,
+            "height": 354
           },
           {
             "id": "ch18-content-en-035",
             "kind": "paragraph",
-            "text": "To create the above table, the team simply counted how many data points fell in each bin. The data points -27 and -25 fell into the bin -20 (to -29); that is 2 data points. Eight data points fell into the 10 bin. When charted on a bar chart, this information creates a histogram."
+            "text": "A skewed distribution, seen in the second diagram above, features data that is clustered at only one end of the graph. Skewed histograms are common with certain types of data, particularly when data “falls off” at a natural cut-off time. For example, in a call center, you might measure the time it takes representatives to complete a certain type of phone call. A natural end-point for that data is 0 – it will always take more than 0 seconds to complete a phone call. Usually, it will take more than a few seconds, so you won’t have many data points in the lower end of the range. Perhaps this particular phone call follows a script and the majority of the calls end at the 7 to 8-minute mark. A histogram for length of calls might look something like the chart below."
           },
           {
             "id": "ch18-content-en-036",
-            "kind": "paragraph",
-            "text": "When dealing with histograms, the number of bins used is important. If you have too few bins, the graph doesn’t provide any relevant information. If you have too many bins for the data set in question, you also lose informative functionality and your graph, rather than appearing as a rough curve, becomes something that looks like a comb. Usually, the more data you have, the more bins you can include on your histogram."
+            "kind": "image",
+            "assetId": "fig-f798154f85c4452b",
+            "src": "assets/figures/fig-f798154f85c4452b.png",
+            "width": 684,
+            "height": 584
           },
           {
             "id": "ch18-content-en-037",
             "kind": "paragraph",
-            "text": "Consider the following four histograms that all represent the same set of data. The data features 150 random numbers ranging from 38.62 to 62.89."
+            "text": "Consider the basic example below to understand histograms further."
           },
           {
             "id": "ch18-content-en-038",
             "kind": "paragraph",
-            "text": "The bin sizes get progressively smaller as the number of bins increase. In the first chart, bin sizes are 5; in the last chart, bin sizes are 0.5. For the purposes of understanding what type of data is represented in this histogram, the second or third charts are probably the most relevant. We’ll cover determining data type from a histogram and associated statistics later in this chapter."
+            "text": "A local distribution company wants to understand more about how well delivery drivers are meeting estimated arrival times. The team pulls a random sample of deliveries from a week’s worth of information and considers two data points for each delivery: the estimated time of delivery and the actual time of delivery. They subtracted the actual time from the estimated time to determine how far off one way or the other the deliveries were. The result was the following data table."
           },
           {
             "id": "ch18-content-en-039",
-            "kind": "heading",
-            "text": "Creating a Histogram in Excel"
+            "kind": "image",
+            "assetId": "fig-5d988a6e50234051",
+            "src": "assets/figures/fig-5d988a6e50234051.png",
+            "width": 660,
+            "height": 1385
           },
           {
             "id": "ch18-content-en-040",
-            "kind": "paragraph",
-            "text": "Before moving on with probability distributions, we’ll look at creating histograms in Excel using the Analysis ToolPak that was discussed in the last chapter."
+            "kind": "image",
+            "assetId": "fig-dd3b4a146677cc9c",
+            "src": "assets/figures/fig-dd3b4a146677cc9c.png",
+            "width": 660,
+            "height": 195
           },
           {
             "id": "ch18-content-en-041",
             "kind": "paragraph",
-            "text": "1. Open Excel and copy the following data table into a blank workbook."
+            "text": "To create a histogram, the team sorted the selection by difference in minutes and discovered the range as -27 to 48. The team decided to create a histogram from -30 to 50 with a bin size of 10. The resulting data is as follows:"
           },
           {
             "id": "ch18-content-en-042",
-            "kind": "paragraph",
-            "text": "2. Copy the following bin designations into the second column in the same worksheet."
+            "kind": "image",
+            "assetId": "fig-337191b2a37507b9",
+            "src": "assets/figures/fig-337191b2a37507b9.png",
+            "width": 305,
+            "height": 605
           },
           {
             "id": "ch18-content-en-043",
             "kind": "paragraph",
-            "text": "15"
+            "text": "To create the above table, the team simply counted how many data points fell in each bin. The data points -27 and -25 fell into the bin -20 (to -29); that is 2 data points. Eight data points fell into the 10 bin. When charted on a bar chart, this information creates a histogram."
           },
           {
             "id": "ch18-content-en-044",
-            "kind": "paragraph",
-            "text": "20"
+            "kind": "image",
+            "assetId": "fig-244d032769cd5ee1",
+            "src": "assets/figures/fig-244d032769cd5ee1.png",
+            "width": 816,
+            "height": 704
           },
           {
             "id": "ch18-content-en-045",
             "kind": "paragraph",
-            "text": "25"
+            "text": "When dealing with histograms, the number of bins used is important. If you have too few bins, the graph doesn’t provide any relevant information. If you have too many bins for the data set in question, you also lose informative functionality and your graph, rather than appearing as a rough curve, becomes something that looks like a comb. Usually, the more data you have, the more bins you can include on your histogram."
           },
           {
             "id": "ch18-content-en-046",
             "kind": "paragraph",
-            "text": "30"
+            "text": "Consider the following four histograms that all represent the same set of data. The data features 150 random numbers ranging from 38.62 to 62.89."
           },
           {
             "id": "ch18-content-en-047",
-            "kind": "paragraph",
-            "text": "35"
+            "kind": "image",
+            "assetId": "fig-a731699730cd6663",
+            "src": "assets/figures/fig-a731699730cd6663.png",
+            "width": 844,
+            "height": 544
           },
           {
             "id": "ch18-content-en-048",
-            "kind": "paragraph",
-            "text": "40"
+            "kind": "image",
+            "assetId": "fig-3f1252db6f6ec1bd",
+            "src": "assets/figures/fig-3f1252db6f6ec1bd.png",
+            "width": 910,
+            "height": 796
           },
           {
             "id": "ch18-content-en-049",
-            "kind": "paragraph",
-            "text": "45"
+            "kind": "image",
+            "assetId": "fig-55c6faa1809196ba",
+            "src": "assets/figures/fig-55c6faa1809196ba.png",
+            "width": 893,
+            "height": 634
           },
           {
             "id": "ch18-content-en-050",
-            "kind": "paragraph",
-            "text": "50"
+            "kind": "image",
+            "assetId": "fig-2bbea7c9141288cc",
+            "src": "assets/figures/fig-2bbea7c9141288cc.png",
+            "width": 990,
+            "height": 602
           },
           {
             "id": "ch18-content-en-051",
             "kind": "paragraph",
-            "text": "55"
+            "text": "The bin sizes get progressively smaller as the number of bins increase. In the first chart, bin sizes are 5; in the last chart, bin sizes are 0.5. For the purposes of understanding what type of data is represented in this histogram, the second or third charts are probably the most relevant. We’ll cover determining data type from a histogram and associated statistics later in this chapter."
           },
           {
             "id": "ch18-content-en-052",
-            "kind": "paragraph",
-            "text": "60"
+            "kind": "heading",
+            "text": "Creating a Histogram in Excel"
           },
           {
             "id": "ch18-content-en-053",
             "kind": "paragraph",
-            "text": "65"
+            "text": "Before moving on with probability distributions, we’ll look at creating histograms in Excel using the Analysis ToolPak that was discussed in the last chapter."
           },
           {
             "id": "ch18-content-en-054",
             "kind": "paragraph",
-            "text": "70"
+            "text": "1. Open Excel and copy the following data table into a blank workbook."
           },
           {
             "id": "ch18-content-en-055",
-            "kind": "paragraph",
-            "text": "75"
+            "kind": "image",
+            "assetId": "fig-8a9219e99be4ded9",
+            "src": "assets/figures/fig-8a9219e99be4ded9.png",
+            "width": 160,
+            "height": 1465
           },
           {
             "id": "ch18-content-en-056",
-            "kind": "paragraph",
-            "text": "3. Select Data > Data Analysis"
+            "kind": "image",
+            "assetId": "fig-6194baf53932c8af",
+            "src": "assets/figures/fig-6194baf53932c8af.png",
+            "width": 160,
+            "height": 1460
           },
           {
             "id": "ch18-content-en-057",
             "kind": "paragraph",
-            "text": "4. Select Histogram and click OK."
+            "text": "2. Copy the following bin designations into the second column in the same worksheet."
           },
           {
             "id": "ch18-content-en-058",
-            "kind": "paragraph",
-            "text": "5. Click in the Input Range box, and then highlight the cells for the input range (the 50 data cells you copied from above)."
+            "kind": "image",
+            "assetId": "fig-fc8061b8b5c0c88e",
+            "src": "assets/figures/fig-fc8061b8b5c0c88e.png",
+            "width": 160,
+            "height": 90
           },
           {
             "id": "ch18-content-en-059",
             "kind": "paragraph",
-            "text": "6. Click in the Bin Range box, and then highlight the cells that include the bin data you copied from above. 7. Check the New Worksheet Ply: option. 8. Check the Chart Output option. 9. Ensure that your Histogram dialog box appears as below."
+            "text": "15"
           },
           {
             "id": "ch18-content-en-060",
             "kind": "paragraph",
-            "text": "10. Click OK."
+            "text": "20"
           },
           {
             "id": "ch18-content-en-061",
             "kind": "paragraph",
-            "text": "Excel automatically generates a bin and frequency table as well as a histogram graph in a new worksheet. The histogram design defaults to a standard bar graph, but you can create the look of the histograms previously shown by changing one setting on the design."
+            "text": "25"
           },
           {
             "id": "ch18-content-en-062",
             "kind": "paragraph",
-            "text": "1. Click on the histogram. 2. Select Design from the top menu."
+            "text": "30"
           },
           {
             "id": "ch18-content-en-063",
             "kind": "paragraph",
-            "text": "3. Under Quick Layout, choose the layout where the bars are stacked next to each other rather than with space between them."
+            "text": "35"
           },
           {
             "id": "ch18-content-en-064",
             "kind": "paragraph",
-            "text": "Your result should look like the graph below."
+            "text": "40"
           },
           {
             "id": "ch18-content-en-065",
             "kind": "paragraph",
-            "text": "Experiment with your own data, creating histograms with various bin sizes to begin to develop an understanding of how data converts to this type of chart."
+            "text": "45"
           },
           {
             "id": "ch18-content-en-066",
-            "kind": "heading",
-            "text": "Normal Distributions"
+            "kind": "paragraph",
+            "text": "50"
           },
           {
             "id": "ch18-content-en-067",
             "kind": "paragraph",
-            "text": "Normal distribution, also called Gaussian distribution, is probably the most important distribution related to continuous data from a statistical analysis standpoint. A normal, or Gaussian, distribution is depicted below."
+            "text": "55"
           },
           {
             "id": "ch18-content-en-068",
             "kind": "paragraph",
-            "text": "Normal data is shaped symmetrically surrounding the mean, represented above by the x-bar line. A normal curve is beneficial for determining the probability that a given data point in a population will fall inside a certain range within the distribution."
+            "text": "60"
           },
           {
             "id": "ch18-content-en-069",
             "kind": "paragraph",
-            "text": "In a perfect normal distribution, 68.26 percent of all data points fall within plus or minus one standard deviation from the mean; this area is represented by the red arrow on the visual above. The blue arrow, which covers plus or minus two standard deviations from the mean, indicates the area under the curve that includes 95.46 percent of the data points. The purple area, which covers plus and minus three standard deviations from the mean, indicates the portion of the curve that covers 99.73 percent of the data. Less than 1 percent of data will fall under the curve outside of three standard deviations on either side."
+            "text": "65"
           },
           {
             "id": "ch18-content-en-070",
             "kind": "paragraph",
-            "text": "Distributions – even normal distributions – vary a bit. To determine the exact probabilities of various data points, advanced statistics are required; Excel and other programs perform the calculations for you, making it easier to conduct analysis. Before we discuss probability calculations using Excel, we’ll look at determining whether your data is normal in the first place."
+            "text": "70"
           },
           {
             "id": "ch18-content-en-071",
             "kind": "paragraph",
-            "text": "Testing whether data is normal is critical to many steps in statistical analysis, because the results of many tests can be invalid if you don’t account for the data you are working with. The most basic form of many of these tests are designed to work with normal data."
+            "text": "75"
           },
           {
             "id": "ch18-content-en-072",
-            "kind": "heading",
-            "text": "Normality Testing in Excel: Chi-Squared Goodness-of-Fit Test"
+            "kind": "paragraph",
+            "text": "3. Select Data > Data Analysis"
           },
           {
             "id": "ch18-content-en-073",
-            "kind": "paragraph",
-            "text": "We’ve touched on how visual inspection can help you determine whether data is normal or not. The histogram below, taken from earlier in the chapter, presents what seems to be obviously normal data. Data points converge around the center, and the histogram is roughly symmetrical in nature."
+            "kind": "image",
+            "assetId": "fig-0db8dd4ad9ed9055",
+            "src": "assets/figures/fig-0db8dd4ad9ed9055.png",
+            "width": 1191,
+            "height": 180
           },
           {
             "id": "ch18-content-en-074",
             "kind": "paragraph",
-            "text": "But what about this histogram, which is the one created in the practice exercise in the section on creating histograms in Excel?"
+            "text": "4. Select Histogram and click OK."
           },
           {
             "id": "ch18-content-en-075",
-            "kind": "paragraph",
-            "text": "The histogram above is an example of a chart that doesn’t fall neatly into any of the histogram shapes previously discussed. It seems to have elements of the normal curve, but it could also be skewed data. This is why we perform statistical tests to determine normality."
+            "kind": "image",
+            "assetId": "fig-41fbf16b11dd108c",
+            "src": "assets/figures/fig-41fbf16b11dd108c.png",
+            "width": 768,
+            "height": 402
           },
           {
             "id": "ch18-content-en-076",
             "kind": "paragraph",
-            "text": "You’ll usually begin exploring probability data by following the instructions in the previous section to create a histogram for the data. For the example of the normality test, we’ll use the same data from the section above, which is:"
+            "text": "5. Click in the Input Range box, and then highlight the cells for the input range (the 50 data cells you copied from above)."
           },
           {
             "id": "ch18-content-en-077",
             "kind": "paragraph",
-            "text": "Creating a histogram using the Analysis ToolPak generates a chart and a data table, as seen below."
+            "text": "6. Click in the Bin Range box, and then highlight the cells that include the bin data you copied from above. 7. Check the New Worksheet Ply: option. 8. Check the Chart Output option. 9. Ensure that your Histogram dialog box appears as below."
           },
           {
             "id": "ch18-content-en-078",
-            "kind": "paragraph",
-            "text": "Calculate descriptive statistics for the data."
+            "kind": "image",
+            "assetId": "fig-0feb65915c04a46d",
+            "src": "assets/figures/fig-0feb65915c04a46d.png",
+            "width": 783,
+            "height": 585
           },
           {
             "id": "ch18-content-en-079",
             "kind": "paragraph",
-            "text": "Use the Descriptive Statistics option in the Analysis ToolPak to quickly generate descriptive statistics for your data set."
+            "text": "10. Click OK."
           },
           {
             "id": "ch18-content-en-080",
-            "kind": "paragraph",
-            "text": "1. Select Data > Data Analysis > Descriptive Statistics"
+            "kind": "image",
+            "assetId": "fig-fab8e925fdd7aa04",
+            "src": "assets/figures/fig-fab8e925fdd7aa04.png",
+            "width": 1036,
+            "height": 694
           },
           {
             "id": "ch18-content-en-081",
             "kind": "paragraph",
-            "text": "2. Click OK 3. Click in the Input Range box and select your input range using the mouse."
+            "text": "Excel automatically generates a bin and frequency table as well as a histogram graph in a new worksheet. The histogram design defaults to a standard bar graph, but you can create the look of the histograms previously shown by changing one setting on the design."
           },
           {
             "id": "ch18-content-en-082",
             "kind": "paragraph",
-            "text": "4. In this case, the data is grouped by columns. In most statistical analysis, that will be the case, but if you have data grouped by rows, you should change the Grouped By selection. 5. Select to output information in a new worksheet. 6. Ensure at least the Summary statistics box is checked. You can also check the Confidence level for mean and the Kth largest and smallest boxes, though that information isn’t required in the Chi-Squared Goodness-of-Fit test, which is the test we are running to test for normality of the data. If you check these extra boxes, Excel will simply provide you with additional information that we won’t be using at this time."
+            "text": "1. Click on the histogram. 2. Select Design from the top menu."
           },
           {
             "id": "ch18-content-en-083",
-            "kind": "paragraph",
-            "text": "7. Click OK. 8. Excel returns descriptive summary statistics for your data set."
+            "kind": "image",
+            "assetId": "fig-934db03c9af93032",
+            "src": "assets/figures/fig-934db03c9af93032.png",
+            "width": 1173,
+            "height": 165
           },
           {
             "id": "ch18-content-en-084",
             "kind": "paragraph",
-            "text": "For the Chi-Squared Goodness-of-Fit test, you will need to note the sample size (or count), the same standard deviation, and the sample mean. The sample size is the number of items in the data set, which"
+            "text": "3. Under Quick Layout, choose the layout where the bars are stacked next to each other rather than with space between them."
           },
           {
             "id": "ch18-content-en-085",
-            "kind": "paragraph",
-            "text": "was 50 for this example. If you don’t remember what the sample size was, you can refer to the count listed in the descriptive statistics. The other two figures are taken from the descriptive statistics above:"
+            "kind": "image",
+            "assetId": "fig-83f44355021c2a12",
+            "src": "assets/figures/fig-83f44355021c2a12.png",
+            "width": 489,
+            "height": 597
           },
           {
             "id": "ch18-content-en-086",
             "kind": "paragraph",
-            "text": "- Sample mean: 48.778 - Sample standard deviation: 11.444"
+            "text": "Your result should look like the graph below."
           },
           {
             "id": "ch18-content-en-087",
-            "kind": "paragraph",
-            "text": "Set up the hypothesis."
+            "kind": "image",
+            "assetId": "fig-195322aa1e916403",
+            "src": "assets/figures/fig-195322aa1e916403.png",
+            "width": 1040,
+            "height": 681
           },
           {
             "id": "ch18-content-en-088",
             "kind": "paragraph",
-            "text": "The Chi-Squared Goodness-of-Fit test is actually a hypothesis test. That means you are testing the data with regard to a null hypothesis and an alternative hypothesis. The two hypotheses for the Chi-Squared Goodness-of-Fit test are:"
+            "text": "Experiment with your own data, creating histograms with various bin sizes to begin to develop an understanding of how data converts to this type of chart."
           },
           {
             "id": "ch18-content-en-089",
-            "kind": "listItem",
-            "text": "Null hypothesis: The data is normal."
+            "kind": "heading",
+            "text": "Normal Distributions"
           },
           {
             "id": "ch18-content-en-090",
-            "kind": "listItem",
-            "text": "Alternative hypothesis: The data is not normal."
+            "kind": "paragraph",
+            "text": "Normal distribution, also called Gaussian distribution, is probably the most important distribution related to continuous data from a statistical analysis standpoint. A normal, or Gaussian, distribution is depicted below."
           },
           {
             "id": "ch18-content-en-091",
-            "kind": "paragraph",
-            "text": "If one is not true, then the other is. In statistical terms, we talk in terms of accepting or rejecting the null hypothesis. If we reject the null, we accept the alternative."
+            "kind": "image",
+            "assetId": "fig-1ab2d66357cdcdf7",
+            "src": "assets/figures/fig-1ab2d66357cdcdf7.png",
+            "width": 1191,
+            "height": 567
           },
           {
             "id": "ch18-content-en-092",
             "kind": "paragraph",
-            "text": "Understand the Chi-Squared Goodness-of-Fit test premise."
+            "text": "Normal data is shaped symmetrically surrounding the mean, represented above by the x-bar line. A normal curve is beneficial for determining the probability that a given data point in a population will fall inside a certain range within the distribution."
           },
           {
             "id": "ch18-content-en-093",
             "kind": "paragraph",
-            "text": "Basically, the Chi-Squared Goodness-of-Fit test takes the number of samples in each bin on the histogram and compares that to the number of samples you might expect to find in each bin given a normal curve. Using the actual number of samples in each bin and the expected number of samples, we can calculate what is called the Chi-Square Statistic in Excel. That number then lets us calculate a p- Value. In this case, it is the size of the p-Value that lets us decide whether to accept or reject the hypothesis that the data is normal."
+            "text": "In a perfect normal distribution, 68.26 percent of all data points fall within plus or minus one standard deviation from the mean; this area is represented by the red arrow on the visual above. The blue arrow, which covers plus or minus two standard deviations from the mean, indicates the area under the curve that includes 95.46 percent of the data points. The purple area, which covers plus and minus three standard deviations from the mean, indicates the portion of the curve that covers 99.73 percent of the data. Less than 1 percent of data will fall under the curve outside of three standard deviations on either side."
           },
           {
             "id": "ch18-content-en-094",
             "kind": "paragraph",
-            "text": "For the purpose of the Chi-Squared Goodness-of-Fit test in this situation, if the p-Value is greater than 0.05, we will accept the null hypothesis that the data is normally distributed."
+            "text": "Distributions – even normal distributions – vary a bit. To determine the exact probabilities of various data points, advanced statistics are required; Excel and other programs perform the calculations for you, making it easier to conduct analysis. Before we discuss probability calculations using Excel, we’ll look at determining whether your data is normal in the first place."
           },
           {
             "id": "ch18-content-en-095",
-            "kind": "heading",
-            "text": "The Observed Bins"
+            "kind": "paragraph",
+            "text": "Testing whether data is normal is critical to many steps in statistical analysis, because the results of many tests can be invalid if you don’t account for the data you are working with. The most basic form of many of these tests are designed to work with normal data."
           },
           {
             "id": "ch18-content-en-096",
-            "kind": "paragraph",
-            "text": "Having created a histogram via the Analysis ToolPak, you already have access to the observed bin distribution. That information is housed in the data table Excel creates to make the histogram."
+            "kind": "heading",
+            "text": "Normality Testing in Excel: Chi-Squared Goodness-of-Fit Test"
           },
           {
             "id": "ch18-content-en-097",
-            "kind": "heading",
-            "text": "The Expected Bins"
+            "kind": "paragraph",
+            "text": "We’ve touched on how visual inspection can help you determine whether data is normal or not. The histogram below, taken from earlier in the chapter, presents what seems to be obviously normal data. Data points converge around the center, and the histogram is roughly symmetrical in nature."
           },
           {
             "id": "ch18-content-en-098",
-            "kind": "paragraph",
-            "text": "We can use statistics related to the normal curve to calculate how we might expect bins to behave given the median and standard deviation of our sample."
+            "kind": "image",
+            "assetId": "fig-79112547709bfb4c",
+            "src": "assets/figures/fig-79112547709bfb4c.png",
+            "width": 615,
+            "height": 539
           },
           {
             "id": "ch18-content-en-099",
             "kind": "paragraph",
-            "text": "To give you an idea of what is going on with the statistical calculations involved in determining expected size of bins, consider the graphic below."
+            "text": "But what about this histogram, which is the one created in the practice exercise in the section on creating histograms in Excel?"
           },
           {
             "id": "ch18-content-en-100",
-            "kind": "paragraph",
-            "text": "This graphic roughly depicts the bins from our histogram drawn on the normal curve. Because mathematical formulations exist for determining the area under a curve, it’s possible to determine the area under the curve within a specific bin. Ultimately, that is done by calculating the total area and subtracting portions."
+            "kind": "image",
+            "assetId": "fig-197cde3977b8011e",
+            "src": "assets/figures/fig-197cde3977b8011e.png",
+            "width": 741,
+            "height": 487
           },
           {
             "id": "ch18-content-en-101",
             "kind": "paragraph",
-            "text": "We begin with a calculation known as the Cumulative Distribution Function, or CDF. The CDF measures the total area under a curve to the left of the point we are measuring from. For example, the total area under the curve above that is to the left of 45 is 50 percent. Once we know the CDF at each border of our bins, it’s a matter of subtraction to calculate the CDF for each individual bin. For example, the CDF for the bin located between 40 and 45 would equal the CDF of 45 minus the CDF of 40."
+            "text": "The histogram above is an example of a chart that doesn’t fall neatly into any of the histogram shapes previously discussed. It seems to have elements of the normal curve, but it could also be skewed data. This is why we perform statistical tests to determine normality."
           },
           {
             "id": "ch18-content-en-102",
             "kind": "paragraph",
-            "text": "One problem with this rough depiction is that the curve drawn above centers on 45, and we know from Excel that our mean is 48.778. We’ll use that number in our calculations to account for the slight shift."
+            "text": "You’ll usually begin exploring probability data by following the instructions in the previous section to create a histogram for the data. For the example of the normality test, we’ll use the same data from the section above, which is:"
           },
           {
             "id": "ch18-content-en-103",
-            "kind": "paragraph",
-            "text": "Excel can calculate CDF with the formula:"
+            "kind": "image",
+            "assetId": "fig-805394fb6b73a756",
+            "src": "assets/figures/fig-805394fb6b73a756.png",
+            "width": 160,
+            "height": 675
           },
           {
             "id": "ch18-content-en-104",
-            "kind": "heading",
-            "text": "=NORMDIST(x value, Sample Mean, Sample Standard Deviation, TRUE)"
+            "kind": "image",
+            "assetId": "fig-a0613d8b3fce7912",
+            "src": "assets/figures/fig-a0613d8b3fce7912.png",
+            "width": 160,
+            "height": 1615
           },
           {
             "id": "ch18-content-en-105",
-            "kind": "paragraph",
-            "text": "Set up the tables for calculating the CDF of each bin by copying the bin designations onto the descriptive statistics worksheet that Excel previously created for you and creating two columns, one for total CDF and one for bin CDF. Use the image below as an example."
+            "kind": "image",
+            "assetId": "fig-797ba4964ef64e42",
+            "src": "assets/figures/fig-797ba4964ef64e42.png",
+            "width": 160,
+            "height": 725
           },
           {
             "id": "ch18-content-en-106",
             "kind": "paragraph",
-            "text": "Enter the formula for calculating CDF into column E, referencing the same mean and standard deviation for each row and using the numbers in D as X."
+            "text": "Creating a histogram using the Analysis ToolPak generates a chart and a data table, as seen below."
           },
           {
             "id": "ch18-content-en-107",
-            "kind": "paragraph",
-            "text": "For the first row – in our case, the bin marked 10 -- the bin-only area is equal to the CDF because there is nothing left of the bin’s upper limit. For all other rows, the bin-only area is the CDF minus the CDF for the bin designation above. So, you would enter =E2 in the first data row for column F. The second data row would be calculated as E3-E2; the next would be E4-E3, and so forth. The result is the percentage of the curve in each bin."
+            "kind": "image",
+            "assetId": "fig-3907a57e6e754880",
+            "src": "assets/figures/fig-3907a57e6e754880.png",
+            "width": 1191,
+            "height": 667
           },
           {
             "id": "ch18-content-en-108",
             "kind": "paragraph",
-            "text": "Calculating the expected number of samples in each bin is as easy as multiplying the percentages of each bin by the sample size. Again, you can see from the descriptive statistics that the count for this set of data was 50."
+            "text": "Calculate descriptive statistics for the data."
           },
           {
             "id": "ch18-content-en-109",
             "kind": "paragraph",
-            "text": "To calculate the Chi-Squared statistic, you’ll use both the expected number of items in each bin and the actual or observed number. Copy the observed numbers over from your histogram worksheet."
+            "text": "Use the Descriptive Statistics option in the Analysis ToolPak to quickly generate descriptive statistics for your data set."
           },
           {
             "id": "ch18-content-en-110",
             "kind": "paragraph",
-            "text": "Apply the following formula to each row:"
+            "text": "1. Select Data > Data Analysis > Descriptive Statistics"
           },
           {
             "id": "ch18-content-en-111",
             "kind": "paragraph",
-            "text": "(expected – observed)2 / expected"
+            "text": "2. Click OK 3. Click in the Input Range box and select your input range using the mouse."
           },
           {
             "id": "ch18-content-en-112",
-            "kind": "paragraph",
-            "text": "Calculate the final numbers for each row as desired in Excel."
+            "kind": "image",
+            "assetId": "fig-19ca447e23a2a3c7",
+            "src": "assets/figures/fig-19ca447e23a2a3c7.png",
+            "width": 740,
+            "height": 642
           },
           {
             "id": "ch18-content-en-113",
             "kind": "paragraph",
-            "text": "Add up the final numbers to get the Chi-Squared statistic, denoted by X2. For our example, X2 is 16.7333."
+            "text": "4. In this case, the data is grouped by columns. In most statistical analysis, that will be the case, but if you have data grouped by rows, you should change the Grouped By selection. 5. Select to output information in a new worksheet. 6. Ensure at least the Summary statistics box is checked. You can also check the Confidence level for mean and the Kth largest and smallest boxes, though that information isn’t required in the Chi-Squared Goodness-of-Fit test, which is the test we are running to test for normality of the data. If you check these extra boxes, Excel will simply provide you with additional information that we won’t be using at this time."
           },
           {
             "id": "ch18-content-en-114",
-            "kind": "paragraph",
-            "text": "To use the Chi-Squared statistic to find the p-Value, we also need one more item for the Excel formula to work: we need what is called the degrees of freedom."
+            "kind": "image",
+            "assetId": "fig-50cd5a20dd47893e",
+            "src": "assets/figures/fig-50cd5a20dd47893e.png",
+            "width": 741,
+            "height": 669
           },
           {
             "id": "ch18-content-en-115",
             "kind": "paragraph",
-            "text": "Degrees of freedom = #bins – 1 - #calculated parameters"
+            "text": "7. Click OK. 8. Excel returns descriptive summary statistics for your data set."
           },
           {
             "id": "ch18-content-en-116",
-            "kind": "paragraph",
-            "text": "We have 14 bins. The parameters we used to arrive at the Chi-Squared statistic that we calculated from our sample were the mean and standard deviation: two parameters. For our example:"
+            "kind": "image",
+            "assetId": "fig-4e5c7ebc1ce70a05",
+            "src": "assets/figures/fig-4e5c7ebc1ce70a05.png",
+            "width": 483,
+            "height": 642
           },
           {
             "id": "ch18-content-en-117",
             "kind": "paragraph",
-            "text": "Degrees of freedom = 14 – 1 – 2 = 11"
+            "text": "For the Chi-Squared Goodness-of-Fit test, you will need to note the sample size (or count), the same standard deviation, and the sample mean. The sample size is the number of items in the data set, which"
           },
           {
             "id": "ch18-content-en-118",
             "kind": "paragraph",
-            "text": "Now that we have both the degrees of freedom (df), and the Chi-Squared value, we can use Excel to calculate the p-Value. Simply enter the formula below, inputting the correct values."
+            "text": "was 50 for this example. If you don’t remember what the sample size was, you can refer to the count listed in the descriptive statistics. The other two figures are taken from the descriptive statistics above:"
           },
           {
             "id": "ch18-content-en-119",
             "kind": "paragraph",
-            "text": "In the case of our example, the resulting p-Value is 0.116. Because the p-Value is greater than 0.05, we accept the null hypothesis. Our data is normal."
+            "text": "- Sample mean: 48.778 - Sample standard deviation: 11.444"
           },
           {
             "id": "ch18-content-en-120",
-            "kind": "heading",
-            "text": "Normal Probabilities"
+            "kind": "paragraph",
+            "text": "Set up the hypothesis."
           },
           {
             "id": "ch18-content-en-121",
             "kind": "paragraph",
-            "text": "Once you verify that your data is normal, you can use many statistical tests to draw conclusions about the data and the population as a whole from your sample. One of the things you can do is use Excel’s normal probability functions to draw conclusions about data."
+            "text": "The Chi-Squared Goodness-of-Fit test is actually a hypothesis test. That means you are testing the data with regard to a null hypothesis and an alternative hypothesis. The two hypotheses for the Chi-Squared Goodness-of-Fit test are:"
           },
           {
             "id": "ch18-content-en-122",
-            "kind": "paragraph",
-            "text": "For example, let’s assume that the data we’ve been working with throughout this chapter is a sample selection of the weights of boxes in a delivery channel. The 50 samples were taken from the same shipping center over the course of a week and were randomly selected. Given that we know the data is normal, what is the probability that any package selected from the distribution center will weigh over 50 pounds?"
+            "kind": "listItem",
+            "text": "Null hypothesis: The data is normal."
           },
           {
             "id": "ch18-content-en-123",
-            "kind": "paragraph",
-            "text": "Excel provides the following formula:"
+            "kind": "listItem",
+            "text": "Alternative hypothesis: The data is not normal."
           },
           {
             "id": "ch18-content-en-124",
             "kind": "paragraph",
-            "text": "=NORMDIST(x, mean, standard_dev, cumulative)"
+            "text": "If one is not true, then the other is. In statistical terms, we talk in terms of accepting or rejecting the null hypothesis. If we reject the null, we accept the alternative."
           },
           {
             "id": "ch18-content-en-125",
             "kind": "paragraph",
-            "text": "When using this formula:"
+            "text": "Understand the Chi-Squared Goodness-of-Fit test premise."
           },
           {
             "id": "ch18-content-en-126",
             "kind": "paragraph",
-            "text": "- X = the value you are testing - Mean = sample mean from the descriptive statistics - Standard_dev = sample standard deviation from the descriptive statistics - Cumulative = FALSE if you want to test the probability of the exact occurrence; TRUE if you want to test the probability of any value left of x on the curve (or, in most cases, less than x)"
+            "text": "Basically, the Chi-Squared Goodness-of-Fit test takes the number of samples in each bin on the histogram and compares that to the number of samples you might expect to find in each bin given a normal curve. Using the actual number of samples in each bin and the expected number of samples, we can calculate what is called the Chi-Square Statistic in Excel. That number then lets us calculate a p- Value. In this case, it is the size of the p-Value that lets us decide whether to accept or reject the hypothesis that the data is normal."
           },
           {
             "id": "ch18-content-en-127",
             "kind": "paragraph",
-            "text": "Entering the formula in Excel for our data set with a FALSE cumulative tells us there is a 3.47 percent chance of a randomly selected box weighing 50 pounds. This is a real and important piece of information that might be beneficial to a Six Sigma team."
+            "text": "For the purpose of the Chi-Squared Goodness-of-Fit test in this situation, if the p-Value is greater than 0.05, we will accept the null hypothesis that the data is normally distributed."
           },
           {
             "id": "ch18-content-en-128",
-            "kind": "paragraph",
-            "text": "Entering the formula in Excel for our data set with a TRUE cumulative tells us there is a 54.25 percent chance of a randomly selected box weighing less than 50 pounds. Subtracting from 100 percent leaves a 45.75 percent chance that a box will weigh over 50 pounds."
+            "kind": "heading",
+            "text": "The Observed Bins"
           },
           {
             "id": "ch18-content-en-129",
             "kind": "paragraph",
-            "text": "Why might this be important? In this particular case, a shipping manager might be working to hire shipping reps. Because there is a strong likelihood that the employees will handle boxes over 50 pounds, the manager knows to include that requirement in job descriptions. Or, a Six Sigma team might be working on a process to increase production in a warehouse; the knowledge that many of the boxes are heavy enough to require special handling is relevant to how the team approaches the process."
+            "text": "Having created a histogram via the Analysis ToolPak, you already have access to the observed bin distribution. That information is housed in the data table Excel creates to make the histogram."
           },
           {
             "id": "ch18-content-en-130",
-            "kind": "paragraph",
-            "text": "Six Sigma teams can use Excel to generate a lot of information about the data. Excel also provides a formula for the inverse of the above calculation. What if the team wanted to know about the weight of the heaviest 80 percent of boxes in the shipping center?"
+            "kind": "image",
+            "assetId": "fig-61040d72b21be880",
+            "src": "assets/figures/fig-61040d72b21be880.png",
+            "width": 305,
+            "height": 195
           },
           {
             "id": "ch18-content-en-131",
-            "kind": "paragraph",
-            "text": "The formula is:"
+            "kind": "image",
+            "assetId": "fig-bf8aa7f5ab27e41c",
+            "src": "assets/figures/fig-bf8aa7f5ab27e41c.png",
+            "width": 305,
+            "height": 815
           },
           {
             "id": "ch18-content-en-132",
-            "kind": "paragraph",
-            "text": "=NORMINV(probability, mean, standard_dev)"
+            "kind": "heading",
+            "text": "The Expected Bins"
           },
           {
             "id": "ch18-content-en-133",
             "kind": "paragraph",
-            "text": "Probability must be entered as a decimal point, not a percent. In the case of 0.8 in our example data set, all of the boxes in the heaviest 80 percent are above 58.40 pounds."
+            "text": "We can use statistics related to the normal curve to calculate how we might expect bins to behave given the median and standard deviation of our sample."
           },
           {
             "id": "ch18-content-en-134",
             "kind": "paragraph",
-            "text": "Because we are drawing statistical conclusions from samples, there is some error inherent in the process. Error is usually calculated for in advanced analysis."
+            "text": "To give you an idea of what is going on with the statistical calculations involved in determining expected size of bins, consider the graphic below."
           },
           {
             "id": "ch18-content-en-135",
+            "kind": "image",
+            "assetId": "fig-7e0e765787446bf2",
+            "src": "assets/figures/fig-7e0e765787446bf2.png",
+            "width": 1191,
+            "height": 475
+          },
+          {
+            "id": "ch18-content-en-136",
+            "kind": "paragraph",
+            "text": "This graphic roughly depicts the bins from our histogram drawn on the normal curve. Because mathematical formulations exist for determining the area under a curve, it’s possible to determine the area under the curve within a specific bin. Ultimately, that is done by calculating the total area and subtracting portions."
+          },
+          {
+            "id": "ch18-content-en-137",
+            "kind": "paragraph",
+            "text": "We begin with a calculation known as the Cumulative Distribution Function, or CDF. The CDF measures the total area under a curve to the left of the point we are measuring from. For example, the total area under the curve above that is to the left of 45 is 50 percent. Once we know the CDF at each border of our bins, it’s a matter of subtraction to calculate the CDF for each individual bin. For example, the CDF for the bin located between 40 and 45 would equal the CDF of 45 minus the CDF of 40."
+          },
+          {
+            "id": "ch18-content-en-138",
+            "kind": "paragraph",
+            "text": "One problem with this rough depiction is that the curve drawn above centers on 45, and we know from Excel that our mean is 48.778. We’ll use that number in our calculations to account for the slight shift."
+          },
+          {
+            "id": "ch18-content-en-139",
+            "kind": "paragraph",
+            "text": "Excel can calculate CDF with the formula:"
+          },
+          {
+            "id": "ch18-content-en-140",
+            "kind": "heading",
+            "text": "=NORMDIST(x value, Sample Mean, Sample Standard Deviation, TRUE)"
+          },
+          {
+            "id": "ch18-content-en-141",
+            "kind": "paragraph",
+            "text": "Set up the tables for calculating the CDF of each bin by copying the bin designations onto the descriptive statistics worksheet that Excel previously created for you and creating two columns, one for total CDF and one for bin CDF. Use the image below as an example."
+          },
+          {
+            "id": "ch18-content-en-142",
+            "kind": "image",
+            "assetId": "fig-1e61125b4c55e130",
+            "src": "assets/figures/fig-1e61125b4c55e130.png",
+            "width": 1165,
+            "height": 665
+          },
+          {
+            "id": "ch18-content-en-143",
+            "kind": "paragraph",
+            "text": "Enter the formula for calculating CDF into column E, referencing the same mean and standard deviation for each row and using the numbers in D as X."
+          },
+          {
+            "id": "ch18-content-en-144",
+            "kind": "image",
+            "assetId": "fig-79154b56a3e68f30",
+            "src": "assets/figures/fig-79154b56a3e68f30.png",
+            "width": 1189,
+            "height": 486
+          },
+          {
+            "id": "ch18-content-en-145",
+            "kind": "image",
+            "assetId": "fig-f8a138e68ba1c46c",
+            "src": "assets/figures/fig-f8a138e68ba1c46c.png",
+            "width": 1189,
+            "height": 496
+          },
+          {
+            "id": "ch18-content-en-146",
+            "kind": "paragraph",
+            "text": "For the first row – in our case, the bin marked 10 -- the bin-only area is equal to the CDF because there is nothing left of the bin’s upper limit. For all other rows, the bin-only area is the CDF minus the CDF for the bin designation above. So, you would enter =E2 in the first data row for column F. The second data row would be calculated as E3-E2; the next would be E4-E3, and so forth. The result is the percentage of the curve in each bin."
+          },
+          {
+            "id": "ch18-content-en-147",
+            "kind": "image",
+            "assetId": "fig-7b5fcfe8276e071f",
+            "src": "assets/figures/fig-7b5fcfe8276e071f.png",
+            "width": 1189,
+            "height": 460
+          },
+          {
+            "id": "ch18-content-en-148",
+            "kind": "paragraph",
+            "text": "Calculating the expected number of samples in each bin is as easy as multiplying the percentages of each bin by the sample size. Again, you can see from the descriptive statistics that the count for this set of data was 50."
+          },
+          {
+            "id": "ch18-content-en-149",
+            "kind": "image",
+            "assetId": "fig-f67843dfc840f374",
+            "src": "assets/figures/fig-f67843dfc840f374.png",
+            "width": 1191,
+            "height": 199
+          },
+          {
+            "id": "ch18-content-en-150",
+            "kind": "image",
+            "assetId": "fig-32e3603b5e5b766d",
+            "src": "assets/figures/fig-32e3603b5e5b766d.png",
+            "width": 1189,
+            "height": 411
+          },
+          {
+            "id": "ch18-content-en-151",
+            "kind": "paragraph",
+            "text": "To calculate the Chi-Squared statistic, you’ll use both the expected number of items in each bin and the actual or observed number. Copy the observed numbers over from your histogram worksheet."
+          },
+          {
+            "id": "ch18-content-en-152",
+            "kind": "image",
+            "assetId": "fig-73442e20f8256ed4",
+            "src": "assets/figures/fig-73442e20f8256ed4.png",
+            "width": 899,
+            "height": 655
+          },
+          {
+            "id": "ch18-content-en-153",
+            "kind": "paragraph",
+            "text": "Apply the following formula to each row:"
+          },
+          {
+            "id": "ch18-content-en-154",
+            "kind": "paragraph",
+            "text": "(expected – observed)2 / expected"
+          },
+          {
+            "id": "ch18-content-en-155",
+            "kind": "paragraph",
+            "text": "Calculate the final numbers for each row as desired in Excel."
+          },
+          {
+            "id": "ch18-content-en-156",
+            "kind": "image",
+            "assetId": "fig-a7779f25b16e2f75",
+            "src": "assets/figures/fig-a7779f25b16e2f75.png",
+            "width": 885,
+            "height": 633
+          },
+          {
+            "id": "ch18-content-en-157",
+            "kind": "paragraph",
+            "text": "Add up the final numbers to get the Chi-Squared statistic, denoted by X2. For our example, X2 is 16.7333."
+          },
+          {
+            "id": "ch18-content-en-158",
+            "kind": "paragraph",
+            "text": "To use the Chi-Squared statistic to find the p-Value, we also need one more item for the Excel formula to work: we need what is called the degrees of freedom."
+          },
+          {
+            "id": "ch18-content-en-159",
+            "kind": "paragraph",
+            "text": "Degrees of freedom = #bins – 1 - #calculated parameters"
+          },
+          {
+            "id": "ch18-content-en-160",
+            "kind": "paragraph",
+            "text": "We have 14 bins. The parameters we used to arrive at the Chi-Squared statistic that we calculated from our sample were the mean and standard deviation: two parameters. For our example:"
+          },
+          {
+            "id": "ch18-content-en-161",
+            "kind": "paragraph",
+            "text": "Degrees of freedom = 14 – 1 – 2 = 11"
+          },
+          {
+            "id": "ch18-content-en-162",
+            "kind": "paragraph",
+            "text": "Now that we have both the degrees of freedom (df), and the Chi-Squared value, we can use Excel to calculate the p-Value. Simply enter the formula below, inputting the correct values."
+          },
+          {
+            "id": "ch18-content-en-163",
+            "kind": "image",
+            "assetId": "fig-f73b1c519d73034c",
+            "src": "assets/figures/fig-f73b1c519d73034c.png",
+            "width": 1191,
+            "height": 417
+          },
+          {
+            "id": "ch18-content-en-164",
+            "kind": "paragraph",
+            "text": "In the case of our example, the resulting p-Value is 0.116. Because the p-Value is greater than 0.05, we accept the null hypothesis. Our data is normal."
+          },
+          {
+            "id": "ch18-content-en-165",
+            "kind": "heading",
+            "text": "Normal Probabilities"
+          },
+          {
+            "id": "ch18-content-en-166",
+            "kind": "paragraph",
+            "text": "Once you verify that your data is normal, you can use many statistical tests to draw conclusions about the data and the population as a whole from your sample. One of the things you can do is use Excel’s normal probability functions to draw conclusions about data."
+          },
+          {
+            "id": "ch18-content-en-167",
+            "kind": "paragraph",
+            "text": "For example, let’s assume that the data we’ve been working with throughout this chapter is a sample selection of the weights of boxes in a delivery channel. The 50 samples were taken from the same shipping center over the course of a week and were randomly selected. Given that we know the data is normal, what is the probability that any package selected from the distribution center will weigh over 50 pounds?"
+          },
+          {
+            "id": "ch18-content-en-168",
+            "kind": "paragraph",
+            "text": "Excel provides the following formula:"
+          },
+          {
+            "id": "ch18-content-en-169",
+            "kind": "paragraph",
+            "text": "=NORMDIST(x, mean, standard_dev, cumulative)"
+          },
+          {
+            "id": "ch18-content-en-170",
+            "kind": "paragraph",
+            "text": "When using this formula:"
+          },
+          {
+            "id": "ch18-content-en-171",
+            "kind": "paragraph",
+            "text": "- X = the value you are testing - Mean = sample mean from the descriptive statistics - Standard_dev = sample standard deviation from the descriptive statistics - Cumulative = FALSE if you want to test the probability of the exact occurrence; TRUE if you want to test the probability of any value left of x on the curve (or, in most cases, less than x)"
+          },
+          {
+            "id": "ch18-content-en-172",
+            "kind": "paragraph",
+            "text": "Entering the formula in Excel for our data set with a FALSE cumulative tells us there is a 3.47 percent chance of a randomly selected box weighing 50 pounds. This is a real and important piece of information that might be beneficial to a Six Sigma team."
+          },
+          {
+            "id": "ch18-content-en-173",
+            "kind": "paragraph",
+            "text": "Entering the formula in Excel for our data set with a TRUE cumulative tells us there is a 54.25 percent chance of a randomly selected box weighing less than 50 pounds. Subtracting from 100 percent leaves a 45.75 percent chance that a box will weigh over 50 pounds."
+          },
+          {
+            "id": "ch18-content-en-174",
+            "kind": "paragraph",
+            "text": "Why might this be important? In this particular case, a shipping manager might be working to hire shipping reps. Because there is a strong likelihood that the employees will handle boxes over 50 pounds, the manager knows to include that requirement in job descriptions. Or, a Six Sigma team might be working on a process to increase production in a warehouse; the knowledge that many of the boxes are heavy enough to require special handling is relevant to how the team approaches the process."
+          },
+          {
+            "id": "ch18-content-en-175",
+            "kind": "paragraph",
+            "text": "Six Sigma teams can use Excel to generate a lot of information about the data. Excel also provides a formula for the inverse of the above calculation. What if the team wanted to know about the weight of the heaviest 80 percent of boxes in the shipping center?"
+          },
+          {
+            "id": "ch18-content-en-176",
+            "kind": "paragraph",
+            "text": "The formula is:"
+          },
+          {
+            "id": "ch18-content-en-177",
+            "kind": "paragraph",
+            "text": "=NORMINV(probability, mean, standard_dev)"
+          },
+          {
+            "id": "ch18-content-en-178",
+            "kind": "paragraph",
+            "text": "Probability must be entered as a decimal point, not a percent. In the case of 0.8 in our example data set, all of the boxes in the heaviest 80 percent are above 58.40 pounds."
+          },
+          {
+            "id": "ch18-content-en-179",
+            "kind": "paragraph",
+            "text": "Because we are drawing statistical conclusions from samples, there is some error inherent in the process. Error is usually calculated for in advanced analysis."
+          },
+          {
+            "id": "ch18-content-en-180",
             "kind": "paragraph",
             "text": "How to apply statistical data and conclusions to a business or project approach is covered in depth in the next unit, where we’ll look at how these concepts can generate real information that is applicable to business processes."
           }
@@ -877,196 +1237,380 @@
           },
           {
             "id": "ch18-content-zh-033",
-            "kind": "paragraph",
-            "text": "直方图还可以具有其他几种常见形状，特别是在呈现非正常数据或存在错误或问题的数据时。如果直方图看起来非常随机，如下面的第一个示例所示，则数据测量过程中可能存在错误。测量可能不足以捕捉过程的真实情况，或者操作的定义以及如何收集数据可能有问题。如果直方图描绘了数据元素在箱之间几乎均匀的分布，情况也是如此。"
+            "kind": "image",
+            "assetId": "fig-4d364bca3b2140db",
+            "src": "assets/figures/fig-4d364bca3b2140db.png",
+            "width": 553,
+            "height": 426
           },
           {
             "id": "ch18-content-zh-034",
-            "kind": "paragraph",
-            "text": "如上面第二张图所示，偏态分布的特征是数据仅聚集在图的一端。倾斜直方图在某些类型的数据中很常见，特别是当数据在自然截止时间“下降”时。例如，在呼叫中心，您可以测量代表完成某种类型的电话呼叫所需的时间。该数据的自然终点是 0——完成一次电话呼叫总是需要 0 秒以上的时间。通常，这将需要几秒钟以上的时间，因此在范围的下端不会有很多数据点。也许这个特定的电话遵循一定的脚本，并且大多数电话都会在 7 到 8 分钟内结束。通话时长的直方图可能如下图所示。"
+            "kind": "image",
+            "assetId": "fig-878269f751a28483",
+            "src": "assets/figures/fig-878269f751a28483.png",
+            "width": 571,
+            "height": 411
           },
           {
             "id": "ch18-content-zh-035",
             "kind": "paragraph",
-            "text": "考虑下面的基本示例以进一步理解直方图。"
+            "text": "直方图还可以具有其他几种常见形状，特别是在呈现非正常数据或存在错误或问题的数据时。如果直方图看起来非常随机，如下面的第一个示例所示，则数据测量过程中可能存在错误。测量可能不足以捕捉过程的真实情况，或者操作的定义以及如何收集数据可能有问题。如果直方图描绘了数据元素在箱之间几乎均匀的分布，情况也是如此。"
           },
           {
             "id": "ch18-content-zh-036",
-            "kind": "paragraph",
-            "text": "一家当地配送公司希望更多地了解送货司机满足预计到达时间的情况。该团队从一周的信息中随机抽取交货样本，并考虑每次交货的两个数据点：预计交货时间和实际交货时间。他们从估计时间中减去实际时间，以确定一侧或另一侧的交货时间有多远。结果是下面的数据表。"
+            "kind": "image",
+            "assetId": "fig-9dc5f47bfd23571e",
+            "src": "assets/figures/fig-9dc5f47bfd23571e.png",
+            "width": 515,
+            "height": 375
           },
           {
             "id": "ch18-content-zh-037",
-            "kind": "paragraph",
-            "text": "为了创建直方图，团队按分钟差异对选择进行排序，发现范围为 -27 到 48。团队决定创建一个从 -30 到 50 的直方图，bin 大小为 10。结果数据如下："
+            "kind": "image",
+            "assetId": "fig-4e0470ab4d1b2b75",
+            "src": "assets/figures/fig-4e0470ab4d1b2b75.png",
+            "width": 499,
+            "height": 354
           },
           {
             "id": "ch18-content-zh-038",
             "kind": "paragraph",
-            "text": "为了创建上表，团队简单地计算了每个容器中有多少个数据点。数据点 -27 和 -25 落入 bin -20（至 -29）；即 2 个数据点。 8 个数据点落入 10 个 bin。当绘制在条形图上时，此信息会创建直方图。"
+            "text": "如上面第二张图所示，偏态分布的特征是数据仅聚集在图的一端。倾斜直方图在某些类型的数据中很常见，特别是当数据在自然截止时间“下降”时。例如，在呼叫中心，您可以测量代表完成某种类型的电话呼叫所需的时间。该数据的自然终点是 0——完成一次电话呼叫总是需要 0 秒以上的时间。通常，这将需要几秒钟以上的时间，因此在范围的下端不会有很多数据点。也许这个特定的电话遵循一定的脚本，并且大多数电话都会在 7 到 8 分钟内结束。通话时长的直方图可能如下图所示。"
           },
           {
             "id": "ch18-content-zh-039",
-            "kind": "paragraph",
-            "text": "处理直方图时，使用的箱数很重要。如果分箱太少，图表不会提供任何相关信息。如果所讨论的数据集有太多的箱，您也会失去信息功能，并且您的图表不会显示为粗糙曲线，而是看起来像梳子。通常，您拥有的数据越多，您可以在直方图上包含的数据箱就越多。"
+            "kind": "image",
+            "assetId": "fig-f798154f85c4452b",
+            "src": "assets/figures/fig-f798154f85c4452b.png",
+            "width": 684,
+            "height": 584
           },
           {
             "id": "ch18-content-zh-040",
             "kind": "paragraph",
-            "text": "考虑以下四个直方图，它们都代表同一组数据。该数据包含 150 个随机数，范围从 38.62 到 62.89。"
+            "text": "考虑下面的基本示例以进一步理解直方图。"
           },
           {
             "id": "ch18-content-zh-041",
             "kind": "paragraph",
-            "text": "随着分箱数量的增加，分箱的大小逐渐变小。在第一个图表中，bin 大小为 5；在最后一个图表中，bin 大小为 0.5。为了了解此直方图中表示的数据类型，第二个或第三个图表可能是最相关的。我们将在本章后面介绍从直方图和相关统计数据确定数据类型。"
+            "text": "一家当地配送公司希望更多地了解送货司机满足预计到达时间的情况。该团队从一周的信息中随机抽取交货样本，并考虑每次交货的两个数据点：预计交货时间和实际交货时间。他们从估计时间中减去实际时间，以确定一侧或另一侧的交货时间有多远。结果是下面的数据表。"
           },
           {
             "id": "ch18-content-zh-042",
-            "kind": "heading",
-            "text": "在 Excel 中创建直方图"
+            "kind": "image",
+            "assetId": "fig-5d988a6e50234051",
+            "src": "assets/figures/fig-5d988a6e50234051.png",
+            "width": 660,
+            "height": 1385
           },
           {
             "id": "ch18-content-zh-043",
-            "kind": "paragraph",
-            "text": "在继续讨论概率分布之前，我们将使用上一章讨论的分析工具库在 Excel 中创建直方图。"
+            "kind": "image",
+            "assetId": "fig-dd3b4a146677cc9c",
+            "src": "assets/figures/fig-dd3b4a146677cc9c.png",
+            "width": 660,
+            "height": 195
           },
           {
             "id": "ch18-content-zh-044",
             "kind": "paragraph",
-            "text": "1. 打开Excel，将以下数据表复制到空白工作簿中。"
+            "text": "为了创建直方图，团队按分钟差异对选择进行排序，发现范围为 -27 到 48。团队决定创建一个从 -30 到 50 的直方图，bin 大小为 10。结果数据如下："
           },
           {
             "id": "ch18-content-zh-045",
-            "kind": "paragraph",
-            "text": "2. 将以下箱名称复制到同一工作表的第二列中。"
+            "kind": "image",
+            "assetId": "fig-337191b2a37507b9",
+            "src": "assets/figures/fig-337191b2a37507b9.png",
+            "width": 305,
+            "height": 605
           },
           {
             "id": "ch18-content-zh-046",
             "kind": "paragraph",
-            "text": "15"
+            "text": "为了创建上表，团队简单地计算了每个容器中有多少个数据点。数据点 -27 和 -25 落入 bin -20（至 -29）；即 2 个数据点。 8 个数据点落入 10 个 bin。当绘制在条形图上时，此信息会创建直方图。"
           },
           {
             "id": "ch18-content-zh-047",
-            "kind": "paragraph",
-            "text": "20"
+            "kind": "image",
+            "assetId": "fig-244d032769cd5ee1",
+            "src": "assets/figures/fig-244d032769cd5ee1.png",
+            "width": 816,
+            "height": 704
           },
           {
             "id": "ch18-content-zh-048",
             "kind": "paragraph",
-            "text": "25"
+            "text": "处理直方图时，使用的箱数很重要。如果分箱太少，图表不会提供任何相关信息。如果所讨论的数据集有太多的箱，您也会失去信息功能，并且您的图表不会显示为粗糙曲线，而是看起来像梳子。通常，您拥有的数据越多，您可以在直方图上包含的数据箱就越多。"
           },
           {
             "id": "ch18-content-zh-049",
             "kind": "paragraph",
-            "text": "30"
+            "text": "考虑以下四个直方图，它们都代表同一组数据。该数据包含 150 个随机数，范围从 38.62 到 62.89。"
           },
           {
             "id": "ch18-content-zh-050",
-            "kind": "paragraph",
-            "text": "35"
+            "kind": "image",
+            "assetId": "fig-a731699730cd6663",
+            "src": "assets/figures/fig-a731699730cd6663.png",
+            "width": 844,
+            "height": 544
           },
           {
             "id": "ch18-content-zh-051",
-            "kind": "paragraph",
-            "text": "40"
+            "kind": "image",
+            "assetId": "fig-3f1252db6f6ec1bd",
+            "src": "assets/figures/fig-3f1252db6f6ec1bd.png",
+            "width": 910,
+            "height": 796
           },
           {
             "id": "ch18-content-zh-052",
-            "kind": "paragraph",
-            "text": "45"
+            "kind": "image",
+            "assetId": "fig-55c6faa1809196ba",
+            "src": "assets/figures/fig-55c6faa1809196ba.png",
+            "width": 893,
+            "height": 634
           },
           {
             "id": "ch18-content-zh-053",
-            "kind": "paragraph",
-            "text": "50"
+            "kind": "image",
+            "assetId": "fig-2bbea7c9141288cc",
+            "src": "assets/figures/fig-2bbea7c9141288cc.png",
+            "width": 990,
+            "height": 602
           },
           {
             "id": "ch18-content-zh-054",
             "kind": "paragraph",
-            "text": "55"
+            "text": "随着分箱数量的增加，分箱的大小逐渐变小。在第一个图表中，bin 大小为 5；在最后一个图表中，bin 大小为 0.5。为了了解此直方图中表示的数据类型，第二个或第三个图表可能是最相关的。我们将在本章后面介绍从直方图和相关统计数据确定数据类型。"
           },
           {
             "id": "ch18-content-zh-055",
-            "kind": "paragraph",
-            "text": "60"
+            "kind": "heading",
+            "text": "在 Excel 中创建直方图"
           },
           {
             "id": "ch18-content-zh-056",
             "kind": "paragraph",
-            "text": "65"
+            "text": "在继续讨论概率分布之前，我们将使用上一章讨论的分析工具库在 Excel 中创建直方图。"
           },
           {
             "id": "ch18-content-zh-057",
             "kind": "paragraph",
-            "text": "70"
+            "text": "1. 打开Excel，将以下数据表复制到空白工作簿中。"
           },
           {
             "id": "ch18-content-zh-058",
-            "kind": "paragraph",
-            "text": "75"
+            "kind": "image",
+            "assetId": "fig-8a9219e99be4ded9",
+            "src": "assets/figures/fig-8a9219e99be4ded9.png",
+            "width": 160,
+            "height": 1465
           },
           {
             "id": "ch18-content-zh-059",
-            "kind": "heading",
-            "text": "3. 选择数据 > 数据分析"
+            "kind": "image",
+            "assetId": "fig-6194baf53932c8af",
+            "src": "assets/figures/fig-6194baf53932c8af.png",
+            "width": 160,
+            "height": 1460
           },
           {
             "id": "ch18-content-zh-060",
             "kind": "paragraph",
-            "text": "4. 选择直方图并单击确定。"
+            "text": "2. 将以下箱名称复制到同一工作表的第二列中。"
           },
           {
             "id": "ch18-content-zh-061",
-            "kind": "paragraph",
-            "text": "5. 单击“输入范围”框，然后突出显示输入范围的单元格（从上面复制的 50 个数据单元格）。"
+            "kind": "image",
+            "assetId": "fig-fc8061b8b5c0c88e",
+            "src": "assets/figures/fig-fc8061b8b5c0c88e.png",
+            "width": 160,
+            "height": 90
           },
           {
             "id": "ch18-content-zh-062",
             "kind": "paragraph",
-            "text": "6. 单击“Bin Range”框，然后突出显示包含您从上面复制的 bin 数据的单元格。 7. 选中新工作表层：选项。 8. 检查图表输出选项。 9. 确保直方图对话框如下所示。"
+            "text": "15"
           },
           {
             "id": "ch18-content-zh-063",
             "kind": "paragraph",
-            "text": "10. 单击“确定”。"
+            "text": "20"
           },
           {
             "id": "ch18-content-zh-064",
             "kind": "paragraph",
-            "text": "Excel 会在新工作表中自动生成 bin 和频率表以及直方图。直方图设计默认为标准条形图，但您可以通过更改设计上的一项设置来创建先前显示的直方图的外观。"
+            "text": "25"
           },
           {
             "id": "ch18-content-zh-065",
             "kind": "paragraph",
-            "text": "1. 单击直方图。 2. 从顶部菜单中选择设计。"
+            "text": "30"
           },
           {
             "id": "ch18-content-zh-066",
             "kind": "paragraph",
-            "text": "3. 在“快速布局”下，选择条形彼此相邻堆叠的布局，而不是条形之间留有空间。"
+            "text": "35"
           },
           {
             "id": "ch18-content-zh-067",
             "kind": "paragraph",
-            "text": "您的结果应如下图所示。"
+            "text": "40"
           },
           {
             "id": "ch18-content-zh-068",
             "kind": "paragraph",
-            "text": "使用您自己的数据进行试验，创建具有各种 bin 大小的直方图，以开始了解数据如何转换为此类图表。"
+            "text": "45"
           },
           {
             "id": "ch18-content-zh-069",
-            "kind": "heading",
-            "text": "正态分布"
+            "kind": "paragraph",
+            "text": "50"
           },
           {
             "id": "ch18-content-zh-070",
             "kind": "paragraph",
-            "text": "从统计分析的角度来看，正态分布，也称为高斯分布，可能是与连续数据相关的最重要的分布。正态分布或高斯分布如下所示。"
+            "text": "55"
           },
           {
             "id": "ch18-content-zh-071",
+            "kind": "paragraph",
+            "text": "60"
+          },
+          {
+            "id": "ch18-content-zh-072",
+            "kind": "paragraph",
+            "text": "65"
+          },
+          {
+            "id": "ch18-content-zh-073",
+            "kind": "paragraph",
+            "text": "70"
+          },
+          {
+            "id": "ch18-content-zh-074",
+            "kind": "paragraph",
+            "text": "75"
+          },
+          {
+            "id": "ch18-content-zh-075",
+            "kind": "heading",
+            "text": "3. 选择数据 > 数据分析"
+          },
+          {
+            "id": "ch18-content-zh-076",
+            "kind": "image",
+            "assetId": "fig-0db8dd4ad9ed9055",
+            "src": "assets/figures/fig-0db8dd4ad9ed9055.png",
+            "width": 1191,
+            "height": 180
+          },
+          {
+            "id": "ch18-content-zh-077",
+            "kind": "paragraph",
+            "text": "4. 选择直方图并单击确定。"
+          },
+          {
+            "id": "ch18-content-zh-078",
+            "kind": "image",
+            "assetId": "fig-41fbf16b11dd108c",
+            "src": "assets/figures/fig-41fbf16b11dd108c.png",
+            "width": 768,
+            "height": 402
+          },
+          {
+            "id": "ch18-content-zh-079",
+            "kind": "paragraph",
+            "text": "5. 单击“输入范围”框，然后突出显示输入范围的单元格（从上面复制的 50 个数据单元格）。"
+          },
+          {
+            "id": "ch18-content-zh-080",
+            "kind": "paragraph",
+            "text": "6. 单击“Bin Range”框，然后突出显示包含您从上面复制的 bin 数据的单元格。 7. 选中新工作表层：选项。 8. 检查图表输出选项。 9. 确保直方图对话框如下所示。"
+          },
+          {
+            "id": "ch18-content-zh-081",
+            "kind": "image",
+            "assetId": "fig-0feb65915c04a46d",
+            "src": "assets/figures/fig-0feb65915c04a46d.png",
+            "width": 783,
+            "height": 585
+          },
+          {
+            "id": "ch18-content-zh-082",
+            "kind": "paragraph",
+            "text": "10. 单击“确定”。"
+          },
+          {
+            "id": "ch18-content-zh-083",
+            "kind": "image",
+            "assetId": "fig-fab8e925fdd7aa04",
+            "src": "assets/figures/fig-fab8e925fdd7aa04.png",
+            "width": 1036,
+            "height": 694
+          },
+          {
+            "id": "ch18-content-zh-084",
+            "kind": "paragraph",
+            "text": "Excel 会在新工作表中自动生成 bin 和频率表以及直方图。直方图设计默认为标准条形图，但您可以通过更改设计上的一项设置来创建先前显示的直方图的外观。"
+          },
+          {
+            "id": "ch18-content-zh-085",
+            "kind": "paragraph",
+            "text": "1. 单击直方图。 2. 从顶部菜单中选择设计。"
+          },
+          {
+            "id": "ch18-content-zh-086",
+            "kind": "image",
+            "assetId": "fig-934db03c9af93032",
+            "src": "assets/figures/fig-934db03c9af93032.png",
+            "width": 1173,
+            "height": 165
+          },
+          {
+            "id": "ch18-content-zh-087",
+            "kind": "paragraph",
+            "text": "3. 在“快速布局”下，选择条形彼此相邻堆叠的布局，而不是条形之间留有空间。"
+          },
+          {
+            "id": "ch18-content-zh-088",
+            "kind": "image",
+            "assetId": "fig-83f44355021c2a12",
+            "src": "assets/figures/fig-83f44355021c2a12.png",
+            "width": 489,
+            "height": 597
+          },
+          {
+            "id": "ch18-content-zh-089",
+            "kind": "paragraph",
+            "text": "您的结果应如下图所示。"
+          },
+          {
+            "id": "ch18-content-zh-090",
+            "kind": "image",
+            "assetId": "fig-195322aa1e916403",
+            "src": "assets/figures/fig-195322aa1e916403.png",
+            "width": 1040,
+            "height": 681
+          },
+          {
+            "id": "ch18-content-zh-091",
+            "kind": "paragraph",
+            "text": "使用您自己的数据进行试验，创建具有各种 bin 大小的直方图，以开始了解数据如何转换为此类图表。"
+          },
+          {
+            "id": "ch18-content-zh-092",
+            "kind": "heading",
+            "text": "正态分布"
+          },
+          {
+            "id": "ch18-content-zh-093",
+            "kind": "paragraph",
+            "text": "从统计分析的角度来看，正态分布，也称为高斯分布，可能是与连续数据相关的最重要的分布。正态分布或高斯分布如下所示。"
+          },
+          {
+            "id": "ch18-content-zh-094",
             "kind": "termNote",
             "rows": [
               [
@@ -1076,12 +1620,20 @@
             "text": "术语说明 Normal Distribution（正态分布）：常见钟形分布，许多统计推断方法以其为基础。"
           },
           {
-            "id": "ch18-content-zh-072",
+            "id": "ch18-content-zh-095",
+            "kind": "image",
+            "assetId": "fig-1ab2d66357cdcdf7",
+            "src": "assets/figures/fig-1ab2d66357cdcdf7.png",
+            "width": 1191,
+            "height": 567
+          },
+          {
+            "id": "ch18-content-zh-096",
             "kind": "paragraph",
             "text": "正常数据的形状围绕均值对称，如上面的 x 条线所示。正态曲线有利于确定总体中给定数据点落在分布内特定范围内的概率。"
           },
           {
-            "id": "ch18-content-zh-073",
+            "id": "ch18-content-zh-097",
             "kind": "termNote",
             "rows": [
               [
@@ -1091,12 +1643,12 @@
             "text": "术语说明 X-Bar Chart（均值图）：监控样本均值随时间变化的控制图。"
           },
           {
-            "id": "ch18-content-zh-074",
+            "id": "ch18-content-zh-098",
             "kind": "paragraph",
             "text": "在完美正态分布中，68.26% 的数据点落在平均值正负 1 个标准差范围内；该区域由上图中的红色箭头表示。蓝色箭头覆盖了平均值的正负两个标准差，表示曲线下包含 95.46% 数据点的面积。紫色区域覆盖平均值的正负三个标准差，表示曲线中覆盖 99.73% 数据的部分。不到 1% 的数据将落在曲线两侧超出三个标准差的范围内。"
           },
           {
-            "id": "ch18-content-zh-075",
+            "id": "ch18-content-zh-099",
             "kind": "termNote",
             "rows": [
               [
@@ -1106,102 +1658,174 @@
             "text": "术语说明 Standard Deviation（标准差）：衡量数据离散程度的统计量；标准差越大，波动越明显。"
           },
           {
-            "id": "ch18-content-zh-076",
+            "id": "ch18-content-zh-100",
             "kind": "paragraph",
             "text": "分布——甚至是正态分布——略有不同。为了确定各种数据点的准确概率，需要高级统计； Excel 和其他程序为您执行计算，使分析变得更加容易。在我们讨论使用 Excel 进行概率计算之前，我们首先要确定您的数据是否正常。"
           },
           {
-            "id": "ch18-content-zh-077",
+            "id": "ch18-content-zh-101",
             "kind": "paragraph",
             "text": "测试数据是否正常对于统计分析中的许多步骤至关重要，因为如果不考虑正在使用的数据，许多测试的结果可能是无效的。其中许多测试的最基本形式旨在处理正常数据。"
           },
           {
-            "id": "ch18-content-zh-078",
+            "id": "ch18-content-zh-102",
             "kind": "heading",
             "text": "Excel 中的正态性检验：卡方拟合优度检验"
           },
           {
-            "id": "ch18-content-zh-079",
+            "id": "ch18-content-zh-103",
             "kind": "paragraph",
             "text": "我们已经介绍了目视检查如何帮助您确定数据是否正常。 下面的直方图取自本章前面的内容，显示了看似明显正常的数据。数据点集中在中心周围，直方图本质上大致对称。"
           },
           {
-            "id": "ch18-content-zh-080",
+            "id": "ch18-content-zh-104",
+            "kind": "image",
+            "assetId": "fig-79112547709bfb4c",
+            "src": "assets/figures/fig-79112547709bfb4c.png",
+            "width": 615,
+            "height": 539
+          },
+          {
+            "id": "ch18-content-zh-105",
             "kind": "paragraph",
             "text": "但是这个直方图（它是在 Excel 中创建直方图部分的练习中创建的）又如何呢？"
           },
           {
-            "id": "ch18-content-zh-081",
+            "id": "ch18-content-zh-106",
+            "kind": "image",
+            "assetId": "fig-197cde3977b8011e",
+            "src": "assets/figures/fig-197cde3977b8011e.png",
+            "width": 741,
+            "height": 487
+          },
+          {
+            "id": "ch18-content-zh-107",
             "kind": "paragraph",
             "text": "上面的直方图是一个图表示例，它并不完全属于前面讨论的任何直方图形状。它似乎具有正常曲线的元素，但也可能是扭曲的数据。这就是我们进行统计检验以确定正态性的原因。"
           },
           {
-            "id": "ch18-content-zh-082",
+            "id": "ch18-content-zh-108",
             "kind": "paragraph",
             "text": "您通常会按照上一节中的说明开始探索概率数据，为数据创建直方图。对于正态性检验的示例，我们将使用上一节中的相同数据，即："
           },
           {
-            "id": "ch18-content-zh-083",
+            "id": "ch18-content-zh-109",
+            "kind": "image",
+            "assetId": "fig-805394fb6b73a756",
+            "src": "assets/figures/fig-805394fb6b73a756.png",
+            "width": 160,
+            "height": 675
+          },
+          {
+            "id": "ch18-content-zh-110",
+            "kind": "image",
+            "assetId": "fig-a0613d8b3fce7912",
+            "src": "assets/figures/fig-a0613d8b3fce7912.png",
+            "width": 160,
+            "height": 1615
+          },
+          {
+            "id": "ch18-content-zh-111",
+            "kind": "image",
+            "assetId": "fig-797ba4964ef64e42",
+            "src": "assets/figures/fig-797ba4964ef64e42.png",
+            "width": 160,
+            "height": 725
+          },
+          {
+            "id": "ch18-content-zh-112",
             "kind": "paragraph",
             "text": "使用分析工具库创建直方图会生成图表和数据表，如下所示。"
           },
           {
-            "id": "ch18-content-zh-084",
+            "id": "ch18-content-zh-113",
+            "kind": "image",
+            "assetId": "fig-3907a57e6e754880",
+            "src": "assets/figures/fig-3907a57e6e754880.png",
+            "width": 1191,
+            "height": 667
+          },
+          {
+            "id": "ch18-content-zh-114",
             "kind": "paragraph",
             "text": "计算数据的描述性统计。"
           },
           {
-            "id": "ch18-content-zh-085",
+            "id": "ch18-content-zh-115",
             "kind": "paragraph",
             "text": "使用分析工具库中的描述性统计选项可以快速生成数据集的描述性统计。"
           },
           {
-            "id": "ch18-content-zh-086",
+            "id": "ch18-content-zh-116",
             "kind": "heading",
             "text": "1. 选择数据 > 数据分析 > 描述性统计"
           },
           {
-            "id": "ch18-content-zh-087",
+            "id": "ch18-content-zh-117",
             "kind": "paragraph",
             "text": "2. 单击“确定” 3. 单击“输入范围”框，然后使用鼠标选择输入范围。"
           },
           {
-            "id": "ch18-content-zh-088",
+            "id": "ch18-content-zh-118",
+            "kind": "image",
+            "assetId": "fig-19ca447e23a2a3c7",
+            "src": "assets/figures/fig-19ca447e23a2a3c7.png",
+            "width": 740,
+            "height": 642
+          },
+          {
+            "id": "ch18-content-zh-119",
             "kind": "paragraph",
             "text": "4. 在本例中，数据按列分组。在大多数统计分析中，情况都是如此，但如果您有按行分组的数据，则应更改“分组依据”选择。 5. 选择在新工作表中输出信息。 6. 确保至少选中“摘要统计”框。您还可以检查平均值以及第 K 个最大和最小框的置信水平，尽管卡方拟合优度检验不需要这些信息，这是我们正在运行的用于测试数据正态性的测试。如果您选中这些额外的框，Excel 将仅向您提供我们目前不会使用的其他信息。"
           },
           {
-            "id": "ch18-content-zh-089",
+            "id": "ch18-content-zh-120",
+            "kind": "image",
+            "assetId": "fig-50cd5a20dd47893e",
+            "src": "assets/figures/fig-50cd5a20dd47893e.png",
+            "width": 741,
+            "height": 669
+          },
+          {
+            "id": "ch18-content-zh-121",
             "kind": "paragraph",
             "text": "7. 单击“确定”。 8. Excel 返回数据集的描述性汇总统计数据。"
           },
           {
-            "id": "ch18-content-zh-090",
+            "id": "ch18-content-zh-122",
+            "kind": "image",
+            "assetId": "fig-4e5c7ebc1ce70a05",
+            "src": "assets/figures/fig-4e5c7ebc1ce70a05.png",
+            "width": 483,
+            "height": 642
+          },
+          {
+            "id": "ch18-content-zh-123",
             "kind": "paragraph",
             "text": "对于卡方拟合优度检验，您需要记下样本大小（或计数）、相同标准差和样本均值。样本量是数据集中的项目数，其中"
           },
           {
-            "id": "ch18-content-zh-091",
+            "id": "ch18-content-zh-124",
             "kind": "paragraph",
             "text": "本例中为 50。 如果您不记得样本量是多少，可以参考描述性统计中列出的计数。另外两个数字取自上面的描述性统计："
           },
           {
-            "id": "ch18-content-zh-092",
+            "id": "ch18-content-zh-125",
             "kind": "paragraph",
             "text": "- 样本均值：48.778 - 样本标准差：11.444"
           },
           {
-            "id": "ch18-content-zh-093",
+            "id": "ch18-content-zh-126",
             "kind": "paragraph",
             "text": "提出假设。"
           },
           {
-            "id": "ch18-content-zh-094",
+            "id": "ch18-content-zh-127",
             "kind": "paragraph",
             "text": "卡方拟合优度检验实际上是一种假设检验。这意味着您正在测试有关原假设和备择假设的数据。卡方拟合优度检验的两个假设是："
           },
           {
-            "id": "ch18-content-zh-095",
+            "id": "ch18-content-zh-128",
             "kind": "termNote",
             "rows": [
               [
@@ -1211,32 +1835,32 @@
             "text": "术语说明 Hypothesis Test（假设检验）：用样本数据判断某个统计假设是否有足够证据被拒绝。"
           },
           {
-            "id": "ch18-content-zh-096",
+            "id": "ch18-content-zh-129",
             "kind": "listItem",
             "text": "零假设：数据正常。"
           },
           {
-            "id": "ch18-content-zh-097",
+            "id": "ch18-content-zh-130",
             "kind": "listItem",
             "text": "备择假设：数据不正常。"
           },
           {
-            "id": "ch18-content-zh-098",
+            "id": "ch18-content-zh-131",
             "kind": "paragraph",
             "text": "如果其中一个不正确，那么另一个就是正确的。用统计学术语来说，我们谈论的是接受或拒绝零假设。如果我们拒绝零，我们就接受替代方案。"
           },
           {
-            "id": "ch18-content-zh-099",
+            "id": "ch18-content-zh-132",
             "kind": "paragraph",
             "text": "了解卡方拟合优度检验前提。"
           },
           {
-            "id": "ch18-content-zh-100",
+            "id": "ch18-content-zh-133",
             "kind": "paragraph",
             "text": "基本上，卡方拟合优度检验获取直方图上每个箱中的样本数，并将其与给定正态曲线时您可能期望在每个箱中找到的样本数进行比较。使用每个箱中的实际样本数和预期样本数，我们可以计算 Excel 中的卡方统计量。然后我们可以通过该数字计算 p 值。在这种情况下，p 值的大小让我们决定是否接受或拒绝数据正常的假设。"
           },
           {
-            "id": "ch18-content-zh-101",
+            "id": "ch18-content-zh-134",
             "kind": "termNote",
             "rows": [
               [
@@ -1246,217 +1870,675 @@
             "text": "术语说明 p-value（p 值）：在原假设成立时观察到当前或更极端结果的概率；常用于判断显著性。"
           },
           {
-            "id": "ch18-content-zh-102",
+            "id": "ch18-content-zh-135",
             "kind": "paragraph",
             "text": "在这种情况下，出于卡方拟合优度检验的目的，如果 p 值大于 0.05，我们将接受数据呈正态分布的原假设。"
           },
           {
-            "id": "ch18-content-zh-103",
+            "id": "ch18-content-zh-136",
             "kind": "heading",
             "text": "观察到的分箱"
           },
           {
-            "id": "ch18-content-zh-104",
+            "id": "ch18-content-zh-137",
             "kind": "paragraph",
             "text": "通过分析工具库创建直方图后，您已经可以访问观察到的箱分布。该信息存储在 Excel 创建的用于制作直方图的数据表中。"
           },
           {
-            "id": "ch18-content-zh-105",
+            "id": "ch18-content-zh-138",
+            "kind": "image",
+            "assetId": "fig-61040d72b21be880",
+            "src": "assets/figures/fig-61040d72b21be880.png",
+            "width": 305,
+            "height": 195
+          },
+          {
+            "id": "ch18-content-zh-139",
+            "kind": "image",
+            "assetId": "fig-bf8aa7f5ab27e41c",
+            "src": "assets/figures/fig-bf8aa7f5ab27e41c.png",
+            "width": 305,
+            "height": 815
+          },
+          {
+            "id": "ch18-content-zh-140",
             "kind": "heading",
             "text": "预期的分箱"
           },
           {
-            "id": "ch18-content-zh-106",
+            "id": "ch18-content-zh-141",
             "kind": "paragraph",
             "text": "我们可以使用与正态曲线相关的统计数据来计算在给定样本的中值和标准差的情况下我们预期箱的表现。"
           },
           {
-            "id": "ch18-content-zh-107",
+            "id": "ch18-content-zh-142",
             "kind": "paragraph",
             "text": "为了让您了解确定分箱预期大小所涉及的统计计算的情况，请考虑下图。"
           },
           {
-            "id": "ch18-content-zh-108",
+            "id": "ch18-content-zh-143",
+            "kind": "image",
+            "assetId": "fig-7e0e765787446bf2",
+            "src": "assets/figures/fig-7e0e765787446bf2.png",
+            "width": 1191,
+            "height": 475
+          },
+          {
+            "id": "ch18-content-zh-144",
             "kind": "paragraph",
             "text": "该图粗略地描绘了在正态曲线上绘制的直方图的箱。 由于存在用于确定曲线下面积的数学公式，因此可以确定特定箱内的曲线下面积。最终，这是通过计算总面积并减去部分来完成的。"
           },
           {
-            "id": "ch18-content-zh-109",
+            "id": "ch18-content-zh-145",
             "kind": "paragraph",
             "text": "我们从称为累积分布函数（CDF）的计算开始。 CDF 测量我们测量点左侧的曲线下的总面积。例如，上方曲线下方 45 左侧的总面积为 50%。一旦我们知道了每个 bin 边界的 CDF，就可以通过减法来计算每个单独 bin 的 CDF。例如，位于 40 和 45 之间的 bin 的 CDF 将等于 45 的 CDF 减去 40 的 CDF。"
           },
           {
-            "id": "ch18-content-zh-110",
+            "id": "ch18-content-zh-146",
             "kind": "paragraph",
             "text": "这种粗略描述的一个问题是上面绘制的曲线以 45 为中心，而我们从 Excel 中知道平均值是 48.778。我们将在计算中使用该数字来解释轻微的变化。"
           },
           {
-            "id": "ch18-content-zh-111",
+            "id": "ch18-content-zh-147",
             "kind": "paragraph",
             "text": "Excel 可以使用以下公式计算 CDF："
           },
           {
-            "id": "ch18-content-zh-112",
+            "id": "ch18-content-zh-148",
             "kind": "heading",
             "text": "=NORMDIST(x 值, 样本均值, 样本标准差, TRUE)"
           },
           {
-            "id": "ch18-content-zh-113",
+            "id": "ch18-content-zh-149",
             "kind": "paragraph",
             "text": "通过将箱名称复制到 Excel 之前为您创建的描述性统计工作表并创建两列（一列用于总 CDF，一列用于箱 CDF），设置用于计算每个箱的 CDF 的表。使用下图作为示例。"
           },
           {
-            "id": "ch18-content-zh-114",
+            "id": "ch18-content-zh-150",
+            "kind": "image",
+            "assetId": "fig-1e61125b4c55e130",
+            "src": "assets/figures/fig-1e61125b4c55e130.png",
+            "width": 1165,
+            "height": 665
+          },
+          {
+            "id": "ch18-content-zh-151",
             "kind": "paragraph",
             "text": "在 E 列中输入计算 CDF 的公式，引用每行的相同平均值和标准差，并使用 D 中的数字作为 X。"
           },
           {
-            "id": "ch18-content-zh-115",
+            "id": "ch18-content-zh-152",
+            "kind": "image",
+            "assetId": "fig-79154b56a3e68f30",
+            "src": "assets/figures/fig-79154b56a3e68f30.png",
+            "width": 1189,
+            "height": 486
+          },
+          {
+            "id": "ch18-content-zh-153",
+            "kind": "image",
+            "assetId": "fig-f8a138e68ba1c46c",
+            "src": "assets/figures/fig-f8a138e68ba1c46c.png",
+            "width": 1189,
+            "height": 496
+          },
+          {
+            "id": "ch18-content-zh-154",
             "kind": "paragraph",
             "text": "对于第一行（在我们的例子中，bin 标记为 10），仅包含 bin 的区域等于 CDF，因为 bin 的上限已没有剩余。对于所有其他行，仅 bin 区域是 CDF 减去上面指定的 bin 的 CDF。因此，您将在 F 列的第一个数据行中输入 =E2。第二个数据行将计算为 E3-E2；接下来是 E4-E3，依此类推。结果是每个箱中曲线的百分比。"
           },
           {
-            "id": "ch18-content-zh-116",
+            "id": "ch18-content-zh-155",
+            "kind": "image",
+            "assetId": "fig-7b5fcfe8276e071f",
+            "src": "assets/figures/fig-7b5fcfe8276e071f.png",
+            "width": 1189,
+            "height": 460
+          },
+          {
+            "id": "ch18-content-zh-156",
             "kind": "paragraph",
             "text": "计算每个箱中的预期样本数就像将每个箱的百分比乘以样本大小一样简单。同样，从描述性统计中可以看到，这组数据的计数为 50。"
           },
           {
-            "id": "ch18-content-zh-117",
+            "id": "ch18-content-zh-157",
+            "kind": "image",
+            "assetId": "fig-f67843dfc840f374",
+            "src": "assets/figures/fig-f67843dfc840f374.png",
+            "width": 1191,
+            "height": 199
+          },
+          {
+            "id": "ch18-content-zh-158",
+            "kind": "image",
+            "assetId": "fig-32e3603b5e5b766d",
+            "src": "assets/figures/fig-32e3603b5e5b766d.png",
+            "width": 1189,
+            "height": 411
+          },
+          {
+            "id": "ch18-content-zh-159",
             "kind": "paragraph",
             "text": "要计算卡方统计量，您将使用每个箱中的预期项目数以及实际或观察到的数量。从直方图工作表中复制观察到的数字。"
           },
           {
-            "id": "ch18-content-zh-118",
+            "id": "ch18-content-zh-160",
+            "kind": "image",
+            "assetId": "fig-73442e20f8256ed4",
+            "src": "assets/figures/fig-73442e20f8256ed4.png",
+            "width": 899,
+            "height": 655
+          },
+          {
+            "id": "ch18-content-zh-161",
             "kind": "paragraph",
             "text": "将以下公式应用于每一行："
           },
           {
-            "id": "ch18-content-zh-119",
+            "id": "ch18-content-zh-162",
             "kind": "paragraph",
             "text": "（预期 – 观察到）2 / 预期"
           },
           {
-            "id": "ch18-content-zh-120",
+            "id": "ch18-content-zh-163",
             "kind": "paragraph",
             "text": "根据需要在 Excel 中计算每行的最终数字。"
           },
           {
-            "id": "ch18-content-zh-121",
+            "id": "ch18-content-zh-164",
+            "kind": "image",
+            "assetId": "fig-a7779f25b16e2f75",
+            "src": "assets/figures/fig-a7779f25b16e2f75.png",
+            "width": 885,
+            "height": 633
+          },
+          {
+            "id": "ch18-content-zh-165",
             "kind": "paragraph",
             "text": "将最终数字相加即可得到卡方统计量，用 X2 表示。对于我们的示例，X2 是 16.7333。"
           },
           {
-            "id": "ch18-content-zh-122",
+            "id": "ch18-content-zh-166",
             "kind": "paragraph",
             "text": "要使用卡方统计量来查找 p 值，我们还需要一项才能使 Excel 公式发挥作用：我们需要所谓的自由度。"
           },
           {
-            "id": "ch18-content-zh-123",
+            "id": "ch18-content-zh-167",
             "kind": "paragraph",
             "text": "自由度 = #bins – 1 - #calculated 参数"
           },
           {
-            "id": "ch18-content-zh-124",
+            "id": "ch18-content-zh-168",
             "kind": "paragraph",
             "text": "我们有 14 个分箱。我们用于从样本计算得出卡方统计量的参数是平均值和标准差：两个参数。对于我们的例子："
           },
           {
-            "id": "ch18-content-zh-125",
+            "id": "ch18-content-zh-169",
             "kind": "paragraph",
             "text": "自由度 = 14 – 1 – 2 = 11"
           },
           {
-            "id": "ch18-content-zh-126",
+            "id": "ch18-content-zh-170",
             "kind": "paragraph",
             "text": "现在我们已经有了自由度 (df) 和卡方值，我们可以使用 Excel 来计算 p 值。只需输入下面的公式，输入正确的值即可。"
           },
           {
-            "id": "ch18-content-zh-127",
+            "id": "ch18-content-zh-171",
+            "kind": "image",
+            "assetId": "fig-f73b1c519d73034c",
+            "src": "assets/figures/fig-f73b1c519d73034c.png",
+            "width": 1191,
+            "height": 417
+          },
+          {
+            "id": "ch18-content-zh-172",
             "kind": "paragraph",
             "text": "在我们的示例中，生成的 p 值为 0.116。由于 p 值大于 0.05，因此我们接受原假设。我们的数据是正常的。"
           },
           {
-            "id": "ch18-content-zh-128",
+            "id": "ch18-content-zh-173",
             "kind": "heading",
             "text": "正态概率"
           },
           {
-            "id": "ch18-content-zh-129",
+            "id": "ch18-content-zh-174",
             "kind": "paragraph",
             "text": "一旦验证数据正常，您就可以使用许多统计检验从样本中得出有关数据和总体总体的结论。您可以做的事情之一是使用 Excel 的正态概率函数得出有关数据的结论。"
           },
           {
-            "id": "ch18-content-zh-130",
+            "id": "ch18-content-zh-175",
             "kind": "paragraph",
             "text": "例如，假设我们在本章中使用的数据是交付渠道中箱子重量的样本选择。这 50 个样本是在一周内从同一运输中心随机抽取的。假设我们知道数据是正常的，那么从配送中心选择的任何包裹重量超过 50 磅的概率是多少？"
           },
           {
-            "id": "ch18-content-zh-131",
+            "id": "ch18-content-zh-176",
             "kind": "paragraph",
             "text": "Excel 提供了以下公式："
           },
           {
-            "id": "ch18-content-zh-132",
+            "id": "ch18-content-zh-177",
             "kind": "paragraph",
             "text": "=NORMDIST(x, 平均值, standard_dev, 累积)"
           },
           {
-            "id": "ch18-content-zh-133",
+            "id": "ch18-content-zh-178",
             "kind": "paragraph",
             "text": "使用此公式时："
           },
           {
-            "id": "ch18-content-zh-134",
+            "id": "ch18-content-zh-179",
             "kind": "paragraph",
             "text": "- X = 您正在测试的值 - Mean = 描述性统计的样本均值 - Standard_dev = 描述性统计的样本标准差 - Cumulative = FALSE（如果您想测试确切发生的概率）； 如果要测试曲线上 x 左侧任何值的概率（或者在大多数情况下小于 x），则为 TRUE"
           },
           {
-            "id": "ch18-content-zh-135",
+            "id": "ch18-content-zh-180",
             "kind": "paragraph",
             "text": "在 Excel 中为我们的数据集输入带有 FALSE 累积值的公式后，我们得知随机选择一个重 50 磅的盒子的可能性为 3.47%。这是一个真实而重要的信息，可能对六西格玛团队有利。"
           },
           {
-            "id": "ch18-content-zh-136",
+            "id": "ch18-content-zh-181",
             "kind": "paragraph",
             "text": "在 Excel 中为我们的数据集输入具有 TRUE 累积值的公式后，我们会发现随机选择的盒子重量小于 50 磅的可能性为 54.25%。从 100% 中减去，盒子重量超过 50 磅的可能性为 45.75%。"
           },
           {
-            "id": "ch18-content-zh-137",
+            "id": "ch18-content-zh-182",
             "kind": "paragraph",
             "text": "为什么这很重要？在这种特殊情况下，运输经理可能正在努力雇用运输代表。由于员工很可能会搬运超过 50 磅的箱子，因此经理知道要将该要求纳入职位描述中。或者，六西格玛团队可能正在研究提高仓库产量的流程；许多箱子都足够重，需要特殊处理，这与团队处理流程的方式有关。"
           },
           {
-            "id": "ch18-content-zh-138",
+            "id": "ch18-content-zh-183",
             "kind": "paragraph",
             "text": "六西格玛团队可以使用Excel生成大量的数据信息。 Excel 还提供了上述计算的逆计算公式。如果团队想要了解运输中心最重 80% 的箱子的重量该怎么办？"
           },
           {
-            "id": "ch18-content-zh-139",
+            "id": "ch18-content-zh-184",
             "kind": "paragraph",
             "text": "公式为："
           },
           {
-            "id": "ch18-content-zh-140",
+            "id": "ch18-content-zh-185",
             "kind": "paragraph",
             "text": "=NORMINV(概率、平均值、standard_dev)"
           },
           {
-            "id": "ch18-content-zh-141",
+            "id": "ch18-content-zh-186",
             "kind": "paragraph",
             "text": "概率必须以小数点形式输入，而不是百分比。在我们的示例数据集中为 0.8 的情况下，最重 80% 的所有箱子都超过 58.40 磅。"
           },
           {
-            "id": "ch18-content-zh-142",
+            "id": "ch18-content-zh-187",
             "kind": "paragraph",
             "text": "因为我们是从样本中得出统计结论，所以这个过程中存在一些固有的误差。通常在高级分析中计算误差。"
           },
           {
-            "id": "ch18-content-zh-143",
+            "id": "ch18-content-zh-188",
             "kind": "paragraph",
             "text": "下一个单元将深入介绍如何将统计数据和结论应用于业务或项目方法，其中我们将了解这些概念如何生成适用于业务流程的真实信息。"
           }
         ]
       }
+    }
+  ],
+  "assets": [
+    {
+      "id": "fig-0db8dd4ad9ed9055",
+      "type": "formula-image",
+      "path": "assets/figures/fig-0db8dd4ad9ed9055.png",
+      "page": 179,
+      "width": 1191,
+      "height": 180
+    },
+    {
+      "id": "fig-0feb65915c04a46d",
+      "type": "figure",
+      "path": "assets/figures/fig-0feb65915c04a46d.png",
+      "page": 179,
+      "width": 783,
+      "height": 585
+    },
+    {
+      "id": "fig-195322aa1e916403",
+      "type": "table-image",
+      "path": "assets/figures/fig-195322aa1e916403.png",
+      "page": 179,
+      "width": 1040,
+      "height": 681
+    },
+    {
+      "id": "fig-197cde3977b8011e",
+      "type": "figure",
+      "path": "assets/figures/fig-197cde3977b8011e.png",
+      "page": 179,
+      "width": 741,
+      "height": 487
+    },
+    {
+      "id": "fig-19ca447e23a2a3c7",
+      "type": "figure",
+      "path": "assets/figures/fig-19ca447e23a2a3c7.png",
+      "page": 179,
+      "width": 740,
+      "height": 642
+    },
+    {
+      "id": "fig-1ab2d66357cdcdf7",
+      "type": "table-image",
+      "path": "assets/figures/fig-1ab2d66357cdcdf7.png",
+      "page": 179,
+      "width": 1191,
+      "height": 567
+    },
+    {
+      "id": "fig-1e61125b4c55e130",
+      "type": "table-image",
+      "path": "assets/figures/fig-1e61125b4c55e130.png",
+      "page": 179,
+      "width": 1165,
+      "height": 665
+    },
+    {
+      "id": "fig-244d032769cd5ee1",
+      "type": "figure",
+      "path": "assets/figures/fig-244d032769cd5ee1.png",
+      "page": 179,
+      "width": 816,
+      "height": 704
+    },
+    {
+      "id": "fig-2bbea7c9141288cc",
+      "type": "table-image",
+      "path": "assets/figures/fig-2bbea7c9141288cc.png",
+      "page": 179,
+      "width": 990,
+      "height": 602
+    },
+    {
+      "id": "fig-32e3603b5e5b766d",
+      "type": "table-image",
+      "path": "assets/figures/fig-32e3603b5e5b766d.png",
+      "page": 179,
+      "width": 1189,
+      "height": 411
+    },
+    {
+      "id": "fig-337191b2a37507b9",
+      "type": "figure",
+      "path": "assets/figures/fig-337191b2a37507b9.png",
+      "page": 179,
+      "width": 305,
+      "height": 605
+    },
+    {
+      "id": "fig-3907a57e6e754880",
+      "type": "table-image",
+      "path": "assets/figures/fig-3907a57e6e754880.png",
+      "page": 179,
+      "width": 1191,
+      "height": 667
+    },
+    {
+      "id": "fig-3f1252db6f6ec1bd",
+      "type": "table-image",
+      "path": "assets/figures/fig-3f1252db6f6ec1bd.png",
+      "page": 179,
+      "width": 910,
+      "height": 796
+    },
+    {
+      "id": "fig-41fbf16b11dd108c",
+      "type": "figure",
+      "path": "assets/figures/fig-41fbf16b11dd108c.png",
+      "page": 179,
+      "width": 768,
+      "height": 402
+    },
+    {
+      "id": "fig-4d364bca3b2140db",
+      "type": "figure",
+      "path": "assets/figures/fig-4d364bca3b2140db.png",
+      "page": 179,
+      "width": 553,
+      "height": 426
+    },
+    {
+      "id": "fig-4e0470ab4d1b2b75",
+      "type": "figure",
+      "path": "assets/figures/fig-4e0470ab4d1b2b75.png",
+      "page": 179,
+      "width": 499,
+      "height": 354
+    },
+    {
+      "id": "fig-4e5c7ebc1ce70a05",
+      "type": "figure",
+      "path": "assets/figures/fig-4e5c7ebc1ce70a05.png",
+      "page": 179,
+      "width": 483,
+      "height": 642
+    },
+    {
+      "id": "fig-50cd5a20dd47893e",
+      "type": "figure",
+      "path": "assets/figures/fig-50cd5a20dd47893e.png",
+      "page": 179,
+      "width": 741,
+      "height": 669
+    },
+    {
+      "id": "fig-55c6faa1809196ba",
+      "type": "figure",
+      "path": "assets/figures/fig-55c6faa1809196ba.png",
+      "page": 179,
+      "width": 893,
+      "height": 634
+    },
+    {
+      "id": "fig-5d988a6e50234051",
+      "type": "figure",
+      "path": "assets/figures/fig-5d988a6e50234051.png",
+      "page": 179,
+      "width": 660,
+      "height": 1385
+    },
+    {
+      "id": "fig-61040d72b21be880",
+      "type": "figure",
+      "path": "assets/figures/fig-61040d72b21be880.png",
+      "page": 179,
+      "width": 305,
+      "height": 195
+    },
+    {
+      "id": "fig-6194baf53932c8af",
+      "type": "figure",
+      "path": "assets/figures/fig-6194baf53932c8af.png",
+      "page": 179,
+      "width": 160,
+      "height": 1460
+    },
+    {
+      "id": "fig-73442e20f8256ed4",
+      "type": "figure",
+      "path": "assets/figures/fig-73442e20f8256ed4.png",
+      "page": 179,
+      "width": 899,
+      "height": 655
+    },
+    {
+      "id": "fig-79112547709bfb4c",
+      "type": "figure",
+      "path": "assets/figures/fig-79112547709bfb4c.png",
+      "page": 179,
+      "width": 615,
+      "height": 539
+    },
+    {
+      "id": "fig-79154b56a3e68f30",
+      "type": "table-image",
+      "path": "assets/figures/fig-79154b56a3e68f30.png",
+      "page": 179,
+      "width": 1189,
+      "height": 486
+    },
+    {
+      "id": "fig-797ba4964ef64e42",
+      "type": "figure",
+      "path": "assets/figures/fig-797ba4964ef64e42.png",
+      "page": 179,
+      "width": 160,
+      "height": 725
+    },
+    {
+      "id": "fig-7b5fcfe8276e071f",
+      "type": "table-image",
+      "path": "assets/figures/fig-7b5fcfe8276e071f.png",
+      "page": 179,
+      "width": 1189,
+      "height": 460
+    },
+    {
+      "id": "fig-7e0e765787446bf2",
+      "type": "table-image",
+      "path": "assets/figures/fig-7e0e765787446bf2.png",
+      "page": 179,
+      "width": 1191,
+      "height": 475
+    },
+    {
+      "id": "fig-805394fb6b73a756",
+      "type": "figure",
+      "path": "assets/figures/fig-805394fb6b73a756.png",
+      "page": 179,
+      "width": 160,
+      "height": 675
+    },
+    {
+      "id": "fig-83f44355021c2a12",
+      "type": "figure",
+      "path": "assets/figures/fig-83f44355021c2a12.png",
+      "page": 179,
+      "width": 489,
+      "height": 597
+    },
+    {
+      "id": "fig-878269f751a28483",
+      "type": "figure",
+      "path": "assets/figures/fig-878269f751a28483.png",
+      "page": 179,
+      "width": 571,
+      "height": 411
+    },
+    {
+      "id": "fig-8a9219e99be4ded9",
+      "type": "figure",
+      "path": "assets/figures/fig-8a9219e99be4ded9.png",
+      "page": 179,
+      "width": 160,
+      "height": 1465
+    },
+    {
+      "id": "fig-934db03c9af93032",
+      "type": "formula-image",
+      "path": "assets/figures/fig-934db03c9af93032.png",
+      "page": 179,
+      "width": 1173,
+      "height": 165
+    },
+    {
+      "id": "fig-9dc5f47bfd23571e",
+      "type": "figure",
+      "path": "assets/figures/fig-9dc5f47bfd23571e.png",
+      "page": 179,
+      "width": 515,
+      "height": 375
+    },
+    {
+      "id": "fig-a0613d8b3fce7912",
+      "type": "figure",
+      "path": "assets/figures/fig-a0613d8b3fce7912.png",
+      "page": 179,
+      "width": 160,
+      "height": 1615
+    },
+    {
+      "id": "fig-a731699730cd6663",
+      "type": "figure",
+      "path": "assets/figures/fig-a731699730cd6663.png",
+      "page": 179,
+      "width": 844,
+      "height": 544
+    },
+    {
+      "id": "fig-a7779f25b16e2f75",
+      "type": "figure",
+      "path": "assets/figures/fig-a7779f25b16e2f75.png",
+      "page": 179,
+      "width": 885,
+      "height": 633
+    },
+    {
+      "id": "fig-bf8aa7f5ab27e41c",
+      "type": "figure",
+      "path": "assets/figures/fig-bf8aa7f5ab27e41c.png",
+      "page": 179,
+      "width": 305,
+      "height": 815
+    },
+    {
+      "id": "fig-dd3b4a146677cc9c",
+      "type": "figure",
+      "path": "assets/figures/fig-dd3b4a146677cc9c.png",
+      "page": 179,
+      "width": 660,
+      "height": 195
+    },
+    {
+      "id": "fig-f67843dfc840f374",
+      "type": "table-image",
+      "path": "assets/figures/fig-f67843dfc840f374.png",
+      "page": 179,
+      "width": 1191,
+      "height": 199
+    },
+    {
+      "id": "fig-f73b1c519d73034c",
+      "type": "table-image",
+      "path": "assets/figures/fig-f73b1c519d73034c.png",
+      "page": 179,
+      "width": 1191,
+      "height": 417
+    },
+    {
+      "id": "fig-f798154f85c4452b",
+      "type": "figure",
+      "path": "assets/figures/fig-f798154f85c4452b.png",
+      "page": 179,
+      "width": 684,
+      "height": 584
+    },
+    {
+      "id": "fig-f8a138e68ba1c46c",
+      "type": "table-image",
+      "path": "assets/figures/fig-f8a138e68ba1c46c.png",
+      "page": 179,
+      "width": 1189,
+      "height": 496
+    },
+    {
+      "id": "fig-fab8e925fdd7aa04",
+      "type": "table-image",
+      "path": "assets/figures/fig-fab8e925fdd7aa04.png",
+      "page": 179,
+      "width": 1036,
+      "height": 694
+    },
+    {
+      "id": "fig-fc8061b8b5c0c88e",
+      "type": "formula-image",
+      "path": "assets/figures/fig-fc8061b8b5c0c88e.png",
+      "page": 179,
+      "width": 160,
+      "height": 90
     }
   ]
 }

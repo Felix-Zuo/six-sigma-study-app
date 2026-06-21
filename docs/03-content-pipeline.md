@@ -17,7 +17,8 @@ Generated app package:
 
 - `chapters/ch01.json` through `chapters/ch33.json`
 - `manual.json` full-manual runtime package
-- figure assets under `assets/figures/`
+- deduplicated figure assets under `apps/reader/public/content/assets/figures/`
+- `apps/reader/public/content/assets/asset-manifest.json`
 - term dictionary under `dictionary/six-sigma-terms.json` (implemented as Chapter 1 seed)
 - manifest with page count and content paths
 
@@ -44,7 +45,17 @@ npm run extract:manual
 npm run lint:content
 ```
 
-The manual extractor reads the aligned English and Chinese DOCX files from `C:\findjob_sixsigma_sources`, builds all 33 chapters for pages 6-449, preserves Chinese semantic tables, keeps Chinese term-note sidebars, and seeds 16 local terms for tap lookup.
+The manual extractor reads the aligned English and Chinese DOCX files from `C:\findjob_sixsigma_sources`, builds all 33 chapters for pages 6-449, preserves Chinese semantic tables, keeps Chinese term-note sidebars, extracts DOCX-embedded figures/tables in body order, deduplicates them by content hash, and seeds 16 local terms for tap lookup.
+
+Current generated content includes:
+
+- 33 chapters
+- 449 page manifest
+- 470 deduplicated PNG figure assets, about 31.7 MB total
+- 940 image blocks across English and Chinese content streams
+- `asset-manifest.json` for PWA figure pre-cache
+
+The Android runtime bundles these assets inside the APK/AAB. Native Android does not register the PWA service worker, so app upgrades are not blocked by stale browser caches.
 
 Chapter 1 has detailed section-level alignment. Chapters 2-33 are currently chapter-level content sections. This is intentional for the second product slice because it gets the full manual into the app while leaving page/section refinement as a controlled follow-up.
 
@@ -53,14 +64,15 @@ Chapter 1 has detailed section-level alignment. Chapters 2-33 are currently chap
 - chapter page starts match the 449-page print edition
 - no empty English or Chinese paragraph pair
 - no duplicated paragraph IDs
-- image assets exist and are under target size
+- image blocks have valid asset IDs, dimensions, safe relative paths, and existing files
+- APK/AAB package checks confirm all 470 figure assets are bundled
 - curated term references resolve
 - sample chapter opens on phone viewport without horizontal overflow
 
 ## Open Extraction Problems
 
-- DOCX paragraph order around images must be verified against rendered pages.
-- Some tables should stay as images; some may become semantic tables.
+- DOCX paragraph order around images is extracted, but full-document visual review against rendered source pages is still incomplete.
+- Some tables stay as images; some may become semantic tables in a later refinement pass.
 - Phrase detection needs a curated phrase list before generic NLP.
 - English table recovery needs special handling because some Word tables are represented as heading/paragraph fragments.
 - Long chapters render thousands of clickable word tokens; reader virtualization or lazy tokenization is needed before final mobile polish.

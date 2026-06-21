@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 03:27 Asia/Shanghai
+Last updated: 2026-06-22 04:00 Asia/Shanghai
 
 ## Objective
 
@@ -19,10 +19,10 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest validated implementation commit: `acc268a Persist reader position across restarts`
-- Local worktree: expected clean after the state-sync commit that contains this note
-- Latest implementation GitHub Actions state: CI passed for `acc268a`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with section-preserving language toggle, persisted reading position across app restart, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, PWA manifest/service worker base, a Capacitor Android debug APK that runs on the local emulator, and locally signed release APK/AAB builds.
+- Latest validated implementation commit: pending commit for full figure asset integration
+- Local worktree: contains figure asset integration changes until committed
+- Latest implementation GitHub Actions state: CI passed for `ac01ed1`; current stage not pushed yet
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with section-preserving language toggle, persisted reading position across app restart, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
 
@@ -65,6 +65,15 @@ The final product must support full-manual offline reading, position-preserving 
 - Built release APK at `C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk`.
 - Built release AAB at `C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab`.
 - Added localStorage-backed reader position persistence for language, chapter, section, and scroll offset.
+- Added DOCX image extraction in body order for paragraph-level drawing relationships.
+- Deduplicated English/Chinese DOCX media by content hash into app figure assets.
+- Generated 470 PNG figure/table/formula assets under `apps\reader\public\content\assets\figures`.
+- Generated `apps\reader\public\content\assets\asset-manifest.json`.
+- Added `image` content blocks and per-chapter `assets` lists to generated content.
+- Added image asset validation for safe paths, dimensions, existence, and chapter asset metadata.
+- Added reader image rendering with responsive width and lazy loading.
+- Added PWA figure pre-cache from `asset-manifest.json`.
+- Disabled service-worker registration in native Android and added native CacheStorage cleanup so upgraded APKs do not keep stale PWA caches.
 
 ## Verification In Current Stage
 
@@ -110,16 +119,42 @@ The final product must support full-manual offline reading, position-preserving 
   - Forced-stopped `com.findjob.sixsigmastudy`
   - Relaunched via launcher intent
   - App restored Chapter 7 Chinese page 59: passed
+- Figure asset verification:
+  - `npm run extract:manual`: passed with 33 chapters, 4759 English blocks, 4990 Chinese blocks
+  - Generated content contains 470 unique asset references and 940 bilingual image blocks
+  - Figure asset package size: 33,217,038 bytes
+  - `npm run lint:content`: passed with image asset existence/dimension checks
+  - `npm run typecheck`: passed
+  - `npm run build`: passed
+  - HTTP checks returned 200 for `content/assets/asset-manifest.json` and sample figure assets from Chapters 1, 7, 26, and 33
+  - `npm run android:release-apk`: passed after sequential build
+  - `npm run android:aab`: passed after sequential build
+  - APK size: 37,300,231 bytes
+  - AAB size: 35,083,385 bytes
+  - APK content check: 470 figure PNG files, `assets/public/content/assets/asset-manifest.json`, and `assets/public/content/manual.json` are present
+  - AAB content check: 470 figure PNG files, `base/assets/public/content/assets/asset-manifest.json`, and `base/assets/public/content/manual.json` are present
+  - `apksigner verify --print-certs android\app\build\outputs\apk\release\app-release.apk`: passed
+  - `jarsigner -verify -certs android\app\build\outputs\bundle\release\app-release.aab`: verified with expected self-signed certificate warnings
+  - Android WebView DOM QA after force-stop/relaunch:
+    - native platform detection returned `android`
+    - service worker registrations: 0
+    - CacheStorage keys: empty
+    - Chapter 7: 14 image elements, loaded visible figures, no broken images, no horizontal overflow
+    - Chapter 26: 50 image elements, loaded visible figures, no broken images, no horizontal overflow
+    - Chapter 33: 25 image elements, first figures load, no broken images, no horizontal overflow
+  - Android screenshots are local under `C:\findjob_sixsigma_app\qa\screenshots` and are ignored by Git.
 
 ## Known Limitations
 
 - The release signing key is a local self-signed key for this project; store upload key policy and distribution channel are not finalized.
 - Chapters 2-33 are connected as chapter-level sections; detailed subsection/page anchors still need refinement.
 - Language position preservation is section-level for Chapter 1 and chapter-level for generic chapters, not sentence-level.
-- Phrase lookup UI exists through text selection, but needs real touch-device QA.
+- Phrase lookup UI exists through text selection, but still needs real touch-device QA.
 - English tables in Chapter 1 are partly represented as Word paragraph fragments; Chinese tables render as semantic tables.
 - Long chapters can render thousands of clickable English tokens; add virtualization or lazy tokenization before final mobile polish.
 - Detailed paragraph-level anchors for Chapters 2-33 still need refinement beyond current chapter/section-level restoration.
+- Figure assets now preserve DOCX-embedded originals, but full source-page-by-source-page visual comparison is not complete.
+- Some extracted table images are intentionally rendered as images; later passes can convert selected tables to semantic tables where fidelity allows.
 
 ## Open GitHub Work Items
 
@@ -145,7 +180,7 @@ After context compression or a new session, do this before making changes:
 
 ## Next Action
 
-Improve detailed anchors, figure/table preservation, phrase-selection QA, and long-chapter performance.
+Improve detailed anchors, phrase-selection QA, long-chapter performance, and full-source visual comparison for extracted figures/tables.
 
 ## Constraints
 

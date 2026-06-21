@@ -440,253 +440,271 @@
           },
           {
             "id": "ch29-content-en-084",
-            "kind": "paragraph",
-            "text": "Step 5: What are the factor levels for the experiment?"
+            "kind": "image",
+            "assetId": "fig-a992bf7e40decdc0",
+            "src": "assets/figures/fig-a992bf7e40decdc0.png",
+            "width": 545,
+            "height": 460
           },
           {
             "id": "ch29-content-en-085",
             "kind": "paragraph",
-            "text": "What levels will the input variables be set at for the purpose of the experiment? If you are running an experiment that involves baking cookies, then oven temperature is an input, or factor. Levels for the factor might be 325 degrees F, 350 degrees F, and 375"
+            "text": "Step 5: What are the factor levels for the experiment?"
           },
           {
             "id": "ch29-content-en-086",
             "kind": "paragraph",
-            "text": "degrees F. Remember that in the case of a 2k factorial, each factor only has two levels."
+            "text": "What levels will the input variables be set at for the purpose of the experiment? If you are running an experiment that involves baking cookies, then oven temperature is an input, or factor. Levels for the factor might be 325 degrees F, 350 degrees F, and 375"
           },
           {
             "id": "ch29-content-en-087",
             "kind": "paragraph",
-            "text": "In the healthcare example, the team decides to set each factor at a low and a high:"
+            "text": "degrees F. Remember that in the case of a 2k factorial, each factor only has two levels."
           },
           {
             "id": "ch29-content-en-088",
-            "kind": "listItem",
-            "text": "Staff education: Received annual compliance update training in the last 6 months versus has not received the training in the last six months"
+            "kind": "paragraph",
+            "text": "In the healthcare example, the team decides to set each factor at a low and a high:"
           },
           {
             "id": "ch29-content-en-089",
             "kind": "listItem",
-            "text": "Time on shift: Less than or equal to 4 hours versus 5 or more hours"
+            "text": "Staff education: Received annual compliance update training in the last 6 months versus has not received the training in the last six months"
           },
           {
             "id": "ch29-content-en-090",
             "kind": "listItem",
-            "text": "Number of patients on the floor: Below 80 percent of maximum capacity versus above 80 percent of maximum capacity"
+            "text": "Time on shift: Less than or equal to 4 hours versus 5 or more hours"
           },
           {
             "id": "ch29-content-en-091",
-            "kind": "paragraph",
-            "text": "The levels set for each factor depend on a variety of considerations. If the team is performing a screening experiment – which means they only want to test input impact on outputs or better understand the process – they would set levels at wide intervals. For optimization, the team likely already has an understanding of the input impact on the process; the team might already have conducted analysis or experiments, and that information helps them set the levels appropriately at smaller intervals."
+            "kind": "listItem",
+            "text": "Number of patients on the floor: Below 80 percent of maximum capacity versus above 80 percent of maximum capacity"
           },
           {
             "id": "ch29-content-en-092",
             "kind": "paragraph",
-            "text": "The process itself will dictate how some levels are set. If a Six Sigma team is working with a baking process, for example, it can’t set the temperature any lower than 0 degrees and most ovens also have a maximum temperature range. Teams also probably know the temperature around which baked goods will still be raw, so they are unlikely to set temperatures at something like 100 degrees F. Safety should always be a concern when setting levels. An oven might heat to 550 degrees F maximum, but is it safe to attempt to bake cookies at that level?"
+            "text": "The levels set for each factor depend on a variety of considerations. If the team is performing a screening experiment – which means they only want to test input impact on outputs or better understand the process – they would set levels at wide intervals. For optimization, the team likely already has an understanding of the input impact on the process; the team might already have conducted analysis or experiments, and that information helps them set the levels appropriately at smaller intervals."
           },
           {
             "id": "ch29-content-en-093",
             "kind": "paragraph",
-            "text": "Finally, the levels should correlate with the type of information the team is looking for and the size of change the team wants to see. If a team is working with a manufacturing process that cuts lumber, it likely wants to see changes at small increments. Setting tool levels several feet apart isn’t going to show the change the team wants to see if they are working with the cutting process for 2-by-4 lumber piece that are to be cut into 6-inch pieces."
+            "text": "The process itself will dictate how some levels are set. If a Six Sigma team is working with a baking process, for example, it can’t set the temperature any lower than 0 degrees and most ovens also have a maximum temperature range. Teams also probably know the temperature around which baked goods will still be raw, so they are unlikely to set temperatures at something like 100 degrees F. Safety should always be a concern when setting levels. An oven might heat to 550 degrees F maximum, but is it safe to attempt to bake cookies at that level?"
           },
           {
             "id": "ch29-content-en-094",
             "kind": "paragraph",
-            "text": "Step 6: What is the appropriate sample size?"
+            "text": "Finally, the levels should correlate with the type of information the team is looking for and the size of change the team wants to see. If a team is working with a manufacturing process that cuts lumber, it likely wants to see changes at small increments. Setting tool levels several feet apart isn’t going to show the change the team wants to see if they are working with the cutting process for 2-by-4 lumber piece that are to be cut into 6-inch pieces."
           },
           {
             "id": "ch29-content-en-095",
             "kind": "paragraph",
-            "text": "In the case of the design of experiment, a sample size isn’t the number of data elements you collect but the number of times you replicate the experiment. The more replications, the greater the accuracy of the statistics, but each run in the DOE takes time and possibly other resources. Six Sigma experts have to balance the use of resources with the need for strong experiment conclusions. When you create a design of experiment in Minitab, the software program generates some predictions about the experiment even before you run the experiment, which lets you decide on size and replication before you begin. Specifically, Minitab tells you the size of effect, as measured in standard deviation, that you are 80 percent likely to capture with the experiment as you have designed it."
+            "text": "Step 6: What is the appropriate sample size?"
           },
           {
             "id": "ch29-content-en-096",
             "kind": "paragraph",
-            "text": "Step-by-Step Guide to Running a 2k Factorial Experiment in Minitab"
+            "text": "In the case of the design of experiment, a sample size isn’t the number of data elements you collect but the number of times you replicate the experiment. The more replications, the greater the accuracy of the statistics, but each run in the DOE takes time and possibly other resources. Six Sigma experts have to balance the use of resources with the need for strong experiment conclusions. When you create a design of experiment in Minitab, the software program generates some predictions about the experiment even before you run the experiment, which lets you decide on size and replication before you begin. Specifically, Minitab tells you the size of effect, as measured in standard deviation, that you are 80 percent likely to capture with the experiment as you have designed it."
           },
           {
             "id": "ch29-content-en-097",
             "kind": "paragraph",
-            "text": "To understand more about sample size and replication – and how to run a 2k factorial experiment in Minitab, begin with the Assistant menu. You can also access design of experiments under Stat > DOE, but the assistant wizard is helpful because it reminds you of all the steps previously discussed in this chapter, helps you decide on the proper type of experiment, and helps you create the data collection form and analysis."
+            "text": "Step-by-Step Guide to Running a 2k Factorial Experiment in Minitab"
           },
           {
             "id": "ch29-content-en-098",
             "kind": "paragraph",
-            "text": "For the purpose of setting up this experiment, use the healthcare example discussed above."
+            "text": "To understand more about sample size and replication – and how to run a 2k factorial experiment in Minitab, begin with the Assistant menu. You can also access design of experiments under Stat > DOE, but the assistant wizard is helpful because it reminds you of all the steps previously discussed in this chapter, helps you decide on the proper type of experiment, and helps you create the data collection form and analysis."
           },
           {
             "id": "ch29-content-en-099",
             "kind": "paragraph",
-            "text": "Problem: In a 10-point evaluation for sanitation compliance, clinical healthcare workers are averaging a score of 7.1. The hospital requires an average of at least 9.0."
+            "text": "For the purpose of setting up this experiment, use the healthcare example discussed above."
           },
           {
             "id": "ch29-content-en-100",
             "kind": "paragraph",
-            "text": "Objective: Increase compliance scores to at least 9.0."
+            "text": "Problem: In a 10-point evaluation for sanitation compliance, clinical healthcare workers are averaging a score of 7.1. The hospital requires an average of at least 9.0."
           },
           {
             "id": "ch29-content-en-101",
             "kind": "paragraph",
-            "text": "Response: Rate of compliance with sanitation protocols"
+            "text": "Objective: Increase compliance scores to at least 9.0."
           },
           {
             "id": "ch29-content-en-102",
             "kind": "paragraph",
-            "text": "Factors: Staff education, time on shift, number of patients on floor"
+            "text": "Response: Rate of compliance with sanitation protocols"
           },
           {
             "id": "ch29-content-en-103",
+            "kind": "paragraph",
+            "text": "Factors: Staff education, time on shift, number of patients on floor"
+          },
+          {
+            "id": "ch29-content-en-104",
             "kind": "heading",
             "text": "Levels:"
           },
           {
-            "id": "ch29-content-en-104",
+            "id": "ch29-content-en-105",
             "kind": "paragraph",
             "text": "Factor Low (-1) High (1)"
           },
           {
-            "id": "ch29-content-en-105",
+            "id": "ch29-content-en-106",
             "kind": "paragraph",
             "text": "Staff education Didn’t receive compliance training in last 6 months"
           },
           {
-            "id": "ch29-content-en-106",
+            "id": "ch29-content-en-107",
             "kind": "paragraph",
             "text": "Did receive compliance training in last 6 months"
           },
           {
-            "id": "ch29-content-en-107",
+            "id": "ch29-content-en-108",
             "kind": "paragraph",
             "text": "Time on shift Less than or equal to 4 hours 5 or more hours"
           },
           {
-            "id": "ch29-content-en-108",
+            "id": "ch29-content-en-109",
             "kind": "paragraph",
             "text": "Number of patients on floor Below 80 percent maximum capacity"
           },
           {
-            "id": "ch29-content-en-109",
+            "id": "ch29-content-en-110",
             "kind": "paragraph",
             "text": "At or above 80 percent maximum capacity"
           },
           {
-            "id": "ch29-content-en-110",
+            "id": "ch29-content-en-111",
             "kind": "paragraph",
             "text": "Select Assistant > DOE > Plan and Create."
           },
           {
-            "id": "ch29-content-en-111",
+            "id": "ch29-content-en-112",
             "kind": "paragraph",
             "text": "Select “Plan optimization experiment” since the team is looking to improve, or optimize, the process."
           },
           {
-            "id": "ch29-content-en-112",
-            "kind": "paragraph",
-            "text": "Minitab provides some instructions on identifying factors, setting levels, and choosing sample size. This information is all valuable and worth reviewing, particularly if you are conducting a DOE when it has been a long time since you last did so. It is also all information that has been included in this chapter."
-          },
-          {
             "id": "ch29-content-en-113",
-            "kind": "paragraph",
-            "text": "One good note from the above Minitab menu is that it’s a good idea to obtain approval from any stakeholders, project owners, or sponsors associated with the project or process. Key stakeholders should understand what will happen during the experiment and why it is necessary to the project. If resources are required, sponsors or other leaders should sign off as required by organization guidelines."
+            "kind": "image",
+            "assetId": "fig-45d29e0ebb2f80a8",
+            "src": "assets/figures/fig-45d29e0ebb2f80a8.png",
+            "width": 1191,
+            "height": 903
           },
           {
             "id": "ch29-content-en-114",
             "kind": "paragraph",
-            "text": "In the particular healthcare scenario being used as the example, running a standalone experiment isn’t an option. A Six Sigma team certainly isn’t going to give patients a staph infection just to find out about inputs. In this particular case, the team would need to use existing data that matched the experiment parameters. This is something that might be an option – or a requirement – for teams in any number of scenarios."
+            "text": "Minitab provides some instructions on identifying factors, setting levels, and choosing sample size. This information is all valuable and worth reviewing, particularly if you are conducting a DOE when it has been a long time since you last did so. It is also all information that has been included in this chapter."
           },
           {
             "id": "ch29-content-en-115",
-            "kind": "paragraph",
-            "text": "After reviewing any Minitab notes desired, click “Back.”"
+            "kind": "image",
+            "assetId": "fig-3c10f1739a629138",
+            "src": "assets/figures/fig-3c10f1739a629138.png",
+            "width": 1191,
+            "height": 901
           },
           {
             "id": "ch29-content-en-116",
             "kind": "paragraph",
-            "text": "Select “Create Modeling Design”."
+            "text": "One good note from the above Minitab menu is that it’s a good idea to obtain approval from any stakeholders, project owners, or sponsors associated with the project or process. Key stakeholders should understand what will happen during the experiment and why it is necessary to the project. If resources are required, sponsors or other leaders should sign off as required by organization guidelines."
           },
           {
             "id": "ch29-content-en-117",
             "kind": "paragraph",
-            "text": "Minitab displays a Modeling Design dialogue box, requesting all the information needed to create an experiment. Enter the information for the healthcare scenario."
+            "text": "In the particular healthcare scenario being used as the example, running a standalone experiment isn’t an option. A Six Sigma team certainly isn’t going to give patients a staph infection just to find out about inputs. In this particular case, the team would need to use existing data that matched the experiment parameters. This is something that might be an option – or a requirement – for teams in any number of scenarios."
           },
           {
             "id": "ch29-content-en-118",
             "kind": "paragraph",
-            "text": "1. Name the response variable. The team is measuring compliance with the sanitation protocols, so name it “Compliance.” The name isn’t important to Minitab, so you can name the variable anything that will make sense to yourself or the Six Sigma team. 2. Choose an option for the response goal. Minitab lets you select minimize the response, maximize the response, or achieve a target. In this case, the team wants to improve compliance to a score of 9, but going above 9 would also be a positive outcome, so select “maximize the response.” 3. Enter the number of factors. Remember, factors are inputs, and the healthcare scenario identifies 3 inputs. 4. Enter names and information for the factors. Even though some of the factors are continuous in nature, since this is a 2k factorial experiment, we’ve divided them into categories. 5. Select a number of times to replicate the experiment (remember, this is relevant to sample size). For this purpose, select 2. 6. Ensure your dialogue box matches the one below and select OK."
+            "text": "After reviewing any Minitab notes desired, click “Back.”"
           },
           {
             "id": "ch29-content-en-119",
             "kind": "paragraph",
-            "text": "Minitab offers you the option to print the data form to make it easier to collect data. For the example, select no."
+            "text": "Select “Create Modeling Design”."
           },
           {
             "id": "ch29-content-en-120",
+            "kind": "image",
+            "assetId": "fig-ff4e99b83bae13ef",
+            "src": "assets/figures/fig-ff4e99b83bae13ef.png",
+            "width": 1191,
+            "height": 895
+          },
+          {
+            "id": "ch29-content-en-121",
+            "kind": "paragraph",
+            "text": "Minitab displays a Modeling Design dialogue box, requesting all the information needed to create an experiment. Enter the information for the healthcare scenario."
+          },
+          {
+            "id": "ch29-content-en-122",
+            "kind": "paragraph",
+            "text": "1. Name the response variable. The team is measuring compliance with the sanitation protocols, so name it “Compliance.” The name isn’t important to Minitab, so you can name the variable anything that will make sense to yourself or the Six Sigma team. 2. Choose an option for the response goal. Minitab lets you select minimize the response, maximize the response, or achieve a target. In this case, the team wants to improve compliance to a score of 9, but going above 9 would also be a positive outcome, so select “maximize the response.” 3. Enter the number of factors. Remember, factors are inputs, and the healthcare scenario identifies 3 inputs. 4. Enter names and information for the factors. Even though some of the factors are continuous in nature, since this is a 2k factorial experiment, we’ve divided them into categories. 5. Select a number of times to replicate the experiment (remember, this is relevant to sample size). For this purpose, select 2. 6. Ensure your dialogue box matches the one below and select OK."
+          },
+          {
+            "id": "ch29-content-en-123",
+            "kind": "image",
+            "assetId": "fig-60ee99f394fc4aa6",
+            "src": "assets/figures/fig-60ee99f394fc4aa6.png",
+            "width": 1008,
+            "height": 1111
+          },
+          {
+            "id": "ch29-content-en-124",
+            "kind": "paragraph",
+            "text": "Minitab offers you the option to print the data form to make it easier to collect data. For the example, select no."
+          },
+          {
+            "id": "ch29-content-en-125",
+            "kind": "image",
+            "assetId": "fig-843a6cf3a19f9a5a",
+            "src": "assets/figures/fig-843a6cf3a19f9a5a.png",
+            "width": 833,
+            "height": 389
+          },
+          {
+            "id": "ch29-content-en-126",
             "kind": "paragraph",
             "text": "Minitab generates three items. The first is a modeling design report card that provides next steps and tips for completing the experiment."
           },
           {
-            "id": "ch29-content-en-121",
+            "id": "ch29-content-en-127",
             "kind": "heading",
             "text": "Create Modeling Design"
           },
           {
-            "id": "ch29-content-en-122",
+            "id": "ch29-content-en-128",
             "kind": "heading",
             "text": "Report Card"
           },
           {
-            "id": "ch29-content-en-123",
+            "id": "ch29-content-en-129",
             "kind": "heading",
             "text": "Check"
           },
           {
-            "id": "ch29-content-en-124",
+            "id": "ch29-content-en-130",
             "kind": "heading",
             "text": "Status Description"
           },
           {
-            "id": "ch29-content-en-125",
+            "id": "ch29-content-en-131",
             "kind": "paragraph",
             "text": "runs in the original design and run them again. experimental runs while repeats are taken during the same run. When you add replicates to a design, you take all of the Replicate and repeat measurements are both taken at the same factor settings but replicates are taken during separate"
           },
           {
-            "id": "ch29-content-en-126",
+            "id": "ch29-content-en-132",
             "kind": "heading",
             "text": "Measurements"
           },
           {
-            "id": "ch29-content-en-127",
+            "id": "ch29-content-en-133",
             "kind": "paragraph",
             "text": "Repeat Replicate vs."
-          },
-          {
-            "id": "ch29-content-en-128",
-            "kind": "paragraph",
-            "text": "i"
-          },
-          {
-            "id": "ch29-content-en-129",
-            "kind": "paragraph",
-            "text": "perform the runs in random order as specified in the worksheet. the chance that these conditions will bias the results. When you conduct the modeling experiment, make sure you Randomization balances the effect of uncontrollable conditions, such as changes to materials or personnel, and reduces When you create a modeling design, Minitab automatically randomizes the order of the experimental runs."
-          },
-          {
-            "id": "ch29-content-en-130",
-            "kind": "heading",
-            "text": "Randomization"
-          },
-          {
-            "id": "ch29-content-en-131",
-            "kind": "paragraph",
-            "text": "i"
-          },
-          {
-            "id": "ch29-content-en-132",
-            "kind": "paragraph",
-            "text": "4. Fit the linear model. 3. Enter the response data in column C8. the runs in each block under similar conditions. 2. Run your experiment in the order specified in the worksheet and collect the response data. Make sure to perform all 1. Complete all pre-experiment activities. For more information, view the Pre-Experiment Checklist. To complete the optimization process:"
-          },
-          {
-            "id": "ch29-content-en-133",
-            "kind": "heading",
-            "text": "Next Steps"
           },
           {
             "id": "ch29-content-en-134",
@@ -696,372 +714,387 @@
           {
             "id": "ch29-content-en-135",
             "kind": "paragraph",
-            "text": "View the Pre-Experiment Checklist. Print a data collection form for this experiment. Fit the linear model."
+            "text": "perform the runs in random order as specified in the worksheet. the chance that these conditions will bias the results. When you conduct the modeling experiment, make sure you Randomization balances the effect of uncontrollable conditions, such as changes to materials or personnel, and reduces When you create a modeling design, Minitab automatically randomizes the order of the experimental runs."
           },
           {
             "id": "ch29-content-en-136",
-            "kind": "paragraph",
-            "text": "The second item is a summary report. The report summarizes all the information you entered for the experiment and provides an estimated detection ability, which helps you choose a sample size."
+            "kind": "heading",
+            "text": "Randomization"
           },
           {
             "id": "ch29-content-en-137",
-            "kind": "heading",
-            "text": "Create Modeling Design"
+            "kind": "paragraph",
+            "text": "i"
           },
           {
             "id": "ch29-content-en-138",
-            "kind": "heading",
-            "text": "Summary Report"
+            "kind": "paragraph",
+            "text": "4. Fit the linear model. 3. Enter the response data in column C8. the runs in each block under similar conditions. 2. Run your experiment in the order specified in the worksheet and collect the response data. Make sure to perform all 1. Complete all pre-experiment activities. For more information, view the Pre-Experiment Checklist. To complete the optimization process:"
           },
           {
             "id": "ch29-content-en-139",
             "kind": "heading",
-            "text": "Experimental Goal"
+            "text": "Next Steps"
           },
           {
             "id": "ch29-content-en-140",
-            "kind": "heading",
-            "text": "Effect Estimation"
+            "kind": "paragraph",
+            "text": "i"
           },
           {
             "id": "ch29-content-en-141",
             "kind": "paragraph",
-            "text": "This design will estimate all linear main effects and two-way interactions."
+            "text": "View the Pre-Experiment Checklist. Print a data collection form for this experiment. Fit the linear model."
           },
           {
             "id": "ch29-content-en-142",
             "kind": "paragraph",
-            "text": "for the factors. model is adequate, use it to find optimal settings between the response and critical factors. If the Construct a model that describes the relationship"
+            "text": "The second item is a summary report. The report summarizes all the information you entered for the experiment and provides an estimated detection ability, which helps you choose a sample size."
           },
           {
             "id": "ch29-content-en-143",
-            "kind": "paragraph",
-            "text": "change the setting of one factor (X). Main effect: Describes how the response (Y) changes if you Y"
+            "kind": "heading",
+            "text": "Create Modeling Design"
           },
           {
             "id": "ch29-content-en-144",
-            "kind": "paragraph",
-            "text": "X"
+            "kind": "heading",
+            "text": "Summary Report"
           },
           {
             "id": "ch29-content-en-145",
             "kind": "heading",
-            "text": "Design Information"
+            "text": "Experimental Goal"
           },
           {
             "id": "ch29-content-en-146",
-            "kind": "paragraph",
-            "text": "change the settings of two factors (X). Interaction: Describes how the response (Y) changes if you Y"
+            "kind": "heading",
+            "text": "Effect Estimation"
           },
           {
             "id": "ch29-content-en-147",
             "kind": "paragraph",
-            "text": "Response Compliance Goal Maximize Base design 3 factors, 8 runs Replicates 2 Center points 0 Total runs 16"
+            "text": "This design will estimate all linear main effects and two-way interactions."
           },
           {
             "id": "ch29-content-en-148",
             "kind": "paragraph",
-            "text": "X"
+            "text": "for the factors. model is adequate, use it to find optimal settings between the response and critical factors. If the Construct a model that describes the relationship"
           },
           {
             "id": "ch29-content-en-149",
-            "kind": "heading",
-            "text": "Detection Ability"
+            "kind": "paragraph",
+            "text": "change the setting of one factor (X). Main effect: Describes how the response (Y) changes if you Y"
           },
           {
             "id": "ch29-content-en-150",
             "kind": "paragraph",
-            "text": "What effect sizes can you detect with this 2-replicate design?"
+            "text": "X"
           },
           {
             "id": "ch29-content-en-151",
-            "kind": "paragraph",
-            "text": "Power < 40% 60% 80% 100%"
+            "kind": "heading",
+            "text": "Design Information"
           },
           {
             "id": "ch29-content-en-152",
             "kind": "paragraph",
-            "text": "Replicates are placed in separate blocks."
+            "text": "change the settings of two factors (X). Interaction: Describes how the response (Y) changes if you Y"
           },
           {
             "id": "ch29-content-en-153",
             "kind": "paragraph",
-            "text": "Effect 1.04 1.36"
+            "text": "Response Compliance Goal Maximize Base design 3 factors, 8 runs Replicates 2 Center points 0 Total runs 16"
           },
           {
             "id": "ch29-content-en-154",
             "kind": "paragraph",
-            "text": "more. With 3 replicates, you can detect effects of 1.06. You have an 80% chance of detecting effects of 1.36 standard deviations or"
+            "text": "X"
           },
           {
             "id": "ch29-content-en-155",
             "kind": "heading",
-            "text": "Factors and Settings"
+            "text": "Detection Ability"
           },
           {
             "id": "ch29-content-en-156",
-            "kind": "heading",
-            "text": "Factor"
+            "kind": "paragraph",
+            "text": "What effect sizes can you detect with this 2-replicate design?"
           },
           {
             "id": "ch29-content-en-157",
-            "kind": "heading",
-            "text": "Low High"
+            "kind": "paragraph",
+            "text": "Power < 40% 60% 80% 100%"
           },
           {
             "id": "ch29-content-en-158",
             "kind": "paragraph",
-            "text": "StaffEd No Yes TimeShift 4 or under Over 4 NoPts Below 80% 80% or more"
+            "text": "Replicates are placed in separate blocks."
           },
           {
             "id": "ch29-content-en-159",
-            "kind": "heading",
-            "text": "Effect Size (Shift in the Mean)"
+            "kind": "paragraph",
+            "text": "Effect 1.04 1.36"
           },
           {
             "id": "ch29-content-en-160",
-            "kind": "heading",
-            "text": "Small"
+            "kind": "paragraph",
+            "text": "more. With 3 replicates, you can detect effects of 1.06. You have an 80% chance of detecting effects of 1.36 standard deviations or"
           },
           {
             "id": "ch29-content-en-161",
             "kind": "heading",
-            "text": "Moderate"
+            "text": "Factors and Settings"
           },
           {
             "id": "ch29-content-en-162",
             "kind": "heading",
-            "text": "Large"
+            "text": "Factor"
           },
           {
             "id": "ch29-content-en-163",
-            "kind": "paragraph",
-            "text": "< 1 std dev shift"
+            "kind": "heading",
+            "text": "Low High"
           },
           {
             "id": "ch29-content-en-164",
             "kind": "paragraph",
-            "text": "1-2 std dev shift"
+            "text": "StaffEd No Yes TimeShift 4 or under Over 4 NoPts Below 80% 80% or more"
           },
           {
             "id": "ch29-content-en-165",
-            "kind": "paragraph",
-            "text": "2+ std dev shift"
+            "kind": "heading",
+            "text": "Effect Size (Shift in the Mean)"
           },
           {
             "id": "ch29-content-en-166",
-            "kind": "paragraph",
-            "text": "The final item is a worksheet to help you gather results from the experiment. Minitab randomizes the order of the runs, which would be required if you were completing the experiment in real-time."
+            "kind": "heading",
+            "text": "Small"
           },
           {
             "id": "ch29-content-en-167",
-            "kind": "paragraph",
-            "text": "For the healthcare scenario we entered, the detection ability based on 2 replicas will detect standard deviations of 1.36 or more."
+            "kind": "heading",
+            "text": "Moderate"
           },
           {
             "id": "ch29-content-en-168",
-            "kind": "paragraph",
-            "text": "If the team wanted to detect smaller changes, it would need to add more replicates. Four replications would detect 0.91 standard deviations, and 5 would detect as little as 0.81 standard deviations."
+            "kind": "heading",
+            "text": "Large"
           },
           {
             "id": "ch29-content-en-169",
             "kind": "paragraph",
-            "text": "To make the best possible choice about sample size, it does help to know what the current standard deviation is to understand what measurement is going to be meaningful. Remember, two replicates have an 80 percent chance of detecting 1.36 standard deviations, not a 1.36 shift in the actual compliance score."
+            "text": "< 1 std dev shift"
           },
           {
             "id": "ch29-content-en-170",
             "kind": "paragraph",
-            "text": "Before moving forward with the experiment, the team might consider some sample data. Here are the sanitation compliance scores from all of the clinical audits for one week."
+            "text": "1-2 std dev shift"
           },
           {
             "id": "ch29-content-en-171",
             "kind": "paragraph",
-            "text": "7.8 7.5 7.1 7.5 9.1 5.4 7.2 7.2 5.8 8.7"
+            "text": "2+ std dev shift"
           },
           {
             "id": "ch29-content-en-172",
             "kind": "paragraph",
-            "text": "5.8 7.1 6.7 7.8 5.1 7.7 6.5 8.2 7.4 7.1"
+            "text": "The final item is a worksheet to help you gather results from the experiment. Minitab randomizes the order of the runs, which would be required if you were completing the experiment in real-time."
           },
           {
             "id": "ch29-content-en-173",
-            "kind": "paragraph",
-            "text": "Copy the data into Excel or Minitab to calculate the standard deviation of that data set."
+            "kind": "image",
+            "assetId": "fig-11b3be8c1a3dab5e",
+            "src": "assets/figures/fig-11b3be8c1a3dab5e.png",
+            "width": 1191,
+            "height": 515
           },
           {
             "id": "ch29-content-en-174",
             "kind": "paragraph",
-            "text": "The standard deviation is 1.028."
+            "text": "For the healthcare scenario we entered, the detection ability based on 2 replicas will detect standard deviations of 1.36 or more."
           },
           {
             "id": "ch29-content-en-175",
-            "kind": "paragraph",
-            "text": "According to the first summary, based on the setting for 2 replicates, the detection ability of the experiment is only an 80 percent chance at detecting changes of 1.36 standard deviations. That’s too big to make the difference the healthcare team needs to see. At three replicates, the difference is right on the line, and in any other situation, a Six Sigma expert would probably want to go with 4 or more replicates. For the purpose of this exercise, we’ll stay with 2 replicates for the rest of the example."
+            "kind": "image",
+            "assetId": "fig-f78fb8cea4bb9658",
+            "src": "assets/figures/fig-f78fb8cea4bb9658.png",
+            "width": 824,
+            "height": 381
           },
           {
             "id": "ch29-content-en-176",
             "kind": "paragraph",
-            "text": "On the Report Card screen, select “View the pre-experiment checklist”."
+            "text": "If the team wanted to detect smaller changes, it would need to add more replicates. Four replications would detect 0.91 standard deviations, and 5 would detect as little as 0.81 standard deviations."
           },
           {
             "id": "ch29-content-en-177",
-            "kind": "paragraph",
-            "text": "Minitab provides some important tips for completing a designed experiment in the checklist."
+            "kind": "image",
+            "assetId": "fig-3b61540c06405bee",
+            "src": "assets/figures/fig-3b61540c06405bee.png",
+            "width": 771,
+            "height": 368
           },
           {
             "id": "ch29-content-en-178",
             "kind": "paragraph",
-            "text": "First, anyone involved in the experiment should be properly trained to remove variation from operator error. Individuals involved must know how to measure the output, or response, how to set factor levels if that is required during the experiment, and how to make changes to equipment or processes between runs to affect the experiment. In the healthcare example we are using, the only training that might be required is ensuring the audit – which applies the compliance score – is handled correctly. In another situation, however, a team might be running a production process in a manufacturing plant. The team might want to try different materials, different tools, and different operators as part of the experiment, and they would have to ensure everyone knew how to use the materials and tools."
+            "text": "To make the best possible choice about sample size, it does help to know what the current standard deviation is to understand what measurement is going to be meaningful. Remember, two replicates have an 80 percent chance of detecting 1.36 standard deviations, not a 1.36 shift in the actual compliance score."
           },
           {
             "id": "ch29-content-en-179",
             "kind": "paragraph",
-            "text": "Measurement systems should be validated for both the response and the levels for every factor. In our healthcare example, the Six Sigma team should have already validated the measurement system used to rate compliance. They might have used a Gage R & R to determine if separate auditors with separate replications would rate the same situation the same way more than once, for example. Teams should also validate the measurements used to set levels. If the speed of a wheel in a manufacturing process is to be set at 1 rpm, 1.2 rpm, and 1.5 rpm as levels of a factor, then calibrations for those settings should be checked."
+            "text": "Before moving forward with the experiment, the team might consider some sample data. Here are the sanitation compliance scores from all of the clinical audits for one week."
           },
           {
             "id": "ch29-content-en-180",
             "kind": "paragraph",
-            "text": "When running actual experiments, Six Sigma teams should review all possible combinations in the experiment to ensure they are all both safe and possible. Perfectly safe or possible levels for one factor might become unsafe or impossible when combined with another, for example. The team might want to perform a few trial runs to work out troubleshooting issues with the experiment and finalize validations before moving on to the actual experiment."
+            "text": "7.8 7.5 7.1 7.5 9.1 5.4 7.2 7.2 5.8 8.7"
           },
           {
             "id": "ch29-content-en-181",
             "kind": "paragraph",
-            "text": "Finally, the team runs the designed experiment according to the random worksheet created by Minitab. In the healthcare scenario, the team reviewed the data for the last month in random order and recorded the first set of data that fit each experiment scenario. For example, the first run in the list below required that the staff member being audited had received compliance training in the last six months, was over the 4th hour into a shift when the interaction being audited occurred, and was working at a time when the particular floor was at 80 percent or more of capacity. The first score that met those parameters was 7.9. The results of the data gathering are included below, and you can copy this table into Minitab if you want to follow along with the analysis."
+            "text": "5.8 7.1 6.7 7.8 5.1 7.7 6.5 8.2 7.4 7.1"
           },
           {
             "id": "ch29-content-en-182",
-            "kind": "heading",
-            "text": "StdOrder RunOrder CenterPt Blocks StaffEd TimeShift"
+            "kind": "paragraph",
+            "text": "Copy the data into Excel or Minitab to calculate the standard deviation of that data set."
           },
           {
             "id": "ch29-content-en-183",
-            "kind": "heading",
-            "text": "NoPts Compliance"
+            "kind": "paragraph",
+            "text": "The standard deviation is 1.028."
           },
           {
             "id": "ch29-content-en-184",
             "kind": "paragraph",
-            "text": "80% or"
+            "text": "According to the first summary, based on the setting for 2 replicates, the detection ability of the experiment is only an 80 percent chance at detecting changes of 1.36 standard deviations. That’s too big to make the difference the healthcare team needs to see. At three replicates, the difference is right on the line, and in any other situation, a Six Sigma expert would probably want to go with 4 or more replicates. For the purpose of this exercise, we’ll stay with 2 replicates for the rest of the example."
           },
           {
             "id": "ch29-content-en-185",
-            "kind": "paragraph",
-            "text": "8 1 1 1 Yes Over 4"
+            "kind": "image",
+            "assetId": "fig-f78fb8cea4bb9658",
+            "src": "assets/figures/fig-f78fb8cea4bb9658.png",
+            "width": 824,
+            "height": 381
           },
           {
             "id": "ch29-content-en-186",
             "kind": "paragraph",
-            "text": "more 8.2"
+            "text": "On the Report Card screen, select “View the pre-experiment checklist”."
           },
           {
             "id": "ch29-content-en-187",
             "kind": "paragraph",
-            "text": "4 or under Below 80% 9.5"
+            "text": "Minitab provides some important tips for completing a designed experiment in the checklist."
           },
           {
             "id": "ch29-content-en-188",
-            "kind": "paragraph",
-            "text": "2 2 1 1 Yes"
+            "kind": "image",
+            "assetId": "fig-d4d51f97b90cbc64",
+            "src": "assets/figures/fig-d4d51f97b90cbc64.png",
+            "width": 1191,
+            "height": 393
           },
           {
             "id": "ch29-content-en-189",
             "kind": "paragraph",
-            "text": "80% or"
+            "text": "First, anyone involved in the experiment should be properly trained to remove variation from operator error. Individuals involved must know how to measure the output, or response, how to set factor levels if that is required during the experiment, and how to make changes to equipment or processes between runs to affect the experiment. In the healthcare example we are using, the only training that might be required is ensuring the audit – which applies the compliance score – is handled correctly. In another situation, however, a team might be running a production process in a manufacturing plant. The team might want to try different materials, different tools, and different operators as part of the experiment, and they would have to ensure everyone knew how to use the materials and tools."
           },
           {
             "id": "ch29-content-en-190",
             "kind": "paragraph",
-            "text": "7 3 1 1 No Over 4"
+            "text": "Measurement systems should be validated for both the response and the levels for every factor. In our healthcare example, the Six Sigma team should have already validated the measurement system used to rate compliance. They might have used a Gage R & R to determine if separate auditors with separate replications would rate the same situation the same way more than once, for example. Teams should also validate the measurements used to set levels. If the speed of a wheel in a manufacturing process is to be set at 1 rpm, 1.2 rpm, and 1.5 rpm as levels of a factor, then calibrations for those settings should be checked."
           },
           {
             "id": "ch29-content-en-191",
             "kind": "paragraph",
-            "text": "more 7.2"
+            "text": "When running actual experiments, Six Sigma teams should review all possible combinations in the experiment to ensure they are all both safe and possible. Perfectly safe or possible levels for one factor might become unsafe or impossible when combined with another, for example. The team might want to perform a few trial runs to work out troubleshooting issues with the experiment and finalize validations before moving on to the actual experiment."
           },
           {
             "id": "ch29-content-en-192",
             "kind": "paragraph",
-            "text": "4 or under Below 80% 7.8"
+            "text": "Finally, the team runs the designed experiment according to the random worksheet created by Minitab. In the healthcare scenario, the team reviewed the data for the last month in random order and recorded the first set of data that fit each experiment scenario. For example, the first run in the list below required that the staff member being audited had received compliance training in the last six months, was over the 4th hour into a shift when the interaction being audited occurred, and was working at a time when the particular floor was at 80 percent or more of capacity. The first score that met those parameters was 7.9. The results of the data gathering are included below, and you can copy this table into Minitab if you want to follow along with the analysis."
           },
           {
             "id": "ch29-content-en-193",
-            "kind": "paragraph",
-            "text": "1 4 1 1 No"
+            "kind": "heading",
+            "text": "StdOrder RunOrder CenterPt Blocks StaffEd TimeShift"
           },
           {
             "id": "ch29-content-en-194",
-            "kind": "paragraph",
-            "text": "80% or"
+            "kind": "heading",
+            "text": "NoPts Compliance"
           },
           {
             "id": "ch29-content-en-195",
             "kind": "paragraph",
-            "text": "4 or under"
+            "text": "80% or"
           },
           {
             "id": "ch29-content-en-196",
             "kind": "paragraph",
-            "text": "5 5 1 1 No"
+            "text": "8 1 1 1 Yes Over 4"
           },
           {
             "id": "ch29-content-en-197",
             "kind": "paragraph",
-            "text": "more 5.2 3 6 1 1 No Over 4 Below 80% 5.4 4 7 1 1 Yes Over 4 Below 80% 8.5"
+            "text": "more 8.2"
           },
           {
             "id": "ch29-content-en-198",
             "kind": "paragraph",
-            "text": "80% or"
+            "text": "4 or under Below 80% 9.5"
           },
           {
             "id": "ch29-content-en-199",
             "kind": "paragraph",
-            "text": "4 or under"
+            "text": "2 2 1 1 Yes"
           },
           {
             "id": "ch29-content-en-200",
             "kind": "paragraph",
-            "text": "6 8 1 1 Yes"
+            "text": "80% or"
           },
           {
             "id": "ch29-content-en-201",
             "kind": "paragraph",
-            "text": "more 9.7 11 9 1 2 No Over 4 Below 80% 7.2"
+            "text": "7 3 1 1 No Over 4"
           },
           {
             "id": "ch29-content-en-202",
             "kind": "paragraph",
-            "text": "80% or"
+            "text": "more 7.2"
           },
           {
             "id": "ch29-content-en-203",
             "kind": "paragraph",
-            "text": "16 10 1 2 Yes Over 4"
+            "text": "4 or under Below 80% 7.8"
           },
           {
             "id": "ch29-content-en-204",
             "kind": "paragraph",
-            "text": "more 8.8"
+            "text": "1 4 1 1 No"
           },
           {
             "id": "ch29-content-en-205",
             "kind": "paragraph",
-            "text": "4 or under Below 80% 9.2"
+            "text": "80% or"
           },
           {
             "id": "ch29-content-en-206",
             "kind": "paragraph",
-            "text": "10 11 1 2 Yes"
+            "text": "4 or under"
           },
           {
             "id": "ch29-content-en-207",
             "kind": "paragraph",
-            "text": "4 or under Below 80% 6.3"
+            "text": "5 5 1 1 No"
           },
           {
             "id": "ch29-content-en-208",
             "kind": "paragraph",
-            "text": "9 12 1 2 No"
+            "text": "more 5.2 3 6 1 1 No Over 4 Below 80% 5.4 4 7 1 1 Yes Over 4 Below 80% 8.5"
           },
           {
             "id": "ch29-content-en-209",
@@ -1076,12 +1109,12 @@
           {
             "id": "ch29-content-en-211",
             "kind": "paragraph",
-            "text": "14 13 1 2 Yes"
+            "text": "6 8 1 1 Yes"
           },
           {
             "id": "ch29-content-en-212",
             "kind": "paragraph",
-            "text": "more 9.7"
+            "text": "more 9.7 11 9 1 2 No Over 4 Below 80% 7.2"
           },
           {
             "id": "ch29-content-en-213",
@@ -1091,230 +1124,325 @@
           {
             "id": "ch29-content-en-214",
             "kind": "paragraph",
-            "text": "4 or under"
+            "text": "16 10 1 2 Yes Over 4"
           },
           {
             "id": "ch29-content-en-215",
             "kind": "paragraph",
-            "text": "13 14 1 2 No"
+            "text": "more 8.8"
           },
           {
             "id": "ch29-content-en-216",
             "kind": "paragraph",
-            "text": "more 8.1"
+            "text": "4 or under Below 80% 9.2"
           },
           {
             "id": "ch29-content-en-217",
             "kind": "paragraph",
-            "text": "80% or"
+            "text": "10 11 1 2 Yes"
           },
           {
             "id": "ch29-content-en-218",
             "kind": "paragraph",
-            "text": "15 15 1 2 No Over 4"
+            "text": "4 or under Below 80% 6.3"
           },
           {
             "id": "ch29-content-en-219",
             "kind": "paragraph",
-            "text": "more 5.6 12 16 1 2 Yes Over 4 Below 80% 8.9"
+            "text": "9 12 1 2 No"
           },
           {
             "id": "ch29-content-en-220",
             "kind": "paragraph",
-            "text": "To analyze the results in Minitab, select Assistant > DOE > Analyze and Interpret."
+            "text": "80% or"
           },
           {
             "id": "ch29-content-en-221",
-            "kind": "heading",
-            "text": "Click “Fit Linear Model.”"
+            "kind": "paragraph",
+            "text": "4 or under"
           },
           {
             "id": "ch29-content-en-222",
             "kind": "paragraph",
-            "text": "Select “Maximize the response” (Or the response goal that matches the goal for your experiment.)"
+            "text": "14 13 1 2 Yes"
           },
           {
             "id": "ch29-content-en-223",
             "kind": "paragraph",
-            "text": "Click OK."
+            "text": "more 9.7"
           },
           {
             "id": "ch29-content-en-224",
             "kind": "paragraph",
-            "text": "Minitab generates five items:"
+            "text": "80% or"
           },
           {
             "id": "ch29-content-en-225",
-            "kind": "listItem",
-            "text": "A report card"
+            "kind": "paragraph",
+            "text": "4 or under"
           },
           {
             "id": "ch29-content-en-226",
-            "kind": "listItem",
-            "text": "A prediction and optimization report"
+            "kind": "paragraph",
+            "text": "13 14 1 2 No"
           },
           {
             "id": "ch29-content-en-227",
-            "kind": "listItem",
-            "text": "A diagnostic report"
+            "kind": "paragraph",
+            "text": "more 8.1"
           },
           {
             "id": "ch29-content-en-228",
-            "kind": "listItem",
-            "text": "An effects report"
+            "kind": "paragraph",
+            "text": "80% or"
           },
           {
             "id": "ch29-content-en-229",
-            "kind": "listItem",
-            "text": "A summary report"
+            "kind": "paragraph",
+            "text": "15 15 1 2 No Over 4"
           },
           {
             "id": "ch29-content-en-230",
             "kind": "paragraph",
-            "text": "The report card provides overall information about the analysis and some tips for understanding the results. In this case, the report card notes that no unusual data points, or possible outliers, are noted and that there is only one significant factor in the experiment according to statistical analysis."
+            "text": "more 5.6 12 16 1 2 Yes Over 4 Below 80% 8.9"
           },
           {
             "id": "ch29-content-en-231",
             "kind": "paragraph",
-            "text": "The prediction and optimization report compares the means associated with significant factors and provides an optimized level setting for those factors. In this case, only one factor – whether or not the staff had received compliance training in the past six months – was statistically significant."
+            "text": "To analyze the results in Minitab, select Assistant > DOE > Analyze and Interpret."
           },
           {
             "id": "ch29-content-en-232",
             "kind": "heading",
-            "text": "Fit Linear Model for Compliance"
+            "text": "Click “Fit Linear Model.”"
           },
           {
             "id": "ch29-content-en-233",
-            "kind": "heading",
-            "text": "Prediction and Optimization Report"
+            "kind": "image",
+            "assetId": "fig-b7054193a52ec77d",
+            "src": "assets/figures/fig-b7054193a52ec77d.png",
+            "width": 1191,
+            "height": 908
           },
           {
             "id": "ch29-content-en-234",
-            "kind": "heading",
-            "text": "Goal: Maximize Compliance"
+            "kind": "paragraph",
+            "text": "Select “Maximize the response” (Or the response goal that matches the goal for your experiment.)"
           },
           {
             "id": "ch29-content-en-235",
-            "kind": "heading",
-            "text": "Solution: Optimal Setting"
+            "kind": "image",
+            "assetId": "fig-75e6d62f5c609db0",
+            "src": "assets/figures/fig-75e6d62f5c609db0.png",
+            "width": 811,
+            "height": 482
           },
           {
             "id": "ch29-content-en-236",
             "kind": "paragraph",
-            "text": "Predicted Y 9.0625 StaffEd Yes 95% CI (8.3878, 9.7372)"
+            "text": "Click OK."
           },
           {
             "id": "ch29-content-en-237",
-            "kind": "heading",
-            "text": "Main Effects Plot for StaffEd"
+            "kind": "paragraph",
+            "text": "Minitab generates five items:"
           },
           {
             "id": "ch29-content-en-238",
-            "kind": "paragraph",
-            "text": "Compare the means and intervals. The green interval shows the optimal setting for StaffEd."
+            "kind": "listItem",
+            "text": "A report card"
           },
           {
             "id": "ch29-content-en-239",
-            "kind": "heading",
-            "text": "Level"
+            "kind": "listItem",
+            "text": "A prediction and optimization report"
           },
           {
             "id": "ch29-content-en-240",
-            "kind": "paragraph",
-            "text": "N Mean 95% CI for Mean"
+            "kind": "listItem",
+            "text": "A diagnostic report"
           },
           {
             "id": "ch29-content-en-241",
-            "kind": "paragraph",
-            "text": "No"
+            "kind": "listItem",
+            "text": "An effects report"
           },
           {
             "id": "ch29-content-en-242",
-            "kind": "paragraph",
-            "text": "No 8 6.5996 (5.92, 7.27) Yes 8 9.0625 (8.39, 9.74)"
+            "kind": "listItem",
+            "text": "A summary report"
           },
           {
             "id": "ch29-content-en-243",
-            "kind": "heading",
-            "text": "StaffEd"
+            "kind": "paragraph",
+            "text": "The report card provides overall information about the analysis and some tips for understanding the results. In this case, the report card notes that no unusual data points, or possible outliers, are noted and that there is only one significant factor in the experiment according to statistical analysis."
           },
           {
             "id": "ch29-content-en-244",
-            "kind": "paragraph",
-            "text": "Yes"
+            "kind": "image",
+            "assetId": "fig-c277bd75b3c2e8af",
+            "src": "assets/figures/fig-c277bd75b3c2e8af.png",
+            "width": 1191,
+            "height": 645
           },
           {
             "id": "ch29-content-en-245",
             "kind": "paragraph",
-            "text": "9 8 7 6"
+            "text": "The prediction and optimization report compares the means associated with significant factors and provides an optimized level setting for those factors. In this case, only one factor – whether or not the staff had received compliance training in the past six months – was statistically significant."
           },
           {
             "id": "ch29-content-en-246",
             "kind": "heading",
-            "text": "Compliance"
+            "text": "Fit Linear Model for Compliance"
           },
           {
             "id": "ch29-content-en-247",
-            "kind": "paragraph",
-            "text": "The effects report provides more information about all the factors. In the lower part of the diagram below, you can see the main effects plots for each factor. The main effect is the difference between the mean response at each factor setting. You can see that only a slight difference occurs between the means of the responses for different amounts of time spent on the shift and almost no difference occurs between the means of the two settings for amount of patients on the floor. The largest difference is seen with regard to the compliance education status. The same is true in the top part of the graph, where different factors are graphed together."
+            "kind": "heading",
+            "text": "Prediction and Optimization Report"
           },
           {
             "id": "ch29-content-en-248",
             "kind": "heading",
-            "text": "Fit Linear Model for Compliance"
+            "text": "Goal: Maximize Compliance"
           },
           {
             "id": "ch29-content-en-249",
             "kind": "heading",
-            "text": "Effects Report"
+            "text": "Solution: Optimal Setting"
           },
           {
             "id": "ch29-content-en-250",
-            "kind": "heading",
-            "text": "Interaction Plots for Compliance"
+            "kind": "paragraph",
+            "text": "Predicted Y 9.0625 StaffEd Yes 95% CI (8.3878, 9.7372)"
           },
           {
             "id": "ch29-content-en-251",
-            "kind": "paragraph",
-            "text": "Describes how the mean of Compliance changes if you change the settings of two factors."
+            "kind": "heading",
+            "text": "Main Effects Plot for StaffEd"
           },
           {
             "id": "ch29-content-en-252",
-            "kind": "heading",
-            "text": "Mean of Compliance"
+            "kind": "paragraph",
+            "text": "Compare the means and intervals. The green interval shows the optimal setting for StaffEd."
           },
           {
             "id": "ch29-content-en-253",
-            "kind": "paragraph",
-            "text": "A gray background represents a term that was removed from the model because it is not statistically significant."
+            "kind": "heading",
+            "text": "Level"
           },
           {
             "id": "ch29-content-en-254",
             "kind": "paragraph",
-            "text": "The summary report provides a Pareto breakdown of the influence on the response. In this case, the biggest influence on the compliance number is whether the staff received compliance training in the last six months. The next factor is how long the staff member had been working that shift. The third most influential factor is a combination of A (staff training) and B (time worked on the shift). Number of patients on the floor doesn’t make an appearance until the fourth influence."
+            "text": "N Mean 95% CI for Mean"
           },
           {
             "id": "ch29-content-en-255",
             "kind": "paragraph",
-            "text": "The summary notes that setting the staff education factor at Yes – the staff member received training within the last 6 months – results in a predicted Y (response) that is above 9. The summary also notes that this model explains 68.64 percent of the variation."
+            "text": "No"
           },
           {
             "id": "ch29-content-en-256",
             "kind": "paragraph",
-            "text": "Based on these results, the Six Sigma team might run further tests and analysis, but it would also likely make a recommendation about supplying staff with compliance training. If you remember, the training that was mentioned originally was an annual training. However, this experiment seems to indicate that the training has more impact if staff members have received it within the past 6 months. The team might recommend that staff receive the training biannually going forward."
+            "text": "No 8 6.5996 (5.92, 7.27) Yes 8 9.0625 (8.39, 9.74)"
           },
           {
             "id": "ch29-content-en-257",
             "kind": "heading",
-            "text": "Next Steps"
+            "text": "StaffEd"
           },
           {
             "id": "ch29-content-en-258",
             "kind": "paragraph",
-            "text": "Remember that an experiment is not usually what solves the large problem that the Six Sigma team is working on. It simply helps approach one part of a solution to that problem. In the case of the healthcare Six Sigma team, recommending the additional training might increase compliance rates with the sanitation protocol, which could in turn decrease the rate of staph infections in the hospital. But that’s not likely the only root cause the team has found and not the only solution it will recommend."
+            "text": "Yes"
           },
           {
             "id": "ch29-content-en-259",
+            "kind": "paragraph",
+            "text": "9 8 7 6"
+          },
+          {
+            "id": "ch29-content-en-260",
+            "kind": "heading",
+            "text": "Compliance"
+          },
+          {
+            "id": "ch29-content-en-261",
+            "kind": "paragraph",
+            "text": "The effects report provides more information about all the factors. In the lower part of the diagram below, you can see the main effects plots for each factor. The main effect is the difference between the mean response at each factor setting. You can see that only a slight difference occurs between the means of the responses for different amounts of time spent on the shift and almost no difference occurs between the means of the two settings for amount of patients on the floor. The largest difference is seen with regard to the compliance education status. The same is true in the top part of the graph, where different factors are graphed together."
+          },
+          {
+            "id": "ch29-content-en-262",
+            "kind": "heading",
+            "text": "Fit Linear Model for Compliance"
+          },
+          {
+            "id": "ch29-content-en-263",
+            "kind": "heading",
+            "text": "Effects Report"
+          },
+          {
+            "id": "ch29-content-en-264",
+            "kind": "heading",
+            "text": "Interaction Plots for Compliance"
+          },
+          {
+            "id": "ch29-content-en-265",
+            "kind": "paragraph",
+            "text": "Describes how the mean of Compliance changes if you change the settings of two factors."
+          },
+          {
+            "id": "ch29-content-en-266",
+            "kind": "image",
+            "assetId": "fig-70cce5c322c7c0f7",
+            "src": "assets/figures/fig-70cce5c322c7c0f7.png",
+            "width": 1192,
+            "height": 761
+          },
+          {
+            "id": "ch29-content-en-267",
+            "kind": "heading",
+            "text": "Mean of Compliance"
+          },
+          {
+            "id": "ch29-content-en-268",
+            "kind": "paragraph",
+            "text": "A gray background represents a term that was removed from the model because it is not statistically significant."
+          },
+          {
+            "id": "ch29-content-en-269",
+            "kind": "paragraph",
+            "text": "The summary report provides a Pareto breakdown of the influence on the response. In this case, the biggest influence on the compliance number is whether the staff received compliance training in the last six months. The next factor is how long the staff member had been working that shift. The third most influential factor is a combination of A (staff training) and B (time worked on the shift). Number of patients on the floor doesn’t make an appearance until the fourth influence."
+          },
+          {
+            "id": "ch29-content-en-270",
+            "kind": "paragraph",
+            "text": "The summary notes that setting the staff education factor at Yes – the staff member received training within the last 6 months – results in a predicted Y (response) that is above 9. The summary also notes that this model explains 68.64 percent of the variation."
+          },
+          {
+            "id": "ch29-content-en-271",
+            "kind": "image",
+            "assetId": "fig-4b20bc1364c8dc52",
+            "src": "assets/figures/fig-4b20bc1364c8dc52.png",
+            "width": 1240,
+            "height": 905
+          },
+          {
+            "id": "ch29-content-en-272",
+            "kind": "paragraph",
+            "text": "Based on these results, the Six Sigma team might run further tests and analysis, but it would also likely make a recommendation about supplying staff with compliance training. If you remember, the training that was mentioned originally was an annual training. However, this experiment seems to indicate that the training has more impact if staff members have received it within the past 6 months. The team might recommend that staff receive the training biannually going forward."
+          },
+          {
+            "id": "ch29-content-en-273",
+            "kind": "heading",
+            "text": "Next Steps"
+          },
+          {
+            "id": "ch29-content-en-274",
+            "kind": "paragraph",
+            "text": "Remember that an experiment is not usually what solves the large problem that the Six Sigma team is working on. It simply helps approach one part of a solution to that problem. In the case of the healthcare Six Sigma team, recommending the additional training might increase compliance rates with the sanitation protocol, which could in turn decrease the rate of staph infections in the hospital. But that’s not likely the only root cause the team has found and not the only solution it will recommend."
+          },
+          {
+            "id": "ch29-content-en-275",
             "kind": "paragraph",
             "text": "After drawing conclusions from experiments, Six Sigma teams must take steps to validate results, implement solutions or work the results into the overall project, and create controls. These steps will be covered in more detail at the end of the next chapter."
           }
@@ -1857,66 +1985,74 @@
           },
           {
             "id": "ch29-content-zh-096",
-            "kind": "paragraph",
-            "text": "第 5 步：实验的因子水平是多少？"
+            "kind": "image",
+            "assetId": "fig-a992bf7e40decdc0",
+            "src": "assets/figures/fig-a992bf7e40decdc0.png",
+            "width": 545,
+            "height": 460
           },
           {
             "id": "ch29-content-zh-097",
             "kind": "paragraph",
-            "text": "为了实验的目的，输入变量将设置在什么水平？如果您正在进行涉及烘烤饼干的实验，那么烤箱温度就是一个输入或因素。该因子的级别可能为 325 华氏度、350 华氏度和 375 度"
+            "text": "第 5 步：实验的因子水平是多少？"
           },
           {
             "id": "ch29-content-zh-098",
             "kind": "paragraph",
-            "text": "华氏度。请记住，在 2k 阶乘的情况下，每个因子只有两个水平。"
+            "text": "为了实验的目的，输入变量将设置在什么水平？如果您正在进行涉及烘烤饼干的实验，那么烤箱温度就是一个输入或因素。该因子的级别可能为 325 华氏度、350 华氏度和 375 度"
           },
           {
             "id": "ch29-content-zh-099",
             "kind": "paragraph",
-            "text": "在医疗保健示例中，团队决定将每个因素设置为低值和高值："
+            "text": "华氏度。请记住，在 2k 阶乘的情况下，每个因子只有两个水平。"
           },
           {
             "id": "ch29-content-zh-100",
-            "kind": "listItem",
-            "text": "员工教育：过去 6 个月内接受过年度合规更新培训与过去 6 个月内未接受过培训"
+            "kind": "paragraph",
+            "text": "在医疗保健示例中，团队决定将每个因素设置为低值和高值："
           },
           {
             "id": "ch29-content-zh-101",
             "kind": "listItem",
-            "text": "轮班时间：小于或等于 4 小时 vs 5 小时或以上"
+            "text": "员工教育：过去 6 个月内接受过年度合规更新培训与过去 6 个月内未接受过培训"
           },
           {
             "id": "ch29-content-zh-102",
             "kind": "listItem",
-            "text": "楼层患者人数：低于最大容量的 80% 与高于最大容量的 80%"
+            "text": "轮班时间：小于或等于 4 小时 vs 5 小时或以上"
           },
           {
             "id": "ch29-content-zh-103",
-            "kind": "paragraph",
-            "text": "为每个因素设定的水平取决于多种考虑因素。如果团队正在进行筛选实验（这意味着他们只想测试输入对输出的影响或更好地了解过程），他们会以较宽的间隔设置水平。对于优化，团队可能已经了解输入对流程的影响；该团队可能已经进行了分析或实验，这些信息可以帮助他们以较小的间隔适当地设置水平。"
+            "kind": "listItem",
+            "text": "楼层患者人数：低于最大容量的 80% 与高于最大容量的 80%"
           },
           {
             "id": "ch29-content-zh-104",
             "kind": "paragraph",
-            "text": "该过程本身将决定如何设置某些级别。例如，如果六西格玛团队正在进行烘焙过程，则它无法将温度设置为低于0度，并且大多数烤箱也有最高温度范围。团队还可能知道烘焙食品仍处于生状态的温度，因此他们不太可能将温度设置为 100 华氏度之类的温度。在设置温度水平时，安全始终应该是一个问题。烤箱最高温度可能会达到 550 华氏度，但尝试在该温度下烘烤饼干是否安全？"
+            "text": "为每个因素设定的水平取决于多种考虑因素。如果团队正在进行筛选实验（这意味着他们只想测试输入对输出的影响或更好地了解过程），他们会以较宽的间隔设置水平。对于优化，团队可能已经了解输入对流程的影响；该团队可能已经进行了分析或实验，这些信息可以帮助他们以较小的间隔适当地设置水平。"
           },
           {
             "id": "ch29-content-zh-105",
             "kind": "paragraph",
-            "text": "最后，这些级别应与团队正在寻找的信息类型以及团队希望看到的变化规模相关。如果一个团队正在使用切割木材的制造流程，那么它可能希望看到小增量的变化。将工具水平设置为相距几英尺并不会显示团队希望看到的变化，如果他们正在处理将被切割成 6 英寸块的 2 x 4 木材块的切割过程。"
+            "text": "该过程本身将决定如何设置某些级别。例如，如果六西格玛团队正在进行烘焙过程，则它无法将温度设置为低于0度，并且大多数烤箱也有最高温度范围。团队还可能知道烘焙食品仍处于生状态的温度，因此他们不太可能将温度设置为 100 华氏度之类的温度。在设置温度水平时，安全始终应该是一个问题。烤箱最高温度可能会达到 550 华氏度，但尝试在该温度下烘烤饼干是否安全？"
           },
           {
             "id": "ch29-content-zh-106",
             "kind": "paragraph",
-            "text": "第 6 步：合适的样本量是多少？"
+            "text": "最后，这些级别应与团队正在寻找的信息类型以及团队希望看到的变化规模相关。如果一个团队正在使用切割木材的制造流程，那么它可能希望看到小增量的变化。将工具水平设置为相距几英尺并不会显示团队希望看到的变化，如果他们正在处理将被切割成 6 英寸块的 2 x 4 木材块的切割过程。"
           },
           {
             "id": "ch29-content-zh-107",
             "kind": "paragraph",
-            "text": "在实验设计中，样本量不是您收集的数据元素的数量，而是您重复实验的次数。重复次数越多，统计数据的准确性就越高，但 DOE 中的每次运行都需要时间和可能的其他资源。 六西格玛专家必须平衡资源的利用与强有力的实验结论的需要。当您在 Minitab 中创建实验设计时，软件程序甚至在运行实验之前就会生成一些有关实验的预测，这使您可以在开始之前决定大小和重复性。具体来说，Minitab 会告诉您效应的大小（以标准差衡量），您在设计实验时有 80% 的可能性捕获该效应。"
+            "text": "第 6 步：合适的样本量是多少？"
           },
           {
             "id": "ch29-content-zh-108",
+            "kind": "paragraph",
+            "text": "在实验设计中，样本量不是您收集的数据元素的数量，而是您重复实验的次数。重复次数越多，统计数据的准确性就越高，但 DOE 中的每次运行都需要时间和可能的其他资源。 六西格玛专家必须平衡资源的利用与强有力的实验结论的需要。当您在 Minitab 中创建实验设计时，软件程序甚至在运行实验之前就会生成一些有关实验的预测，这使您可以在开始之前决定大小和重复性。具体来说，Minitab 会告诉您效应的大小（以标准差衡量），您在设计实验时有 80% 的可能性捕获该效应。"
+          },
+          {
+            "id": "ch29-content-zh-109",
             "kind": "termNote",
             "rows": [
               [
@@ -1926,97 +2062,113 @@
             "text": "术语说明 Standard Deviation（标准差）：衡量数据离散程度的统计量；标准差越大，波动越明显。"
           },
           {
-            "id": "ch29-content-zh-109",
+            "id": "ch29-content-zh-110",
             "kind": "paragraph",
             "text": "在 Minitab 中运行 2k 因子实验的分步指南"
           },
           {
-            "id": "ch29-content-zh-110",
+            "id": "ch29-content-zh-111",
             "kind": "paragraph",
             "text": "要了解有关样本大小和复制的更多信息，以及如何在 Minitab 中运行 2k 因子实验，请从“助手”菜单开始。您还可以在统计 > DOE 下访问实验设计，但助手向导非常有用，因为它会提醒您本章前面讨论的所有步骤，帮助您决定正确的实验类型，并帮助您创建数据收集表格和分析。"
           },
           {
-            "id": "ch29-content-zh-111",
+            "id": "ch29-content-zh-112",
             "kind": "paragraph",
             "text": "为了设置此实验，请使用上面讨论的医疗保健示例。"
           },
           {
-            "id": "ch29-content-zh-112",
+            "id": "ch29-content-zh-113",
             "kind": "paragraph",
             "text": "问题：在卫生遵守情况的 10 分评价中，临床医护人员的平均得分为 7.1。医院要求平均分至少9.0。"
           },
           {
-            "id": "ch29-content-zh-113",
+            "id": "ch29-content-zh-114",
             "kind": "paragraph",
             "text": "目标：将合规性分数提高到至少 9.0。"
           },
           {
-            "id": "ch29-content-zh-114",
+            "id": "ch29-content-zh-115",
             "kind": "paragraph",
             "text": "回应：卫生协议的遵守率"
           },
           {
-            "id": "ch29-content-zh-115",
+            "id": "ch29-content-zh-116",
             "kind": "paragraph",
             "text": "因素：员工教育程度、轮班时间、楼层患者数量"
           },
           {
-            "id": "ch29-content-zh-116",
+            "id": "ch29-content-zh-117",
             "kind": "heading",
             "text": "级别："
           },
           {
-            "id": "ch29-content-zh-117",
+            "id": "ch29-content-zh-118",
             "kind": "paragraph",
             "text": "系数低 (-1) 高 (1)"
           },
           {
-            "id": "ch29-content-zh-118",
+            "id": "ch29-content-zh-119",
             "kind": "paragraph",
             "text": "员工教育 过去 6 个月内未接受过合规培训"
           },
           {
-            "id": "ch29-content-zh-119",
+            "id": "ch29-content-zh-120",
             "kind": "paragraph",
             "text": "在过去 6 个月内是否接受过合规培训"
           },
           {
-            "id": "ch29-content-zh-120",
+            "id": "ch29-content-zh-121",
             "kind": "paragraph",
             "text": "轮班时间 小于或等于 4 小时 5 小时或以上"
           },
           {
-            "id": "ch29-content-zh-121",
+            "id": "ch29-content-zh-122",
             "kind": "paragraph",
             "text": "楼层患者人数 低于最大容量的 80%"
           },
           {
-            "id": "ch29-content-zh-122",
+            "id": "ch29-content-zh-123",
             "kind": "paragraph",
             "text": "等于或高于最大容量的 80%"
           },
           {
-            "id": "ch29-content-zh-123",
+            "id": "ch29-content-zh-124",
             "kind": "paragraph",
             "text": "选择助手 > DOE > 计划和创建。"
           },
           {
-            "id": "ch29-content-zh-124",
+            "id": "ch29-content-zh-125",
             "kind": "paragraph",
             "text": "选择“计划优化实验”，因为团队希望改进或优化流程。"
           },
           {
-            "id": "ch29-content-zh-125",
+            "id": "ch29-content-zh-126",
+            "kind": "image",
+            "assetId": "fig-45d29e0ebb2f80a8",
+            "src": "assets/figures/fig-45d29e0ebb2f80a8.png",
+            "width": 1191,
+            "height": 903
+          },
+          {
+            "id": "ch29-content-zh-127",
             "kind": "paragraph",
             "text": "Minitab 提供了一些有关识别因素、设置水平和选择样本量的说明。这些信息都很有价值，值得审查，特别是如果您距离上次执行 DOE 已有很长时间了。这也是本章中包含的所有信息。"
           },
           {
-            "id": "ch29-content-zh-126",
+            "id": "ch29-content-zh-128",
+            "kind": "image",
+            "assetId": "fig-3c10f1739a629138",
+            "src": "assets/figures/fig-3c10f1739a629138.png",
+            "width": 1191,
+            "height": 901
+          },
+          {
+            "id": "ch29-content-zh-129",
             "kind": "paragraph",
             "text": "上述 Minitab 菜单中的一个好注意事项是，最好获得与项目或流程相关的任何利益相关者、项目所有者或发起人的批准。主要利益相关者应该了解实验期间会发生什么以及为什么它对项目是必要的。如果需要资源，发起人或其他领导者应按照组织指南的要求签字。"
           },
           {
-            "id": "ch29-content-zh-127",
+            "id": "ch29-content-zh-130",
             "kind": "termNote",
             "rows": [
               [
@@ -2026,104 +2178,98 @@
             "text": "术语说明 Stakeholder（相关方）：会影响项目或被项目影响的人或组织。"
           },
           {
-            "id": "ch29-content-zh-128",
+            "id": "ch29-content-zh-131",
             "kind": "paragraph",
             "text": "在用作示例的特定医疗保健场景中，运行独立实验不是一种选择。六西格玛团队当然不会仅仅为了了解输入信息而给患者带来葡萄球菌感染。在这种特殊情况下，团队需要使用与实验参数相匹配的现有数据。对于任何情况下的团队来说，这都可能是一种选择或要求。"
           },
           {
-            "id": "ch29-content-zh-129",
+            "id": "ch29-content-zh-132",
             "kind": "paragraph",
             "text": "查看所需的任何 Minitab 注释后，单击“返回”。"
           },
           {
-            "id": "ch29-content-zh-130",
+            "id": "ch29-content-zh-133",
             "kind": "paragraph",
             "text": "选择“创建建模设计”。"
           },
           {
-            "id": "ch29-content-zh-131",
+            "id": "ch29-content-zh-134",
+            "kind": "image",
+            "assetId": "fig-ff4e99b83bae13ef",
+            "src": "assets/figures/fig-ff4e99b83bae13ef.png",
+            "width": 1191,
+            "height": 895
+          },
+          {
+            "id": "ch29-content-zh-135",
             "kind": "paragraph",
             "text": "Minitab 显示“建模设计”对话框，请求创建实验所需的所有信息。输入医疗保健场景的信息。"
           },
           {
-            "id": "ch29-content-zh-132",
+            "id": "ch29-content-zh-136",
             "kind": "paragraph",
             "text": "1. 命名响应变量。该团队正在衡量对卫生协议的遵守情况，因此将其命名为“合规性”。该名称对于 Minitab 来说并不重要，因此您可以将变量命名为对您自己或六西格玛团队有意义的任何名称。 2. 选择响应目标的选项。 Minitab 允许您选择最小化响应、最大化响应或实现目标。在本例中，团队希望将合规性提高到 9 分，但高于 9 分也将是一个积极的结果，因此选择“最大化响应”。 3. 输入因子的数量。请记住，因素是输入，而医疗保健场景确定了 3 个输入。 4. 输入因素的名称和信息。尽管有些因子本质上是连续的，但由于这是一个 2k 阶乘实验，我们将它们分为几类。 5. 选择重复实验的次数（记住，这与样本大小有关）。为此，请选择 2。 6. 确保您的对话框与下面的对话框相符，然后选择“确定”。"
           },
           {
-            "id": "ch29-content-zh-133",
+            "id": "ch29-content-zh-137",
+            "kind": "image",
+            "assetId": "fig-60ee99f394fc4aa6",
+            "src": "assets/figures/fig-60ee99f394fc4aa6.png",
+            "width": 1008,
+            "height": 1111
+          },
+          {
+            "id": "ch29-content-zh-138",
             "kind": "paragraph",
             "text": "Minitab 为您提供打印数据表单的选项，以便更轻松地收集数据。对于示例，选择否。"
           },
           {
-            "id": "ch29-content-zh-134",
+            "id": "ch29-content-zh-139",
+            "kind": "image",
+            "assetId": "fig-843a6cf3a19f9a5a",
+            "src": "assets/figures/fig-843a6cf3a19f9a5a.png",
+            "width": 833,
+            "height": 389
+          },
+          {
+            "id": "ch29-content-zh-140",
             "kind": "paragraph",
             "text": "Minitab 生成三个项目。第一个是建模设计报告卡，提供完成实验的后续步骤和技巧。"
           },
           {
-            "id": "ch29-content-zh-135",
+            "id": "ch29-content-zh-141",
             "kind": "heading",
             "text": "创建造型设计"
           },
           {
-            "id": "ch29-content-zh-136",
+            "id": "ch29-content-zh-142",
             "kind": "heading",
             "text": "报告卡"
           },
           {
-            "id": "ch29-content-zh-137",
+            "id": "ch29-content-zh-143",
             "kind": "heading",
             "text": "检查"
           },
           {
-            "id": "ch29-content-zh-138",
+            "id": "ch29-content-zh-144",
             "kind": "heading",
             "text": "状态说明"
           },
           {
-            "id": "ch29-content-zh-139",
+            "id": "ch29-content-zh-145",
             "kind": "paragraph",
             "text": "在原始设计中运行并再次运行它们。实验运行，同时在同一运行期间进行重复。当您将仿行添加到设计中时，您将在相同的因子设置下进行所有的仿行和重复测量，但仿行是在单独的过程中进行的。"
           },
           {
-            "id": "ch29-content-zh-140",
+            "id": "ch29-content-zh-146",
             "kind": "heading",
             "text": "测量值"
           },
           {
-            "id": "ch29-content-zh-141",
+            "id": "ch29-content-zh-147",
             "kind": "paragraph",
             "text": "重复复制对比"
-          },
-          {
-            "id": "ch29-content-zh-142",
-            "kind": "paragraph",
-            "text": "我"
-          },
-          {
-            "id": "ch29-content-zh-143",
-            "kind": "paragraph",
-            "text": "按照工作表中指定的随机顺序执行运行。这些条件使结果产生偏差的可能性。当您进行建模实验时，请确保随机化平衡了不可控条件（例如材料或人员的更改）的影响，并减少了当您创建建模设计时，Minitab 会自动随机化实验运行的顺序。"
-          },
-          {
-            "id": "ch29-content-zh-144",
-            "kind": "heading",
-            "text": "随机化"
-          },
-          {
-            "id": "ch29-content-zh-145",
-            "kind": "paragraph",
-            "text": "我"
-          },
-          {
-            "id": "ch29-content-zh-146",
-            "kind": "paragraph",
-            "text": "4. 拟合线性模型。 3. 在 C8 列中输入响应数据。每个区块在相似条件下运行。 2. 按照工作表中指定的顺序运行实验并收集响应数据。确保执行所有 1. 完成所有实验前活动。欲了解更多信息，请查看实验前检查表。要完成优化过程："
-          },
-          {
-            "id": "ch29-content-zh-147",
-            "kind": "heading",
-            "text": "下一步"
           },
           {
             "id": "ch29-content-zh-148",
@@ -2133,372 +2279,387 @@
           {
             "id": "ch29-content-zh-149",
             "kind": "paragraph",
-            "text": "查看实验前检查表。打印本实验的数据收集表。拟合线性模型。"
+            "text": "按照工作表中指定的随机顺序执行运行。这些条件使结果产生偏差的可能性。当您进行建模实验时，请确保随机化平衡了不可控条件（例如材料或人员的更改）的影响，并减少了当您创建建模设计时，Minitab 会自动随机化实验运行的顺序。"
           },
           {
             "id": "ch29-content-zh-150",
-            "kind": "paragraph",
-            "text": "第二项是总结报告。该报告总结了您为实验输入的所有信息，并提供了估计的检测能力，这有助于您选择样本量。"
+            "kind": "heading",
+            "text": "随机化"
           },
           {
             "id": "ch29-content-zh-151",
-            "kind": "heading",
-            "text": "创建造型设计"
+            "kind": "paragraph",
+            "text": "我"
           },
           {
             "id": "ch29-content-zh-152",
-            "kind": "heading",
-            "text": "总结报告"
+            "kind": "paragraph",
+            "text": "4. 拟合线性模型。 3. 在 C8 列中输入响应数据。每个区块在相似条件下运行。 2. 按照工作表中指定的顺序运行实验并收集响应数据。确保执行所有 1. 完成所有实验前活动。欲了解更多信息，请查看实验前检查表。要完成优化过程："
           },
           {
             "id": "ch29-content-zh-153",
             "kind": "heading",
-            "text": "实验目标"
+            "text": "下一步"
           },
           {
             "id": "ch29-content-zh-154",
-            "kind": "heading",
-            "text": "效果评估"
+            "kind": "paragraph",
+            "text": "我"
           },
           {
             "id": "ch29-content-zh-155",
             "kind": "paragraph",
-            "text": "该设计将估计所有线性主效应和双向相互作用。"
+            "text": "查看实验前检查表。打印本实验的数据收集表。拟合线性模型。"
           },
           {
             "id": "ch29-content-zh-156",
             "kind": "paragraph",
-            "text": "为因素。模型足够了，用它来找到响应和关键因素之间的最佳设置。如果构建一个描述关系的模型"
+            "text": "第二项是总结报告。该报告总结了您为实验输入的所有信息，并提供了估计的检测能力，这有助于您选择样本量。"
           },
           {
             "id": "ch29-content-zh-157",
-            "kind": "paragraph",
-            "text": "更改一个因素 (X) 的设置。主要效果：描述如果您 Y，响应 (Y) 将如何变化"
+            "kind": "heading",
+            "text": "创建造型设计"
           },
           {
             "id": "ch29-content-zh-158",
-            "kind": "paragraph",
-            "text": "X"
+            "kind": "heading",
+            "text": "总结报告"
           },
           {
             "id": "ch29-content-zh-159",
             "kind": "heading",
-            "text": "设计信息"
+            "text": "实验目标"
           },
           {
             "id": "ch29-content-zh-160",
-            "kind": "paragraph",
-            "text": "更改两个因素 (X) 的设置。交互：描述如果您 Y，响应 (Y) 将如何变化"
+            "kind": "heading",
+            "text": "效果评估"
           },
           {
             "id": "ch29-content-zh-161",
             "kind": "paragraph",
-            "text": "响应 合规性 目标 最大化 基础设计 3 个因素，8 次试验 重复 2 中心点 0 总试验 16"
+            "text": "该设计将估计所有线性主效应和双向相互作用。"
           },
           {
             "id": "ch29-content-zh-162",
             "kind": "paragraph",
-            "text": "X"
+            "text": "为因素。模型足够了，用它来找到响应和关键因素之间的最佳设置。如果构建一个描述关系的模型"
           },
           {
             "id": "ch29-content-zh-163",
-            "kind": "heading",
-            "text": "检测能力"
+            "kind": "paragraph",
+            "text": "更改一个因素 (X) 的设置。主要效果：描述如果您 Y，响应 (Y) 将如何变化"
           },
           {
             "id": "ch29-content-zh-164",
             "kind": "paragraph",
-            "text": "通过此 2 次重复设计，您可以检测到什么效应大小？"
+            "text": "X"
           },
           {
             "id": "ch29-content-zh-165",
-            "kind": "paragraph",
-            "text": "功率 < 40% 60% 80% 100%"
+            "kind": "heading",
+            "text": "设计信息"
           },
           {
             "id": "ch29-content-zh-166",
             "kind": "paragraph",
-            "text": "重复被放置在单独的块中。"
+            "text": "更改两个因素 (X) 的设置。交互：描述如果您 Y，响应 (Y) 将如何变化"
           },
           {
             "id": "ch29-content-zh-167",
             "kind": "paragraph",
-            "text": "效果 1.04 1.36"
+            "text": "响应 合规性 目标 最大化 基础设计 3 个因素，8 次试验 重复 2 中心点 0 总试验 16"
           },
           {
             "id": "ch29-content-zh-168",
             "kind": "paragraph",
-            "text": "更多。通过 3 个重复，您可以检测 1.06 的效果。您有 80% 的机会检测到 1.36 个标准差的影响或"
+            "text": "X"
           },
           {
             "id": "ch29-content-zh-169",
             "kind": "heading",
-            "text": "因素和设置"
+            "text": "检测能力"
           },
           {
             "id": "ch29-content-zh-170",
-            "kind": "heading",
-            "text": "因素"
+            "kind": "paragraph",
+            "text": "通过此 2 次重复设计，您可以检测到什么效应大小？"
           },
           {
             "id": "ch29-content-zh-171",
-            "kind": "heading",
-            "text": "低 高"
+            "kind": "paragraph",
+            "text": "功率 < 40% 60% 80% 100%"
           },
           {
             "id": "ch29-content-zh-172",
             "kind": "paragraph",
-            "text": "StaffEd 否 是 TimeShift 4 或以下 超过 4 否分数 低于 80% 80% 或以上"
+            "text": "重复被放置在单独的块中。"
           },
           {
             "id": "ch29-content-zh-173",
-            "kind": "heading",
-            "text": "效应大小（均值变化）"
+            "kind": "paragraph",
+            "text": "效果 1.04 1.36"
           },
           {
             "id": "ch29-content-zh-174",
-            "kind": "heading",
-            "text": "小号"
+            "kind": "paragraph",
+            "text": "更多。通过 3 个重复，您可以检测 1.06 的效果。您有 80% 的机会检测到 1.36 个标准差的影响或"
           },
           {
             "id": "ch29-content-zh-175",
             "kind": "heading",
-            "text": "中等"
+            "text": "因素和设置"
           },
           {
             "id": "ch29-content-zh-176",
             "kind": "heading",
-            "text": "大号"
+            "text": "因素"
           },
           {
             "id": "ch29-content-zh-177",
-            "kind": "paragraph",
-            "text": "< 1 个标准开发转变"
+            "kind": "heading",
+            "text": "低 高"
           },
           {
             "id": "ch29-content-zh-178",
             "kind": "paragraph",
-            "text": "1-2 标准开发班次"
+            "text": "StaffEd 否 是 TimeShift 4 或以下 超过 4 否分数 低于 80% 80% 或以上"
           },
           {
             "id": "ch29-content-zh-179",
-            "kind": "paragraph",
-            "text": "2+ 标准开发转变"
+            "kind": "heading",
+            "text": "效应大小（均值变化）"
           },
           {
             "id": "ch29-content-zh-180",
-            "kind": "paragraph",
-            "text": "最后一项是一个工作表，可帮助您收集实验结果。 Minitab 随机化运行的顺序，如果您要实时完成实验，则需要这样做。"
+            "kind": "heading",
+            "text": "小号"
           },
           {
             "id": "ch29-content-zh-181",
-            "kind": "paragraph",
-            "text": "对于我们进入的医疗保健场景，基于2个副本的检测能力将检测到1.36或更大的标准差。"
+            "kind": "heading",
+            "text": "中等"
           },
           {
             "id": "ch29-content-zh-182",
-            "kind": "paragraph",
-            "text": "如果团队想要检测较小的变化，则需要添加更多的重复。重复 4 次将检测到 0.91 个标准差，重复 5 次将检测到低至 0.81 个标准差。"
+            "kind": "heading",
+            "text": "大号"
           },
           {
             "id": "ch29-content-zh-183",
             "kind": "paragraph",
-            "text": "为了对样本量做出尽可能最佳的选择，了解当前的标准差确实有助于了解什么测量将是有意义的。请记住，两次重复有 80% 的机会检测到 1.36 个标准偏差，而不是实际合规性分数的 1.36 个偏差。"
+            "text": "< 1 个标准开发转变"
           },
           {
             "id": "ch29-content-zh-184",
             "kind": "paragraph",
-            "text": "在继续实验之前，团队可能会考虑一些样本数据。以下是一周内所有临床审核的卫生合规性分数。"
+            "text": "1-2 标准开发班次"
           },
           {
             "id": "ch29-content-zh-185",
             "kind": "paragraph",
-            "text": "7.8 7.5 7.1 7.5 9.1 5.4 7.2 7.2 5.8 8.7"
+            "text": "2+ 标准开发转变"
           },
           {
             "id": "ch29-content-zh-186",
             "kind": "paragraph",
-            "text": "5.8 7.1 6.7 7.8 5.1 7.7 6.5 8.2 7.4 7.1"
+            "text": "最后一项是一个工作表，可帮助您收集实验结果。 Minitab 随机化运行的顺序，如果您要实时完成实验，则需要这样做。"
           },
           {
             "id": "ch29-content-zh-187",
-            "kind": "paragraph",
-            "text": "将数据复制到 Excel 或 Minitab 中以计算该数据集的标准差。"
+            "kind": "image",
+            "assetId": "fig-11b3be8c1a3dab5e",
+            "src": "assets/figures/fig-11b3be8c1a3dab5e.png",
+            "width": 1191,
+            "height": 515
           },
           {
             "id": "ch29-content-zh-188",
             "kind": "paragraph",
-            "text": "标准差为 1.028。"
+            "text": "对于我们进入的医疗保健场景，基于2个副本的检测能力将检测到1.36或更大的标准差。"
           },
           {
             "id": "ch29-content-zh-189",
-            "kind": "paragraph",
-            "text": "根据第一个总结，基于 2 个重复的设置，实验的检测能力只有 80% 的机会检测到 1.36 个标准差的变化。这太大了，无法产生医疗团队需要看到的变化。三个重复的时候，差别就很明显了，在其他情况下，六西格玛高手可能会想要四个或更多的重复。出于本练习的目的，我们将在示例的其余部分保留 2 个重复。"
+            "kind": "image",
+            "assetId": "fig-f78fb8cea4bb9658",
+            "src": "assets/figures/fig-f78fb8cea4bb9658.png",
+            "width": 824,
+            "height": 381
           },
           {
             "id": "ch29-content-zh-190",
             "kind": "paragraph",
-            "text": "在报告卡屏幕上，选择“查看实验前清单”。"
+            "text": "如果团队想要检测较小的变化，则需要添加更多的重复。重复 4 次将检测到 0.91 个标准差，重复 5 次将检测到低至 0.81 个标准差。"
           },
           {
             "id": "ch29-content-zh-191",
-            "kind": "paragraph",
-            "text": "Minitab 在清单中提供了一些完成设计实验的重要提示。"
+            "kind": "image",
+            "assetId": "fig-3b61540c06405bee",
+            "src": "assets/figures/fig-3b61540c06405bee.png",
+            "width": 771,
+            "height": 368
           },
           {
             "id": "ch29-content-zh-192",
             "kind": "paragraph",
-            "text": "首先，参与实验的任何人都应该接受适当的培训，以消除操作员错误带来的变化。相关人员必须知道如何测量输出或响应，如何在实验过程中需要时设置因子水平，以及如何在运行之间更改设备或流程以影响实验。在我们使用的医疗保健示例中，唯一可能需要的培训是确保正确处理应用合规性分数的审核。 然而，在另一种情况下，团队可能正在制造工厂中运行生产流程。作为实验的一部分，团队可能想要尝试不同的材料、不同的工具和不同的操作员，并且他们必须确保每个人都知道如何使用这些材料和工具。"
+            "text": "为了对样本量做出尽可能最佳的选择，了解当前的标准差确实有助于了解什么测量将是有意义的。请记住，两次重复有 80% 的机会检测到 1.36 个标准偏差，而不是实际合规性分数的 1.36 个偏差。"
           },
           {
             "id": "ch29-content-zh-193",
             "kind": "paragraph",
-            "text": "应对测量系统的响应和每个因素的水平进行验证。在我们的医疗保健示例中，六西格玛团队应该已经验证了用于评估合规性的测量系统。例如，他们可能使用量具 R&R 来确定具有单独重复的单独审计员是否会多次以相同的方式对同一情况进行评级。团队还应该验证用于设置级别的测量结果。如果将制造过程中车轮的速度设置为 1 rpm、1.2 rpm 和 1.5 rpm 作为因子级别，则应检查这些设置的校准。"
+            "text": "在继续实验之前，团队可能会考虑一些样本数据。以下是一周内所有临床审核的卫生合规性分数。"
           },
           {
             "id": "ch29-content-zh-194",
             "kind": "paragraph",
-            "text": "在进行实际实验时，六西格玛团队应该审查实验中所有可能的组合，以确保它们都是安全且可行的。例如，当一个因素与另一个因素结合时，一个因素的完全安全或可能的水平可能会变得不安全或不可能。团队可能希望进行几次试运行，以解决实验中的问题并完成验证，然后再进行实际实验。"
+            "text": "7.8 7.5 7.1 7.5 9.1 5.4 7.2 7.2 5.8 8.7"
           },
           {
             "id": "ch29-content-zh-195",
             "kind": "paragraph",
-            "text": "最后，团队根据 Minitab 创建的随机工作表运行设计的实验。在医疗保健场景中，团队以随机顺序回顾了上个月的数据，并记录了适合每个实验场景的第一组数据。例如，下面列表中的第一次运行要求接受审核的工作人员在过去六个月内接受过合规培训，在接受审核的交互发生时处于轮班第 4 个小时以上，并且在特定楼层的容量达到或超过 80% 时工作。满足这些参数的第一个分数是 7.9。数据收集的结果如下所示，如果您想继续分析，可以将此表复制到 Minitab 中。"
+            "text": "5.8 7.1 6.7 7.8 5.1 7.7 6.5 8.2 7.4 7.1"
           },
           {
             "id": "ch29-content-zh-196",
-            "kind": "heading",
-            "text": "StdOrder RunOrder CenterPt 块 StaffEd TimeShift"
+            "kind": "paragraph",
+            "text": "将数据复制到 Excel 或 Minitab 中以计算该数据集的标准差。"
           },
           {
             "id": "ch29-content-zh-197",
-            "kind": "heading",
-            "text": "NoPts 合规性"
+            "kind": "paragraph",
+            "text": "标准差为 1.028。"
           },
           {
             "id": "ch29-content-zh-198",
             "kind": "paragraph",
-            "text": "80% 或"
+            "text": "根据第一个总结，基于 2 个重复的设置，实验的检测能力只有 80% 的机会检测到 1.36 个标准差的变化。这太大了，无法产生医疗团队需要看到的变化。三个重复的时候，差别就很明显了，在其他情况下，六西格玛高手可能会想要四个或更多的重复。出于本练习的目的，我们将在示例的其余部分保留 2 个重复。"
           },
           {
             "id": "ch29-content-zh-199",
-            "kind": "paragraph",
-            "text": "8 1 1 1 是 4 以上"
+            "kind": "image",
+            "assetId": "fig-f78fb8cea4bb9658",
+            "src": "assets/figures/fig-f78fb8cea4bb9658.png",
+            "width": 824,
+            "height": 381
           },
           {
             "id": "ch29-content-zh-200",
             "kind": "paragraph",
-            "text": "更多8.2"
+            "text": "在报告卡屏幕上，选择“查看实验前清单”。"
           },
           {
             "id": "ch29-content-zh-201",
             "kind": "paragraph",
-            "text": "4或以下 80%以下 9.5"
+            "text": "Minitab 在清单中提供了一些完成设计实验的重要提示。"
           },
           {
             "id": "ch29-content-zh-202",
-            "kind": "paragraph",
-            "text": "2 2 1 1 是"
+            "kind": "image",
+            "assetId": "fig-d4d51f97b90cbc64",
+            "src": "assets/figures/fig-d4d51f97b90cbc64.png",
+            "width": 1191,
+            "height": 393
           },
           {
             "id": "ch29-content-zh-203",
             "kind": "paragraph",
-            "text": "80% 或"
+            "text": "首先，参与实验的任何人都应该接受适当的培训，以消除操作员错误带来的变化。相关人员必须知道如何测量输出或响应，如何在实验过程中需要时设置因子水平，以及如何在运行之间更改设备或流程以影响实验。在我们使用的医疗保健示例中，唯一可能需要的培训是确保正确处理应用合规性分数的审核。 然而，在另一种情况下，团队可能正在制造工厂中运行生产流程。作为实验的一部分，团队可能想要尝试不同的材料、不同的工具和不同的操作员，并且他们必须确保每个人都知道如何使用这些材料和工具。"
           },
           {
             "id": "ch29-content-zh-204",
             "kind": "paragraph",
-            "text": "7 3 1 1 不超过 4"
+            "text": "应对测量系统的响应和每个因素的水平进行验证。在我们的医疗保健示例中，六西格玛团队应该已经验证了用于评估合规性的测量系统。例如，他们可能使用量具 R&R 来确定具有单独重复的单独审计员是否会多次以相同的方式对同一情况进行评级。团队还应该验证用于设置级别的测量结果。如果将制造过程中车轮的速度设置为 1 rpm、1.2 rpm 和 1.5 rpm 作为因子级别，则应检查这些设置的校准。"
           },
           {
             "id": "ch29-content-zh-205",
             "kind": "paragraph",
-            "text": "更多7.2"
+            "text": "在进行实际实验时，六西格玛团队应该审查实验中所有可能的组合，以确保它们都是安全且可行的。例如，当一个因素与另一个因素结合时，一个因素的完全安全或可能的水平可能会变得不安全或不可能。团队可能希望进行几次试运行，以解决实验中的问题并完成验证，然后再进行实际实验。"
           },
           {
             "id": "ch29-content-zh-206",
             "kind": "paragraph",
-            "text": "4岁或以下 80%以下 7.8"
+            "text": "最后，团队根据 Minitab 创建的随机工作表运行设计的实验。在医疗保健场景中，团队以随机顺序回顾了上个月的数据，并记录了适合每个实验场景的第一组数据。例如，下面列表中的第一次运行要求接受审核的工作人员在过去六个月内接受过合规培训，在接受审核的交互发生时处于轮班第 4 个小时以上，并且在特定楼层的容量达到或超过 80% 时工作。满足这些参数的第一个分数是 7.9。数据收集的结果如下所示，如果您想继续分析，可以将此表复制到 Minitab 中。"
           },
           {
             "id": "ch29-content-zh-207",
-            "kind": "paragraph",
-            "text": "1 4 1 1 否"
+            "kind": "heading",
+            "text": "StdOrder RunOrder CenterPt 块 StaffEd TimeShift"
           },
           {
             "id": "ch29-content-zh-208",
-            "kind": "paragraph",
-            "text": "80% 或"
+            "kind": "heading",
+            "text": "NoPts 合规性"
           },
           {
             "id": "ch29-content-zh-209",
             "kind": "paragraph",
-            "text": "4岁或以下"
+            "text": "80% 或"
           },
           {
             "id": "ch29-content-zh-210",
             "kind": "paragraph",
-            "text": "5 5 1 1 否"
+            "text": "8 1 1 1 是 4 以上"
           },
           {
             "id": "ch29-content-zh-211",
             "kind": "paragraph",
-            "text": "更多 5.2 3 6 1 1 否 超过 4 低于 80% 5.4 4 7 1 1 是 超过 4 低于 80% 8.5"
+            "text": "更多8.2"
           },
           {
             "id": "ch29-content-zh-212",
             "kind": "paragraph",
-            "text": "80% 或"
+            "text": "4或以下 80%以下 9.5"
           },
           {
             "id": "ch29-content-zh-213",
             "kind": "paragraph",
-            "text": "4岁或以下"
+            "text": "2 2 1 1 是"
           },
           {
             "id": "ch29-content-zh-214",
             "kind": "paragraph",
-            "text": "6 8 1 1 是"
+            "text": "80% 或"
           },
           {
             "id": "ch29-content-zh-215",
             "kind": "paragraph",
-            "text": "更多 9.7 11 9 1 2 不超过 4 低于 80% 7.2"
+            "text": "7 3 1 1 不超过 4"
           },
           {
             "id": "ch29-content-zh-216",
             "kind": "paragraph",
-            "text": "80% 或"
+            "text": "更多7.2"
           },
           {
             "id": "ch29-content-zh-217",
             "kind": "paragraph",
-            "text": "16 10 1 2 是 4 岁以上"
+            "text": "4岁或以下 80%以下 7.8"
           },
           {
             "id": "ch29-content-zh-218",
             "kind": "paragraph",
-            "text": "更多8.8"
+            "text": "1 4 1 1 否"
           },
           {
             "id": "ch29-content-zh-219",
             "kind": "paragraph",
-            "text": "4岁或以下 80%以下 9.2"
+            "text": "80% 或"
           },
           {
             "id": "ch29-content-zh-220",
             "kind": "paragraph",
-            "text": "10 11 1 2 是"
+            "text": "4岁或以下"
           },
           {
             "id": "ch29-content-zh-221",
             "kind": "paragraph",
-            "text": "4或以下 80%以下 6.3"
+            "text": "5 5 1 1 否"
           },
           {
             "id": "ch29-content-zh-222",
             "kind": "paragraph",
-            "text": "9 12 1 2 否"
+            "text": "更多 5.2 3 6 1 1 否 超过 4 低于 80% 5.4 4 7 1 1 是 超过 4 低于 80% 8.5"
           },
           {
             "id": "ch29-content-zh-223",
@@ -2513,12 +2674,12 @@
           {
             "id": "ch29-content-zh-225",
             "kind": "paragraph",
-            "text": "14 13 1 2 是"
+            "text": "6 8 1 1 是"
           },
           {
             "id": "ch29-content-zh-226",
             "kind": "paragraph",
-            "text": "更多 9.7"
+            "text": "更多 9.7 11 9 1 2 不超过 4 低于 80% 7.2"
           },
           {
             "id": "ch29-content-zh-227",
@@ -2528,230 +2689,325 @@
           {
             "id": "ch29-content-zh-228",
             "kind": "paragraph",
-            "text": "4岁或以下"
+            "text": "16 10 1 2 是 4 岁以上"
           },
           {
             "id": "ch29-content-zh-229",
             "kind": "paragraph",
-            "text": "13 14 1 2 否"
+            "text": "更多8.8"
           },
           {
             "id": "ch29-content-zh-230",
             "kind": "paragraph",
-            "text": "更多8.1"
+            "text": "4岁或以下 80%以下 9.2"
           },
           {
             "id": "ch29-content-zh-231",
             "kind": "paragraph",
-            "text": "80% 或"
+            "text": "10 11 1 2 是"
           },
           {
             "id": "ch29-content-zh-232",
             "kind": "paragraph",
-            "text": "15 15 1 2 不超过 4"
+            "text": "4或以下 80%以下 6.3"
           },
           {
             "id": "ch29-content-zh-233",
             "kind": "paragraph",
-            "text": "更多 5.6 12 16 1 2 是 4 以上 80% 以下 8.9"
+            "text": "9 12 1 2 否"
           },
           {
             "id": "ch29-content-zh-234",
             "kind": "paragraph",
-            "text": "要在 Minitab 中分析结果，请选择助手 > DOE > 分析和解释。"
+            "text": "80% 或"
           },
           {
             "id": "ch29-content-zh-235",
-            "kind": "heading",
-            "text": "单击“拟合线性模型”。"
+            "kind": "paragraph",
+            "text": "4岁或以下"
           },
           {
             "id": "ch29-content-zh-236",
             "kind": "paragraph",
-            "text": "选择“最大化响应”（或与您的实验目标相匹配的响应目标。）"
+            "text": "14 13 1 2 是"
           },
           {
             "id": "ch29-content-zh-237",
             "kind": "paragraph",
-            "text": "单击“确定”。"
+            "text": "更多 9.7"
           },
           {
             "id": "ch29-content-zh-238",
             "kind": "paragraph",
-            "text": "Minitab 生成五个项目："
+            "text": "80% 或"
           },
           {
             "id": "ch29-content-zh-239",
-            "kind": "listItem",
-            "text": "报告卡"
+            "kind": "paragraph",
+            "text": "4岁或以下"
           },
           {
             "id": "ch29-content-zh-240",
-            "kind": "listItem",
-            "text": "预测和优化报告"
+            "kind": "paragraph",
+            "text": "13 14 1 2 否"
           },
           {
             "id": "ch29-content-zh-241",
-            "kind": "listItem",
-            "text": "诊断报告"
+            "kind": "paragraph",
+            "text": "更多8.1"
           },
           {
             "id": "ch29-content-zh-242",
-            "kind": "listItem",
-            "text": "效果报告"
+            "kind": "paragraph",
+            "text": "80% 或"
           },
           {
             "id": "ch29-content-zh-243",
-            "kind": "listItem",
-            "text": "总结报告"
+            "kind": "paragraph",
+            "text": "15 15 1 2 不超过 4"
           },
           {
             "id": "ch29-content-zh-244",
             "kind": "paragraph",
-            "text": "报告卡提供了有关分析的总体信息以及一些了解结果的提示。在这种情况下，报告卡指出，没有注意到异常数据点或可能的异常值，并且根据统计分析，实验中只有一个重要因素。"
+            "text": "更多 5.6 12 16 1 2 是 4 以上 80% 以下 8.9"
           },
           {
             "id": "ch29-content-zh-245",
             "kind": "paragraph",
-            "text": "预测和优化报告比较与重要因素相关的平均值，并为这些因素提供优化的水平设置。在这种情况下，只有一个因素——员工在过去六个月内是否接受过合规培训——具有统计显着性。"
+            "text": "要在 Minitab 中分析结果，请选择助手 > DOE > 分析和解释。"
           },
           {
             "id": "ch29-content-zh-246",
             "kind": "heading",
-            "text": "拟合线性模型以实现合规性"
+            "text": "单击“拟合线性模型”。"
           },
           {
             "id": "ch29-content-zh-247",
-            "kind": "heading",
-            "text": "预测和优化报告"
+            "kind": "image",
+            "assetId": "fig-b7054193a52ec77d",
+            "src": "assets/figures/fig-b7054193a52ec77d.png",
+            "width": 1191,
+            "height": 908
           },
           {
             "id": "ch29-content-zh-248",
-            "kind": "heading",
-            "text": "目标： 最大限度地提高合规性"
+            "kind": "paragraph",
+            "text": "选择“最大化响应”（或与您的实验目标相匹配的响应目标。）"
           },
           {
             "id": "ch29-content-zh-249",
-            "kind": "heading",
-            "text": "解决方案：最佳设置"
+            "kind": "image",
+            "assetId": "fig-75e6d62f5c609db0",
+            "src": "assets/figures/fig-75e6d62f5c609db0.png",
+            "width": 811,
+            "height": 482
           },
           {
             "id": "ch29-content-zh-250",
             "kind": "paragraph",
-            "text": "预测 Y 9.0625 StaffEd 是 95% CI (8.3878, 9.7372)"
+            "text": "单击“确定”。"
           },
           {
             "id": "ch29-content-zh-251",
-            "kind": "heading",
-            "text": "StaffEd 的主效应图"
+            "kind": "paragraph",
+            "text": "Minitab 生成五个项目："
           },
           {
             "id": "ch29-content-zh-252",
-            "kind": "paragraph",
-            "text": "比较平均值和区间。绿色间隔显示 StaffEd 的最佳设置。"
+            "kind": "listItem",
+            "text": "报告卡"
           },
           {
             "id": "ch29-content-zh-253",
-            "kind": "heading",
-            "text": "级别"
+            "kind": "listItem",
+            "text": "预测和优化报告"
           },
           {
             "id": "ch29-content-zh-254",
-            "kind": "paragraph",
-            "text": "N 平均值 95% CI 平均值"
+            "kind": "listItem",
+            "text": "诊断报告"
           },
           {
             "id": "ch29-content-zh-255",
-            "kind": "paragraph",
-            "text": "否"
+            "kind": "listItem",
+            "text": "效果报告"
           },
           {
             "id": "ch29-content-zh-256",
-            "kind": "paragraph",
-            "text": "否 8 6.5996 (5.92, 7.27) 是 8 9.0625 (8.39, 9.74)"
+            "kind": "listItem",
+            "text": "总结报告"
           },
           {
             "id": "ch29-content-zh-257",
-            "kind": "heading",
-            "text": "教职员"
+            "kind": "paragraph",
+            "text": "报告卡提供了有关分析的总体信息以及一些了解结果的提示。在这种情况下，报告卡指出，没有注意到异常数据点或可能的异常值，并且根据统计分析，实验中只有一个重要因素。"
           },
           {
             "id": "ch29-content-zh-258",
-            "kind": "paragraph",
-            "text": "是的"
+            "kind": "image",
+            "assetId": "fig-c277bd75b3c2e8af",
+            "src": "assets/figures/fig-c277bd75b3c2e8af.png",
+            "width": 1191,
+            "height": 645
           },
           {
             "id": "ch29-content-zh-259",
             "kind": "paragraph",
-            "text": "9 8 7 6"
+            "text": "预测和优化报告比较与重要因素相关的平均值，并为这些因素提供优化的水平设置。在这种情况下，只有一个因素——员工在过去六个月内是否接受过合规培训——具有统计显着性。"
           },
           {
             "id": "ch29-content-zh-260",
             "kind": "heading",
-            "text": "合规性"
+            "text": "拟合线性模型以实现合规性"
           },
           {
             "id": "ch29-content-zh-261",
-            "kind": "paragraph",
-            "text": "影响报告提供了有关所有因素的更多信息。在下图的下半部分，您可以看到每个因素的主效应图。主要影响是每个因素设置下的平均响应之间的差异。您可以看到，对于轮班所花费的不同时间量的响应均值之间仅存在轻微差异，并且对于楼层上的患者数量而言，两种设置的均值之间几乎没有差异。最大的差异在于合规教育状况。图表的顶部也是如此，不同的因素绘制在一起。"
+            "kind": "heading",
+            "text": "预测和优化报告"
           },
           {
             "id": "ch29-content-zh-262",
             "kind": "heading",
-            "text": "拟合线性模型以实现合规性"
+            "text": "目标： 最大限度地提高合规性"
           },
           {
             "id": "ch29-content-zh-263",
             "kind": "heading",
-            "text": "效果报告"
+            "text": "解决方案：最佳设置"
           },
           {
             "id": "ch29-content-zh-264",
-            "kind": "heading",
-            "text": "合规性交互图"
+            "kind": "paragraph",
+            "text": "预测 Y 9.0625 StaffEd 是 95% CI (8.3878, 9.7372)"
           },
           {
             "id": "ch29-content-zh-265",
-            "kind": "paragraph",
-            "text": "描述如果更改两个因子的设置，合规性平均值将如何变化。"
+            "kind": "heading",
+            "text": "StaffEd 的主效应图"
           },
           {
             "id": "ch29-content-zh-266",
-            "kind": "heading",
-            "text": "合规手段"
+            "kind": "paragraph",
+            "text": "比较平均值和区间。绿色间隔显示 StaffEd 的最佳设置。"
           },
           {
             "id": "ch29-content-zh-267",
-            "kind": "paragraph",
-            "text": "灰色背景表示从模型中删除的项，因为它不具有统计显着性。"
+            "kind": "heading",
+            "text": "级别"
           },
           {
             "id": "ch29-content-zh-268",
             "kind": "paragraph",
-            "text": "摘要报告提供了对响应的影响的帕累托分解。在这种情况下，对合规数量影响最大的是员工在过去六个月内是否接受过合规培训。下一个因素是该工作人员轮班工作了多长时间。第三个最有影响力的因素是 A（员工培训）和 B（轮班工作时间）的组合。直到第四次影响时，地板上的病人数量才出现。"
+            "text": "N 平均值 95% CI 平均值"
           },
           {
             "id": "ch29-content-zh-269",
             "kind": "paragraph",
-            "text": "摘要指出，将员工教育因素设置为“是”（员工在过去 6 个月内接受过培训）会导致预测 Y（响应）高于 9。摘要还指出，该模型解释了 68.64% 的变异。"
+            "text": "否"
           },
           {
             "id": "ch29-content-zh-270",
             "kind": "paragraph",
-            "text": "根据这些结果，六西格玛团队可能会进行进一步的测试和分析，但也可能会提出有关为员工提供合规培训的建议。如果你还记得的话，最初提到的培训是年度培训。然而，这个实验似乎表明，如果员工在过去 6 个月内接受过培训，那么培训的效果会更大。团队可能会建议员工今后每两年接受一次培训。"
+            "text": "否 8 6.5996 (5.92, 7.27) 是 8 9.0625 (8.39, 9.74)"
           },
           {
             "id": "ch29-content-zh-271",
             "kind": "heading",
-            "text": "下一步"
+            "text": "教职员"
           },
           {
             "id": "ch29-content-zh-272",
             "kind": "paragraph",
-            "text": "请记住，实验通常并不能解决六西格玛团队正在研究的大问题。它只是帮助解决该问题的一部分。就六西格玛医疗团队而言，建议额外培训可能会提高卫生协议的遵守率，从而降低医院内的葡萄球菌感染率。但这可能不是团队发现的唯一根本原因，也不是他们推荐的唯一解决方案。"
+            "text": "是的"
           },
           {
             "id": "ch29-content-zh-273",
+            "kind": "paragraph",
+            "text": "9 8 7 6"
+          },
+          {
+            "id": "ch29-content-zh-274",
+            "kind": "heading",
+            "text": "合规性"
+          },
+          {
+            "id": "ch29-content-zh-275",
+            "kind": "paragraph",
+            "text": "影响报告提供了有关所有因素的更多信息。在下图的下半部分，您可以看到每个因素的主效应图。主要影响是每个因素设置下的平均响应之间的差异。您可以看到，对于轮班所花费的不同时间量的响应均值之间仅存在轻微差异，并且对于楼层上的患者数量而言，两种设置的均值之间几乎没有差异。最大的差异在于合规教育状况。图表的顶部也是如此，不同的因素绘制在一起。"
+          },
+          {
+            "id": "ch29-content-zh-276",
+            "kind": "heading",
+            "text": "拟合线性模型以实现合规性"
+          },
+          {
+            "id": "ch29-content-zh-277",
+            "kind": "heading",
+            "text": "效果报告"
+          },
+          {
+            "id": "ch29-content-zh-278",
+            "kind": "heading",
+            "text": "合规性交互图"
+          },
+          {
+            "id": "ch29-content-zh-279",
+            "kind": "paragraph",
+            "text": "描述如果更改两个因子的设置，合规性平均值将如何变化。"
+          },
+          {
+            "id": "ch29-content-zh-280",
+            "kind": "image",
+            "assetId": "fig-70cce5c322c7c0f7",
+            "src": "assets/figures/fig-70cce5c322c7c0f7.png",
+            "width": 1192,
+            "height": 761
+          },
+          {
+            "id": "ch29-content-zh-281",
+            "kind": "heading",
+            "text": "合规手段"
+          },
+          {
+            "id": "ch29-content-zh-282",
+            "kind": "paragraph",
+            "text": "灰色背景表示从模型中删除的项，因为它不具有统计显着性。"
+          },
+          {
+            "id": "ch29-content-zh-283",
+            "kind": "paragraph",
+            "text": "摘要报告提供了对响应的影响的帕累托分解。在这种情况下，对合规数量影响最大的是员工在过去六个月内是否接受过合规培训。下一个因素是该工作人员轮班工作了多长时间。第三个最有影响力的因素是 A（员工培训）和 B（轮班工作时间）的组合。直到第四次影响时，地板上的病人数量才出现。"
+          },
+          {
+            "id": "ch29-content-zh-284",
+            "kind": "paragraph",
+            "text": "摘要指出，将员工教育因素设置为“是”（员工在过去 6 个月内接受过培训）会导致预测 Y（响应）高于 9。摘要还指出，该模型解释了 68.64% 的变异。"
+          },
+          {
+            "id": "ch29-content-zh-285",
+            "kind": "image",
+            "assetId": "fig-4b20bc1364c8dc52",
+            "src": "assets/figures/fig-4b20bc1364c8dc52.png",
+            "width": 1240,
+            "height": 905
+          },
+          {
+            "id": "ch29-content-zh-286",
+            "kind": "paragraph",
+            "text": "根据这些结果，六西格玛团队可能会进行进一步的测试和分析，但也可能会提出有关为员工提供合规培训的建议。如果你还记得的话，最初提到的培训是年度培训。然而，这个实验似乎表明，如果员工在过去 6 个月内接受过培训，那么培训的效果会更大。团队可能会建议员工今后每两年接受一次培训。"
+          },
+          {
+            "id": "ch29-content-zh-287",
+            "kind": "heading",
+            "text": "下一步"
+          },
+          {
+            "id": "ch29-content-zh-288",
+            "kind": "paragraph",
+            "text": "请记住，实验通常并不能解决六西格玛团队正在研究的大问题。它只是帮助解决该问题的一部分。就六西格玛医疗团队而言，建议额外培训可能会提高卫生协议的遵守率，从而降低医院内的葡萄球菌感染率。但这可能不是团队发现的唯一根本原因，也不是他们推荐的唯一解决方案。"
+          },
+          {
+            "id": "ch29-content-zh-289",
             "kind": "termNote",
             "rows": [
               [
@@ -2761,12 +3017,134 @@
             "text": "术语说明 Root Cause（根本原因）：真正驱动问题发生的原因；解决它才能防止问题反复出现。"
           },
           {
-            "id": "ch29-content-zh-274",
+            "id": "ch29-content-zh-290",
             "kind": "paragraph",
             "text": "从实验中得出结论后，六西格玛团队必须采取措施验证结果，实施解决方案或将结果纳入整个项目，并创建控制措施。这些步骤将在下一章末尾更详细地介绍。"
           }
         ]
       }
+    }
+  ],
+  "assets": [
+    {
+      "id": "fig-11b3be8c1a3dab5e",
+      "type": "table-image",
+      "path": "assets/figures/fig-11b3be8c1a3dab5e.png",
+      "page": 390,
+      "width": 1191,
+      "height": 515
+    },
+    {
+      "id": "fig-3b61540c06405bee",
+      "type": "figure",
+      "path": "assets/figures/fig-3b61540c06405bee.png",
+      "page": 390,
+      "width": 771,
+      "height": 368
+    },
+    {
+      "id": "fig-3c10f1739a629138",
+      "type": "table-image",
+      "path": "assets/figures/fig-3c10f1739a629138.png",
+      "page": 390,
+      "width": 1191,
+      "height": 901
+    },
+    {
+      "id": "fig-45d29e0ebb2f80a8",
+      "type": "table-image",
+      "path": "assets/figures/fig-45d29e0ebb2f80a8.png",
+      "page": 390,
+      "width": 1191,
+      "height": 903
+    },
+    {
+      "id": "fig-4b20bc1364c8dc52",
+      "type": "table-image",
+      "path": "assets/figures/fig-4b20bc1364c8dc52.png",
+      "page": 390,
+      "width": 1240,
+      "height": 905
+    },
+    {
+      "id": "fig-60ee99f394fc4aa6",
+      "type": "table-image",
+      "path": "assets/figures/fig-60ee99f394fc4aa6.png",
+      "page": 390,
+      "width": 1008,
+      "height": 1111
+    },
+    {
+      "id": "fig-70cce5c322c7c0f7",
+      "type": "table-image",
+      "path": "assets/figures/fig-70cce5c322c7c0f7.png",
+      "page": 390,
+      "width": 1192,
+      "height": 761
+    },
+    {
+      "id": "fig-75e6d62f5c609db0",
+      "type": "figure",
+      "path": "assets/figures/fig-75e6d62f5c609db0.png",
+      "page": 390,
+      "width": 811,
+      "height": 482
+    },
+    {
+      "id": "fig-843a6cf3a19f9a5a",
+      "type": "figure",
+      "path": "assets/figures/fig-843a6cf3a19f9a5a.png",
+      "page": 390,
+      "width": 833,
+      "height": 389
+    },
+    {
+      "id": "fig-a992bf7e40decdc0",
+      "type": "figure",
+      "path": "assets/figures/fig-a992bf7e40decdc0.png",
+      "page": 390,
+      "width": 545,
+      "height": 460
+    },
+    {
+      "id": "fig-b7054193a52ec77d",
+      "type": "table-image",
+      "path": "assets/figures/fig-b7054193a52ec77d.png",
+      "page": 390,
+      "width": 1191,
+      "height": 908
+    },
+    {
+      "id": "fig-c277bd75b3c2e8af",
+      "type": "table-image",
+      "path": "assets/figures/fig-c277bd75b3c2e8af.png",
+      "page": 390,
+      "width": 1191,
+      "height": 645
+    },
+    {
+      "id": "fig-d4d51f97b90cbc64",
+      "type": "table-image",
+      "path": "assets/figures/fig-d4d51f97b90cbc64.png",
+      "page": 390,
+      "width": 1191,
+      "height": 393
+    },
+    {
+      "id": "fig-f78fb8cea4bb9658",
+      "type": "figure",
+      "path": "assets/figures/fig-f78fb8cea4bb9658.png",
+      "page": 390,
+      "width": 824,
+      "height": 381
+    },
+    {
+      "id": "fig-ff4e99b83bae13ef",
+      "type": "table-image",
+      "path": "assets/figures/fig-ff4e99b83bae13ef.png",
+      "page": 390,
+      "width": 1191,
+      "height": 895
     }
   ]
 }

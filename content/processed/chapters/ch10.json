@@ -465,211 +465,235 @@
           },
           {
             "id": "ch10-content-en-089",
-            "kind": "paragraph",
-            "text": "The estimated timeline is for 16 weeks; the expert believes the Define phase will take 3 weeks and the Measure phase will take 5. The Measure phase overlaps with both the Define and Analyze phases, which is normal with Six Sigma projects."
+            "kind": "image",
+            "assetId": "fig-0e5ff500c35b73a6",
+            "src": "assets/figures/fig-0e5ff500c35b73a6.png",
+            "width": 1077,
+            "height": 319
           },
           {
             "id": "ch10-content-en-090",
             "kind": "paragraph",
-            "text": "The benefit of this approach is that you can generate a timeline quickly. The disadvantages are that someone without experience of Six Sigma and a fair amount of knowledge of the process being improved can easily misjudge the time required for each phase and leadership might consider this a hard timeline, which can create unrealistic expectations. When presenting such a timeline, make sure everyone knows that it is a rough estimate and the time for each phase can change as you go through the process."
+            "text": "The estimated timeline is for 16 weeks; the expert believes the Define phase will take 3 weeks and the Measure phase will take 5. The Measure phase overlaps with both the Define and Analyze phases, which is normal with Six Sigma projects."
           },
           {
             "id": "ch10-content-en-091",
+            "kind": "paragraph",
+            "text": "The benefit of this approach is that you can generate a timeline quickly. The disadvantages are that someone without experience of Six Sigma and a fair amount of knowledge of the process being improved can easily misjudge the time required for each phase and leadership might consider this a hard timeline, which can create unrealistic expectations. When presenting such a timeline, make sure everyone knows that it is a rough estimate and the time for each phase can change as you go through the process."
+          },
+          {
+            "id": "ch10-content-en-092",
             "kind": "heading",
             "text": "Critical Path Method"
           },
           {
-            "id": "ch10-content-en-092",
+            "id": "ch10-content-en-093",
             "kind": "paragraph",
             "text": "The critical path method is a more detailed way of defining timelines for various elements of a project, but it does require more information and input from a project team. This means you probably won’t be able to provide a detailed timeline until the project is underway; a critical path diagram could be one of the activities the team undertakes as part of the Define phase."
           },
           {
-            "id": "ch10-content-en-093",
+            "id": "ch10-content-en-094",
             "kind": "heading",
             "text": "Creating a Critical Path Diagram"
           },
           {
-            "id": "ch10-content-en-094",
+            "id": "ch10-content-en-095",
             "kind": "paragraph",
             "text": "A critical path diagram can be created for the entire project or for each phase of a project. As we go through the steps of creating a critical path diagram, we’ll use the Define phase of a project to reduce bad debt (uncollected invoices) in a medical billing environment as an example."
           },
           {
-            "id": "ch10-content-en-095",
+            "id": "ch10-content-en-096",
             "kind": "paragraph",
             "text": "1. Identify the critical needs or activities to complete the project or phase of a project."
           },
           {
-            "id": "ch10-content-en-096",
+            "id": "ch10-content-en-097",
             "kind": "paragraph",
             "text": "To complete the define phase of our project to improve bad debt in a medical billing setting, the team needs to choose a team, charter the project, define the problem, and create a baseline metric."
           },
           {
-            "id": "ch10-content-en-097",
+            "id": "ch10-content-en-098",
             "kind": "paragraph",
             "text": "2. Put critical activities in order."
           },
           {
-            "id": "ch10-content-en-098",
+            "id": "ch10-content-en-099",
             "kind": "paragraph",
             "text": "The order with which the team should accomplish the tasks defined in step one is:"
           },
           {
-            "id": "ch10-content-en-099",
+            "id": "ch10-content-en-100",
             "kind": "listItem",
             "text": "Choose a team"
           },
           {
-            "id": "ch10-content-en-100",
+            "id": "ch10-content-en-101",
             "kind": "listItem",
             "text": "Charter the project and define the problem (these tasks can be done simultaneously)"
           },
           {
-            "id": "ch10-content-en-101",
+            "id": "ch10-content-en-102",
             "kind": "listItem",
             "text": "Create a baseline metric"
           },
           {
-            "id": "ch10-content-en-102",
+            "id": "ch10-content-en-103",
             "kind": "paragraph",
             "text": "3. Assign a time to each task."
           },
           {
-            "id": "ch10-content-en-103",
+            "id": "ch10-content-en-104",
             "kind": "paragraph",
             "text": "A Six Sigma expert estimates it will take one week to choose a team, one week to create a charter, one day to create a problem statement, and two weeks to create a baseline metric."
           },
           {
-            "id": "ch10-content-en-104",
+            "id": "ch10-content-en-105",
             "kind": "paragraph",
             "text": "4. Create a diagram of the tasks, stacking simultaneous or parallel process and including time figures."
           },
           {
-            "id": "ch10-content-en-105",
+            "id": "ch10-content-en-106",
             "kind": "paragraph",
             "text": "The diagram is created from left to right. The items on the left must be done before the items to the right can be completed. When items can be done at the same time, they are stacked."
           },
           {
-            "id": "ch10-content-en-106",
-            "kind": "paragraph",
-            "text": "5. Draw a critical path through the diagram."
-          },
-          {
             "id": "ch10-content-en-107",
-            "kind": "paragraph",
-            "text": "When steps are stacked, the critical path goes through the step with the longest time estimate. For example, the team might create a problem statement while they are working on a project charter; the project charter takes from Monday through Friday to complete. The problem statement is complete on Tuesday. However, the team is not done with all of the steps in that series until they are done with the project charter."
+            "kind": "image",
+            "assetId": "fig-e627a8e1547c3e24",
+            "src": "assets/figures/fig-e627a8e1547c3e24.png",
+            "width": 1189,
+            "height": 436
           },
           {
             "id": "ch10-content-en-108",
             "kind": "paragraph",
-            "text": "6. Add up the longest times from each section."
+            "text": "5. Draw a critical path through the diagram."
           },
           {
             "id": "ch10-content-en-109",
             "kind": "paragraph",
-            "text": "In this case, the team adds 1 week, 1 week, and 2 weeks to get to 4 weeks total for the Define phase."
+            "text": "When steps are stacked, the critical path goes through the step with the longest time estimate. For example, the team might create a problem statement while they are working on a project charter; the project charter takes from Monday through Friday to complete. The problem statement is complete on Tuesday. However, the team is not done with all of the steps in that series until they are done with the project charter."
           },
           {
             "id": "ch10-content-en-110",
-            "kind": "paragraph",
-            "text": "We’ve used a very simple example, but you can use the critical path method to estimate timelines for extremely complex projects or processes."
+            "kind": "image",
+            "assetId": "fig-74d3295904fa3bea",
+            "src": "assets/figures/fig-74d3295904fa3bea.png",
+            "width": 1008,
+            "height": 385
           },
           {
             "id": "ch10-content-en-111",
-            "kind": "heading",
-            "text": "Milestone Meetings"
+            "kind": "paragraph",
+            "text": "6. Add up the longest times from each section."
           },
           {
             "id": "ch10-content-en-112",
             "kind": "paragraph",
-            "text": "Once a timeline is established, set up milestone meetings and dates to help keep the team on track and notify the sponsor or champion of progress. In a DMAIC project, milestones are usually set at the end of each phase (Define, Measure, Analyze, Improve, and Control). However, teams can set custom milestones, and sponsors might require specific milestones if they are approving large resourcing or funding requests for a project."
+            "text": "In this case, the team adds 1 week, 1 week, and 2 weeks to get to 4 weeks total for the Define phase."
           },
           {
             "id": "ch10-content-en-113",
             "kind": "paragraph",
-            "text": "You can also set up milestones within a team environment to manage goals and tasks; these milestones can be kept within the team. For example, a team working for a chain of sandwich shops is hoping to improve the process by which sandwiches are put together. They have set up the following milestones:"
+            "text": "We’ve used a very simple example, but you can use the critical path method to estimate timelines for extremely complex projects or processes."
           },
           {
             "id": "ch10-content-en-114",
-            "kind": "paragraph",
-            "text": "Define: January 21"
+            "kind": "heading",
+            "text": "Milestone Meetings"
           },
           {
             "id": "ch10-content-en-115",
             "kind": "paragraph",
-            "text": "Measure: February 12"
+            "text": "Once a timeline is established, set up milestone meetings and dates to help keep the team on track and notify the sponsor or champion of progress. In a DMAIC project, milestones are usually set at the end of each phase (Define, Measure, Analyze, Improve, and Control). However, teams can set custom milestones, and sponsors might require specific milestones if they are approving large resourcing or funding requests for a project."
           },
           {
             "id": "ch10-content-en-116",
             "kind": "paragraph",
-            "text": "Analyze: February 22"
+            "text": "You can also set up milestones within a team environment to manage goals and tasks; these milestones can be kept within the team. For example, a team working for a chain of sandwich shops is hoping to improve the process by which sandwiches are put together. They have set up the following milestones:"
           },
           {
             "id": "ch10-content-en-117",
             "kind": "paragraph",
-            "text": "Improve: March 15"
+            "text": "Define: January 21"
           },
           {
             "id": "ch10-content-en-118",
             "kind": "paragraph",
-            "text": "Control: April 10"
+            "text": "Measure: February 12"
           },
           {
             "id": "ch10-content-en-119",
             "kind": "paragraph",
-            "text": "The milestone dates are when the team or the Black Belt will meet with the sponsor to present the findings or results of each phase of the project. Each date gives the team something to work toward. However, the team has determined that certain tasks must be accomplished during the Measure phase. First, they have to create some definitions of terms so everyone is on the same page when discussing measurements. Second, the team has to gather data about the temperature at which ingredients are stored and cooked. Finally, the team wants to actively observe sandwich shop employees in order to measure the time it takes to make various sandwiches."
+            "text": "Analyze: February 22"
           },
           {
             "id": "ch10-content-en-120",
             "kind": "paragraph",
-            "text": "The team might set up internal milestones for the Measure phase, stating that definitions will be created by January 25, temperature data collected by February 5, and time data collected by February 10."
+            "text": "Improve: March 15"
           },
           {
             "id": "ch10-content-en-121",
             "kind": "paragraph",
-            "text": "By breaking each phase, and each larger task, into smaller parts, it is easier for the team to stay on track and complete work. Smaller tasks seem more manageable, so they are more likely to be accomplished."
+            "text": "Control: April 10"
           },
           {
             "id": "ch10-content-en-122",
-            "kind": "heading",
-            "text": "Budgets"
+            "kind": "paragraph",
+            "text": "The milestone dates are when the team or the Black Belt will meet with the sponsor to present the findings or results of each phase of the project. Each date gives the team something to work toward. However, the team has determined that certain tasks must be accomplished during the Measure phase. First, they have to create some definitions of terms so everyone is on the same page when discussing measurements. Second, the team has to gather data about the temperature at which ingredients are stored and cooked. Finally, the team wants to actively observe sandwich shop employees in order to measure the time it takes to make various sandwiches."
           },
           {
             "id": "ch10-content-en-123",
             "kind": "paragraph",
-            "text": "Teams, and especially team leaders, must always be concerned with project budgets. While success is rated by end customers in terms of performance, quality, and satisfaction, Six Sigma teams also answer to corporate leadership. For leaders, success is also measured in terms of time and budget. A strong timeline and good milestones help you meet time requirements, and an understanding of financial drivers, strong communication, and financial oversight help you keep a project within budget."
+            "text": "The team might set up internal milestones for the Measure phase, stating that definitions will be created by January 25, temperature data collected by February 5, and time data collected by February 10."
           },
           {
             "id": "ch10-content-en-124",
             "kind": "paragraph",
-            "text": "One of the challenges when dealing with budgets in a Six Sigma project is that all team members are not always completely aware of financial drivers. In some cases, financial information might even be restricted; employers don’t generally want specific data about employee pay made public to various team members, for example. Some information and analysis might need to be performed solely by a project-leading Black Belt in such cases, especially if data is critical or sensitive."
+            "text": "By breaking each phase, and each larger task, into smaller parts, it is easier for the team to stay on track and complete work. Smaller tasks seem more manageable, so they are more likely to be accomplished."
           },
           {
             "id": "ch10-content-en-125",
-            "kind": "paragraph",
-            "text": "Outside of concerns with sensitive data, process improvement projects work best when all team members are made aware of as many of the drivers and data as possible. When teams know how much funding a champion is willing to seek on their behalf, they can make realistic decisions about how to improve a process. Sometimes, the solution that is most likely to generate the most improvement isn’t viable because of budget. If an improvement project has a budget of $50,000, the team can’t implement a solution that requires an $80,000 capital investment in machinery, for example."
+            "kind": "heading",
+            "text": "Budgets"
           },
           {
             "id": "ch10-content-en-126",
             "kind": "paragraph",
-            "text": "Budget concerns vary by organization. In some organizations, leaders are most concerned with specific expenditures by a team, including expenses on new equipment, hiring new personnel, or purchasing new products or software. Some organizations take a more granular approach to project budgets, considering the expense of hours spent by the team on the project as well as the expenses associated with training and implementing a solution outside of the team environment."
+            "text": "Teams, and especially team leaders, must always be concerned with project budgets. While success is rated by end customers in terms of performance, quality, and satisfaction, Six Sigma teams also answer to corporate leadership. For leaders, success is also measured in terms of time and budget. A strong timeline and good milestones help you meet time requirements, and an understanding of financial drivers, strong communication, and financial oversight help you keep a project within budget."
           },
           {
             "id": "ch10-content-en-127",
             "kind": "paragraph",
-            "text": "Six Sigma team leaders must ensure they understand how leaders and organizations manage project budgets. Working for the first time with an organization or sponsor means having honest and thorough conversations about how budgets are calculated, how much sponsors are willing to work for increases in a budget, and what the Six Sigma leader’s expected role in maintaining budgets is."
+            "text": "One of the challenges when dealing with budgets in a Six Sigma project is that all team members are not always completely aware of financial drivers. In some cases, financial information might even be restricted; employers don’t generally want specific data about employee pay made public to various team members, for example. Some information and analysis might need to be performed solely by a project-leading Black Belt in such cases, especially if data is critical or sensitive."
           },
           {
             "id": "ch10-content-en-128",
-            "kind": "heading",
-            "text": "Defined Measures of Success"
+            "kind": "paragraph",
+            "text": "Outside of concerns with sensitive data, process improvement projects work best when all team members are made aware of as many of the drivers and data as possible. When teams know how much funding a champion is willing to seek on their behalf, they can make realistic decisions about how to improve a process. Sometimes, the solution that is most likely to generate the most improvement isn’t viable because of budget. If an improvement project has a budget of $50,000, the team can’t implement a solution that requires an $80,000 capital investment in machinery, for example."
           },
           {
             "id": "ch10-content-en-129",
             "kind": "paragraph",
-            "text": "Finally, Six Sigma teams must create a well-defined measure of success. To best manage a Six Sigma project and team, leaders have to ensure all team members, leaders, and sponsors agree on what success means. If success isn’t defined at all, the team risks scope creep and getting lost in a project that never seems to end. If success isn’t well-defined, teams risk concluding a project without satisfying the customer, sponsor, or all members of the team. If a sponsor and the team don’t agree on what success looks like, the team could think they’ve concluded a successful project while leadership believes the project was a failure."
+            "text": "Budget concerns vary by organization. In some organizations, leaders are most concerned with specific expenditures by a team, including expenses on new equipment, hiring new personnel, or purchasing new products or software. Some organizations take a more granular approach to project budgets, considering the expense of hours spent by the team on the project as well as the expenses associated with training and implementing a solution outside of the team environment."
           },
           {
             "id": "ch10-content-en-130",
+            "kind": "paragraph",
+            "text": "Six Sigma team leaders must ensure they understand how leaders and organizations manage project budgets. Working for the first time with an organization or sponsor means having honest and thorough conversations about how budgets are calculated, how much sponsors are willing to work for increases in a budget, and what the Six Sigma leader’s expected role in maintaining budgets is."
+          },
+          {
+            "id": "ch10-content-en-131",
+            "kind": "heading",
+            "text": "Defined Measures of Success"
+          },
+          {
+            "id": "ch10-content-en-132",
+            "kind": "paragraph",
+            "text": "Finally, Six Sigma teams must create a well-defined measure of success. To best manage a Six Sigma project and team, leaders have to ensure all team members, leaders, and sponsors agree on what success means. If success isn’t defined at all, the team risks scope creep and getting lost in a project that never seems to end. If success isn’t well-defined, teams risk concluding a project without satisfying the customer, sponsor, or all members of the team. If a sponsor and the team don’t agree on what success looks like, the team could think they’ve concluded a successful project while leadership believes the project was a failure."
+          },
+          {
+            "id": "ch10-content-en-133",
             "kind": "paragraph",
             "text": "In the end, successful Six Sigma team management hinges on many of the same concepts as successful leadership in other endeavors does. Choosing the right people, being clear about expectations, approaching work in an organized manner, and being honest and open about progress helps every member of the team succeed and provide value."
           }
@@ -1157,46 +1181,54 @@
           },
           {
             "id": "ch10-content-zh-093",
-            "kind": "paragraph",
-            "text": "预计时间为16周；专家认为，定义阶段需要3周，测量阶段需要5周。测量阶段与定义和分析阶段重叠，这对于六西格玛项目来说是正常的。"
+            "kind": "image",
+            "assetId": "fig-0e5ff500c35b73a6",
+            "src": "assets/figures/fig-0e5ff500c35b73a6.png",
+            "width": 1077,
+            "height": 319
           },
           {
             "id": "ch10-content-zh-094",
             "kind": "paragraph",
-            "text": "这种方法的好处是您可以快速生成时间线。缺点是，没有六西格玛经验且对改进流程有相当了解的人很容易误判每个阶段所需的时间，领导层可能会认为这是一个严格的时间表，这可能会产生不切实际的期望。在提出这样的时间表时，请确保每个人都知道这是一个粗略的估计，每个阶段的时间可能会随着您完成该过程而改变。"
+            "text": "预计时间为16周；专家认为，定义阶段需要3周，测量阶段需要5周。测量阶段与定义和分析阶段重叠，这对于六西格玛项目来说是正常的。"
           },
           {
             "id": "ch10-content-zh-095",
+            "kind": "paragraph",
+            "text": "这种方法的好处是您可以快速生成时间线。缺点是，没有六西格玛经验且对改进流程有相当了解的人很容易误判每个阶段所需的时间，领导层可能会认为这是一个严格的时间表，这可能会产生不切实际的期望。在提出这样的时间表时，请确保每个人都知道这是一个粗略的估计，每个阶段的时间可能会随着您完成该过程而改变。"
+          },
+          {
+            "id": "ch10-content-zh-096",
             "kind": "heading",
             "text": "关键路径法"
           },
           {
-            "id": "ch10-content-zh-096",
+            "id": "ch10-content-zh-097",
             "kind": "paragraph",
             "text": "关键路径方法是定义项目各个要素的时间表的更详细方法，但它确实需要项目团队提供更多信息和输入。这意味着在项目开始之前您可能无法提供详细的时间表；关键路径图可能是团队在定义阶段进行的活动之一。"
           },
           {
-            "id": "ch10-content-zh-097",
+            "id": "ch10-content-zh-098",
             "kind": "heading",
             "text": "创建关键路径图"
           },
           {
-            "id": "ch10-content-zh-098",
+            "id": "ch10-content-zh-099",
             "kind": "paragraph",
             "text": "可以为整个项目或项目的每个阶段创建关键路径图。当我们完成创建关键路径图的步骤时，我们将使用项目的定义阶段来减少医疗计费环境中的坏账（未收发票）作为示例。"
           },
           {
-            "id": "ch10-content-zh-099",
+            "id": "ch10-content-zh-100",
             "kind": "paragraph",
             "text": "1. 确定完成项目或项目阶段的关键需求或活动。"
           },
           {
-            "id": "ch10-content-zh-100",
+            "id": "ch10-content-zh-101",
             "kind": "paragraph",
             "text": "为了完成我们项目的定义阶段以改善医疗账单环境中的坏账，团队需要选择一个团队、制定项目、定义问题并创建基线指标。"
           },
           {
-            "id": "ch10-content-zh-101",
+            "id": "ch10-content-zh-102",
             "kind": "termNote",
             "rows": [
               [
@@ -1206,177 +1238,219 @@
             "text": "术语说明 Baseline（基线）：改进前的当前表现水平，是后续比较改进效果的参照。"
           },
           {
-            "id": "ch10-content-zh-102",
+            "id": "ch10-content-zh-103",
             "kind": "paragraph",
             "text": "2. 整理关键活动的顺序。"
           },
           {
-            "id": "ch10-content-zh-103",
+            "id": "ch10-content-zh-104",
             "kind": "paragraph",
             "text": "团队完成第一步中定义的任务的顺序是："
           },
           {
-            "id": "ch10-content-zh-104",
+            "id": "ch10-content-zh-105",
             "kind": "listItem",
             "text": "选择团队"
           },
           {
-            "id": "ch10-content-zh-105",
+            "id": "ch10-content-zh-106",
             "kind": "listItem",
             "text": "制定项目并定义问题（这些任务可以同时完成）"
           },
           {
-            "id": "ch10-content-zh-106",
+            "id": "ch10-content-zh-107",
             "kind": "listItem",
             "text": "创建基线指标"
           },
           {
-            "id": "ch10-content-zh-107",
+            "id": "ch10-content-zh-108",
             "kind": "paragraph",
             "text": "3. 为每项任务分配时间。"
           },
           {
-            "id": "ch10-content-zh-108",
+            "id": "ch10-content-zh-109",
             "kind": "paragraph",
             "text": "六西格玛专家估计，选择团队需要一周时间，制定章程需要一周时间，创建问题陈述需要一天时间，创建基线指标需要两周时间。"
           },
           {
-            "id": "ch10-content-zh-109",
+            "id": "ch10-content-zh-110",
             "kind": "paragraph",
             "text": "4. 创建任务图，堆叠同时或并行流程并包括时间数字。"
           },
           {
-            "id": "ch10-content-zh-110",
+            "id": "ch10-content-zh-111",
             "kind": "paragraph",
             "text": "该图是从左到右创建的。必须先完成左侧的项目，然后才能完成右侧的项目。当多个项目可以同时完成时，它们就会被堆叠起来。"
           },
           {
-            "id": "ch10-content-zh-111",
-            "kind": "paragraph",
-            "text": "5. 在图中画出一条关键路径。"
-          },
-          {
             "id": "ch10-content-zh-112",
-            "kind": "paragraph",
-            "text": "当步骤堆叠时，关键路径会经过估计时间最长的步骤。例如，团队可能在制定项目章程时创建问题陈述；项目章程需要从周一到周五完成。问题陈述于周二完成。然而，在完成项目章程之前，团队并未完成该系列中的所有步骤。"
+            "kind": "image",
+            "assetId": "fig-e627a8e1547c3e24",
+            "src": "assets/figures/fig-e627a8e1547c3e24.png",
+            "width": 1189,
+            "height": 436
           },
           {
             "id": "ch10-content-zh-113",
             "kind": "paragraph",
-            "text": "6. 将每个部分的最长时间相加。"
+            "text": "5. 在图中画出一条关键路径。"
           },
           {
             "id": "ch10-content-zh-114",
             "kind": "paragraph",
-            "text": "在本例中，团队将定义阶段添加 1 周、1 周和 2 周，总计达到 4 周。"
+            "text": "当步骤堆叠时，关键路径会经过估计时间最长的步骤。例如，团队可能在制定项目章程时创建问题陈述；项目章程需要从周一到周五完成。问题陈述于周二完成。然而，在完成项目章程之前，团队并未完成该系列中的所有步骤。"
           },
           {
             "id": "ch10-content-zh-115",
-            "kind": "paragraph",
-            "text": "我们使用了一个非常简单的示例，但您可以使用关键路径方法来估计极其复杂的项目或流程的时间表。"
+            "kind": "image",
+            "assetId": "fig-74d3295904fa3bea",
+            "src": "assets/figures/fig-74d3295904fa3bea.png",
+            "width": 1008,
+            "height": 385
           },
           {
             "id": "ch10-content-zh-116",
-            "kind": "heading",
-            "text": "里程碑会议"
+            "kind": "paragraph",
+            "text": "6. 将每个部分的最长时间相加。"
           },
           {
             "id": "ch10-content-zh-117",
             "kind": "paragraph",
-            "text": "确定时间表后，设置里程碑会议和日期，以帮助团队保持正轨，并通知赞助商或支持者进展情况。在 DMAIC 项目中，通常在每个阶段（定义、测量、分析、改进和控制）结束时设置里程碑。但是，团队可以设置自定义里程碑，如果发起人要批准项目的大量资源或资金请求，则他们可能需要特定的里程碑。"
+            "text": "在本例中，团队将定义阶段添加 1 周、1 周和 2 周，总计达到 4 周。"
           },
           {
             "id": "ch10-content-zh-118",
             "kind": "paragraph",
-            "text": "您还可以在团队环境中设置里程碑来管理目标和任务；这些里程碑可以保留在团队内部。例如，在三明治连锁店工作的团队希望改进三明治的制作过程。他们设立了以下里程碑："
+            "text": "我们使用了一个非常简单的示例，但您可以使用关键路径方法来估计极其复杂的项目或流程的时间表。"
           },
           {
             "id": "ch10-content-zh-119",
             "kind": "heading",
-            "text": "定义：1 月 21 日"
+            "text": "里程碑会议"
           },
           {
             "id": "ch10-content-zh-120",
-            "kind": "heading",
-            "text": "措施：2月12日"
+            "kind": "paragraph",
+            "text": "确定时间表后，设置里程碑会议和日期，以帮助团队保持正轨，并通知赞助商或支持者进展情况。在 DMAIC 项目中，通常在每个阶段（定义、测量、分析、改进和控制）结束时设置里程碑。但是，团队可以设置自定义里程碑，如果发起人要批准项目的大量资源或资金请求，则他们可能需要特定的里程碑。"
           },
           {
             "id": "ch10-content-zh-121",
-            "kind": "heading",
-            "text": "分析：2月22日"
+            "kind": "paragraph",
+            "text": "您还可以在团队环境中设置里程碑来管理目标和任务；这些里程碑可以保留在团队内部。例如，在三明治连锁店工作的团队希望改进三明治的制作过程。他们设立了以下里程碑："
           },
           {
             "id": "ch10-content-zh-122",
             "kind": "heading",
-            "text": "改进：3 月 15 日"
+            "text": "定义：1 月 21 日"
           },
           {
             "id": "ch10-content-zh-123",
             "kind": "heading",
-            "text": "控制时间：4月10日"
+            "text": "措施：2月12日"
           },
           {
             "id": "ch10-content-zh-124",
+            "kind": "heading",
+            "text": "分析：2月22日"
+          },
+          {
+            "id": "ch10-content-zh-125",
+            "kind": "heading",
+            "text": "改进：3 月 15 日"
+          },
+          {
+            "id": "ch10-content-zh-126",
+            "kind": "heading",
+            "text": "控制时间：4月10日"
+          },
+          {
+            "id": "ch10-content-zh-127",
             "kind": "paragraph",
             "text": "里程碑日期是团队或黑带与发起人会面以展示项目每个阶段的调查结果或结果的日期。每个日期都为团队提供了一些值得努力的目标。但是，团队已确定必须在测量阶段完成某些任务。首先，他们必须创建一些术语定义，以便每个人在讨论测量时都能达成共识。其次，团队必须收集有关原料储存和烹饪温度的数据。最后，该团队希望积极观察三明治店员工，以测量制作各种三明治所需的时间。"
           },
           {
-            "id": "ch10-content-zh-125",
+            "id": "ch10-content-zh-128",
             "kind": "paragraph",
             "text": "团队可能会为测量阶段设置内部里程碑，指出将在 1 月 25 日之前创建定义，在 2 月 5 日之前收集温度数据，在 2 月 10 日之前收集时间数据。"
           },
           {
-            "id": "ch10-content-zh-126",
+            "id": "ch10-content-zh-129",
             "kind": "paragraph",
             "text": "通过将每个阶段和每个较大的任务分解为较小的部分，团队可以更轻松地保持正轨并完成工作。较小的任务似乎更容易管理，因此更有可能完成。"
           },
           {
-            "id": "ch10-content-zh-127",
+            "id": "ch10-content-zh-130",
             "kind": "heading",
             "text": "预算"
           },
           {
-            "id": "ch10-content-zh-128",
+            "id": "ch10-content-zh-131",
             "kind": "paragraph",
             "text": "团队，尤其是团队领导者，必须始终关注项目预算。虽然成功是由最终客户根据绩效、质量和满意度来评价的，但六西格玛团队也对公司领导负责。对于领导者来说，成功还可以通过时间和预算来衡量。强大的时间表和良好的里程碑可以帮助您满足时间要求，而对财务驱动因素的了解、强有力的沟通和财务监督可以帮助您将项目控制在预算之内。"
           },
           {
-            "id": "ch10-content-zh-129",
+            "id": "ch10-content-zh-132",
             "kind": "paragraph",
             "text": "在六西格玛项目中处理预算时面临的挑战之一是所有团队成员并不总是完全了解财务驱动因素。在某些情况下，财务信息甚至可能受到限制；例如，雇主通常不希望向各个团队成员公开有关员工薪酬的具体数据。 在这种情况下，某些信息和分析可能需要仅由项目主导的黑带执行，特别是在数据至关重要或敏感的情况下。"
           },
           {
-            "id": "ch10-content-zh-130",
+            "id": "ch10-content-zh-133",
             "kind": "paragraph",
             "text": "除了对敏感数据的关注之外，当所有团队成员都了解尽可能多的驱动因素和数据时，流程改进项目效果最好。当团队知道冠军愿意代表他们寻求多少资金时，他们就可以就如何改进流程做出现实的决定。有时，由于预算原因，最有可能产生最大改进的解决方案并不可行。例如，如果改进项目的预算为 50,000 美元，团队就无法实施需要 80,000 美元机械资本投资的解决方案。"
           },
           {
-            "id": "ch10-content-zh-131",
+            "id": "ch10-content-zh-134",
             "kind": "paragraph",
             "text": "预算问题因组织而异。在一些组织中，领导者最关心团队的具体支出，包括新设备、雇用新人员或购买新产品或软件的费用。一些组织对项目预算采取更细粒度的方法，考虑团队在项目上花费的时间费用以及与团队环境之外的培训和实施解决方案相关的费用。"
           },
           {
-            "id": "ch10-content-zh-132",
+            "id": "ch10-content-zh-135",
             "kind": "paragraph",
             "text": "六西格玛团队领导者必须确保他们了解领导者和组织如何管理项目预算。第一次与组织或赞助商合作意味着就预算如何计算、赞助商愿意为增加预算付出多少努力以及六西格玛领导者在维持预算方面的预期角色进行诚实和彻底的对话。"
           },
           {
-            "id": "ch10-content-zh-133",
+            "id": "ch10-content-zh-136",
             "kind": "heading",
             "text": "明确的成功衡量标准"
           },
           {
-            "id": "ch10-content-zh-134",
+            "id": "ch10-content-zh-137",
             "kind": "paragraph",
             "text": "最后，六西格玛团队必须制定明确的成功衡量标准。为了最好地管理六西格玛项目和团队，领导者必须确保所有团队成员、领导者和发起人就成功的含义达成一致。如果根本没有定义成功，团队就会面临范围蔓延的风险，并迷失在一个似乎永远不会结束的项目中。如果成功没有明确定义，团队就有可能在无法令客户、发起人或团队所有成员满意的情况下完成项目。如果发起人和团队对于成功是什么样的意见不一致，团队可能会认为他们已经完成了一个成功的项目，而领导层则认为该项目是失败的。"
           },
           {
-            "id": "ch10-content-zh-135",
+            "id": "ch10-content-zh-138",
             "kind": "paragraph",
             "text": "最后，成功的六西格玛团队管理取决于许多与其他努力的成功领导相同的理念。 选择合适的人员、明确期望、以有组织的方式开展工作以及诚实和开放地对待进展，有助于团队的每个成员取得成功并提供价值。"
           }
         ]
       }
+    }
+  ],
+  "assets": [
+    {
+      "id": "fig-0e5ff500c35b73a6",
+      "type": "table-image",
+      "path": "assets/figures/fig-0e5ff500c35b73a6.png",
+      "page": 91,
+      "width": 1077,
+      "height": 319
+    },
+    {
+      "id": "fig-74d3295904fa3bea",
+      "type": "table-image",
+      "path": "assets/figures/fig-74d3295904fa3bea.png",
+      "page": 91,
+      "width": 1008,
+      "height": 385
+    },
+    {
+      "id": "fig-e627a8e1547c3e24",
+      "type": "table-image",
+      "path": "assets/figures/fig-e627a8e1547c3e24.png",
+      "page": 91,
+      "width": 1189,
+      "height": 436
     }
   ]
 }

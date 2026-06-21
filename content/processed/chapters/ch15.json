@@ -50,356 +50,372 @@
           },
           {
             "id": "ch15-content-en-006",
-            "kind": "paragraph",
-            "text": "The matrix is completed by:"
+            "kind": "image",
+            "assetId": "fig-5db5dc5deae35419",
+            "src": "assets/figures/fig-5db5dc5deae35419.png",
+            "width": 1190,
+            "height": 386
           },
           {
             "id": "ch15-content-en-007",
             "kind": "paragraph",
-            "text": "1. Entering the problem statement in the first column. This should be the final problem statement that was arrived at during the measure phase if the team decided that the statement should be"
+            "text": "The matrix is completed by:"
           },
           {
             "id": "ch15-content-en-008",
             "kind": "paragraph",
-            "text": "altered after gathering data. Otherwise, this can be the problem statement from the define phase. 2. Entering a priority validated root cause from the analyze phase. If the team is going to attempt to solve more than one root cause during the improve phase, it should create a solutions selection matrix for each root cause. 3. Brainstorming potential solutions in column three. During the brainstorming process, teams should not question or attempt to analyze solutions, but should record any solution suggested that seems at all viable. The only solutions that might be ignored are those that are clearly out of scope or impossible, but the Black Belt leading the brainstorming exercise will have to use his or her own discernment about such suggestions. 4. Noting, at a very high level, the practical methods by which a solution could be implemented. In one example used in the analyze chapter, a commercial bakery had a problem that was caused by lack of baking instructions. In this case, the Six Sigma team might propose that staff be provided with proper instructions. The method by which that solution occurs is written documentation and training. 5. Rating solutions. After a list of possible solutions and practical methods is created, the team rates each possibility on effectiveness, feasibility, and cost-benefit. Each category is given a rating between 1 and 10."
+            "text": "1. Entering the problem statement in the first column. This should be the final problem statement that was arrived at during the measure phase if the team decided that the statement should be"
           },
           {
             "id": "ch15-content-en-009",
             "kind": "paragraph",
-            "text": "a. Effectiveness is the measure of how well a solution will eliminate a root cause for a problem, with 1 being not effective and 10 being highly effective. b. Feasibility is the measure of effort required to implement the improvement, with 1 being not feasible because of the effort or resources required and 10 being highly feasible. c. Cost-benefit is an estimated measure of how the costs of a project compare to the savings expected. This rating is not a formal cost benefit analysis, but is a high-level estimation. If savings are expected to outweigh the costs associated with a project, the team ranks the solution as high. Otherwise, the team ranks the solution low. 6. The scores for effectiveness, feasibility, and cost-benefit are multiplied to calculate an overall score. The overall score can be used to prioritize solutions and select the solution that features the best overall effectiveness, feasibility, and cost-benefit rating."
+            "text": "altered after gathering data. Otherwise, this can be the problem statement from the define phase. 2. Entering a priority validated root cause from the analyze phase. If the team is going to attempt to solve more than one root cause during the improve phase, it should create a solutions selection matrix for each root cause. 3. Brainstorming potential solutions in column three. During the brainstorming process, teams should not question or attempt to analyze solutions, but should record any solution suggested that seems at all viable. The only solutions that might be ignored are those that are clearly out of scope or impossible, but the Black Belt leading the brainstorming exercise will have to use his or her own discernment about such suggestions. 4. Noting, at a very high level, the practical methods by which a solution could be implemented. In one example used in the analyze chapter, a commercial bakery had a problem that was caused by lack of baking instructions. In this case, the Six Sigma team might propose that staff be provided with proper instructions. The method by which that solution occurs is written documentation and training. 5. Rating solutions. After a list of possible solutions and practical methods is created, the team rates each possibility on effectiveness, feasibility, and cost-benefit. Each category is given a rating between 1 and 10."
           },
           {
             "id": "ch15-content-en-010",
             "kind": "paragraph",
-            "text": "Consider a possible solutions selection matrix created regarding the medical claims denial example used in the analyze chapter."
+            "text": "a. Effectiveness is the measure of how well a solution will eliminate a root cause for a problem, with 1 being not effective and 10 being highly effective. b. Feasibility is the measure of effort required to implement the improvement, with 1 being not feasible because of the effort or resources required and 10 being highly feasible. c. Cost-benefit is an estimated measure of how the costs of a project compare to the savings expected. This rating is not a formal cost benefit analysis, but is a high-level estimation. If savings are expected to outweigh the costs associated with a project, the team ranks the solution as high. Otherwise, the team ranks the solution low. 6. The scores for effectiveness, feasibility, and cost-benefit are multiplied to calculate an overall score. The overall score can be used to prioritize solutions and select the solution that features the best overall effectiveness, feasibility, and cost-benefit rating."
           },
           {
             "id": "ch15-content-en-011",
             "kind": "paragraph",
-            "text": "During the analyze chapter, a Pareto analysis indicated that timely filing issues were a root cause for high claims denials. In the solutions selection matrix above, a team has identified and prioritized four possible solutions after discovering that claims were not filed on time because claims billing staff didn’t have all the proper information in time."
+            "text": "Consider a possible solutions selection matrix created regarding the medical claims denial example used in the analyze chapter."
           },
           {
             "id": "ch15-content-en-012",
-            "kind": "paragraph",
-            "text": "The first solution is to require the front desk to collect as much information as possible. The team gave this solution a mid-range rating for effectiveness because it doesn’t address the fact that clinical information can still be missing from the claim. But, the process would be effective at gathering demographic information and would not require large expense or effort to implement, so the team rated it high for the other categories."
+            "kind": "image",
+            "assetId": "fig-083b25569672cdf2",
+            "src": "assets/figures/fig-083b25569672cdf2.png",
+            "width": 1190,
+            "height": 657
           },
           {
             "id": "ch15-content-en-013",
             "kind": "paragraph",
-            "text": "Next, the team considered creating and requiring a patient email or portal system so billing staff could communicate quickly with patients when information was missing. Because not all patients have email and many would be unlikely to use such a system, the team ranked this solution as low for feasibility and effectiveness."
+            "text": "During the analyze chapter, a Pareto analysis indicated that timely filing issues were a root cause for high claims denials. In the solutions selection matrix above, a team has identified and prioritized four possible solutions after discovering that claims were not filed on time because claims billing staff didn’t have all the proper information in time."
           },
           {
             "id": "ch15-content-en-014",
             "kind": "paragraph",
-            "text": "The third solution considered by the team was requiring clinicians to include all information necessary for billing as they charted during the visit with the patient. The team thought this solution would be fairly effective, but that clinicians would be unlikely to take the time to be so thorough when dealing with patient issues. The solution might also slow physician visits, resulting in a negative impact to revenue."
+            "text": "The first solution is to require the front desk to collect as much information as possible. The team gave this solution a mid-range rating for effectiveness because it doesn’t address the fact that clinical information can still be missing from the claim. But, the process would be effective at gathering demographic information and would not require large expense or effort to implement, so the team rated it high for the other categories."
           },
           {
             "id": "ch15-content-en-015",
             "kind": "paragraph",
-            "text": "Finally, the team considered a solution that put certain staff members in charge of claims with missing information. Because those staff members could concentrate on missing claims and would work through a new workflow built by the team, they would be more likely to file claims on time. Overall, the team"
+            "text": "Next, the team considered creating and requiring a patient email or portal system so billing staff could communicate quickly with patients when information was missing. Because not all patients have email and many would be unlikely to use such a system, the team ranked this solution as low for feasibility and effectiveness."
           },
           {
             "id": "ch15-content-en-016",
             "kind": "paragraph",
-            "text": "ranked this solution highest, but they decided to implement both solutions one and four because solution one required so little effort and would actually help drive the success of solution four."
+            "text": "The third solution considered by the team was requiring clinicians to include all information necessary for billing as they charted during the visit with the patient. The team thought this solution would be fairly effective, but that clinicians would be unlikely to take the time to be so thorough when dealing with patient issues. The solution might also slow physician visits, resulting in a negative impact to revenue."
           },
           {
             "id": "ch15-content-en-017",
-            "kind": "heading",
-            "text": "Cost Benefit Analysis"
+            "kind": "paragraph",
+            "text": "Finally, the team considered a solution that put certain staff members in charge of claims with missing information. Because those staff members could concentrate on missing claims and would work through a new workflow built by the team, they would be more likely to file claims on time. Overall, the team"
           },
           {
             "id": "ch15-content-en-018",
             "kind": "paragraph",
-            "text": "When teams include the appropriate individuals in the process, a solutions selection matrix is very adept at identifying the best possible solutions for implementation. Leadership councils and executive sponsors often want more information about the costs and benefits expected for a solution, though, so teams should be prepared to create a cost benefit analysis. Black Belts often have many of the elements required for such an analysis after the measure and analyze phases, but teams might also need to work with accounting, finance, or business planning departments to gain accurate financial details required."
+            "text": "ranked this solution highest, but they decided to implement both solutions one and four because solution one required so little effort and would actually help drive the success of solution four."
           },
           {
             "id": "ch15-content-en-019",
-            "kind": "paragraph",
-            "text": "The goal of a cost benefits analysis is to compare the costs of implementing a solution with the monetary benefits expected from the solution. Costs include expenses such as software development or purchase, equipment purchase, building development or renovation, additional labor or hiring, training expenses, additional supplies, and any losses associated with disruption as the solution is implemented. Benefits might include an increase in product margin, increase in revenue, cost savings or avoidance, and intangible benefits such as increase to staff morale or customer retention."
+            "kind": "heading",
+            "text": "Cost Benefit Analysis"
           },
           {
             "id": "ch15-content-en-020",
             "kind": "paragraph",
-            "text": "Six Sigma teams usually aren’t in a position to handle detailed cost benefit analysis such as might be completed by a certified accountant, but they can create an idea of cost benefit relationships via the payback method of analysis. This is the simplest way to approach such an analysis and provides leadership with an estimated time before a project “pays off.”"
+            "text": "When teams include the appropriate individuals in the process, a solutions selection matrix is very adept at identifying the best possible solutions for implementation. Leadership councils and executive sponsors often want more information about the costs and benefits expected for a solution, though, so teams should be prepared to create a cost benefit analysis. Black Belts often have many of the elements required for such an analysis after the measure and analyze phases, but teams might also need to work with accounting, finance, or business planning departments to gain accurate financial details required."
           },
           {
             "id": "ch15-content-en-021",
-            "kind": "heading",
-            "text": "Payback, or Pay Off, Analysis"
+            "kind": "paragraph",
+            "text": "The goal of a cost benefits analysis is to compare the costs of implementing a solution with the monetary benefits expected from the solution. Costs include expenses such as software development or purchase, equipment purchase, building development or renovation, additional labor or hiring, training expenses, additional supplies, and any losses associated with disruption as the solution is implemented. Benefits might include an increase in product margin, increase in revenue, cost savings or avoidance, and intangible benefits such as increase to staff morale or customer retention."
           },
           {
             "id": "ch15-content-en-022",
             "kind": "paragraph",
-            "text": "To conduct a payback analysis, Six Sigma teams must have an estimated cost for the project as well as the estimated financial benefit per year. Remember, financial benefits don’t just include increases in revenue. Cost savings, new customers, or mitigation of customer loss can all be considered as contributing to benefits each year. The team also needs to understand the estimated operating costs of an improvement for each year."
+            "text": "Six Sigma teams usually aren’t in a position to handle detailed cost benefit analysis such as might be completed by a certified accountant, but they can create an idea of cost benefit relationships via the payback method of analysis. This is the simplest way to approach such an analysis and provides leadership with an estimated time before a project “pays off.”"
           },
           {
             "id": "ch15-content-en-023",
-            "kind": "paragraph",
-            "text": "The formula for this analysis is:"
+            "kind": "heading",
+            "text": "Payback, or Pay Off, Analysis"
           },
           {
             "id": "ch15-content-en-024",
             "kind": "paragraph",
-            "text": "(Cost of implementing solution) / (Annual financial benefits – annual costs)"
+            "text": "To conduct a payback analysis, Six Sigma teams must have an estimated cost for the project as well as the estimated financial benefit per year. Remember, financial benefits don’t just include increases in revenue. Cost savings, new customers, or mitigation of customer loss can all be considered as contributing to benefits each year. The team also needs to understand the estimated operating costs of an improvement for each year."
           },
           {
             "id": "ch15-content-en-025",
             "kind": "paragraph",
-            "text": "If a project costs $50,000 to implement and $2,000 per year in extra labor, and the team expects the project to generate $15,000 in financial benefits each year, then the calculation is:"
+            "text": "The formula for this analysis is:"
           },
           {
             "id": "ch15-content-en-026",
             "kind": "paragraph",
-            "text": "$50,000 / ($15,000 - $2,000)"
+            "text": "(Cost of implementing solution) / (Annual financial benefits – annual costs)"
           },
           {
             "id": "ch15-content-en-027",
             "kind": "paragraph",
-            "text": "$50,000/$13,000"
+            "text": "If a project costs $50,000 to implement and $2,000 per year in extra labor, and the team expects the project to generate $15,000 in financial benefits each year, then the calculation is:"
           },
           {
             "id": "ch15-content-en-028",
             "kind": "paragraph",
-            "text": "Or, approximately 3.84 years until the project pays for itself."
+            "text": "$50,000 / ($15,000 - $2,000)"
           },
           {
             "id": "ch15-content-en-029",
             "kind": "paragraph",
-            "text": "Obviously, organizational leaders are looking for payback calculations that are as short as possible, but if the solution will solve a major problem or set a foundation for extraordinary success in the future, a longer payback time doesn’t necessarily keep a solution off the table."
+            "text": "$50,000/$13,000"
           },
           {
             "id": "ch15-content-en-030",
-            "kind": "heading",
-            "text": "Net Present Value"
+            "kind": "paragraph",
+            "text": "Or, approximately 3.84 years until the project pays for itself."
           },
           {
             "id": "ch15-content-en-031",
             "kind": "paragraph",
-            "text": "A more concise way of calculating cost benefits is known as the Net Present Value, or NPV. NPV adjusts benefits and costs as time passes because cash flow in the future is not as valuable as current cash flow due to inflation and other economic factors. The discount rate for various endeavors can be calculated using expected return, interest rates, or inflation rates. Often, corporate finance departments can provide Six Sigma teams with a discount rate used for NPV in the company. A very basic NPV model is shown below."
+            "text": "Obviously, organizational leaders are looking for payback calculations that are as short as possible, but if the solution will solve a major problem or set a foundation for extraordinary success in the future, a longer payback time doesn’t necessarily keep a solution off the table."
           },
           {
             "id": "ch15-content-en-032",
             "kind": "heading",
-            "text": "This year First Year Second Year Third Year Total"
+            "text": "Net Present Value"
           },
           {
             "id": "ch15-content-en-033",
+            "kind": "paragraph",
+            "text": "A more concise way of calculating cost benefits is known as the Net Present Value, or NPV. NPV adjusts benefits and costs as time passes because cash flow in the future is not as valuable as current cash flow due to inflation and other economic factors. The discount rate for various endeavors can be calculated using expected return, interest rates, or inflation rates. Often, corporate finance departments can provide Six Sigma teams with a discount rate used for NPV in the company. A very basic NPV model is shown below."
+          },
+          {
+            "id": "ch15-content-en-034",
+            "kind": "heading",
+            "text": "This year First Year Second Year Third Year Total"
+          },
+          {
+            "id": "ch15-content-en-035",
             "kind": "heading",
             "text": "Benefits"
           },
           {
-            "id": "ch15-content-en-034",
+            "id": "ch15-content-en-036",
             "kind": "paragraph",
             "text": "Increased revenue $10,000 $20,000 $30,000"
           },
           {
-            "id": "ch15-content-en-035",
+            "id": "ch15-content-en-037",
             "kind": "paragraph",
             "text": "Cost Savings $5,000 $10,000 $15,000"
           },
           {
-            "id": "ch15-content-en-036",
+            "id": "ch15-content-en-038",
             "kind": "heading",
             "text": "Costs"
           },
           {
-            "id": "ch15-content-en-037",
+            "id": "ch15-content-en-039",
             "kind": "paragraph",
             "text": "Capital -$20,000 -$20,000"
           },
           {
-            "id": "ch15-content-en-038",
+            "id": "ch15-content-en-040",
             "kind": "paragraph",
             "text": "Equipment -$15,000 -$15,000"
           },
           {
-            "id": "ch15-content-en-039",
+            "id": "ch15-content-en-041",
             "kind": "paragraph",
             "text": "Training -$5,000 -$5,000"
           },
           {
-            "id": "ch15-content-en-040",
+            "id": "ch15-content-en-042",
             "kind": "paragraph",
             "text": "Labor -$2,000 -$2,000 -$2,000"
           },
           {
-            "id": "ch15-content-en-041",
+            "id": "ch15-content-en-043",
             "kind": "paragraph",
             "text": "-$50,000 $13,000 $27,000 $3,000"
           },
           {
-            "id": "ch15-content-en-042",
+            "id": "ch15-content-en-044",
             "kind": "heading",
             "text": "Total Benefits –"
           },
           {
-            "id": "ch15-content-en-043",
+            "id": "ch15-content-en-045",
             "kind": "heading",
             "text": "Cost Annual"
           },
           {
-            "id": "ch15-content-en-044",
+            "id": "ch15-content-en-046",
             "kind": "paragraph",
             "text": "$12,350 $25,650 $2,850"
           },
           {
-            "id": "ch15-content-en-045",
+            "id": "ch15-content-en-047",
             "kind": "heading",
             "text": "NPV (Discounted"
           },
           {
-            "id": "ch15-content-en-046",
+            "id": "ch15-content-en-048",
             "kind": "paragraph",
             "text": "5 percent)"
           },
           {
-            "id": "ch15-content-en-047",
+            "id": "ch15-content-en-049",
             "kind": "paragraph",
             "text": "In this model, the team spent $50,000 implementing a solution and expects a $2,000 labor expense associated with the solution each year. The estimated benefits from the solution are recorded for the first two years, and all of the benefits and costs are added up for a third-year view. The NPV is discounted by 5 percent, and the final number is seen in the bottom right cell: $2,850. The goal is a positive NPV, so this project fits that goal."
           },
           {
-            "id": "ch15-content-en-048",
+            "id": "ch15-content-en-050",
             "kind": "heading",
             "text": "Piloting a Solution"
           },
           {
-            "id": "ch15-content-en-049",
+            "id": "ch15-content-en-051",
             "kind": "paragraph",
             "text": "Once a solution is selected and work done to bring it into production at a minimal level, the Six Sigma team is ready for a pilot. A pilot is a limited trial of a solution in a live environment. No matter how much analysis was completed or how well test cases were run, teams can’t know for certain how a solution"
           },
           {
-            "id": "ch15-content-en-050",
+            "id": "ch15-content-en-052",
             "kind": "paragraph",
             "text": "will behave in the “wild.” The live production environment will always have variables that teams can’t account for, particularly when people are involved in the process."
           },
           {
-            "id": "ch15-content-en-051",
+            "id": "ch15-content-en-053",
             "kind": "paragraph",
             "text": "Benefits of a limited pilot include:"
           },
           {
-            "id": "ch15-content-en-052",
+            "id": "ch15-content-en-054",
             "kind": "listItem",
             "text": "Use of resources are limited, which reduces waste if the solution turns out to be incorrect or not effective in resolving the problem"
           },
           {
-            "id": "ch15-content-en-053",
+            "id": "ch15-content-en-055",
             "kind": "listItem",
             "text": "Confirmation that expected results occur"
           },
           {
-            "id": "ch15-content-en-054",
+            "id": "ch15-content-en-056",
             "kind": "listItem",
             "text": "Allows troubleshooting of a new solution on a smaller scale to minimize disruption during full transition"
           },
           {
-            "id": "ch15-content-en-055",
+            "id": "ch15-content-en-057",
             "kind": "listItem",
             "text": "Lets employees outside of the Six Sigma team provide feedback on the solution and implementation to make the final rollout more successful"
           },
           {
-            "id": "ch15-content-en-056",
+            "id": "ch15-content-en-058",
             "kind": "paragraph",
             "text": "Teams don’t have to pilot every change they make. Simple or small changes can be made without piloting as long as teams document the changes well and measure results for verification. When changes are large in scope, could cause expensive or expansive consequences, or would be difficult to reverse, teams should begin with a pilot. The same is true for any solution that might be expensive to implement at a full scale."
           },
           {
-            "id": "ch15-content-en-057",
+            "id": "ch15-content-en-059",
             "kind": "paragraph",
             "text": "Pilots can occur on a limited scale or for a limited time. Limited scale pilots incorporate a specific region, team, group of people, or machinery. Limited time pilots implement a temporary change; at the end of a scheduled time, the team makes a decision about whether the change should be made permanent."
           },
           {
-            "id": "ch15-content-en-058",
+            "id": "ch15-content-en-060",
             "kind": "paragraph",
             "text": "Pilots can occur with either processes or products. Process pilots might feature testing specific locations, testing results with some customers, working with some employees to test new processes, or conducting dry runs of a process without impact to the end-user. Product pilots are conducted using test markets, product models, or alpha and beta testing of the product with certain end-users."
           },
           {
-            "id": "ch15-content-en-059",
+            "id": "ch15-content-en-061",
             "kind": "paragraph",
             "text": "To create a pilot, a Six Sigma team must first select the audience for the pilot. Internal process pilots can be performed by a select team or a select few employees. External product pilots can be performed using a subset of customers. For the best pilot results, avoid biasing results by selecting the best possible performers or customers who are most likely to work hard to ensure a product succeeds. When the solution is implemented on a full scale, it will be used by everyone, so you want to ensure it works for everyone."
           },
           {
-            "id": "ch15-content-en-060",
+            "id": "ch15-content-en-062",
             "kind": "paragraph",
             "text": "When possible, pilot at a very small level and then expand the pilot to a larger audience. This is the premise behind alpha and beta testing. A very small set of loyal customers tests the product first, because you know they will provide feedback. Next, an expanded set of customers tests the product after teams have made changes associated with feedback from the first group of users. Finally, if the limited tests are successful, teams choose to roll out the product to the entire audience."
           },
           {
-            "id": "ch15-content-en-061",
+            "id": "ch15-content-en-063",
             "kind": "heading",
             "text": "Analyze Pilot and Test Results"
           },
           {
-            "id": "ch15-content-en-062",
+            "id": "ch15-content-en-064",
             "kind": "paragraph",
             "text": "Six Sigma experts can use all the tools associated with the analyze phase to test whether solutions have a positive impact during testing or pilot programs. Hypothesis testing can be used to compare data from before the solution to data after the solution, determining if there is a statistically significant and positive change. Graphical analysis can be very helpful in demonstrating for executive leaders how a solution has positively impacted a problem by reducing defects, improving production or efficiency, or reducing costs."
           },
           {
-            "id": "ch15-content-en-063",
+            "id": "ch15-content-en-065",
             "kind": "heading",
             "text": "Planning Implementation"
           },
           {
-            "id": "ch15-content-en-064",
+            "id": "ch15-content-en-066",
             "kind": "paragraph",
             "text": "Once solutions have been verified through tests and analysis, teams can begin the work of implementing changes on a large scale. Teams should create and work from an action plan during this vital and active stage of the DMAIC process to ensure that no plans or requirements fall through the cracks. During the active part of the improve phase, the project leader will likely delegate numerous activities to members of the team, and the team will also rely on input and assistance from those outside of the Six Sigma team. Keeping an action plan document helps everyone on the team see where they are in the process, what they are responsible for, and what date work must be completed by."
           },
           {
-            "id": "ch15-content-en-065",
+            "id": "ch15-content-en-067",
             "kind": "paragraph",
             "text": "If the Six Sigma team is working with a project manager, he or she is likely responsible for action plan documentation and follow-up. Teams can also use a basic spreadsheet or Word document, which should be saved in a common location, to keep track of what work is to be done and who will do it."
           },
           {
-            "id": "ch15-content-en-066",
+            "id": "ch15-content-en-068",
             "kind": "paragraph",
             "text": "Because every project is unique, improve action plans are also unique. Most action plans will contain common tasks such as documentation, training, and transition."
           },
           {
-            "id": "ch15-content-en-067",
+            "id": "ch15-content-en-069",
             "kind": "heading",
             "text": "Documentation"
           },
           {
-            "id": "ch15-content-en-068",
+            "id": "ch15-content-en-070",
             "kind": "paragraph",
             "text": "First, the Six Sigma team should have documented all of its work so far during the DMAIC process. If asked, the Black Belt or designated team member should be able to present analysis in the form of data tables, statistical calculations and explanations, and graphical analysis. All brainstorming activities and diagrams should be saved in a central file location where all team members can view them and appropriate team members can edit them as needed. Access to these documents helps team members work efficiently on additional documentation required for implementation."
           },
           {
-            "id": "ch15-content-en-069",
+            "id": "ch15-content-en-071",
             "kind": "paragraph",
             "text": "Almost any organization will require new processes or changes to processes to be recorded in standard operating procedures. Depending on the organizational structure of a business, Six Sigma teams might be responsible for drafting such documents or they might need to work with knowledge management resources to create SOPs in keeping with corporate branding and templates. Teams might also create general communications letting other staff members know about the upcoming changes and the reasons for those changes as well as general reference documents such as cheat sheets and Frequently Asked Questions."
           },
           {
-            "id": "ch15-content-en-070",
+            "id": "ch15-content-en-072",
             "kind": "heading",
             "text": "Training"
           },
           {
-            "id": "ch15-content-en-071",
+            "id": "ch15-content-en-073",
             "kind": "paragraph",
             "text": "Strong documentation is key to the next part of implementing improvements, which is staff training. Six Sigma teams usually aren’t in charge of complete staff training on any improvement they make. Instead, teams begin the training process by working with training subject matter experts or delegates in the department impacted by the upcoming changes. The Six Sigma team trains these individuals, who then go on to train other individuals who will be impacted by the process. At some point, the process training should be integrated into regular organizational training by trainers or knowledge management departments."
           },
           {
-            "id": "ch15-content-en-072",
+            "id": "ch15-content-en-074",
             "kind": "heading",
             "text": "Transition"
           },
           {
-            "id": "ch15-content-en-073",
+            "id": "ch15-content-en-075",
             "kind": "paragraph",
             "text": "During the improve phase of a DMAIC project, teams should begin to consider the need to transition a process back to the business and traditional process owner. Transition is part of the control phase, but teams should move from improve to control with a good understanding of how the process should be"
           },
           {
-            "id": "ch15-content-en-074",
+            "id": "ch15-content-en-076",
             "kind": "paragraph",
             "text": "measured and monitored. Strong documentation and training during the improve phase helps cement the success of the control phase."
           },
           {
-            "id": "ch15-content-en-075",
+            "id": "ch15-content-en-077",
             "kind": "heading",
             "text": "Improve Tollgate Checklist"
           },
           {
-            "id": "ch15-content-en-076",
+            "id": "ch15-content-en-078",
             "kind": "paragraph",
             "text": "o Solutions were reviewed and prioritized. o One or two top solutions were selected for action. o Solutions were implemented on a limited basis. o Data from limited trials was analyzed and solutions appear to work as expected. o Cost-benefits analysis was performed. o Sponsor, champion, or executive steering committee signed off on implementing the solution completely. o All team members agree the solution should be implemented. o The solution is fully documented through SOPs and training materials. o Critical staff received training on the solution and are prepared to pass that training on to others."
           }
@@ -472,36 +488,52 @@
           },
           {
             "id": "ch15-content-zh-010",
-            "kind": "paragraph",
-            "text": "该矩阵通过以下方式完成："
+            "kind": "image",
+            "assetId": "fig-5db5dc5deae35419",
+            "src": "assets/figures/fig-5db5dc5deae35419.png",
+            "width": 1190,
+            "height": 386
           },
           {
             "id": "ch15-content-zh-011",
             "kind": "paragraph",
-            "text": "1. 在第一列中输入问题陈述。 如果团队决定该陈述应该是，这应该是在测量阶段达成的最终问题陈述"
+            "text": "该矩阵通过以下方式完成："
           },
           {
             "id": "ch15-content-zh-012",
             "kind": "paragraph",
-            "text": "收集数据后更改。否则，这可能是定义阶段的问题陈述。 2. 输入分析阶段经过优先级验证的根本原因。如果团队打算在改进阶段尝试解决多个根本原因，则应该为每个根本原因创建一个解决方案选择矩阵。 3. 在第三栏中集思广益潜在的解决方案。在头脑风暴过程中，团队不应质疑或尝试分析解决方案，而应记录任何看似可行的建议解决方案。唯一可能被忽视的解决方案是那些显然超出范围或不可能的解决方案，但领导头脑风暴活动的黑带必须运用他或她自己对此类建议的洞察力。 4. 在很高的层面上注意到可以实施解决方案的实用方法。在分析章节中使用的一个示例中，一家商业面包店因缺乏烘焙说明而出现问题。在这种情况下，六西格玛团队可能会建议向员工提供适当的指示。解决方案的实现方法是书面文档和培训。 5. 评级解决方案。创建可能的解决方案和实用方法的列表后，团队对每种可能性的有效性、可行性和成本效益进行评级。每个类别的评分在 1 到 10 之间。"
+            "text": "1. 在第一列中输入问题陈述。 如果团队决定该陈述应该是，这应该是在测量阶段达成的最终问题陈述"
           },
           {
             "id": "ch15-content-zh-013",
             "kind": "paragraph",
-            "text": "a.有效性衡量解决方案消除问题根源的程度，1 表示无效，10 表示非常有效。 b.可行性是实施改进所需努力的衡量标准，1 表示由于所需的努力或资源而不可行，10 表示高度可行。 c.成本效益是对项目成本与预期节省的比较的估计指标。该评级不是正式的成本效益分析，而是高级别的估计。如果预计节省的成本超过与项目相关的成本，团队就会将该解决方案评为最高级别。否则，团队会将解决方案排名较低。 6. 将有效性、可行性和成本效益的分数相乘，计算出总分。总体得分可用于确定解决方案的优先级，并选择具有最佳总体有效性、可行性和成本效益评级的解决方案。"
+            "text": "收集数据后更改。否则，这可能是定义阶段的问题陈述。 2. 输入分析阶段经过优先级验证的根本原因。如果团队打算在改进阶段尝试解决多个根本原因，则应该为每个根本原因创建一个解决方案选择矩阵。 3. 在第三栏中集思广益潜在的解决方案。在头脑风暴过程中，团队不应质疑或尝试分析解决方案，而应记录任何看似可行的建议解决方案。唯一可能被忽视的解决方案是那些显然超出范围或不可能的解决方案，但领导头脑风暴活动的黑带必须运用他或她自己对此类建议的洞察力。 4. 在很高的层面上注意到可以实施解决方案的实用方法。在分析章节中使用的一个示例中，一家商业面包店因缺乏烘焙说明而出现问题。在这种情况下，六西格玛团队可能会建议向员工提供适当的指示。解决方案的实现方法是书面文档和培训。 5. 评级解决方案。创建可能的解决方案和实用方法的列表后，团队对每种可能性的有效性、可行性和成本效益进行评级。每个类别的评分在 1 到 10 之间。"
           },
           {
             "id": "ch15-content-zh-014",
             "kind": "paragraph",
-            "text": "考虑根据分析章节中使用的医疗索赔拒绝示例创建的可能的解决方案选择矩阵。"
+            "text": "a.有效性衡量解决方案消除问题根源的程度，1 表示无效，10 表示非常有效。 b.可行性是实施改进所需努力的衡量标准，1 表示由于所需的努力或资源而不可行，10 表示高度可行。 c.成本效益是对项目成本与预期节省的比较的估计指标。该评级不是正式的成本效益分析，而是高级别的估计。如果预计节省的成本超过与项目相关的成本，团队就会将该解决方案评为最高级别。否则，团队会将解决方案排名较低。 6. 将有效性、可行性和成本效益的分数相乘，计算出总分。总体得分可用于确定解决方案的优先级，并选择具有最佳总体有效性、可行性和成本效益评级的解决方案。"
           },
           {
             "id": "ch15-content-zh-015",
             "kind": "paragraph",
-            "text": "在分析章节中，帕累托分析表明，及时提交问题是索赔被拒率高的根本原因。在上面的解决方案选择矩阵中，团队在发现由于索赔计费人员没有及时获得所有正确信息而未按时提交索赔后，确定了四种可能的解决方案并确定了优先级。"
+            "text": "考虑根据分析章节中使用的医疗索赔拒绝示例创建的可能的解决方案选择矩阵。"
           },
           {
             "id": "ch15-content-zh-016",
+            "kind": "image",
+            "assetId": "fig-083b25569672cdf2",
+            "src": "assets/figures/fig-083b25569672cdf2.png",
+            "width": 1190,
+            "height": 657
+          },
+          {
+            "id": "ch15-content-zh-017",
+            "kind": "paragraph",
+            "text": "在分析章节中，帕累托分析表明，及时提交问题是索赔被拒率高的根本原因。在上面的解决方案选择矩阵中，团队在发现由于索赔计费人员没有及时获得所有正确信息而未按时提交索赔后，确定了四种可能的解决方案并确定了优先级。"
+          },
+          {
+            "id": "ch15-content-zh-018",
             "kind": "termNote",
             "rows": [
               [
@@ -511,262 +543,262 @@
             "text": "术语说明 Pareto（帕累托）：按影响大小排序，常用于找出“少数关键原因”。"
           },
           {
-            "id": "ch15-content-zh-017",
+            "id": "ch15-content-zh-019",
             "kind": "paragraph",
             "text": "第一个解决方案是要求前台收集尽可能多的信息。该团队对该解决方案的有效性给予了中等评级，因为它没有解决索赔中仍然可能缺少临床信息的事实。但是，该过程可以有效地收集人口统计信息，并且不需要大量费用或精力来实施，因此团队对其他类别的评价很高。"
           },
           {
-            "id": "ch15-content-zh-018",
+            "id": "ch15-content-zh-020",
             "kind": "paragraph",
             "text": "接下来，团队考虑创建并需要患者电子邮件或门户系统，以便计费人员在信息丢失时可以快速与患者沟通。由于并非所有患者都有电子邮件，而且许多患者不太可能使用这样的系统，因此该团队将该解决方案的可行性和有效性评为较低。"
           },
           {
-            "id": "ch15-content-zh-019",
+            "id": "ch15-content-zh-021",
             "kind": "paragraph",
             "text": "该团队考虑的第三个解决方案是要求临床医生在就诊患者期间绘制图表时包含计费所需的所有信息。该团队认为这个解决方案相当有效，但临床医生在处理患者问题时不太可能花时间如此彻底。该解决方案还可能会减慢医生就诊的速度，从而对收入产生负面影响。"
           },
           {
-            "id": "ch15-content-zh-020",
+            "id": "ch15-content-zh-022",
             "kind": "paragraph",
             "text": "最后，团队考虑了一个解决方案，让某些工作人员负责信息缺失的索赔。由于这些工作人员可以专注于遗漏的索赔，并通过团队构建的新工作流程进行工作，因此他们更有可能按时提交索赔。总体而言，团队"
           },
           {
-            "id": "ch15-content-zh-021",
+            "id": "ch15-content-zh-023",
             "kind": "paragraph",
             "text": "该解决方案排名最高，但他们决定同时实施解决方案一和方案四，因为解决方案一只需很少的努力，并且实际上有助于推动解决方案四的成功。"
           },
           {
-            "id": "ch15-content-zh-022",
+            "id": "ch15-content-zh-024",
             "kind": "heading",
             "text": "成本效益分析"
           },
           {
-            "id": "ch15-content-zh-023",
+            "id": "ch15-content-zh-025",
             "kind": "paragraph",
             "text": "当团队在流程中包含适当的个人时，解决方案选择矩阵非常擅长识别最佳的实施解决方案。不过，领导委员会和执行发起人通常希望获得有关解决方案预期成本和收益的更多信息，因此团队应该准备好创建成本收益分析。 在测量和分析阶段之后，黑带人员通常拥有此类分析所需的许多要素，但团队可能还需要与会计、财务或业务规划部门合作，以获得所需的准确财务详细信息。"
           },
           {
-            "id": "ch15-content-zh-024",
+            "id": "ch15-content-zh-026",
             "kind": "paragraph",
             "text": "成本效益分析的目标是将实施解决方案的成本与解决方案预期的货币效益进行比较。成本包括软件开发或购买、设备购买、建筑开发或翻新、额外劳动力或雇用、培训费用、额外供应品等费用，以及与解决方案实施过程中的中断相关的任何损失。好处可能包括增加产品利润、增加收入、节省或避免成本，以及无形的好处，例如提高员工士气或保留客户。"
           },
           {
-            "id": "ch15-content-zh-025",
+            "id": "ch15-content-zh-027",
             "kind": "paragraph",
             "text": "六西格玛团队通常无法处理详细的成本效益分析，例如由注册会计师完成的成本效益分析，但他们可以通过投资回收期分析法创建成本效益关系的概念。这是进行此类分析的最简单方法，并为领导提供项目“获得回报”之前的预计时间。"
           },
           {
-            "id": "ch15-content-zh-026",
+            "id": "ch15-content-zh-028",
             "kind": "heading",
             "text": "回报或回报分析"
           },
           {
-            "id": "ch15-content-zh-027",
+            "id": "ch15-content-zh-029",
             "kind": "paragraph",
             "text": "为了进行投资回收分析，六西格玛团队必须估算项目成本以及每年的财务收益。请记住，财务收益不仅仅包括收入的增加。节省成本、新客户或减少客户流失都可以被视为每年带来的收益。团队还需要了解每年改进的预计运营成本。"
           },
           {
-            "id": "ch15-content-zh-028",
+            "id": "ch15-content-zh-030",
             "kind": "paragraph",
             "text": "该分析的公式为："
           },
           {
-            "id": "ch15-content-zh-029",
+            "id": "ch15-content-zh-031",
             "kind": "paragraph",
             "text": "（实施解决方案的成本）/（年度经济效益 - 年度成本）"
           },
           {
-            "id": "ch15-content-zh-030",
+            "id": "ch15-content-zh-032",
             "kind": "paragraph",
             "text": "如果一个项目的实施成本为 50,000 美元，每年的额外劳动力成本为 2,000 美元，并且团队预计该项目每年产生 15,000 美元的经济效益，则计算结果为："
           },
           {
-            "id": "ch15-content-zh-031",
+            "id": "ch15-content-zh-033",
             "kind": "paragraph",
             "text": "$50,000 / ($15,000 - $2,000)"
           },
           {
-            "id": "ch15-content-zh-032",
+            "id": "ch15-content-zh-034",
             "kind": "paragraph",
             "text": "50,000 美元/13,000 美元"
           },
           {
-            "id": "ch15-content-zh-033",
+            "id": "ch15-content-zh-035",
             "kind": "paragraph",
             "text": "或者，大约需要 3.84 年，项目才能收回成本。"
           },
           {
-            "id": "ch15-content-zh-034",
+            "id": "ch15-content-zh-036",
             "kind": "paragraph",
             "text": "显然，组织领导者正在寻求尽可能短的投资回收期计算，但如果解决方案能够解决主要问题或为未来的非凡成功奠定基础，那么较长的投资回收期并不一定会排除解决方案。"
           },
           {
-            "id": "ch15-content-zh-035",
+            "id": "ch15-content-zh-037",
             "kind": "heading",
             "text": "净现值"
           },
           {
-            "id": "ch15-content-zh-036",
+            "id": "ch15-content-zh-038",
             "kind": "paragraph",
             "text": "计算成本效益的一种更简洁的方法称为净现值（NPV）。 NPV 随着时间的推移调整收益和成本，因为由于通货膨胀和其他经济因素，未来的现金流不如当前的现金流有价值。各种努力的贴现率可以使用预期回报、利率或通货膨胀率来计算。通常，企业财务部门可以为六西格玛团队提供用于公司净现值的折扣率。一个非常基本的 NPV 模型如下所示。"
           },
           {
-            "id": "ch15-content-zh-037",
+            "id": "ch15-content-zh-039",
             "kind": "heading",
             "text": "今年 第一年 第二年 第三年 总计"
           },
           {
-            "id": "ch15-content-zh-038",
+            "id": "ch15-content-zh-040",
             "kind": "heading",
             "text": "好处"
           },
           {
-            "id": "ch15-content-zh-039",
+            "id": "ch15-content-zh-041",
             "kind": "heading",
             "text": "收入增加 $10,000 $20,000 $30,000"
           },
           {
-            "id": "ch15-content-zh-040",
+            "id": "ch15-content-zh-042",
             "kind": "heading",
             "text": "节省成本 $5,000 $10,000 $15,000"
           },
           {
-            "id": "ch15-content-zh-041",
+            "id": "ch15-content-zh-043",
             "kind": "heading",
             "text": "成本"
           },
           {
-            "id": "ch15-content-zh-042",
+            "id": "ch15-content-zh-044",
             "kind": "heading",
             "text": "资本 -$20,000 -$20,000"
           },
           {
-            "id": "ch15-content-zh-043",
+            "id": "ch15-content-zh-045",
             "kind": "heading",
             "text": "设备 -$15,000 -$15,000"
           },
           {
-            "id": "ch15-content-zh-044",
+            "id": "ch15-content-zh-046",
             "kind": "heading",
             "text": "培训 -$5,000 -$5,000"
           },
           {
-            "id": "ch15-content-zh-045",
+            "id": "ch15-content-zh-047",
             "kind": "heading",
             "text": "人工 -$2,000 -$2,000 -$2,000"
           },
           {
-            "id": "ch15-content-zh-046",
+            "id": "ch15-content-zh-048",
             "kind": "paragraph",
             "text": "-$50,000 $13,000 $27,000 $3,000"
           },
           {
-            "id": "ch15-content-zh-047",
+            "id": "ch15-content-zh-049",
             "kind": "heading",
             "text": "总效益 –"
           },
           {
-            "id": "ch15-content-zh-048",
+            "id": "ch15-content-zh-050",
             "kind": "heading",
             "text": "每年费用"
           },
           {
-            "id": "ch15-content-zh-049",
+            "id": "ch15-content-zh-051",
             "kind": "paragraph",
             "text": "$12,350 $25,650 $2,850"
           },
           {
-            "id": "ch15-content-zh-050",
+            "id": "ch15-content-zh-052",
             "kind": "heading",
             "text": "NPV（折扣"
           },
           {
-            "id": "ch15-content-zh-051",
+            "id": "ch15-content-zh-053",
             "kind": "paragraph",
             "text": "5%）"
           },
           {
-            "id": "ch15-content-zh-052",
+            "id": "ch15-content-zh-054",
             "kind": "paragraph",
             "text": "在此模型中，团队花费 50,000 美元实施解决方案，预计每年与该解决方案相关的人工费用为 2,000 美元。记录前两年该解决方案的估计收益，并将所有收益和成本相加作为第三年的视图。 NPV 折扣 5%，最终数字显示在右下方的单元格中：2,850 美元。目标是正 NPV，因此该项目符合该目标。"
           },
           {
-            "id": "ch15-content-zh-053",
+            "id": "ch15-content-zh-055",
             "kind": "heading",
             "text": "试点解决方案"
           },
           {
-            "id": "ch15-content-zh-054",
+            "id": "ch15-content-zh-056",
             "kind": "paragraph",
             "text": "一旦选择了解决方案并完成了将其投入生产的最低水平的工作，六西格玛团队就准备好进行试点。试点是在实际环境中对解决方案进行有限的试验。 无论完成了多少分析或测试用例运行得如何，团队都无法确定解决方案如何"
           },
           {
-            "id": "ch15-content-zh-055",
+            "id": "ch15-content-zh-057",
             "kind": "paragraph",
             "text": "会在“野外”表现。现场生产环境总是存在团队无法解释的变量，特别是当人们参与该过程时。"
           },
           {
-            "id": "ch15-content-zh-056",
+            "id": "ch15-content-zh-058",
             "kind": "paragraph",
             "text": "有限试点的好处包括："
           },
           {
-            "id": "ch15-content-zh-057",
+            "id": "ch15-content-zh-059",
             "kind": "listItem",
             "text": "资源的使用是有限的，如果解决方案被证明不正确或不能有效解决问题，这可以减少浪费"
           },
           {
-            "id": "ch15-content-zh-058",
+            "id": "ch15-content-zh-060",
             "kind": "listItem",
             "text": "确认预期结果发生"
           },
           {
-            "id": "ch15-content-zh-059",
+            "id": "ch15-content-zh-061",
             "kind": "listItem",
             "text": "允许对新解决方案进行小规模故障排除，以最大程度地减少完整过渡期间的中断"
           },
           {
-            "id": "ch15-content-zh-060",
+            "id": "ch15-content-zh-062",
             "kind": "listItem",
             "text": "让六西格玛团队之外的员工对解决方案和实施提供反馈，使最终的部署更加成功"
           },
           {
-            "id": "ch15-content-zh-061",
+            "id": "ch15-content-zh-063",
             "kind": "paragraph",
             "text": "团队不必尝试他们所做的每一个改变。只要团队很好地记录更改并测量结果以进行验证，就可以在不进行试点的情况下进行简单或小的更改。当变更范围很大、可能导致昂贵或广泛的后果或难以逆转时，团队应该从试点开始。对于全面实施可能成本高昂的任何解决方案来说也是如此。"
           },
           {
-            "id": "ch15-content-zh-062",
+            "id": "ch15-content-zh-064",
             "kind": "paragraph",
             "text": "试点可以在有限的规模或有限的时间内进行。有限规模试点包括特定区域、团队、人员或机器。限时试点实施临时变更；在预定时间结束时，团队决定是否应将更改永久化。"
           },
           {
-            "id": "ch15-content-zh-063",
+            "id": "ch15-content-zh-065",
             "kind": "paragraph",
             "text": "试点可以针对流程或产品进行。流程试点可能会测试特定位置，与一些客户一起测试结果，与一些员工一起测试新流程，或者在不影响最终用户的情况下进行流程试运行。产品试点是通过测试市场、产品模型或与某些最终用户对产品进行 alpha 和 beta 测试来进行的。"
           },
           {
-            "id": "ch15-content-zh-064",
+            "id": "ch15-content-zh-066",
             "kind": "paragraph",
             "text": "要制作试播集，六西格玛团队必须首先选择试播集的受众。内部流程试点可以由选定的团队或选定的少数员工来执行。可以使用一部分客户来执行外部产品试点。为了获得最佳试点结果，请选择最有可能努力确保产品成功的最佳表现者或客户，以避免结果出现偏差。 当该解决方案全面实施时，它将被每个人使用，因此您需要确保它适用于每个人。"
           },
           {
-            "id": "ch15-content-zh-065",
+            "id": "ch15-content-zh-067",
             "kind": "paragraph",
             "text": "如果可能，先在很小的范围内进行试点，然后将试点范围扩大到更大的受众。这是 alpha 和 beta 测试背后的前提。一小部分忠实客户首先测试产品，因为您知道他们会提供反馈。接下来，在团队根据第一组用户的反馈进行相关更改后，更多的客户测试产品。最后，如果有限的测试成功，团队就会选择向所有受众推出该产品。"
           },
           {
-            "id": "ch15-content-zh-066",
+            "id": "ch15-content-zh-068",
             "kind": "heading",
             "text": "分析试点和测试结果"
           },
           {
-            "id": "ch15-content-zh-067",
+            "id": "ch15-content-zh-069",
             "kind": "paragraph",
             "text": "六西格玛专家可以使用与分析阶段相关的所有工具来测试解决方案在测试或试点项目期间是否产生积极影响。假设检验可用于比较解决方案之前的数据与解决方案之后的数据，确定是否存在统计上显着且积极的变化。图形分析非常有助于向执行领导者展示解决方案如何通过减少缺陷、提高产量或效率或降低成本来对问题产生积极影响。"
           },
           {
-            "id": "ch15-content-zh-068",
+            "id": "ch15-content-zh-070",
             "kind": "termNote",
             "rows": [
               [
@@ -776,77 +808,95 @@
             "text": "术语说明 Hypothesis Test（假设检验）：用样本数据判断某个统计假设是否有足够证据被拒绝。"
           },
           {
-            "id": "ch15-content-zh-069",
+            "id": "ch15-content-zh-071",
             "kind": "heading",
             "text": "规划实施"
           },
           {
-            "id": "ch15-content-zh-070",
+            "id": "ch15-content-zh-072",
             "kind": "paragraph",
             "text": "一旦解决方案通过测试和分析得到验证，团队就可以开始大规模实施变更的工作。在 DMAIC 流程的这一重要而活跃的阶段，团队应制定并执行行动计划，以确保没有任何计划或要求被遗漏。在改进阶段的积极部分，项目负责人可能会将大量活动委托给团队成员，并且团队还将依赖六西格玛团队之外的人员的投入和帮助。保留行动计划文档可以帮助团队中的每个人了解他们在流程中的位置、他们负责什么以及工作必须在什么日期之前完成。"
           },
           {
-            "id": "ch15-content-zh-071",
+            "id": "ch15-content-zh-073",
             "kind": "paragraph",
             "text": "如果六西格玛团队与项目经理合作，他或她可能负责行动计划的文件记录和后续工作。团队还可以使用基本的电子表格或 Word 文档（应保存在公共位置）来跟踪要完成的工作以及由谁来完成。"
           },
           {
-            "id": "ch15-content-zh-072",
+            "id": "ch15-content-zh-074",
             "kind": "paragraph",
             "text": "由于每个项目都是独一无二的，因此改进行动计划也是独一无二的。大多数行动计划将包含常见任务，例如文档、培训和过渡。"
           },
           {
-            "id": "ch15-content-zh-073",
+            "id": "ch15-content-zh-075",
             "kind": "heading",
             "text": "文档"
           },
           {
-            "id": "ch15-content-zh-074",
+            "id": "ch15-content-zh-076",
             "kind": "paragraph",
             "text": "首先，六西格玛团队应该记录 DMAIC 流程中迄今为止的所有工作。如果被要求，黑带或指定的团队成员应该能够以数据表格、统计计算和解释以及图形分析的形式进行分析。所有头脑风暴活动和图表都应保存在一个中央文件位置，所有团队成员都可以在其中查看它们，并且适当的团队成员可以根据需要对其进行编辑。访问这些文档有助于团队成员有效地处理实施所需的其他文档。"
           },
           {
-            "id": "ch15-content-zh-075",
+            "id": "ch15-content-zh-077",
             "kind": "paragraph",
             "text": "几乎所有组织都需要将新流程或流程变更记录在标准操作程序中。根据企业的组织结构，六西格玛团队可能负责起草此类文件，或者他们可能需要与知识管理资源合作来创建与企业品牌和模板保持一致的SOP。团队还可以创建一般性沟通，让其他员工了解即将发生的变化和这些变化的原因，以及一般参考文档，例如备忘单和常见问题解答。"
           },
           {
-            "id": "ch15-content-zh-076",
+            "id": "ch15-content-zh-078",
             "kind": "heading",
             "text": "培训"
           },
           {
-            "id": "ch15-content-zh-077",
+            "id": "ch15-content-zh-079",
             "kind": "paragraph",
             "text": "强大的文档是实施改进的下一部分（即员工培训）的关键。 六西格玛团队通常不负责对他们所做的任何改进进行完整的员工培训。相反，团队通过与受即将发生的变化影响的部门中的培训主题专家或代表合作来开始培训过程。六西格玛团队培训这些人，然后他们继续培训其他将受到该过程影响的人。在某些时候，过程培训应该被培训师或知识管理部门纳入定期的组织培训中。"
           },
           {
-            "id": "ch15-content-zh-078",
+            "id": "ch15-content-zh-080",
             "kind": "heading",
             "text": "过渡"
           },
           {
-            "id": "ch15-content-zh-079",
+            "id": "ch15-content-zh-081",
             "kind": "paragraph",
             "text": "在 DMAIC 项目的改进阶段，团队应开始考虑将流程移交回业务和传统流程所有者的必要性。过渡是控制阶段的一部分，但团队应该从改进转向控制，并充分了解流程应该如何进行"
           },
           {
-            "id": "ch15-content-zh-080",
+            "id": "ch15-content-zh-082",
             "kind": "paragraph",
             "text": "测量和监测。改进阶段的强大文档和培训有助于巩固控制阶段的成功。"
           },
           {
-            "id": "ch15-content-zh-081",
+            "id": "ch15-content-zh-083",
             "kind": "heading",
             "text": "改进收费站检查表"
           },
           {
-            "id": "ch15-content-zh-082",
+            "id": "ch15-content-zh-084",
             "kind": "paragraph",
             "text": "o 对解决方案进行审查并确定优先级。 o 选择一两个最佳解决方案来实施。 o 解决方案的实施是有限的。 o 对有限试验的数据进行了分析，解决方案似乎按预期发挥作用。 o 进行了成本效益分析。 o 发起人、支持者或执行指导委员会签署完全实施该解决方案。 o 所有团队成员都同意应该实施该解决方案。 o 该解决方案通过 SOP 和培训材料进行了完整记录。 o 关键员工接受了有关解决方案的培训，并准备将培训传授给其他人。"
           }
         ]
       }
+    }
+  ],
+  "assets": [
+    {
+      "id": "fig-083b25569672cdf2",
+      "type": "table-image",
+      "path": "assets/figures/fig-083b25569672cdf2.png",
+      "page": 145,
+      "width": 1190,
+      "height": 657
+    },
+    {
+      "id": "fig-5db5dc5deae35419",
+      "type": "table-image",
+      "path": "assets/figures/fig-5db5dc5deae35419.png",
+      "page": 145,
+      "width": 1190,
+      "height": 386
     }
   ]
 }

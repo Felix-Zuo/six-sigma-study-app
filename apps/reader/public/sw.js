@@ -1,17 +1,34 @@
-const CACHE_NAME = "six-sigma-study-v0.2.0";
+const CACHE_NAME = "six-sigma-study-v0.3.0";
 const CORE_ASSETS = [
   "/",
   "/index.html",
   "/manifest.webmanifest",
   "/icons/icon.svg",
-  "/content/manual.json"
+  "/content/manual.json",
+  "/content/assets/asset-manifest.json"
 ];
+
+async function cacheFigureAssets(cache) {
+  try {
+    const response = await fetch("/content/assets/asset-manifest.json");
+    if (!response.ok) {
+      return;
+    }
+    const manifest = await response.json();
+    const paths = Array.isArray(manifest.assets)
+      ? manifest.assets.map((asset) => `/content/${asset.path}`)
+      : [];
+    await cache.addAll(paths);
+  } catch (error) {
+    console.warn("figure precache skipped", error);
+  }
+}
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
       .open(CACHE_NAME)
-      .then((cache) => cache.addAll(CORE_ASSETS))
+      .then((cache) => cache.addAll(CORE_ASSETS).then(() => cacheFigureAssets(cache)))
       .then(() => self.skipWaiting())
   );
 });

@@ -90,26 +90,34 @@
           },
           {
             "id": "decision-without-six-sigma-en-002",
-            "kind": "listItem",
-            "text": "Someone with clout in the organization has a good idea or takes interest in someone else’s idea."
+            "kind": "image",
+            "assetId": "fig-72a76dbe66a901d6",
+            "src": "assets/figures/fig-72a76dbe66a901d6.png",
+            "width": 582,
+            "height": 538
           },
           {
             "id": "decision-without-six-sigma-en-003",
             "kind": "listItem",
-            "text": "Based on past experience or knowledge, decision makers within an organization believe the idea will be successful."
+            "text": "Someone with clout in the organization has a good idea or takes interest in someone else’s idea."
           },
           {
             "id": "decision-without-six-sigma-en-004",
             "kind": "listItem",
-            "text": "The idea is implemented; sometimes it is implemented in beta mode so expenses and risks are minimized."
+            "text": "Based on past experience or knowledge, decision makers within an organization believe the idea will be successful."
           },
           {
             "id": "decision-without-six-sigma-en-005",
             "kind": "listItem",
-            "text": "The success of the idea is weighed after implementation; problems are addressed after they impact products or processes in some way in the present or the future."
+            "text": "The idea is implemented; sometimes it is implemented in beta mode so expenses and risks are minimized."
           },
           {
             "id": "decision-without-six-sigma-en-006",
+            "kind": "listItem",
+            "text": "The success of the idea is weighed after implementation; problems are addressed after they impact products or processes in some way in the present or the future."
+          },
+          {
+            "id": "decision-without-six-sigma-en-007",
             "kind": "paragraph",
             "text": "Beta testing is sometimes used in a Six Sigma approach, but the idea or change in question goes through rigorous analysis and data testing first. The disadvantage of launching ideas into beta—or to an entire population--without going through a Six Sigma methodology is that organizations can experience unintended consequences from changes, spend money on ideas that don’t end up working out as planned, and impact customer perceptions through trial-and-error periods rife with opportunities for error. In many cases, organizations that don’t rely on data make improvements without first understanding the true gain or loss associated with the change. Some improvements may appear to work on the surface without actually impacting customer satisfaction or profit in a positive way."
           }
@@ -549,61 +557,69 @@
           },
           {
             "id": "calculating-sigma-level-en-002",
-            "kind": "paragraph",
-            "text": "Consider a process in a marketing department that distributes letters to customers or prospects. For the purposes of the example, imagine that the process inserts 30,000 letters in preaddressed envelopes each day. In a given business week, the process outputs 150,000 letters."
+            "kind": "image",
+            "assetId": "fig-9f3da0ba12d44fb6",
+            "src": "assets/figures/fig-9f3da0ba12d44fb6.png",
+            "width": 479,
+            "height": 113
           },
           {
             "id": "calculating-sigma-level-en-003",
             "kind": "paragraph",
-            "text": "The marketing department begins receiving complaints that people are receiving letters in envelopes that are addressed to them, but the letters inside are addressed to or relevant to someone else. The marketing department randomly selects 1,000 letters from the next week’s batch and finds that 5 of them have errors. Applying that to the total amount, they estimate that as many as 750 letters could have errors. (Sampling and extrapolation are covered in depth in the advanced chapters on statistics.)"
+            "text": "Consider a process in a marketing department that distributes letters to customers or prospects. For the purposes of the example, imagine that the process inserts 30,000 letters in preaddressed envelopes each day. In a given business week, the process outputs 150,000 letters."
           },
           {
             "id": "calculating-sigma-level-en-004",
             "kind": "paragraph",
-            "text": "The letter process has 150,000 opportunities for error each week and an estimated 750 defects."
+            "text": "The marketing department begins receiving complaints that people are receiving letters in envelopes that are addressed to them, but the letters inside are addressed to or relevant to someone else. The marketing department randomly selects 1,000 letters from the next week’s batch and finds that 5 of them have errors. Applying that to the total amount, they estimate that as many as 750 letters could have errors. (Sampling and extrapolation are covered in depth in the advanced chapters on statistics.)"
           },
           {
             "id": "calculating-sigma-level-en-005",
             "kind": "paragraph",
-            "text": "((150,000 – 750) / 150,000) * 100 = a yield of 99.5"
+            "text": "The letter process has 150,000 opportunities for error each week and an estimated 750 defects."
           },
           {
             "id": "calculating-sigma-level-en-006",
             "kind": "paragraph",
-            "text": "Look up a yield of 99.5 in the abridged Sigma table below and you’ll see the process described above is currently between 4 and 4.1 sigma."
+            "text": "((150,000 – 750) / 150,000) * 100 = a yield of 99.5"
           },
           {
             "id": "calculating-sigma-level-en-007",
-            "kind": "heading",
-            "text": "Yield %"
+            "kind": "paragraph",
+            "text": "Look up a yield of 99.5 in the abridged Sigma table below and you’ll see the process described above is currently between 4 and 4.1 sigma."
           },
           {
             "id": "calculating-sigma-level-en-008",
             "kind": "heading",
-            "text": "DPMO Sigma Level"
+            "text": "Yield %"
           },
           {
             "id": "calculating-sigma-level-en-009",
-            "kind": "paragraph",
-            "text": "99.7450 2,550 4.3"
+            "kind": "heading",
+            "text": "DPMO Sigma Level"
           },
           {
             "id": "calculating-sigma-level-en-010",
             "kind": "paragraph",
-            "text": "99.6540 3,460 4.2"
+            "text": "99.7450 2,550 4.3"
           },
           {
             "id": "calculating-sigma-level-en-011",
             "kind": "paragraph",
-            "text": "99.5340 4,550 4.1"
+            "text": "99.6540 3,460 4.2"
           },
           {
             "id": "calculating-sigma-level-en-012",
             "kind": "paragraph",
-            "text": "99.3790 6,210 4.0"
+            "text": "99.5340 4,550 4.1"
           },
           {
             "id": "calculating-sigma-level-en-013",
+            "kind": "paragraph",
+            "text": "99.3790 6,210 4.0"
+          },
+          {
+            "id": "calculating-sigma-level-en-014",
             "kind": "paragraph",
             "text": "99.1810 8,190 3.9"
           }
@@ -1635,6 +1651,24 @@
           }
         ]
       }
+    }
+  ],
+  "assets": [
+    {
+      "id": "fig-72a76dbe66a901d6",
+      "type": "figure",
+      "path": "assets/figures/fig-72a76dbe66a901d6.png",
+      "page": 6,
+      "width": 582,
+      "height": 538
+    },
+    {
+      "id": "fig-9f3da0ba12d44fb6",
+      "type": "formula-image",
+      "path": "assets/figures/fig-9f3da0ba12d44fb6.png",
+      "page": 8,
+      "width": 479,
+      "height": 113
     }
   ]
 }

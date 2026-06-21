@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import shutil
@@ -207,16 +208,55 @@ def block_id(section_id: str, lang: str, index: int) -> str:
     return f"{section_id}-{lang}-{index:03d}"
 
 
+def png_dimensions(blob: bytes) -> tuple[int | None, int | None]:
+    if len(blob) < 24 or not blob.startswith(b"\x89PNG\r\n\x1a\n") or blob[12:16] != b"IHDR":
+        return None, None
+    return int.from_bytes(blob[16:20], "big"), int.from_bytes(blob[20:24], "big")
+
+
+def image_asset_type(width: int | None, height: int | None) -> str:
+    if width is None or height is None:
+        return "figure"
+    if height <= 180:
+        return "formula-image"
+    if width >= 900 and (height >= 240 or width / max(height, 1) >= 2.2):
+        return "table-image"
+    return "figure"
+
+
+def image_item_from_part(part: Any) -> dict[str, Any]:
+    blob = part.blob
+    digest = hashlib.sha256(blob).hexdigest()
+    media_name = str(part.partname).lstrip("/")
+    extension = Path(media_name).suffix.lower() or ".png"
+    width, height = png_dimensions(blob)
+    asset_id = f"fig-{digest[:16]}"
+    return {
+        "kind": "image",
+        "style": "Image",
+        "text": "",
+        "assetId": asset_id,
+        "src": f"assets/figures/{asset_id}{extension}",
+        "width": width,
+        "height": height,
+        "assetType": image_asset_type(width, height),
+        "sourceMedia": media_name,
+    }
+
+
 def iter_doc_items(doc: Document) -> list[dict[str, Any]]:
     items: list[dict[str, Any]] = []
     for child in doc.element.body.iterchildren():
         if isinstance(child, CT_P):
             paragraph = Paragraph(child, doc)
             text = normalize_space(paragraph.text)
-            if not text:
-                continue
             style = paragraph.style.name if paragraph.style else "Normal"
-            items.append({"kind": "paragraph", "style": style, "text": text})
+            if text:
+                items.append({"kind": "paragraph", "style": style, "text": text})
+            for embed_id in paragraph._p.xpath(".//a:blip/@r:embed"):
+                image_part = doc.part.related_parts.get(embed_id)
+                if image_part is not None:
+                    items.append(image_item_from_part(image_part))
         elif isinstance(child, CT_Tbl):
             table = Table(child, doc)
             rows = [
@@ -321,6 +361,17 @@ def build_sections(items: list[dict[str, Any]], lang: str) -> dict[str, list[dic
 
 def serialize_block(item: dict[str, Any], section_id: str, lang: str, index: int) -> dict[str, Any]:
     kind = item["kind"]
+    if kind == "image":
+        result: dict[str, Any] = {
+            "id": block_id(section_id, lang, index),
+            "kind": "image",
+            "assetId": item["assetId"],
+            "src": item["src"],
+        }
+        if item.get("width") and item.get("height"):
+            result["width"] = item["width"]
+            result["height"] = item["height"]
+        return result
     if kind == "paragraph":
         kind = "listItem" if item.get("style") == "List Bullet" else "paragraph"
     result: dict[str, Any] = {
@@ -333,6 +384,33 @@ def serialize_block(item: dict[str, Any], section_id: str, lang: str, index: int
     else:
         result["text"] = item.get("text", "")
     return result
+
+
+def attach_assets_to_lesson(lesson: dict[str, Any]) -> dict[str, Any]:
+    assets: dict[str, dict[str, Any]] = {}
+    for section in lesson.get("sections", []):
+        for language in ["en", "zh"]:
+            for block in section.get("content", {}).get(language, []):
+                if block.get("kind") != "image":
+                    continue
+                asset_id = block["assetId"]
+                if asset_id in assets:
+                    continue
+                width = block.get("width")
+                height = block.get("height")
+                asset: dict[str, Any] = {
+                    "id": asset_id,
+                    "type": image_asset_type(width, height),
+                    "path": block["src"],
+                    "page": section["page"],
+                }
+                if width and height:
+                    asset["width"] = width
+                    asset["height"] = height
+                assets[asset_id] = asset
+    if assets:
+        lesson["assets"] = sorted(assets.values(), key=lambda asset: asset["id"])
+    return lesson
 
 
 def build_lesson(en_docx: Path, zh_docx: Path) -> dict[str, Any]:
@@ -361,7 +439,7 @@ def build_lesson(en_docx: Path, zh_docx: Path) -> dict[str, Any]:
             }
         )
 
-    return {
+    return attach_assets_to_lesson({
         "id": "ch01",
         "chapter": 1,
         "pageStart": 6,
@@ -376,7 +454,7 @@ def build_lesson(en_docx: Path, zh_docx: Path) -> dict[str, Any]:
             "extraction": "python-docx body-order extraction; section-aligned bilingual content",
         },
         "sections": sections,
-    }
+    })
 
 
 def write_json(path: Path, data: Any) -> None:
