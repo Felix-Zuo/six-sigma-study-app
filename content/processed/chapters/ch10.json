@@ -10,11 +10,11 @@
   "source": {
     "enDocx": "C:\\findjob_sixsigma_sources\\manual_en_aligned.docx",
     "zhDocx": "C:\\findjob_sixsigma_sources\\manual_zh_aligned.docx",
-    "extraction": "python-docx body-order extraction; generic chapter-level bilingual content"
+    "extraction": "python-docx body-order extraction; source-TOC sectionized bilingual content"
   },
   "sections": [
     {
-      "id": "ch10-content",
+      "id": "ch10-s01-six-sigma-team-management-basics",
       "level": 1,
       "page": 91,
       "title": {
@@ -24,868 +24,614 @@
       "content": {
         "en": [
           {
-            "id": "ch10-content-en-001",
+            "id": "ch10-s01-six-sigma-team-management-basics-en-001",
             "kind": "heading",
             "text": "Management"
           },
           {
-            "id": "ch10-content-en-002",
+            "id": "ch10-s01-six-sigma-team-management-basics-en-002",
             "kind": "paragraph",
             "text": "Six Sigma is typically managed on two levels within an organization. First, the culture of Six Sigma must be managed at an enterprise-wide level, usually by a group or council of senior managers, such as executives, with the guidance of a Master Black Belt or Black Belt. Ultimately, this group sets the tone for Six Sigma within an organization, provides final approval on projects, and holds others accountable for metrics, performance, and success. While many of these individuals might also work as sponsors or champions on projects, as a group they don’t tend to get involved in the day-to-day project details."
           },
           {
-            "id": "ch10-content-en-003",
+            "id": "ch10-s01-six-sigma-team-management-basics-en-003",
             "kind": "paragraph",
             "text": "Some roles of a high-level Six Sigma leadership group include:"
           },
           {
-            "id": "ch10-content-en-004",
+            "id": "ch10-s01-six-sigma-team-management-basics-en-004",
             "kind": "listItem",
             "text": "Creating a rationale for the use of Six Sigma in the organization and supporting process improvement as a cultural goal."
           },
           {
-            "id": "ch10-content-en-005",
+            "id": "ch10-s01-six-sigma-team-management-basics-en-005",
             "kind": "listItem",
             "text": "Setting clear objectives for Six Sigma initiatives to ensure that project goals align with business goals."
           },
           {
-            "id": "ch10-content-en-006",
+            "id": "ch10-s01-six-sigma-team-management-basics-en-006",
             "kind": "listItem",
             "text": "Holding Six Sigma teams and the organization accountable for improvements and performance."
           },
           {
-            "id": "ch10-content-en-007",
+            "id": "ch10-s01-six-sigma-team-management-basics-en-007",
             "kind": "listItem",
             "text": "Demanding and reviewing measurements of results"
           },
           {
-            "id": "ch10-content-en-008",
+            "id": "ch10-s01-six-sigma-team-management-basics-en-008",
             "kind": "listItem",
             "text": "Communicating wins and losses to the team in an honest manner."
           },
           {
-            "id": "ch10-content-en-009",
+            "id": "ch10-s01-six-sigma-team-management-basics-en-009",
             "kind": "listItem",
             "text": "Rewarding teams and individuals for Six Sigma successes."
           },
           {
-            "id": "ch10-content-en-010",
+            "id": "ch10-s01-six-sigma-team-management-basics-en-010",
             "kind": "listItem",
             "text": "Advocating for resources and funding for necessary improvement projects."
           },
           {
-            "id": "ch10-content-en-011",
+            "id": "ch10-s01-six-sigma-team-management-basics-en-011",
             "kind": "paragraph",
             "text": "Six Sigma must also be managed at the team level, which is the primary focus of this chapter. We’ll cover building a team, detail the various common roles within a Six Sigma team, and talk about managing a team with timelines and schedules, milestones, budgets, and a defined measure of success."
-          },
-          {
-            "id": "ch10-content-en-012",
-            "kind": "heading",
-            "text": "Building a Six Sigma Team"
-          },
-          {
-            "id": "ch10-content-en-013",
-            "kind": "paragraph",
-            "text": "You can’t simply have a pre-made team ready to begin work on every project that comes up. Six Sigma teams must be uniquely tailored to the goals and processes at hand. The same Six Sigma experts – Black Belt leaders, data analysts, or project managers – might work across multiple projects, but individual subject matter experts and team members only bring high value to the team if they are familiar with the process or have some related education, knowledge, or skill to offer. Not all team members will serve consistently throughout the entire life of a project, either. This is often why companies send existing employees for Six Sigma training rather than hire Six Sigma experts."
-          },
-          {
-            "id": "ch10-content-en-014",
-            "kind": "paragraph",
-            "text": "Executive leadership groups working with Six Sigma leaders and experts usually put teams together. Any process improvement team should have, at minimum:"
-          },
-          {
-            "id": "ch10-content-en-015",
-            "kind": "listItem",
-            "text": "A Six Sigma leader"
-          },
-          {
-            "id": "ch10-content-en-016",
-            "kind": "listItem",
-            "text": "A process owner"
-          },
-          {
-            "id": "ch10-content-en-017",
-            "kind": "listItem",
-            "text": "An expert on the process"
-          },
-          {
-            "id": "ch10-content-en-018",
-            "kind": "listItem",
-            "text": "Someone to manage budgeting and accounting"
-          },
-          {
-            "id": "ch10-content-en-019",
-            "kind": "paragraph",
-            "text": "Some of those roles might be handled by the same person; the process owner might also be the process expert. Depending on expectations of needs, the team might also need to include technical resources, such as a programmer or IT leader, as well as individuals from human resources, compliance, legal, or other ancillary departments."
-          },
-          {
-            "id": "ch10-content-en-020",
-            "kind": "heading",
-            "text": "Three Types of Team Members"
-          },
-          {
-            "id": "ch10-content-en-021",
-            "kind": "paragraph",
-            "text": "When putting teams together, organizations should remember that three basic team member types exist with relation to a Six Sigma project. First, there are the regular team members. These individuals participate in all activities of the team and attend all or almost all of the team’s meetings. Regular team members include project leaders, process owners and experts, and identified subject matter experts who the team or executives feel would be critical components of their group."
-          },
-          {
-            "id": "ch10-content-en-022",
-            "kind": "paragraph",
-            "text": "Second, ad hoc team members provide expertise on an as-needed basis. Usually, these are subject matter experts or employees who work directly with the process. You don’t want to take these employees from their job functions for every single team event, as that would negatively impact the state of current production. Instead, these employees are included in team meetings as needed when additional information or assistance is required."
-          },
-          {
-            "id": "ch10-content-en-023",
-            "kind": "paragraph",
-            "text": "Finally, resource team members are only included when the project team leader feels they are needed in a meeting or team event to provide expert information, counsel, or help in accessing resources. Resource team members are usually members of ancillary departments such as accounting, human resources, or compliance. Resource team members might also be managers or leaders in departments that are related to the process being improved. For example, if a team is seeking to improve a customer service department, they might need help with inputs from the marketing department; someone from the marketing department could be added as a resource team member."
-          },
-          {
-            "id": "ch10-content-en-024",
-            "kind": "heading",
-            "text": "Tips for Selecting Team Members"
-          },
-          {
-            "id": "ch10-content-en-025",
-            "kind": "paragraph",
-            "text": "Most Six Sigma process improvement teams are relatively small: five regular team members is considered a good number on average. Adding too many regular team members can create communication problems, make it difficult to manage brainstorming sessions, and cause burnout. When all of a company’s Six Sigma teams are large, there’s a good chance that team members are serving on multiple projects. While ad hoc or resource team members can serve several projects and handle their own work on a daily basis, regular team members should not be asked to serve on more than one team and handle daily workloads. In fact, organizational leaders might want to consider reducing work requirements for team members who are serving as full-time members on a project."
-          },
-          {
-            "id": "ch10-content-en-026",
-            "kind": "paragraph",
-            "text": "Other tips for selecting team members include:"
-          },
-          {
-            "id": "ch10-content-en-027",
-            "kind": "listItem",
-            "text": "Choosing employees who are knowledgeable about the customer, product, or process related to the project."
-          },
-          {
-            "id": "ch10-content-en-028",
-            "kind": "listItem",
-            "text": "Choosing employees who have shown a willingness and ability to work toward improvement in a team environment."
-          },
-          {
-            "id": "ch10-content-en-029",
-            "kind": "listItem",
-            "text": "Selecting employees who have access to and an understanding of the data required to learn about and measure the process or problem."
-          },
-          {
-            "id": "ch10-content-en-030",
-            "kind": "listItem",
-            "text": "Picking employees who can provide at least five hours of work per week to the team."
-          },
-          {
-            "id": "ch10-content-en-031",
-            "kind": "listItem",
-            "text": "Matching the skills of employees to the projects at hand; if a project is likely to include all technical improvements, you would be less likely to add a team member who is skilled in marketing."
-          },
-          {
-            "id": "ch10-content-en-032",
-            "kind": "listItem",
-            "text": "Removing political obstacles through team selection; if a specific person in an organization is likely to be an obstacle to a team, sometimes putting that person on the team can increase the chance that they will buy into the process."
-          },
-          {
-            "id": "ch10-content-en-033",
-            "kind": "heading",
-            "text": "Team Member Roles"
-          },
-          {
-            "id": "ch10-content-en-034",
-            "kind": "paragraph",
-            "text": "The team member roles described in this section are based on Six Sigma process improvement best practices, but best practices also say that teams and team leaders should not be overly rigid. Experienced Six Sigma leaders and experts understand how to work within best practices while also creating unique team structures that are tailored to the project or process at hand."
-          },
-          {
-            "id": "ch10-content-en-035",
-            "kind": "heading",
-            "text": "Sponsors and Champions"
-          },
-          {
-            "id": "ch10-content-en-036",
-            "kind": "paragraph",
-            "text": "We’ve briefly touched on sponsors and champions in previous chapters. In most Six Sigma environments, these are the senior-level leaders who oversee projects at the highest level. Even the Black Belt must report to the project sponsor or champion. The senior leader is usually responsible for the final result of a project, which means he or she usually wants regular reports about progress; sometimes, the sponsor or champion is the liaison between the team and the leadership council. As the senior leader, the champion or sponsor is also responsible for assisting the team with obtaining funds and resources to ensure project success. Some additional duties within this role include:"
-          },
-          {
-            "id": "ch10-content-en-037",
-            "kind": "listItem",
-            "text": "Coaching the team, particularly at the project charter stage. The sponsor often provides input into what is in scope on a project and who might be included on a team."
-          },
-          {
-            "id": "ch10-content-en-038",
-            "kind": "listItem",
-            "text": "Locating resources for the team, including support from other departments, money, equipment, time, and labor hours."
-          },
-          {
-            "id": "ch10-content-en-039",
-            "kind": "listItem",
-            "text": "Handling matters of politics within a corporate structure so the team doesn’t have to."
-          },
-          {
-            "id": "ch10-content-en-040",
-            "kind": "listItem",
-            "text": "Working with other managers within the organization to help the team succeed in improving a process and transitioning improvements to a daily work environment."
-          },
-          {
-            "id": "ch10-content-en-041",
-            "kind": "heading",
-            "text": "Business or Process Owners"
-          },
-          {
-            "id": "ch10-content-en-042",
-            "kind": "paragraph",
-            "text": "The business or process owner is usually someone who is directly responsible for the process in a leadership capacity. Usually, the process owner is the person who is going to “receive” a solution implemented by a Six Sigma team once that solution is ready to be rolled out to all team members or used on a daily basis. Because of this, the process owner is usually included in the team because he or she must understand how and why any change is made. The process owner must also be familiar with methods of control that are created by the Six Sigma team as he or she will become responsible for maintaining and monitoring those controls once the process is transitioned from a team environment to day-to-day production."
-          },
-          {
-            "id": "ch10-content-en-043",
-            "kind": "paragraph",
-            "text": "A process owner usually also acts as a process expert on a Six Sigma team. The process owner has insight into the existing process, understands the needs of the customers and employees related to the process, and might already have access to data regarding the process. The process owner isn’t always"
-          },
-          {
-            "id": "ch10-content-en-044",
-            "kind": "paragraph",
-            "text": "the only process expert on a team, however; in some cases, the person who owns the process doesn’t have enough day-to-day interaction with the process to be an expert."
-          },
-          {
-            "id": "ch10-content-en-045",
-            "kind": "paragraph",
-            "text": "When leading or managing a Six Sigma team, Black Belts and others do have to be wary of process owners who are resistant to change or who believe they have all the answers. Someone who is set in his or her ways might not want to involve other team members or might believe certain changes are “impossible” because they are new. Some leaders who are also process owners might be afraid that a team member will outshine them or threaten their position, which could lead them to block team members from participating on a team. These are some of the political and human resource problems Six Sigma leaders run into, and Black Belts and project leaders must work tactfully with champions, sponsors, and process managers to resolve such issues."
-          },
-          {
-            "id": "ch10-content-en-046",
-            "kind": "heading",
-            "text": "Six Sigma Leaders"
-          },
-          {
-            "id": "ch10-content-en-047",
-            "kind": "paragraph",
-            "text": "Six Sigma projects are usually led by certified Black Belts, although some organizations do allow Green Belts to act as leaders on small initiatives with occasional feedback and guidance from Black Belts. In most organizations, the Black Belt holds primary responsibility for the regular work performed by a team and usually only works with one team or project at a time."
-          },
-          {
-            "id": "ch10-content-en-048",
-            "kind": "paragraph",
-            "text": "Best case scenarios let organizations align Black Belts with projects in areas they are already familiar with. For example, a bank might have several Black Belts on staff. Each Black Belt might specialize in working with certain processes or departments; one might usually work with compliance and audit processes, another with accounting, a third with customer-facing processes, and a fourth with online processes. Since Black Belt resources might be limited, this isn’t always possible. Most certified Black Belts can bring Six Sigma methods to process improvements even in areas they aren’t closely familiar with. In some cases, various managers or other individuals are certified as Black Belts and can lead processes in addition to their regular responsibilities, although this can put an undue burden on employees and isn’t always the best solution."
-          },
-          {
-            "id": "ch10-content-en-049",
-            "kind": "paragraph",
-            "text": "Black Belt project leaders often work to:"
-          },
-          {
-            "id": "ch10-content-en-050",
-            "kind": "listItem",
-            "text": "Help create a rationale for a project."
-          },
-          {
-            "id": "ch10-content-en-051",
-            "kind": "listItem",
-            "text": "Provide input for the selection of project team members."
-          },
-          {
-            "id": "ch10-content-en-052",
-            "kind": "listItem",
-            "text": "Lead teams throughout all the phases of DMAIC, which are covered in depth in Unit 3."
-          },
-          {
-            "id": "ch10-content-en-053",
-            "kind": "listItem",
-            "text": "Educate and support team members as they learn about and use Six Sigma tools."
-          },
-          {
-            "id": "ch10-content-en-054",
-            "kind": "listItem",
-            "text": "Provide oversight through time management, decision making, and planning."
-          },
-          {
-            "id": "ch10-content-en-055",
-            "kind": "listItem",
-            "text": "Maintain schedules and timelines, sometimes in conjunction with a certified Project Manager."
-          },
-          {
-            "id": "ch10-content-en-056",
-            "kind": "listItem",
-            "text": "Provide expertise in the form of statistical analysis or guidance with analysis."
-          },
-          {
-            "id": "ch10-content-en-057",
-            "kind": "listItem",
-            "text": "Assist with project transition."
-          },
-          {
-            "id": "ch10-content-en-058",
-            "kind": "listItem",
-            "text": "Report to sponsor or champion on a regular basis."
-          },
-          {
-            "id": "ch10-content-en-059",
-            "kind": "listItem",
-            "text": "Provide documentation at the end of the project."
-          },
-          {
-            "id": "ch10-content-en-060",
-            "kind": "paragraph",
-            "text": "In some organizations, Master Black Belts play an overall role in leading multiple Six Sigma projects. Master Black Belts act as coaches to multiple teams; Black Belts leading Six Sigma teams can work with Master Black Belts to solve especially difficult problems or seek help for complex statistical analysis. Master Black Belts provide continuing education to both Black and Green Belts, helping team members to constantly improve their grasp of Six Sigma methodologies."
-          },
-          {
-            "id": "ch10-content-en-061",
-            "kind": "heading",
-            "text": "Project Managers"
-          },
-          {
-            "id": "ch10-content-en-062",
-            "kind": "paragraph",
-            "text": "Some organizations use traditional project management techniques alongside Six Sigma improvement methodologies. In these organizations, a project manager is usually assigned to a Six Sigma project. While structures vary by organization, the project manager does not usually lead the team. Instead, the PM offers leader support to the Black Belt by keeping up with documentation and timelines, helping keep meetings on track, and ensuring items are followed up on after meetings. At first, you might think that adding a PM to a team would cause problems for a Black Belt, but when the two roles work together, the Black Belt benefits. With a PM worrying about timelines or whether the meeting is getting too far off track, a Six Sigma exert is free to concentrate on the brainstorming session or statistical analysis at hand."
-          },
-          {
-            "id": "ch10-content-en-063",
-            "kind": "heading",
-            "text": "Timekeeper"
-          },
-          {
-            "id": "ch10-content-en-064",
-            "kind": "paragraph",
-            "text": "Not all Six Sigma teams use timekeepers, but they can help keep meetings on track, reduce the chance of scope creep, and increase overall productivity. The timekeeper can be any person on the team who is not regularly engaged in leading meetings, brainstorming activities or recording team activities and notes. The timekeeper shouldn’t police time in a such a rigid fashion that the benefits of fluid discussion and brainstorming are lost, but he or she should gently steer teams toward following agenda schedules or provide the project leader with an indication that time is up for the topic at hand."
-          },
-          {
-            "id": "ch10-content-en-065",
-            "kind": "paragraph",
-            "text": "To function properly, a timekeeper needs an agenda to follow. It is usually the responsibility of the Black Belt or project manager to provide a detailed agenda for each meeting. The agenda should include clear indications regarding how long each item is expected to take, though teams should always be aware that agendas might be changed during the meeting at the discretion of the project manager or project leader."
-          },
-          {
-            "id": "ch10-content-en-066",
-            "kind": "paragraph",
-            "text": "Team leaders should pick a timekeeper who is organized and level-headed. In the heat of discussions and arguments, it’s easy for any member of the team to lose track of time – and the timekeeper is a member of the team. In addition to regular duties as a team member, the timekeeper is expected to:"
-          },
-          {
-            "id": "ch10-content-en-067",
-            "kind": "listItem",
-            "text": "Keep an eye on the agenda and the time"
-          },
-          {
-            "id": "ch10-content-en-068",
-            "kind": "listItem",
-            "text": "Let team members know when the time for a certain agenda is almost up; teams might want to set up a five-minute warning rule so they have a few minutes to wrap up a discussion"
-          },
-          {
-            "id": "ch10-content-en-069",
-            "kind": "listItem",
-            "text": "Signal that the time is up for a certain discussion or item"
-          },
-          {
-            "id": "ch10-content-en-070",
-            "kind": "paragraph",
-            "text": "While project leaders can choose to ignore agendas, they should also back up the timekeeper’s ability to interrupt politely. Timekeepers can’t perform if they are being heckled by other team members for noting the time."
-          },
-          {
-            "id": "ch10-content-en-071",
-            "kind": "heading",
-            "text": "Scribes or Minute-Takers"
-          },
-          {
-            "id": "ch10-content-en-072",
-            "kind": "paragraph",
-            "text": "A lot of discussion occurs in the midst of Six Sigma brainstorming and team sessions, and someone needs to record that information. Notes are important because they help team members review what was discussed, create lists of follow-ups and actions from a discussion, and record charts, graphs, and diagrams that were created during brainstorming processes. While everyone can take notes, the team leader should appoint one person as the official scribe for the team. Sometimes, that person is a certified project manager working in conjunction with a Six Sigma team leader. Other times, it is a member of the team who is seen as detailed and organized."
-          },
-          {
-            "id": "ch10-content-en-073",
-            "kind": "paragraph",
-            "text": "The Black Belt or other project leader should never be the scribe; it is too difficult to take notes while leading a discussion or exercise. The Black Belt might make some notes during the discussion, but he or she is likely to miss important details while working directly with other team members."
-          },
-          {
-            "id": "ch10-content-en-074",
-            "kind": "paragraph",
-            "text": "The scribe should create notes or minutes of the meeting in typed format and disseminate those notes to all team members as soon as possible following a meeting. Team members can review the notes and add any missing information if desired; often, organizations create portals or shared file systems so teams can keep notes and all other documents in an easy-to-access location."
-          },
-          {
-            "id": "ch10-content-en-075",
-            "kind": "paragraph",
-            "text": "One challenge in recording the discussions of a Six Sigma project meeting is in recording the diagrams and brainstorming that occurred. This is especially true if teams use whiteboards, paper, or sticky notes to create diagrams; the scribe is not always equipped with the skills or the software to recreate a computerized version of such documents. One tip for recording such information that is used by many modern Six Sigma teams is to take a picture of the diagrams with a smartphone or digital camera. The images can then be uploaded into the team’s shared workspace; if necessary, a Black Belt or Green Belt can convert the raw diagrams to a computerized version for the purpose of presenting information to leadership or other departments if desired."
-          },
-          {
-            "id": "ch10-content-en-076",
-            "kind": "heading",
-            "text": "Team Members"
-          },
-          {
-            "id": "ch10-content-en-077",
-            "kind": "paragraph",
-            "text": "In the beginning of this chapter, we covered the three major types of team members: regular, ad hoc, and resource. Selecting members for each of these roles is up to the project leader, the sponsor or champion, and the overall organizational leadership team. In addition to the project leader, process owner, and process expert, Six Sigma teams are usually comprised of one to three other regular team members. In addition to acting as timekeeper or scribe as directed by the team leader, team members also:"
-          },
-          {
-            "id": "ch10-content-en-078",
-            "kind": "listItem",
-            "text": "Participate in brainstorming sessions, discussions, and other team activities."
-          },
-          {
-            "id": "ch10-content-en-079",
-            "kind": "listItem",
-            "text": "Collect data and perform analysis under the direction of the Black Belt. Often, team members performing these functions are Green Belts."
-          },
-          {
-            "id": "ch10-content-en-080",
-            "kind": "listItem",
-            "text": "Perform work between meetings as required by the project leader."
-          },
-          {
-            "id": "ch10-content-en-081",
-            "kind": "listItem",
-            "text": "Report the results of and progress on individual assignments to the team."
-          },
-          {
-            "id": "ch10-content-en-082",
-            "kind": "listItem",
-            "text": "Review work performed by other team members and the team as a whole, offering suggestions and feedback."
-          },
-          {
-            "id": "ch10-content-en-083",
-            "kind": "heading",
-            "text": "Timelines, Scheduling, and Milestones"
-          },
-          {
-            "id": "ch10-content-en-084",
-            "kind": "paragraph",
-            "text": "Scheduling and maintaining that schedule is an integral part of the Six Sigma project process. Organizational leaders need to understand how long a project will take, when results can be expected, and when team resources will be freed up for other endeavors. Without this information, leadership can’t plan for ongoing improvement and employees can feel trapped in a project that seems to stretch on forever. In this section, we’ll cover two methods for creating a project timeline or schedule and touch on the importance of milestones."
-          },
-          {
-            "id": "ch10-content-en-085",
-            "kind": "heading",
-            "text": "Phase-Based Timeline"
-          },
-          {
-            "id": "ch10-content-en-086",
-            "kind": "paragraph",
-            "text": "Six Sigma projects usually follow a specific series of phases; we’ve briefly introduced the concept of the DMAIC method. DMAIC breaks a project up into five phases: Define, Measure, Analyze, Improve, and Control. Experienced Six Sigma experts with some data and information about a project and process can usually provide a very basic and raw estimate of time by assigning a certain number of weeks to each phase. It’s also worth noting that most of the phases are likely to overlap."
-          },
-          {
-            "id": "ch10-content-en-087",
-            "kind": "paragraph",
-            "text": "To create a raw timeline for a project, a Black Belt or other Six Sigma leader usually starts with an overall time requirement. He or she either estimates the total time required for an improvement or works with a deadline imposed by the leadership group. For example, the leadership group might say that an improvement needs to be completed within four months."
-          },
-          {
-            "id": "ch10-content-en-088",
-            "kind": "paragraph",
-            "text": "Using a four month timeline and what information is already available about the process, problem, and resources, the Black Belt might create an estimated timeline for the DMAIC process that looks something like the figure below."
-          },
-          {
-            "id": "ch10-content-en-089",
-            "kind": "image",
-            "assetId": "fig-0e5ff500c35b73a6",
-            "src": "assets/figures/fig-0e5ff500c35b73a6.png",
-            "width": 1077,
-            "height": 319
-          },
-          {
-            "id": "ch10-content-en-090",
-            "kind": "paragraph",
-            "text": "The estimated timeline is for 16 weeks; the expert believes the Define phase will take 3 weeks and the Measure phase will take 5. The Measure phase overlaps with both the Define and Analyze phases, which is normal with Six Sigma projects."
-          },
-          {
-            "id": "ch10-content-en-091",
-            "kind": "paragraph",
-            "text": "The benefit of this approach is that you can generate a timeline quickly. The disadvantages are that someone without experience of Six Sigma and a fair amount of knowledge of the process being improved can easily misjudge the time required for each phase and leadership might consider this a hard timeline, which can create unrealistic expectations. When presenting such a timeline, make sure everyone knows that it is a rough estimate and the time for each phase can change as you go through the process."
-          },
-          {
-            "id": "ch10-content-en-092",
-            "kind": "heading",
-            "text": "Critical Path Method"
-          },
-          {
-            "id": "ch10-content-en-093",
-            "kind": "paragraph",
-            "text": "The critical path method is a more detailed way of defining timelines for various elements of a project, but it does require more information and input from a project team. This means you probably won’t be able to provide a detailed timeline until the project is underway; a critical path diagram could be one of the activities the team undertakes as part of the Define phase."
-          },
-          {
-            "id": "ch10-content-en-094",
-            "kind": "heading",
-            "text": "Creating a Critical Path Diagram"
-          },
-          {
-            "id": "ch10-content-en-095",
-            "kind": "paragraph",
-            "text": "A critical path diagram can be created for the entire project or for each phase of a project. As we go through the steps of creating a critical path diagram, we’ll use the Define phase of a project to reduce bad debt (uncollected invoices) in a medical billing environment as an example."
-          },
-          {
-            "id": "ch10-content-en-096",
-            "kind": "paragraph",
-            "text": "1. Identify the critical needs or activities to complete the project or phase of a project."
-          },
-          {
-            "id": "ch10-content-en-097",
-            "kind": "paragraph",
-            "text": "To complete the define phase of our project to improve bad debt in a medical billing setting, the team needs to choose a team, charter the project, define the problem, and create a baseline metric."
-          },
-          {
-            "id": "ch10-content-en-098",
-            "kind": "paragraph",
-            "text": "2. Put critical activities in order."
-          },
-          {
-            "id": "ch10-content-en-099",
-            "kind": "paragraph",
-            "text": "The order with which the team should accomplish the tasks defined in step one is:"
-          },
-          {
-            "id": "ch10-content-en-100",
-            "kind": "listItem",
-            "text": "Choose a team"
-          },
-          {
-            "id": "ch10-content-en-101",
-            "kind": "listItem",
-            "text": "Charter the project and define the problem (these tasks can be done simultaneously)"
-          },
-          {
-            "id": "ch10-content-en-102",
-            "kind": "listItem",
-            "text": "Create a baseline metric"
-          },
-          {
-            "id": "ch10-content-en-103",
-            "kind": "paragraph",
-            "text": "3. Assign a time to each task."
-          },
-          {
-            "id": "ch10-content-en-104",
-            "kind": "paragraph",
-            "text": "A Six Sigma expert estimates it will take one week to choose a team, one week to create a charter, one day to create a problem statement, and two weeks to create a baseline metric."
-          },
-          {
-            "id": "ch10-content-en-105",
-            "kind": "paragraph",
-            "text": "4. Create a diagram of the tasks, stacking simultaneous or parallel process and including time figures."
-          },
-          {
-            "id": "ch10-content-en-106",
-            "kind": "paragraph",
-            "text": "The diagram is created from left to right. The items on the left must be done before the items to the right can be completed. When items can be done at the same time, they are stacked."
-          },
-          {
-            "id": "ch10-content-en-107",
-            "kind": "image",
-            "assetId": "fig-e627a8e1547c3e24",
-            "src": "assets/figures/fig-e627a8e1547c3e24.png",
-            "width": 1189,
-            "height": 436
-          },
-          {
-            "id": "ch10-content-en-108",
-            "kind": "paragraph",
-            "text": "5. Draw a critical path through the diagram."
-          },
-          {
-            "id": "ch10-content-en-109",
-            "kind": "paragraph",
-            "text": "When steps are stacked, the critical path goes through the step with the longest time estimate. For example, the team might create a problem statement while they are working on a project charter; the project charter takes from Monday through Friday to complete. The problem statement is complete on Tuesday. However, the team is not done with all of the steps in that series until they are done with the project charter."
-          },
-          {
-            "id": "ch10-content-en-110",
-            "kind": "image",
-            "assetId": "fig-74d3295904fa3bea",
-            "src": "assets/figures/fig-74d3295904fa3bea.png",
-            "width": 1008,
-            "height": 385
-          },
-          {
-            "id": "ch10-content-en-111",
-            "kind": "paragraph",
-            "text": "6. Add up the longest times from each section."
-          },
-          {
-            "id": "ch10-content-en-112",
-            "kind": "paragraph",
-            "text": "In this case, the team adds 1 week, 1 week, and 2 weeks to get to 4 weeks total for the Define phase."
-          },
-          {
-            "id": "ch10-content-en-113",
-            "kind": "paragraph",
-            "text": "We’ve used a very simple example, but you can use the critical path method to estimate timelines for extremely complex projects or processes."
-          },
-          {
-            "id": "ch10-content-en-114",
-            "kind": "heading",
-            "text": "Milestone Meetings"
-          },
-          {
-            "id": "ch10-content-en-115",
-            "kind": "paragraph",
-            "text": "Once a timeline is established, set up milestone meetings and dates to help keep the team on track and notify the sponsor or champion of progress. In a DMAIC project, milestones are usually set at the end of each phase (Define, Measure, Analyze, Improve, and Control). However, teams can set custom milestones, and sponsors might require specific milestones if they are approving large resourcing or funding requests for a project."
-          },
-          {
-            "id": "ch10-content-en-116",
-            "kind": "paragraph",
-            "text": "You can also set up milestones within a team environment to manage goals and tasks; these milestones can be kept within the team. For example, a team working for a chain of sandwich shops is hoping to improve the process by which sandwiches are put together. They have set up the following milestones:"
-          },
-          {
-            "id": "ch10-content-en-117",
-            "kind": "paragraph",
-            "text": "Define: January 21"
-          },
-          {
-            "id": "ch10-content-en-118",
-            "kind": "paragraph",
-            "text": "Measure: February 12"
-          },
-          {
-            "id": "ch10-content-en-119",
-            "kind": "paragraph",
-            "text": "Analyze: February 22"
-          },
-          {
-            "id": "ch10-content-en-120",
-            "kind": "paragraph",
-            "text": "Improve: March 15"
-          },
-          {
-            "id": "ch10-content-en-121",
-            "kind": "paragraph",
-            "text": "Control: April 10"
-          },
-          {
-            "id": "ch10-content-en-122",
-            "kind": "paragraph",
-            "text": "The milestone dates are when the team or the Black Belt will meet with the sponsor to present the findings or results of each phase of the project. Each date gives the team something to work toward. However, the team has determined that certain tasks must be accomplished during the Measure phase. First, they have to create some definitions of terms so everyone is on the same page when discussing measurements. Second, the team has to gather data about the temperature at which ingredients are stored and cooked. Finally, the team wants to actively observe sandwich shop employees in order to measure the time it takes to make various sandwiches."
-          },
-          {
-            "id": "ch10-content-en-123",
-            "kind": "paragraph",
-            "text": "The team might set up internal milestones for the Measure phase, stating that definitions will be created by January 25, temperature data collected by February 5, and time data collected by February 10."
-          },
-          {
-            "id": "ch10-content-en-124",
-            "kind": "paragraph",
-            "text": "By breaking each phase, and each larger task, into smaller parts, it is easier for the team to stay on track and complete work. Smaller tasks seem more manageable, so they are more likely to be accomplished."
-          },
-          {
-            "id": "ch10-content-en-125",
-            "kind": "heading",
-            "text": "Budgets"
-          },
-          {
-            "id": "ch10-content-en-126",
-            "kind": "paragraph",
-            "text": "Teams, and especially team leaders, must always be concerned with project budgets. While success is rated by end customers in terms of performance, quality, and satisfaction, Six Sigma teams also answer to corporate leadership. For leaders, success is also measured in terms of time and budget. A strong timeline and good milestones help you meet time requirements, and an understanding of financial drivers, strong communication, and financial oversight help you keep a project within budget."
-          },
-          {
-            "id": "ch10-content-en-127",
-            "kind": "paragraph",
-            "text": "One of the challenges when dealing with budgets in a Six Sigma project is that all team members are not always completely aware of financial drivers. In some cases, financial information might even be restricted; employers don’t generally want specific data about employee pay made public to various team members, for example. Some information and analysis might need to be performed solely by a project-leading Black Belt in such cases, especially if data is critical or sensitive."
-          },
-          {
-            "id": "ch10-content-en-128",
-            "kind": "paragraph",
-            "text": "Outside of concerns with sensitive data, process improvement projects work best when all team members are made aware of as many of the drivers and data as possible. When teams know how much funding a champion is willing to seek on their behalf, they can make realistic decisions about how to improve a process. Sometimes, the solution that is most likely to generate the most improvement isn’t viable because of budget. If an improvement project has a budget of $50,000, the team can’t implement a solution that requires an $80,000 capital investment in machinery, for example."
-          },
-          {
-            "id": "ch10-content-en-129",
-            "kind": "paragraph",
-            "text": "Budget concerns vary by organization. In some organizations, leaders are most concerned with specific expenditures by a team, including expenses on new equipment, hiring new personnel, or purchasing new products or software. Some organizations take a more granular approach to project budgets, considering the expense of hours spent by the team on the project as well as the expenses associated with training and implementing a solution outside of the team environment."
-          },
-          {
-            "id": "ch10-content-en-130",
-            "kind": "paragraph",
-            "text": "Six Sigma team leaders must ensure they understand how leaders and organizations manage project budgets. Working for the first time with an organization or sponsor means having honest and thorough conversations about how budgets are calculated, how much sponsors are willing to work for increases in a budget, and what the Six Sigma leader’s expected role in maintaining budgets is."
-          },
-          {
-            "id": "ch10-content-en-131",
-            "kind": "heading",
-            "text": "Defined Measures of Success"
-          },
-          {
-            "id": "ch10-content-en-132",
-            "kind": "paragraph",
-            "text": "Finally, Six Sigma teams must create a well-defined measure of success. To best manage a Six Sigma project and team, leaders have to ensure all team members, leaders, and sponsors agree on what success means. If success isn’t defined at all, the team risks scope creep and getting lost in a project that never seems to end. If success isn’t well-defined, teams risk concluding a project without satisfying the customer, sponsor, or all members of the team. If a sponsor and the team don’t agree on what success looks like, the team could think they’ve concluded a successful project while leadership believes the project was a failure."
-          },
-          {
-            "id": "ch10-content-en-133",
-            "kind": "paragraph",
-            "text": "In the end, successful Six Sigma team management hinges on many of the same concepts as successful leadership in other endeavors does. Choosing the right people, being clear about expectations, approaching work in an organized manner, and being honest and open about progress helps every member of the team succeed and provide value."
           }
         ],
         "zh": [
           {
-            "id": "ch10-content-zh-001",
+            "id": "ch10-s01-six-sigma-team-management-basics-zh-001",
             "kind": "heading",
             "text": "管理"
           },
           {
-            "id": "ch10-content-zh-002",
+            "id": "ch10-s01-six-sigma-team-management-basics-zh-002",
             "kind": "paragraph",
             "text": "六西格玛通常在组织内分两个级别进行管理。首先，六西格玛文化必须在整个企业层面进行管理，通常由高级管理人员（例如高管）组成的团体或理事会在黑带大师或黑带的指导下进行。最终，该小组为组织内的六西格玛定下基调，提供项目的最终批准，并让其他人对指标、绩效和成功负责。虽然其中许多人也可能担任项目的发起人或支持者，但作为一个团队，他们往往不会参与日常项目细节。"
           },
           {
-            "id": "ch10-content-zh-003",
+            "id": "ch10-s01-six-sigma-team-management-basics-zh-003",
             "kind": "paragraph",
             "text": "六西格玛高层领导小组的一些角色包括："
           },
           {
-            "id": "ch10-content-zh-004",
+            "id": "ch10-s01-six-sigma-team-management-basics-zh-004",
             "kind": "listItem",
             "text": "为在组织中使用六西格玛创造理由，并支持流程改进作为文化目标。"
           },
           {
-            "id": "ch10-content-zh-005",
+            "id": "ch10-s01-six-sigma-team-management-basics-zh-005",
             "kind": "listItem",
             "text": "为六西格玛计划制定明确的目标，以确保项目目标与业务目标保持一致。"
           },
           {
-            "id": "ch10-content-zh-006",
+            "id": "ch10-s01-six-sigma-team-management-basics-zh-006",
             "kind": "listItem",
             "text": "让六西格玛团队和组织对改进和绩效负责。"
           },
           {
-            "id": "ch10-content-zh-007",
+            "id": "ch10-s01-six-sigma-team-management-basics-zh-007",
             "kind": "listItem",
             "text": "要求和审查结果测量"
           },
           {
-            "id": "ch10-content-zh-008",
+            "id": "ch10-s01-six-sigma-team-management-basics-zh-008",
             "kind": "listItem",
             "text": "诚实地向团队传达胜利和失败。"
           },
           {
-            "id": "ch10-content-zh-009",
+            "id": "ch10-s01-six-sigma-team-management-basics-zh-009",
             "kind": "listItem",
             "text": "奖励六西格玛成功的团队和个人。"
           },
           {
-            "id": "ch10-content-zh-010",
+            "id": "ch10-s01-six-sigma-team-management-basics-zh-010",
             "kind": "listItem",
             "text": "倡导为必要的改进项目提供资源和资金。"
           },
           {
-            "id": "ch10-content-zh-011",
+            "id": "ch10-s01-six-sigma-team-management-basics-zh-011",
             "kind": "paragraph",
             "text": "六西格玛还必须在团队层面进行管理，这是本章的重点。我们将介绍如何组建团队，详细介绍六西格玛团队中的各种常见角色，并讨论如何通过时间表、里程碑、预算和明确的成功衡量标准来管理团队。"
           },
           {
-            "id": "ch10-content-zh-012",
+            "id": "ch10-s01-six-sigma-team-management-basics-zh-012",
             "kind": "heading",
             "text": "打造六西格玛团队"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch10-s02-building-a-six-sigma-team",
+      "level": 2,
+      "page": 91,
+      "title": {
+        "en": "Building a Six Sigma Team",
+        "zh": "打造六西格玛团队"
+      },
+      "content": {
+        "en": [
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-001",
+            "kind": "paragraph",
+            "text": "You can’t simply have a pre-made team ready to begin work on every project that comes up. Six Sigma teams must be uniquely tailored to the goals and processes at hand. The same Six Sigma experts – Black Belt leaders, data analysts, or project managers – might work across multiple projects, but individual subject matter experts and team members only bring high value to the team if they are familiar with the process or have some related education, knowledge, or skill to offer. Not all team members will serve consistently throughout the entire life of a project, either. This is often why companies send existing employees for Six Sigma training rather than hire Six Sigma experts."
           },
           {
-            "id": "ch10-content-zh-013",
+            "id": "ch10-s02-building-a-six-sigma-team-en-002",
+            "kind": "paragraph",
+            "text": "Executive leadership groups working with Six Sigma leaders and experts usually put teams together. Any process improvement team should have, at minimum:"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-003",
+            "kind": "listItem",
+            "text": "A Six Sigma leader"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-004",
+            "kind": "listItem",
+            "text": "A process owner"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-005",
+            "kind": "listItem",
+            "text": "An expert on the process"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-006",
+            "kind": "listItem",
+            "text": "Someone to manage budgeting and accounting"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-007",
+            "kind": "paragraph",
+            "text": "Some of those roles might be handled by the same person; the process owner might also be the process expert. Depending on expectations of needs, the team might also need to include technical resources, such as a programmer or IT leader, as well as individuals from human resources, compliance, legal, or other ancillary departments."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-008",
+            "kind": "heading",
+            "text": "Three Types of Team Members"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-009",
+            "kind": "paragraph",
+            "text": "When putting teams together, organizations should remember that three basic team member types exist with relation to a Six Sigma project. First, there are the regular team members. These individuals participate in all activities of the team and attend all or almost all of the team’s meetings. Regular team members include project leaders, process owners and experts, and identified subject matter experts who the team or executives feel would be critical components of their group."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-010",
+            "kind": "paragraph",
+            "text": "Second, ad hoc team members provide expertise on an as-needed basis. Usually, these are subject matter experts or employees who work directly with the process. You don’t want to take these employees from their job functions for every single team event, as that would negatively impact the state of current production. Instead, these employees are included in team meetings as needed when additional information or assistance is required."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-011",
+            "kind": "paragraph",
+            "text": "Finally, resource team members are only included when the project team leader feels they are needed in a meeting or team event to provide expert information, counsel, or help in accessing resources. Resource team members are usually members of ancillary departments such as accounting, human resources, or compliance. Resource team members might also be managers or leaders in departments that are related to the process being improved. For example, if a team is seeking to improve a customer service department, they might need help with inputs from the marketing department; someone from the marketing department could be added as a resource team member."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-012",
+            "kind": "heading",
+            "text": "Tips for Selecting Team Members"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-013",
+            "kind": "paragraph",
+            "text": "Most Six Sigma process improvement teams are relatively small: five regular team members is considered a good number on average. Adding too many regular team members can create communication problems, make it difficult to manage brainstorming sessions, and cause burnout. When all of a company’s Six Sigma teams are large, there’s a good chance that team members are serving on multiple projects. While ad hoc or resource team members can serve several projects and handle their own work on a daily basis, regular team members should not be asked to serve on more than one team and handle daily workloads. In fact, organizational leaders might want to consider reducing work requirements for team members who are serving as full-time members on a project."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-014",
+            "kind": "paragraph",
+            "text": "Other tips for selecting team members include:"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-015",
+            "kind": "listItem",
+            "text": "Choosing employees who are knowledgeable about the customer, product, or process related to the project."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-016",
+            "kind": "listItem",
+            "text": "Choosing employees who have shown a willingness and ability to work toward improvement in a team environment."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-017",
+            "kind": "listItem",
+            "text": "Selecting employees who have access to and an understanding of the data required to learn about and measure the process or problem."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-018",
+            "kind": "listItem",
+            "text": "Picking employees who can provide at least five hours of work per week to the team."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-019",
+            "kind": "listItem",
+            "text": "Matching the skills of employees to the projects at hand; if a project is likely to include all technical improvements, you would be less likely to add a team member who is skilled in marketing."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-020",
+            "kind": "listItem",
+            "text": "Removing political obstacles through team selection; if a specific person in an organization is likely to be an obstacle to a team, sometimes putting that person on the team can increase the chance that they will buy into the process."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-021",
+            "kind": "heading",
+            "text": "Team Member Roles"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-022",
+            "kind": "paragraph",
+            "text": "The team member roles described in this section are based on Six Sigma process improvement best practices, but best practices also say that teams and team leaders should not be overly rigid. Experienced Six Sigma leaders and experts understand how to work within best practices while also creating unique team structures that are tailored to the project or process at hand."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-023",
+            "kind": "heading",
+            "text": "Sponsors and Champions"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-024",
+            "kind": "paragraph",
+            "text": "We’ve briefly touched on sponsors and champions in previous chapters. In most Six Sigma environments, these are the senior-level leaders who oversee projects at the highest level. Even the Black Belt must report to the project sponsor or champion. The senior leader is usually responsible for the final result of a project, which means he or she usually wants regular reports about progress; sometimes, the sponsor or champion is the liaison between the team and the leadership council. As the senior leader, the champion or sponsor is also responsible for assisting the team with obtaining funds and resources to ensure project success. Some additional duties within this role include:"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-025",
+            "kind": "listItem",
+            "text": "Coaching the team, particularly at the project charter stage. The sponsor often provides input into what is in scope on a project and who might be included on a team."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-026",
+            "kind": "listItem",
+            "text": "Locating resources for the team, including support from other departments, money, equipment, time, and labor hours."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-027",
+            "kind": "listItem",
+            "text": "Handling matters of politics within a corporate structure so the team doesn’t have to."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-028",
+            "kind": "listItem",
+            "text": "Working with other managers within the organization to help the team succeed in improving a process and transitioning improvements to a daily work environment."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-029",
+            "kind": "heading",
+            "text": "Business or Process Owners"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-030",
+            "kind": "paragraph",
+            "text": "The business or process owner is usually someone who is directly responsible for the process in a leadership capacity. Usually, the process owner is the person who is going to “receive” a solution implemented by a Six Sigma team once that solution is ready to be rolled out to all team members or used on a daily basis. Because of this, the process owner is usually included in the team because he or she must understand how and why any change is made. The process owner must also be familiar with methods of control that are created by the Six Sigma team as he or she will become responsible for maintaining and monitoring those controls once the process is transitioned from a team environment to day-to-day production."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-031",
+            "kind": "paragraph",
+            "text": "A process owner usually also acts as a process expert on a Six Sigma team. The process owner has insight into the existing process, understands the needs of the customers and employees related to the process, and might already have access to data regarding the process. The process owner isn’t always"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-032",
+            "kind": "paragraph",
+            "text": "the only process expert on a team, however; in some cases, the person who owns the process doesn’t have enough day-to-day interaction with the process to be an expert."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-033",
+            "kind": "paragraph",
+            "text": "When leading or managing a Six Sigma team, Black Belts and others do have to be wary of process owners who are resistant to change or who believe they have all the answers. Someone who is set in his or her ways might not want to involve other team members or might believe certain changes are “impossible” because they are new. Some leaders who are also process owners might be afraid that a team member will outshine them or threaten their position, which could lead them to block team members from participating on a team. These are some of the political and human resource problems Six Sigma leaders run into, and Black Belts and project leaders must work tactfully with champions, sponsors, and process managers to resolve such issues."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-034",
+            "kind": "heading",
+            "text": "Six Sigma Leaders"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-035",
+            "kind": "paragraph",
+            "text": "Six Sigma projects are usually led by certified Black Belts, although some organizations do allow Green Belts to act as leaders on small initiatives with occasional feedback and guidance from Black Belts. In most organizations, the Black Belt holds primary responsibility for the regular work performed by a team and usually only works with one team or project at a time."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-036",
+            "kind": "paragraph",
+            "text": "Best case scenarios let organizations align Black Belts with projects in areas they are already familiar with. For example, a bank might have several Black Belts on staff. Each Black Belt might specialize in working with certain processes or departments; one might usually work with compliance and audit processes, another with accounting, a third with customer-facing processes, and a fourth with online processes. Since Black Belt resources might be limited, this isn’t always possible. Most certified Black Belts can bring Six Sigma methods to process improvements even in areas they aren’t closely familiar with. In some cases, various managers or other individuals are certified as Black Belts and can lead processes in addition to their regular responsibilities, although this can put an undue burden on employees and isn’t always the best solution."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-037",
+            "kind": "paragraph",
+            "text": "Black Belt project leaders often work to:"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-038",
+            "kind": "listItem",
+            "text": "Help create a rationale for a project."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-039",
+            "kind": "listItem",
+            "text": "Provide input for the selection of project team members."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-040",
+            "kind": "listItem",
+            "text": "Lead teams throughout all the phases of DMAIC, which are covered in depth in Unit 3."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-041",
+            "kind": "listItem",
+            "text": "Educate and support team members as they learn about and use Six Sigma tools."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-042",
+            "kind": "listItem",
+            "text": "Provide oversight through time management, decision making, and planning."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-043",
+            "kind": "listItem",
+            "text": "Maintain schedules and timelines, sometimes in conjunction with a certified Project Manager."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-044",
+            "kind": "listItem",
+            "text": "Provide expertise in the form of statistical analysis or guidance with analysis."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-045",
+            "kind": "listItem",
+            "text": "Assist with project transition."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-046",
+            "kind": "listItem",
+            "text": "Report to sponsor or champion on a regular basis."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-047",
+            "kind": "listItem",
+            "text": "Provide documentation at the end of the project."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-048",
+            "kind": "paragraph",
+            "text": "In some organizations, Master Black Belts play an overall role in leading multiple Six Sigma projects. Master Black Belts act as coaches to multiple teams; Black Belts leading Six Sigma teams can work with Master Black Belts to solve especially difficult problems or seek help for complex statistical analysis. Master Black Belts provide continuing education to both Black and Green Belts, helping team members to constantly improve their grasp of Six Sigma methodologies."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-049",
+            "kind": "heading",
+            "text": "Project Managers"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-050",
+            "kind": "paragraph",
+            "text": "Some organizations use traditional project management techniques alongside Six Sigma improvement methodologies. In these organizations, a project manager is usually assigned to a Six Sigma project. While structures vary by organization, the project manager does not usually lead the team. Instead, the PM offers leader support to the Black Belt by keeping up with documentation and timelines, helping keep meetings on track, and ensuring items are followed up on after meetings. At first, you might think that adding a PM to a team would cause problems for a Black Belt, but when the two roles work together, the Black Belt benefits. With a PM worrying about timelines or whether the meeting is getting too far off track, a Six Sigma exert is free to concentrate on the brainstorming session or statistical analysis at hand."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-051",
+            "kind": "heading",
+            "text": "Timekeeper"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-052",
+            "kind": "paragraph",
+            "text": "Not all Six Sigma teams use timekeepers, but they can help keep meetings on track, reduce the chance of scope creep, and increase overall productivity. The timekeeper can be any person on the team who is not regularly engaged in leading meetings, brainstorming activities or recording team activities and notes. The timekeeper shouldn’t police time in a such a rigid fashion that the benefits of fluid discussion and brainstorming are lost, but he or she should gently steer teams toward following agenda schedules or provide the project leader with an indication that time is up for the topic at hand."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-053",
+            "kind": "paragraph",
+            "text": "To function properly, a timekeeper needs an agenda to follow. It is usually the responsibility of the Black Belt or project manager to provide a detailed agenda for each meeting. The agenda should include clear indications regarding how long each item is expected to take, though teams should always be aware that agendas might be changed during the meeting at the discretion of the project manager or project leader."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-054",
+            "kind": "paragraph",
+            "text": "Team leaders should pick a timekeeper who is organized and level-headed. In the heat of discussions and arguments, it’s easy for any member of the team to lose track of time – and the timekeeper is a member of the team. In addition to regular duties as a team member, the timekeeper is expected to:"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-055",
+            "kind": "listItem",
+            "text": "Keep an eye on the agenda and the time"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-056",
+            "kind": "listItem",
+            "text": "Let team members know when the time for a certain agenda is almost up; teams might want to set up a five-minute warning rule so they have a few minutes to wrap up a discussion"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-057",
+            "kind": "listItem",
+            "text": "Signal that the time is up for a certain discussion or item"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-058",
+            "kind": "paragraph",
+            "text": "While project leaders can choose to ignore agendas, they should also back up the timekeeper’s ability to interrupt politely. Timekeepers can’t perform if they are being heckled by other team members for noting the time."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-059",
+            "kind": "heading",
+            "text": "Scribes or Minute-Takers"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-060",
+            "kind": "paragraph",
+            "text": "A lot of discussion occurs in the midst of Six Sigma brainstorming and team sessions, and someone needs to record that information. Notes are important because they help team members review what was discussed, create lists of follow-ups and actions from a discussion, and record charts, graphs, and diagrams that were created during brainstorming processes. While everyone can take notes, the team leader should appoint one person as the official scribe for the team. Sometimes, that person is a certified project manager working in conjunction with a Six Sigma team leader. Other times, it is a member of the team who is seen as detailed and organized."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-061",
+            "kind": "paragraph",
+            "text": "The Black Belt or other project leader should never be the scribe; it is too difficult to take notes while leading a discussion or exercise. The Black Belt might make some notes during the discussion, but he or she is likely to miss important details while working directly with other team members."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-062",
+            "kind": "paragraph",
+            "text": "The scribe should create notes or minutes of the meeting in typed format and disseminate those notes to all team members as soon as possible following a meeting. Team members can review the notes and add any missing information if desired; often, organizations create portals or shared file systems so teams can keep notes and all other documents in an easy-to-access location."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-063",
+            "kind": "paragraph",
+            "text": "One challenge in recording the discussions of a Six Sigma project meeting is in recording the diagrams and brainstorming that occurred. This is especially true if teams use whiteboards, paper, or sticky notes to create diagrams; the scribe is not always equipped with the skills or the software to recreate a computerized version of such documents. One tip for recording such information that is used by many modern Six Sigma teams is to take a picture of the diagrams with a smartphone or digital camera. The images can then be uploaded into the team’s shared workspace; if necessary, a Black Belt or Green Belt can convert the raw diagrams to a computerized version for the purpose of presenting information to leadership or other departments if desired."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-064",
+            "kind": "heading",
+            "text": "Team Members"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-065",
+            "kind": "paragraph",
+            "text": "In the beginning of this chapter, we covered the three major types of team members: regular, ad hoc, and resource. Selecting members for each of these roles is up to the project leader, the sponsor or champion, and the overall organizational leadership team. In addition to the project leader, process owner, and process expert, Six Sigma teams are usually comprised of one to three other regular team members. In addition to acting as timekeeper or scribe as directed by the team leader, team members also:"
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-066",
+            "kind": "listItem",
+            "text": "Participate in brainstorming sessions, discussions, and other team activities."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-067",
+            "kind": "listItem",
+            "text": "Collect data and perform analysis under the direction of the Black Belt. Often, team members performing these functions are Green Belts."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-068",
+            "kind": "listItem",
+            "text": "Perform work between meetings as required by the project leader."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-069",
+            "kind": "listItem",
+            "text": "Report the results of and progress on individual assignments to the team."
+          },
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-en-070",
+            "kind": "listItem",
+            "text": "Review work performed by other team members and the team as a whole, offering suggestions and feedback."
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch10-s02-building-a-six-sigma-team-zh-001",
             "kind": "paragraph",
             "text": "您不能简单地让一个预先组建的团队准备好开始处理每个出现的项目。 六西格玛团队必须根据当前的目标和流程进行独特的定制。相同的六西格玛专家——黑带领导者、数据分析师或项目经理——可能会在多个项目中工作，但个别主题专家和团队成员只有熟悉流程或拥有一些相关的教育、知识或技能才能为团队带来高价值。并非所有团队成员都会在项目的整个生命周期中始终如一地服务。这就是为什么公司通常会派现有员工参加六西格玛培训，而不是聘请六西格玛专家。"
           },
           {
-            "id": "ch10-content-zh-014",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-002",
             "kind": "paragraph",
             "text": "与六西格玛领导人和专家合作的执行领导小组通常将团队聚集在一起。任何流程改进团队至少应具备："
           },
           {
-            "id": "ch10-content-zh-015",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-003",
             "kind": "listItem",
             "text": "六西格玛领袖"
           },
           {
-            "id": "ch10-content-zh-016",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-004",
             "kind": "listItem",
             "text": "流程所有者"
           },
           {
-            "id": "ch10-content-zh-017",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-005",
             "kind": "listItem",
             "text": "流程专家"
           },
           {
-            "id": "ch10-content-zh-018",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-006",
             "kind": "listItem",
             "text": "有人管理预算和会计"
           },
           {
-            "id": "ch10-content-zh-019",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-007",
             "kind": "paragraph",
             "text": "其中一些角色可能由同一个人担任；流程所有者也可能是流程专家。根据需求预期，团队可能还需要包括技术资源，例如程序员或 IT 领导者，以及来自人力资源、合规性、法律或其他辅助部门的人员。"
           },
           {
-            "id": "ch10-content-zh-020",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-008",
             "kind": "heading",
             "text": "三种类型的团队成员"
           },
           {
-            "id": "ch10-content-zh-021",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-009",
             "kind": "paragraph",
             "text": "在组建团队时，组织应该记住与六西格玛项目相关的三种基本团队成员类型。首先，有固定的团队成员。这些人参与团队的所有活动并参加所有或几乎所有团队会议。常规团队成员包括项目负责人、流程所有者和专家，以及团队或高管认为是其团队关键组成部分的特定主题专家。"
           },
           {
-            "id": "ch10-content-zh-022",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-010",
             "kind": "paragraph",
             "text": "其次，临时团队成员根据需要提供专业知识。通常，这些人是主题专家或直接参与流程的员工。您不想让这些员工在每次团队活动中脱离其工作职能，因为这会对当前的生产状态产生负面影响。相反，当需要其他信息或帮助时，这些员工会根据需要参加团队会议。"
           },
           {
-            "id": "ch10-content-zh-023",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-011",
             "kind": "paragraph",
             "text": "最后，只有当项目团队领导认为需要他们在会议或团队活动中提供专家信息、建议或帮助获取资源时，资源团队成员才会被加入。资源团队成员通常是会计、人力资源或合规等辅助部门的成员。资源团队成员也可能是与正在改进的流程相关的部门的经理或领导者。例如，如果一个团队正在寻求改进客户服务部门，他们可能需要营销部门的帮助；可以将营销部门的人员添加为资源团队成员。"
           },
           {
-            "id": "ch10-content-zh-024",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-012",
             "kind": "heading",
             "text": "选择团队成员的技巧"
           },
           {
-            "id": "ch10-content-zh-025",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-013",
             "kind": "paragraph",
             "text": "大多数六西格玛流程改进团队规模都比较小： 平均而言，五名常规团队成员被认为是一个不错的数字。添加过多的常规团队成员可能会造成沟通问题、难以管理头脑风暴会议并导致倦怠。当公司的六西格玛团队规模都很大时，团队成员很可能同时服务于多个项目。虽然临时或资源团队成员可以为多个项目提供服务并每天处理自己的工作，但不应要求常规团队成员为多个团队提供服务并处理日常工作量。事实上，组织领导者可能需要考虑减少作为项目全职成员的团队成员的工作要求。"
           },
           {
-            "id": "ch10-content-zh-026",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-014",
             "kind": "paragraph",
             "text": "选择团队成员的其他技巧包括："
           },
           {
-            "id": "ch10-content-zh-027",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-015",
             "kind": "listItem",
             "text": "选择了解与项目相关的客户、产品或流程的员工。"
           },
           {
-            "id": "ch10-content-zh-028",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-016",
             "kind": "listItem",
             "text": "选择愿意并有能力在团队环境中努力改进的员工。"
           },
           {
-            "id": "ch10-content-zh-029",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-017",
             "kind": "listItem",
             "text": "选择能够访问并理解了解和衡量流程或问题所需数据的员工。"
           },
           {
-            "id": "ch10-content-zh-030",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-018",
             "kind": "listItem",
             "text": "选择每周至少为团队工作五个小时的员工。"
           },
           {
-            "id": "ch10-content-zh-031",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-019",
             "kind": "listItem",
             "text": "将员工的技能与手头的项目相匹配；如果一个项目可能包括所有技术改进，那么您就不太可能添加精通营销的团队成员。"
           },
           {
-            "id": "ch10-content-zh-032",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-020",
             "kind": "listItem",
             "text": "通过团队选择消除政治障碍；如果组织中的某个特定人员可能会成为团队的障碍，有时将该人加入团队可以增加他们参与流程的机会。"
           },
           {
-            "id": "ch10-content-zh-033",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-021",
             "kind": "heading",
             "text": "团队成员角色"
           },
           {
-            "id": "ch10-content-zh-034",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-022",
             "kind": "paragraph",
             "text": "本节中描述的团队成员角色基于六西格玛流程改进最佳实践，但最佳实践也表明团队和团队领导者不应过于僵化。经验丰富的六西格玛领导者和专家了解如何在最佳实践中工作，同时创建适合手头项目或流程的独特团队结构。"
           },
           {
-            "id": "ch10-content-zh-035",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-023",
             "kind": "heading",
             "text": "赞助商和冠军"
           },
           {
-            "id": "ch10-content-zh-036",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-024",
             "kind": "paragraph",
             "text": "我们在前面的章节中简要介绍了赞助商和冠军。在大多数六西格玛环境中，这些是负责监督最高级别项目的高级领导者。即使是黑带也必须向项目发起人或冠军汇报。 高级领导通常对项目的最终结果负责，这意味着他或她通常需要定期报告进度；有时，发起人或支持者是团队和领导委员会之间的联络人。作为高级领导者，冠军或发起人还负责协助团队获取资金和资源，以确保项目成功。该角色的一些额外职责包括："
           },
           {
-            "id": "ch10-content-zh-037",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-025",
             "kind": "listItem",
             "text": "指导团队，特别是在项目章程阶段。发起人经常提供项目范围内的内容以及团队中可能包含的人员的意见。"
           },
           {
-            "id": "ch10-content-zh-038",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-026",
             "kind": "termNote",
             "rows": [
               [
@@ -895,7 +641,7 @@
             "text": "术语说明 Scope（项目范围）：说明改进项目包括什么、不包括什么，避免目标扩张。"
           },
           {
-            "id": "ch10-content-zh-039",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-027",
             "kind": "termNote",
             "rows": [
               [
@@ -905,42 +651,42 @@
             "text": "术语说明 Project Charter（项目章程）：确认问题、目标、范围、收益、团队和时间表的项目启动文件。"
           },
           {
-            "id": "ch10-content-zh-040",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-028",
             "kind": "listItem",
             "text": "为团队寻找资源，包括其他部门的支持、资金、设备、时间和工时。"
           },
           {
-            "id": "ch10-content-zh-041",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-029",
             "kind": "listItem",
             "text": "在公司结构内处理政治问题，这样团队就不必这样做。"
           },
           {
-            "id": "ch10-content-zh-042",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-030",
             "kind": "listItem",
             "text": "与组织内的其他经理合作，帮助团队成功改进流程并将改进转移到日常工作环境中。"
           },
           {
-            "id": "ch10-content-zh-043",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-031",
             "kind": "heading",
             "text": "业务或流程所有者"
           },
           {
-            "id": "ch10-content-zh-044",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-032",
             "kind": "paragraph",
             "text": "业务或流程所有者通常是以领导身份直接对流程负责的人。通常，流程所有者是在六西格玛团队实施的解决方案准备好向所有团队成员推出或每天使用后“接收”该解决方案的人。因此，流程所有者通常包含在团队中，因为他或她必须了解如何以及为何进行任何更改。流程负责人还必须熟悉六西格玛团队创建的控制方法，因为一旦流程从团队环境过渡到日常生产，他或她将负责维护和监控这些控制。"
           },
           {
-            "id": "ch10-content-zh-045",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-033",
             "kind": "paragraph",
             "text": "流程负责人通常还担任六西格玛团队的流程专家。流程所有者深入了解现有流程，了解与流程相关的客户和员工的需求，并且可能已经有权访问有关流程的数据。流程所有者并不总是"
           },
           {
-            "id": "ch10-content-zh-046",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-034",
             "kind": "paragraph",
             "text": "然而，团队中唯一的流程专家；在某些情况下，流程的所有者没有足够的与流程的日常交互来成为专家。"
           },
           {
-            "id": "ch10-content-zh-047",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-035",
             "kind": "termNote",
             "rows": [
               [
@@ -950,47 +696,47 @@
             "text": "术语说明 Interaction（交互作用）：一个因素的效果会随另一个因素水平不同而变化。"
           },
           {
-            "id": "ch10-content-zh-048",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-036",
             "kind": "paragraph",
             "text": "在领导或管理六西格玛团队时，黑带人员和其他人确实必须警惕那些抵制变革或认为自己拥有所有答案的流程负责人。 固执己见的人可能不想让其他团队成员参与，或者可能认为某些改变是“不可能的”，因为它们是新的。一些同时也是流程所有者的领导者可能担心团队成员会超越他们或威胁他们的地位，这可能导致他们阻止团队成员参与团队。这些是六西格玛领导者遇到的一些政治和人力资源问题，黑带人员和项目负责人必须与支持者、发起人和流程管理者巧妙地合作来解决这些问题。"
           },
           {
-            "id": "ch10-content-zh-049",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-037",
             "kind": "heading",
             "text": "六西格玛领导"
           },
           {
-            "id": "ch10-content-zh-050",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-038",
             "kind": "paragraph",
             "text": "六西格玛项目通常由经过认证的黑带人员领导，尽管有些组织确实允许绿带人员在小型举措中担任领导者，并偶尔得到黑带人员的反馈和指导。在大多数组织中，黑带主要负责团队执行的日常工作，通常一次只与一个团队或项目合作。"
           },
           {
-            "id": "ch10-content-zh-051",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-039",
             "kind": "paragraph",
             "text": "最好的情况是让组织将黑带人员与他们已经熟悉的领域的项目结合起来。例如，一家银行可能有多名黑带人员。每个黑带可能专门与某些流程或部门合作；一个通常可能负责合规和审计流程，另一个负责会计，第三个负责面向客户的流程，第四个负责在线流程。由于黑带资源可能有限，这并不总是可能的。大多数经过认证的黑带人员即使在他们不太熟悉的领域也可以运用六西格玛方法进行流程改进。在某些情况下，各种经理或其他个人被认证为黑带人员，除了正常职责之外还可以领导流程，尽管这可能会给员工带来过度的负担，而且并不总是最好的解决方案。"
           },
           {
-            "id": "ch10-content-zh-052",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-040",
             "kind": "paragraph",
             "text": "黑带项目负责人经常致力于："
           },
           {
-            "id": "ch10-content-zh-053",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-041",
             "kind": "listItem",
             "text": "帮助为项目创建理由。"
           },
           {
-            "id": "ch10-content-zh-054",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-042",
             "kind": "listItem",
             "text": "为项目团队成员的选择提供意见。"
           },
           {
-            "id": "ch10-content-zh-055",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-043",
             "kind": "listItem",
             "text": "领导团队完成 DMAIC 的所有阶段，这些阶段将在第 3 单元中进行深入介绍。"
           },
           {
-            "id": "ch10-content-zh-056",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-044",
             "kind": "termNote",
             "rows": [
               [
@@ -1000,187 +746,195 @@
             "text": "术语说明 DMAIC：定义、测量、分析、改进、控制；适用于改进已有流程。"
           },
           {
-            "id": "ch10-content-zh-057",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-045",
             "kind": "listItem",
             "text": "教育和支持团队成员学习和使用六西格玛工具。"
           },
           {
-            "id": "ch10-content-zh-058",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-046",
             "kind": "listItem",
             "text": "通过时间管理、决策和规划提供监督。"
           },
           {
-            "id": "ch10-content-zh-059",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-047",
             "kind": "listItem",
             "text": "维护时间表和时间表，有时与经过认证的项目经理一起维护。"
           },
           {
-            "id": "ch10-content-zh-060",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-048",
             "kind": "listItem",
             "text": "以统计分析或分析指导的形式提供专业知识。"
           },
           {
-            "id": "ch10-content-zh-061",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-049",
             "kind": "listItem",
             "text": "协助项目过渡。"
           },
           {
-            "id": "ch10-content-zh-062",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-050",
             "kind": "listItem",
             "text": "定期向赞助商或冠军报告。"
           },
           {
-            "id": "ch10-content-zh-063",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-051",
             "kind": "listItem",
             "text": "在项目结束时提供文档。"
           },
           {
-            "id": "ch10-content-zh-064",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-052",
             "kind": "paragraph",
             "text": "在一些组织中，黑带大师全面领导多个六西格玛项目。黑带人员大师担任多个团队的教练； 领导六西格玛团队的黑带人员可以与黑带人员大师一起解决特别困难的问题或寻求帮助进行复杂的统计分析。黑带人员大师为黑带人员和绿带人员提供继续教育，帮助团队成员不断提高对六西格玛方法论的掌握。"
           },
           {
-            "id": "ch10-content-zh-065",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-053",
             "kind": "heading",
             "text": "项目经理"
           },
           {
-            "id": "ch10-content-zh-066",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-054",
             "kind": "paragraph",
             "text": "一些组织使用传统的项目管理技术和六西格玛改进方法。在这些组织中，通常会指派一名项目经理负责六西格玛项目。虽然结构因组织而异，但项目经理通常不领导团队。相反，总理通过跟上文件和时间表、帮助会议保持在正轨上以及确保会议后对项目进行跟进等方式向黑带提供领导支持。起初，你可能会认为在团队中增加一名 PM 会给黑带带来问题，但当这两个角色一起工作时，黑带就会受益。当项目经理担心时间安排或会议是否偏离正轨时，六西格玛可以自由地专注于头脑风暴会议或手头的统计分析。"
           },
           {
-            "id": "ch10-content-zh-067",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-055",
             "kind": "heading",
             "text": "计时员"
           },
           {
-            "id": "ch10-content-zh-068",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-056",
             "kind": "paragraph",
             "text": "并非所有六西格玛团队都使用计时员，但他们可以帮助保持会议正常进行，减少范围蔓延的机会，并提高整体生产力。计时员可以是团队中任何不定期参与主持会议、头脑风暴活动或记录团队活动和笔记的人员。计时员不应以如此严格的方式管理时间，以免失去流畅讨论和集思广益的好处，但他或她应该温和地引导团队遵循议程安排，或向项目负责人表明当前主题的时间到了。"
           },
           {
-            "id": "ch10-content-zh-069",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-057",
             "kind": "paragraph",
             "text": "为了正常运作，计时员需要遵循一个议程。通常由黑带或项目经理负责为每次会议提供详细的议程。议程应包括关于每个项目预计需要多长时间的明确指示，但团队应始终意识到议程可能会在会议期间由项目经理或项目负责人自行决定更改。"
           },
           {
-            "id": "ch10-content-zh-070",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-058",
             "kind": "paragraph",
             "text": "团队领导者应该选择一位有组织性、头脑冷静的计时员。在激烈的讨论和争论中，团队中的任何成员都很容易忘记时间——而计时员就是团队的一员。除了作为团队成员的日常职责外，计时员还应："
           },
           {
-            "id": "ch10-content-zh-071",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-059",
             "kind": "listItem",
             "text": "密切关注议程和时间"
           },
           {
-            "id": "ch10-content-zh-072",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-060",
             "kind": "listItem",
             "text": "让团队成员知道某个议程的时间即将结束；团队可能希望设置五分钟警告规则，以便他们有几分钟的时间来结束讨论"
           },
           {
-            "id": "ch10-content-zh-073",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-061",
             "kind": "listItem",
             "text": "表示某个讨论或项目的时间已到"
           },
           {
-            "id": "ch10-content-zh-074",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-062",
             "kind": "paragraph",
             "text": "虽然项目负责人可以选择忽略议程，但他们也应该支持计时员有礼貌地打断的能力。如果计时员因记下时间而受到其他团队成员的质问，他们就无法执行任务。"
           },
           {
-            "id": "ch10-content-zh-075",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-063",
             "kind": "heading",
             "text": "抄写员或记录员"
           },
           {
-            "id": "ch10-content-zh-076",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-064",
             "kind": "paragraph",
             "text": "六西格玛头脑风暴和团队会议期间会发生很多讨论，需要有人记录这些信息。注释很重要，因为它们可以帮助团队成员回顾讨论的内容，根据讨论创建后续行动和行动列表，并记录在头脑风暴过程中创建的图表、图形和图表。虽然每个人都可以做笔记，但团队领导者应指定一人作为团队的正式抄写员。有时，这个人是一名经过认证的项目经理，与六西格玛团队领导一起工作。其他时候，则是团队中的一名成员被认为是细致而有组织的。"
           },
           {
-            "id": "ch10-content-zh-077",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-065",
             "kind": "paragraph",
             "text": "黑带或其他项目负责人绝对不应该是抄写员；在主持讨论或练习时记笔记太困难了。黑带可能会在讨论过程中做一些笔记，但他或她在直接与其他团队成员合作时很可能会错过重要的细节。"
           },
           {
-            "id": "ch10-content-zh-078",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-066",
             "kind": "paragraph",
             "text": "抄写员应以打印格式创建会议笔记或会议纪要，并在会议后尽快将这些笔记分发给所有团队成员。团队成员可以查看注释并根据需要添加任何缺失的信息；通常，组织会创建门户或共享文件系统，以便团队可以将笔记和所有其他文档保存在易于访问的位置。"
           },
           {
-            "id": "ch10-content-zh-079",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-067",
             "kind": "paragraph",
             "text": "记录六西格玛项目会议讨论的一大挑战是记录所发生的图表和头脑风暴。如果团队使用白板、纸张或便签来创建图表，则尤其如此； 抄写员并不总是具备重新创建此类文档的计算机版本的技能或软件。许多现代六西格玛团队使用的记录此类信息的一个技巧是用智能手机或数码相机拍摄图表的照片。然后可以将图像上传到团队的共享工作区；如有必要，黑带或绿带可以将原始图表转换为计算机版本，以便在需要时向领导或其他部门提供信息。"
           },
           {
-            "id": "ch10-content-zh-080",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-068",
             "kind": "heading",
             "text": "团队成员"
           },
           {
-            "id": "ch10-content-zh-081",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-069",
             "kind": "paragraph",
             "text": "在本章开头，我们介绍了三种主要类型的团队成员：常规成员、临时成员和资源成员。为每个角色选择成员由项目负责人、发起人或支持者以及整个组织领导团队决定。六西格玛团队除了项目负责人、流程负责人、流程专家之外，通常还包括一到三名其他常规团队成员。除了按照队长的指示担任计时员或抄写员外，团队成员还："
           },
           {
-            "id": "ch10-content-zh-082",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-070",
             "kind": "listItem",
             "text": "参加头脑风暴会议、讨论和其他团队活动。"
           },
           {
-            "id": "ch10-content-zh-083",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-071",
             "kind": "listItem",
             "text": "在黑带的指导下收集数据并进行分析。通常，执行这些职能的团队成员都是绿带人员。"
           },
           {
-            "id": "ch10-content-zh-084",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-072",
             "kind": "listItem",
             "text": "按照项目负责人的要求在会议之间执行工作。"
           },
           {
-            "id": "ch10-content-zh-085",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-073",
             "kind": "listItem",
             "text": "向团队报告个人任务的结果和进度。"
           },
           {
-            "id": "ch10-content-zh-086",
+            "id": "ch10-s02-building-a-six-sigma-team-zh-074",
             "kind": "listItem",
             "text": "审查其他团队成员和整个团队所做的工作，提供建议和反馈。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch10-s03-timelines-scheduling-and-milestones",
+      "level": 2,
+      "page": 95,
+      "title": {
+        "en": "Timelines, Scheduling, and Milestones",
+        "zh": "时间表、日程安排和里程碑"
+      },
+      "content": {
+        "en": [
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-001",
+            "kind": "paragraph",
+            "text": "Scheduling and maintaining that schedule is an integral part of the Six Sigma project process. Organizational leaders need to understand how long a project will take, when results can be expected, and when team resources will be freed up for other endeavors. Without this information, leadership can’t plan for ongoing improvement and employees can feel trapped in a project that seems to stretch on forever. In this section, we’ll cover two methods for creating a project timeline or schedule and touch on the importance of milestones."
           },
           {
-            "id": "ch10-content-zh-087",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-002",
             "kind": "heading",
-            "text": "时间表、日程安排和里程碑"
+            "text": "Phase-Based Timeline"
           },
           {
-            "id": "ch10-content-zh-088",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-003",
             "kind": "paragraph",
-            "text": "安排和维护该进度是六西格玛项目流程的一个组成部分。组织领导者需要了解项目需要多长时间、何时可以预期结果以及何时可以释放团队资源用于其他工作。如果没有这些信息，领导层就无法制定持续改进的计划，员工也会感觉自己被困在一个似乎永远持续下去的项目中。在本节中，我们将介绍两种创建项目时间表或进度表的方法，并探讨里程碑的重要性。"
+            "text": "Six Sigma projects usually follow a specific series of phases; we’ve briefly introduced the concept of the DMAIC method. DMAIC breaks a project up into five phases: Define, Measure, Analyze, Improve, and Control. Experienced Six Sigma experts with some data and information about a project and process can usually provide a very basic and raw estimate of time by assigning a certain number of weeks to each phase. It’s also worth noting that most of the phases are likely to overlap."
           },
           {
-            "id": "ch10-content-zh-089",
-            "kind": "heading",
-            "text": "基于阶段的时间线"
-          },
-          {
-            "id": "ch10-content-zh-090",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-004",
             "kind": "paragraph",
-            "text": "六西格玛项目通常遵循一系列特定的阶段；我们简单介绍了DMAIC方法的概念。 DMAIC 将项目分为五个阶段：定义、测量、分析、改进和控制。 经验丰富的六西格玛专家拥有有关项目和流程的一些数据和信息，通常可以通过为每个阶段分配一定的周数来提供非常基本和原始的时间估计。还值得注意的是，大多数阶段可能会重叠。"
+            "text": "To create a raw timeline for a project, a Black Belt or other Six Sigma leader usually starts with an overall time requirement. He or she either estimates the total time required for an improvement or works with a deadline imposed by the leadership group. For example, the leadership group might say that an improvement needs to be completed within four months."
           },
           {
-            "id": "ch10-content-zh-091",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-005",
             "kind": "paragraph",
-            "text": "为了为项目创建原始时间表，黑带或其他六西格玛领导者通常会从总体时间要求开始。他或她要么估计改进所需的总时间，要么按照领导小组规定的最后期限进行工作。例如，领导小组可能会说需要在四个月内完成改进。"
+            "text": "Using a four month timeline and what information is already available about the process, problem, and resources, the Black Belt might create an estimated timeline for the DMAIC process that looks something like the figure below."
           },
           {
-            "id": "ch10-content-zh-092",
-            "kind": "paragraph",
-            "text": "使用四个月的时间表以及有关流程、问题和资源的现有信息，黑带可能会为 DMAIC 流程创建一个估计时间表，如下图所示。"
-          },
-          {
-            "id": "ch10-content-zh-093",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-006",
             "kind": "image",
             "assetId": "fig-0e5ff500c35b73a6",
             "src": "assets/figures/fig-0e5ff500c35b73a6.png",
@@ -1188,47 +942,263 @@
             "height": 319
           },
           {
-            "id": "ch10-content-zh-094",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-007",
+            "kind": "paragraph",
+            "text": "The estimated timeline is for 16 weeks; the expert believes the Define phase will take 3 weeks and the Measure phase will take 5. The Measure phase overlaps with both the Define and Analyze phases, which is normal with Six Sigma projects."
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-008",
+            "kind": "paragraph",
+            "text": "The benefit of this approach is that you can generate a timeline quickly. The disadvantages are that someone without experience of Six Sigma and a fair amount of knowledge of the process being improved can easily misjudge the time required for each phase and leadership might consider this a hard timeline, which can create unrealistic expectations. When presenting such a timeline, make sure everyone knows that it is a rough estimate and the time for each phase can change as you go through the process."
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-009",
+            "kind": "heading",
+            "text": "Critical Path Method"
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-010",
+            "kind": "paragraph",
+            "text": "The critical path method is a more detailed way of defining timelines for various elements of a project, but it does require more information and input from a project team. This means you probably won’t be able to provide a detailed timeline until the project is underway; a critical path diagram could be one of the activities the team undertakes as part of the Define phase."
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-011",
+            "kind": "heading",
+            "text": "Creating a Critical Path Diagram"
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-012",
+            "kind": "paragraph",
+            "text": "A critical path diagram can be created for the entire project or for each phase of a project. As we go through the steps of creating a critical path diagram, we’ll use the Define phase of a project to reduce bad debt (uncollected invoices) in a medical billing environment as an example."
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-013",
+            "kind": "paragraph",
+            "text": "1. Identify the critical needs or activities to complete the project or phase of a project."
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-014",
+            "kind": "paragraph",
+            "text": "To complete the define phase of our project to improve bad debt in a medical billing setting, the team needs to choose a team, charter the project, define the problem, and create a baseline metric."
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-015",
+            "kind": "paragraph",
+            "text": "2. Put critical activities in order."
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-016",
+            "kind": "paragraph",
+            "text": "The order with which the team should accomplish the tasks defined in step one is:"
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-017",
+            "kind": "listItem",
+            "text": "Choose a team"
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-018",
+            "kind": "listItem",
+            "text": "Charter the project and define the problem (these tasks can be done simultaneously)"
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-019",
+            "kind": "listItem",
+            "text": "Create a baseline metric"
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-020",
+            "kind": "paragraph",
+            "text": "3. Assign a time to each task."
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-021",
+            "kind": "paragraph",
+            "text": "A Six Sigma expert estimates it will take one week to choose a team, one week to create a charter, one day to create a problem statement, and two weeks to create a baseline metric."
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-022",
+            "kind": "paragraph",
+            "text": "4. Create a diagram of the tasks, stacking simultaneous or parallel process and including time figures."
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-023",
+            "kind": "paragraph",
+            "text": "The diagram is created from left to right. The items on the left must be done before the items to the right can be completed. When items can be done at the same time, they are stacked."
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-024",
+            "kind": "image",
+            "assetId": "fig-e627a8e1547c3e24",
+            "src": "assets/figures/fig-e627a8e1547c3e24.png",
+            "width": 1189,
+            "height": 436
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-025",
+            "kind": "paragraph",
+            "text": "5. Draw a critical path through the diagram."
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-026",
+            "kind": "paragraph",
+            "text": "When steps are stacked, the critical path goes through the step with the longest time estimate. For example, the team might create a problem statement while they are working on a project charter; the project charter takes from Monday through Friday to complete. The problem statement is complete on Tuesday. However, the team is not done with all of the steps in that series until they are done with the project charter."
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-027",
+            "kind": "image",
+            "assetId": "fig-74d3295904fa3bea",
+            "src": "assets/figures/fig-74d3295904fa3bea.png",
+            "width": 1008,
+            "height": 385
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-028",
+            "kind": "paragraph",
+            "text": "6. Add up the longest times from each section."
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-029",
+            "kind": "paragraph",
+            "text": "In this case, the team adds 1 week, 1 week, and 2 weeks to get to 4 weeks total for the Define phase."
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-030",
+            "kind": "paragraph",
+            "text": "We’ve used a very simple example, but you can use the critical path method to estimate timelines for extremely complex projects or processes."
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-031",
+            "kind": "heading",
+            "text": "Milestone Meetings"
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-032",
+            "kind": "paragraph",
+            "text": "Once a timeline is established, set up milestone meetings and dates to help keep the team on track and notify the sponsor or champion of progress. In a DMAIC project, milestones are usually set at the end of each phase (Define, Measure, Analyze, Improve, and Control). However, teams can set custom milestones, and sponsors might require specific milestones if they are approving large resourcing or funding requests for a project."
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-033",
+            "kind": "paragraph",
+            "text": "You can also set up milestones within a team environment to manage goals and tasks; these milestones can be kept within the team. For example, a team working for a chain of sandwich shops is hoping to improve the process by which sandwiches are put together. They have set up the following milestones:"
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-034",
+            "kind": "paragraph",
+            "text": "Define: January 21"
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-035",
+            "kind": "paragraph",
+            "text": "Measure: February 12"
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-036",
+            "kind": "paragraph",
+            "text": "Analyze: February 22"
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-037",
+            "kind": "paragraph",
+            "text": "Improve: March 15"
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-038",
+            "kind": "paragraph",
+            "text": "Control: April 10"
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-039",
+            "kind": "paragraph",
+            "text": "The milestone dates are when the team or the Black Belt will meet with the sponsor to present the findings or results of each phase of the project. Each date gives the team something to work toward. However, the team has determined that certain tasks must be accomplished during the Measure phase. First, they have to create some definitions of terms so everyone is on the same page when discussing measurements. Second, the team has to gather data about the temperature at which ingredients are stored and cooked. Finally, the team wants to actively observe sandwich shop employees in order to measure the time it takes to make various sandwiches."
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-040",
+            "kind": "paragraph",
+            "text": "The team might set up internal milestones for the Measure phase, stating that definitions will be created by January 25, temperature data collected by February 5, and time data collected by February 10."
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-en-041",
+            "kind": "paragraph",
+            "text": "By breaking each phase, and each larger task, into smaller parts, it is easier for the team to stay on track and complete work. Smaller tasks seem more manageable, so they are more likely to be accomplished."
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-001",
+            "kind": "paragraph",
+            "text": "安排和维护该进度是六西格玛项目流程的一个组成部分。组织领导者需要了解项目需要多长时间、何时可以预期结果以及何时可以释放团队资源用于其他工作。如果没有这些信息，领导层就无法制定持续改进的计划，员工也会感觉自己被困在一个似乎永远持续下去的项目中。在本节中，我们将介绍两种创建项目时间表或进度表的方法，并探讨里程碑的重要性。"
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-002",
+            "kind": "heading",
+            "text": "基于阶段的时间线"
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-003",
+            "kind": "paragraph",
+            "text": "六西格玛项目通常遵循一系列特定的阶段；我们简单介绍了DMAIC方法的概念。 DMAIC 将项目分为五个阶段：定义、测量、分析、改进和控制。 经验丰富的六西格玛专家拥有有关项目和流程的一些数据和信息，通常可以通过为每个阶段分配一定的周数来提供非常基本和原始的时间估计。还值得注意的是，大多数阶段可能会重叠。"
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-004",
+            "kind": "paragraph",
+            "text": "为了为项目创建原始时间表，黑带或其他六西格玛领导者通常会从总体时间要求开始。他或她要么估计改进所需的总时间，要么按照领导小组规定的最后期限进行工作。例如，领导小组可能会说需要在四个月内完成改进。"
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-005",
+            "kind": "paragraph",
+            "text": "使用四个月的时间表以及有关流程、问题和资源的现有信息，黑带可能会为 DMAIC 流程创建一个估计时间表，如下图所示。"
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-006",
+            "kind": "image",
+            "assetId": "fig-0e5ff500c35b73a6",
+            "src": "assets/figures/fig-0e5ff500c35b73a6.png",
+            "width": 1077,
+            "height": 319
+          },
+          {
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-007",
             "kind": "paragraph",
             "text": "预计时间为16周；专家认为，定义阶段需要3周，测量阶段需要5周。测量阶段与定义和分析阶段重叠，这对于六西格玛项目来说是正常的。"
           },
           {
-            "id": "ch10-content-zh-095",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-008",
             "kind": "paragraph",
             "text": "这种方法的好处是您可以快速生成时间线。缺点是，没有六西格玛经验且对改进流程有相当了解的人很容易误判每个阶段所需的时间，领导层可能会认为这是一个严格的时间表，这可能会产生不切实际的期望。在提出这样的时间表时，请确保每个人都知道这是一个粗略的估计，每个阶段的时间可能会随着您完成该过程而改变。"
           },
           {
-            "id": "ch10-content-zh-096",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-009",
             "kind": "heading",
             "text": "关键路径法"
           },
           {
-            "id": "ch10-content-zh-097",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-010",
             "kind": "paragraph",
             "text": "关键路径方法是定义项目各个要素的时间表的更详细方法，但它确实需要项目团队提供更多信息和输入。这意味着在项目开始之前您可能无法提供详细的时间表；关键路径图可能是团队在定义阶段进行的活动之一。"
           },
           {
-            "id": "ch10-content-zh-098",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-011",
             "kind": "heading",
             "text": "创建关键路径图"
           },
           {
-            "id": "ch10-content-zh-099",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-012",
             "kind": "paragraph",
             "text": "可以为整个项目或项目的每个阶段创建关键路径图。当我们完成创建关键路径图的步骤时，我们将使用项目的定义阶段来减少医疗计费环境中的坏账（未收发票）作为示例。"
           },
           {
-            "id": "ch10-content-zh-100",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-013",
             "kind": "paragraph",
             "text": "1. 确定完成项目或项目阶段的关键需求或活动。"
           },
           {
-            "id": "ch10-content-zh-101",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-014",
             "kind": "paragraph",
             "text": "为了完成我们项目的定义阶段以改善医疗账单环境中的坏账，团队需要选择一个团队、制定项目、定义问题并创建基线指标。"
           },
           {
-            "id": "ch10-content-zh-102",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-015",
             "kind": "termNote",
             "rows": [
               [
@@ -1238,52 +1208,52 @@
             "text": "术语说明 Baseline（基线）：改进前的当前表现水平，是后续比较改进效果的参照。"
           },
           {
-            "id": "ch10-content-zh-103",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-016",
             "kind": "paragraph",
             "text": "2. 整理关键活动的顺序。"
           },
           {
-            "id": "ch10-content-zh-104",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-017",
             "kind": "paragraph",
             "text": "团队完成第一步中定义的任务的顺序是："
           },
           {
-            "id": "ch10-content-zh-105",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-018",
             "kind": "listItem",
             "text": "选择团队"
           },
           {
-            "id": "ch10-content-zh-106",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-019",
             "kind": "listItem",
             "text": "制定项目并定义问题（这些任务可以同时完成）"
           },
           {
-            "id": "ch10-content-zh-107",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-020",
             "kind": "listItem",
             "text": "创建基线指标"
           },
           {
-            "id": "ch10-content-zh-108",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-021",
             "kind": "paragraph",
             "text": "3. 为每项任务分配时间。"
           },
           {
-            "id": "ch10-content-zh-109",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-022",
             "kind": "paragraph",
             "text": "六西格玛专家估计，选择团队需要一周时间，制定章程需要一周时间，创建问题陈述需要一天时间，创建基线指标需要两周时间。"
           },
           {
-            "id": "ch10-content-zh-110",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-023",
             "kind": "paragraph",
             "text": "4. 创建任务图，堆叠同时或并行流程并包括时间数字。"
           },
           {
-            "id": "ch10-content-zh-111",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-024",
             "kind": "paragraph",
             "text": "该图是从左到右创建的。必须先完成左侧的项目，然后才能完成右侧的项目。当多个项目可以同时完成时，它们就会被堆叠起来。"
           },
           {
-            "id": "ch10-content-zh-112",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-025",
             "kind": "image",
             "assetId": "fig-e627a8e1547c3e24",
             "src": "assets/figures/fig-e627a8e1547c3e24.png",
@@ -1291,17 +1261,17 @@
             "height": 436
           },
           {
-            "id": "ch10-content-zh-113",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-026",
             "kind": "paragraph",
             "text": "5. 在图中画出一条关键路径。"
           },
           {
-            "id": "ch10-content-zh-114",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-027",
             "kind": "paragraph",
             "text": "当步骤堆叠时，关键路径会经过估计时间最长的步骤。例如，团队可能在制定项目章程时创建问题陈述；项目章程需要从周一到周五完成。问题陈述于周二完成。然而，在完成项目章程之前，团队并未完成该系列中的所有步骤。"
           },
           {
-            "id": "ch10-content-zh-115",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-028",
             "kind": "image",
             "assetId": "fig-74d3295904fa3bea",
             "src": "assets/figures/fig-74d3295904fa3bea.png",
@@ -1309,117 +1279,167 @@
             "height": 385
           },
           {
-            "id": "ch10-content-zh-116",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-029",
             "kind": "paragraph",
             "text": "6. 将每个部分的最长时间相加。"
           },
           {
-            "id": "ch10-content-zh-117",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-030",
             "kind": "paragraph",
             "text": "在本例中，团队将定义阶段添加 1 周、1 周和 2 周，总计达到 4 周。"
           },
           {
-            "id": "ch10-content-zh-118",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-031",
             "kind": "paragraph",
             "text": "我们使用了一个非常简单的示例，但您可以使用关键路径方法来估计极其复杂的项目或流程的时间表。"
           },
           {
-            "id": "ch10-content-zh-119",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-032",
             "kind": "heading",
             "text": "里程碑会议"
           },
           {
-            "id": "ch10-content-zh-120",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-033",
             "kind": "paragraph",
             "text": "确定时间表后，设置里程碑会议和日期，以帮助团队保持正轨，并通知赞助商或支持者进展情况。在 DMAIC 项目中，通常在每个阶段（定义、测量、分析、改进和控制）结束时设置里程碑。但是，团队可以设置自定义里程碑，如果发起人要批准项目的大量资源或资金请求，则他们可能需要特定的里程碑。"
           },
           {
-            "id": "ch10-content-zh-121",
+            "id": "ch10-s03-timelines-scheduling-and-milestones-zh-034",
             "kind": "paragraph",
             "text": "您还可以在团队环境中设置里程碑来管理目标和任务；这些里程碑可以保留在团队内部。例如，在三明治连锁店工作的团队希望改进三明治的制作过程。他们设立了以下里程碑："
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch10-s04-budgets",
+      "level": 2,
+      "page": 98,
+      "title": {
+        "en": "Budgets",
+        "zh": "定义：1 月 21 日"
+      },
+      "content": {
+        "en": [
+          {
+            "id": "ch10-s04-budgets-en-001",
+            "kind": "paragraph",
+            "text": "Teams, and especially team leaders, must always be concerned with project budgets. While success is rated by end customers in terms of performance, quality, and satisfaction, Six Sigma teams also answer to corporate leadership. For leaders, success is also measured in terms of time and budget. A strong timeline and good milestones help you meet time requirements, and an understanding of financial drivers, strong communication, and financial oversight help you keep a project within budget."
           },
           {
-            "id": "ch10-content-zh-122",
+            "id": "ch10-s04-budgets-en-002",
+            "kind": "paragraph",
+            "text": "One of the challenges when dealing with budgets in a Six Sigma project is that all team members are not always completely aware of financial drivers. In some cases, financial information might even be restricted; employers don’t generally want specific data about employee pay made public to various team members, for example. Some information and analysis might need to be performed solely by a project-leading Black Belt in such cases, especially if data is critical or sensitive."
+          },
+          {
+            "id": "ch10-s04-budgets-en-003",
+            "kind": "paragraph",
+            "text": "Outside of concerns with sensitive data, process improvement projects work best when all team members are made aware of as many of the drivers and data as possible. When teams know how much funding a champion is willing to seek on their behalf, they can make realistic decisions about how to improve a process. Sometimes, the solution that is most likely to generate the most improvement isn’t viable because of budget. If an improvement project has a budget of $50,000, the team can’t implement a solution that requires an $80,000 capital investment in machinery, for example."
+          },
+          {
+            "id": "ch10-s04-budgets-en-004",
+            "kind": "paragraph",
+            "text": "Budget concerns vary by organization. In some organizations, leaders are most concerned with specific expenditures by a team, including expenses on new equipment, hiring new personnel, or purchasing new products or software. Some organizations take a more granular approach to project budgets, considering the expense of hours spent by the team on the project as well as the expenses associated with training and implementing a solution outside of the team environment."
+          },
+          {
+            "id": "ch10-s04-budgets-en-005",
+            "kind": "paragraph",
+            "text": "Six Sigma team leaders must ensure they understand how leaders and organizations manage project budgets. Working for the first time with an organization or sponsor means having honest and thorough conversations about how budgets are calculated, how much sponsors are willing to work for increases in a budget, and what the Six Sigma leader’s expected role in maintaining budgets is."
+          },
+          {
+            "id": "ch10-s04-budgets-en-006",
             "kind": "heading",
-            "text": "定义：1 月 21 日"
+            "text": "Defined Measures of Success"
           },
           {
-            "id": "ch10-content-zh-123",
+            "id": "ch10-s04-budgets-en-007",
+            "kind": "paragraph",
+            "text": "Finally, Six Sigma teams must create a well-defined measure of success. To best manage a Six Sigma project and team, leaders have to ensure all team members, leaders, and sponsors agree on what success means. If success isn’t defined at all, the team risks scope creep and getting lost in a project that never seems to end. If success isn’t well-defined, teams risk concluding a project without satisfying the customer, sponsor, or all members of the team. If a sponsor and the team don’t agree on what success looks like, the team could think they’ve concluded a successful project while leadership believes the project was a failure."
+          },
+          {
+            "id": "ch10-s04-budgets-en-008",
+            "kind": "paragraph",
+            "text": "In the end, successful Six Sigma team management hinges on many of the same concepts as successful leadership in other endeavors does. Choosing the right people, being clear about expectations, approaching work in an organized manner, and being honest and open about progress helps every member of the team succeed and provide value."
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch10-s04-budgets-zh-001",
             "kind": "heading",
             "text": "措施：2月12日"
           },
           {
-            "id": "ch10-content-zh-124",
+            "id": "ch10-s04-budgets-zh-002",
             "kind": "heading",
             "text": "分析：2月22日"
           },
           {
-            "id": "ch10-content-zh-125",
+            "id": "ch10-s04-budgets-zh-003",
             "kind": "heading",
             "text": "改进：3 月 15 日"
           },
           {
-            "id": "ch10-content-zh-126",
+            "id": "ch10-s04-budgets-zh-004",
             "kind": "heading",
             "text": "控制时间：4月10日"
           },
           {
-            "id": "ch10-content-zh-127",
+            "id": "ch10-s04-budgets-zh-005",
             "kind": "paragraph",
             "text": "里程碑日期是团队或黑带与发起人会面以展示项目每个阶段的调查结果或结果的日期。每个日期都为团队提供了一些值得努力的目标。但是，团队已确定必须在测量阶段完成某些任务。首先，他们必须创建一些术语定义，以便每个人在讨论测量时都能达成共识。其次，团队必须收集有关原料储存和烹饪温度的数据。最后，该团队希望积极观察三明治店员工，以测量制作各种三明治所需的时间。"
           },
           {
-            "id": "ch10-content-zh-128",
+            "id": "ch10-s04-budgets-zh-006",
             "kind": "paragraph",
             "text": "团队可能会为测量阶段设置内部里程碑，指出将在 1 月 25 日之前创建定义，在 2 月 5 日之前收集温度数据，在 2 月 10 日之前收集时间数据。"
           },
           {
-            "id": "ch10-content-zh-129",
+            "id": "ch10-s04-budgets-zh-007",
             "kind": "paragraph",
             "text": "通过将每个阶段和每个较大的任务分解为较小的部分，团队可以更轻松地保持正轨并完成工作。较小的任务似乎更容易管理，因此更有可能完成。"
           },
           {
-            "id": "ch10-content-zh-130",
+            "id": "ch10-s04-budgets-zh-008",
             "kind": "heading",
             "text": "预算"
           },
           {
-            "id": "ch10-content-zh-131",
+            "id": "ch10-s04-budgets-zh-009",
             "kind": "paragraph",
             "text": "团队，尤其是团队领导者，必须始终关注项目预算。虽然成功是由最终客户根据绩效、质量和满意度来评价的，但六西格玛团队也对公司领导负责。对于领导者来说，成功还可以通过时间和预算来衡量。强大的时间表和良好的里程碑可以帮助您满足时间要求，而对财务驱动因素的了解、强有力的沟通和财务监督可以帮助您将项目控制在预算之内。"
           },
           {
-            "id": "ch10-content-zh-132",
+            "id": "ch10-s04-budgets-zh-010",
             "kind": "paragraph",
             "text": "在六西格玛项目中处理预算时面临的挑战之一是所有团队成员并不总是完全了解财务驱动因素。在某些情况下，财务信息甚至可能受到限制；例如，雇主通常不希望向各个团队成员公开有关员工薪酬的具体数据。 在这种情况下，某些信息和分析可能需要仅由项目主导的黑带执行，特别是在数据至关重要或敏感的情况下。"
           },
           {
-            "id": "ch10-content-zh-133",
+            "id": "ch10-s04-budgets-zh-011",
             "kind": "paragraph",
             "text": "除了对敏感数据的关注之外，当所有团队成员都了解尽可能多的驱动因素和数据时，流程改进项目效果最好。当团队知道冠军愿意代表他们寻求多少资金时，他们就可以就如何改进流程做出现实的决定。有时，由于预算原因，最有可能产生最大改进的解决方案并不可行。例如，如果改进项目的预算为 50,000 美元，团队就无法实施需要 80,000 美元机械资本投资的解决方案。"
           },
           {
-            "id": "ch10-content-zh-134",
+            "id": "ch10-s04-budgets-zh-012",
             "kind": "paragraph",
             "text": "预算问题因组织而异。在一些组织中，领导者最关心团队的具体支出，包括新设备、雇用新人员或购买新产品或软件的费用。一些组织对项目预算采取更细粒度的方法，考虑团队在项目上花费的时间费用以及与团队环境之外的培训和实施解决方案相关的费用。"
           },
           {
-            "id": "ch10-content-zh-135",
+            "id": "ch10-s04-budgets-zh-013",
             "kind": "paragraph",
             "text": "六西格玛团队领导者必须确保他们了解领导者和组织如何管理项目预算。第一次与组织或赞助商合作意味着就预算如何计算、赞助商愿意为增加预算付出多少努力以及六西格玛领导者在维持预算方面的预期角色进行诚实和彻底的对话。"
           },
           {
-            "id": "ch10-content-zh-136",
+            "id": "ch10-s04-budgets-zh-014",
             "kind": "heading",
             "text": "明确的成功衡量标准"
           },
           {
-            "id": "ch10-content-zh-137",
+            "id": "ch10-s04-budgets-zh-015",
             "kind": "paragraph",
             "text": "最后，六西格玛团队必须制定明确的成功衡量标准。为了最好地管理六西格玛项目和团队，领导者必须确保所有团队成员、领导者和发起人就成功的含义达成一致。如果根本没有定义成功，团队就会面临范围蔓延的风险，并迷失在一个似乎永远不会结束的项目中。如果成功没有明确定义，团队就有可能在无法令客户、发起人或团队所有成员满意的情况下完成项目。如果发起人和团队对于成功是什么样的意见不一致，团队可能会认为他们已经完成了一个成功的项目，而领导层则认为该项目是失败的。"
           },
           {
-            "id": "ch10-content-zh-138",
+            "id": "ch10-s04-budgets-zh-016",
             "kind": "paragraph",
             "text": "最后，成功的六西格玛团队管理取决于许多与其他努力的成功领导相同的理念。 选择合适的人员、明确期望、以有组织的方式开展工作以及诚实和开放地对待进展，有助于团队的每个成员取得成功并提供价值。"
           }
@@ -1432,7 +1452,7 @@
       "id": "fig-0e5ff500c35b73a6",
       "type": "table-image",
       "path": "assets/figures/fig-0e5ff500c35b73a6.png",
-      "page": 91,
+      "page": 95,
       "width": 1077,
       "height": 319
     },
@@ -1440,7 +1460,7 @@
       "id": "fig-74d3295904fa3bea",
       "type": "table-image",
       "path": "assets/figures/fig-74d3295904fa3bea.png",
-      "page": 91,
+      "page": 95,
       "width": 1008,
       "height": 385
     },
@@ -1448,7 +1468,7 @@
       "id": "fig-e627a8e1547c3e24",
       "type": "table-image",
       "path": "assets/figures/fig-e627a8e1547c3e24.png",
-      "page": 91,
+      "page": 95,
       "width": 1189,
       "height": 436
     }

@@ -10,7 +10,7 @@
   "source": {
     "enDocx": "C:\\findjob_sixsigma_sources\\manual_en_aligned.docx",
     "zhDocx": "C:\\findjob_sixsigma_sources\\manual_zh_aligned.docx",
-    "extraction": "python-docx body-order extraction; generic chapter-level bilingual content"
+    "extraction": "python-docx body-order extraction; source-TOC sectionized bilingual content"
   },
   "sections": [
     {

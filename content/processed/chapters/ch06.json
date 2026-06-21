@@ -10,11 +10,11 @@
   "source": {
     "enDocx": "C:\\findjob_sixsigma_sources\\manual_en_aligned.docx",
     "zhDocx": "C:\\findjob_sixsigma_sources\\manual_zh_aligned.docx",
-    "extraction": "python-docx body-order extraction; generic chapter-level bilingual content"
+    "extraction": "python-docx body-order extraction; source-TOC sectionized bilingual content"
   },
   "sections": [
     {
-      "id": "ch06-content",
+      "id": "ch06-s01-approaches-to-problem-solving",
       "level": 1,
       "page": 52,
       "title": {
@@ -24,22 +24,22 @@
       "content": {
         "en": [
           {
-            "id": "ch06-content-en-001",
+            "id": "ch06-s01-approaches-to-problem-solving-en-001",
             "kind": "paragraph",
             "text": "Understanding how to approach the problem – beginning to identify the problem and defining it with a statement – is critical to creating a foundation for successful Six Sigma projects. In later chapters, we’ll cover the importance of defining a variety of project, process, and problem aspects, but in this chapter, we’re going to discuss the project in general, digging deeper via a series of why questions, and creating a general problem statement as a launching point for a project."
           },
           {
-            "id": "ch06-content-en-002",
+            "id": "ch06-s01-approaches-to-problem-solving-en-002",
             "kind": "paragraph",
             "text": "Problem Functions: y = f(x)"
           },
           {
-            "id": "ch06-content-en-003",
+            "id": "ch06-s01-approaches-to-problem-solving-en-003",
             "kind": "paragraph",
             "text": "Because Six Sigma approaches things with a statistical mindset, it considers all problems as a function. Using mathematical symbols, this looks like:"
           },
           {
-            "id": "ch06-content-en-004",
+            "id": "ch06-s01-approaches-to-problem-solving-en-004",
             "kind": "image",
             "assetId": "fig-d831bb3542696711",
             "src": "assets/figures/fig-d831bb3542696711.png",
@@ -47,554 +47,264 @@
             "height": 439
           },
           {
-            "id": "ch06-content-en-005",
+            "id": "ch06-s01-approaches-to-problem-solving-en-005",
             "kind": "paragraph",
             "text": "The y=f(x) statement can be used in two ways. First, it is a general map for stating a problem. Y (the problem) occurs because some X (input or cause) is occurring. In reality, Y is usually occurring because of some group of causes or inputs, which means there are going to be more than one X inputs."
           },
           {
-            "id": "ch06-content-en-006",
+            "id": "ch06-s01-approaches-to-problem-solving-en-006",
             "kind": "paragraph",
             "text": "The idea can also be applied to specific processes and outcomes within the problem. As you get more and more granular, the y=f(x) concept becomes increasingly mathematical; in many cases, you can graph the relationship between the output (y) and the input (x)."
           },
           {
-            "id": "ch06-content-en-007",
+            "id": "ch06-s01-approaches-to-problem-solving-en-007",
             "kind": "paragraph",
             "text": "To understand the concept of thinking of problems as a function, let’s look at a problem that might occur for a large HVAC service provider. The manager of a service team has discovered that service calls are taking much longer than expected; in fact, his five team members take 1.75 times longer on average than other service reps in the company to handle all types of calls."
           },
           {
-            "id": "ch06-content-en-008",
+            "id": "ch06-s01-approaches-to-problem-solving-en-008",
             "kind": "paragraph",
             "text": "To find out what might be causing the situation, the manager researches the problem by talking to the reps, talking to the customers, and going out on random calls with all five representatives. He makes the following observations:"
           },
           {
-            "id": "ch06-content-en-009",
+            "id": "ch06-s01-approaches-to-problem-solving-en-009",
             "kind": "listItem",
             "text": "One representative is a native to the area the team services, which means he or she knows many of the customers personally. This results in friendly chatter that lengthens the time on the job."
           },
           {
-            "id": "ch06-content-en-010",
+            "id": "ch06-s01-approaches-to-problem-solving-en-010",
             "kind": "listItem",
             "text": "One representative is providing homeowners with very in-depth explanations and education about HVAC issues, sometimes over and beyond what the homeowner would ever need to know regarding his or her HVAC unit."
           },
           {
-            "id": "ch06-content-en-011",
+            "id": "ch06-s01-approaches-to-problem-solving-en-011",
             "kind": "listItem",
             "text": "One representative is new to the job and takes longer to complete each task because he or she is unsure of the work, has to double-check the work, or calls another rep to ask questions about the work."
           },
           {
-            "id": "ch06-content-en-012",
+            "id": "ch06-s01-approaches-to-problem-solving-en-012",
             "kind": "listItem",
             "text": "The remaining two reps perform work in times that are on par with company averages."
           },
           {
-            "id": "ch06-content-en-013",
+            "id": "ch06-s01-approaches-to-problem-solving-en-013",
             "kind": "paragraph",
             "text": "The manager distills this data down to two overall causes for the problem:"
           },
           {
-            "id": "ch06-content-en-014",
+            "id": "ch06-s01-approaches-to-problem-solving-en-014",
             "kind": "listItem",
             "text": "Too much talking (reps one and two)"
           },
           {
-            "id": "ch06-content-en-015",
+            "id": "ch06-s01-approaches-to-problem-solving-en-015",
             "kind": "listItem",
             "text": "Inadequate training"
           },
           {
-            "id": "ch06-content-en-016",
+            "id": "ch06-s01-approaches-to-problem-solving-en-016",
             "kind": "paragraph",
             "text": "The problem can now be stated as a function:"
           },
           {
-            "id": "ch06-content-en-017",
+            "id": "ch06-s01-approaches-to-problem-solving-en-017",
             "kind": "paragraph",
             "text": "The extra time is a function of too much talking and inappropriate training."
           },
           {
-            "id": "ch06-content-en-018",
+            "id": "ch06-s01-approaches-to-problem-solving-en-018",
             "kind": "paragraph",
             "text": "The manager also now has two root causes to address. The example is simple, but it illustrates the basic concept in defining a y=f(x) relationship for a problem and its causes. It’s not always so easy to conduct the research and analysis to find the relationship, but the relationship is always present."
           },
           {
-            "id": "ch06-content-en-019",
+            "id": "ch06-s01-approaches-to-problem-solving-en-019",
             "kind": "paragraph",
             "text": "Some other examples of y=f(x) relationships include:"
           },
           {
-            "id": "ch06-content-en-020",
+            "id": "ch06-s01-approaches-to-problem-solving-en-020",
             "kind": "listItem",
             "text": "Low customer satisfaction with hamburger taste is a function of an uncalibrated grill."
           },
           {
-            "id": "ch06-content-en-021",
+            "id": "ch06-s01-approaches-to-problem-solving-en-021",
             "kind": "listItem",
             "text": "Low employee morale is a function of a poor time-off approval system."
           },
           {
-            "id": "ch06-content-en-022",
+            "id": "ch06-s01-approaches-to-problem-solving-en-022",
             "kind": "listItem",
             "text": "Customer wait times are a function of technology distractions for employees."
           },
           {
-            "id": "ch06-content-en-023",
+            "id": "ch06-s01-approaches-to-problem-solving-en-023",
             "kind": "paragraph",
             "text": "The 5 Whys"
           },
           {
-            "id": "ch06-content-en-024",
+            "id": "ch06-s01-approaches-to-problem-solving-en-024",
             "kind": "paragraph",
             "text": "Data analysis is one of the best ways to validate a y=f(x) assumption, but teams who are familiar with processes can often arrive at some basic relationships through a process known as the 5 Whys. This is a brainstorming tool that asks increasingly granular why questions about a problem or process, seeking to understand the root cause or actual problem. The 5 Whys can be used to define a problem or to begin seeking causes."
           },
           {
-            "id": "ch06-content-en-025",
+            "id": "ch06-s01-approaches-to-problem-solving-en-025",
             "kind": "paragraph",
             "text": "For example, consider the hamburger example above. Teams addressing a problem of customer satisfaction might begin doing so because feedback forms have shown a lower-than-normal satisfaction with food quality over the past week."
           },
           {
-            "id": "ch06-content-en-026",
+            "id": "ch06-s01-approaches-to-problem-solving-en-026",
             "kind": "paragraph",
             "text": "The team first asks: Why are customers dissatisfied with the food?"
           },
           {
-            "id": "ch06-content-en-027",
+            "id": "ch06-s01-approaches-to-problem-solving-en-027",
             "kind": "paragraph",
             "text": "Looking at feedback tied to orders, the team notes that the customers who are rating the food poorly are mostly customers who ordered hamburgers of some type. The answer to the first question is that the customers are dissatisfied with the food because they are dissatisfied with the hamburgers."
           },
           {
-            "id": "ch06-content-en-028",
+            "id": "ch06-s01-approaches-to-problem-solving-en-028",
             "kind": "paragraph",
             "text": "Why are customers dissatisfied with hamburgers?"
           },
           {
-            "id": "ch06-content-en-029",
+            "id": "ch06-s01-approaches-to-problem-solving-en-029",
             "kind": "paragraph",
             "text": "The team looks at written feedback on forms or speaks with customers directly and discovers that many customers feel that their hamburgers were undercooked. The new answer is that customers are dissatisfied with hamburgers because the meat is undercooked."
           },
           {
-            "id": "ch06-content-en-030",
+            "id": "ch06-s01-approaches-to-problem-solving-en-030",
             "kind": "paragraph",
             "text": "Why is the meat undercooked?"
           },
           {
-            "id": "ch06-content-en-031",
+            "id": "ch06-s01-approaches-to-problem-solving-en-031",
             "kind": "paragraph",
             "text": "An investigation into the kitchen reveals that the grill is not properly calibrated and is providing inconsistent results. At this point, you have the y=f(x) relationship, but the team could keep asking questions."
           },
           {
-            "id": "ch06-content-en-032",
+            "id": "ch06-s01-approaches-to-problem-solving-en-032",
             "kind": "paragraph",
             "text": "Why is the grill not properly calibrated?"
           },
           {
-            "id": "ch06-content-en-033",
+            "id": "ch06-s01-approaches-to-problem-solving-en-033",
             "kind": "paragraph",
             "text": "Further investigation shows that the morning shift, responsible for calibrating the grill, has a new grill cook. During training, education on performing this function was omitted. The grill is not properly calibrated because the employee responsible was not properly trained. Now the team has a specific cause and a solution: train the grill cook."
           },
           {
-            "id": "ch06-content-en-034",
+            "id": "ch06-s01-approaches-to-problem-solving-en-034",
             "kind": "paragraph",
             "text": "In a Six Sigma environment, the team might move on with one more question: Why was the grill cook not properly trained? This might lead to the development of a consistent training policy so the problem doesn’t occur the next time a new grill cook is hired."
           },
           {
-            "id": "ch06-content-en-035",
+            "id": "ch06-s01-approaches-to-problem-solving-en-035",
             "kind": "paragraph",
             "text": "In the hamburger example, it only took four why questions to get to the root of the problem, and a fifth question started pointing to controls or long-term solutions. It isn’t always this easy; the tool is called the 5 Whys because it often leads to answers within five questions. However, teams could ask a dozen questions if they begin at a very high level and work down through a complex process."
           },
           {
-            "id": "ch06-content-en-036",
+            "id": "ch06-s01-approaches-to-problem-solving-en-036",
             "kind": "paragraph",
             "text": "When to Use 5 Whys"
           },
           {
-            "id": "ch06-content-en-037",
+            "id": "ch06-s01-approaches-to-problem-solving-en-037",
             "kind": "paragraph",
             "text": "One benefit of 5 Whys is that it only costs your team a small amount of time to use—a team familiar with a process can conduct a complete 5 Whys session in less than an hour if a moderator keeps things on task. Because of its simplicity, the 5 Whys tool can be used for almost any problem. Use it to address a problem team members bring up, to address a problem a supervisor noticed, or to address the vague feeling that there is a problem when no one has been able to define what is actually wrong. At the very least, a 5 Whys session facilitates communication and thought."
           },
           {
-            "id": "ch06-content-en-038",
+            "id": "ch06-s01-approaches-to-problem-solving-en-038",
             "kind": "paragraph",
             "text": "In a Six Sigma project environment, 5 Whys is usually deployed when processes involve human interactions or people-powered inputs, though it can be an effective start to brainstorming on any process."
           },
           {
-            "id": "ch06-content-en-039",
+            "id": "ch06-s01-approaches-to-problem-solving-en-039",
             "kind": "paragraph",
             "text": "Conducting a 5 Whys Session"
           },
           {
-            "id": "ch06-content-en-040",
+            "id": "ch06-s01-approaches-to-problem-solving-en-040",
             "kind": "paragraph",
             "text": "Since a 5 Whys session is usually based on input from subject-matter-experts, gather people who are close to the process. On a white board or web conference screen, display a basic problem statement as you understand it. This problem statement is not going to be detailed like the statements we’ll discuss in the next session—a 5 Whys session is often one of the tools you use to get to that detailed statement."
           },
           {
-            "id": "ch06-content-en-041",
+            "id": "ch06-s01-approaches-to-problem-solving-en-041",
             "kind": "paragraph",
             "text": "Examples of statements you might see in a 5 Whys station include:"
           },
           {
-            "id": "ch06-content-en-042",
+            "id": "ch06-s01-approaches-to-problem-solving-en-042",
             "kind": "listItem",
             "text": "Customers are not happy with the selection of produce"
           },
           {
-            "id": "ch06-content-en-043",
+            "id": "ch06-s01-approaches-to-problem-solving-en-043",
             "kind": "listItem",
             "text": "Customers are receiving orders late"
           },
           {
-            "id": "ch06-content-en-044",
+            "id": "ch06-s01-approaches-to-problem-solving-en-044",
             "kind": "listItem",
             "text": "The printing process is resulting in too many defects"
           },
           {
-            "id": "ch06-content-en-045",
+            "id": "ch06-s01-approaches-to-problem-solving-en-045",
             "kind": "listItem",
             "text": "Lead times on the bottling process are excessive"
           },
           {
-            "id": "ch06-content-en-046",
+            "id": "ch06-s01-approaches-to-problem-solving-en-046",
             "kind": "listItem",
             "text": "Employees are not happy with vacation schedules"
           },
           {
-            "id": "ch06-content-en-047",
+            "id": "ch06-s01-approaches-to-problem-solving-en-047",
             "kind": "paragraph",
             "text": "These are all fairly general statements that simply say something about defects or dissatisfaction. Begin by asking the highest-level “Why?” question possible about the statement. “Why are employees not happy with vacation schedules?” Write this question down."
           },
           {
-            "id": "ch06-content-en-048",
+            "id": "ch06-s01-approaches-to-problem-solving-en-048",
             "kind": "paragraph",
             "text": "The team works together to provide a high level answer to the question. Employees are not happy with vacation schedules because it’s rare to get the exact time off requested. Write the answer down under the question, then create the highest-level “Why?” question you can about the new answer."
           },
           {
-            "id": "ch06-content-en-049",
+            "id": "ch06-s01-approaches-to-problem-solving-en-049",
             "kind": "paragraph",
             "text": "“Why are employees not getting their first choice time off for vacation?” Perhaps the answer is that supervisors take so long to approve vacation requests that other employees have also asked off for the same time, so it’s hard for supervisors to accommodate everyone."
           },
           {
-            "id": "ch06-content-en-050",
+            "id": "ch06-s01-approaches-to-problem-solving-en-050",
             "kind": "paragraph",
             "text": "The next question is “Why are supervisors taking too long to approve requests?” The answer might be that the time-off system is too cumbersome, so supervisors put off approvals until they have a lot of time to manage them."
           },
           {
-            "id": "ch06-content-en-051",
+            "id": "ch06-s01-approaches-to-problem-solving-en-051",
             "kind": "paragraph",
             "text": "“Why do supervisors see the system as cumbersome?” Because there are wait times when moving from screen to screen and each approval requires a vast number of clicks and entries."
           },
           {
-            "id": "ch06-content-en-052",
+            "id": "ch06-s01-approaches-to-problem-solving-en-052",
             "kind": "paragraph",
             "text": "Now, the team has a root cause: the system itself is inefficient, which leads to problems down the line. If the team can correct the programing issues and encourage supervisors to approve vacation requests faster, employee morale can be improved."
-          },
-          {
-            "id": "ch06-content-en-053",
-            "kind": "heading",
-            "text": "Creating a Problem Statement"
-          },
-          {
-            "id": "ch06-content-en-054",
-            "kind": "paragraph",
-            "text": "A Six Sigma improvement project usually starts with a formal project statement. This is different from the basic statements used to launch a 5 Whys session. A strong problem statement is similar to a 30- second elevator pitch, which executives and sales people across the globe use to hook clients or business investors on an idea. The problem statement, like that pitch, provides enough information that a busy executive can understand what the issue is and why there is a need for an improvement effort."
-          },
-          {
-            "id": "ch06-content-en-055",
-            "kind": "paragraph",
-            "text": "Project statements should include:"
-          },
-          {
-            "id": "ch06-content-en-056",
-            "kind": "listItem",
-            "text": "Where and when the problem was recorded or was occurring"
-          },
-          {
-            "id": "ch06-content-en-057",
-            "kind": "listItem",
-            "text": "A measurement of magnitude for the problem, preferably with some tie to cost"
-          },
-          {
-            "id": "ch06-content-en-058",
-            "kind": "listItem",
-            "text": "A brief description of the problem that could be understood by professionals not closely aligned with the process (avoid too many niche words and acronyms if you will be presenting information to non-niche professionals)"
-          },
-          {
-            "id": "ch06-content-en-059",
-            "kind": "listItem",
-            "text": "A brief notation about the metric used to measure or describe the problem"
-          },
-          {
-            "id": "ch06-content-en-060",
-            "kind": "paragraph",
-            "text": "Example of a Strong Problem Statement In the first quarter, the California distribution center sent 108,000 packages. Of those packages, 15,000 were returned, resulting in a 13.8 percent return rate. The rate of return is above the accepted 7 percent rate and cost the company an additional $372,000 for the quarter. Over the course of the year, the current process could result in additional costs of over $1.4 million."
-          },
-          {
-            "id": "ch06-content-en-061",
-            "kind": "paragraph",
-            "text": "This problem statement covers all the basic information:"
-          },
-          {
-            "id": "ch06-content-en-062",
-            "kind": "listItem",
-            "text": "When? During the first quarter of this year."
-          },
-          {
-            "id": "ch06-content-en-063",
-            "kind": "listItem",
-            "text": "Where? The California distribution center"
-          },
-          {
-            "id": "ch06-content-en-064",
-            "kind": "listItem",
-            "text": "What? Returns"
-          },
-          {
-            "id": "ch06-content-en-065",
-            "kind": "listItem",
-            "text": "How many? 15,000, or 6.8 percent above expectations"
-          },
-          {
-            "id": "ch06-content-en-066",
-            "kind": "listItem",
-            "text": "What is the magnitude? The cost could be $1.4 million a year"
-          },
-          {
-            "id": "ch06-content-en-067",
-            "kind": "paragraph",
-            "text": "The problem statement doesn’t talk about solutions or provide too many details. This is a strong problem statement because it answers all the basic questions and it provides a significant reason for leadership to invest interest: $1.4 million a year is a big loss."
-          },
-          {
-            "id": "ch06-content-en-068",
-            "kind": "paragraph",
-            "text": "Example of a Weak Problem Statement The Canton, Ohio bakery is producing undercooked bread. Customer dissatisfaction with the bread is resulting in returns and bad word of mouth. The bread is supposed to be baked at 350 degrees for 40 minutes."
-          },
-          {
-            "id": "ch06-content-en-069",
-            "kind": "paragraph",
-            "text": "This statement introduces a problem, but it doesn’t provide details about when the problem occurred, how it was measured, and what the true magnitude is. The problem statement also begins going into possible root causes when it includes how the bread should be baked; the problem statement isn’t the place to begin this type of analysis."
-          },
-          {
-            "id": "ch06-content-en-070",
-            "kind": "paragraph",
-            "text": "This statement might be better framed as:"
-          },
-          {
-            "id": "ch06-content-en-071",
-            "kind": "paragraph",
-            "text": "In November and December 2014, customer satisfaction complaints were traced back to bread baked in the Canton, Ohio facility. The facility produced 300,000 loaves during that time period and received 50,000 complaints of bread being undercooked. Bread returns and loss of sales related to quality are estimated to be $125,000 per month."
-          },
-          {
-            "id": "ch06-content-en-072",
-            "kind": "heading",
-            "text": "Writing Your Own Problem Statement"
-          },
-          {
-            "id": "ch06-content-en-073",
-            "kind": "paragraph",
-            "text": "When you first start writing problem statements, it’s sometimes harder than you might expect to get all the information into a couple of sentences. To avoid leaving out information, it helps to use a list and to consider yourself a problem-statement journalist."
-          },
-          {
-            "id": "ch06-content-en-074",
-            "kind": "paragraph",
-            "text": "When journalists write a report, they are looking to answer some specific questions: What happened? Who did it happen to? When did it happen? Why does the audience care?"
-          },
-          {
-            "id": "ch06-content-en-075",
-            "kind": "paragraph",
-            "text": "The same is true when you are writing a problem statement. Follow the problem statement checklist:"
-          },
-          {
-            "id": "ch06-content-en-076",
-            "kind": "paragraph",
-            "text": "o Where did the problem occur?"
-          },
-          {
-            "id": "ch06-content-en-077",
-            "kind": "paragraph",
-            "text": "o When did the problem occur?"
-          },
-          {
-            "id": "ch06-content-en-078",
-            "kind": "paragraph",
-            "text": "o What process did the problem involve?"
-          },
-          {
-            "id": "ch06-content-en-079",
-            "kind": "paragraph",
-            "text": "o How is the problem measured? o How much is the problem costing (in money, time, customer satisfaction, or another critical metric)?"
-          },
-          {
-            "id": "ch06-content-en-080",
-            "kind": "paragraph",
-            "text": "Use the checklist to construct the problem statement, and then ask yourself: Could someone else answer all the questions in the checklist from your problem statement alone? Before you present your statement to a boss or other decision-maker, test it out with a coworker or someone who is not as familiar with the issue as you are."
-          },
-          {
-            "id": "ch06-content-en-081",
-            "kind": "paragraph",
-            "text": "Here are two problem statements. See if you can answer all of the questions in the checklist just using the information provided."
-          },
-          {
-            "id": "ch06-content-en-082",
-            "kind": "paragraph",
-            "text": "Problem Statement 1"
-          },
-          {
-            "id": "ch06-content-en-083",
-            "kind": "paragraph",
-            "text": "The call center in Jacksonville, Florida, handled 36,000 calls in February 2015. Of those calls, 8,000 had an average speed of answer (ASA) over the contract-required 15 seconds. Those 8,000 service-level- agreement violations resulted in costs of $200,000."
-          },
-          {
-            "id": "ch06-content-en-084",
-            "kind": "paragraph",
-            "text": "Problem Statement 2"
-          },
-          {
-            "id": "ch06-content-en-085",
-            "kind": "paragraph",
-            "text": "The call center in Ohio has a service-level-agreement issue that is costing approximately $9,000 per day."
-          },
-          {
-            "id": "ch06-content-en-086",
-            "kind": "paragraph",
-            "text": "Problem statement 1 answers all of the questions on the checklist:"
-          },
-          {
-            "id": "ch06-content-en-087",
-            "kind": "heading",
-            "text": "o Where did the problem occur? Jacksonville, Florida"
-          },
-          {
-            "id": "ch06-content-en-088",
-            "kind": "paragraph",
-            "text": "o When did the problem occur? February 2015 o What process did the problem involve? Answering phone calls o How is the problem measured? Average speed of answer o How much is the problem costing (in money, time, customer satisfaction, or another critical metric)? $200,000 per month"
-          },
-          {
-            "id": "ch06-content-en-089",
-            "kind": "paragraph",
-            "text": "Problem statement 2 does not answer all of the questions:"
-          },
-          {
-            "id": "ch06-content-en-090",
-            "kind": "heading",
-            "text": "o Where did the problem occur? Ohio"
-          },
-          {
-            "id": "ch06-content-en-091",
-            "kind": "paragraph",
-            "text": "o When did the problem occur? Unknown o What process did the problem involve? Unknown o How is the problem measured? Unknown o How much is the problem costing (in money, time, customer satisfaction, or another critical metric)? $9,000 per month"
-          },
-          {
-            "id": "ch06-content-en-092",
-            "kind": "paragraph",
-            "text": "Problem statement 2 would benefit from adding a place, a specific reference to a process, and a specific metric."
-          },
-          {
-            "id": "ch06-content-en-093",
-            "kind": "heading",
-            "text": "Problem Statements Lead to Objective Statements/Goals"
-          },
-          {
-            "id": "ch06-content-en-094",
-            "kind": "paragraph",
-            "text": "Another way to tell you have a strong problem statement is that you can create an overall project objective statement or goal directly from the problem statement. Consider the two examples above."
-          },
-          {
-            "id": "ch06-content-en-095",
-            "kind": "paragraph",
-            "text": "The team working with problem statement 1 might create an objective that states:"
-          },
-          {
-            "id": "ch06-content-en-096",
-            "kind": "paragraph",
-            "text": "The goal is to reduce answer speed SLA violations in the Jacksonville call center by 50 percent within three months. The potential savings to the company is $100,000 per month."
-          },
-          {
-            "id": "ch06-content-en-097",
-            "kind": "paragraph",
-            "text": "The team working with problem statement 2 would not be able to create a goal statement with this much detail. They would simply be able to say they hope to reduce the service-level-agreement violations in the facility."
-          },
-          {
-            "id": "ch06-content-en-098",
-            "kind": "paragraph",
-            "text": "Specific problem and objective statements are critical to Six Sigma project success for several reasons. First, being as specific as possible sets up appropriate expectations. In the first example, leadership has a specific expectation of the project: the team is going to work to reduce average speed of answer, and success is a reduction of 50 percent. No one is going to expect the team to solve another problem, such as customer satisfaction with phone operators. That is out of scope for this project."
-          },
-          {
-            "id": "ch06-content-en-099",
-            "kind": "paragraph",
-            "text": "In the second situation, the problem and goal statements are not specific enough. What SLA violations is the team addressing? What, exactly, does success look like? Is the team expected to reduce costs completely? Not being specific enough sets you up for failure. Leadership might expect you to address service level agreements that have to do with how reps route phone calls, but you are only intending to address service level agreements that relate to the speed with which calls are answered. Leadership might think success is a 75 percent reduction in costs when you intend to work toward a 25 percent reduction."
-          },
-          {
-            "id": "ch06-content-en-100",
-            "kind": "paragraph",
-            "text": "Creating strong problem statements lays a stable foundation for the rest of your project, gives the team a beacon when they get overwhelmed with information, and reduces the chance of scope creep and misunderstanding."
-          },
-          {
-            "id": "ch06-content-en-101",
-            "kind": "heading",
-            "text": "Scope and Scope Creep"
-          },
-          {
-            "id": "ch06-content-en-102",
-            "kind": "paragraph",
-            "text": "Scope is the definition of what is included – and what is not included – in a process or improvement project. You begin defining scope with your problem statement. The information you include in the statement gives clues to what you will be working on, and the goal statement provides appropriate limits on the work to be done."
-          },
-          {
-            "id": "ch06-content-en-103",
-            "kind": "paragraph",
-            "text": "Six Sigma projects are not everlasting initiatives, though the culture of improvement that comes from Six Sigma is. This means your individual project needs a specific, challenging, but attainable goal. Once that goal is met, the project is concluded and you begin looking for a new problem to improve upon."
-          },
-          {
-            "id": "ch06-content-en-104",
-            "kind": "paragraph",
-            "text": "Scope creep occurs when teams look to make infinite perfections on a process, attempt to reach unrealistic goals, or begin to reach for processes or problems that are out of the original scope. For example, consider the problem statement from one of our examples in this chapter:"
-          },
-          {
-            "id": "ch06-content-en-105",
-            "kind": "paragraph",
-            "text": "In the first quarter, the California distribution center sent 108,000 packages. Of those packages, 15,000 were returned, resulting in a 13.8 percent return rate. The rate of return is above the accepted 7 percent rate and cost the company an additional $372,000 for the quarter. Over the course of the year, the current process could result in additional costs of over $1.4 million."
-          },
-          {
-            "id": "ch06-content-en-106",
-            "kind": "paragraph",
-            "text": "A related goal statement might be:"
-          },
-          {
-            "id": "ch06-content-en-107",
-            "kind": "paragraph",
-            "text": "The goal is to reduce the return rate to the accepted 7 percent and save the company $372,000 per quarter."
-          },
-          {
-            "id": "ch06-content-en-108",
-            "kind": "paragraph",
-            "text": "In scope for this project are processes related to shipping and returns only insomuch that they impact the return process. At some point, the team might stumble upon a packing process that is using too much material, thus costing the company an additional $50,000 per month. Unless the packing process is causing the returns—which is not likely in this situation—this issue is not in scope for the team and they should not seek to fix it. The team can, however, note the issue or report it so that a future project might be launched to address the problem."
-          },
-          {
-            "id": "ch06-content-en-109",
-            "kind": "paragraph",
-            "text": "It takes discipline and organization to address only that which is in scope for a project. Understanding the relationship between problems and inputs and knowing how to create a strong problem statement are the first steps to controlling an improvement process."
-          },
-          {
-            "id": "ch06-content-en-110",
-            "kind": "heading",
-            "text": "Unit 2: Projects and Processes"
           }
         ],
         "zh": [
           {
-            "id": "ch06-content-zh-001",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-001",
             "kind": "paragraph",
             "text": "了解如何解决问题——开始识别问题并用陈述来定义它——对于为成功的六西格玛项目奠定基础至关重要。在后面的章节中，我们将介绍定义各种项目、流程和问题方面的重要性，但在本章中，我们将总体讨论项目，通过一系列“为什么”问题进行更深入的挖掘，并创建一般问题陈述作为项目的启动点。"
           },
           {
-            "id": "ch06-content-zh-002",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-002",
             "kind": "paragraph",
             "text": "问题函数：y = f(x)"
           },
           {
-            "id": "ch06-content-zh-003",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-003",
             "kind": "paragraph",
             "text": "因为六西格玛以统计思维方式处理事物，所以它将所有问题视为一个函数。使用数学符号，它看起来像："
           },
           {
-            "id": "ch06-content-zh-004",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-004",
             "kind": "image",
             "assetId": "fig-d831bb3542696711",
             "src": "assets/figures/fig-d831bb3542696711.png",
@@ -602,77 +312,77 @@
             "height": 439
           },
           {
-            "id": "ch06-content-zh-005",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-005",
             "kind": "paragraph",
             "text": "y=f(x) 语句有两种使用方式。首先，它是一个陈述问题的总图。 Y（问题）的发生是因为某些 X（输入或原因）的发生。实际上，Y 通常是由于一组原因或输入而发生的，这意味着将有多个 X 输入。"
           },
           {
-            "id": "ch06-content-zh-006",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-006",
             "kind": "paragraph",
             "text": "这个想法也可以应用于问题中的特定过程和结果。随着你的粒度越来越细，y=f(x) 的概念变得越来越数学化；在许多情况下，您可以绘制输出 (y) 和输入 (x) 之间的关系图。"
           },
           {
-            "id": "ch06-content-zh-007",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-007",
             "kind": "paragraph",
             "text": "为了理解将问题视为函数的概念，让我们看一下大型 HVAC 服务提供商可能会出现的问题。服务团队的经理发现服务呼叫花费的时间比预期要长得多；事实上，他的五名团队成员处理所有类型的呼叫的平均时间是公司其他服务代表的 1.75 倍。"
           },
           {
-            "id": "ch06-content-zh-008",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-008",
             "kind": "paragraph",
             "text": "为了找出可能导致这种情况的原因，经理通过与代表交谈、与客户交谈以及与所有五名代表进行随机通话来研究问题。他提出以下意见："
           },
           {
-            "id": "ch06-content-zh-009",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-009",
             "kind": "listItem",
             "text": "一名代表是团队服务地区的本地人，这意味着他或她认识许多客户。这会导致友好的交谈，从而延长工作时间。"
           },
           {
-            "id": "ch06-content-zh-010",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-010",
             "kind": "listItem",
             "text": "一位代表正在为房主提供有关 HVAC 问题的非常深入的解释和教育，有时超出了房主需要了解的有关其 HVAC 设备的信息。"
           },
           {
-            "id": "ch06-content-zh-011",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-011",
             "kind": "listItem",
             "text": "一名代表是新工作，需要更长的时间才能完成每项任务，因为他或她对工作不确定，必须仔细检查工作，或者致电另一名代表询问有关工作的问题。"
           },
           {
-            "id": "ch06-content-zh-012",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-012",
             "kind": "listItem",
             "text": "其余两名代表的工作时间与公司平均水平相当。"
           },
           {
-            "id": "ch06-content-zh-013",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-013",
             "kind": "paragraph",
             "text": "经理将这些数据归结为问题的两个总体原因："
           },
           {
-            "id": "ch06-content-zh-014",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-014",
             "kind": "listItem",
             "text": "说话太多（代表一和二）"
           },
           {
-            "id": "ch06-content-zh-015",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-015",
             "kind": "listItem",
             "text": "培训不足"
           },
           {
-            "id": "ch06-content-zh-016",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-016",
             "kind": "paragraph",
             "text": "现在可以将问题描述为一个函数："
           },
           {
-            "id": "ch06-content-zh-017",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-017",
             "kind": "paragraph",
             "text": "额外的时间是由于太多的谈话和不适当的训练而造成的。"
           },
           {
-            "id": "ch06-content-zh-018",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-018",
             "kind": "paragraph",
             "text": "经理现在还有两个根本原因需要解决。该示例很简单，但它说明了为问题及其原因定义 y=f(x) 关系的基本概念。进行研究和分析以找到其中的关系并不总是那么容易，但这种关系总是存在的。"
           },
           {
-            "id": "ch06-content-zh-019",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-019",
             "kind": "termNote",
             "rows": [
               [
@@ -682,32 +392,32 @@
             "text": "术语说明 Root Cause（根本原因）：真正驱动问题发生的原因；解决它才能防止问题反复出现。"
           },
           {
-            "id": "ch06-content-zh-020",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-020",
             "kind": "paragraph",
             "text": "y=f(x) 关系的其他一些示例包括："
           },
           {
-            "id": "ch06-content-zh-021",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-021",
             "kind": "listItem",
             "text": "顾客对汉堡口味的满意度低是由于未校准的烤架造成的。"
           },
           {
-            "id": "ch06-content-zh-022",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-022",
             "kind": "listItem",
             "text": "员工士气低落是休假审批制度不完善的结果。"
           },
           {
-            "id": "ch06-content-zh-023",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-023",
             "kind": "listItem",
             "text": "客户等待时间是员工技术干扰的函数。"
           },
           {
-            "id": "ch06-content-zh-024",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-024",
             "kind": "heading",
             "text": "5个为什么"
           },
           {
-            "id": "ch06-content-zh-025",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-025",
             "kind": "termNote",
             "rows": [
               [
@@ -717,82 +427,82 @@
             "text": "术语说明 5 Whys（五个为什么）：连续追问原因，帮助从表面症状深入到根本原因。"
           },
           {
-            "id": "ch06-content-zh-026",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-026",
             "kind": "paragraph",
             "text": "数据分析是验证 y=f(x) 假设的最佳方法之一，但熟悉流程的团队通常可以通过称为“5 个为什么”的流程得出一些基本关系。这是一个头脑风暴工具，可以提出有关问题或流程的越来越细化的“为什么”问题，寻求了解根本原因或实际问题。 5 个为什么可用于定义问题或开始寻找原因。"
           },
           {
-            "id": "ch06-content-zh-027",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-027",
             "kind": "paragraph",
             "text": "例如，考虑上面的汉堡包示例。解决客户满意度问题的团队可能会开始这样做，因为反馈表显示过去一周对食品质量的满意度低于正常水平。"
           },
           {
-            "id": "ch06-content-zh-028",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-028",
             "kind": "paragraph",
             "text": "团队首先要问：为什么顾客对食物不满意？"
           },
           {
-            "id": "ch06-content-zh-029",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-029",
             "kind": "paragraph",
             "text": "通过查看与订单相关的反馈，该团队指出，对食品评分较低的顾客大多是订购某种类型汉堡包的顾客。第一个问题的答案是顾客对食物不满意是因为他们对汉堡不满意。"
           },
           {
-            "id": "ch06-content-zh-030",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-030",
             "kind": "paragraph",
             "text": "为什么顾客对汉堡不满意？"
           },
           {
-            "id": "ch06-content-zh-031",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-031",
             "kind": "paragraph",
             "text": "该团队查看表格上的书面反馈或直接与顾客交谈，发现许多顾客认为他们的汉堡未煮熟。新的答案是顾客对汉堡不满意，因为肉没有煮熟。"
           },
           {
-            "id": "ch06-content-zh-032",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-032",
             "kind": "paragraph",
             "text": "为什么肉未煮熟？"
           },
           {
-            "id": "ch06-content-zh-033",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-033",
             "kind": "paragraph",
             "text": "对厨房的调查显示，烤架未正确校准，并且提供的结果不一致。此时，您已经有了 y=f(x) 关系，但团队可以继续提出问题。"
           },
           {
-            "id": "ch06-content-zh-034",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-034",
             "kind": "paragraph",
             "text": "为什么烤架没有正确校准？"
           },
           {
-            "id": "ch06-content-zh-035",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-035",
             "kind": "paragraph",
             "text": "进一步调查显示，负责校准烤架的早班换了一位新的烤架厨师。在培训期间，省略了有关执行此功能的教育。由于负责的员工没有接受适当的培训，因此烤架未正确校准。现在，团队有了具体的目标和解决方案：培训烧烤厨师。"
           },
           {
-            "id": "ch06-content-zh-036",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-036",
             "kind": "paragraph",
             "text": "在六西格玛的环境中，团队可能会提出另一个问题：为什么烧烤厨师没有经过适当的培训？这可能会导致制定一致的培训政策，这样下次雇用新的烧烤厨师时就不会出现问题。"
           },
           {
-            "id": "ch06-content-zh-037",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-037",
             "kind": "paragraph",
             "text": "在汉堡包的例子中，只需要四个“为什么”问题就能找到问题的根源，第五个问题开始指向控制或长期解决方案。这并不总是那么容易；该工具被称为“5 Whys”，因为它通常会在五个问题内得出答案。然而，如果团队从一个非常高的水平开始并通过一个复杂的过程逐步进行，那么他们可能会提出十几个问题。"
           },
           {
-            "id": "ch06-content-zh-038",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-038",
             "kind": "heading",
             "text": "何时使用 5 个为什么"
           },
           {
-            "id": "ch06-content-zh-039",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-039",
             "kind": "paragraph",
             "text": "“5 个为什么”的一个好处是，它只需要您的团队花费少量的时间来使用——如果主持人让事情顺利进行，熟悉流程的团队可以在不到一个小时的时间内完成完整的“5 个为什么”会议。由于其简单性，“5 个为什么”工具几乎可以用于解决任何问题。用它来解决团队成员提出的问题，解决主管注意到的问题，或者解决当没有人能够定义实际问题所在时存在问题的模糊感觉。至少，“五个为什么”会议有助于沟通和思考。"
           },
           {
-            "id": "ch06-content-zh-040",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-040",
             "kind": "paragraph",
             "text": "在六西格玛项目环境中，当流程涉及人际互动或人为输入时，通常会部署“5个为什么”，尽管它可以是对任何流程进行头脑风暴的有效开始。"
           },
           {
-            "id": "ch06-content-zh-041",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-041",
             "kind": "termNote",
             "rows": [
               [
@@ -802,307 +512,607 @@
             "text": "术语说明 Interaction（交互作用）：一个因素的效果会随另一个因素水平不同而变化。"
           },
           {
-            "id": "ch06-content-zh-042",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-042",
             "kind": "heading",
             "text": "举办 5 个为什么会议"
           },
           {
-            "id": "ch06-content-zh-043",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-043",
             "kind": "paragraph",
             "text": "由于“5 个为什么”会议通常基于主题专家的意见，因此请聚集熟悉该流程的人员。在白板或网络会议屏幕上，显示您理解的基本问题陈述。这个问题陈述不会像我们将在下一场会议中讨论的陈述那样详细——“5 个为什么”会议通常是您用来获得详细陈述的工具之一。"
           },
           {
-            "id": "ch06-content-zh-044",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-044",
             "kind": "paragraph",
             "text": "您可能在“5 Whys”站点中看到的语句示例包括："
           },
           {
-            "id": "ch06-content-zh-045",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-045",
             "kind": "listItem",
             "text": "顾客对产品的选择不满意"
           },
           {
-            "id": "ch06-content-zh-046",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-046",
             "kind": "listItem",
             "text": "客户收到订单较晚"
           },
           {
-            "id": "ch06-content-zh-047",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-047",
             "kind": "listItem",
             "text": "印刷过程造成太多缺陷"
           },
           {
-            "id": "ch06-content-zh-048",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-048",
             "kind": "listItem",
             "text": "装瓶过程的交货时间过长"
           },
           {
-            "id": "ch06-content-zh-049",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-049",
             "kind": "listItem",
             "text": "员工对假期安排不满意"
           },
           {
-            "id": "ch06-content-zh-050",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-050",
             "kind": "paragraph",
             "text": "这些都是相当笼统的陈述，只是简单地表达了一些关于缺陷或不满的内容。首先询问最高级别的“为什么？”关于该声明的可能问题。 “为什么员工对假期安排不满意？”写下这个问题。"
           },
           {
-            "id": "ch06-content-zh-051",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-051",
             "kind": "paragraph",
             "text": "该团队共同努力，为问题提供高水平的答案。员工对休假安排不满意，因为很少能得到要求的确切休假时间。将答案写在问题下方，然后创建最高级别的“为什么？”您可以对新答案提出问题。"
           },
           {
-            "id": "ch06-content-zh-052",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-052",
             "kind": "paragraph",
             "text": "“为什么员工没有获得他们的首选休假时间？”也许答案是，主管需要很长时间才能批准休假申请，而其他员工也同时请了假，因此主管很难满足所有人的要求。"
           },
           {
-            "id": "ch06-content-zh-053",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-053",
             "kind": "paragraph",
             "text": "下一个问题是“为什么主管需要很长时间才能批准请求？”答案可能是，休假制度太麻烦了，所以主管们推迟批准，直到他们有足够的时间来管理。"
           },
           {
-            "id": "ch06-content-zh-054",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-054",
             "kind": "paragraph",
             "text": "“为什么主管认为这个系统很麻烦？”因为从一个屏幕移动到另一个屏幕时需要等待时间，并且每次批准都需要大量的点击和输入。"
           },
           {
-            "id": "ch06-content-zh-055",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-055",
             "kind": "paragraph",
             "text": "现在，团队找到了根本原因：系统本身效率低下，从而导致出现问题。如果团队能够纠正计划问题并鼓励主管更快地批准休假请求，员工的士气就可以提高。"
           },
           {
-            "id": "ch06-content-zh-056",
+            "id": "ch06-s01-approaches-to-problem-solving-zh-056",
             "kind": "heading",
             "text": "创建问题陈述"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch06-s02-creating-a-problem-statement",
+      "level": 2,
+      "page": 55,
+      "title": {
+        "en": "Creating a Problem Statement",
+        "zh": "创建问题陈述"
+      },
+      "content": {
+        "en": [
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-001",
+            "kind": "paragraph",
+            "text": "A Six Sigma improvement project usually starts with a formal project statement. This is different from the basic statements used to launch a 5 Whys session. A strong problem statement is similar to a 30- second elevator pitch, which executives and sales people across the globe use to hook clients or business investors on an idea. The problem statement, like that pitch, provides enough information that a busy executive can understand what the issue is and why there is a need for an improvement effort."
           },
           {
-            "id": "ch06-content-zh-057",
+            "id": "ch06-s02-creating-a-problem-statement-en-002",
+            "kind": "paragraph",
+            "text": "Project statements should include:"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-003",
+            "kind": "listItem",
+            "text": "Where and when the problem was recorded or was occurring"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-004",
+            "kind": "listItem",
+            "text": "A measurement of magnitude for the problem, preferably with some tie to cost"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-005",
+            "kind": "listItem",
+            "text": "A brief description of the problem that could be understood by professionals not closely aligned with the process (avoid too many niche words and acronyms if you will be presenting information to non-niche professionals)"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-006",
+            "kind": "listItem",
+            "text": "A brief notation about the metric used to measure or describe the problem"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-007",
+            "kind": "paragraph",
+            "text": "Example of a Strong Problem Statement In the first quarter, the California distribution center sent 108,000 packages. Of those packages, 15,000 were returned, resulting in a 13.8 percent return rate. The rate of return is above the accepted 7 percent rate and cost the company an additional $372,000 for the quarter. Over the course of the year, the current process could result in additional costs of over $1.4 million."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-008",
+            "kind": "paragraph",
+            "text": "This problem statement covers all the basic information:"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-009",
+            "kind": "listItem",
+            "text": "When? During the first quarter of this year."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-010",
+            "kind": "listItem",
+            "text": "Where? The California distribution center"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-011",
+            "kind": "listItem",
+            "text": "What? Returns"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-012",
+            "kind": "listItem",
+            "text": "How many? 15,000, or 6.8 percent above expectations"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-013",
+            "kind": "listItem",
+            "text": "What is the magnitude? The cost could be $1.4 million a year"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-014",
+            "kind": "paragraph",
+            "text": "The problem statement doesn’t talk about solutions or provide too many details. This is a strong problem statement because it answers all the basic questions and it provides a significant reason for leadership to invest interest: $1.4 million a year is a big loss."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-015",
+            "kind": "paragraph",
+            "text": "Example of a Weak Problem Statement The Canton, Ohio bakery is producing undercooked bread. Customer dissatisfaction with the bread is resulting in returns and bad word of mouth. The bread is supposed to be baked at 350 degrees for 40 minutes."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-016",
+            "kind": "paragraph",
+            "text": "This statement introduces a problem, but it doesn’t provide details about when the problem occurred, how it was measured, and what the true magnitude is. The problem statement also begins going into possible root causes when it includes how the bread should be baked; the problem statement isn’t the place to begin this type of analysis."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-017",
+            "kind": "paragraph",
+            "text": "This statement might be better framed as:"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-018",
+            "kind": "paragraph",
+            "text": "In November and December 2014, customer satisfaction complaints were traced back to bread baked in the Canton, Ohio facility. The facility produced 300,000 loaves during that time period and received 50,000 complaints of bread being undercooked. Bread returns and loss of sales related to quality are estimated to be $125,000 per month."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-019",
+            "kind": "heading",
+            "text": "Writing Your Own Problem Statement"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-020",
+            "kind": "paragraph",
+            "text": "When you first start writing problem statements, it’s sometimes harder than you might expect to get all the information into a couple of sentences. To avoid leaving out information, it helps to use a list and to consider yourself a problem-statement journalist."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-021",
+            "kind": "paragraph",
+            "text": "When journalists write a report, they are looking to answer some specific questions: What happened? Who did it happen to? When did it happen? Why does the audience care?"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-022",
+            "kind": "paragraph",
+            "text": "The same is true when you are writing a problem statement. Follow the problem statement checklist:"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-023",
+            "kind": "paragraph",
+            "text": "o Where did the problem occur?"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-024",
+            "kind": "paragraph",
+            "text": "o When did the problem occur?"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-025",
+            "kind": "paragraph",
+            "text": "o What process did the problem involve?"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-026",
+            "kind": "paragraph",
+            "text": "o How is the problem measured? o How much is the problem costing (in money, time, customer satisfaction, or another critical metric)?"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-027",
+            "kind": "paragraph",
+            "text": "Use the checklist to construct the problem statement, and then ask yourself: Could someone else answer all the questions in the checklist from your problem statement alone? Before you present your statement to a boss or other decision-maker, test it out with a coworker or someone who is not as familiar with the issue as you are."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-028",
+            "kind": "paragraph",
+            "text": "Here are two problem statements. See if you can answer all of the questions in the checklist just using the information provided."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-029",
+            "kind": "paragraph",
+            "text": "Problem Statement 1"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-030",
+            "kind": "paragraph",
+            "text": "The call center in Jacksonville, Florida, handled 36,000 calls in February 2015. Of those calls, 8,000 had an average speed of answer (ASA) over the contract-required 15 seconds. Those 8,000 service-level- agreement violations resulted in costs of $200,000."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-031",
+            "kind": "paragraph",
+            "text": "Problem Statement 2"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-032",
+            "kind": "paragraph",
+            "text": "The call center in Ohio has a service-level-agreement issue that is costing approximately $9,000 per day."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-033",
+            "kind": "paragraph",
+            "text": "Problem statement 1 answers all of the questions on the checklist:"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-034",
+            "kind": "heading",
+            "text": "o Where did the problem occur? Jacksonville, Florida"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-035",
+            "kind": "paragraph",
+            "text": "o When did the problem occur? February 2015 o What process did the problem involve? Answering phone calls o How is the problem measured? Average speed of answer o How much is the problem costing (in money, time, customer satisfaction, or another critical metric)? $200,000 per month"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-036",
+            "kind": "paragraph",
+            "text": "Problem statement 2 does not answer all of the questions:"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-037",
+            "kind": "heading",
+            "text": "o Where did the problem occur? Ohio"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-038",
+            "kind": "paragraph",
+            "text": "o When did the problem occur? Unknown o What process did the problem involve? Unknown o How is the problem measured? Unknown o How much is the problem costing (in money, time, customer satisfaction, or another critical metric)? $9,000 per month"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-039",
+            "kind": "paragraph",
+            "text": "Problem statement 2 would benefit from adding a place, a specific reference to a process, and a specific metric."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-040",
+            "kind": "heading",
+            "text": "Problem Statements Lead to Objective Statements/Goals"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-041",
+            "kind": "paragraph",
+            "text": "Another way to tell you have a strong problem statement is that you can create an overall project objective statement or goal directly from the problem statement. Consider the two examples above."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-042",
+            "kind": "paragraph",
+            "text": "The team working with problem statement 1 might create an objective that states:"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-043",
+            "kind": "paragraph",
+            "text": "The goal is to reduce answer speed SLA violations in the Jacksonville call center by 50 percent within three months. The potential savings to the company is $100,000 per month."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-044",
+            "kind": "paragraph",
+            "text": "The team working with problem statement 2 would not be able to create a goal statement with this much detail. They would simply be able to say they hope to reduce the service-level-agreement violations in the facility."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-045",
+            "kind": "paragraph",
+            "text": "Specific problem and objective statements are critical to Six Sigma project success for several reasons. First, being as specific as possible sets up appropriate expectations. In the first example, leadership has a specific expectation of the project: the team is going to work to reduce average speed of answer, and success is a reduction of 50 percent. No one is going to expect the team to solve another problem, such as customer satisfaction with phone operators. That is out of scope for this project."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-046",
+            "kind": "paragraph",
+            "text": "In the second situation, the problem and goal statements are not specific enough. What SLA violations is the team addressing? What, exactly, does success look like? Is the team expected to reduce costs completely? Not being specific enough sets you up for failure. Leadership might expect you to address service level agreements that have to do with how reps route phone calls, but you are only intending to address service level agreements that relate to the speed with which calls are answered. Leadership might think success is a 75 percent reduction in costs when you intend to work toward a 25 percent reduction."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-047",
+            "kind": "paragraph",
+            "text": "Creating strong problem statements lays a stable foundation for the rest of your project, gives the team a beacon when they get overwhelmed with information, and reduces the chance of scope creep and misunderstanding."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-048",
+            "kind": "heading",
+            "text": "Scope and Scope Creep"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-049",
+            "kind": "paragraph",
+            "text": "Scope is the definition of what is included – and what is not included – in a process or improvement project. You begin defining scope with your problem statement. The information you include in the statement gives clues to what you will be working on, and the goal statement provides appropriate limits on the work to be done."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-050",
+            "kind": "paragraph",
+            "text": "Six Sigma projects are not everlasting initiatives, though the culture of improvement that comes from Six Sigma is. This means your individual project needs a specific, challenging, but attainable goal. Once that goal is met, the project is concluded and you begin looking for a new problem to improve upon."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-051",
+            "kind": "paragraph",
+            "text": "Scope creep occurs when teams look to make infinite perfections on a process, attempt to reach unrealistic goals, or begin to reach for processes or problems that are out of the original scope. For example, consider the problem statement from one of our examples in this chapter:"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-052",
+            "kind": "paragraph",
+            "text": "In the first quarter, the California distribution center sent 108,000 packages. Of those packages, 15,000 were returned, resulting in a 13.8 percent return rate. The rate of return is above the accepted 7 percent rate and cost the company an additional $372,000 for the quarter. Over the course of the year, the current process could result in additional costs of over $1.4 million."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-053",
+            "kind": "paragraph",
+            "text": "A related goal statement might be:"
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-054",
+            "kind": "paragraph",
+            "text": "The goal is to reduce the return rate to the accepted 7 percent and save the company $372,000 per quarter."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-055",
+            "kind": "paragraph",
+            "text": "In scope for this project are processes related to shipping and returns only insomuch that they impact the return process. At some point, the team might stumble upon a packing process that is using too much material, thus costing the company an additional $50,000 per month. Unless the packing process is causing the returns—which is not likely in this situation—this issue is not in scope for the team and they should not seek to fix it. The team can, however, note the issue or report it so that a future project might be launched to address the problem."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-056",
+            "kind": "paragraph",
+            "text": "It takes discipline and organization to address only that which is in scope for a project. Understanding the relationship between problems and inputs and knowing how to create a strong problem statement are the first steps to controlling an improvement process."
+          },
+          {
+            "id": "ch06-s02-creating-a-problem-statement-en-057",
+            "kind": "heading",
+            "text": "Unit 2: Projects and Processes"
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch06-s02-creating-a-problem-statement-zh-001",
             "kind": "paragraph",
             "text": "六西格玛改进项目通常以正式的项目声明开始。这与用于启动“5 个为什么”会议的基本陈述不同。强有力的问题陈述类似于 30 秒的电梯游说，全球各地的高管和销售人员都用它来吸引客户或商业投资者的想法。问题陈述，就像那个推销一样，提供了足够的信息，使忙碌的高管能够理解问题是什么以及为什么需要改进工作。"
           },
           {
-            "id": "ch06-content-zh-058",
+            "id": "ch06-s02-creating-a-problem-statement-zh-002",
             "kind": "paragraph",
             "text": "项目陈述应包括："
           },
           {
-            "id": "ch06-content-zh-059",
+            "id": "ch06-s02-creating-a-problem-statement-zh-003",
             "kind": "listItem",
             "text": "问题被记录或发生的地点和时间"
           },
           {
-            "id": "ch06-content-zh-060",
+            "id": "ch06-s02-creating-a-problem-statement-zh-004",
             "kind": "listItem",
             "text": "问题严重程度的衡量标准，最好与成本相关"
           },
           {
-            "id": "ch06-content-zh-061",
+            "id": "ch06-s02-creating-a-problem-statement-zh-005",
             "kind": "listItem",
             "text": "与流程不密切相关的专业人士可以理解的问题的简要描述（如果您要向非利基专业人士提供信息，请避免使用太多利基单词和首字母缩略词）"
           },
           {
-            "id": "ch06-content-zh-062",
+            "id": "ch06-s02-creating-a-problem-statement-zh-006",
             "kind": "listItem",
             "text": "关于用于衡量或描述问题的指标的简要注释"
           },
           {
-            "id": "ch06-content-zh-063",
+            "id": "ch06-s02-creating-a-problem-statement-zh-007",
             "kind": "paragraph",
             "text": "强有力的问题陈述示例 第一季度，加州配送中心发送了 108,000 个包裹。其中 15,000 个包裹被退回，退货率为 13.8%。回报率高于公认的 7%，该季度公司额外损失了 372,000 美元。在这一年中，当前流程可能会导致超过 140 万美元的额外成本。"
           },
           {
-            "id": "ch06-content-zh-064",
+            "id": "ch06-s02-creating-a-problem-statement-zh-008",
             "kind": "paragraph",
             "text": "该问题陈述涵盖了所有基本信息："
           },
           {
-            "id": "ch06-content-zh-065",
+            "id": "ch06-s02-creating-a-problem-statement-zh-009",
             "kind": "listItem",
             "text": "什么时候？今年第一季度期间。"
           },
           {
-            "id": "ch06-content-zh-066",
+            "id": "ch06-s02-creating-a-problem-statement-zh-010",
             "kind": "listItem",
             "text": "哪里？加州配送中心"
           },
           {
-            "id": "ch06-content-zh-067",
+            "id": "ch06-s02-creating-a-problem-statement-zh-011",
             "kind": "listItem",
             "text": "什么？退货"
           },
           {
-            "id": "ch06-content-zh-068",
+            "id": "ch06-s02-creating-a-problem-statement-zh-012",
             "kind": "listItem",
             "text": "有多少？ 15,000 人，比预期高出 6.8%"
           },
           {
-            "id": "ch06-content-zh-069",
+            "id": "ch06-s02-creating-a-problem-statement-zh-013",
             "kind": "listItem",
             "text": "大小是多少？每年的成本可能为 140 万美元"
           },
           {
-            "id": "ch06-content-zh-070",
+            "id": "ch06-s02-creating-a-problem-statement-zh-014",
             "kind": "paragraph",
             "text": "问题陈述没有谈论解决方案或提供太多细节。这是一个强有力的问题陈述，因为它回答了所有基本问题，并为领导层投资兴趣提供了一个重要理由：每年 140 万美元是一个巨大的损失。"
           },
           {
-            "id": "ch06-content-zh-071",
+            "id": "ch06-s02-creating-a-problem-statement-zh-015",
             "kind": "paragraph",
             "text": "弱问题陈述示例 俄亥俄州坎顿面包店正在生产未煮熟的面包。顾客对面包的不满意导致退货和不良口碑。面包应该在350度的温度下烘烤40分钟。"
           },
           {
-            "id": "ch06-content-zh-072",
+            "id": "ch06-s02-creating-a-problem-statement-zh-016",
             "kind": "paragraph",
             "text": "该声明引入了一个问题，但没有提供有关问题何时发生、如何测量以及真实严重程度的详细信息。问题陈述还开始探讨可能的根本原因，其中包括如何烘烤面包；问题陈述不是开始此类分析的地方。"
           },
           {
-            "id": "ch06-content-zh-073",
+            "id": "ch06-s02-creating-a-problem-statement-zh-017",
             "kind": "paragraph",
             "text": "该声明可能更好地表述为："
           },
           {
-            "id": "ch06-content-zh-074",
+            "id": "ch06-s02-creating-a-problem-statement-zh-018",
             "kind": "paragraph",
             "text": "2014 年 11 月和 12 月，客户满意度投诉可追溯到俄亥俄州坎顿工厂烘焙的面包。在此期间，该工厂生产了 300,000 个面包，并收到了 50,000 起面包未煮熟的投诉。与质量相关的面包退货和销售损失估计为每月 125,000 美元。"
           },
           {
-            "id": "ch06-content-zh-075",
+            "id": "ch06-s02-creating-a-problem-statement-zh-019",
             "kind": "heading",
             "text": "写下你自己的问题陈述"
           },
           {
-            "id": "ch06-content-zh-076",
+            "id": "ch06-s02-creating-a-problem-statement-zh-020",
             "kind": "paragraph",
             "text": "当你第一次开始写问题陈述时，有时比你想象的更难将所有信息包含在几句话中。为了避免遗漏信息，使用列表并将自己视为问题陈述记者会有所帮助。"
           },
           {
-            "id": "ch06-content-zh-077",
+            "id": "ch06-s02-creating-a-problem-statement-zh-021",
             "kind": "paragraph",
             "text": "当记者撰写报道时，他们希望回答一些具体问题：发生了什么？这件事发生在谁身上？什么时候发生的？观众为何关心？"
           },
           {
-            "id": "ch06-content-zh-078",
+            "id": "ch06-s02-creating-a-problem-statement-zh-022",
             "kind": "paragraph",
             "text": "当你写问题陈述时也是如此。请遵循问题陈述清单："
           },
           {
-            "id": "ch06-content-zh-079",
+            "id": "ch06-s02-creating-a-problem-statement-zh-023",
             "kind": "paragraph",
             "text": "o 问题出在哪里？"
           },
           {
-            "id": "ch06-content-zh-080",
+            "id": "ch06-s02-creating-a-problem-statement-zh-024",
             "kind": "paragraph",
             "text": "o 问题是什么时候发生的？"
           },
           {
-            "id": "ch06-content-zh-081",
+            "id": "ch06-s02-creating-a-problem-statement-zh-025",
             "kind": "paragraph",
             "text": "o 问题涉及到什么流程？"
           },
           {
-            "id": "ch06-content-zh-082",
+            "id": "ch06-s02-creating-a-problem-statement-zh-026",
             "kind": "paragraph",
             "text": "o 如何衡量问题？ o 问题的成本是多少（金钱、时间、客户满意度或其他关键指标）？"
           },
           {
-            "id": "ch06-content-zh-083",
+            "id": "ch06-s02-creating-a-problem-statement-zh-027",
             "kind": "paragraph",
             "text": "使用清单构建问题陈述，然后问自己：其他人能否仅根据您的问题陈述回答清单中的所有问题？在向老板或其他决策者陈述您的陈述之前，请与同事或不像您熟悉该问题的人一起测试一下。"
           },
           {
-            "id": "ch06-content-zh-084",
+            "id": "ch06-s02-creating-a-problem-statement-zh-028",
             "kind": "paragraph",
             "text": "这里有两个问题陈述。看看您是否可以仅使用提供的信息回答清单中的所有问题。"
           },
           {
-            "id": "ch06-content-zh-085",
+            "id": "ch06-s02-creating-a-problem-statement-zh-029",
             "kind": "heading",
             "text": "问题陈述1"
           },
           {
-            "id": "ch06-content-zh-086",
+            "id": "ch06-s02-creating-a-problem-statement-zh-030",
             "kind": "paragraph",
             "text": "佛罗里达州杰克逊维尔的呼叫中心在 2015 年 2 月处理了 36,000 个呼叫。其中 8,000 个呼叫的平均应答速度 (ASA) 超过了合同要求的 15 秒。这 8,000 起违反服务级别协议的事件导致了 200,000 美元的损失。"
           },
           {
-            "id": "ch06-content-zh-087",
+            "id": "ch06-s02-creating-a-problem-statement-zh-031",
             "kind": "heading",
             "text": "问题陈述2"
           },
           {
-            "id": "ch06-content-zh-088",
+            "id": "ch06-s02-creating-a-problem-statement-zh-032",
             "kind": "paragraph",
             "text": "俄亥俄州的呼叫中心存在服务级别协议问题，每天造成的损失约为 9,000 美元。"
           },
           {
-            "id": "ch06-content-zh-089",
+            "id": "ch06-s02-creating-a-problem-statement-zh-033",
             "kind": "paragraph",
             "text": "问题陈述 1 回答了清单上的所有问题："
           },
           {
-            "id": "ch06-content-zh-090",
+            "id": "ch06-s02-creating-a-problem-statement-zh-034",
             "kind": "heading",
             "text": "o 问题出在哪里？佛罗里达州杰克逊维尔"
           },
           {
-            "id": "ch06-content-zh-091",
+            "id": "ch06-s02-creating-a-problem-statement-zh-035",
             "kind": "paragraph",
             "text": "o 问题是什么时候发生的？ 2015 年 2 月 o 问题涉及到什么流程？接听电话 o 如何衡量问题？平均回答速度 o 问题的成本是多少（金钱、时间、客户满意度或其他关键指标）？每月 200,000 美元"
           },
           {
-            "id": "ch06-content-zh-092",
+            "id": "ch06-s02-creating-a-problem-statement-zh-036",
             "kind": "paragraph",
             "text": "问题陈述 2 并未回答所有问题："
           },
           {
-            "id": "ch06-content-zh-093",
+            "id": "ch06-s02-creating-a-problem-statement-zh-037",
             "kind": "heading",
             "text": "o 问题出在哪里？俄亥俄州"
           },
           {
-            "id": "ch06-content-zh-094",
+            "id": "ch06-s02-creating-a-problem-statement-zh-038",
             "kind": "paragraph",
             "text": "o 问题是什么时候发生的？未知 o 问题涉及什么流程？未知 o 如何衡量问题？未知 o 问题的成本是多少（金钱、时间、客户满意度或其他关键指标）？每月 9,000 美元"
           },
           {
-            "id": "ch06-content-zh-095",
+            "id": "ch06-s02-creating-a-problem-statement-zh-039",
             "kind": "paragraph",
             "text": "问题陈述 2 将受益于添加一个位置、对流程的特定引用以及特定的度量。"
           },
           {
-            "id": "ch06-content-zh-096",
+            "id": "ch06-s02-creating-a-problem-statement-zh-040",
             "kind": "heading",
             "text": "问题陈述导致客观陈述/目标"
           },
           {
-            "id": "ch06-content-zh-097",
+            "id": "ch06-s02-creating-a-problem-statement-zh-041",
             "kind": "paragraph",
             "text": "告诉您有强有力的问题陈述的另一种方法是，您可以直接从问题陈述创建总体项目目标陈述或目标。考虑上面的两个例子。"
           },
           {
-            "id": "ch06-content-zh-098",
+            "id": "ch06-s02-creating-a-problem-statement-zh-042",
             "kind": "paragraph",
             "text": "处理问题陈述 1 的团队可能会制定一个目标，其中指出："
           },
           {
-            "id": "ch06-content-zh-099",
+            "id": "ch06-s02-creating-a-problem-statement-zh-043",
             "kind": "paragraph",
             "text": "目标是在三个月内将杰克逊维尔呼叫中心的应答速度违反 SLA 的情况减少 50%。每月可为公司节省 100,000 美元。"
           },
           {
-            "id": "ch06-content-zh-100",
+            "id": "ch06-s02-creating-a-problem-statement-zh-044",
             "kind": "paragraph",
             "text": "处理问题陈述 2 的团队将无法创建包含如此详细信息的目标陈述。他们只需说他们希望减少设施内违反服务水平协议的行为。"
           },
           {
-            "id": "ch06-content-zh-101",
+            "id": "ch06-s02-creating-a-problem-statement-zh-045",
             "kind": "paragraph",
             "text": "具体问题和目标陈述对于六西格玛项目的成功至关重要，原因如下。首先，尽可能具体地设定适当的期望。在第一个例子中，领导层对项目有一个特定的期望：团队将努力降低平均回答速度，成功就是降低 50%。没有人会期望团队解决另一个问题，例如客户对电话运营商的满意度。这超出了该项目的范围。"
           },
           {
-            "id": "ch06-content-zh-102",
+            "id": "ch06-s02-creating-a-problem-statement-zh-046",
             "kind": "termNote",
             "rows": [
               [
@@ -1112,62 +1122,62 @@
             "text": "术语说明 Scope（项目范围）：说明改进项目包括什么、不包括什么，避免目标扩张。"
           },
           {
-            "id": "ch06-content-zh-103",
+            "id": "ch06-s02-creating-a-problem-statement-zh-047",
             "kind": "paragraph",
             "text": "第二种情况，问题和目标陈述不够具体。团队正在解决哪些 SLA 违规问题？成功到底是什么样的？团队是否期望完全降低成本？不够具体会让你失败。领导层可能希望您解决与代表如何路由电话有关的服务级别协议，但您只想解决与接听电话的速度相关的服务级别协议。当你打算努力减少 25% 的成本时，领导层可能会认为成本减少 75% 就是成功。"
           },
           {
-            "id": "ch06-content-zh-104",
+            "id": "ch06-s02-creating-a-problem-statement-zh-048",
             "kind": "paragraph",
             "text": "创建强有力的问题陈述可以为项目的其余部分奠定稳定的基础，在团队被信息淹没时为他们提供灯塔，并减少范围蔓延和误解的机会。"
           },
           {
-            "id": "ch06-content-zh-105",
+            "id": "ch06-s02-creating-a-problem-statement-zh-049",
             "kind": "heading",
             "text": "范围和范围蔓延"
           },
           {
-            "id": "ch06-content-zh-106",
+            "id": "ch06-s02-creating-a-problem-statement-zh-050",
             "kind": "paragraph",
             "text": "范围是对流程或改进项目中包含的内容和不包含的内容的定义。您从问题陈述开始定义范围。声明中包含的信息提供了您将要做什么的线索，目标声明对要完成的工作提供了适当的限制。"
           },
           {
-            "id": "ch06-content-zh-107",
+            "id": "ch06-s02-creating-a-problem-statement-zh-051",
             "kind": "paragraph",
             "text": "六西格玛项目并不是永恒的举措，但来自六西格玛的改进文化却是永恒的。这意味着您的个人项目需要一个具体的、具有挑战性的但可实现的目标。一旦实现了该目标，项目就结束了，您开始寻找新的问题来改进。"
           },
           {
-            "id": "ch06-content-zh-108",
+            "id": "ch06-s02-creating-a-problem-statement-zh-052",
             "kind": "paragraph",
             "text": "当团队希望对流程进行无限完善、试图达到不切实际的目标或开始处理超出原始范围的流程或问题时，就会发生范围蔓延。例如，考虑本章中的一个示例中的问题陈述："
           },
           {
-            "id": "ch06-content-zh-109",
+            "id": "ch06-s02-creating-a-problem-statement-zh-053",
             "kind": "paragraph",
             "text": "第一季度，加州配送中心发送了10.8万个包裹。其中 15,000 个包裹被退回，退货率为 13.8%。回报率高于公认的 7%，该季度公司额外损失了 372,000 美元。在这一年中，当前流程可能会导致超过 140 万美元的额外成本。"
           },
           {
-            "id": "ch06-content-zh-110",
+            "id": "ch06-s02-creating-a-problem-statement-zh-054",
             "kind": "paragraph",
             "text": "相关的目标陈述可能是："
           },
           {
-            "id": "ch06-content-zh-111",
+            "id": "ch06-s02-creating-a-problem-statement-zh-055",
             "kind": "paragraph",
             "text": "目标是将退货率降低至可接受的 7%，并为公司每季度节省 372,000 美元。"
           },
           {
-            "id": "ch06-content-zh-112",
+            "id": "ch06-s02-creating-a-problem-statement-zh-056",
             "kind": "paragraph",
             "text": "该项目的范围是与运输和退货相关的流程，仅影响退货流程。在某些时候，团队可能会偶然发现包装过程使用了过多的材料，从而使公司每月额外花费 50,000 美元。除非包装过程导致退货（在这种情况下不太可能），否则此问题不在团队的范围内，他们不应寻求解决它。但是，团队可以记录该问题或报告该问题，以便启动未来的项目来解决该问题。"
           },
           {
-            "id": "ch06-content-zh-113",
+            "id": "ch06-s02-creating-a-problem-statement-zh-057",
             "kind": "paragraph",
             "text": "需要纪律和组织才能仅解决项目范围内的问题。了解问题和输入之间的关系以及了解如何创建强有力的问题陈述是控制改进过程的第一步。"
           },
           {
-            "id": "ch06-content-zh-114",
+            "id": "ch06-s02-creating-a-problem-statement-zh-058",
             "kind": "heading",
             "text": "第 2 单元：项目和流程"
           }

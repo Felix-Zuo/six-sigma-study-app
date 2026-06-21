@@ -10,11 +10,11 @@
   "source": {
     "enDocx": "C:\\findjob_sixsigma_sources\\manual_en_aligned.docx",
     "zhDocx": "C:\\findjob_sixsigma_sources\\manual_zh_aligned.docx",
-    "extraction": "python-docx body-order extraction; generic chapter-level bilingual content"
+    "extraction": "python-docx body-order extraction; source-TOC sectionized bilingual content"
   },
   "sections": [
     {
-      "id": "ch19-content",
+      "id": "ch19-s01-correlation-and-regression",
       "level": 1,
       "page": 205,
       "title": {
@@ -24,879 +24,34 @@
       "content": {
         "en": [
           {
-            "id": "ch19-content-en-001",
+            "id": "ch19-s01-correlation-and-regression-en-001",
             "kind": "paragraph",
             "text": "Correlation and regression are statistical concepts that help Six Sigma teams understand whether two factors within a process are related. You can use these tools to calculate whether an input is related to an output in some way or even whether two inputs might be related. The concept of correlation and regression was introduced in chapter 14 in the section on scatter diagrams. In this chapter, you’ll learn how to calculate the correlation coefficient in Excel, and what that number means, as well as how to create linear regression models in Excel to test relationships between a dependent and independent variable."
           },
           {
-            "id": "ch19-content-en-002",
+            "id": "ch19-s01-correlation-and-regression-en-002",
             "kind": "paragraph",
             "text": "It's worth covering a point made in chapter 14 again. Strong correlation or regression between two variables does not indicate a causal relationship. Even when strong regression is found between a dependent and independent variable, it doesn’t mean that the dependent result is caused by the independent variable. This is a critical concept to understand, because attributing causation because correlation is strong can mean making poor decisions regarding a process. A team might decide to alter or remove one element because it has a strong correlation to an output; they might then be surprised that the output doesn’t change because it wasn’t in a causal relationship with the input in question."
           },
           {
-            "id": "ch19-content-en-003",
+            "id": "ch19-s01-correlation-and-regression-en-003",
             "kind": "paragraph",
             "text": "Why work with correlation and regression at all?"
           },
           {
-            "id": "ch19-content-en-004",
+            "id": "ch19-s01-correlation-and-regression-en-004",
             "kind": "paragraph",
             "text": "Correlation and regression is still important to understand, because it helps teams understand more about processes, analyze how elements of a process are related, and make predictions about a process. When two elements are strongly related along a linear line – or even along a curve – teams can create equations linking the two elements. This lets Six Sigma teams predict how the dependent element will perform if a change is made in the independent variable."
           },
           {
-            "id": "ch19-content-en-005",
+            "id": "ch19-s01-correlation-and-regression-en-005",
             "kind": "paragraph",
             "text": "Before moving forward, it should be noted that the analysis tools in this chapter don’t assume normal data in all cases, but it is possible that very abnormal data can skew results. Before analyzing data, Six Sigma experts should always understand what type of data they are working with."
-          },
-          {
-            "id": "ch19-content-en-006",
-            "kind": "heading",
-            "text": "Correlation"
-          },
-          {
-            "id": "ch19-content-en-007",
-            "kind": "paragraph",
-            "text": "Typically, when talking about correlation, we mean the linear association that exists between two variables. In chapter 14, we introduced the concept that correlation can be strong or weak; it can also be positive or negative."
-          },
-          {
-            "id": "ch19-content-en-008",
-            "kind": "paragraph",
-            "text": "Positive Correlation: One variable increase as another variable increases."
-          },
-          {
-            "id": "ch19-content-en-009",
-            "kind": "paragraph",
-            "text": "Negative Correlation: One variable decreases as another variable increases."
-          },
-          {
-            "id": "ch19-content-en-010",
-            "kind": "paragraph",
-            "text": "Correlation can sometimes be roughly approximated by viewing a graphical analysis of data in the form of a scatter diagram or X/Y plot. The steps for creating such diagrams were covered in chapter 17. To understand how various types of correlation might appear graphically, consider the example scatter diagrams below."
-          },
-          {
-            "id": "ch19-content-en-011",
-            "kind": "image",
-            "assetId": "fig-4f4489354f3a5c13",
-            "src": "assets/figures/fig-4f4489354f3a5c13.png",
-            "width": 1176,
-            "height": 705
-          },
-          {
-            "id": "ch19-content-en-012",
-            "kind": "image",
-            "assetId": "fig-3358c37c79265961",
-            "src": "assets/figures/fig-3358c37c79265961.png",
-            "width": 567,
-            "height": 345
-          },
-          {
-            "id": "ch19-content-en-013",
-            "kind": "paragraph",
-            "text": "In the scatter diagram above, temperature has a strong positive correlation to time. This means that temperature in the process has a tendency to increase as time increases. The relationship is strong, because you could draw a best fit line, as seen in the image to the left, and it would touch almost every data point with minimal deviation of data points from the line."
-          },
-          {
-            "id": "ch19-content-en-014",
-            "kind": "image",
-            "assetId": "fig-34770f255449c88f",
-            "src": "assets/figures/fig-34770f255449c88f.png",
-            "width": 1223,
-            "height": 743
-          },
-          {
-            "id": "ch19-content-en-015",
-            "kind": "image",
-            "assetId": "fig-0311c15e46cc2a17",
-            "src": "assets/figures/fig-0311c15e46cc2a17.png",
-            "width": 682,
-            "height": 410
-          },
-          {
-            "id": "ch19-content-en-016",
-            "kind": "paragraph",
-            "text": "The diagram above features a strong negative correlation. This means that temperature in the process has a tendency to decrease as time increases. Again, you can draw a best fit line through the points of data and all of them remain very close to the trend line, as seen in the graph to the right."
-          },
-          {
-            "id": "ch19-content-en-017",
-            "kind": "image",
-            "assetId": "fig-7842de01b168562e",
-            "src": "assets/figures/fig-7842de01b168562e.png",
-            "width": 653,
-            "height": 404
-          },
-          {
-            "id": "ch19-content-en-018",
-            "kind": "paragraph",
-            "text": "In contrast, the graph to the left represents a set of data where correlation might be present, but it is weaker than either of the two examples above. Weak correlation is represented on a scatter diagram where a trend line does seem to exist and where roughly the same number of data points that don’t touch the line are located above or below. Typically, the data points located above and below the trend lines are somewhat"
-          },
-          {
-            "id": "ch19-content-en-019",
-            "kind": "paragraph",
-            "text": "symmetrical, meaning that one side doesn’t feature points that are extremely far away from the line as compared to points on the other side, but this isn’t always the case. Weak correlation can be easy to see, as in this case, or more difficult to see on a graph, warranting the use of statistical analysis to make a strong case for correlation."
-          },
-          {
-            "id": "ch19-content-en-020",
-            "kind": "image",
-            "assetId": "fig-5449580231d2f808",
-            "src": "assets/figures/fig-5449580231d2f808.png",
-            "width": 1136,
-            "height": 660
-          },
-          {
-            "id": "ch19-content-en-021",
-            "kind": "paragraph",
-            "text": "The graph above shows a scatter diagram that indicates no or almost no correlation between time and temperature in a process. The data points are scattered randomly over the graph, and the trend line is almost horizontal. A horizontal trend line is usually an indication of a lack of correlation."
-          },
-          {
-            "id": "ch19-content-en-022",
-            "kind": "heading",
-            "text": "The Correlation Coefficient"
-          },
-          {
-            "id": "ch19-content-en-023",
-            "kind": "paragraph",
-            "text": "Images aren’t always accurate, especially when correlation is weak. And in some cases, an image capturing a small sample of data could show correlation or no correlation when correlation did exist in the overall sample or data set. Graphical analysis is useful to gain an idea about data relationships – and very useful for illustrating relationships to others – but statistical analysis helps teams understand relationships with more certainty."
-          },
-          {
-            "id": "ch19-content-en-024",
-            "kind": "paragraph",
-            "text": "For the purpose of correlation, the statistical calculation we are concerned with is known as the correlation coefficient, or R value. The correlation coefficient is a number between -1 and 1. As the correlation coefficient approaches either -1 or 1, a relationship between two variables is considered more likely or stronger."
-          },
-          {
-            "id": "ch19-content-en-025",
-            "kind": "listItem",
-            "text": "If the correlation coefficient is equal to 1, then the relationship is certain: all the data points on the set are found on the positive trend line."
-          },
-          {
-            "id": "ch19-content-en-026",
-            "kind": "listItem",
-            "text": "The same is true for a correlation coefficient that is equal to -1, except that all the data points are found on the negative trend line."
-          },
-          {
-            "id": "ch19-content-en-027",
-            "kind": "listItem",
-            "text": "A correlation coefficient equal to 0 means there is certainly no relationship between the variables, and there is no trend line."
-          },
-          {
-            "id": "ch19-content-en-028",
-            "kind": "listItem",
-            "text": "Most of the time, when you calculate correlation coefficients, the number will be between 0 and 1 or 0 and -1."
-          },
-          {
-            "id": "ch19-content-en-029",
-            "kind": "heading",
-            "text": "Calculating Correlation Coefficient in Excel: Two Methods"
-          },
-          {
-            "id": "ch19-content-en-030",
-            "kind": "paragraph",
-            "text": "Correlation coefficients are calculated using several formulas. One of the most common formulas used in basic statistics is Pearson’s correlation coefficient formula, which is shown below:"
-          },
-          {
-            "id": "ch19-content-en-031",
-            "kind": "image",
-            "assetId": "fig-1f4ebcf9e1c7aba7",
-            "src": "assets/figures/fig-1f4ebcf9e1c7aba7.png",
-            "width": 796,
-            "height": 210
-          },
-          {
-            "id": "ch19-content-en-032",
-            "kind": "paragraph",
-            "text": "Another calculation uses the sum of squares. The formula is shown below."
-          },
-          {
-            "id": "ch19-content-en-033",
-            "kind": "image",
-            "assetId": "fig-af785da1a1261cb7",
-            "src": "assets/figures/fig-af785da1a1261cb7.png",
-            "width": 735,
-            "height": 515
-          },
-          {
-            "id": "ch19-content-en-034",
-            "kind": "heading",
-            "text": "Where:"
-          },
-          {
-            "id": "ch19-content-en-035",
-            "kind": "paragraph",
-            "text": "Both of these formulas rely on the specific (x,y) data arrived at by combining data pairs. For example, consider the following data set:"
-          },
-          {
-            "id": "ch19-content-en-036",
-            "kind": "image",
-            "assetId": "fig-6e9880d03f8e537d",
-            "src": "assets/figures/fig-6e9880d03f8e537d.png",
-            "width": 1318,
-            "height": 302
-          },
-          {
-            "id": "ch19-content-en-037",
-            "kind": "image",
-            "assetId": "fig-b13325c3b942106d",
-            "src": "assets/figures/fig-b13325c3b942106d.png",
-            "width": 1318,
-            "height": 474
-          },
-          {
-            "id": "ch19-content-en-038",
-            "kind": "paragraph",
-            "text": "If average production is considered the Y axis and months on the job the X axis, paired points of this data set would be written as:"
-          },
-          {
-            "id": "ch19-content-en-039",
-            "kind": "listItem",
-            "text": "2, 10"
-          },
-          {
-            "id": "ch19-content-en-040",
-            "kind": "listItem",
-            "text": "2, 11"
-          },
-          {
-            "id": "ch19-content-en-041",
-            "kind": "listItem",
-            "text": "3, 12"
-          },
-          {
-            "id": "ch19-content-en-042",
-            "kind": "listItem",
-            "text": "3, 11"
-          },
-          {
-            "id": "ch19-content-en-043",
-            "kind": "listItem",
-            "text": "And so forth"
-          },
-          {
-            "id": "ch19-content-en-044",
-            "kind": "paragraph",
-            "text": "Those numbers can then be included in the equations above; the sigma symbol (which looks like an E) indicates summing. In Pearson’s equation, you sum all of the (x*y) and subtract the (sum of all x)*(sum of all y) to arrive at the top number, for example."
-          },
-          {
-            "id": "ch19-content-en-045",
-            "kind": "paragraph",
-            "text": "It is possible to calculate the correlation coefficient using one of these formulas, but luckily today’s technology provides digital methods for automatically calculating the number. You can use statistical analysis software or graphing calculators to arrive at the correlation coefficient given data about two variables in a process. In this section, we’ll look at two quick ways of determining correlation coefficients using Excel."
-          },
-          {
-            "id": "ch19-content-en-046",
-            "kind": "paragraph",
-            "text": "For both exercises below, we’ll use the following data table. Copy the data table into a blank Excel worksheet."
-          },
-          {
-            "id": "ch19-content-en-047",
-            "kind": "image",
-            "assetId": "fig-540b7527610c9582",
-            "src": "assets/figures/fig-540b7527610c9582.png",
-            "width": 1175,
-            "height": 450
-          },
-          {
-            "id": "ch19-content-en-048",
-            "kind": "image",
-            "assetId": "fig-440935e2c348c4e0",
-            "src": "assets/figures/fig-440935e2c348c4e0.png",
-            "width": 1175,
-            "height": 100
-          },
-          {
-            "id": "ch19-content-en-049",
-            "kind": "heading",
-            "text": "CORREL Formula"
-          },
-          {
-            "id": "ch19-content-en-050",
-            "kind": "paragraph",
-            "text": "One of the easiest ways to calculate the correlation coefficient for two sets of possibly related data is to use Excel’s CORREL formula. Follow the steps below to calculate the correlation coefficient between time and Temperature A."
-          },
-          {
-            "id": "ch19-content-en-051",
-            "kind": "paragraph",
-            "text": "1. In any cell in the worksheet where you copied the data table above, the formula =CORREL"
-          },
-          {
-            "id": "ch19-content-en-052",
-            "kind": "image",
-            "assetId": "fig-3f78f61f53fe1cde",
-            "src": "assets/figures/fig-3f78f61f53fe1cde.png",
-            "width": 807,
-            "height": 733
-          },
-          {
-            "id": "ch19-content-en-053",
-            "kind": "paragraph",
-            "text": "2. Array 1 is the set of cells containing data for time. Array 2 is the set of cells containing data for Temperature A. You can select these cell ranges with your mouse, separating them with a comma in your formula. The end result should appear as follows."
-          },
-          {
-            "id": "ch19-content-en-054",
-            "kind": "image",
-            "assetId": "fig-9eb02e53f8fb929b",
-            "src": "assets/figures/fig-9eb02e53f8fb929b.png",
-            "width": 687,
-            "height": 255
-          },
-          {
-            "id": "ch19-content-en-055",
-            "kind": "paragraph",
-            "text": "3. Hit enter. 4. Excel will calculate the correlation coefficient. In this case, it is 0.981167422"
-          },
-          {
-            "id": "ch19-content-en-056",
-            "kind": "paragraph",
-            "text": "The correlation coefficient calculated above is for the data set that created the very first scatter diagram for this chapter. If you recall, the scatter diagram appeared to show that the data had a very strong positive correlation; a correlation coefficient (or R value) of 0.98 is certainly in line with that assessment."
-          },
-          {
-            "id": "ch19-content-en-057",
-            "kind": "paragraph",
-            "text": "Let’s calculate the correlation coefficient for time and temperature C from the data table above. Repeat the steps above, but change your Array 2 range to reference the data set for temperature C."
-          },
-          {
-            "id": "ch19-content-en-058",
-            "kind": "image",
-            "assetId": "fig-c6d09505d7280895",
-            "src": "assets/figures/fig-c6d09505d7280895.png",
-            "width": 785,
-            "height": 292
-          },
-          {
-            "id": "ch19-content-en-059",
-            "kind": "paragraph",
-            "text": "The R value for time and temperature C is calculated as 0.107, which is much closer to zero. This data set created the scatter diagram above that appeared to have no correlation. The R value corresponds with the conclusions drawn from the scatter diagram. In most applications, correlation is considered to occur at some level if the R value is 0.4 or more or -0.4 or less."
-          },
-          {
-            "id": "ch19-content-en-060",
-            "kind": "heading",
-            "text": "Data Analysis ToolPak"
-          },
-          {
-            "id": "ch19-content-en-061",
-            "kind": "paragraph",
-            "text": "You can also use the Analysis ToolPak to calculate correlation coefficients. Follow the steps below to calculate the R value for time and Temperature B."
-          },
-          {
-            "id": "ch19-content-en-062",
-            "kind": "paragraph",
-            "text": "1. Format your spreadsheet so that the Time and Temperature B columns are next to each other. 2. Select Data and then Data Analysis from the top menu."
-          },
-          {
-            "id": "ch19-content-en-063",
-            "kind": "image",
-            "assetId": "fig-3a42f0da7732544d",
-            "src": "assets/figures/fig-3a42f0da7732544d.png",
-            "width": 1191,
-            "height": 201
-          },
-          {
-            "id": "ch19-content-en-064",
-            "kind": "paragraph",
-            "text": "3. Highlight Correlation and select OK."
-          },
-          {
-            "id": "ch19-content-en-065",
-            "kind": "image",
-            "assetId": "fig-a693ea020d4306cc",
-            "src": "assets/figures/fig-a693ea020d4306cc.png",
-            "width": 749,
-            "height": 378
-          },
-          {
-            "id": "ch19-content-en-066",
-            "kind": "paragraph",
-            "text": "4. Click in the input box and select the inputs for the correlation analysis. Select the data from both the time and temperature B columns."
-          },
-          {
-            "id": "ch19-content-en-067",
-            "kind": "image",
-            "assetId": "fig-95729e562c6b1911",
-            "src": "assets/figures/fig-95729e562c6b1911.png",
-            "width": 777,
-            "height": 471
-          },
-          {
-            "id": "ch19-content-en-068",
-            "kind": "paragraph",
-            "text": "5. Note that your data is grouped by columns. If you selected the header rows in the input range, check the box for “labels in the first row.” 6. Opt to output in a new worksheet. 7. Click OK. 8. Excel will calculate the correlation coefficient."
-          },
-          {
-            "id": "ch19-content-en-069",
-            "kind": "image",
-            "assetId": "fig-ebb5bb3b8edf3ce7",
-            "src": "assets/figures/fig-ebb5bb3b8edf3ce7.png",
-            "width": 498,
-            "height": 311
-          },
-          {
-            "id": "ch19-content-en-070",
-            "kind": "paragraph",
-            "text": "In the above example, the R value shows a very strong negative correlation between time and temperature. This data set is the same set used to make the negative correlation scatter diagram above, so the R value is consistent with that graphical analysis."
-          },
-          {
-            "id": "ch19-content-en-071",
-            "kind": "paragraph",
-            "text": "Repeat the steps above to find the correlation coefficient of time and temperature D."
-          },
-          {
-            "id": "ch19-content-en-072",
-            "kind": "image",
-            "assetId": "fig-b7d8f0c22520f99d",
-            "src": "assets/figures/fig-b7d8f0c22520f99d.png",
-            "width": 533,
-            "height": 233
-          },
-          {
-            "id": "ch19-content-en-073",
-            "kind": "paragraph",
-            "text": "The R value returned shows a weaker positive correlation than in our first calculation using the CORREL function, but we would still consider these data correlated. The data for temperature D is the same data that created the third scatter diagram in the graphical analysis portion of this chapter."
-          },
-          {
-            "id": "ch19-content-en-074",
-            "kind": "heading",
-            "text": "Linear Regression Analysis"
-          },
-          {
-            "id": "ch19-content-en-075",
-            "kind": "paragraph",
-            "text": "Once you know your data has a linear correlation, you can conduct further analysis through regression testing. Regression lets you create a linear model that helps you predict how one variable might behave given changes in the other variable. Note again that the changes aren’t necessarily an indication of cause – only that the variables are intertwined in some way."
-          },
-          {
-            "id": "ch19-content-en-076",
-            "kind": "paragraph",
-            "text": "When working with regression, we talk about the coefficient of determination, or the r2 value. The r2"
-          },
-          {
-            "id": "ch19-content-en-077",
-            "kind": "paragraph",
-            "text": "value is, literally, the square of R, or the square of the correlation coefficient. So, from our last example in the correlation coefficient section, R = 0.860624. The r2 value in this case would be 0.74."
-          },
-          {
-            "id": "ch19-content-en-078",
-            "kind": "paragraph",
-            "text": "The r2 value is a number between 0 and 1. The number tells us about the strength of the linear relationship between two variables – x and y. While the R value tells us how likely it is that two values are related in some way, the r2 value tells us how much the fluctuation in one variable (the dependent variable, or y) is related to changes in another variable (the independent variable, or x)."
-          },
-          {
-            "id": "ch19-content-en-079",
-            "kind": "paragraph",
-            "text": "In the example used above, r2 is 0.74. That means that approximately 74 percent of the variation in the temperature is related to the change in time; the other 26 percent variation in temperature is unexplained."
-          },
-          {
-            "id": "ch19-content-en-080",
-            "kind": "paragraph",
-            "text": "Regression analysis lets us create a best fit line and equation for our data, and the r2 value tells us how confident we can be in using that line to make predictions about data."
-          },
-          {
-            "id": "ch19-content-en-081",
-            "kind": "heading",
-            "text": "Analyzing Regression Using the Data Analysis ToolPak"
-          },
-          {
-            "id": "ch19-content-en-082",
-            "kind": "paragraph",
-            "text": "To understand how regression works, consider the same data set used in the correlation coefficient examples above:"
-          },
-          {
-            "id": "ch19-content-en-083",
-            "kind": "paragraph",
-            "text": "Time Temperature A Temperature B Temperature C Temperature D 1 30 70 35 30 2 35 68 48 31 3 37 63 75 38 4 40 62 25 24 5 41 55 50 35 6 48 47 34 49 7 57 42 48 45 8 55 41 31 59 9 59 38 24 42 10 62 36 41 65 11 63 31 71 64 12 65 25 55 59"
-          },
-          {
-            "id": "ch19-content-en-084",
-            "kind": "paragraph",
-            "text": "If you recall, the correlation between time and temperature A was strong. We’ll look at that relationship on a regression model using the Analysis ToolPak in Excel."
-          },
-          {
-            "id": "ch19-content-en-085",
-            "kind": "heading",
-            "text": "Creating the Regression Worksheet"
-          },
-          {
-            "id": "ch19-content-en-086",
-            "kind": "paragraph",
-            "text": "Begin by creating a regression worksheet using the data. Follow the steps below."
-          },
-          {
-            "id": "ch19-content-en-087",
-            "kind": "paragraph",
-            "text": "1. Copy the data table into a new worksheet in Excel. 2. Select Data and then Data Analysis from the top menu."
-          },
-          {
-            "id": "ch19-content-en-088",
-            "kind": "image",
-            "assetId": "fig-b7743f4146678d05",
-            "src": "assets/figures/fig-b7743f4146678d05.png",
-            "width": 1191,
-            "height": 201
-          },
-          {
-            "id": "ch19-content-en-089",
-            "kind": "paragraph",
-            "text": "3. Select Regression and click OK."
-          },
-          {
-            "id": "ch19-content-en-090",
-            "kind": "image",
-            "assetId": "fig-0bfd13ea8b624944",
-            "src": "assets/figures/fig-0bfd13ea8b624944.png",
-            "width": 764,
-            "height": 398
-          },
-          {
-            "id": "ch19-content-en-091",
-            "kind": "paragraph",
-            "text": "4. Select Temperate A as your Y input range and Time as your X input range."
-          },
-          {
-            "id": "ch19-content-en-092",
-            "kind": "image",
-            "assetId": "fig-040b27437a3b3846",
-            "src": "assets/figures/fig-040b27437a3b3846.png",
-            "width": 805,
-            "height": 713
-          },
-          {
-            "id": "ch19-content-en-093",
-            "kind": "paragraph",
-            "text": "5. If you selected header data when inputting ranges, check that labels are included. 6. Check the box for new worksheet. 7. Check the box for line fit plots. 8. Click OK."
-          },
-          {
-            "id": "ch19-content-en-094",
-            "kind": "paragraph",
-            "text": "Excel generates a new workbook with a number of statistical outputs. The relevant values for the purpose of this chapter are found under “Multiple R” and “R Square.”"
-          },
-          {
-            "id": "ch19-content-en-095",
-            "kind": "image",
-            "assetId": "fig-d624c94e776abcaa",
-            "src": "assets/figures/fig-d624c94e776abcaa.png",
-            "width": 833,
-            "height": 803
-          },
-          {
-            "id": "ch19-content-en-096",
-            "kind": "paragraph",
-            "text": "The Multiple R value is the correlation coefficient. You can see that the coefficient in this case matches the correlation coefficient calculated for this data set in the last section. The r2 value for this data set is 0.96, which means almost all the variation in temperature in this data set is related to a change in time."
-          },
-          {
-            "id": "ch19-content-en-097",
-            "kind": "paragraph",
-            "text": "Because you selected the line fit plots box when creating your regression analysis, Excel has also generated a scatter diagram and a best fit plot."
-          },
-          {
-            "id": "ch19-content-en-098",
-            "kind": "image",
-            "assetId": "fig-e739403ebf752f9e",
-            "src": "assets/figures/fig-e739403ebf752f9e.png",
-            "width": 1178,
-            "height": 717
-          },
-          {
-            "id": "ch19-content-en-099",
-            "kind": "paragraph",
-            "text": "The chart shows all of the actual data points in blue and predicted data points along a best fit line in orange. Those data points are calculated by Excel using a formula created from the data. You can display the formula by making design changes to the graph. Follow the steps below to display the formula."
-          },
-          {
-            "id": "ch19-content-en-100",
-            "kind": "paragraph",
-            "text": "1. Click on the graph in Excel. 2. Select Design. 3. Select Add Chart Element."
-          },
-          {
-            "id": "ch19-content-en-101",
-            "kind": "image",
-            "assetId": "fig-fd11ec3958cb18ad",
-            "src": "assets/figures/fig-fd11ec3958cb18ad.png",
-            "width": 1191,
-            "height": 273
-          },
-          {
-            "id": "ch19-content-en-102",
-            "kind": "paragraph",
-            "text": "4. Select Trendline, More Trendline Options."
-          },
-          {
-            "id": "ch19-content-en-103",
-            "kind": "image",
-            "assetId": "fig-0259d523a1e9cbdd",
-            "src": "assets/figures/fig-0259d523a1e9cbdd.png",
-            "width": 651,
-            "height": 1011
-          },
-          {
-            "id": "ch19-content-en-104",
-            "kind": "paragraph",
-            "text": "5. Select the option for the predicted trend line and click OK."
-          },
-          {
-            "id": "ch19-content-en-105",
-            "kind": "image",
-            "assetId": "fig-41b2052bf1ca64dc",
-            "src": "assets/figures/fig-41b2052bf1ca64dc.png",
-            "width": 399,
-            "height": 399
-          },
-          {
-            "id": "ch19-content-en-106",
-            "kind": "paragraph",
-            "text": "6. Click the box to display the equation on the chart."
-          },
-          {
-            "id": "ch19-content-en-107",
-            "kind": "image",
-            "assetId": "fig-1db0dbec51d020cb",
-            "src": "assets/figures/fig-1db0dbec51d020cb.png",
-            "width": 471,
-            "height": 1008
-          },
-          {
-            "id": "ch19-content-en-108",
-            "kind": "paragraph",
-            "text": "7. Note the trend equation on the graph."
-          },
-          {
-            "id": "ch19-content-en-109",
-            "kind": "image",
-            "assetId": "fig-090add15823910d3",
-            "src": "assets/figures/fig-090add15823910d3.png",
-            "width": 1047,
-            "height": 702
-          },
-          {
-            "id": "ch19-content-en-110",
-            "kind": "paragraph",
-            "text": "In this case, the equation is y = 3.3497x + 27.561."
-          },
-          {
-            "id": "ch19-content-en-111",
-            "kind": "paragraph",
-            "text": "The r2 value, if you recall, is 0.96, which means that our linear equation is going to be very good at determining the approximate temperature in our process as a relation to time."
-          },
-          {
-            "id": "ch19-content-en-112",
-            "kind": "paragraph",
-            "text": "At 5 minutes, for example, our equation predicts that the temperature is 44.30."
-          },
-          {
-            "id": "ch19-content-en-113",
-            "kind": "paragraph",
-            "text": "Y = 3.3497(5) + 27.561"
-          },
-          {
-            "id": "ch19-content-en-114",
-            "kind": "paragraph",
-            "text": "At 25 minutes, our equation predicts that the temperature is 111.30."
-          },
-          {
-            "id": "ch19-content-en-115",
-            "kind": "paragraph",
-            "text": "Regression test with low correlation To see how regression tests might look with low correlation, repeat the steps above with the data for temperature C."
-          },
-          {
-            "id": "ch19-content-en-116",
-            "kind": "image",
-            "assetId": "fig-75ebedf842a945ed",
-            "src": "assets/figures/fig-75ebedf842a945ed.png",
-            "width": 513,
-            "height": 387
-          },
-          {
-            "id": "ch19-content-en-117",
-            "kind": "paragraph",
-            "text": "Again, the correlation coefficient is very low. The r2 value is also very low; according to this model, only about 1 percent of the variation in temperature is related to time."
-          },
-          {
-            "id": "ch19-content-en-118",
-            "kind": "image",
-            "assetId": "fig-c924c3ad8176f217",
-            "src": "assets/figures/fig-c924c3ad8176f217.png",
-            "width": 920,
-            "height": 672
-          },
-          {
-            "id": "ch19-content-en-119",
-            "kind": "paragraph",
-            "text": "If you format it to do so, Excel will create a predicted line and a linear trend equation. Given the extremely low r2 value, though, you know that this equation is not useful in making any real predictions about the temperature for a given time. You only have to look at the graph to see this is true. For a time around 3, the equation predicts a temperature of just over 40. The actual temperature, however, was 75. And that number doesn’t just reflect an outlier that might point to a problem of data collection or a temporary process issue; the data throughout the chart is skewed far away from the line."
-          },
-          {
-            "id": "ch19-content-en-120",
-            "kind": "heading",
-            "text": "Using Correlation and Regression in Six Sigma"
-          },
-          {
-            "id": "ch19-content-en-121",
-            "kind": "paragraph",
-            "text": "Correlation and regression are useful tools, usually deployed by teams in the measure, analyze, or improve stages of a DMAIC project. The tools don’t apply to all data and are not useful in all situations where they might apply. One of the things that a Six Sigma expert develops over time is the ability to decide which tools might be relevant given certain data and situations. Because Excel and other statistical analysis software make it easy for Six Sigma experts and teams to “play” with data in various graphical and statistical analysis, there is no harm in creating correlation or regression analyses for data to explore connections between variables. This is true as long as you are careful about what conclusions you draw. When in doubt, it’s always best to back conclusions up with multiple types of statistical analysis."
-          },
-          {
-            "id": "ch19-content-en-122",
-            "kind": "paragraph",
-            "text": "Continuous and ratio data Both correlation and regression work with continuous or ratio data, and both sets of variables have to be quantitative in nature. For example, you can’t have x variables that are the names of people and y variables that are the number of outputs."
-          },
-          {
-            "id": "ch19-content-en-123",
-            "kind": "image",
-            "assetId": "fig-f9b399ae39d6ad98",
-            "src": "assets/figures/fig-f9b399ae39d6ad98.png",
-            "width": 1318,
-            "height": 359
-          },
-          {
-            "id": "ch19-content-en-124",
-            "kind": "paragraph",
-            "text": "The above chart is an example of the type of data that would not apply to regression and correlation analysis, but might be analyzed using tools such as Pareto charts or pie charts."
-          },
-          {
-            "id": "ch19-content-en-125",
-            "kind": "paragraph",
-            "text": "Correlation requires two quantifiable data elements. Regression requires data that can be written as function:"
-          },
-          {
-            "id": "ch19-content-en-126",
-            "kind": "paragraph",
-            "text": "y = f(x)"
-          },
-          {
-            "id": "ch19-content-en-127",
-            "kind": "paragraph",
-            "text": "Some examples of data that can be written as a function include:"
-          },
-          {
-            "id": "ch19-content-en-128",
-            "kind": "listItem",
-            "text": "Distance"
-          },
-          {
-            "id": "ch19-content-en-129",
-            "kind": "paragraph",
-            "text": "o Y, the distance, is function of time, speed, acceleration, etc."
-          },
-          {
-            "id": "ch19-content-en-130",
-            "kind": "listItem",
-            "text": "Hardness of a substance"
-          },
-          {
-            "id": "ch19-content-en-131",
-            "kind": "paragraph",
-            "text": "o Y, the hardness, is a function of temperature, alloy, etc."
-          },
-          {
-            "id": "ch19-content-en-132",
-            "kind": "listItem",
-            "text": "Experienced (feels like) temperature"
-          },
-          {
-            "id": "ch19-content-en-133",
-            "kind": "paragraph",
-            "text": "o Y, the temperature it feels like, is a function of the actual temperature, wind, humidity, etc."
-          },
-          {
-            "id": "ch19-content-en-134",
-            "kind": "listItem",
-            "text": "BMI (body mass index)"
-          },
-          {
-            "id": "ch19-content-en-135",
-            "kind": "paragraph",
-            "text": "o Y, the BMI, is a function of height and weight"
-          },
-          {
-            "id": "ch19-content-en-136",
-            "kind": "paragraph",
-            "text": "Why use correlation and regression?"
-          },
-          {
-            "id": "ch19-content-en-137",
-            "kind": "paragraph",
-            "text": "Correlation and regression can be applied by Six Sigma experts at a number of points in a DMAIC process. During the analyze phase, teams can use these tools to help verify relationships between inputs or to help bolster understanding of root cause analysis. While correlation and regression don’t prove causation, they don’t negate causation either. A strong correlation doesn’t prove causation, but if a team already believes causation is a factor, then a strong regression model helps validate that assumption. This is especially true if a team couples regression modeling with trial-and-error hypothesis testing."
-          },
-          {
-            "id": "ch19-content-en-138",
-            "kind": "paragraph",
-            "text": "For example, a Six Sigma team might conduct brainstorming and fishbone diagrams, coming to the conclusion that a certain input, A, is causing variation in an output, B. The team’s Six Sigma experts conduct regression testing, which shows that variation in B is definitely related strongly to variation in A. The team can remove A from the process – or alter A in some way – and measure the process again. The team can then use hypothesis testingto determine if their changes created a statistical difference in the output."
-          },
-          {
-            "id": "ch19-content-en-139",
-            "kind": "paragraph",
-            "text": "An even more important function of regression in the DMAIC process is determining optimum input values so teams have a goal for control. Consider the example data used throughout this chapter. What if the team exploring this sample data was working with a process that involved mixing ingredients at a specific temperature range to create certain results? If the continuous time a mixing machine runs causes temperature fluctuations, those fluctuations would create variation in the final product. If the team discovered that the temperature range 40 to 50 degrees correlated to the most optimal product output, then the team could use the equation provided by the regression model to determine at what time range the mixing machine should be operated."
-          },
-          {
-            "id": "ch19-content-en-140",
-            "kind": "paragraph",
-            "text": "Consider the data for Temperature A again:"
-          },
-          {
-            "id": "ch19-content-en-141",
-            "kind": "image",
-            "assetId": "fig-d483e17c3b119845",
-            "src": "assets/figures/fig-d483e17c3b119845.png",
-            "width": 310,
-            "height": 560
-          },
-          {
-            "id": "ch19-content-en-142",
-            "kind": "image",
-            "assetId": "fig-736ff83b9b99459e",
-            "src": "assets/figures/fig-736ff83b9b99459e.png",
-            "width": 1085,
-            "height": 798
-          },
-          {
-            "id": "ch19-content-en-143",
-            "kind": "paragraph",
-            "text": "This data had both a strong correlation coefficient and a strong r2 value, which means the team can rely on the equation for the best fit line."
-          },
-          {
-            "id": "ch19-content-en-144",
-            "kind": "paragraph",
-            "text": "In this case, to find the time values relating to a range between 40 and 50 degrees, the team would solve for x when y = 40 and when y = 50."
-          },
-          {
-            "id": "ch19-content-en-145",
-            "kind": "paragraph",
-            "text": "40 = 3.3497x + 27.561"
-          },
-          {
-            "id": "ch19-content-en-146",
-            "kind": "paragraph",
-            "text": "40 – 27.561 = 3.3497x"
-          },
-          {
-            "id": "ch19-content-en-147",
-            "kind": "paragraph",
-            "text": "12.439 = 3.3497x"
-          },
-          {
-            "id": "ch19-content-en-148",
-            "kind": "paragraph",
-            "text": "3.71 = x when y = 40"
-          },
-          {
-            "id": "ch19-content-en-149",
-            "kind": "paragraph",
-            "text": "50 = 3.3497x + 27.561"
-          },
-          {
-            "id": "ch19-content-en-150",
-            "kind": "paragraph",
-            "text": "50 – 27.561 = 3.3497x"
-          },
-          {
-            "id": "ch19-content-en-151",
-            "kind": "paragraph",
-            "text": "22.439 = 3.3497x"
-          },
-          {
-            "id": "ch19-content-en-152",
-            "kind": "paragraph",
-            "text": "6.69 = x when y = 50"
-          },
-          {
-            "id": "ch19-content-en-153",
-            "kind": "paragraph",
-            "text": "Using these results, the team decides that mixing must be done when the machine has been on between 3.71 and 6.69 minutes. They create a change in the process that involves starting the mixing procedure after the machine has warmed up for 4 minutes."
           }
         ],
         "zh": [
           {
-            "id": "ch19-content-zh-001",
+            "id": "ch19-s01-correlation-and-regression-zh-001",
             "kind": "termNote",
             "rows": [
               [
@@ -906,7 +61,7 @@
             "text": "术语说明 Correlation（相关）：描述两个变量共同变化的程度，不直接证明因果关系。"
           },
           {
-            "id": "ch19-content-zh-002",
+            "id": "ch19-s01-correlation-and-regression-zh-002",
             "kind": "termNote",
             "rows": [
               [
@@ -916,57 +71,467 @@
             "text": "术语说明 Regression（回归）：用模型估计变量之间的关系，并预测响应变量。"
           },
           {
-            "id": "ch19-content-zh-003",
+            "id": "ch19-s01-correlation-and-regression-zh-003",
             "kind": "paragraph",
             "text": "相关性和回归是统计概念，可帮助六西格玛团队了解流程中的两个因素是否相关。您可以使用这些工具来计算输入是否以某种方式与输出相关，甚至两个输入是否可能相关。相关和回归的概念在第 14 章散点图部分中介绍过。在本章中，您将学习如何在 Excel 中计算相关系数、该数字的含义，以及如何在 Excel 中创建线性回归模型来测试因变量和自变量之间的关系。"
           },
           {
-            "id": "ch19-content-zh-004",
+            "id": "ch19-s01-correlation-and-regression-zh-004",
             "kind": "paragraph",
             "text": "值得再次讨论第 14 章中提出的观点。两个变量之间的强相关或回归并不表明存在因果关系。即使因变量和自变量之间存在强回归，也不意味着因变量是由自变量引起的。这是一个需要理解的关键概念，因为由于相关性很强而归因因果关系可能意味着对流程做出错误的决策。团队可能决定更改或删除一个元素，因为它与输出有很强的相关性；然后他们可能会惊讶地发现输出没有改变，因为它与相关输入没有因果关系。"
           },
           {
-            "id": "ch19-content-zh-005",
+            "id": "ch19-s01-correlation-and-regression-zh-005",
             "kind": "paragraph",
             "text": "为什么要使用相关性和回归呢？"
           },
           {
-            "id": "ch19-content-zh-006",
+            "id": "ch19-s01-correlation-and-regression-zh-006",
             "kind": "paragraph",
             "text": "理解相关性和回归仍然很重要，因为它可以帮助团队更多地了解流程、分析流程元素如何相关以及对流程进行预测。当两个元素沿着线性线甚至沿着曲线密切相关时，团队可以创建连接这两个元素的方程。这让六西格玛团队可以预测如果自变量发生变化，因变量将如何表现。"
           },
           {
-            "id": "ch19-content-zh-007",
+            "id": "ch19-s01-correlation-and-regression-zh-007",
             "kind": "paragraph",
             "text": "在继续之前，应该注意的是，本章中的分析工具并不假设所有情况下的数据都是正常的，但非常异常的数据可能会导致结果出现偏差。在分析数据之前，六西格玛专家应该始终了解他们正在处理的数据类型。"
           },
           {
-            "id": "ch19-content-zh-008",
+            "id": "ch19-s01-correlation-and-regression-zh-008",
             "kind": "heading",
             "text": "相关性"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch19-s02-correlation",
+      "level": 2,
+      "page": 205,
+      "title": {
+        "en": "Correlation",
+        "zh": "相关性"
+      },
+      "content": {
+        "en": [
+          {
+            "id": "ch19-s02-correlation-en-001",
+            "kind": "paragraph",
+            "text": "Typically, when talking about correlation, we mean the linear association that exists between two variables. In chapter 14, we introduced the concept that correlation can be strong or weak; it can also be positive or negative."
           },
           {
-            "id": "ch19-content-zh-009",
+            "id": "ch19-s02-correlation-en-002",
+            "kind": "paragraph",
+            "text": "Positive Correlation: One variable increase as another variable increases."
+          },
+          {
+            "id": "ch19-s02-correlation-en-003",
+            "kind": "paragraph",
+            "text": "Negative Correlation: One variable decreases as another variable increases."
+          },
+          {
+            "id": "ch19-s02-correlation-en-004",
+            "kind": "paragraph",
+            "text": "Correlation can sometimes be roughly approximated by viewing a graphical analysis of data in the form of a scatter diagram or X/Y plot. The steps for creating such diagrams were covered in chapter 17. To understand how various types of correlation might appear graphically, consider the example scatter diagrams below."
+          },
+          {
+            "id": "ch19-s02-correlation-en-005",
+            "kind": "image",
+            "assetId": "fig-4f4489354f3a5c13",
+            "src": "assets/figures/fig-4f4489354f3a5c13.png",
+            "width": 1176,
+            "height": 705
+          },
+          {
+            "id": "ch19-s02-correlation-en-006",
+            "kind": "image",
+            "assetId": "fig-3358c37c79265961",
+            "src": "assets/figures/fig-3358c37c79265961.png",
+            "width": 567,
+            "height": 345
+          },
+          {
+            "id": "ch19-s02-correlation-en-007",
+            "kind": "paragraph",
+            "text": "In the scatter diagram above, temperature has a strong positive correlation to time. This means that temperature in the process has a tendency to increase as time increases. The relationship is strong, because you could draw a best fit line, as seen in the image to the left, and it would touch almost every data point with minimal deviation of data points from the line."
+          },
+          {
+            "id": "ch19-s02-correlation-en-008",
+            "kind": "image",
+            "assetId": "fig-34770f255449c88f",
+            "src": "assets/figures/fig-34770f255449c88f.png",
+            "width": 1223,
+            "height": 743
+          },
+          {
+            "id": "ch19-s02-correlation-en-009",
+            "kind": "image",
+            "assetId": "fig-0311c15e46cc2a17",
+            "src": "assets/figures/fig-0311c15e46cc2a17.png",
+            "width": 682,
+            "height": 410
+          },
+          {
+            "id": "ch19-s02-correlation-en-010",
+            "kind": "paragraph",
+            "text": "The diagram above features a strong negative correlation. This means that temperature in the process has a tendency to decrease as time increases. Again, you can draw a best fit line through the points of data and all of them remain very close to the trend line, as seen in the graph to the right."
+          },
+          {
+            "id": "ch19-s02-correlation-en-011",
+            "kind": "image",
+            "assetId": "fig-7842de01b168562e",
+            "src": "assets/figures/fig-7842de01b168562e.png",
+            "width": 653,
+            "height": 404
+          },
+          {
+            "id": "ch19-s02-correlation-en-012",
+            "kind": "paragraph",
+            "text": "In contrast, the graph to the left represents a set of data where correlation might be present, but it is weaker than either of the two examples above. Weak correlation is represented on a scatter diagram where a trend line does seem to exist and where roughly the same number of data points that don’t touch the line are located above or below. Typically, the data points located above and below the trend lines are somewhat"
+          },
+          {
+            "id": "ch19-s02-correlation-en-013",
+            "kind": "paragraph",
+            "text": "symmetrical, meaning that one side doesn’t feature points that are extremely far away from the line as compared to points on the other side, but this isn’t always the case. Weak correlation can be easy to see, as in this case, or more difficult to see on a graph, warranting the use of statistical analysis to make a strong case for correlation."
+          },
+          {
+            "id": "ch19-s02-correlation-en-014",
+            "kind": "image",
+            "assetId": "fig-5449580231d2f808",
+            "src": "assets/figures/fig-5449580231d2f808.png",
+            "width": 1136,
+            "height": 660
+          },
+          {
+            "id": "ch19-s02-correlation-en-015",
+            "kind": "paragraph",
+            "text": "The graph above shows a scatter diagram that indicates no or almost no correlation between time and temperature in a process. The data points are scattered randomly over the graph, and the trend line is almost horizontal. A horizontal trend line is usually an indication of a lack of correlation."
+          },
+          {
+            "id": "ch19-s02-correlation-en-016",
+            "kind": "heading",
+            "text": "The Correlation Coefficient"
+          },
+          {
+            "id": "ch19-s02-correlation-en-017",
+            "kind": "paragraph",
+            "text": "Images aren’t always accurate, especially when correlation is weak. And in some cases, an image capturing a small sample of data could show correlation or no correlation when correlation did exist in the overall sample or data set. Graphical analysis is useful to gain an idea about data relationships – and very useful for illustrating relationships to others – but statistical analysis helps teams understand relationships with more certainty."
+          },
+          {
+            "id": "ch19-s02-correlation-en-018",
+            "kind": "paragraph",
+            "text": "For the purpose of correlation, the statistical calculation we are concerned with is known as the correlation coefficient, or R value. The correlation coefficient is a number between -1 and 1. As the correlation coefficient approaches either -1 or 1, a relationship between two variables is considered more likely or stronger."
+          },
+          {
+            "id": "ch19-s02-correlation-en-019",
+            "kind": "listItem",
+            "text": "If the correlation coefficient is equal to 1, then the relationship is certain: all the data points on the set are found on the positive trend line."
+          },
+          {
+            "id": "ch19-s02-correlation-en-020",
+            "kind": "listItem",
+            "text": "The same is true for a correlation coefficient that is equal to -1, except that all the data points are found on the negative trend line."
+          },
+          {
+            "id": "ch19-s02-correlation-en-021",
+            "kind": "listItem",
+            "text": "A correlation coefficient equal to 0 means there is certainly no relationship between the variables, and there is no trend line."
+          },
+          {
+            "id": "ch19-s02-correlation-en-022",
+            "kind": "listItem",
+            "text": "Most of the time, when you calculate correlation coefficients, the number will be between 0 and 1 or 0 and -1."
+          },
+          {
+            "id": "ch19-s02-correlation-en-023",
+            "kind": "heading",
+            "text": "Calculating Correlation Coefficient in Excel: Two Methods"
+          },
+          {
+            "id": "ch19-s02-correlation-en-024",
+            "kind": "paragraph",
+            "text": "Correlation coefficients are calculated using several formulas. One of the most common formulas used in basic statistics is Pearson’s correlation coefficient formula, which is shown below:"
+          },
+          {
+            "id": "ch19-s02-correlation-en-025",
+            "kind": "image",
+            "assetId": "fig-1f4ebcf9e1c7aba7",
+            "src": "assets/figures/fig-1f4ebcf9e1c7aba7.png",
+            "width": 796,
+            "height": 210
+          },
+          {
+            "id": "ch19-s02-correlation-en-026",
+            "kind": "paragraph",
+            "text": "Another calculation uses the sum of squares. The formula is shown below."
+          },
+          {
+            "id": "ch19-s02-correlation-en-027",
+            "kind": "image",
+            "assetId": "fig-af785da1a1261cb7",
+            "src": "assets/figures/fig-af785da1a1261cb7.png",
+            "width": 735,
+            "height": 515
+          },
+          {
+            "id": "ch19-s02-correlation-en-028",
+            "kind": "heading",
+            "text": "Where:"
+          },
+          {
+            "id": "ch19-s02-correlation-en-029",
+            "kind": "paragraph",
+            "text": "Both of these formulas rely on the specific (x,y) data arrived at by combining data pairs. For example, consider the following data set:"
+          },
+          {
+            "id": "ch19-s02-correlation-en-030",
+            "kind": "image",
+            "assetId": "fig-6e9880d03f8e537d",
+            "src": "assets/figures/fig-6e9880d03f8e537d.png",
+            "width": 1318,
+            "height": 302
+          },
+          {
+            "id": "ch19-s02-correlation-en-031",
+            "kind": "image",
+            "assetId": "fig-b13325c3b942106d",
+            "src": "assets/figures/fig-b13325c3b942106d.png",
+            "width": 1318,
+            "height": 474
+          },
+          {
+            "id": "ch19-s02-correlation-en-032",
+            "kind": "paragraph",
+            "text": "If average production is considered the Y axis and months on the job the X axis, paired points of this data set would be written as:"
+          },
+          {
+            "id": "ch19-s02-correlation-en-033",
+            "kind": "listItem",
+            "text": "2, 10"
+          },
+          {
+            "id": "ch19-s02-correlation-en-034",
+            "kind": "listItem",
+            "text": "2, 11"
+          },
+          {
+            "id": "ch19-s02-correlation-en-035",
+            "kind": "listItem",
+            "text": "3, 12"
+          },
+          {
+            "id": "ch19-s02-correlation-en-036",
+            "kind": "listItem",
+            "text": "3, 11"
+          },
+          {
+            "id": "ch19-s02-correlation-en-037",
+            "kind": "listItem",
+            "text": "And so forth"
+          },
+          {
+            "id": "ch19-s02-correlation-en-038",
+            "kind": "paragraph",
+            "text": "Those numbers can then be included in the equations above; the sigma symbol (which looks like an E) indicates summing. In Pearson’s equation, you sum all of the (x*y) and subtract the (sum of all x)*(sum of all y) to arrive at the top number, for example."
+          },
+          {
+            "id": "ch19-s02-correlation-en-039",
+            "kind": "paragraph",
+            "text": "It is possible to calculate the correlation coefficient using one of these formulas, but luckily today’s technology provides digital methods for automatically calculating the number. You can use statistical analysis software or graphing calculators to arrive at the correlation coefficient given data about two variables in a process. In this section, we’ll look at two quick ways of determining correlation coefficients using Excel."
+          },
+          {
+            "id": "ch19-s02-correlation-en-040",
+            "kind": "paragraph",
+            "text": "For both exercises below, we’ll use the following data table. Copy the data table into a blank Excel worksheet."
+          },
+          {
+            "id": "ch19-s02-correlation-en-041",
+            "kind": "image",
+            "assetId": "fig-540b7527610c9582",
+            "src": "assets/figures/fig-540b7527610c9582.png",
+            "width": 1175,
+            "height": 450
+          },
+          {
+            "id": "ch19-s02-correlation-en-042",
+            "kind": "image",
+            "assetId": "fig-440935e2c348c4e0",
+            "src": "assets/figures/fig-440935e2c348c4e0.png",
+            "width": 1175,
+            "height": 100
+          },
+          {
+            "id": "ch19-s02-correlation-en-043",
+            "kind": "heading",
+            "text": "CORREL Formula"
+          },
+          {
+            "id": "ch19-s02-correlation-en-044",
+            "kind": "paragraph",
+            "text": "One of the easiest ways to calculate the correlation coefficient for two sets of possibly related data is to use Excel’s CORREL formula. Follow the steps below to calculate the correlation coefficient between time and Temperature A."
+          },
+          {
+            "id": "ch19-s02-correlation-en-045",
+            "kind": "paragraph",
+            "text": "1. In any cell in the worksheet where you copied the data table above, the formula =CORREL"
+          },
+          {
+            "id": "ch19-s02-correlation-en-046",
+            "kind": "image",
+            "assetId": "fig-3f78f61f53fe1cde",
+            "src": "assets/figures/fig-3f78f61f53fe1cde.png",
+            "width": 807,
+            "height": 733
+          },
+          {
+            "id": "ch19-s02-correlation-en-047",
+            "kind": "paragraph",
+            "text": "2. Array 1 is the set of cells containing data for time. Array 2 is the set of cells containing data for Temperature A. You can select these cell ranges with your mouse, separating them with a comma in your formula. The end result should appear as follows."
+          },
+          {
+            "id": "ch19-s02-correlation-en-048",
+            "kind": "image",
+            "assetId": "fig-9eb02e53f8fb929b",
+            "src": "assets/figures/fig-9eb02e53f8fb929b.png",
+            "width": 687,
+            "height": 255
+          },
+          {
+            "id": "ch19-s02-correlation-en-049",
+            "kind": "paragraph",
+            "text": "3. Hit enter. 4. Excel will calculate the correlation coefficient. In this case, it is 0.981167422"
+          },
+          {
+            "id": "ch19-s02-correlation-en-050",
+            "kind": "paragraph",
+            "text": "The correlation coefficient calculated above is for the data set that created the very first scatter diagram for this chapter. If you recall, the scatter diagram appeared to show that the data had a very strong positive correlation; a correlation coefficient (or R value) of 0.98 is certainly in line with that assessment."
+          },
+          {
+            "id": "ch19-s02-correlation-en-051",
+            "kind": "paragraph",
+            "text": "Let’s calculate the correlation coefficient for time and temperature C from the data table above. Repeat the steps above, but change your Array 2 range to reference the data set for temperature C."
+          },
+          {
+            "id": "ch19-s02-correlation-en-052",
+            "kind": "image",
+            "assetId": "fig-c6d09505d7280895",
+            "src": "assets/figures/fig-c6d09505d7280895.png",
+            "width": 785,
+            "height": 292
+          },
+          {
+            "id": "ch19-s02-correlation-en-053",
+            "kind": "paragraph",
+            "text": "The R value for time and temperature C is calculated as 0.107, which is much closer to zero. This data set created the scatter diagram above that appeared to have no correlation. The R value corresponds with the conclusions drawn from the scatter diagram. In most applications, correlation is considered to occur at some level if the R value is 0.4 or more or -0.4 or less."
+          },
+          {
+            "id": "ch19-s02-correlation-en-054",
+            "kind": "heading",
+            "text": "Data Analysis ToolPak"
+          },
+          {
+            "id": "ch19-s02-correlation-en-055",
+            "kind": "paragraph",
+            "text": "You can also use the Analysis ToolPak to calculate correlation coefficients. Follow the steps below to calculate the R value for time and Temperature B."
+          },
+          {
+            "id": "ch19-s02-correlation-en-056",
+            "kind": "paragraph",
+            "text": "1. Format your spreadsheet so that the Time and Temperature B columns are next to each other. 2. Select Data and then Data Analysis from the top menu."
+          },
+          {
+            "id": "ch19-s02-correlation-en-057",
+            "kind": "image",
+            "assetId": "fig-3a42f0da7732544d",
+            "src": "assets/figures/fig-3a42f0da7732544d.png",
+            "width": 1191,
+            "height": 201
+          },
+          {
+            "id": "ch19-s02-correlation-en-058",
+            "kind": "paragraph",
+            "text": "3. Highlight Correlation and select OK."
+          },
+          {
+            "id": "ch19-s02-correlation-en-059",
+            "kind": "image",
+            "assetId": "fig-a693ea020d4306cc",
+            "src": "assets/figures/fig-a693ea020d4306cc.png",
+            "width": 749,
+            "height": 378
+          },
+          {
+            "id": "ch19-s02-correlation-en-060",
+            "kind": "paragraph",
+            "text": "4. Click in the input box and select the inputs for the correlation analysis. Select the data from both the time and temperature B columns."
+          },
+          {
+            "id": "ch19-s02-correlation-en-061",
+            "kind": "image",
+            "assetId": "fig-95729e562c6b1911",
+            "src": "assets/figures/fig-95729e562c6b1911.png",
+            "width": 777,
+            "height": 471
+          },
+          {
+            "id": "ch19-s02-correlation-en-062",
+            "kind": "paragraph",
+            "text": "5. Note that your data is grouped by columns. If you selected the header rows in the input range, check the box for “labels in the first row.” 6. Opt to output in a new worksheet. 7. Click OK. 8. Excel will calculate the correlation coefficient."
+          },
+          {
+            "id": "ch19-s02-correlation-en-063",
+            "kind": "image",
+            "assetId": "fig-ebb5bb3b8edf3ce7",
+            "src": "assets/figures/fig-ebb5bb3b8edf3ce7.png",
+            "width": 498,
+            "height": 311
+          },
+          {
+            "id": "ch19-s02-correlation-en-064",
+            "kind": "paragraph",
+            "text": "In the above example, the R value shows a very strong negative correlation between time and temperature. This data set is the same set used to make the negative correlation scatter diagram above, so the R value is consistent with that graphical analysis."
+          },
+          {
+            "id": "ch19-s02-correlation-en-065",
+            "kind": "paragraph",
+            "text": "Repeat the steps above to find the correlation coefficient of time and temperature D."
+          },
+          {
+            "id": "ch19-s02-correlation-en-066",
+            "kind": "image",
+            "assetId": "fig-b7d8f0c22520f99d",
+            "src": "assets/figures/fig-b7d8f0c22520f99d.png",
+            "width": 533,
+            "height": 233
+          },
+          {
+            "id": "ch19-s02-correlation-en-067",
+            "kind": "paragraph",
+            "text": "The R value returned shows a weaker positive correlation than in our first calculation using the CORREL function, but we would still consider these data correlated. The data for temperature D is the same data that created the third scatter diagram in the graphical analysis portion of this chapter."
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch19-s02-correlation-zh-001",
             "kind": "paragraph",
             "text": "通常，当谈论相关性时，我们指的是两个变量之间存在的线性关联。在第14章中，我们介绍了相关性可以强也可以弱的概念； 它也可以是正的或负的。"
           },
           {
-            "id": "ch19-content-zh-010",
+            "id": "ch19-s02-correlation-zh-002",
             "kind": "paragraph",
             "text": "正相关：一个变量随着另一个变量的增加而增加。"
           },
           {
-            "id": "ch19-content-zh-011",
+            "id": "ch19-s02-correlation-zh-003",
             "kind": "paragraph",
             "text": "负相关：一个变量随着另一个变量的增加而减少。"
           },
           {
-            "id": "ch19-content-zh-012",
+            "id": "ch19-s02-correlation-zh-004",
             "kind": "paragraph",
             "text": "有时可以通过查看散点图或 X/Y 图形式的数据图形分析来粗略估计相关性。第 17 章介绍了创建此类图表的步骤。要了解各种类型的相关性如何以图形方式显示，请考虑下面的散点图示例。"
           },
           {
-            "id": "ch19-content-zh-013",
+            "id": "ch19-s02-correlation-zh-005",
             "kind": "termNote",
             "rows": [
               [
@@ -976,7 +541,7 @@
             "text": "术语说明 Scatter Diagram（散点图）：展示两个变量之间关系的图形；相关不等于因果。"
           },
           {
-            "id": "ch19-content-zh-014",
+            "id": "ch19-s02-correlation-zh-006",
             "kind": "image",
             "assetId": "fig-4f4489354f3a5c13",
             "src": "assets/figures/fig-4f4489354f3a5c13.png",
@@ -984,7 +549,7 @@
             "height": 705
           },
           {
-            "id": "ch19-content-zh-015",
+            "id": "ch19-s02-correlation-zh-007",
             "kind": "image",
             "assetId": "fig-3358c37c79265961",
             "src": "assets/figures/fig-3358c37c79265961.png",
@@ -992,12 +557,12 @@
             "height": 345
           },
           {
-            "id": "ch19-content-zh-016",
+            "id": "ch19-s02-correlation-zh-008",
             "kind": "paragraph",
             "text": "在上面的散点图中，温度与时间有很强的正相关性。这意味着过程中的温度有随着时间增加而升高的趋势。这种关系很强，因为您可以绘制一条最佳拟合线，如左图所示，并且它会触及几乎每个数据点，并且数据点与线的偏差最小。"
           },
           {
-            "id": "ch19-content-zh-017",
+            "id": "ch19-s02-correlation-zh-009",
             "kind": "image",
             "assetId": "fig-34770f255449c88f",
             "src": "assets/figures/fig-34770f255449c88f.png",
@@ -1005,7 +570,7 @@
             "height": 743
           },
           {
-            "id": "ch19-content-zh-018",
+            "id": "ch19-s02-correlation-zh-010",
             "kind": "image",
             "assetId": "fig-0311c15e46cc2a17",
             "src": "assets/figures/fig-0311c15e46cc2a17.png",
@@ -1013,12 +578,12 @@
             "height": 410
           },
           {
-            "id": "ch19-content-zh-019",
+            "id": "ch19-s02-correlation-zh-011",
             "kind": "paragraph",
             "text": "上图具有很强的负相关性。这意味着过程中的温度随着时间的增加而有降低的趋势。同样，您可以通过数据点绘制一条最佳拟合线，并且所有数据点都非常接近趋势线，如右图所示。"
           },
           {
-            "id": "ch19-content-zh-020",
+            "id": "ch19-s02-correlation-zh-012",
             "kind": "image",
             "assetId": "fig-7842de01b168562e",
             "src": "assets/figures/fig-7842de01b168562e.png",
@@ -1026,17 +591,17 @@
             "height": 404
           },
           {
-            "id": "ch19-content-zh-021",
+            "id": "ch19-s02-correlation-zh-013",
             "kind": "paragraph",
             "text": "相反，左图表示可能存在相关性的一组数据，但它比上面两个示例中的任何一个都弱。弱相关性在散点图上表示，其中似乎确实存在趋势线，并且不接触趋势线的上方或下方的数据点数量大致相同。通常，位于趋势线上方和下方的数据点在某种程度上"
           },
           {
-            "id": "ch19-content-zh-022",
+            "id": "ch19-s02-correlation-zh-014",
             "kind": "paragraph",
             "text": "对称，这意味着与另一侧的点相比，一侧的点不会距离线极远，但情况并非总是如此。弱相关性很容易看到，就像在本例中一样，或者在图表上更难看到，需要使用统计分析来证明相关性的强有力的理由。"
           },
           {
-            "id": "ch19-content-zh-023",
+            "id": "ch19-s02-correlation-zh-015",
             "kind": "image",
             "assetId": "fig-5449580231d2f808",
             "src": "assets/figures/fig-5449580231d2f808.png",
@@ -1044,22 +609,22 @@
             "height": 660
           },
           {
-            "id": "ch19-content-zh-024",
+            "id": "ch19-s02-correlation-zh-016",
             "kind": "paragraph",
             "text": "上图显示了一个散点图，表明过程中时间和温度之间没有或几乎没有相关性。数据点随机散布在图表上，趋势线几乎是水平的。水平趋势线通常表明缺乏相关性。"
           },
           {
-            "id": "ch19-content-zh-025",
+            "id": "ch19-s02-correlation-zh-017",
             "kind": "heading",
             "text": "相关系数"
           },
           {
-            "id": "ch19-content-zh-026",
+            "id": "ch19-s02-correlation-zh-018",
             "kind": "paragraph",
             "text": "图像并不总是准确的，尤其是当相关性较弱时。 在某些情况下，当整个样本或数据集中确实存在相关性时，捕获小数据样本的图像可能会显示相关性或不显示相关性。图形分析对于了解数据关系非常有用，对于说明与其他人的关系也非常有用，但统计分析可以帮助团队更确定地理解关系。"
           },
           {
-            "id": "ch19-content-zh-027",
+            "id": "ch19-s02-correlation-zh-019",
             "kind": "termNote",
             "rows": [
               [
@@ -1069,42 +634,42 @@
             "text": "术语说明 Sample / Sampling（样本/抽样）：从总体中选取部分数据进行分析；样本应尽量代表总体。"
           },
           {
-            "id": "ch19-content-zh-028",
+            "id": "ch19-s02-correlation-zh-020",
             "kind": "paragraph",
             "text": "为了相关性的目的，我们所关心的统计计算被称为相关系数，或R值。相关系数是 -1 到 1 之间的数字。当相关系数接近 -1 或 1 时，两个变量之间的关系被认为更有可能或更强。"
           },
           {
-            "id": "ch19-content-zh-029",
+            "id": "ch19-s02-correlation-zh-021",
             "kind": "listItem",
             "text": "如果相关系数等于 1，则关系是确定的：集合上的所有数据点都位于正趋势线上。"
           },
           {
-            "id": "ch19-content-zh-030",
+            "id": "ch19-s02-correlation-zh-022",
             "kind": "listItem",
             "text": "对于相关系数等于 -1 的情况也是如此，只不过所有数据点都位于负趋势线上。"
           },
           {
-            "id": "ch19-content-zh-031",
+            "id": "ch19-s02-correlation-zh-023",
             "kind": "listItem",
             "text": "相关系数等于0意味着变量之间肯定不存在关系，并且不存在趋势线。"
           },
           {
-            "id": "ch19-content-zh-032",
+            "id": "ch19-s02-correlation-zh-024",
             "kind": "listItem",
             "text": "大多数时候，当您计算相关系数时，该数字将在 0 和 1 或 0 和 -1 之间。"
           },
           {
-            "id": "ch19-content-zh-033",
+            "id": "ch19-s02-correlation-zh-025",
             "kind": "heading",
             "text": "在 Excel 中计算相关系数：两种方法"
           },
           {
-            "id": "ch19-content-zh-034",
+            "id": "ch19-s02-correlation-zh-026",
             "kind": "paragraph",
             "text": "相关系数是使用多个公式计算的。基础统计中最常用的公式之一是皮尔逊相关系数公式，如下所示："
           },
           {
-            "id": "ch19-content-zh-035",
+            "id": "ch19-s02-correlation-zh-027",
             "kind": "image",
             "assetId": "fig-1f4ebcf9e1c7aba7",
             "src": "assets/figures/fig-1f4ebcf9e1c7aba7.png",
@@ -1112,12 +677,12 @@
             "height": 210
           },
           {
-            "id": "ch19-content-zh-036",
+            "id": "ch19-s02-correlation-zh-028",
             "kind": "paragraph",
             "text": "另一种计算使用平方和。公式如下所示。"
           },
           {
-            "id": "ch19-content-zh-037",
+            "id": "ch19-s02-correlation-zh-029",
             "kind": "image",
             "assetId": "fig-af785da1a1261cb7",
             "src": "assets/figures/fig-af785da1a1261cb7.png",
@@ -1125,17 +690,17 @@
             "height": 515
           },
           {
-            "id": "ch19-content-zh-038",
+            "id": "ch19-s02-correlation-zh-030",
             "kind": "heading",
             "text": "其中："
           },
           {
-            "id": "ch19-content-zh-039",
+            "id": "ch19-s02-correlation-zh-031",
             "kind": "paragraph",
             "text": "这两个公式都依赖于通过组合数据对获得的特定 (x,y) 数据。例如，考虑以下数据集："
           },
           {
-            "id": "ch19-content-zh-040",
+            "id": "ch19-s02-correlation-zh-032",
             "kind": "image",
             "assetId": "fig-6e9880d03f8e537d",
             "src": "assets/figures/fig-6e9880d03f8e537d.png",
@@ -1143,7 +708,7 @@
             "height": 302
           },
           {
-            "id": "ch19-content-zh-041",
+            "id": "ch19-s02-correlation-zh-033",
             "kind": "image",
             "assetId": "fig-b13325c3b942106d",
             "src": "assets/figures/fig-b13325c3b942106d.png",
@@ -1151,52 +716,52 @@
             "height": 474
           },
           {
-            "id": "ch19-content-zh-042",
+            "id": "ch19-s02-correlation-zh-034",
             "kind": "paragraph",
             "text": "如果将平均产量视为 Y 轴，将工作月份视为 X 轴，则该数据集的配对点将写为："
           },
           {
-            "id": "ch19-content-zh-043",
+            "id": "ch19-s02-correlation-zh-035",
             "kind": "listItem",
             "text": "2, 10"
           },
           {
-            "id": "ch19-content-zh-044",
+            "id": "ch19-s02-correlation-zh-036",
             "kind": "listItem",
             "text": "2、11"
           },
           {
-            "id": "ch19-content-zh-045",
+            "id": "ch19-s02-correlation-zh-037",
             "kind": "listItem",
             "text": "3、12"
           },
           {
-            "id": "ch19-content-zh-046",
+            "id": "ch19-s02-correlation-zh-038",
             "kind": "listItem",
             "text": "3、11"
           },
           {
-            "id": "ch19-content-zh-047",
+            "id": "ch19-s02-correlation-zh-039",
             "kind": "listItem",
             "text": "等等"
           },
           {
-            "id": "ch19-content-zh-048",
+            "id": "ch19-s02-correlation-zh-040",
             "kind": "paragraph",
             "text": "这些数字可以包含在上面的等式中；西格玛符号（看起来像 E）表示求和。例如，在皮尔逊方程中，将所有 (x*y) 相加并减去（所有 x 的总和）*（所有 y 的总和）即可得到最高的数字。"
           },
           {
-            "id": "ch19-content-zh-049",
+            "id": "ch19-s02-correlation-zh-041",
             "kind": "paragraph",
             "text": "可以使用这些公式之一来计算相关系数，但幸运的是，今天的技术提供了自动计算数字的数字方法。您可以使用统计分析软件或图形计算器根据过程中两个变量的数据得出相关系数。在本节中，我们将了解使用 Excel 确定相关系数的两种快速方法。"
           },
           {
-            "id": "ch19-content-zh-050",
+            "id": "ch19-s02-correlation-zh-042",
             "kind": "paragraph",
             "text": "对于下面的两个练习，我们将使用以下数据表。将数据表复制到空白 Excel 工作表中。"
           },
           {
-            "id": "ch19-content-zh-051",
+            "id": "ch19-s02-correlation-zh-043",
             "kind": "image",
             "assetId": "fig-540b7527610c9582",
             "src": "assets/figures/fig-540b7527610c9582.png",
@@ -1204,7 +769,7 @@
             "height": 450
           },
           {
-            "id": "ch19-content-zh-052",
+            "id": "ch19-s02-correlation-zh-044",
             "kind": "image",
             "assetId": "fig-440935e2c348c4e0",
             "src": "assets/figures/fig-440935e2c348c4e0.png",
@@ -1212,22 +777,22 @@
             "height": 100
           },
           {
-            "id": "ch19-content-zh-053",
+            "id": "ch19-s02-correlation-zh-045",
             "kind": "heading",
             "text": "科雷尔公式"
           },
           {
-            "id": "ch19-content-zh-054",
+            "id": "ch19-s02-correlation-zh-046",
             "kind": "paragraph",
             "text": "计算两组可能相关的数据的相关系数的最简单方法之一是使用 Excel 的 CORREL 公式。按照以下步骤计算时间和温度 A 之间的相关系数。"
           },
           {
-            "id": "ch19-content-zh-055",
+            "id": "ch19-s02-correlation-zh-047",
             "kind": "paragraph",
             "text": "1. 在复制上述数据表的工作表中的任何单元格中，公式 =CORREL"
           },
           {
-            "id": "ch19-content-zh-056",
+            "id": "ch19-s02-correlation-zh-048",
             "kind": "image",
             "assetId": "fig-3f78f61f53fe1cde",
             "src": "assets/figures/fig-3f78f61f53fe1cde.png",
@@ -1235,12 +800,12 @@
             "height": 733
           },
           {
-            "id": "ch19-content-zh-057",
+            "id": "ch19-s02-correlation-zh-049",
             "kind": "paragraph",
             "text": "2. 数组 1 是包含时间数据的单元格集合。数组 2 是包含温度 A 数据的单元格集。您可以使用鼠标选择这些单元格范围，并在公式中用逗号分隔它们。最终结果应如下所示。"
           },
           {
-            "id": "ch19-content-zh-058",
+            "id": "ch19-s02-correlation-zh-050",
             "kind": "image",
             "assetId": "fig-9eb02e53f8fb929b",
             "src": "assets/figures/fig-9eb02e53f8fb929b.png",
@@ -1248,22 +813,22 @@
             "height": 255
           },
           {
-            "id": "ch19-content-zh-059",
+            "id": "ch19-s02-correlation-zh-051",
             "kind": "paragraph",
             "text": "3. 按回车键。 4. Excel将计算相关系数。在这种情况下，它是 0.981167422"
           },
           {
-            "id": "ch19-content-zh-060",
+            "id": "ch19-s02-correlation-zh-052",
             "kind": "paragraph",
             "text": "上面计算的相关系数适用于创建本章第一个散点图的数据集。如果您还记得的话，散点图似乎表明数据具有非常强的正相关性； 0.98 的相关系数（或 R 值）当然符合该评估。"
           },
           {
-            "id": "ch19-content-zh-061",
+            "id": "ch19-s02-correlation-zh-053",
             "kind": "paragraph",
             "text": "让我们从上面的数据表中计算时间和温度 C 的相关系数。重复上述步骤，但更改阵列 2 范围以引用温度 C 的数据集。"
           },
           {
-            "id": "ch19-content-zh-062",
+            "id": "ch19-s02-correlation-zh-054",
             "kind": "image",
             "assetId": "fig-c6d09505d7280895",
             "src": "assets/figures/fig-c6d09505d7280895.png",
@@ -1271,27 +836,27 @@
             "height": 292
           },
           {
-            "id": "ch19-content-zh-063",
+            "id": "ch19-s02-correlation-zh-055",
             "kind": "paragraph",
             "text": "时间和温度 C 的 R 值经计算为 0.107，更接近于零。该数据集创建了上面的散点图，该图似乎没有相关性。 R值与散点图得出的结论相对应。在大多数应用中，如果 R 值为 0.4 或更大或 -0.4 或更小，则认为在某种水平上出现相关性。"
           },
           {
-            "id": "ch19-content-zh-064",
+            "id": "ch19-s02-correlation-zh-056",
             "kind": "heading",
             "text": "数据分析工具库"
           },
           {
-            "id": "ch19-content-zh-065",
+            "id": "ch19-s02-correlation-zh-057",
             "kind": "paragraph",
             "text": "您还可以使用分析工具库来计算相关系数。按照以下步骤计算时间和温度 B 的 R 值。"
           },
           {
-            "id": "ch19-content-zh-066",
+            "id": "ch19-s02-correlation-zh-058",
             "kind": "paragraph",
             "text": "1. 设置电子表格的格式，使时间和温度 B 列彼此相邻。 2. 从顶部菜单中选择数据，然后选择数据分析。"
           },
           {
-            "id": "ch19-content-zh-067",
+            "id": "ch19-s02-correlation-zh-059",
             "kind": "image",
             "assetId": "fig-3a42f0da7732544d",
             "src": "assets/figures/fig-3a42f0da7732544d.png",
@@ -1299,12 +864,12 @@
             "height": 201
           },
           {
-            "id": "ch19-content-zh-068",
+            "id": "ch19-s02-correlation-zh-060",
             "kind": "paragraph",
             "text": "3. 突出显示“相关性”并选择“确定”。"
           },
           {
-            "id": "ch19-content-zh-069",
+            "id": "ch19-s02-correlation-zh-061",
             "kind": "image",
             "assetId": "fig-a693ea020d4306cc",
             "src": "assets/figures/fig-a693ea020d4306cc.png",
@@ -1312,12 +877,12 @@
             "height": 378
           },
           {
-            "id": "ch19-content-zh-070",
+            "id": "ch19-s02-correlation-zh-062",
             "kind": "paragraph",
             "text": "4. 单击输入框并选择相关性分析的输入。从时间和温度 B 列中选择数据。"
           },
           {
-            "id": "ch19-content-zh-071",
+            "id": "ch19-s02-correlation-zh-063",
             "kind": "image",
             "assetId": "fig-95729e562c6b1911",
             "src": "assets/figures/fig-95729e562c6b1911.png",
@@ -1325,12 +890,12 @@
             "height": 471
           },
           {
-            "id": "ch19-content-zh-072",
+            "id": "ch19-s02-correlation-zh-064",
             "kind": "paragraph",
             "text": "5. 请注意，您的数据是按列分组的。如果您选择了输入范围中的标题行，请选中“第一行中的标签”复选框。 6. 选择在新工作表中输出。 7. 单击“确定”。 8. Excel将计算相关系数。"
           },
           {
-            "id": "ch19-content-zh-073",
+            "id": "ch19-s02-correlation-zh-065",
             "kind": "image",
             "assetId": "fig-ebb5bb3b8edf3ce7",
             "src": "assets/figures/fig-ebb5bb3b8edf3ce7.png",
@@ -1338,17 +903,17 @@
             "height": 311
           },
           {
-            "id": "ch19-content-zh-074",
+            "id": "ch19-s02-correlation-zh-066",
             "kind": "paragraph",
             "text": "在上面的例子中，R值显示出时间和温度之间非常强的负相关性。该数据集与上面制作负相关散点图所用的数据集相同，因此R值与图形分析一致。"
           },
           {
-            "id": "ch19-content-zh-075",
+            "id": "ch19-s02-correlation-zh-067",
             "kind": "paragraph",
             "text": "重复上述步骤，求时间与温度的相关系数D。"
           },
           {
-            "id": "ch19-content-zh-076",
+            "id": "ch19-s02-correlation-zh-068",
             "kind": "image",
             "assetId": "fig-b7d8f0c22520f99d",
             "src": "assets/figures/fig-b7d8f0c22520f99d.png",
@@ -1356,82 +921,90 @@
             "height": 233
           },
           {
-            "id": "ch19-content-zh-077",
+            "id": "ch19-s02-correlation-zh-069",
             "kind": "paragraph",
             "text": "返回的 R 值显示出比我们使用 CORREL 函数的第一次计算更弱的正相关性，但我们仍然认为这些数据是相关的。温度 D 的数据与创建本章图形分析部分中的第三个散点图的数据相同。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch19-s03-linear-regression-analysis",
+      "level": 2,
+      "page": 212,
+      "title": {
+        "en": "Linear Regression Analysis",
+        "zh": "线性回归分析"
+      },
+      "content": {
+        "en": [
+          {
+            "id": "ch19-s03-linear-regression-analysis-en-001",
+            "kind": "paragraph",
+            "text": "Once you know your data has a linear correlation, you can conduct further analysis through regression testing. Regression lets you create a linear model that helps you predict how one variable might behave given changes in the other variable. Note again that the changes aren’t necessarily an indication of cause – only that the variables are intertwined in some way."
           },
           {
-            "id": "ch19-content-zh-078",
+            "id": "ch19-s03-linear-regression-analysis-en-002",
+            "kind": "paragraph",
+            "text": "When working with regression, we talk about the coefficient of determination, or the r2 value. The r2"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-en-003",
+            "kind": "paragraph",
+            "text": "value is, literally, the square of R, or the square of the correlation coefficient. So, from our last example in the correlation coefficient section, R = 0.860624. The r2 value in this case would be 0.74."
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-en-004",
+            "kind": "paragraph",
+            "text": "The r2 value is a number between 0 and 1. The number tells us about the strength of the linear relationship between two variables – x and y. While the R value tells us how likely it is that two values are related in some way, the r2 value tells us how much the fluctuation in one variable (the dependent variable, or y) is related to changes in another variable (the independent variable, or x)."
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-en-005",
+            "kind": "paragraph",
+            "text": "In the example used above, r2 is 0.74. That means that approximately 74 percent of the variation in the temperature is related to the change in time; the other 26 percent variation in temperature is unexplained."
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-en-006",
+            "kind": "paragraph",
+            "text": "Regression analysis lets us create a best fit line and equation for our data, and the r2 value tells us how confident we can be in using that line to make predictions about data."
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-en-007",
             "kind": "heading",
-            "text": "线性回归分析"
+            "text": "Analyzing Regression Using the Data Analysis ToolPak"
           },
           {
-            "id": "ch19-content-zh-079",
+            "id": "ch19-s03-linear-regression-analysis-en-008",
             "kind": "paragraph",
-            "text": "一旦您知道数据具有线性相关性，您就可以通过回归测试进行进一步分析。回归可让您创建一个线性模型，帮助您预测一个变量在给定另一个变量变化的情况下可能如何表现。再次注意，这些变化并不一定表明原因——只是变量以某种方式交织在一起。"
+            "text": "To understand how regression works, consider the same data set used in the correlation coefficient examples above:"
           },
           {
-            "id": "ch19-content-zh-080",
+            "id": "ch19-s03-linear-regression-analysis-en-009",
             "kind": "paragraph",
-            "text": "在处理回归时，我们谈论决定系数或 r2 值。 r2"
+            "text": "Time Temperature A Temperature B Temperature C Temperature D 1 30 70 35 30 2 35 68 48 31 3 37 63 75 38 4 40 62 25 24 5 41 55 50 35 6 48 47 34 49 7 57 42 48 45 8 55 41 31 59 9 59 38 24 42 10 62 36 41 65 11 63 31 71 64 12 65 25 55 59"
           },
           {
-            "id": "ch19-content-zh-081",
+            "id": "ch19-s03-linear-regression-analysis-en-010",
             "kind": "paragraph",
-            "text": "从字面上看，值是 R 的平方，或相关系数的平方。因此，从相关系数部分的最后一个示例来看，R = 0.860624。在这种情况下，r2 值为 0.74。"
+            "text": "If you recall, the correlation between time and temperature A was strong. We’ll look at that relationship on a regression model using the Analysis ToolPak in Excel."
           },
           {
-            "id": "ch19-content-zh-082",
-            "kind": "paragraph",
-            "text": "r2 值是 0 到 1 之间的数字。该数字告诉我们两个变量 x 和 y 之间的线性关系的强度。 R 值告诉我们两个值以某种方式相关的可能性有多大，而 r2 值告诉我们一个变量（因变量，或 y）的波动与另一个变量（自变量，或 x）的变化有多少相关。"
-          },
-          {
-            "id": "ch19-content-zh-083",
-            "kind": "paragraph",
-            "text": "在上面使用的示例中，r2 为 0.74。这意味着大约 74% 的温度变化与时间变化有关；另外 26% 的温度变化无法解释。"
-          },
-          {
-            "id": "ch19-content-zh-084",
-            "kind": "paragraph",
-            "text": "回归分析使我们能够为数据创建最佳拟合线和方程，而 r2 值告诉我们使用该线对数据进行预测的信心有多大。"
-          },
-          {
-            "id": "ch19-content-zh-085",
+            "id": "ch19-s03-linear-regression-analysis-en-011",
             "kind": "heading",
-            "text": "使用数据分析工具库分析回归"
+            "text": "Creating the Regression Worksheet"
           },
           {
-            "id": "ch19-content-zh-086",
+            "id": "ch19-s03-linear-regression-analysis-en-012",
             "kind": "paragraph",
-            "text": "要了解回归的工作原理，请考虑上面相关系数示例中使用的相同数据集："
+            "text": "Begin by creating a regression worksheet using the data. Follow the steps below."
           },
           {
-            "id": "ch19-content-zh-087",
+            "id": "ch19-s03-linear-regression-analysis-en-013",
             "kind": "paragraph",
-            "text": "时间 温度 A 温度 B 温度 C 温度 D 1 30 70 35 30 2 35 68 48 31 3 37 63 75 38 4 40 62 25 24 5 41 55 50 35 6 48 47 34 49 7 57 42 48 45 8 55 41 31 59 9 59 38 24 42 10 62 36 41 65 11 63 31 71 64 12 65 25 55 59"
+            "text": "1. Copy the data table into a new worksheet in Excel. 2. Select Data and then Data Analysis from the top menu."
           },
           {
-            "id": "ch19-content-zh-088",
-            "kind": "paragraph",
-            "text": "如果您还记得的话，时间和温度 A 之间的相关性很强。我们将使用 Excel 中的分析工具库在回归模型上查看该关系。"
-          },
-          {
-            "id": "ch19-content-zh-089",
-            "kind": "heading",
-            "text": "创建回归工作表"
-          },
-          {
-            "id": "ch19-content-zh-090",
-            "kind": "paragraph",
-            "text": "首先使用数据创建回归工作表。请按照以下步骤操作。"
-          },
-          {
-            "id": "ch19-content-zh-091",
-            "kind": "paragraph",
-            "text": "1. 将数据表复制到 Excel 中的新工作表中。 2. 从顶部菜单中选择数据，然后选择数据分析。"
-          },
-          {
-            "id": "ch19-content-zh-092",
+            "id": "ch19-s03-linear-regression-analysis-en-014",
             "kind": "image",
             "assetId": "fig-b7743f4146678d05",
             "src": "assets/figures/fig-b7743f4146678d05.png",
@@ -1439,12 +1012,12 @@
             "height": 201
           },
           {
-            "id": "ch19-content-zh-093",
+            "id": "ch19-s03-linear-regression-analysis-en-015",
             "kind": "paragraph",
-            "text": "3. 选择回归并单击确定。"
+            "text": "3. Select Regression and click OK."
           },
           {
-            "id": "ch19-content-zh-094",
+            "id": "ch19-s03-linear-regression-analysis-en-016",
             "kind": "image",
             "assetId": "fig-0bfd13ea8b624944",
             "src": "assets/figures/fig-0bfd13ea8b624944.png",
@@ -1452,12 +1025,12 @@
             "height": 398
           },
           {
-            "id": "ch19-content-zh-095",
+            "id": "ch19-s03-linear-regression-analysis-en-017",
             "kind": "paragraph",
-            "text": "4. 选择温度 A 作为 Y 输入范围，选择时间作为 X 输入范围。"
+            "text": "4. Select Temperate A as your Y input range and Time as your X input range."
           },
           {
-            "id": "ch19-content-zh-096",
+            "id": "ch19-s03-linear-regression-analysis-en-018",
             "kind": "image",
             "assetId": "fig-040b27437a3b3846",
             "src": "assets/figures/fig-040b27437a3b3846.png",
@@ -1465,17 +1038,17 @@
             "height": 713
           },
           {
-            "id": "ch19-content-zh-097",
+            "id": "ch19-s03-linear-regression-analysis-en-019",
             "kind": "paragraph",
-            "text": "5. 如果您在输入范围时选择了标题数据，请检查是否包含标签。 6. 选中新工作表复选框。 7. 选中线拟合图的框。 8. 单击“确定”。"
+            "text": "5. If you selected header data when inputting ranges, check that labels are included. 6. Check the box for new worksheet. 7. Check the box for line fit plots. 8. Click OK."
           },
           {
-            "id": "ch19-content-zh-098",
+            "id": "ch19-s03-linear-regression-analysis-en-020",
             "kind": "paragraph",
-            "text": "Excel 生成一个包含许多统计输出的新工作簿。本章中的相关值可在“Multiple R”和“R Square”下找到。"
+            "text": "Excel generates a new workbook with a number of statistical outputs. The relevant values for the purpose of this chapter are found under “Multiple R” and “R Square.”"
           },
           {
-            "id": "ch19-content-zh-099",
+            "id": "ch19-s03-linear-regression-analysis-en-021",
             "kind": "image",
             "assetId": "fig-d624c94e776abcaa",
             "src": "assets/figures/fig-d624c94e776abcaa.png",
@@ -1483,17 +1056,17 @@
             "height": 803
           },
           {
-            "id": "ch19-content-zh-100",
+            "id": "ch19-s03-linear-regression-analysis-en-022",
             "kind": "paragraph",
-            "text": "Multiple R 值是相关系数。您可以看到本例中的系数与上一节中为此数据集计算的相关系数相匹配。该数据集的 r2 值为 0.96，这意味着该数据集中几乎所有温度变化都与时间变化有关。"
+            "text": "The Multiple R value is the correlation coefficient. You can see that the coefficient in this case matches the correlation coefficient calculated for this data set in the last section. The r2 value for this data set is 0.96, which means almost all the variation in temperature in this data set is related to a change in time."
           },
           {
-            "id": "ch19-content-zh-101",
+            "id": "ch19-s03-linear-regression-analysis-en-023",
             "kind": "paragraph",
-            "text": "由于您在创建回归分析时选择了线拟合图框，因此 Excel 还生成了散点图和最佳拟合图。"
+            "text": "Because you selected the line fit plots box when creating your regression analysis, Excel has also generated a scatter diagram and a best fit plot."
           },
           {
-            "id": "ch19-content-zh-102",
+            "id": "ch19-s03-linear-regression-analysis-en-024",
             "kind": "image",
             "assetId": "fig-e739403ebf752f9e",
             "src": "assets/figures/fig-e739403ebf752f9e.png",
@@ -1501,17 +1074,17 @@
             "height": 717
           },
           {
-            "id": "ch19-content-zh-103",
+            "id": "ch19-s03-linear-regression-analysis-en-025",
             "kind": "paragraph",
-            "text": "该图表以蓝色显示所有实际数据点，以橙色显示沿着最佳拟合线的预测数据点。 这些数据点由 Excel 使用根据数据创建的公式计算得出。您可以通过对图形进行设计更改来显示公式。请按照以下步骤显示公式。"
+            "text": "The chart shows all of the actual data points in blue and predicted data points along a best fit line in orange. Those data points are calculated by Excel using a formula created from the data. You can display the formula by making design changes to the graph. Follow the steps below to display the formula."
           },
           {
-            "id": "ch19-content-zh-104",
+            "id": "ch19-s03-linear-regression-analysis-en-026",
             "kind": "paragraph",
-            "text": "1. 单击 Excel 中的图表。 2. 选择设计。 3. 选择添加图表元素。"
+            "text": "1. Click on the graph in Excel. 2. Select Design. 3. Select Add Chart Element."
           },
           {
-            "id": "ch19-content-zh-105",
+            "id": "ch19-s03-linear-regression-analysis-en-027",
             "kind": "image",
             "assetId": "fig-fd11ec3958cb18ad",
             "src": "assets/figures/fig-fd11ec3958cb18ad.png",
@@ -1519,12 +1092,12 @@
             "height": 273
           },
           {
-            "id": "ch19-content-zh-106",
+            "id": "ch19-s03-linear-regression-analysis-en-028",
             "kind": "paragraph",
-            "text": "4. 选择趋势线、更多趋势线选项。"
+            "text": "4. Select Trendline, More Trendline Options."
           },
           {
-            "id": "ch19-content-zh-107",
+            "id": "ch19-s03-linear-regression-analysis-en-029",
             "kind": "image",
             "assetId": "fig-0259d523a1e9cbdd",
             "src": "assets/figures/fig-0259d523a1e9cbdd.png",
@@ -1532,12 +1105,12 @@
             "height": 1011
           },
           {
-            "id": "ch19-content-zh-108",
+            "id": "ch19-s03-linear-regression-analysis-en-030",
             "kind": "paragraph",
-            "text": "5. 选择预测趋势线的选项，然后单击“确定”。"
+            "text": "5. Select the option for the predicted trend line and click OK."
           },
           {
-            "id": "ch19-content-zh-109",
+            "id": "ch19-s03-linear-regression-analysis-en-031",
             "kind": "image",
             "assetId": "fig-41b2052bf1ca64dc",
             "src": "assets/figures/fig-41b2052bf1ca64dc.png",
@@ -1545,12 +1118,12 @@
             "height": 399
           },
           {
-            "id": "ch19-content-zh-110",
+            "id": "ch19-s03-linear-regression-analysis-en-032",
             "kind": "paragraph",
-            "text": "6. 单击该框以在图表上显示方程。"
+            "text": "6. Click the box to display the equation on the chart."
           },
           {
-            "id": "ch19-content-zh-111",
+            "id": "ch19-s03-linear-regression-analysis-en-033",
             "kind": "image",
             "assetId": "fig-1db0dbec51d020cb",
             "src": "assets/figures/fig-1db0dbec51d020cb.png",
@@ -1558,12 +1131,12 @@
             "height": 1008
           },
           {
-            "id": "ch19-content-zh-112",
+            "id": "ch19-s03-linear-regression-analysis-en-034",
             "kind": "paragraph",
-            "text": "7. 注意图表上的趋势方程。"
+            "text": "7. Note the trend equation on the graph."
           },
           {
-            "id": "ch19-content-zh-113",
+            "id": "ch19-s03-linear-regression-analysis-en-035",
             "kind": "image",
             "assetId": "fig-090add15823910d3",
             "src": "assets/figures/fig-090add15823910d3.png",
@@ -1571,37 +1144,37 @@
             "height": 702
           },
           {
-            "id": "ch19-content-zh-114",
+            "id": "ch19-s03-linear-regression-analysis-en-036",
             "kind": "paragraph",
-            "text": "在本例中，方程为 y = 3.3497x + 27.561。"
+            "text": "In this case, the equation is y = 3.3497x + 27.561."
           },
           {
-            "id": "ch19-content-zh-115",
+            "id": "ch19-s03-linear-regression-analysis-en-037",
             "kind": "paragraph",
-            "text": "如果您还记得的话，r2 值为 0.96，这意味着我们的线性方程将非常擅长确定过程中与时间的关系的近似温度。"
+            "text": "The r2 value, if you recall, is 0.96, which means that our linear equation is going to be very good at determining the approximate temperature in our process as a relation to time."
           },
           {
-            "id": "ch19-content-zh-116",
+            "id": "ch19-s03-linear-regression-analysis-en-038",
             "kind": "paragraph",
-            "text": "例如，在 5 分钟时，我们的方程预测温度为 44.30。"
+            "text": "At 5 minutes, for example, our equation predicts that the temperature is 44.30."
           },
           {
-            "id": "ch19-content-zh-117",
-            "kind": "heading",
+            "id": "ch19-s03-linear-regression-analysis-en-039",
+            "kind": "paragraph",
             "text": "Y = 3.3497(5) + 27.561"
           },
           {
-            "id": "ch19-content-zh-118",
+            "id": "ch19-s03-linear-regression-analysis-en-040",
             "kind": "paragraph",
-            "text": "在 25 分钟时，我们的方程预测温度为 111.30。"
+            "text": "At 25 minutes, our equation predicts that the temperature is 111.30."
           },
           {
-            "id": "ch19-content-zh-119",
+            "id": "ch19-s03-linear-regression-analysis-en-041",
             "kind": "paragraph",
-            "text": "低相关性回归测试 要了解低相关性回归测试的外观，请使用温度 C 的数据重复上述步骤。"
+            "text": "Regression test with low correlation To see how regression tests might look with low correlation, repeat the steps above with the data for temperature C."
           },
           {
-            "id": "ch19-content-zh-120",
+            "id": "ch19-s03-linear-regression-analysis-en-042",
             "kind": "image",
             "assetId": "fig-75ebedf842a945ed",
             "src": "assets/figures/fig-75ebedf842a945ed.png",
@@ -1609,12 +1182,12 @@
             "height": 387
           },
           {
-            "id": "ch19-content-zh-121",
+            "id": "ch19-s03-linear-regression-analysis-en-043",
             "kind": "paragraph",
-            "text": "同样，相关系数非常低。 r2值也很低；根据该模型，只有大约 1% 的温度变化与时间有关。"
+            "text": "Again, the correlation coefficient is very low. The r2 value is also very low; according to this model, only about 1 percent of the variation in temperature is related to time."
           },
           {
-            "id": "ch19-content-zh-122",
+            "id": "ch19-s03-linear-regression-analysis-en-044",
             "kind": "image",
             "assetId": "fig-c924c3ad8176f217",
             "src": "assets/figures/fig-c924c3ad8176f217.png",
@@ -1622,22 +1195,469 @@
             "height": 672
           },
           {
-            "id": "ch19-content-zh-123",
+            "id": "ch19-s03-linear-regression-analysis-en-045",
+            "kind": "paragraph",
+            "text": "If you format it to do so, Excel will create a predicted line and a linear trend equation. Given the extremely low r2 value, though, you know that this equation is not useful in making any real predictions about the temperature for a given time. You only have to look at the graph to see this is true. For a time around 3, the equation predicts a temperature of just over 40. The actual temperature, however, was 75. And that number doesn’t just reflect an outlier that might point to a problem of data collection or a temporary process issue; the data throughout the chart is skewed far away from the line."
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-001",
+            "kind": "paragraph",
+            "text": "一旦您知道数据具有线性相关性，您就可以通过回归测试进行进一步分析。回归可让您创建一个线性模型，帮助您预测一个变量在给定另一个变量变化的情况下可能如何表现。再次注意，这些变化并不一定表明原因——只是变量以某种方式交织在一起。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-002",
+            "kind": "paragraph",
+            "text": "在处理回归时，我们谈论决定系数或 r2 值。 r2"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-003",
+            "kind": "paragraph",
+            "text": "从字面上看，值是 R 的平方，或相关系数的平方。因此，从相关系数部分的最后一个示例来看，R = 0.860624。在这种情况下，r2 值为 0.74。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-004",
+            "kind": "paragraph",
+            "text": "r2 值是 0 到 1 之间的数字。该数字告诉我们两个变量 x 和 y 之间的线性关系的强度。 R 值告诉我们两个值以某种方式相关的可能性有多大，而 r2 值告诉我们一个变量（因变量，或 y）的波动与另一个变量（自变量，或 x）的变化有多少相关。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-005",
+            "kind": "paragraph",
+            "text": "在上面使用的示例中，r2 为 0.74。这意味着大约 74% 的温度变化与时间变化有关；另外 26% 的温度变化无法解释。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-006",
+            "kind": "paragraph",
+            "text": "回归分析使我们能够为数据创建最佳拟合线和方程，而 r2 值告诉我们使用该线对数据进行预测的信心有多大。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-007",
+            "kind": "heading",
+            "text": "使用数据分析工具库分析回归"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-008",
+            "kind": "paragraph",
+            "text": "要了解回归的工作原理，请考虑上面相关系数示例中使用的相同数据集："
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-009",
+            "kind": "paragraph",
+            "text": "时间 温度 A 温度 B 温度 C 温度 D 1 30 70 35 30 2 35 68 48 31 3 37 63 75 38 4 40 62 25 24 5 41 55 50 35 6 48 47 34 49 7 57 42 48 45 8 55 41 31 59 9 59 38 24 42 10 62 36 41 65 11 63 31 71 64 12 65 25 55 59"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-010",
+            "kind": "paragraph",
+            "text": "如果您还记得的话，时间和温度 A 之间的相关性很强。我们将使用 Excel 中的分析工具库在回归模型上查看该关系。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-011",
+            "kind": "heading",
+            "text": "创建回归工作表"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-012",
+            "kind": "paragraph",
+            "text": "首先使用数据创建回归工作表。请按照以下步骤操作。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-013",
+            "kind": "paragraph",
+            "text": "1. 将数据表复制到 Excel 中的新工作表中。 2. 从顶部菜单中选择数据，然后选择数据分析。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-014",
+            "kind": "image",
+            "assetId": "fig-b7743f4146678d05",
+            "src": "assets/figures/fig-b7743f4146678d05.png",
+            "width": 1191,
+            "height": 201
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-015",
+            "kind": "paragraph",
+            "text": "3. 选择回归并单击确定。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-016",
+            "kind": "image",
+            "assetId": "fig-0bfd13ea8b624944",
+            "src": "assets/figures/fig-0bfd13ea8b624944.png",
+            "width": 764,
+            "height": 398
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-017",
+            "kind": "paragraph",
+            "text": "4. 选择温度 A 作为 Y 输入范围，选择时间作为 X 输入范围。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-018",
+            "kind": "image",
+            "assetId": "fig-040b27437a3b3846",
+            "src": "assets/figures/fig-040b27437a3b3846.png",
+            "width": 805,
+            "height": 713
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-019",
+            "kind": "paragraph",
+            "text": "5. 如果您在输入范围时选择了标题数据，请检查是否包含标签。 6. 选中新工作表复选框。 7. 选中线拟合图的框。 8. 单击“确定”。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-020",
+            "kind": "paragraph",
+            "text": "Excel 生成一个包含许多统计输出的新工作簿。本章中的相关值可在“Multiple R”和“R Square”下找到。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-021",
+            "kind": "image",
+            "assetId": "fig-d624c94e776abcaa",
+            "src": "assets/figures/fig-d624c94e776abcaa.png",
+            "width": 833,
+            "height": 803
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-022",
+            "kind": "paragraph",
+            "text": "Multiple R 值是相关系数。您可以看到本例中的系数与上一节中为此数据集计算的相关系数相匹配。该数据集的 r2 值为 0.96，这意味着该数据集中几乎所有温度变化都与时间变化有关。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-023",
+            "kind": "paragraph",
+            "text": "由于您在创建回归分析时选择了线拟合图框，因此 Excel 还生成了散点图和最佳拟合图。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-024",
+            "kind": "image",
+            "assetId": "fig-e739403ebf752f9e",
+            "src": "assets/figures/fig-e739403ebf752f9e.png",
+            "width": 1178,
+            "height": 717
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-025",
+            "kind": "paragraph",
+            "text": "该图表以蓝色显示所有实际数据点，以橙色显示沿着最佳拟合线的预测数据点。 这些数据点由 Excel 使用根据数据创建的公式计算得出。您可以通过对图形进行设计更改来显示公式。请按照以下步骤显示公式。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-026",
+            "kind": "paragraph",
+            "text": "1. 单击 Excel 中的图表。 2. 选择设计。 3. 选择添加图表元素。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-027",
+            "kind": "image",
+            "assetId": "fig-fd11ec3958cb18ad",
+            "src": "assets/figures/fig-fd11ec3958cb18ad.png",
+            "width": 1191,
+            "height": 273
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-028",
+            "kind": "paragraph",
+            "text": "4. 选择趋势线、更多趋势线选项。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-029",
+            "kind": "image",
+            "assetId": "fig-0259d523a1e9cbdd",
+            "src": "assets/figures/fig-0259d523a1e9cbdd.png",
+            "width": 651,
+            "height": 1011
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-030",
+            "kind": "paragraph",
+            "text": "5. 选择预测趋势线的选项，然后单击“确定”。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-031",
+            "kind": "image",
+            "assetId": "fig-41b2052bf1ca64dc",
+            "src": "assets/figures/fig-41b2052bf1ca64dc.png",
+            "width": 399,
+            "height": 399
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-032",
+            "kind": "paragraph",
+            "text": "6. 单击该框以在图表上显示方程。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-033",
+            "kind": "image",
+            "assetId": "fig-1db0dbec51d020cb",
+            "src": "assets/figures/fig-1db0dbec51d020cb.png",
+            "width": 471,
+            "height": 1008
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-034",
+            "kind": "paragraph",
+            "text": "7. 注意图表上的趋势方程。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-035",
+            "kind": "image",
+            "assetId": "fig-090add15823910d3",
+            "src": "assets/figures/fig-090add15823910d3.png",
+            "width": 1047,
+            "height": 702
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-036",
+            "kind": "paragraph",
+            "text": "在本例中，方程为 y = 3.3497x + 27.561。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-037",
+            "kind": "paragraph",
+            "text": "如果您还记得的话，r2 值为 0.96，这意味着我们的线性方程将非常擅长确定过程中与时间的关系的近似温度。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-038",
+            "kind": "paragraph",
+            "text": "例如，在 5 分钟时，我们的方程预测温度为 44.30。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-039",
+            "kind": "heading",
+            "text": "Y = 3.3497(5) + 27.561"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-040",
+            "kind": "paragraph",
+            "text": "在 25 分钟时，我们的方程预测温度为 111.30。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-041",
+            "kind": "paragraph",
+            "text": "低相关性回归测试 要了解低相关性回归测试的外观，请使用温度 C 的数据重复上述步骤。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-042",
+            "kind": "image",
+            "assetId": "fig-75ebedf842a945ed",
+            "src": "assets/figures/fig-75ebedf842a945ed.png",
+            "width": 513,
+            "height": 387
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-043",
+            "kind": "paragraph",
+            "text": "同样，相关系数非常低。 r2值也很低；根据该模型，只有大约 1% 的温度变化与时间有关。"
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-044",
+            "kind": "image",
+            "assetId": "fig-c924c3ad8176f217",
+            "src": "assets/figures/fig-c924c3ad8176f217.png",
+            "width": 920,
+            "height": 672
+          },
+          {
+            "id": "ch19-s03-linear-regression-analysis-zh-045",
             "kind": "paragraph",
             "text": "如果您将其格式化为这样做，Excel 将创建一条预测线和一个线性趋势方程。不过，鉴于 r2 值极低，您知道该方程对于对给定时间的温度进行任何实际预测没有用处。您只需查看图表即可知道这是真的。在 3 左右的时间内，方程预测温度略高于 40 度。然而，实际温度为 75 度。这个数字不仅反映了可能表明数据收集问题或临时过程问题的异常值，而且还反映了异常值。整个图表中的数据都远离该线。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch19-s04-using-correlation-and-regression-in-six-sigma",
+      "level": 2,
+      "page": 218,
+      "title": {
+        "en": "Using Correlation and Regression in Six Sigma",
+        "zh": "在六西格玛中使用相关和回归"
+      },
+      "content": {
+        "en": [
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-001",
+            "kind": "paragraph",
+            "text": "Correlation and regression are useful tools, usually deployed by teams in the measure, analyze, or improve stages of a DMAIC project. The tools don’t apply to all data and are not useful in all situations where they might apply. One of the things that a Six Sigma expert develops over time is the ability to decide which tools might be relevant given certain data and situations. Because Excel and other statistical analysis software make it easy for Six Sigma experts and teams to “play” with data in various graphical and statistical analysis, there is no harm in creating correlation or regression analyses for data to explore connections between variables. This is true as long as you are careful about what conclusions you draw. When in doubt, it’s always best to back conclusions up with multiple types of statistical analysis."
           },
           {
-            "id": "ch19-content-zh-124",
-            "kind": "heading",
-            "text": "在六西格玛中使用相关和回归"
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-002",
+            "kind": "paragraph",
+            "text": "Continuous and ratio data Both correlation and regression work with continuous or ratio data, and both sets of variables have to be quantitative in nature. For example, you can’t have x variables that are the names of people and y variables that are the number of outputs."
           },
           {
-            "id": "ch19-content-zh-125",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-003",
+            "kind": "image",
+            "assetId": "fig-f9b399ae39d6ad98",
+            "src": "assets/figures/fig-f9b399ae39d6ad98.png",
+            "width": 1318,
+            "height": 359
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-004",
+            "kind": "paragraph",
+            "text": "The above chart is an example of the type of data that would not apply to regression and correlation analysis, but might be analyzed using tools such as Pareto charts or pie charts."
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-005",
+            "kind": "paragraph",
+            "text": "Correlation requires two quantifiable data elements. Regression requires data that can be written as function:"
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-006",
+            "kind": "paragraph",
+            "text": "y = f(x)"
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-007",
+            "kind": "paragraph",
+            "text": "Some examples of data that can be written as a function include:"
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-008",
+            "kind": "listItem",
+            "text": "Distance"
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-009",
+            "kind": "paragraph",
+            "text": "o Y, the distance, is function of time, speed, acceleration, etc."
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-010",
+            "kind": "listItem",
+            "text": "Hardness of a substance"
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-011",
+            "kind": "paragraph",
+            "text": "o Y, the hardness, is a function of temperature, alloy, etc."
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-012",
+            "kind": "listItem",
+            "text": "Experienced (feels like) temperature"
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-013",
+            "kind": "paragraph",
+            "text": "o Y, the temperature it feels like, is a function of the actual temperature, wind, humidity, etc."
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-014",
+            "kind": "listItem",
+            "text": "BMI (body mass index)"
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-015",
+            "kind": "paragraph",
+            "text": "o Y, the BMI, is a function of height and weight"
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-016",
+            "kind": "paragraph",
+            "text": "Why use correlation and regression?"
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-017",
+            "kind": "paragraph",
+            "text": "Correlation and regression can be applied by Six Sigma experts at a number of points in a DMAIC process. During the analyze phase, teams can use these tools to help verify relationships between inputs or to help bolster understanding of root cause analysis. While correlation and regression don’t prove causation, they don’t negate causation either. A strong correlation doesn’t prove causation, but if a team already believes causation is a factor, then a strong regression model helps validate that assumption. This is especially true if a team couples regression modeling with trial-and-error hypothesis testing."
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-018",
+            "kind": "paragraph",
+            "text": "For example, a Six Sigma team might conduct brainstorming and fishbone diagrams, coming to the conclusion that a certain input, A, is causing variation in an output, B. The team’s Six Sigma experts conduct regression testing, which shows that variation in B is definitely related strongly to variation in A. The team can remove A from the process – or alter A in some way – and measure the process again. The team can then use hypothesis testingto determine if their changes created a statistical difference in the output."
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-019",
+            "kind": "paragraph",
+            "text": "An even more important function of regression in the DMAIC process is determining optimum input values so teams have a goal for control. Consider the example data used throughout this chapter. What if the team exploring this sample data was working with a process that involved mixing ingredients at a specific temperature range to create certain results? If the continuous time a mixing machine runs causes temperature fluctuations, those fluctuations would create variation in the final product. If the team discovered that the temperature range 40 to 50 degrees correlated to the most optimal product output, then the team could use the equation provided by the regression model to determine at what time range the mixing machine should be operated."
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-020",
+            "kind": "paragraph",
+            "text": "Consider the data for Temperature A again:"
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-021",
+            "kind": "image",
+            "assetId": "fig-d483e17c3b119845",
+            "src": "assets/figures/fig-d483e17c3b119845.png",
+            "width": 310,
+            "height": 560
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-022",
+            "kind": "image",
+            "assetId": "fig-736ff83b9b99459e",
+            "src": "assets/figures/fig-736ff83b9b99459e.png",
+            "width": 1085,
+            "height": 798
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-023",
+            "kind": "paragraph",
+            "text": "This data had both a strong correlation coefficient and a strong r2 value, which means the team can rely on the equation for the best fit line."
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-024",
+            "kind": "paragraph",
+            "text": "In this case, to find the time values relating to a range between 40 and 50 degrees, the team would solve for x when y = 40 and when y = 50."
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-025",
+            "kind": "paragraph",
+            "text": "40 = 3.3497x + 27.561"
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-026",
+            "kind": "paragraph",
+            "text": "40 – 27.561 = 3.3497x"
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-027",
+            "kind": "paragraph",
+            "text": "12.439 = 3.3497x"
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-028",
+            "kind": "paragraph",
+            "text": "3.71 = x when y = 40"
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-029",
+            "kind": "paragraph",
+            "text": "50 = 3.3497x + 27.561"
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-030",
+            "kind": "paragraph",
+            "text": "50 – 27.561 = 3.3497x"
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-031",
+            "kind": "paragraph",
+            "text": "22.439 = 3.3497x"
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-032",
+            "kind": "paragraph",
+            "text": "6.69 = x when y = 50"
+          },
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-033",
+            "kind": "paragraph",
+            "text": "Using these results, the team decides that mixing must be done when the machine has been on between 3.71 and 6.69 minutes. They create a change in the process that involves starting the mixing procedure after the machine has warmed up for 4 minutes."
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-001",
             "kind": "paragraph",
             "text": "相关性和回归是有用的工具，通常由团队在 DMAIC 项目的测量、分析或改进阶段部署。这些工具并不适用于所有数据，也并非在它们可能适用的所有情况下都有用。六西格玛专家随着时间的推移所发展的事情之一是能够根据特定的数据和情况决定哪些工具可能相关。 由于Excel等统计分析软件可以让六西格玛的专家和团队轻松地“玩弄”数据进行各种图形和统计分析，因此对数据进行相关或回归分析以探索变量之间的联系是没有坏处的。只要您谨慎对待所得出的结论，这就是事实。如有疑问，最好通过多种类型的统计分析来支持结论。"
           },
           {
-            "id": "ch19-content-zh-126",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-002",
             "kind": "termNote",
             "rows": [
               [
@@ -1647,12 +1667,12 @@
             "text": "术语说明 DMAIC：定义、测量、分析、改进、控制；适用于改进已有流程。"
           },
           {
-            "id": "ch19-content-zh-127",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-003",
             "kind": "paragraph",
             "text": "连续数据和比率数据 相关性和回归都适用于连续数据或比率数据，并且两组变量本质上都必须是定量的。例如，不能将 x 变量作为人名，将 y 变量作为输出数量。"
           },
           {
-            "id": "ch19-content-zh-128",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-004",
             "kind": "image",
             "assetId": "fig-f9b399ae39d6ad98",
             "src": "assets/figures/fig-f9b399ae39d6ad98.png",
@@ -1660,12 +1680,12 @@
             "height": 359
           },
           {
-            "id": "ch19-content-zh-129",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-005",
             "kind": "paragraph",
             "text": "上图是不适用于回归和相关分析的数据类型示例，但可以使用帕累托图或饼图等工具进行分析。"
           },
           {
-            "id": "ch19-content-zh-130",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-006",
             "kind": "termNote",
             "rows": [
               [
@@ -1675,72 +1695,72 @@
             "text": "术语说明 Pareto（帕累托）：按影响大小排序，常用于找出“少数关键原因”。"
           },
           {
-            "id": "ch19-content-zh-131",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-007",
             "kind": "paragraph",
             "text": "相关性需要两个可量化的数据元素。回归需要可以写成函数的数据："
           },
           {
-            "id": "ch19-content-zh-132",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-008",
             "kind": "paragraph",
             "text": "y = f(x)"
           },
           {
-            "id": "ch19-content-zh-133",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-009",
             "kind": "paragraph",
             "text": "可以写为函数的一些数据示例包括："
           },
           {
-            "id": "ch19-content-zh-134",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-010",
             "kind": "listItem",
             "text": "距离"
           },
           {
-            "id": "ch19-content-zh-135",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-011",
             "kind": "paragraph",
             "text": "o Y，距离，是时间、速度、加速度等的函数。"
           },
           {
-            "id": "ch19-content-zh-136",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-012",
             "kind": "listItem",
             "text": "物质的硬度"
           },
           {
-            "id": "ch19-content-zh-137",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-013",
             "kind": "paragraph",
             "text": "o Y，硬度，是温度、合金等的函数。"
           },
           {
-            "id": "ch19-content-zh-138",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-014",
             "kind": "listItem",
             "text": "体验（感觉）温度"
           },
           {
-            "id": "ch19-content-zh-139",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-015",
             "kind": "paragraph",
             "text": "o Y，感觉上的温度，是实际温度、风、湿度等的函数。"
           },
           {
-            "id": "ch19-content-zh-140",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-016",
             "kind": "listItem",
             "text": "BMI（身体质量指数）"
           },
           {
-            "id": "ch19-content-zh-141",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-017",
             "kind": "paragraph",
             "text": "o Y（BMI）是身高和体重的函数"
           },
           {
-            "id": "ch19-content-zh-142",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-018",
             "kind": "paragraph",
             "text": "为什么要使用相关性和回归？"
           },
           {
-            "id": "ch19-content-zh-143",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-019",
             "kind": "paragraph",
             "text": "六西格玛专家可以在 DMAIC 流程的多个点应用相关和回归。在分析阶段，团队可以使用这些工具来帮助验证输入之间的关系或帮助增强对根本原因分析的理解。虽然相关性和回归不能证明因果关系，但它们也不能否定因果关系。强相关性并不能证明因果关系，但如果团队已经相信因果关系是一个因素，那么强回归模型有助于验证该假设。如果团队将回归建模与试错假设检验结合起来，则尤其如此。"
           },
           {
-            "id": "ch19-content-zh-144",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-020",
             "kind": "termNote",
             "rows": [
               [
@@ -1750,7 +1770,7 @@
             "text": "术语说明 Hypothesis Test（假设检验）：用样本数据判断某个统计假设是否有足够证据被拒绝。"
           },
           {
-            "id": "ch19-content-zh-145",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-021",
             "kind": "termNote",
             "rows": [
               [
@@ -1760,12 +1780,12 @@
             "text": "术语说明 Root Cause（根本原因）：真正驱动问题发生的原因；解决它才能防止问题反复出现。"
           },
           {
-            "id": "ch19-content-zh-146",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-022",
             "kind": "paragraph",
             "text": "例如，一个六西格玛团队可能会进行头脑风暴和鱼骨图，得出的结论是某个输入A正在导致输出B的变化。该团队的六西格玛专家进行回归测试，结果表明B的变化肯定与A的变化密切相关。团队可以从流程中删除A - 或以某种方式改变A - 然后再次测量流程。然后，团队可以使用假设检验来确定他们的更改是否会在输出中产生统计差异。"
           },
           {
-            "id": "ch19-content-zh-147",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-023",
             "kind": "termNote",
             "rows": [
               [
@@ -1775,17 +1795,17 @@
             "text": "术语说明 Fishbone / Ishikawa（鱼骨图）：按类别梳理潜在原因的根因分析工具。"
           },
           {
-            "id": "ch19-content-zh-148",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-024",
             "kind": "paragraph",
             "text": "DMAIC 过程中回归的一个更重要的功能是确定最佳输入值，以便团队有一个控制目标。考虑本章中使用的示例数据。如果探索此样本数据的团队正在处理一个涉及在特定温度范围内混合成分以产生特定结果的过程，该怎么办？如果混合机的连续运行时间导致温度波动，这些波动会导致最终产品的变化。如果团队发现 40 至 50 度的温度范围与最佳产品输出相关，那么团队可以使用回归模型提供的方程来确定混合机应在什么时间范围内运行。"
           },
           {
-            "id": "ch19-content-zh-149",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-025",
             "kind": "paragraph",
             "text": "再次考虑温度 A 的数据："
           },
           {
-            "id": "ch19-content-zh-150",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-026",
             "kind": "image",
             "assetId": "fig-d483e17c3b119845",
             "src": "assets/figures/fig-d483e17c3b119845.png",
@@ -1793,7 +1813,7 @@
             "height": 560
           },
           {
-            "id": "ch19-content-zh-151",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-027",
             "kind": "image",
             "assetId": "fig-736ff83b9b99459e",
             "src": "assets/figures/fig-736ff83b9b99459e.png",
@@ -1801,57 +1821,57 @@
             "height": 798
           },
           {
-            "id": "ch19-content-zh-152",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-028",
             "kind": "paragraph",
             "text": "该数据具有很强的相关系数和很强的 r2 值，这意味着团队可以依靠该方程来获得最佳拟合线。"
           },
           {
-            "id": "ch19-content-zh-153",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-029",
             "kind": "paragraph",
             "text": "在这种情况下，为了找到与 40 到 50 度之间的范围相关的时间值，团队将求解 y = 40 时和 y = 50 时的 x。"
           },
           {
-            "id": "ch19-content-zh-154",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-030",
             "kind": "paragraph",
             "text": "40 = 3.3497x + 27.561"
           },
           {
-            "id": "ch19-content-zh-155",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-031",
             "kind": "paragraph",
             "text": "40 – 27.561 = 3.3497x"
           },
           {
-            "id": "ch19-content-zh-156",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-032",
             "kind": "paragraph",
             "text": "12.439 = 3.3497x"
           },
           {
-            "id": "ch19-content-zh-157",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-033",
             "kind": "paragraph",
             "text": "3.71 = x 当 y = 40 时"
           },
           {
-            "id": "ch19-content-zh-158",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-034",
             "kind": "paragraph",
             "text": "50 = 3.3497x + 27.561"
           },
           {
-            "id": "ch19-content-zh-159",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-035",
             "kind": "paragraph",
             "text": "50 – 27.561 = 3.3497x"
           },
           {
-            "id": "ch19-content-zh-160",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-036",
             "kind": "paragraph",
             "text": "22.439 = 3.3497x"
           },
           {
-            "id": "ch19-content-zh-161",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-037",
             "kind": "paragraph",
             "text": "6.69 = x 当 y = 50 时"
           },
           {
-            "id": "ch19-content-zh-162",
+            "id": "ch19-s04-using-correlation-and-regression-in-six-sigma-zh-038",
             "kind": "paragraph",
             "text": "根据这些结果，团队决定必须在机器运行 3.71 至 6.69 分钟之间进行混合。他们对流程进行了更改，其中包括在机器预热 4 分钟后开始混合程序。"
           }
@@ -1864,7 +1884,7 @@
       "id": "fig-0259d523a1e9cbdd",
       "type": "figure",
       "path": "assets/figures/fig-0259d523a1e9cbdd.png",
-      "page": 205,
+      "page": 212,
       "width": 651,
       "height": 1011
     },
@@ -1880,7 +1900,7 @@
       "id": "fig-040b27437a3b3846",
       "type": "figure",
       "path": "assets/figures/fig-040b27437a3b3846.png",
-      "page": 205,
+      "page": 212,
       "width": 805,
       "height": 713
     },
@@ -1888,7 +1908,7 @@
       "id": "fig-090add15823910d3",
       "type": "table-image",
       "path": "assets/figures/fig-090add15823910d3.png",
-      "page": 205,
+      "page": 212,
       "width": 1047,
       "height": 702
     },
@@ -1896,7 +1916,7 @@
       "id": "fig-0bfd13ea8b624944",
       "type": "figure",
       "path": "assets/figures/fig-0bfd13ea8b624944.png",
-      "page": 205,
+      "page": 212,
       "width": 764,
       "height": 398
     },
@@ -1904,7 +1924,7 @@
       "id": "fig-1db0dbec51d020cb",
       "type": "figure",
       "path": "assets/figures/fig-1db0dbec51d020cb.png",
-      "page": 205,
+      "page": 212,
       "width": 471,
       "height": 1008
     },
@@ -1952,7 +1972,7 @@
       "id": "fig-41b2052bf1ca64dc",
       "type": "figure",
       "path": "assets/figures/fig-41b2052bf1ca64dc.png",
-      "page": 205,
+      "page": 212,
       "width": 399,
       "height": 399
     },
@@ -2000,7 +2020,7 @@
       "id": "fig-736ff83b9b99459e",
       "type": "table-image",
       "path": "assets/figures/fig-736ff83b9b99459e.png",
-      "page": 205,
+      "page": 218,
       "width": 1085,
       "height": 798
     },
@@ -2008,7 +2028,7 @@
       "id": "fig-75ebedf842a945ed",
       "type": "figure",
       "path": "assets/figures/fig-75ebedf842a945ed.png",
-      "page": 205,
+      "page": 212,
       "width": 513,
       "height": 387
     },
@@ -2064,7 +2084,7 @@
       "id": "fig-b7743f4146678d05",
       "type": "table-image",
       "path": "assets/figures/fig-b7743f4146678d05.png",
-      "page": 205,
+      "page": 212,
       "width": 1191,
       "height": 201
     },
@@ -2088,7 +2108,7 @@
       "id": "fig-c924c3ad8176f217",
       "type": "table-image",
       "path": "assets/figures/fig-c924c3ad8176f217.png",
-      "page": 205,
+      "page": 212,
       "width": 920,
       "height": 672
     },
@@ -2096,7 +2116,7 @@
       "id": "fig-d483e17c3b119845",
       "type": "figure",
       "path": "assets/figures/fig-d483e17c3b119845.png",
-      "page": 205,
+      "page": 218,
       "width": 310,
       "height": 560
     },
@@ -2104,7 +2124,7 @@
       "id": "fig-d624c94e776abcaa",
       "type": "figure",
       "path": "assets/figures/fig-d624c94e776abcaa.png",
-      "page": 205,
+      "page": 212,
       "width": 833,
       "height": 803
     },
@@ -2112,7 +2132,7 @@
       "id": "fig-e739403ebf752f9e",
       "type": "table-image",
       "path": "assets/figures/fig-e739403ebf752f9e.png",
-      "page": 205,
+      "page": 212,
       "width": 1178,
       "height": 717
     },
@@ -2128,7 +2148,7 @@
       "id": "fig-f9b399ae39d6ad98",
       "type": "table-image",
       "path": "assets/figures/fig-f9b399ae39d6ad98.png",
-      "page": 205,
+      "page": 218,
       "width": 1318,
       "height": 359
     },
@@ -2136,7 +2156,7 @@
       "id": "fig-fd11ec3958cb18ad",
       "type": "table-image",
       "path": "assets/figures/fig-fd11ec3958cb18ad.png",
-      "page": 205,
+      "page": 212,
       "width": 1191,
       "height": 273
     }

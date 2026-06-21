@@ -10,11 +10,11 @@
   "source": {
     "enDocx": "C:\\findjob_sixsigma_sources\\manual_en_aligned.docx",
     "zhDocx": "C:\\findjob_sixsigma_sources\\manual_zh_aligned.docx",
-    "extraction": "python-docx body-order extraction; generic chapter-level bilingual content"
+    "extraction": "python-docx body-order extraction; source-TOC sectionized bilingual content"
   },
   "sections": [
     {
-      "id": "ch12-content",
+      "id": "ch12-s01-define",
       "level": 1,
       "page": 110,
       "title": {
@@ -24,518 +24,29 @@
       "content": {
         "en": [
           {
-            "id": "ch12-content-en-001",
+            "id": "ch12-s01-define-en-001",
             "kind": "paragraph",
             "text": "Six Sigma teams enter the project process with various levels of information. Sometimes, a problem is fairly well defined before the team begins work, particularly in organizations that use a Six Sigma leadership council to choose projects and create teams. Other times, teams begin work with little information except that a problem – of some type – exists because the outcomes of a process are not as expected. Teams might not know where errors are occurring or even begin a project with a complete understanding of the inputs and outputs associated with the process."
           },
           {
-            "id": "ch12-content-en-002",
+            "id": "ch12-s01-define-en-002",
             "kind": "paragraph",
             "text": "Whatever knowledge teams begin with, the define phase is when teams move from very basic information about a process or problem to the knowledge and organization necessary to enter measure and subsequent other phases with a successful foundation. In the define phase, teams set rules, create a charter that will govern efforts moving forward, identify stakeholders and customers, define a process through process mapping, and prepare for a define tollgate before entering the measure phase."
-          },
-          {
-            "id": "ch12-content-en-003",
-            "kind": "heading",
-            "text": "Creating a Project Charter"
-          },
-          {
-            "id": "ch12-content-en-004",
-            "kind": "paragraph",
-            "text": "A project charter, or team charter, is a short document that includes information about the team and what they plan to accomplish. The purpose of the charter is to set expectations that can be agreed upon by the team as well as the sponsor or executive leaders, keep the team focused on the goal, ensure the project remains aligned with the goals of the business, and documents the fact that control of a process is being moved from a business executive or manager to a Six Sigma project team."
-          },
-          {
-            "id": "ch12-content-en-005",
-            "kind": "paragraph",
-            "text": "Minimally, team charters should include:"
-          },
-          {
-            "id": "ch12-content-en-006",
-            "kind": "listItem",
-            "text": "A complete and concise problem statement that follows the guidelines set out in Chapter 6."
-          },
-          {
-            "id": "ch12-content-en-007",
-            "kind": "listItem",
-            "text": "A list of critical to quality metrics, or those measurements that will ultimately determine project or process success. Critical to quality was introduced in chapter 8."
-          },
-          {
-            "id": "ch12-content-en-008",
-            "kind": "listItem",
-            "text": "The names and roles of each person on the team. Selecting team members and appropriate team member roles are covered in Chapter 10."
-          },
-          {
-            "id": "ch12-content-en-009",
-            "kind": "listItem",
-            "text": "A list of both internal and external process customers. Use a SIPOC, discussed in Chapter 7, to begin defining internal or external customers."
-          },
-          {
-            "id": "ch12-content-en-010",
-            "kind": "listItem",
-            "text": "The name of a sponsor and/or champion."
-          },
-          {
-            "id": "ch12-content-en-011",
-            "kind": "listItem",
-            "text": "A duration for the project."
-          },
-          {
-            "id": "ch12-content-en-012",
-            "kind": "paragraph",
-            "text": "Teams might also include information such as a list of non-customer stakeholders, an estimated schedule for each phase of the project, scope definitions for the process or project, and financial drivers for the project."
-          },
-          {
-            "id": "ch12-content-en-013",
-            "kind": "paragraph",
-            "text": "The information for the team charter usually can’t be gathered in a single brainstorming session; the charter is an outcome of the entire define phase, not a quick notation at the beginning. By taking time to properly consider all elements of a team charter, Six Sigma teams create a stronger foundation for the rest of their work."
-          },
-          {
-            "id": "ch12-content-en-014",
-            "kind": "heading",
-            "text": "Benefits of an Organizational Team Charter Template"
-          },
-          {
-            "id": "ch12-content-en-015",
-            "kind": "paragraph",
-            "text": "Businesses that are implementing Six Sigma organization-wide might consider creating or using a specific template for team charters. Templates streamline define phases and make it easy for leadership teams and other employees to understand critical process components at a glance. While final team documentation is likely to be extensive, and even in the define phase, teams themselves might work with lengthy requirements documents, charters themselves should be as concise as possible. Some organizations distill charters to a single page while others use multipage documents. A sample one-page charter template is attached at the end of this chapter."
-          },
-          {
-            "id": "ch12-content-en-016",
-            "kind": "heading",
-            "text": "Details for Charter Elements"
-          },
-          {
-            "id": "ch12-content-en-017",
-            "kind": "paragraph",
-            "text": "We’ve covered some of the most important elements of the charter in detail in previous chapters, but here’s a quick look at some of the items we didn’t cover in as much detail and are worth mentioning again."
-          },
-          {
-            "id": "ch12-content-en-018",
-            "kind": "heading",
-            "text": "Business Case"
-          },
-          {
-            "id": "ch12-content-en-019",
-            "kind": "paragraph",
-            "text": "The business case might also be referred to as the financial drivers behind a project. Related closely to the problem statement, the business case is a short statement that provides a reason the project should be undertaken. The problem statement tells someone where, when, and how; the business case says why it’s important. If you think back to Chapter 6, we said dollar amounts or another financial metric were important to include in the problem statement. If you include a business case in your charter, you would build on that basic financial statement to explain why, specifically, the loss of money, efficiency, or quality is important to consumers, employees, or the organization. You might also make an argument for why the problem must be solved now; in essence, why is this project being run now in place of another project?"
-          },
-          {
-            "id": "ch12-content-en-020",
-            "kind": "heading",
-            "text": "Project Scope"
-          },
-          {
-            "id": "ch12-content-en-021",
-            "kind": "paragraph",
-            "text": "We introduced the concept of scope briefly in Chapter 6. For the purposes of the team charter, the scope should include a hard beginning and end of the process or problem being considered. You might also include a short list of items or activities that are in scope and out of scope for your project. A SIPOC diagram helps teams identify the parameters for a project, and you can also use the In and Out of the Box method described later in this chapter to understand the intended scope of a project."
-          },
-          {
-            "id": "ch12-content-en-022",
-            "kind": "paragraph",
-            "text": "The scope should be clear. Listing the scope for a project or process as “beginning at the order stage and ending with fulfillment” isn’t clear, because different people might consider different points the beginning of the order stage or the end of fulfillment. A better scope statement might be “beginning when a customer places an order and ending when the order is boxed for shipment.” Going even further, a team might deem return and replacement processes out of scope for a project so that they are only dealing with original orders. Successful projects have a well-defined scope that is approved and backed by a project sponsor or champion."
-          },
-          {
-            "id": "ch12-content-en-023",
-            "kind": "heading",
-            "text": "List the Stakeholders"
-          },
-          {
-            "id": "ch12-content-en-024",
-            "kind": "paragraph",
-            "text": "Listing major stakeholders on the charter helps the team remember who and what they are likely to impact in addition to end customers. Having the list visible during meetings reduces the chance that the team will initiate changes that might have a negative or unwanted effect on other process owners or processes, and it helps direct the team to resources outside of the team that can provide help, access, or information to areas related to the project."
-          },
-          {
-            "id": "ch12-content-en-025",
-            "kind": "heading",
-            "text": "Team Member Roles"
-          },
-          {
-            "id": "ch12-content-en-026",
-            "kind": "paragraph",
-            "text": "Team members and roles were covered in Chapter 10, and the team charter simply needs to list the names of all team members along with their role and expected time commitment. Adding time commitments to the charter helps sponsors and executive leadership understand the human resource requirements for the project; often a Six Sigma team leader has to seek approval for staff members from other areas to devote a specified amount of time to the project."
-          },
-          {
-            "id": "ch12-content-en-027",
-            "kind": "paragraph",
-            "text": "Time commitments can be listed in hours per week but are often listed as a percent of the employee’s overall time. For example, a subject matter expert who is expected to attend all of the team meetings to provide input, but is not expected to complete data collection, analysis, or improvement work, might be listed as providing 10 percent of his or her time to the team. A list of team members in a charter might look something like the list below. You don’t have to list all the staff members you might possibility consult during the course of the project."
-          },
-          {
-            "id": "ch12-content-en-028",
-            "kind": "listItem",
-            "text": "Mike Smith, Black Belt, 100%"
-          },
-          {
-            "id": "ch12-content-en-029",
-            "kind": "listItem",
-            "text": "Chase Michaels, Green Belt, 100%"
-          },
-          {
-            "id": "ch12-content-en-030",
-            "kind": "listItem",
-            "text": "Lisa Javes, Green Belt, 100%"
-          },
-          {
-            "id": "ch12-content-en-031",
-            "kind": "listItem",
-            "text": "Rosalie Myers, Process Owner, 25%"
-          },
-          {
-            "id": "ch12-content-en-032",
-            "kind": "listItem",
-            "text": "Brent Reed, subject matter expert, 10%"
-          },
-          {
-            "id": "ch12-content-en-033",
-            "kind": "listItem",
-            "text": "Brenda Tran, subject matter expert, 10%"
-          },
-          {
-            "id": "ch12-content-en-034",
-            "kind": "heading",
-            "text": "Milestones"
-          },
-          {
-            "id": "ch12-content-en-035",
-            "kind": "paragraph",
-            "text": "In Chapter 10, we covered creating a draft schedule for a Six Sigma project. The diagram included in Chapter 10 that broke down the timeline for a project is called a Gantt chart. Adapted by Henry Gantt in the early 20th century, a Gantt chart is a bar chart that displays the phases of a project according to time. One of the benefits of using a Gantt chart to display a rough project schedule is that it can easily be included in a one-page project charter; anyone reviewing the charter can quickly visualize the time element required for the project."
-          },
-          {
-            "id": "ch12-content-en-036",
-            "kind": "paragraph",
-            "text": "Teams should ensure a date is provided for the end of each of the DMAIC phases and that all team members agree that the dates are plausible given what the group wants to do. In some cases, milestones might be set by the project sponsor or champion, but the team should agree that milestone dates are possible. If dates seem implausible, teams can present a counter schedule with logical arguments regarding why the original schedule wouldn’t work."
-          },
-          {
-            "id": "ch12-content-en-037",
-            "kind": "paragraph",
-            "text": "In addition to milestones at the end of each project phase, Six Sigma teams might also want to set milestones for work within each phase – specifically for the more laborious measure, analyze, and improve phases. While the team should document all milestones it agrees on, detailed milestones don’t necessarily belong in the one-page charter document."
-          },
-          {
-            "id": "ch12-content-en-038",
-            "kind": "heading",
-            "text": "Measurement of Success"
-          },
-          {
-            "id": "ch12-content-en-039",
-            "kind": "paragraph",
-            "text": "Everyone needs to know how the team is going to measure success. If a sponsor is measuring success on customer satisfaction scores and the team is measuring success on internal quality scores, ideas about the outcome of the project are likely to differ. Usually, measures of success can be pulled from the critical to quality metrics discussed in Chapter 8. If teams can convert a CTQ to a measurement, they can understand what major metrics determine success of a project. While teams might begin to gather"
-          },
-          {
-            "id": "ch12-content-en-040",
-            "kind": "paragraph",
-            "text": "measurements or look at existing measurements while in the define phase, finalization of metrics can extend into the measure phase."
-          },
-          {
-            "id": "ch12-content-en-041",
-            "kind": "heading",
-            "text": "Expected Financial Benefits"
-          },
-          {
-            "id": "ch12-content-en-042",
-            "kind": "paragraph",
-            "text": "Financial information is already likely included on the charter in both the business case and the problem statement. Teams might include expected financial benefits in the business case section of a charter, but it must be included somewhere. For some sponsors and executive leaders, the financial benefit is the most important piece of information included in a charter. An estimated savings or increase in revenue also provides a measuring stick by which leaders can consider requests for resources for a project."
-          },
-          {
-            "id": "ch12-content-en-043",
-            "kind": "paragraph",
-            "text": "A Six Sigma expert should never over extend estimates regarding financial benefits; it’s almost always better to under-promise and over-perform. If you tell leaders a project will save $500,000 in the first year because a big number means you’re more likely to get project approval and all the resources you ask for, you’re the one that answers when the project saves only $80,000. As with any aspect of a Six Sigma project, be as accurate as possible, but be conservative with estimates when accuracy is in question."
-          },
-          {
-            "id": "ch12-content-en-044",
-            "kind": "heading",
-            "text": "Review the Charter with Success in Mind"
-          },
-          {
-            "id": "ch12-content-en-045",
-            "kind": "paragraph",
-            "text": "Before a Six Sigma team presents a charter for approval, it should take time to review the document as a group to ensure the charter lays a foundation for success. Some questions a team might ask itself about a charter include:"
-          },
-          {
-            "id": "ch12-content-en-046",
-            "kind": "listItem",
-            "text": "Is everything—especially the goals, financial expectations, and timeline—challenging but realistic?"
-          },
-          {
-            "id": "ch12-content-en-047",
-            "kind": "listItem",
-            "text": "Can everyone on the team devote the committed amount of time to the project?"
-          },
-          {
-            "id": "ch12-content-en-048",
-            "kind": "listItem",
-            "text": "Is the project backed by a sponsor or champion with enough influence to drive critical assistance and resources?"
-          },
-          {
-            "id": "ch12-content-en-049",
-            "kind": "listItem",
-            "text": "Does the team expect to be supported by auxiliary departments such as information technology, human resources, compliance, accounting, or legal as necessary for project success?"
-          },
-          {
-            "id": "ch12-content-en-050",
-            "kind": "listItem",
-            "text": "Does the team expect to have the necessary freedom to implement a solution it designs after the solution is approved by the sponsor, champion, or executive steering committee?"
-          },
-          {
-            "id": "ch12-content-en-051",
-            "kind": "listItem",
-            "text": "Does the team have a leader who is well-versed in Six Sigma tools and project management?"
-          },
-          {
-            "id": "ch12-content-en-052",
-            "kind": "paragraph",
-            "text": "If the answer to any of the questions above is no, then the team could be setting itself up for failure. Before moving forward, the team should address these concerns and, if possible, make changes that convert no answers to yes answers."
-          },
-          {
-            "id": "ch12-content-en-053",
-            "kind": "heading",
-            "text": "Project Ground Rules"
-          },
-          {
-            "id": "ch12-content-en-054",
-            "kind": "paragraph",
-            "text": "Before moving forward with any work – even defining a team charter – it’s a good idea for a Six Sigma team to establish some basic rules and requirements for the team. We touched briefly on this in Chapter 10 when discussing management of a team. The ground rules for a project should be maintained in writing and approved by all team members, but they don’t have to be part of an official charter document. The reason for documenting the rules and having all team members approve them is because a single team member cannot later claim to be ignorant of the rules."
-          },
-          {
-            "id": "ch12-content-en-055",
-            "kind": "paragraph",
-            "text": "At the same time, rule generation on a Six Sigma team shouldn’t be a completely democratic process. Some of the more common sense or critical rules can be provided by the Black Belt or team leader. For example, ground rules should cover topics such as who should attend each meeting and the fact that team members should hold certain information confidential. A Black Belt might simply state that team members should observe confidentiality and attendance rules, be on time to meetings, and respect each other. The team itself will likely vote on the frequency of meetings and when meetings should be scheduled. Seeking team member input ensures that all team members can actually commit to meeting time slots. For consistency, it’s best to hold meetings on the same days and at the same time each week, but it’s understandably difficult to keep such a schedule through the entire life of some projects."
-          },
-          {
-            "id": "ch12-content-en-056",
-            "kind": "paragraph",
-            "text": "Black Belts might also provide some tips and suggestions for how team members should participate during meetings, particularly during group brainstorming sessions. For more information on running a brainstorming session, see Chapter 35. Black Belts should also dictate the rules for creating an agenda and running a meeting according to the agenda, though they might delegate some of these functions such as time keeper and secretary."
-          },
-          {
-            "id": "ch12-content-en-057",
-            "kind": "heading",
-            "text": "Define Toolset"
-          },
-          {
-            "id": "ch12-content-en-058",
-            "kind": "paragraph",
-            "text": "We’ve covered a number of define tools in previous chapters, including the SIPOC diagram and the 5 Whys. Process maps and value stream mapping are two advanced Six Sigma tools that are often used in the define stage. Some Six Sigma teams begin using run charts to start defining a baseline in the define phase; run charts are covered in Chapter 13 on the measure phase."
-          },
-          {
-            "id": "ch12-content-en-059",
-            "kind": "paragraph",
-            "text": "In this section, we’ll cover three additional tools that are common to the define phase: the Stakeholder Analysis, the In and Out of the Box Method, and the Is/Is Not Matrix."
-          },
-          {
-            "id": "ch12-content-en-060",
-            "kind": "heading",
-            "text": "Stakeholder Analysis"
-          },
-          {
-            "id": "ch12-content-en-061",
-            "kind": "paragraph",
-            "text": "A stakeholder analysis is a quick way to identify how various people within an organization relate to a project and how the team should keep them informed. Begin the analysis with a grid drawn over an x and y axis. The vertical axis represents the amount of power a person has in the organization. The horizontal axis represents the amount of interest a person has in the team’s project. The stakeholder analysis works best when teams conduct it on a whiteboard or large flipchart. Draw the basic diagram, as seen in the figure below, in large format."
-          },
-          {
-            "id": "ch12-content-en-062",
-            "kind": "image",
-            "assetId": "fig-5ce73df164432d41",
-            "src": "assets/figures/fig-5ce73df164432d41.png",
-            "width": 1190,
-            "height": 806
-          },
-          {
-            "id": "ch12-content-en-063",
-            "kind": "paragraph",
-            "text": "Provide the team with sticky notes. Ask them to write down possible stakeholders for a project or process. Stakeholders are anyone who has an interest in the project, who might benefit from the outcome of the project, or who might be impacted by the work done via the project. Take a few minutes to discuss the names that were brainstormed and discard any the team feels are not actually stakeholders."
-          },
-          {
-            "id": "ch12-content-en-064",
-            "kind": "paragraph",
-            "text": "Once the team decides who the stakeholders are, begin placing the names on the chart according to power and interest. People with both low power and little interest will be placed in the lower left corner. People with higher power and low interest are placed in the upper left; people with less power but a lot of interest are placed in the lower right corner, and people with high levels of power and a lot of interest are placed in the upper right corner. A name might be placed high and to the right of the lower-left corner if the stakeholder has a moderate amount of interest and power, but the team doesn’t feel like the person quite crosses the line. Likewise, a name placed at the lower bounds of any quadrant might show lower amounts of power than those placed nearer the top of the box; the stakeholder analysis lets teams prioritize stakeholders in this manner, even within the four quadrants."
-          },
-          {
-            "id": "ch12-content-en-065",
-            "kind": "paragraph",
-            "text": "Each of the quadrants of the diagram correlate loosely to the type of stakeholder, providing some guidance on how the team might interact with each person or department listed."
-          },
-          {
-            "id": "ch12-content-en-066",
-            "kind": "heading",
-            "text": "Top Left: Keep Satisfied"
-          },
-          {
-            "id": "ch12-content-en-067",
-            "kind": "paragraph",
-            "text": "Stakeholders that fall into the top left quadrant of the diagram have enough power that they could interfere with a project, but they aren’t extremely interested in the day-to-day outcomes. The team should ensure these individuals are satisfied in whatever way they do interact with the project. Teams"
-          },
-          {
-            "id": "ch12-content-en-068",
-            "kind": "paragraph",
-            "text": "might also consult with these individuals at various times during the project. For example, a team working to solve problems of shipping in a warehouse might need to consult with procurement managers at some point because the team identifies a need for a different type of packing tape. Procurement leaders have power over obtaining the resource, but they might not have a great deal of interest in the project overall."
-          },
-          {
-            "id": "ch12-content-en-069",
-            "kind": "paragraph",
-            "text": "Sometimes, teams might identify a stakeholder that falls into this section and realize that it would be valuable to the team for that particular stakeholder to be more invested in the project. Six Sigma leaders can work with stakeholders to try to move someone from low interest to high interest categories – this is a political tactic that some teams use to bolster support for a project."
-          },
-          {
-            "id": "ch12-content-en-070",
-            "kind": "heading",
-            "text": "Bottom Left: Minimal Effort"
-          },
-          {
-            "id": "ch12-content-en-071",
-            "kind": "paragraph",
-            "text": "Stakeholders that fall into the bottom left quadrant have the least important connection to a project. Teams will mostly communicate general information about a project via newsletters or email to these stakeholders. While these stakeholders take minimal effort from teams, some situations might exist where teams want to move stakeholders from this box to the lower-right box."
-          },
-          {
-            "id": "ch12-content-en-072",
-            "kind": "heading",
-            "text": "Bottom Right: Keep Informed"
-          },
-          {
-            "id": "ch12-content-en-073",
-            "kind": "paragraph",
-            "text": "Individuals in the lower-right box have a strong tie or interest in the project, but do not have access to power to support projects from a resource standpoint. These stakeholders might include employees in departments related to the process being improved or subject matter experts that will be consulted about individual aspects of a project."
-          },
-          {
-            "id": "ch12-content-en-074",
-            "kind": "paragraph",
-            "text": "While stakeholders in the lower-right quadrant can’t usually bring resources to bear, they can act in support of a project, often in the form of a goodwill ambassador."
-          },
-          {
-            "id": "ch12-content-en-075",
-            "kind": "heading",
-            "text": "Top Right: Key Player"
-          },
-          {
-            "id": "ch12-content-en-076",
-            "kind": "paragraph",
-            "text": "Individuals in the top-right quadrant are either key players regarding a process or executive leaders with the ability to assign resources to a project. These are the individuals teams will report to at various tollgates; often, the executives responsible for the ultimate success of a process or project appear in the top-right quadrant."
-          },
-          {
-            "id": "ch12-content-en-077",
-            "kind": "heading",
-            "text": "In and Out of the Box Method"
-          },
-          {
-            "id": "ch12-content-en-078",
-            "kind": "paragraph",
-            "text": "The In and Out of the Box method is a quick and easy method that helps teams define project or process scope. Begin by drawing a large box on a whiteboard or flip chart. Provide markers and sticky notes for the team. Ask the team to write down elements of the process to be worked on, including resources, activities, and people. Each item should be written on a sticky note. Work together to create as complete a list as possible, placing the sticky notes on a wall or table as you go. Make sure everyone on the team understands that there are no wrong answers and the first phase of the exercise doesn’t require discussion. By brainstorming items with little-to-no discussion, teams can capture more ideas, leading to a more accurate picture of what is in and out of scope."
-          },
-          {
-            "id": "ch12-content-en-079",
-            "kind": "paragraph",
-            "text": "Once a comprehensive list is made, begin working as a team to assign each item to a place inside, on the line, or outside of the box. Items outside of the box are those that will be considered out of scope for"
-          },
-          {
-            "id": "ch12-content-en-080",
-            "kind": "paragraph",
-            "text": "the project. Teams might place items outside of the box because they don’t have access or control over the items, they don’t have time to work on the items, or they have specifically been told not to include the item in the project."
-          },
-          {
-            "id": "ch12-content-en-081",
-            "kind": "paragraph",
-            "text": "Items that are within the box are considered in scope for the project. These should be elements of the process the team can reasonably be expected to influence. If the team isn’t sure yet where an item might fall, they should place it on the line. Items that go on the line might be ones that the team hopes to be able to impact but for which the team leader needs to seek permission or assistance from someone outside the team."
-          },
-          {
-            "id": "ch12-content-en-082",
-            "kind": "paragraph",
-            "text": "Once all items are placed on, in, or outside of the box, review the placements as a team and make any changes. Document the exercise by photographing the diagram or recreating it on a computer. The team might reflect back on the diagram when attempting to control scope creep or considering who they should approach for help with a project."
-          },
-          {
-            "id": "ch12-content-en-083",
-            "kind": "heading",
-            "text": "Is/Is Not Matrix"
-          },
-          {
-            "id": "ch12-content-en-084",
-            "kind": "paragraph",
-            "text": "The Is/Is Not Matrix is another quick brainstorming tool teams can use to define scope. It can also be used to help define some of the information necessary to a problem statement. The matrix works by considering specific things about the process or project and coming up with both is and is not answers."
-          },
-          {
-            "id": "ch12-content-en-085",
-            "kind": "paragraph",
-            "text": "For example, if a Six Sigma team is tasked with determining why the furnaces in a certain factory are not heating to proper temperatures, they might create an Is/Is Not Matrix like the one below."
-          },
-          {
-            "id": "ch12-content-en-086",
-            "kind": "heading",
-            "text": "Is"
-          },
-          {
-            "id": "ch12-content-en-087",
-            "kind": "heading",
-            "text": "Is Not"
-          },
-          {
-            "id": "ch12-content-en-088",
-            "kind": "heading",
-            "text": "Where"
-          },
-          {
-            "id": "ch12-content-en-089",
-            "kind": "heading",
-            "text": "South plant North or East plan"
-          },
-          {
-            "id": "ch12-content-en-090",
-            "kind": "heading",
-            "text": "What"
-          },
-          {
-            "id": "ch12-content-en-091",
-            "kind": "heading",
-            "text": "Steam furnaces Wood furnaces"
-          },
-          {
-            "id": "ch12-content-en-092",
-            "kind": "paragraph",
-            "text": "When January 2015 Prior to January 2015"
-          },
-          {
-            "id": "ch12-content-en-093",
-            "kind": "paragraph",
-            "text": "The matrix clearly shows that the scope of the project only includes work at the south plant on the steam furnaces. The problem was noted in January 2015, which provides the team with a starting point for gathering data. This is a very simple matrix; teams can ask as many questions as they like to narrow down scope or better understand processes and projects through the Is/Is Not structure."
-          },
-          {
-            "id": "ch12-content-en-094",
-            "kind": "heading",
-            "text": "Define Tollgate Checklist"
-          },
-          {
-            "id": "ch12-content-en-095",
-            "kind": "paragraph",
-            "text": "A successful define phase ends with all of the following deliverables:"
-          },
-          {
-            "id": "ch12-content-en-096",
-            "kind": "paragraph",
-            "text": "o A comprehensive project statement o A team charter o An understanding of the process and a project diagram or map o An understanding of the Voice of the Customer o A definition of what success will look like that has been agreed on by the team members and any sponsors or executive leaders"
-          },
-          {
-            "id": "ch12-content-en-097",
-            "kind": "image",
-            "assetId": "fig-7d6d6621d629d1cf",
-            "src": "assets/figures/fig-7d6d6621d629d1cf.png",
-            "width": 1218,
-            "height": 1528
-          },
-          {
-            "id": "ch12-content-en-098",
-            "kind": "image",
-            "assetId": "fig-d2818c92d1da78cd",
-            "src": "assets/figures/fig-d2818c92d1da78cd.png",
-            "width": 1218,
-            "height": 905
           }
         ],
         "zh": [
           {
-            "id": "ch12-content-zh-001",
+            "id": "ch12-s01-define-zh-001",
             "kind": "paragraph",
             "text": "六西格玛团队带着不同级别的信息进入项目流程。有时，在团队开始工作之前，问题就已经相当明确，特别是在使用六西格玛领导委员会来选择项目和创建团队的组织中。其他时候，团队在开始工作时几乎没有什么信息，只是因为流程的结果不符合预期而存在某种类型的问题。团队可能不知道错误发生在哪里，甚至在完全了解与流程相关的输入和输出的情况下开始项目。"
           },
           {
-            "id": "ch12-content-zh-002",
+            "id": "ch12-s01-define-zh-002",
             "kind": "paragraph",
             "text": "无论知识团队从什么开始，定义阶段都是团队从有关流程或问题的非常基本的信息转向进入测量和后续其他阶段所需的知识和组织并奠定成功基础的阶段。在定义阶段，团队制定规则，创建一个章程来管理前进的工作，识别利益相关者和客户，通过流程图定义流程，并在进入测量阶段之前为定义收费站做好准备。"
           },
           {
-            "id": "ch12-content-zh-003",
+            "id": "ch12-s01-define-zh-003",
             "kind": "termNote",
             "rows": [
               [
@@ -545,12 +56,272 @@
             "text": "术语说明 Stakeholder（相关方）：会影响项目或被项目影响的人或组织。"
           },
           {
-            "id": "ch12-content-zh-004",
+            "id": "ch12-s01-define-zh-004",
             "kind": "heading",
             "text": "创建项目章程"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch12-s02-creating-a-project-charter",
+      "level": 2,
+      "page": 110,
+      "title": {
+        "en": "Creating a Project Charter",
+        "zh": "创建项目章程"
+      },
+      "content": {
+        "en": [
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-001",
+            "kind": "paragraph",
+            "text": "A project charter, or team charter, is a short document that includes information about the team and what they plan to accomplish. The purpose of the charter is to set expectations that can be agreed upon by the team as well as the sponsor or executive leaders, keep the team focused on the goal, ensure the project remains aligned with the goals of the business, and documents the fact that control of a process is being moved from a business executive or manager to a Six Sigma project team."
           },
           {
-            "id": "ch12-content-zh-005",
+            "id": "ch12-s02-creating-a-project-charter-en-002",
+            "kind": "paragraph",
+            "text": "Minimally, team charters should include:"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-003",
+            "kind": "listItem",
+            "text": "A complete and concise problem statement that follows the guidelines set out in Chapter 6."
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-004",
+            "kind": "listItem",
+            "text": "A list of critical to quality metrics, or those measurements that will ultimately determine project or process success. Critical to quality was introduced in chapter 8."
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-005",
+            "kind": "listItem",
+            "text": "The names and roles of each person on the team. Selecting team members and appropriate team member roles are covered in Chapter 10."
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-006",
+            "kind": "listItem",
+            "text": "A list of both internal and external process customers. Use a SIPOC, discussed in Chapter 7, to begin defining internal or external customers."
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-007",
+            "kind": "listItem",
+            "text": "The name of a sponsor and/or champion."
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-008",
+            "kind": "listItem",
+            "text": "A duration for the project."
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-009",
+            "kind": "paragraph",
+            "text": "Teams might also include information such as a list of non-customer stakeholders, an estimated schedule for each phase of the project, scope definitions for the process or project, and financial drivers for the project."
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-010",
+            "kind": "paragraph",
+            "text": "The information for the team charter usually can’t be gathered in a single brainstorming session; the charter is an outcome of the entire define phase, not a quick notation at the beginning. By taking time to properly consider all elements of a team charter, Six Sigma teams create a stronger foundation for the rest of their work."
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-011",
+            "kind": "heading",
+            "text": "Benefits of an Organizational Team Charter Template"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-012",
+            "kind": "paragraph",
+            "text": "Businesses that are implementing Six Sigma organization-wide might consider creating or using a specific template for team charters. Templates streamline define phases and make it easy for leadership teams and other employees to understand critical process components at a glance. While final team documentation is likely to be extensive, and even in the define phase, teams themselves might work with lengthy requirements documents, charters themselves should be as concise as possible. Some organizations distill charters to a single page while others use multipage documents. A sample one-page charter template is attached at the end of this chapter."
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-013",
+            "kind": "heading",
+            "text": "Details for Charter Elements"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-014",
+            "kind": "paragraph",
+            "text": "We’ve covered some of the most important elements of the charter in detail in previous chapters, but here’s a quick look at some of the items we didn’t cover in as much detail and are worth mentioning again."
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-015",
+            "kind": "heading",
+            "text": "Business Case"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-016",
+            "kind": "paragraph",
+            "text": "The business case might also be referred to as the financial drivers behind a project. Related closely to the problem statement, the business case is a short statement that provides a reason the project should be undertaken. The problem statement tells someone where, when, and how; the business case says why it’s important. If you think back to Chapter 6, we said dollar amounts or another financial metric were important to include in the problem statement. If you include a business case in your charter, you would build on that basic financial statement to explain why, specifically, the loss of money, efficiency, or quality is important to consumers, employees, or the organization. You might also make an argument for why the problem must be solved now; in essence, why is this project being run now in place of another project?"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-017",
+            "kind": "heading",
+            "text": "Project Scope"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-018",
+            "kind": "paragraph",
+            "text": "We introduced the concept of scope briefly in Chapter 6. For the purposes of the team charter, the scope should include a hard beginning and end of the process or problem being considered. You might also include a short list of items or activities that are in scope and out of scope for your project. A SIPOC diagram helps teams identify the parameters for a project, and you can also use the In and Out of the Box method described later in this chapter to understand the intended scope of a project."
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-019",
+            "kind": "paragraph",
+            "text": "The scope should be clear. Listing the scope for a project or process as “beginning at the order stage and ending with fulfillment” isn’t clear, because different people might consider different points the beginning of the order stage or the end of fulfillment. A better scope statement might be “beginning when a customer places an order and ending when the order is boxed for shipment.” Going even further, a team might deem return and replacement processes out of scope for a project so that they are only dealing with original orders. Successful projects have a well-defined scope that is approved and backed by a project sponsor or champion."
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-020",
+            "kind": "heading",
+            "text": "List the Stakeholders"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-021",
+            "kind": "paragraph",
+            "text": "Listing major stakeholders on the charter helps the team remember who and what they are likely to impact in addition to end customers. Having the list visible during meetings reduces the chance that the team will initiate changes that might have a negative or unwanted effect on other process owners or processes, and it helps direct the team to resources outside of the team that can provide help, access, or information to areas related to the project."
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-022",
+            "kind": "heading",
+            "text": "Team Member Roles"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-023",
+            "kind": "paragraph",
+            "text": "Team members and roles were covered in Chapter 10, and the team charter simply needs to list the names of all team members along with their role and expected time commitment. Adding time commitments to the charter helps sponsors and executive leadership understand the human resource requirements for the project; often a Six Sigma team leader has to seek approval for staff members from other areas to devote a specified amount of time to the project."
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-024",
+            "kind": "paragraph",
+            "text": "Time commitments can be listed in hours per week but are often listed as a percent of the employee’s overall time. For example, a subject matter expert who is expected to attend all of the team meetings to provide input, but is not expected to complete data collection, analysis, or improvement work, might be listed as providing 10 percent of his or her time to the team. A list of team members in a charter might look something like the list below. You don’t have to list all the staff members you might possibility consult during the course of the project."
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-025",
+            "kind": "listItem",
+            "text": "Mike Smith, Black Belt, 100%"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-026",
+            "kind": "listItem",
+            "text": "Chase Michaels, Green Belt, 100%"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-027",
+            "kind": "listItem",
+            "text": "Lisa Javes, Green Belt, 100%"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-028",
+            "kind": "listItem",
+            "text": "Rosalie Myers, Process Owner, 25%"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-029",
+            "kind": "listItem",
+            "text": "Brent Reed, subject matter expert, 10%"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-030",
+            "kind": "listItem",
+            "text": "Brenda Tran, subject matter expert, 10%"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-031",
+            "kind": "heading",
+            "text": "Milestones"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-032",
+            "kind": "paragraph",
+            "text": "In Chapter 10, we covered creating a draft schedule for a Six Sigma project. The diagram included in Chapter 10 that broke down the timeline for a project is called a Gantt chart. Adapted by Henry Gantt in the early 20th century, a Gantt chart is a bar chart that displays the phases of a project according to time. One of the benefits of using a Gantt chart to display a rough project schedule is that it can easily be included in a one-page project charter; anyone reviewing the charter can quickly visualize the time element required for the project."
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-033",
+            "kind": "paragraph",
+            "text": "Teams should ensure a date is provided for the end of each of the DMAIC phases and that all team members agree that the dates are plausible given what the group wants to do. In some cases, milestones might be set by the project sponsor or champion, but the team should agree that milestone dates are possible. If dates seem implausible, teams can present a counter schedule with logical arguments regarding why the original schedule wouldn’t work."
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-034",
+            "kind": "paragraph",
+            "text": "In addition to milestones at the end of each project phase, Six Sigma teams might also want to set milestones for work within each phase – specifically for the more laborious measure, analyze, and improve phases. While the team should document all milestones it agrees on, detailed milestones don’t necessarily belong in the one-page charter document."
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-035",
+            "kind": "heading",
+            "text": "Measurement of Success"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-036",
+            "kind": "paragraph",
+            "text": "Everyone needs to know how the team is going to measure success. If a sponsor is measuring success on customer satisfaction scores and the team is measuring success on internal quality scores, ideas about the outcome of the project are likely to differ. Usually, measures of success can be pulled from the critical to quality metrics discussed in Chapter 8. If teams can convert a CTQ to a measurement, they can understand what major metrics determine success of a project. While teams might begin to gather"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-037",
+            "kind": "paragraph",
+            "text": "measurements or look at existing measurements while in the define phase, finalization of metrics can extend into the measure phase."
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-038",
+            "kind": "heading",
+            "text": "Expected Financial Benefits"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-039",
+            "kind": "paragraph",
+            "text": "Financial information is already likely included on the charter in both the business case and the problem statement. Teams might include expected financial benefits in the business case section of a charter, but it must be included somewhere. For some sponsors and executive leaders, the financial benefit is the most important piece of information included in a charter. An estimated savings or increase in revenue also provides a measuring stick by which leaders can consider requests for resources for a project."
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-040",
+            "kind": "paragraph",
+            "text": "A Six Sigma expert should never over extend estimates regarding financial benefits; it’s almost always better to under-promise and over-perform. If you tell leaders a project will save $500,000 in the first year because a big number means you’re more likely to get project approval and all the resources you ask for, you’re the one that answers when the project saves only $80,000. As with any aspect of a Six Sigma project, be as accurate as possible, but be conservative with estimates when accuracy is in question."
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-041",
+            "kind": "heading",
+            "text": "Review the Charter with Success in Mind"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-042",
+            "kind": "paragraph",
+            "text": "Before a Six Sigma team presents a charter for approval, it should take time to review the document as a group to ensure the charter lays a foundation for success. Some questions a team might ask itself about a charter include:"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-043",
+            "kind": "listItem",
+            "text": "Is everything—especially the goals, financial expectations, and timeline—challenging but realistic?"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-044",
+            "kind": "listItem",
+            "text": "Can everyone on the team devote the committed amount of time to the project?"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-045",
+            "kind": "listItem",
+            "text": "Is the project backed by a sponsor or champion with enough influence to drive critical assistance and resources?"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-046",
+            "kind": "listItem",
+            "text": "Does the team expect to be supported by auxiliary departments such as information technology, human resources, compliance, accounting, or legal as necessary for project success?"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-047",
+            "kind": "listItem",
+            "text": "Does the team expect to have the necessary freedom to implement a solution it designs after the solution is approved by the sponsor, champion, or executive steering committee?"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-048",
+            "kind": "listItem",
+            "text": "Does the team have a leader who is well-versed in Six Sigma tools and project management?"
+          },
+          {
+            "id": "ch12-s02-creating-a-project-charter-en-049",
+            "kind": "paragraph",
+            "text": "If the answer to any of the questions above is no, then the team could be setting itself up for failure. Before moving forward, the team should address these concerns and, if possible, make changes that convert no answers to yes answers."
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch12-s02-creating-a-project-charter-zh-001",
             "kind": "termNote",
             "rows": [
               [
@@ -560,27 +331,27 @@
             "text": "术语说明 Project Charter（项目章程）：确认问题、目标、范围、收益、团队和时间表的项目启动文件。"
           },
           {
-            "id": "ch12-content-zh-006",
+            "id": "ch12-s02-creating-a-project-charter-zh-002",
             "kind": "paragraph",
             "text": "项目章程或团队章程是一份简短的文档，其中包含有关团队及其计划完成的任务的信息。章程的目的是设定团队以及发起人或执行领导者可以同意的期望，使团队专注于目标，确保项目与业务目标保持一致，并记录流程的控制权从业务主管或经理转移到六西格玛项目团队的事实。"
           },
           {
-            "id": "ch12-content-zh-007",
+            "id": "ch12-s02-creating-a-project-charter-zh-003",
             "kind": "paragraph",
             "text": "团队章程至少应包括："
           },
           {
-            "id": "ch12-content-zh-008",
+            "id": "ch12-s02-creating-a-project-charter-zh-004",
             "kind": "listItem",
             "text": "遵循第 6 章中规定的指导原则的完整而简洁的问题陈述。"
           },
           {
-            "id": "ch12-content-zh-009",
+            "id": "ch12-s02-creating-a-project-charter-zh-005",
             "kind": "listItem",
             "text": "关键质量特性（CTQ）指标列表，或最终决定项目或流程成功的那些衡量标准。 第8章介绍了关键质量特性（CTQ）。"
           },
           {
-            "id": "ch12-content-zh-010",
+            "id": "ch12-s02-creating-a-project-charter-zh-006",
             "kind": "termNote",
             "rows": [
               [
@@ -590,17 +361,17 @@
             "text": "术语说明 CTQ（关键质量特性）：把客户需求转化为可测量的质量要求。"
           },
           {
-            "id": "ch12-content-zh-011",
+            "id": "ch12-s02-creating-a-project-charter-zh-007",
             "kind": "listItem",
             "text": "团队中每个人的姓名和角色。第 10 章介绍了选择团队成员和适当的团队成员角色。"
           },
           {
-            "id": "ch12-content-zh-012",
+            "id": "ch12-s02-creating-a-project-charter-zh-008",
             "kind": "listItem",
             "text": "内部和外部流程客户的列表。使用第 7 章中讨论的 SIPOC 开始定义内部或外部客户。"
           },
           {
-            "id": "ch12-content-zh-013",
+            "id": "ch12-s02-creating-a-project-charter-zh-009",
             "kind": "termNote",
             "rows": [
               [
@@ -610,22 +381,22 @@
             "text": "术语说明 SIPOC：供应商、输入、流程、输出、客户；用于快速界定流程边界。"
           },
           {
-            "id": "ch12-content-zh-014",
+            "id": "ch12-s02-creating-a-project-charter-zh-010",
             "kind": "listItem",
             "text": "赞助商和/或冠军的姓名。"
           },
           {
-            "id": "ch12-content-zh-015",
+            "id": "ch12-s02-creating-a-project-charter-zh-011",
             "kind": "listItem",
             "text": "项目的持续时间。"
           },
           {
-            "id": "ch12-content-zh-016",
+            "id": "ch12-s02-creating-a-project-charter-zh-012",
             "kind": "paragraph",
             "text": "团队还可能包括非客户利益相关者列表、项目每个阶段的预计时间表、流程或项目的范围定义以及项目的财务驱动因素等信息。"
           },
           {
-            "id": "ch12-content-zh-017",
+            "id": "ch12-s02-creating-a-project-charter-zh-013",
             "kind": "termNote",
             "rows": [
               [
@@ -635,22 +406,22 @@
             "text": "术语说明 Scope（项目范围）：说明改进项目包括什么、不包括什么，避免目标扩张。"
           },
           {
-            "id": "ch12-content-zh-018",
+            "id": "ch12-s02-creating-a-project-charter-zh-014",
             "kind": "paragraph",
             "text": "团队章程的信息通常无法通过一次头脑风暴会议收集；章程是整个定义阶段的结果，而不是开始时的快速符号。通过花时间正确考虑团队章程的所有要素，六西格玛团队为其余工作奠定了更坚实的基础。"
           },
           {
-            "id": "ch12-content-zh-019",
+            "id": "ch12-s02-creating-a-project-charter-zh-015",
             "kind": "heading",
             "text": "组织团队章程模板的好处"
           },
           {
-            "id": "ch12-content-zh-020",
+            "id": "ch12-s02-creating-a-project-charter-zh-016",
             "kind": "paragraph",
             "text": "在整个组织范围内实施六西格玛的企业可能会考虑创建或使用特定的团队章程模板。模板简化了阶段定义，使领导团队和其他员工能够轻松一目了然地了解关键流程组件。虽然最终的团队文档可能很广泛，甚至在定义阶段，团队本身也可能使用冗长的需求文档，但章程本身应该尽可能简洁。一些组织将章程提炼为单页，而另一些组织则使用多页文档。本章末尾附有一页章程模板示例。"
           },
           {
-            "id": "ch12-content-zh-021",
+            "id": "ch12-s02-creating-a-project-charter-zh-017",
             "kind": "termNote",
             "rows": [
               [
@@ -660,222 +431,440 @@
             "text": "术语说明 Sample / Sampling（样本/抽样）：从总体中选取部分数据进行分析；样本应尽量代表总体。"
           },
           {
-            "id": "ch12-content-zh-022",
+            "id": "ch12-s02-creating-a-project-charter-zh-018",
             "kind": "heading",
             "text": "章程要素的详细信息"
           },
           {
-            "id": "ch12-content-zh-023",
+            "id": "ch12-s02-creating-a-project-charter-zh-019",
             "kind": "paragraph",
             "text": "我们在前面的章节中详细介绍了章程的一些最重要的要素，但这里快速浏览了一些我们没有详细介绍但值得再次提及的项目。"
           },
           {
-            "id": "ch12-content-zh-024",
+            "id": "ch12-s02-creating-a-project-charter-zh-020",
             "kind": "heading",
             "text": "商业案例"
           },
           {
-            "id": "ch12-content-zh-025",
+            "id": "ch12-s02-creating-a-project-charter-zh-021",
             "kind": "paragraph",
             "text": "业务案例也可以称为项目背后的财务驱动因素。业务案例与问题陈述密切相关，是一个简短的陈述，提供了应该开展该项目的理由。问题陈述告诉某人地点、时间和方式；商业案例说明了它的重要性。如果你回想一下第 6 章，我们说过在问题陈述中包含美元金额或其他财务指标很重要。如果您在章程中包含一个商业案例，您将在基本财务报表的基础上解释为什么金钱、效率或质量的损失对消费者、员工或组织很重要。您还可以论证为什么现在必须解决问题；本质上，为什么现在运行这个项目而不是另一个项目？"
           },
           {
-            "id": "ch12-content-zh-026",
+            "id": "ch12-s02-creating-a-project-charter-zh-022",
             "kind": "heading",
             "text": "项目范围"
           },
           {
-            "id": "ch12-content-zh-027",
+            "id": "ch12-s02-creating-a-project-charter-zh-023",
             "kind": "paragraph",
             "text": "我们在第 6 章中简要介绍了范围的概念。出于团队章程的目的，范围应包括正在考虑的过程或问题的硬性开始和结束。您还可以包括项目范围内和项目范围外的项目或活动的简短列表。 SIPOC 图可帮助团队识别项目的参数，您还可以使用本章后面描述的开箱即用方法来了解项目的预期范围。"
           },
           {
-            "id": "ch12-content-zh-028",
+            "id": "ch12-s02-creating-a-project-charter-zh-024",
             "kind": "paragraph",
             "text": "范围应该明确。将项目或流程的范围列为“从订单阶段开始到履行结束”并不明确，因为不同的人可能会认为订单阶段的开始或履行结束的时间点不同。更好的范围声明可能是“从客户下订单时开始，到订单装箱发货时结束”。更进一步，团队可能会认为退货和更换流程超出了项目范围，因此他们只处理原始订单。成功的项目有一个明确的范围，并得到项目发起人或支持者的批准和支持。"
           },
           {
-            "id": "ch12-content-zh-029",
+            "id": "ch12-s02-creating-a-project-charter-zh-025",
             "kind": "heading",
             "text": "列出利益相关者"
           },
           {
-            "id": "ch12-content-zh-030",
+            "id": "ch12-s02-creating-a-project-charter-zh-026",
             "kind": "paragraph",
             "text": "在章程中列出主要利益相关者可以帮助团队记住除了最终客户之外他们还可能影响谁和什么。在会议期间显示该列表可以减少团队启动可能对其他流程所有者或流程产生负面或不良影响的更改的机会，并且有助于引导团队使用团队外部的资源，这些资源可以为与项目相关的区域提供帮助、访问权限或信息。"
           },
           {
-            "id": "ch12-content-zh-031",
+            "id": "ch12-s02-creating-a-project-charter-zh-027",
             "kind": "heading",
             "text": "团队成员角色"
           },
           {
-            "id": "ch12-content-zh-032",
+            "id": "ch12-s02-creating-a-project-charter-zh-028",
             "kind": "paragraph",
             "text": "第 10 章介绍了团队成员和角色，团队章程只需要列出所有团队成员的姓名以及他们的角色和预期的时间投入。在章程中添加时间承诺有助于发起人和执行领导层了解项目的人力资源需求；六西格玛的团队领导常常必须征求其他地区的员工的批准，才能为该项目投入一定的时间。"
           },
           {
-            "id": "ch12-content-zh-033",
+            "id": "ch12-s02-creating-a-project-charter-zh-029",
             "kind": "paragraph",
             "text": "时间投入可以按每周小时数列出，但通常以员工总时间的百分比列出。 例如，一位主题专家预计将参加所有团队会议以提供意见，但预计不会完成数据收集、分析或改进工作，则可能会被列为向团队提供了 10% 的时间。章程中的团队成员列表可能类似于下面的列表。您不必列出在项目过程中可能咨询的所有员工。"
           },
           {
-            "id": "ch12-content-zh-034",
+            "id": "ch12-s02-creating-a-project-charter-zh-030",
             "kind": "listItem",
             "text": "迈克·史密斯，黑带，100%"
           },
           {
-            "id": "ch12-content-zh-035",
+            "id": "ch12-s02-creating-a-project-charter-zh-031",
             "kind": "listItem",
             "text": "蔡斯·迈克尔斯，绿带，100%"
           },
           {
-            "id": "ch12-content-zh-036",
+            "id": "ch12-s02-creating-a-project-charter-zh-032",
             "kind": "listItem",
             "text": "丽莎·贾维斯，绿带，100%"
           },
           {
-            "id": "ch12-content-zh-037",
+            "id": "ch12-s02-creating-a-project-charter-zh-033",
             "kind": "listItem",
             "text": "Rosalie Myers，流程负责人，25%"
           },
           {
-            "id": "ch12-content-zh-038",
+            "id": "ch12-s02-creating-a-project-charter-zh-034",
             "kind": "listItem",
             "text": "布伦特·里德（Brent Reed），主题专家，10%"
           },
           {
-            "id": "ch12-content-zh-039",
+            "id": "ch12-s02-creating-a-project-charter-zh-035",
             "kind": "listItem",
             "text": "Brenda Tran，主题专家，10%"
           },
           {
-            "id": "ch12-content-zh-040",
+            "id": "ch12-s02-creating-a-project-charter-zh-036",
             "kind": "heading",
             "text": "里程碑"
           },
           {
-            "id": "ch12-content-zh-041",
+            "id": "ch12-s02-creating-a-project-charter-zh-037",
             "kind": "paragraph",
             "text": "在第 10 章中，我们介绍了为六西格玛项目创建时间表草案。第 10 章中包含的分解项目时间线的图表称为甘特图。甘特图由 Henry Gantt 在 20 世纪初改编，是一种根据时间显示项目阶段的条形图。使用甘特图显示粗略项目进度表的好处之一是它可以轻松包含在一页项目章程中；任何审查章程的人都可以快速想象出项目所需的时间要素。"
           },
           {
-            "id": "ch12-content-zh-042",
+            "id": "ch12-s02-creating-a-project-charter-zh-038",
             "kind": "paragraph",
             "text": "团队应确保为每个 DMAIC 阶段的结束提供一个日期，并且所有团队成员都同意，考虑到团队想要做的事情，这些日期是合理的。在某些情况下，里程碑可能由项目发起人或支持者设定，但团队应该同意里程碑日期是可能的。如果日期看起来不可信，团队可以提出一个反时间表，并附上逻辑论证，说明为什么原始时间表行不通。"
           },
           {
-            "id": "ch12-content-zh-043",
+            "id": "ch12-s02-creating-a-project-charter-zh-039",
             "kind": "paragraph",
             "text": "除了每个项目阶段结束时的里程碑之外，六西格玛团队可能还希望为每个阶段的工作设定里程碑——特别是针对更费力的测量、分析和改进阶段。虽然团队应该记录其同意的所有里程碑，但详细的里程碑不一定属于一页章程文件。"
           },
           {
-            "id": "ch12-content-zh-044",
+            "id": "ch12-s02-creating-a-project-charter-zh-040",
             "kind": "heading",
             "text": "成功的衡量标准"
           },
           {
-            "id": "ch12-content-zh-045",
+            "id": "ch12-s02-creating-a-project-charter-zh-041",
             "kind": "paragraph",
             "text": "每个人都需要知道团队将如何衡量成功。如果发起人根据客户满意度分数来衡量成功，而团队根据内部质量分数来衡量成功，那么关于项目结果的想法可能会有所不同。 通常，成功的衡量标准可以从第 8 章讨论的关键质量特性（CTQ）指标中提取。如果团队可以将 CTQ 转换为衡量标准，他们就可以了解哪些主要指标决定项目的成功。虽然团队可能开始聚集"
           },
           {
-            "id": "ch12-content-zh-046",
+            "id": "ch12-s02-creating-a-project-charter-zh-042",
             "kind": "paragraph",
             "text": "在定义阶段进行测量或查看现有测量，指标的最终确定可以延伸到测量阶段。"
           },
           {
-            "id": "ch12-content-zh-047",
+            "id": "ch12-s02-creating-a-project-charter-zh-043",
             "kind": "heading",
             "text": "预期财务效益"
           },
           {
-            "id": "ch12-content-zh-048",
+            "id": "ch12-s02-creating-a-project-charter-zh-044",
             "kind": "paragraph",
             "text": "财务信息可能已经包含在章程的业务案例和问题陈述中。团队可能会在章程的业务案例部分中包含预期的财务收益，但它必须包含在某个地方。对于一些发起人和执行领导者来说，财务利益是章程中包含的最重要的信息。估计的节省或收入增加也提供了一个衡量标准，领导者可以通过它来考虑项目的资源请求。"
           },
           {
-            "id": "ch12-content-zh-049",
+            "id": "ch12-s02-creating-a-project-charter-zh-045",
             "kind": "paragraph",
             "text": "六西格玛专家绝不能过度估计经济效益；承诺不足而表现出色几乎总是更好。如果你告诉领导者一个项目将在第一年节省 500,000 美元，因为数字越大意味着你更有可能获得项目批准和你要求的所有资源，那么当项目仅节省 80,000 美元时，你就是那个回答的人。与六西格玛项目的任何方面一样，要尽可能准确，但当准确性有问题时，要保守估计。"
           },
           {
-            "id": "ch12-content-zh-050",
+            "id": "ch12-s02-creating-a-project-charter-zh-046",
             "kind": "heading",
             "text": "回顾章程，牢记成功"
           },
           {
-            "id": "ch12-content-zh-051",
+            "id": "ch12-s02-creating-a-project-charter-zh-047",
             "kind": "paragraph",
             "text": "六西格玛团队在提交章程供批准之前，应该花时间作为一个团队来审查该文件，以确保章程为成功奠定基础。团队可能会问自己有关章程的一些问题，包括："
           },
           {
-            "id": "ch12-content-zh-052",
+            "id": "ch12-s02-creating-a-project-charter-zh-048",
             "kind": "listItem",
             "text": "一切（尤其是目标、财务预期和时间表）是否都具有挑战性但又现实？"
           },
           {
-            "id": "ch12-content-zh-053",
+            "id": "ch12-s02-creating-a-project-charter-zh-049",
             "kind": "listItem",
             "text": "团队中的每个人都能为该项目投入承诺的时间吗？"
           },
           {
-            "id": "ch12-content-zh-054",
+            "id": "ch12-s02-creating-a-project-charter-zh-050",
             "kind": "listItem",
             "text": "该项目是否得到了具有足够影响力来推动关键援助和资源的赞助商或支持者的支持？"
           },
           {
-            "id": "ch12-content-zh-055",
+            "id": "ch12-s02-creating-a-project-charter-zh-051",
             "kind": "listItem",
             "text": "团队是否期望得到项目成功所需的辅助部门（如信息技术、人力资源、合规、会计或法律）的支持？"
           },
           {
-            "id": "ch12-content-zh-056",
+            "id": "ch12-s02-creating-a-project-charter-zh-052",
             "kind": "listItem",
             "text": "在解决方案获得赞助商、支持者或执行指导委员会批准后，团队是否期望拥有必要的自由来实施其设计的解决方案？"
           },
           {
-            "id": "ch12-content-zh-057",
+            "id": "ch12-s02-creating-a-project-charter-zh-053",
             "kind": "listItem",
             "text": "团队中是否有一位精通六西格玛工具和项目管理的领导者？"
           },
           {
-            "id": "ch12-content-zh-058",
+            "id": "ch12-s02-creating-a-project-charter-zh-054",
             "kind": "paragraph",
             "text": "如果上述任何一个问题的答案是否定的，那么团队可能会失败。在继续前进之前，团队应解决这些问题，并在可能的情况下进行更改，将“否”答案转变为“是”答案。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch12-s03-project-ground-rules",
+      "level": 2,
+      "page": 113,
+      "title": {
+        "en": "Project Ground Rules",
+        "zh": "项目基本规则"
+      },
+      "content": {
+        "en": [
+          {
+            "id": "ch12-s03-project-ground-rules-en-001",
+            "kind": "paragraph",
+            "text": "Before moving forward with any work – even defining a team charter – it’s a good idea for a Six Sigma team to establish some basic rules and requirements for the team. We touched briefly on this in Chapter 10 when discussing management of a team. The ground rules for a project should be maintained in writing and approved by all team members, but they don’t have to be part of an official charter document. The reason for documenting the rules and having all team members approve them is because a single team member cannot later claim to be ignorant of the rules."
           },
           {
-            "id": "ch12-content-zh-059",
-            "kind": "heading",
-            "text": "项目基本规则"
+            "id": "ch12-s03-project-ground-rules-en-002",
+            "kind": "paragraph",
+            "text": "At the same time, rule generation on a Six Sigma team shouldn’t be a completely democratic process. Some of the more common sense or critical rules can be provided by the Black Belt or team leader. For example, ground rules should cover topics such as who should attend each meeting and the fact that team members should hold certain information confidential. A Black Belt might simply state that team members should observe confidentiality and attendance rules, be on time to meetings, and respect each other. The team itself will likely vote on the frequency of meetings and when meetings should be scheduled. Seeking team member input ensures that all team members can actually commit to meeting time slots. For consistency, it’s best to hold meetings on the same days and at the same time each week, but it’s understandably difficult to keep such a schedule through the entire life of some projects."
           },
           {
-            "id": "ch12-content-zh-060",
+            "id": "ch12-s03-project-ground-rules-en-003",
+            "kind": "paragraph",
+            "text": "Black Belts might also provide some tips and suggestions for how team members should participate during meetings, particularly during group brainstorming sessions. For more information on running a brainstorming session, see Chapter 35. Black Belts should also dictate the rules for creating an agenda and running a meeting according to the agenda, though they might delegate some of these functions such as time keeper and secretary."
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch12-s03-project-ground-rules-zh-001",
             "kind": "paragraph",
             "text": "在进行任何工作之前——甚至是制定团队章程——对于六西格玛团队来说，建立一些基本的团队规则和要求是一个好主意。我们在第 10 章讨论团队管理时简要谈到了这一点。项目的基本规则应以书面形式维护并得到所有团队成员的批准，但它们不必成为正式章程文件的一部分。记录规则并让所有团队成员批准它们的原因是因为单个团队成员以后不能声称不了解规则。"
           },
           {
-            "id": "ch12-content-zh-061",
+            "id": "ch12-s03-project-ground-rules-zh-002",
             "kind": "paragraph",
             "text": "同时，六西格玛团队的规则制定不应该是一个完全民主的过程。一些比较常识或者关键的规则可以由黑带或者组长提供。例如，基本规则应涵盖诸如谁应该参加每次会议以及团队成员应对某些信息保密等主题。黑带可能只是简单地规定团队成员应遵守保密和出勤规则，准时参加会议，并相互尊重。团队本身可能会就会议频率和会议安排时间进行投票。寻求团队成员的意见可确保所有团队成员都能真正承诺参加会议时间段。为了保持一致性，最好每周在同一天、同一时间举行会议，但在某些项目的整个生命周期中保持这样的时间表是很困难的，这是可以理解的。"
           },
           {
-            "id": "ch12-content-zh-062",
+            "id": "ch12-s03-project-ground-rules-zh-003",
             "kind": "paragraph",
             "text": "黑带人员还可能就团队成员如何参与会议（特别是小组头脑风暴会议）提供一些提示和建议。有关举行头脑风暴会议的更多信息，请参阅第 35 章。黑带人员还应规定创建议程和根据议程召开会议的规则，尽管他们可能会委派其中一些职能，例如计时员和秘书。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch12-s04-define-toolset",
+      "level": 2,
+      "page": 114,
+      "title": {
+        "en": "Define Toolset",
+        "zh": "定义工具集"
+      },
+      "content": {
+        "en": [
+          {
+            "id": "ch12-s04-define-toolset-en-001",
+            "kind": "paragraph",
+            "text": "We’ve covered a number of define tools in previous chapters, including the SIPOC diagram and the 5 Whys. Process maps and value stream mapping are two advanced Six Sigma tools that are often used in the define stage. Some Six Sigma teams begin using run charts to start defining a baseline in the define phase; run charts are covered in Chapter 13 on the measure phase."
           },
           {
-            "id": "ch12-content-zh-063",
+            "id": "ch12-s04-define-toolset-en-002",
+            "kind": "paragraph",
+            "text": "In this section, we’ll cover three additional tools that are common to the define phase: the Stakeholder Analysis, the In and Out of the Box Method, and the Is/Is Not Matrix."
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-003",
             "kind": "heading",
-            "text": "定义工具集"
+            "text": "Stakeholder Analysis"
           },
           {
-            "id": "ch12-content-zh-064",
+            "id": "ch12-s04-define-toolset-en-004",
+            "kind": "paragraph",
+            "text": "A stakeholder analysis is a quick way to identify how various people within an organization relate to a project and how the team should keep them informed. Begin the analysis with a grid drawn over an x and y axis. The vertical axis represents the amount of power a person has in the organization. The horizontal axis represents the amount of interest a person has in the team’s project. The stakeholder analysis works best when teams conduct it on a whiteboard or large flipchart. Draw the basic diagram, as seen in the figure below, in large format."
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-005",
+            "kind": "image",
+            "assetId": "fig-5ce73df164432d41",
+            "src": "assets/figures/fig-5ce73df164432d41.png",
+            "width": 1190,
+            "height": 806
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-006",
+            "kind": "paragraph",
+            "text": "Provide the team with sticky notes. Ask them to write down possible stakeholders for a project or process. Stakeholders are anyone who has an interest in the project, who might benefit from the outcome of the project, or who might be impacted by the work done via the project. Take a few minutes to discuss the names that were brainstormed and discard any the team feels are not actually stakeholders."
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-007",
+            "kind": "paragraph",
+            "text": "Once the team decides who the stakeholders are, begin placing the names on the chart according to power and interest. People with both low power and little interest will be placed in the lower left corner. People with higher power and low interest are placed in the upper left; people with less power but a lot of interest are placed in the lower right corner, and people with high levels of power and a lot of interest are placed in the upper right corner. A name might be placed high and to the right of the lower-left corner if the stakeholder has a moderate amount of interest and power, but the team doesn’t feel like the person quite crosses the line. Likewise, a name placed at the lower bounds of any quadrant might show lower amounts of power than those placed nearer the top of the box; the stakeholder analysis lets teams prioritize stakeholders in this manner, even within the four quadrants."
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-008",
+            "kind": "paragraph",
+            "text": "Each of the quadrants of the diagram correlate loosely to the type of stakeholder, providing some guidance on how the team might interact with each person or department listed."
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-009",
+            "kind": "heading",
+            "text": "Top Left: Keep Satisfied"
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-010",
+            "kind": "paragraph",
+            "text": "Stakeholders that fall into the top left quadrant of the diagram have enough power that they could interfere with a project, but they aren’t extremely interested in the day-to-day outcomes. The team should ensure these individuals are satisfied in whatever way they do interact with the project. Teams"
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-011",
+            "kind": "paragraph",
+            "text": "might also consult with these individuals at various times during the project. For example, a team working to solve problems of shipping in a warehouse might need to consult with procurement managers at some point because the team identifies a need for a different type of packing tape. Procurement leaders have power over obtaining the resource, but they might not have a great deal of interest in the project overall."
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-012",
+            "kind": "paragraph",
+            "text": "Sometimes, teams might identify a stakeholder that falls into this section and realize that it would be valuable to the team for that particular stakeholder to be more invested in the project. Six Sigma leaders can work with stakeholders to try to move someone from low interest to high interest categories – this is a political tactic that some teams use to bolster support for a project."
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-013",
+            "kind": "heading",
+            "text": "Bottom Left: Minimal Effort"
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-014",
+            "kind": "paragraph",
+            "text": "Stakeholders that fall into the bottom left quadrant have the least important connection to a project. Teams will mostly communicate general information about a project via newsletters or email to these stakeholders. While these stakeholders take minimal effort from teams, some situations might exist where teams want to move stakeholders from this box to the lower-right box."
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-015",
+            "kind": "heading",
+            "text": "Bottom Right: Keep Informed"
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-016",
+            "kind": "paragraph",
+            "text": "Individuals in the lower-right box have a strong tie or interest in the project, but do not have access to power to support projects from a resource standpoint. These stakeholders might include employees in departments related to the process being improved or subject matter experts that will be consulted about individual aspects of a project."
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-017",
+            "kind": "paragraph",
+            "text": "While stakeholders in the lower-right quadrant can’t usually bring resources to bear, they can act in support of a project, often in the form of a goodwill ambassador."
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-018",
+            "kind": "heading",
+            "text": "Top Right: Key Player"
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-019",
+            "kind": "paragraph",
+            "text": "Individuals in the top-right quadrant are either key players regarding a process or executive leaders with the ability to assign resources to a project. These are the individuals teams will report to at various tollgates; often, the executives responsible for the ultimate success of a process or project appear in the top-right quadrant."
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-020",
+            "kind": "heading",
+            "text": "In and Out of the Box Method"
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-021",
+            "kind": "paragraph",
+            "text": "The In and Out of the Box method is a quick and easy method that helps teams define project or process scope. Begin by drawing a large box on a whiteboard or flip chart. Provide markers and sticky notes for the team. Ask the team to write down elements of the process to be worked on, including resources, activities, and people. Each item should be written on a sticky note. Work together to create as complete a list as possible, placing the sticky notes on a wall or table as you go. Make sure everyone on the team understands that there are no wrong answers and the first phase of the exercise doesn’t require discussion. By brainstorming items with little-to-no discussion, teams can capture more ideas, leading to a more accurate picture of what is in and out of scope."
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-022",
+            "kind": "paragraph",
+            "text": "Once a comprehensive list is made, begin working as a team to assign each item to a place inside, on the line, or outside of the box. Items outside of the box are those that will be considered out of scope for"
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-023",
+            "kind": "paragraph",
+            "text": "the project. Teams might place items outside of the box because they don’t have access or control over the items, they don’t have time to work on the items, or they have specifically been told not to include the item in the project."
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-024",
+            "kind": "paragraph",
+            "text": "Items that are within the box are considered in scope for the project. These should be elements of the process the team can reasonably be expected to influence. If the team isn’t sure yet where an item might fall, they should place it on the line. Items that go on the line might be ones that the team hopes to be able to impact but for which the team leader needs to seek permission or assistance from someone outside the team."
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-025",
+            "kind": "paragraph",
+            "text": "Once all items are placed on, in, or outside of the box, review the placements as a team and make any changes. Document the exercise by photographing the diagram or recreating it on a computer. The team might reflect back on the diagram when attempting to control scope creep or considering who they should approach for help with a project."
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-026",
+            "kind": "heading",
+            "text": "Is/Is Not Matrix"
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-027",
+            "kind": "paragraph",
+            "text": "The Is/Is Not Matrix is another quick brainstorming tool teams can use to define scope. It can also be used to help define some of the information necessary to a problem statement. The matrix works by considering specific things about the process or project and coming up with both is and is not answers."
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-028",
+            "kind": "paragraph",
+            "text": "For example, if a Six Sigma team is tasked with determining why the furnaces in a certain factory are not heating to proper temperatures, they might create an Is/Is Not Matrix like the one below."
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-029",
+            "kind": "heading",
+            "text": "Is"
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-030",
+            "kind": "heading",
+            "text": "Is Not"
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-031",
+            "kind": "heading",
+            "text": "Where"
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-032",
+            "kind": "heading",
+            "text": "South plant North or East plan"
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-033",
+            "kind": "heading",
+            "text": "What"
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-034",
+            "kind": "heading",
+            "text": "Steam furnaces Wood furnaces"
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-035",
+            "kind": "paragraph",
+            "text": "When January 2015 Prior to January 2015"
+          },
+          {
+            "id": "ch12-s04-define-toolset-en-036",
+            "kind": "paragraph",
+            "text": "The matrix clearly shows that the scope of the project only includes work at the south plant on the steam furnaces. The problem was noted in January 2015, which provides the team with a starting point for gathering data. This is a very simple matrix; teams can ask as many questions as they like to narrow down scope or better understand processes and projects through the Is/Is Not structure."
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch12-s04-define-toolset-zh-001",
             "kind": "paragraph",
             "text": "我们在前面的章节中介绍了许多定义工具，包括 SIPOC 图和 5 个为什么。流程图和价值流图是定义阶段经常使用的两种高级六西格玛工具。一些六西格玛团队在定义阶段开始使用运行图来定义基线；第 13 章的测量阶段介绍了运行图。"
           },
           {
-            "id": "ch12-content-zh-065",
+            "id": "ch12-s04-define-toolset-zh-002",
             "kind": "termNote",
             "rows": [
               [
@@ -885,7 +874,7 @@
             "text": "术语说明 Process Map（流程图）：把流程步骤、流向和责任可视化，帮助识别断点和浪费。"
           },
           {
-            "id": "ch12-content-zh-066",
+            "id": "ch12-s04-define-toolset-zh-003",
             "kind": "termNote",
             "rows": [
               [
@@ -895,7 +884,7 @@
             "text": "术语说明 Baseline（基线）：改进前的当前表现水平，是后续比较改进效果的参照。"
           },
           {
-            "id": "ch12-content-zh-067",
+            "id": "ch12-s04-define-toolset-zh-004",
             "kind": "termNote",
             "rows": [
               [
@@ -905,22 +894,22 @@
             "text": "术语说明 5 Whys（五个为什么）：连续追问原因，帮助从表面症状深入到根本原因。"
           },
           {
-            "id": "ch12-content-zh-068",
+            "id": "ch12-s04-define-toolset-zh-005",
             "kind": "paragraph",
             "text": "在本节中，我们将介绍定义阶段常见的三个附加工具：利益相关者分析、开箱即用方法以及是/否矩阵。"
           },
           {
-            "id": "ch12-content-zh-069",
+            "id": "ch12-s04-define-toolset-zh-006",
             "kind": "heading",
             "text": "利益相关者分析"
           },
           {
-            "id": "ch12-content-zh-070",
+            "id": "ch12-s04-define-toolset-zh-007",
             "kind": "paragraph",
             "text": "利益相关者分析是一种快速方法，可以确定组织内的各个人员与项目的关系以及团队应如何让他们了解情况。从在 x 和 y 轴上绘制的网格开始分析。纵轴代表一个人在组织中拥有的权力大小。横轴代表一个人对团队项目的兴趣程度。当团队在白板或大型活动挂图上进行利益相关者分析时，效果最佳。以大格式绘制基本图，如下图所示。"
           },
           {
-            "id": "ch12-content-zh-071",
+            "id": "ch12-s04-define-toolset-zh-008",
             "kind": "image",
             "assetId": "fig-5ce73df164432d41",
             "src": "assets/figures/fig-5ce73df164432d41.png",
@@ -928,177 +917,175 @@
             "height": 806
           },
           {
-            "id": "ch12-content-zh-072",
+            "id": "ch12-s04-define-toolset-zh-009",
             "kind": "paragraph",
             "text": "为团队提供便签。要求他们写下项目或流程的可能利益相关者。利益相关者是指对项目感兴趣、可能从项目结果中受益或可能受到项目完成的工作影响的任何人。花几分钟时间讨论头脑风暴得出的名称，并丢弃团队认为实际上不是利益相关者的任何名称。"
           },
           {
-            "id": "ch12-content-zh-073",
+            "id": "ch12-s04-define-toolset-zh-010",
             "kind": "paragraph",
             "text": "一旦团队决定了利益相关者是谁，就开始根据权力和兴趣将名字放在图表上。权力低且兴趣低的人将被放置在左下角。权力高、兴趣低的人放在左上方；权力较小但兴趣较多的人放置在右下角，权力较高且兴趣较多的人放置在右上角。如果利益相关者有一定的兴趣和权力，那么名字可能会被放在左下角右侧较高的位置，但团队并不觉得这个人太越界了。同样，放置在任何象限下限的名称可能会比放置在靠近盒子顶部的名称显示出更低的能量。 利益相关者分析使团队能够以这种方式对利益相关者进行优先级排序，即使在四个象限内也是如此。"
           },
           {
-            "id": "ch12-content-zh-074",
+            "id": "ch12-s04-define-toolset-zh-011",
             "kind": "paragraph",
             "text": "图表的每个象限都与利益相关者的类型松散相关，为团队如何与列出的每个人或部门互动提供一些指导。"
           },
           {
-            "id": "ch12-content-zh-075",
+            "id": "ch12-s04-define-toolset-zh-012",
             "kind": "heading",
             "text": "左上：保持满意"
           },
           {
-            "id": "ch12-content-zh-076",
+            "id": "ch12-s04-define-toolset-zh-013",
             "kind": "paragraph",
             "text": "属于图表左上象限的利益相关者拥有足够的权力，可以干预项目，但他们对日常结果并不十分感兴趣。团队应确保这些人以任何与项目互动的方式感到满意。团队"
           },
           {
-            "id": "ch12-content-zh-077",
+            "id": "ch12-s04-define-toolset-zh-014",
             "kind": "paragraph",
             "text": "也可能在项目期间的不同时间与这些人进行协商。例如，致力于解决仓库运输问题的团队可能需要在某个时候咨询采购经理，因为该团队确定需要不同类型的包装胶带。采购领导者有权获取资源，但他们可能对整个项目没有太大兴趣。"
           },
           {
-            "id": "ch12-content-zh-078",
+            "id": "ch12-s04-define-toolset-zh-015",
             "kind": "paragraph",
             "text": "有时，团队可能会识别属于此部分的利益相关者，并意识到该特定利益相关者在项目中投入更多对团队来说是有价值的。 六西格玛领导者可以与利益相关者合作，试图将某人从低兴趣类别转移到高兴趣类别——这是一些团队用来支持项目的政治策略。"
           },
           {
-            "id": "ch12-content-zh-079",
+            "id": "ch12-s04-define-toolset-zh-016",
             "kind": "heading",
             "text": "左下：最小的努力"
           },
           {
-            "id": "ch12-content-zh-080",
+            "id": "ch12-s04-define-toolset-zh-017",
             "kind": "paragraph",
             "text": "属于左下象限的利益相关者与项目的联系最不重要。团队主要通过新闻通讯或电子邮件向这些利益相关者传达有关项目的一般信息。虽然这些利益相关者需要团队付出最少的努力，但在某些情况下，团队可能希望将利益相关者从该框移动到右下框。"
           },
           {
-            "id": "ch12-content-zh-081",
+            "id": "ch12-s04-define-toolset-zh-018",
             "kind": "heading",
             "text": "右下：随时了解情况"
           },
           {
-            "id": "ch12-content-zh-082",
+            "id": "ch12-s04-define-toolset-zh-019",
             "kind": "paragraph",
             "text": "右下框中的个人与该项目有很强的联系或兴趣，但从资源的角度来看，他们无权支持项目。这些利益相关者可能包括与正在改进的流程相关的部门的员工或将就项目的各个方面进行咨询的主题专家。"
           },
           {
-            "id": "ch12-content-zh-083",
+            "id": "ch12-s04-define-toolset-zh-020",
             "kind": "paragraph",
             "text": "虽然右下象限的利益相关者通常无法提供资源，但他们可以以亲善大使的形式支持项目。"
           },
           {
-            "id": "ch12-content-zh-084",
+            "id": "ch12-s04-define-toolset-zh-021",
             "kind": "heading",
             "text": "右上：关键人物"
           },
           {
-            "id": "ch12-content-zh-085",
+            "id": "ch12-s04-define-toolset-zh-022",
             "kind": "paragraph",
             "text": "右上象限中的个人要么是流程的关键参与者，要么是能够为项目分配资源的执行领导者。这些是团队将在各个收费站向其报到的个人；通常，负责流程或项目最终成功的高管出现在右上象限。"
           },
           {
-            "id": "ch12-content-zh-086",
+            "id": "ch12-s04-define-toolset-zh-023",
             "kind": "heading",
             "text": "开箱即用方法"
           },
           {
-            "id": "ch12-content-zh-087",
+            "id": "ch12-s04-define-toolset-zh-024",
             "kind": "paragraph",
             "text": "“开箱即用”方法是一种快速、简单的方法，可帮助团队定义项目或流程范围。首先在白板或挂图上画一个大盒子。为团队提供标记和便签。要求团队写下要处理的流程要素，包括资源、活动和人员。每个项目都应该写在便利贴上。共同创建尽可能完整的列表，并将便签贴在墙上或桌子上。确保团队中的每个人都明白没有错误的答案，并且练习的第一阶段不需要讨论。通过对几乎没有讨论的项目进行头脑风暴，团队可以捕获更多想法，从而更准确地了解范围内和范围外的内容。"
           },
           {
-            "id": "ch12-content-zh-088",
+            "id": "ch12-s04-define-toolset-zh-025",
             "kind": "paragraph",
             "text": "一旦制定了全面的清单，就开始作为一个团队工作，将每个项目分配到框内、线上或框外的位置。盒子外的物品将被视为超出范围"
           },
           {
-            "id": "ch12-content-zh-089",
+            "id": "ch12-s04-define-toolset-zh-026",
             "kind": "paragraph",
             "text": "该项目。团队可能会将项目放在盒子之外，因为他们无权访问或控制这些项目，他们没有时间处理这些项目，或者他们被明确告知不要将该项目包含在项目中。"
           },
           {
-            "id": "ch12-content-zh-090",
+            "id": "ch12-s04-define-toolset-zh-027",
             "kind": "paragraph",
             "text": "框中的项目被视为在项目范围内。这些应该是团队可以合理预期影响的流程要素。如果团队还不确定某个物品可能会落在哪里，他们应该将其放在线上。上线的项目可能是团队希望能够产生影响的项目，但团队领导者需要寻求团队外部人员的许可或帮助。"
           },
           {
-            "id": "ch12-content-zh-091",
+            "id": "ch12-s04-define-toolset-zh-028",
             "kind": "paragraph",
             "text": "将所有物品放置在盒子上、盒子内或盒子外后，以团队形式检查放置情况并进行更改。 通过拍摄图表或在计算机上重新创建它来记录练习。当尝试控制范围蔓延或考虑他们应该向谁寻求项目帮助时，团队可能会回顾该图。"
           },
           {
-            "id": "ch12-content-zh-092",
+            "id": "ch12-s04-define-toolset-zh-029",
             "kind": "heading",
             "text": "是/不是矩阵"
           },
           {
-            "id": "ch12-content-zh-093",
+            "id": "ch12-s04-define-toolset-zh-030",
             "kind": "paragraph",
             "text": "是/不是矩阵是团队可以用来定义范围的另一个快速头脑风暴工具。它还可用于帮助定义问题陈述所需的一些信息。该矩阵的工作原理是考虑有关流程或项目的具体事项，并得出“是”和“不是”的答案。"
           },
           {
-            "id": "ch12-content-zh-094",
+            "id": "ch12-s04-define-toolset-zh-031",
             "kind": "paragraph",
             "text": "例如，如果六西格玛团队的任务是确定为什么某个工厂的熔炉没有加热到适当的温度，他们可能会创建一个如下所示的“是/不是”矩阵。"
           },
           {
-            "id": "ch12-content-zh-095",
+            "id": "ch12-s04-define-toolset-zh-032",
             "kind": "heading",
             "text": "是"
           },
           {
-            "id": "ch12-content-zh-096",
+            "id": "ch12-s04-define-toolset-zh-033",
             "kind": "heading",
             "text": "不是"
           },
           {
-            "id": "ch12-content-zh-097",
+            "id": "ch12-s04-define-toolset-zh-034",
             "kind": "heading",
             "text": "哪里"
           },
           {
-            "id": "ch12-content-zh-098",
+            "id": "ch12-s04-define-toolset-zh-035",
             "kind": "heading",
             "text": "南厂北或东规划"
           },
           {
-            "id": "ch12-content-zh-099",
+            "id": "ch12-s04-define-toolset-zh-036",
             "kind": "heading",
             "text": "什么"
           },
           {
-            "id": "ch12-content-zh-100",
+            "id": "ch12-s04-define-toolset-zh-037",
             "kind": "heading",
             "text": "蒸汽炉 燃木炉"
-          },
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch12-s05-define-tollgate-checklist",
+      "level": 2,
+      "page": 116,
+      "title": {
+        "en": "Define Tollgate Checklist",
+        "zh": "2015 年 1 月 2015 年 1 月之前"
+      },
+      "content": {
+        "en": [
           {
-            "id": "ch12-content-zh-101",
-            "kind": "heading",
-            "text": "2015 年 1 月 2015 年 1 月之前"
-          },
-          {
-            "id": "ch12-content-zh-102",
+            "id": "ch12-s05-define-tollgate-checklist-en-001",
             "kind": "paragraph",
-            "text": "该矩阵清楚地表明，该项目的范围仅包括南厂蒸汽炉的工作。该问题于 2015 年 1 月被发现，为团队提供了收集数据的起点。这是一个非常简单的矩阵；团队可以提出任意多的问题，以缩小范围或通过“是/不是”结构更好地理解流程和项目。"
+            "text": "A successful define phase ends with all of the following deliverables:"
           },
           {
-            "id": "ch12-content-zh-103",
-            "kind": "heading",
-            "text": "定义收费站检查表"
-          },
-          {
-            "id": "ch12-content-zh-104",
+            "id": "ch12-s05-define-tollgate-checklist-en-002",
             "kind": "paragraph",
-            "text": "成功的定义阶段以以下所有可交付成果结束："
+            "text": "o A comprehensive project statement o A team charter o An understanding of the process and a project diagram or map o An understanding of the Voice of the Customer o A definition of what success will look like that has been agreed on by the team members and any sponsors or executive leaders"
           },
           {
-            "id": "ch12-content-zh-105",
-            "kind": "paragraph",
-            "text": "o 全面的项目陈述 o 团队章程 o 对流程和项目图表或地图的理解 o 对客户之声（VOC）的理解 o 团队成员和任何发起人或执行领导者一致同意的成功定义"
-          },
-          {
-            "id": "ch12-content-zh-106",
+            "id": "ch12-s05-define-tollgate-checklist-en-003",
             "kind": "image",
             "assetId": "fig-7d6d6621d629d1cf",
             "src": "assets/figures/fig-7d6d6621d629d1cf.png",
@@ -1106,7 +1093,45 @@
             "height": 1528
           },
           {
-            "id": "ch12-content-zh-107",
+            "id": "ch12-s05-define-tollgate-checklist-en-004",
+            "kind": "image",
+            "assetId": "fig-d2818c92d1da78cd",
+            "src": "assets/figures/fig-d2818c92d1da78cd.png",
+            "width": 1218,
+            "height": 905
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch12-s05-define-tollgate-checklist-zh-001",
+            "kind": "paragraph",
+            "text": "该矩阵清楚地表明，该项目的范围仅包括南厂蒸汽炉的工作。该问题于 2015 年 1 月被发现，为团队提供了收集数据的起点。这是一个非常简单的矩阵；团队可以提出任意多的问题，以缩小范围或通过“是/不是”结构更好地理解流程和项目。"
+          },
+          {
+            "id": "ch12-s05-define-tollgate-checklist-zh-002",
+            "kind": "heading",
+            "text": "定义收费站检查表"
+          },
+          {
+            "id": "ch12-s05-define-tollgate-checklist-zh-003",
+            "kind": "paragraph",
+            "text": "成功的定义阶段以以下所有可交付成果结束："
+          },
+          {
+            "id": "ch12-s05-define-tollgate-checklist-zh-004",
+            "kind": "paragraph",
+            "text": "o 全面的项目陈述 o 团队章程 o 对流程和项目图表或地图的理解 o 对客户之声（VOC）的理解 o 团队成员和任何发起人或执行领导者一致同意的成功定义"
+          },
+          {
+            "id": "ch12-s05-define-tollgate-checklist-zh-005",
+            "kind": "image",
+            "assetId": "fig-7d6d6621d629d1cf",
+            "src": "assets/figures/fig-7d6d6621d629d1cf.png",
+            "width": 1218,
+            "height": 1528
+          },
+          {
+            "id": "ch12-s05-define-tollgate-checklist-zh-006",
             "kind": "image",
             "assetId": "fig-d2818c92d1da78cd",
             "src": "assets/figures/fig-d2818c92d1da78cd.png",
@@ -1122,7 +1147,7 @@
       "id": "fig-5ce73df164432d41",
       "type": "table-image",
       "path": "assets/figures/fig-5ce73df164432d41.png",
-      "page": 110,
+      "page": 114,
       "width": 1190,
       "height": 806
     },
@@ -1130,7 +1155,7 @@
       "id": "fig-7d6d6621d629d1cf",
       "type": "table-image",
       "path": "assets/figures/fig-7d6d6621d629d1cf.png",
-      "page": 110,
+      "page": 116,
       "width": 1218,
       "height": 1528
     },
@@ -1138,7 +1163,7 @@
       "id": "fig-d2818c92d1da78cd",
       "type": "table-image",
       "path": "assets/figures/fig-d2818c92d1da78cd.png",
-      "page": 110,
+      "page": 116,
       "width": 1218,
       "height": 905
     }

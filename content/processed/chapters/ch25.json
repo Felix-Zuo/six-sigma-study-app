@@ -10,11 +10,11 @@
   "source": {
     "enDocx": "C:\\findjob_sixsigma_sources\\manual_en_aligned.docx",
     "zhDocx": "C:\\findjob_sixsigma_sources\\manual_zh_aligned.docx",
-    "extraction": "python-docx body-order extraction; generic chapter-level bilingual content"
+    "extraction": "python-docx body-order extraction; source-TOC sectionized bilingual content"
   },
   "sections": [
     {
-      "id": "ch25-content",
+      "id": "ch25-s01-introduction-to-minitab",
       "level": 1,
       "page": 305,
       "title": {
@@ -24,804 +24,24 @@
       "content": {
         "en": [
           {
-            "id": "ch25-content-en-001",
+            "id": "ch25-s01-introduction-to-minitab-en-001",
             "kind": "paragraph",
             "text": "In previous chapters, we walked through Excel calculations and analysis for some very basic problems. The steps involved sometimes became very complex. Consider the Chi-Squared Goodness-of-Fit Test performed in Excel in the chapter on normal probability distributions. The calculations do work, and you can always use them absent a statistical software program. However, by using Minitab, within a half- dozen mouse clicks you can arrive at the same answer about the normality of data that all those Excel calculations required. Not only do you save time, but you reduce the opportunities for a numerical or mathematical error."
           },
           {
-            "id": "ch25-content-en-002",
+            "id": "ch25-s01-introduction-to-minitab-en-002",
             "kind": "paragraph",
             "text": "If Minitab or other software is an option, why bother learning how to perform some of these statistical analyses by hand or in Excel? As stated in the above paragraph, you might not always have access to Minitab or a similar program. Even when you do have access, it’s important to understand the fundamentals behind some of these calculations so you understand why Minitab provides the results that it does. Without that background, it’s difficult to create the presentations and explanations discussed in chapter 24. Instead, you would simply be relying on Minitab to make decisions for you, which is never a good way to manage a Six Sigma project."
           },
           {
-            "id": "ch25-content-en-003",
+            "id": "ch25-s01-introduction-to-minitab-en-003",
             "kind": "paragraph",
             "text": "Remember: Statistics don’t lie, but math cannot evaluate non-numerical priorities. Statistics can say something is a better option than another, but you – knowing the process, the goals, the resources, and the willingness of leadership to take risks or spend money – might decide against that option for good reason."
-          },
-          {
-            "id": "ch25-content-en-004",
-            "kind": "heading",
-            "text": "Overview of the Minitab Interface"
-          },
-          {
-            "id": "ch25-content-en-005",
-            "kind": "paragraph",
-            "text": "Before getting into some specific Minitab capabilities, take a moment to understand the Minitab interface. At first glance, you might think this is just a spreadsheet, but the interface actually has three prominent windows."
-          },
-          {
-            "id": "ch25-content-en-006",
-            "kind": "paragraph",
-            "text": "When you first open Minitab, you’ll likely see the session window on top and the worksheet window on bottom. The worksheet window looks and behaves a lot like a worksheet in Excel. You can have more than one worksheet window open in Minitab at a time, and you can save individual worksheets as part of a Minitab project."
-          },
-          {
-            "id": "ch25-content-en-007",
-            "kind": "image",
-            "assetId": "fig-835ef2ed4c45a0c7",
-            "src": "assets/figures/fig-835ef2ed4c45a0c7.png",
-            "width": 1191,
-            "height": 586
-          },
-          {
-            "id": "ch25-content-en-008",
-            "kind": "paragraph",
-            "text": "At the top of the worksheet window, you’ll find the traditional Windows-based icons for minimizing, maximizing, and closing the worksheet. You can also use your mouse to grab the edges of the worksheet on all four sides to make it larger or smaller in the window as you wish."
-          },
-          {
-            "id": "ch25-content-en-009",
-            "kind": "image",
-            "assetId": "fig-b74c346abfc6d7ad",
-            "src": "assets/figures/fig-b74c346abfc6d7ad.png",
-            "width": 1191,
-            "height": 275
-          },
-          {
-            "id": "ch25-content-en-010",
-            "kind": "paragraph",
-            "text": "The worksheet is where you enter data that you are attempting to analyze. You can enter data by typing it in yourself, but you can also copy data into Minitab from numerous other spreadsheet programs, including Excel."
-          },
-          {
-            "id": "ch25-content-en-011",
-            "kind": "paragraph",
-            "text": "If you enter data into a column in Minitab, you can right click on that column to make format changes to the column or the data within the column."
-          },
-          {
-            "id": "ch25-content-en-012",
-            "kind": "image",
-            "assetId": "fig-710aacb7ed395414",
-            "src": "assets/figures/fig-710aacb7ed395414.png",
-            "width": 593,
-            "height": 1000
-          },
-          {
-            "id": "ch25-content-en-013",
-            "kind": "paragraph",
-            "text": "Clear, delete, copy, cut, find and replace, sort, insert, and conditional formatting all work very similar to the way these functions work in Excel. You might use these options when you are ordering and preparing data for analysis or if you have analyzed data and you want to create a more visually-pleasing format for a presentation. Minitab is more limited than Excel when it comes to formatting and presenting information, which is why Six Sigma experts often work simultaneously in both programs."
-          },
-          {
-            "id": "ch25-content-en-014",
-            "kind": "paragraph",
-            "text": "One of the more valuable cell/column functions is the “format columns” option. Clicking this option brings up the Format Column dialogue box."
-          },
-          {
-            "id": "ch25-content-en-015",
-            "kind": "image",
-            "assetId": "fig-b40091886f25323f",
-            "src": "assets/figures/fig-b40091886f25323f.png",
-            "width": 905,
-            "height": 734
-          },
-          {
-            "id": "ch25-content-en-016",
-            "kind": "paragraph",
-            "text": "The dialogue box lets you format numbers within a column to match certain parameters. You can set Minitab to only display 2 decimal places, or set a column for percentage, currency, or time. This helps create uniform data and reduce the confusion of the display, especially since Minitab tends to default to a 3 or 4 decimal readout, which is not appropriate for every analysis. If you are analyzing the number of workers in a shift, for example, you probably don’t want to consider 0.005 of a worker."
-          },
-          {
-            "id": "ch25-content-en-017",
-            "kind": "paragraph",
-            "text": "Like Excel, Minitab accepts both numerical and alpha-numerical entries. If any cell in a column features alpha-numerical text, Minitab notes that the cells in that column are text cells. You can’t perform calculations on a column with a text cell included. The purpose of including text in Minitab would be to clarify subgroups or divisions of data and for use in automatically labeling some charts."
-          },
-          {
-            "id": "ch25-content-en-018",
-            "kind": "image",
-            "assetId": "fig-dfd49f3d72139223",
-            "src": "assets/figures/fig-dfd49f3d72139223.png",
-            "width": 432,
-            "height": 465
-          },
-          {
-            "id": "ch25-content-en-019",
-            "kind": "paragraph",
-            "text": "When you first open Minitab, the session window is located above the spreadsheet-style worksheet. The session window is critical to Minitab functionality because this is where all of the analysis and calculations are displayed. Below is an example of results in the session window. You can see that Minitab typically provides a bold header identifying what calculation or analysis was run, followed by a summary of the test or analysis and the results."
-          },
-          {
-            "id": "ch25-content-en-020",
-            "kind": "paragraph",
-            "text": "Here, for example, you see the results of a 1-Sample Z test. The null hypothesis is that the mean is equal to 5. The alternative is that the mean is not equal to 5. A standard deviation of 1 was assumed for this test."
-          },
-          {
-            "id": "ch25-content-en-021",
-            "kind": "paragraph",
-            "text": "Minitab provides several pieces of analysis, the most important in this case being the p-Value of 0.893. In this case, the p-Value is above 0.05, so we would fail to reject the null hypothesis."
-          },
-          {
-            "id": "ch25-content-en-022",
-            "kind": "image",
-            "assetId": "fig-5b521ad803a05e55",
-            "src": "assets/figures/fig-5b521ad803a05e55.png",
-            "width": 1191,
-            "height": 455
-          },
-          {
-            "id": "ch25-content-en-023",
-            "kind": "paragraph",
-            "text": "Throughout the next three chapters, we’ll look repeatedly at the session window when learning to run and interpret various tests in Minitab."
-          },
-          {
-            "id": "ch25-content-en-024",
-            "kind": "paragraph",
-            "text": "Before moving onto the various menu options in Minitab, consider one more window in the interface. The window might be minimized at the bottom of the screen. Click to maximize this window for a moment."
-          },
-          {
-            "id": "ch25-content-en-025",
-            "kind": "image",
-            "assetId": "fig-face9dcf9af30fa2",
-            "src": "assets/figures/fig-face9dcf9af30fa2.png",
-            "width": 674,
-            "height": 1310
-          },
-          {
-            "id": "ch25-content-en-026",
-            "kind": "paragraph",
-            "text": "This is the project window, where you can manage all of the data, worksheets, charts, and graphs you create with Minitab. Minitab functions similar to Microsoft OneNote in this regard. You can create a project file. Within that file, you can store additional files, including workbooks, reports, session windows, and graphs. You can also view the history of your open session; after a few hours of analysis, it can be difficult to remember what various results are. In this window, you can find tests you already ran and click back to view them."
-          },
-          {
-            "id": "ch25-content-en-027",
-            "kind": "image",
-            "assetId": "fig-d85e1e57525c0535",
-            "src": "assets/figures/fig-d85e1e57525c0535.png",
-            "width": 1045,
-            "height": 618
-          },
-          {
-            "id": "ch25-content-en-028",
-            "kind": "heading",
-            "text": "Overview of the Minitab Menu"
-          },
-          {
-            "id": "ch25-content-en-029",
-            "kind": "paragraph",
-            "text": "Minitab has a fairly expansive menu bar, and we will not cover all of the options and icons within this unit. The file, edit, window, and help menu bar options are fairly self-explanatory and function in keeping with similar menu options in common software programs. If you are working in your own version of Minitab, you can experiment with those menu options and the variety of icons below the menu on your own."
-          },
-          {
-            "id": "ch25-content-en-030",
-            "kind": "paragraph",
-            "text": "For this unit, we’ll concentrate on the menu options with statistical analysis functions: the Calc, Stat, and Graph menus."
-          },
-          {
-            "id": "ch25-content-en-031",
-            "kind": "image",
-            "assetId": "fig-3bdf8d007f222a57",
-            "src": "assets/figures/fig-3bdf8d007f222a57.png",
-            "width": 1191,
-            "height": 139
-          },
-          {
-            "id": "ch25-content-en-032",
-            "kind": "heading",
-            "text": "The Calc Menu Option"
-          },
-          {
-            "id": "ch25-content-en-033",
-            "kind": "paragraph",
-            "text": "In this chapter, we’re going to look at three major capabilities found under the Calc menu option:"
-          },
-          {
-            "id": "ch25-content-en-034",
-            "kind": "paragraph",
-            "text": "- Generate random data - Calculate column or row statistics - Calculate probabilities given various distributions"
-          },
-          {
-            "id": "ch25-content-en-035",
-            "kind": "image",
-            "assetId": "fig-e371b1ced1c60186",
-            "src": "assets/figures/fig-e371b1ced1c60186.png",
-            "width": 417,
-            "height": 579
-          },
-          {
-            "id": "ch25-content-en-036",
-            "kind": "heading",
-            "text": "Random Data"
-          },
-          {
-            "id": "ch25-content-en-037",
-            "kind": "paragraph",
-            "text": "The random data tool lets you generate random data that conforms to a certain probability distribution. This tool is helpful if you are testing different capabilities in Minitab or practicing Six Sigma statistical analysis without any of your own data to start with. It can also be helpful if you want to compare your own data to various types of distributions."
-          },
-          {
-            "id": "ch25-content-en-038",
-            "kind": "paragraph",
-            "text": "We’re going to use the random data generation function to create some data that we can use for other functions within this chapter."
-          },
-          {
-            "id": "ch25-content-en-039",
-            "kind": "paragraph",
-            "text": "Click Calc > Random Data and then select a distribution you want to work with. For the purpose of this exercise, select the normal distribution."
-          },
-          {
-            "id": "ch25-content-en-040",
-            "kind": "image",
-            "assetId": "fig-d369f677a83242f2",
-            "src": "assets/figures/fig-d369f677a83242f2.png",
-            "width": 1105,
-            "height": 1023
-          },
-          {
-            "id": "ch25-content-en-041",
-            "kind": "paragraph",
-            "text": "In the Normal Distribution dialogue box, type:"
-          },
-          {
-            "id": "ch25-content-en-042",
-            "kind": "paragraph",
-            "text": "- 30 for the number of rows of data to generate. This will generate a sample size of 30. You can create a sample size of a few data points or hundreds of data points. - C1 for the column you want to store data in. You can type the alpha-numeric name of any column or, if you already named some columns, you can select them from the list on the left. - 5 for the mean. You can specific any mean when you generate random data on your own. - 1.0 for the standard deviation. You can also specific any standard deviation when you generate random data on your own."
-          },
-          {
-            "id": "ch25-content-en-043",
-            "kind": "image",
-            "assetId": "fig-d3f16fa78e7bd0e9",
-            "src": "assets/figures/fig-d3f16fa78e7bd0e9.png",
-            "width": 803,
-            "height": 635
-          },
-          {
-            "id": "ch25-content-en-044",
-            "kind": "paragraph",
-            "text": "Once your dialogue box looks like the one pictured above, click OK."
-          },
-          {
-            "id": "ch25-content-en-045",
-            "kind": "paragraph",
-            "text": "Minitab populates column C1 with data that fits the parameters you set. You can try creating other types of data using this function, with various other parameters such as different means and standard deviations, to see how inputting different information changes the data that is returned."
-          },
-          {
-            "id": "ch25-content-en-046",
-            "kind": "heading",
-            "text": "Column and Row Statistics"
-          },
-          {
-            "id": "ch25-content-en-047",
-            "kind": "paragraph",
-            "text": "Sometimes, you just need to know a specific statistic about your data quickly. The calculate Column or Row Statistics functions lets you calculate the sum, mean, standard deviation, min, max, range, median, sum of squares, or N total given data in a single column or row. You can only calculate one of these statistics at a time, though, which creates some limitations. In chapter 27, we’ll cover another Minitab function that returns all major descriptive statistics at one time."
-          },
-          {
-            "id": "ch25-content-en-048",
-            "kind": "paragraph",
-            "text": "Using the random set of data created in the previous section, try out the column statistics function."
-          },
-          {
-            "id": "ch25-content-en-049",
-            "kind": "paragraph",
-            "text": "Click Calc > Column Statistics."
-          },
-          {
-            "id": "ch25-content-en-050",
-            "kind": "image",
-            "assetId": "fig-2df217156ddcb315",
-            "src": "assets/figures/fig-2df217156ddcb315.png",
-            "width": 691,
-            "height": 297
-          },
-          {
-            "id": "ch25-content-en-051",
-            "kind": "paragraph",
-            "text": "Click to select the mean."
-          },
-          {
-            "id": "ch25-content-en-052",
-            "kind": "image",
-            "assetId": "fig-676b25ac3f14c95b",
-            "src": "assets/figures/fig-676b25ac3f14c95b.png",
-            "width": 801,
-            "height": 627
-          },
-          {
-            "id": "ch25-content-en-053",
-            "kind": "paragraph",
-            "text": "Click in the Input Variable box."
-          },
-          {
-            "id": "ch25-content-en-054",
-            "kind": "image",
-            "assetId": "fig-f85089dc3df339f3",
-            "src": "assets/figures/fig-f85089dc3df339f3.png",
-            "width": 792,
-            "height": 629
-          },
-          {
-            "id": "ch25-content-en-055",
-            "kind": "paragraph",
-            "text": "Without clicking in any other box first, click on the C1 listing in the large box to the left."
-          },
-          {
-            "id": "ch25-content-en-056",
-            "kind": "image",
-            "assetId": "fig-4f211ed88be50676",
-            "src": "assets/figures/fig-4f211ed88be50676.png",
-            "width": 809,
-            "height": 634
-          },
-          {
-            "id": "ch25-content-en-057",
-            "kind": "paragraph",
-            "text": "Click “Select” to select C1 into the Input Variable box. Note, you can also double click C1 to move it into the Input Variable box."
-          },
-          {
-            "id": "ch25-content-en-058",
-            "kind": "paragraph",
-            "text": "Note, many of Minitab’s dialogue boxes follow a similar structure, with data columns listed in a box on the left. You have to select data by double clicking or by clicking the column name and clicking select."
-          },
-          {
-            "id": "ch25-content-en-059",
-            "kind": "image",
-            "assetId": "fig-4bee4b897dd24668",
-            "src": "assets/figures/fig-4bee4b897dd24668.png",
-            "width": 796,
-            "height": 633
-          },
-          {
-            "id": "ch25-content-en-060",
-            "kind": "paragraph",
-            "text": "Click OK."
-          },
-          {
-            "id": "ch25-content-en-061",
-            "kind": "paragraph",
-            "text": "Minitab displays the mean of the data in the session window."
-          },
-          {
-            "id": "ch25-content-en-062",
-            "kind": "image",
-            "assetId": "fig-6a76b2933904ed31",
-            "src": "assets/figures/fig-6a76b2933904ed31.png",
-            "width": 518,
-            "height": 199
-          },
-          {
-            "id": "ch25-content-en-063",
-            "kind": "paragraph",
-            "text": "Note, the mean of your data will not necessarily be the same as the value calculated above, since you generated random data that is likely somewhat different from the data that was used to calculate the example in this book."
-          },
-          {
-            "id": "ch25-content-en-064",
-            "kind": "paragraph",
-            "text": "Calculating statistics for row-based data is done in the exact same fashion, except that you would select a row name instead of a column name."
-          },
-          {
-            "id": "ch25-content-en-065",
-            "kind": "heading",
-            "text": "Probability Distributions"
-          },
-          {
-            "id": "ch25-content-en-066",
-            "kind": "paragraph",
-            "text": "Take a moment to recall the chapters on both normal probability distributions and non-normal probability distributions. In both of those chapters, we demonstrated calculations that let us determine the probability of certain outcomes given a set of data and a certain probability distribution."
-          },
-          {
-            "id": "ch25-content-en-067",
-            "kind": "paragraph",
-            "text": "If you recall, we mentioned that some of these calculations can get fairly complex, and we only handled a few through manual calculations in those chapters. This is because software such as Minitab lets you calculate the PDF and CDF by entering a few pieces of information about your data."
-          },
-          {
-            "id": "ch25-content-en-068",
-            "kind": "image",
-            "assetId": "fig-e688dce790d4ca44",
-            "src": "assets/figures/fig-e688dce790d4ca44.png",
-            "width": 1176,
-            "height": 458
-          },
-          {
-            "id": "ch25-content-en-069",
-            "kind": "paragraph",
-            "text": "To understand how to calculate PDF and CDF in Minitab, let’s look at a real-world example."
-          },
-          {
-            "id": "ch25-content-en-070",
-            "kind": "paragraph",
-            "text": "A Six Sigma team working to increase the process efficiency of a library checkout system randomly measured the length of time it takes for librarians to check out patrons. For this purpose, assume the data is normal. The mean time of the sample was 5.5 minutes. The standard deviation was 3.028 minutes. What is the probability that it takes exactly 5 minutes to check out a patron?"
-          },
-          {
-            "id": "ch25-content-en-071",
-            "kind": "heading",
-            "text": "Begin the calculation by selection Calc > Probability Distributions > Normal"
-          },
-          {
-            "id": "ch25-content-en-072",
-            "kind": "image",
-            "assetId": "fig-b7c6e0506b280db2",
-            "src": "assets/figures/fig-b7c6e0506b280db2.png",
-            "width": 867,
-            "height": 666
-          },
-          {
-            "id": "ch25-content-en-073",
-            "kind": "paragraph",
-            "text": "Select “probability density” to calculate the PDF, since you want to know the probability of an exact value."
-          },
-          {
-            "id": "ch25-content-en-074",
-            "kind": "paragraph",
-            "text": "Enter the data for the mean and standard deviation. Select “Input Constant,” since you want to find the answer for a specific number, not for a list of numbers in a column in your worksheet."
-          },
-          {
-            "id": "ch25-content-en-075",
-            "kind": "image",
-            "assetId": "fig-6fbb7b8065b7f577",
-            "src": "assets/figures/fig-6fbb7b8065b7f577.png",
-            "width": 790,
-            "height": 685
-          },
-          {
-            "id": "ch25-content-en-076",
-            "kind": "paragraph",
-            "text": "Once your dialog box looks like the one pictured above, click OK."
-          },
-          {
-            "id": "ch25-content-en-077",
-            "kind": "image",
-            "assetId": "fig-25add1b163a8d1db",
-            "src": "assets/figures/fig-25add1b163a8d1db.png",
-            "width": 816,
-            "height": 315
-          },
-          {
-            "id": "ch25-content-en-078",
-            "kind": "paragraph",
-            "text": "The PDF is calculated in Minitab’s session window. There is a 0.129 probability of the time being exactly 5 minutes."
-          },
-          {
-            "id": "ch25-content-en-079",
-            "kind": "paragraph",
-            "text": "What if you wanted to find out what the probability was that the time would be 5 minutes or less?"
-          },
-          {
-            "id": "ch25-content-en-080",
-            "kind": "paragraph",
-            "text": "Repeat the steps above, but choose cumulative probability instead."
-          },
-          {
-            "id": "ch25-content-en-081",
-            "kind": "image",
-            "assetId": "fig-0341bd05062a0612",
-            "src": "assets/figures/fig-0341bd05062a0612.png",
-            "width": 813,
-            "height": 691
-          },
-          {
-            "id": "ch25-content-en-082",
-            "kind": "paragraph",
-            "text": "Minitab’s new answer is calculated and displayed in the session window."
-          },
-          {
-            "id": "ch25-content-en-083",
-            "kind": "image",
-            "assetId": "fig-d63862f253d87d73",
-            "src": "assets/figures/fig-d63862f253d87d73.png",
-            "width": 788,
-            "height": 268
-          },
-          {
-            "id": "ch25-content-en-084",
-            "kind": "paragraph",
-            "text": "There is a 0.434 probability the time will be 5 minutes or less."
-          },
-          {
-            "id": "ch25-content-en-085",
-            "kind": "paragraph",
-            "text": "What is the probability that the time will be greater than 5 minutes? The total probability is 1, so:"
-          },
-          {
-            "id": "ch25-content-en-086",
-            "kind": "paragraph",
-            "text": "1 – 0.434 = 0.566."
-          },
-          {
-            "id": "ch25-content-en-087",
-            "kind": "paragraph",
-            "text": "There is approximately 0.566 probability of the time being greater than 5 minutes."
-          },
-          {
-            "id": "ch25-content-en-088",
-            "kind": "paragraph",
-            "text": "Let’s look at another example, this time using the box of chocolate scenario from chapter 20. In that scenario, a Six Sigma team was working with a process that produced boxes with 20 chocolates each. For each chocolate, there was a 0.05 probability of the chocolate being defective. What is the likelihood of getting a box of chocolates where 2 of those chocolates are defective?"
-          },
-          {
-            "id": "ch25-content-en-089",
-            "kind": "paragraph",
-            "text": "This time, select Calc > Probability Distributions > Binomial."
-          },
-          {
-            "id": "ch25-content-en-090",
-            "kind": "paragraph",
-            "text": "Unlike the normal curve, the binomial distribution deals with number of trials and event probability. If you recall from chapter 20, when discussing binomial probabilities, we talk about the likelihood of one event or the other occurring for each trial."
-          },
-          {
-            "id": "ch25-content-en-091",
-            "kind": "paragraph",
-            "text": "For our chocolate boxes, there are effectively 20 trials in each box – each chocolate can be either defective or not defective. For each chocolate, there is a 0.05 probability that a defect will occur. This is the event probability. We can plug these two numbers into the Binomial Distribution dialog box and select the input constant “2” to determine the probability of getting a box with exactly 2 defective chocolates."
-          },
-          {
-            "id": "ch25-content-en-092",
-            "kind": "image",
-            "assetId": "fig-0d3daf4851e82b48",
-            "src": "assets/figures/fig-0d3daf4851e82b48.png",
-            "width": 805,
-            "height": 687
-          },
-          {
-            "id": "ch25-content-en-093",
-            "kind": "paragraph",
-            "text": "Click OK."
-          },
-          {
-            "id": "ch25-content-en-094",
-            "kind": "image",
-            "assetId": "fig-8b289c7f72e3f988",
-            "src": "assets/figures/fig-8b289c7f72e3f988.png",
-            "width": 492,
-            "height": 235
-          },
-          {
-            "id": "ch25-content-en-095",
-            "kind": "paragraph",
-            "text": "Minitab’s answer is that there is a probability of 0.189 of getting exactly two defective chocolates."
-          },
-          {
-            "id": "ch25-content-en-096",
-            "kind": "paragraph",
-            "text": "What if we want to know the chance of getting over 5 defects? Repeat the steps above, but select “Cumulative probability” and enter 5 as the input constant."
-          },
-          {
-            "id": "ch25-content-en-097",
-            "kind": "image",
-            "assetId": "fig-bfbc5af7ac46974c",
-            "src": "assets/figures/fig-bfbc5af7ac46974c.png",
-            "width": 798,
-            "height": 700
-          },
-          {
-            "id": "ch25-content-en-098",
-            "kind": "paragraph",
-            "text": "Click OK."
-          },
-          {
-            "id": "ch25-content-en-099",
-            "kind": "image",
-            "assetId": "fig-d03c1174d589bbdf",
-            "src": "assets/figures/fig-d03c1174d589bbdf.png",
-            "width": 545,
-            "height": 229
-          },
-          {
-            "id": "ch25-content-en-100",
-            "kind": "paragraph",
-            "text": "Minitab returns an answer of 0.999, but remember that this is the cumulative probability. It is the probability of having 5 or less defects in the box. The probability of having more than 5 is:"
-          },
-          {
-            "id": "ch25-content-en-101",
-            "kind": "paragraph",
-            "text": "1 – 0.999, or 0.001."
-          },
-          {
-            "id": "ch25-content-en-102",
-            "kind": "paragraph",
-            "text": "It’s not a high probability at all."
-          },
-          {
-            "id": "ch25-content-en-103",
-            "kind": "heading",
-            "text": "Calculating Multiple Probabilities at Once"
-          },
-          {
-            "id": "ch25-content-en-104",
-            "kind": "paragraph",
-            "text": "One of the reasons for using Minitab is that it lets you analyze data with utmost efficiency. While you can see that calculating a single probability or CDF is much faster than handling the math on your own, what if you wanted information about a set of numbers at one time? What if the chocolate team wanted to know the probability of getting 1, 2, 3, 4, 5, 6, 7, 8, and 9 defects?"
-          },
-          {
-            "id": "ch25-content-en-105",
-            "kind": "paragraph",
-            "text": "First, enter all of these numbers in a column in Minitab."
-          },
-          {
-            "id": "ch25-content-en-106",
-            "kind": "image",
-            "assetId": "fig-f6637ce3f136b244",
-            "src": "assets/figures/fig-f6637ce3f136b244.png",
-            "width": 282,
-            "height": 558
-          },
-          {
-            "id": "ch25-content-en-107",
-            "kind": "paragraph",
-            "text": "Follow the steps above to choose the appropriate distribution. In this case, since we’re dealing with the defect/no defect data, it’s the binomial distribution."
-          },
-          {
-            "id": "ch25-content-en-108",
-            "kind": "paragraph",
-            "text": "Choose “Probability” and enter the information about trials and event probability. Instead of inputting a constant, select “input column.” Select the column where you entered the numbers 1 through 9."
-          },
-          {
-            "id": "ch25-content-en-109",
-            "kind": "image",
-            "assetId": "fig-62b85063e1972042",
-            "src": "assets/figures/fig-62b85063e1972042.png",
-            "width": 798,
-            "height": 683
-          },
-          {
-            "id": "ch25-content-en-110",
-            "kind": "paragraph",
-            "text": "Click OK."
-          },
-          {
-            "id": "ch25-content-en-111",
-            "kind": "paragraph",
-            "text": "Minitab generates the probability for all the numbers you entered in the session window."
-          },
-          {
-            "id": "ch25-content-en-112",
-            "kind": "paragraph",
-            "text": "Probability Density Function Binomial with n = 20 and p = 0.05 x P( X = x ) 1 0.377354 2 0.188677 3 0.059582 4 0.013328 5 0.002245 6 0.000295 7 0.000031 8 0.000003 9 0.000000"
-          },
-          {
-            "id": "ch25-content-en-113",
-            "kind": "heading",
-            "text": "Remember to Work with the Right Probability Distribution"
-          },
-          {
-            "id": "ch25-content-en-114",
-            "kind": "paragraph",
-            "text": "Before calculating probabilities, make sure you have the right distribution. If you have data that follows a Binomial Distribution and you use Minitab to calculate answers based on the normal curve, your answers will be incorrect."
-          },
-          {
-            "id": "ch25-content-en-115",
-            "kind": "paragraph",
-            "text": "Use the Binomial Distribution when you are dealing with binomial data and a consistent event probability for every trial. Use the Normal Distribution when you are dealing with data that is normal or approximates the normal curve. Remember, the Central Limit Theorem says that, when dealing with continuous data, the larger the sample size, the closer it will approximately the normal curve."
-          },
-          {
-            "id": "ch25-content-en-116",
-            "kind": "paragraph",
-            "text": "You can run a quick graphical analysis to determine if data you are working with is normal."
-          },
-          {
-            "id": "ch25-content-en-117",
-            "kind": "paragraph",
-            "text": "To understand how to perform this analysis, copy the following data into Minitab."
-          },
-          {
-            "id": "ch25-content-en-118",
-            "kind": "paragraph",
-            "text": "6.319075 3.556859 3.452996 3.300786 4.340399 5.242524 2.542238 4.429293 7.757632 7.582288 4.692596 4.450197 6.454293 3.666121 5.243754 2.025502"
-          },
-          {
-            "id": "ch25-content-en-119",
-            "kind": "paragraph",
-            "text": "4.189321"
-          },
-          {
-            "id": "ch25-content-en-120",
-            "kind": "paragraph",
-            "text": "2.79723 3.397714 5.507707"
-          },
-          {
-            "id": "ch25-content-en-121",
-            "kind": "paragraph",
-            "text": "Select Stat > Basic Statistics > Graphical Summary."
-          },
-          {
-            "id": "ch25-content-en-122",
-            "kind": "image",
-            "assetId": "fig-eee787838256ad86",
-            "src": "assets/figures/fig-eee787838256ad86.png",
-            "width": 1081,
-            "height": 437
-          },
-          {
-            "id": "ch25-content-en-123",
-            "kind": "paragraph",
-            "text": "For Variables, select the column where you copied the data from above. Leave the confidence level at 95."
-          },
-          {
-            "id": "ch25-content-en-124",
-            "kind": "image",
-            "assetId": "fig-0070af4a482888ed",
-            "src": "assets/figures/fig-0070af4a482888ed.png",
-            "width": 659,
-            "height": 689
-          },
-          {
-            "id": "ch25-content-en-125",
-            "kind": "paragraph",
-            "text": "Click OK."
-          },
-          {
-            "id": "ch25-content-en-126",
-            "kind": "paragraph",
-            "text": "Minitab generates a graphical and statistical analysis of the data."
-          },
-          {
-            "id": "ch25-content-en-127",
-            "kind": "paragraph",
-            "text": "Summary Report for C1"
-          },
-          {
-            "id": "ch25-content-en-128",
-            "kind": "image",
-            "assetId": "fig-13c9c30e2b7c72c8",
-            "src": "assets/figures/fig-13c9c30e2b7c72c8.png",
-            "width": 1429,
-            "height": 835
-          },
-          {
-            "id": "ch25-content-en-129",
-            "kind": "paragraph",
-            "text": "There are several things on this analysis that tell us the data is probably normal:"
-          },
-          {
-            "id": "ch25-content-en-130",
-            "kind": "paragraph",
-            "text": "- The graphical analysis does somewhat appear to follow a normal curve. Because we only have 20 data points, though, it’s difficult to come to a conclusion based solely on the image. - The mean and median are fairly close, and the confidence interval of the mean is within the confidence interval of the median. This is another indication we could be dealing with a normal curve. - Finally, the p-value for the Anderson-Darling Normality test is listed as 0.486. Since the p-value is higher than the alpha value (remember, we left the confidence level at 95, which means alpha is 0.05), we fail to reject the null hypothesis. The null hypothesis in a normality test is always that the data is normal."
-          },
-          {
-            "id": "ch25-content-en-131",
-            "kind": "paragraph",
-            "text": "Summary Report for C1"
-          },
-          {
-            "id": "ch25-content-en-132",
-            "kind": "image",
-            "assetId": "fig-b1323c87b24932bd",
-            "src": "assets/figures/fig-b1323c87b24932bd.png",
-            "width": 1208,
-            "height": 836
-          },
-          {
-            "id": "ch25-content-en-133",
-            "kind": "paragraph",
-            "text": "Mean"
-          },
-          {
-            "id": "ch25-content-en-134",
-            "kind": "heading",
-            "text": "Median"
-          },
-          {
-            "id": "ch25-content-en-135",
-            "kind": "paragraph",
-            "text": "Consider the graphical analysis above. Do you think the data is normal?"
-          },
-          {
-            "id": "ch25-content-en-136",
-            "kind": "paragraph",
-            "text": "Summary Report for C2"
-          },
-          {
-            "id": "ch25-content-en-137",
-            "kind": "image",
-            "assetId": "fig-586d90d246ec07f8",
-            "src": "assets/figures/fig-586d90d246ec07f8.png",
-            "width": 1420,
-            "height": 836
-          },
-          {
-            "id": "ch25-content-en-138",
-            "kind": "paragraph",
-            "text": "Consider the graphical analysis above. Do you think this data is normal? If not, what distribution might the data follow?"
           }
         ],
         "zh": [
           {
-            "id": "ch25-content-zh-001",
+            "id": "ch25-s01-introduction-to-minitab-zh-001",
             "kind": "termNote",
             "rows": [
               [
@@ -831,37 +51,50 @@
             "text": "术语说明 Sample / Sampling（样本/抽样）：从总体中选取部分数据进行分析；样本应尽量代表总体。"
           },
           {
-            "id": "ch25-content-zh-002",
+            "id": "ch25-s01-introduction-to-minitab-zh-002",
             "kind": "paragraph",
             "text": "在前面的章节中，我们通过Excel计算和分析了一些非常基本的问题。所涉及的步骤有时变得非常复杂。考虑正态概率分布章节中在 Excel 中执行的卡方拟合优度检验。这些计算确实有效，并且您始终可以在没有统计软件程序的情况下使用它们。然而，通过使用 Minitab，只需点击六次鼠标，您就可以得到所有这些 Excel 计算所需的有关数据正态性的相同答案。您不仅可以节省时间，还可以减少出现数字或数学错误的机会。"
           },
           {
-            "id": "ch25-content-zh-003",
+            "id": "ch25-s01-introduction-to-minitab-zh-003",
             "kind": "paragraph",
             "text": "如果可以选择 Minitab 或其他软件，为什么还要学习如何手动或在 Excel 中执行其中一些统计分析呢？如上段所述，您可能并不总是能够访问 Minitab 或类似程序。即使您有权访问，了解其中一些计算背后的基本原理也很重要，这样您就可以理解 Minitab 为何提供这样的结果。如果没有这些背景，就很难创建第 24 章中讨论的演示文稿和解释。相反，您将只是依靠 Minitab 为您做出决策，这绝不是管理六西格玛项目的好方法。"
           },
           {
-            "id": "ch25-content-zh-004",
+            "id": "ch25-s01-introduction-to-minitab-zh-004",
             "kind": "paragraph",
             "text": "请记住：统计数据不会说谎，但数学无法评估非数字的优先级。统计数据可以表明某种选择比另一种选择更好，但你——了解流程、目标、资源以及领导层承担风险或花钱的意愿——可能有充分的理由决定反对该选择。"
           },
           {
-            "id": "ch25-content-zh-005",
+            "id": "ch25-s01-introduction-to-minitab-zh-005",
             "kind": "heading",
             "text": "Minitab 界面概述"
-          },
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch25-s02-overview-of-the-minitab-interface",
+      "level": 2,
+      "page": 305,
+      "title": {
+        "en": "Overview of the Minitab Interface",
+        "zh": "Minitab 界面概述"
+      },
+      "content": {
+        "en": [
           {
-            "id": "ch25-content-zh-006",
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-001",
             "kind": "paragraph",
-            "text": "在了解某些特定的 Minitab 功能之前，请花一些时间了解 Minitab 界面。 乍一看，您可能认为这只是一个电子表格，但该界面实际上有三个突出的窗口。"
+            "text": "Before getting into some specific Minitab capabilities, take a moment to understand the Minitab interface. At first glance, you might think this is just a spreadsheet, but the interface actually has three prominent windows."
           },
           {
-            "id": "ch25-content-zh-007",
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-002",
             "kind": "paragraph",
-            "text": "当您第一次打开 Minitab 时，您可能会在顶部看到会话窗口，在底部看到工作表窗口。工作表窗口的外观和行为与 Excel 中的工作表非常相似。您一次可以在 Minitab 中打开多个工作表窗口，并且可以将单个工作表保存为 Minitab 项目的一部分。"
+            "text": "When you first open Minitab, you’ll likely see the session window on top and the worksheet window on bottom. The worksheet window looks and behaves a lot like a worksheet in Excel. You can have more than one worksheet window open in Minitab at a time, and you can save individual worksheets as part of a Minitab project."
           },
           {
-            "id": "ch25-content-zh-008",
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-003",
             "kind": "image",
             "assetId": "fig-835ef2ed4c45a0c7",
             "src": "assets/figures/fig-835ef2ed4c45a0c7.png",
@@ -869,12 +102,12 @@
             "height": 586
           },
           {
-            "id": "ch25-content-zh-009",
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-004",
             "kind": "paragraph",
-            "text": "在工作表窗口的顶部，您将找到传统的基于 Windows 的图标，用于最小化、最大化和关闭工作表。您还可以使用鼠标抓住工作表的所有四个边的边缘，以根据需要将其在窗口中放大或缩小。"
+            "text": "At the top of the worksheet window, you’ll find the traditional Windows-based icons for minimizing, maximizing, and closing the worksheet. You can also use your mouse to grab the edges of the worksheet on all four sides to make it larger or smaller in the window as you wish."
           },
           {
-            "id": "ch25-content-zh-010",
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-005",
             "kind": "image",
             "assetId": "fig-b74c346abfc6d7ad",
             "src": "assets/figures/fig-b74c346abfc6d7ad.png",
@@ -882,17 +115,17 @@
             "height": 275
           },
           {
-            "id": "ch25-content-zh-011",
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-006",
             "kind": "paragraph",
-            "text": "您可以在工作表中输入要尝试分析的数据。您可以通过自己输入数据来输入数据，但也可以将数据从许多其他电子表格程序（包括 Excel）复制到 Minitab 中。"
+            "text": "The worksheet is where you enter data that you are attempting to analyze. You can enter data by typing it in yourself, but you can also copy data into Minitab from numerous other spreadsheet programs, including Excel."
           },
           {
-            "id": "ch25-content-zh-012",
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-007",
             "kind": "paragraph",
-            "text": "如果您在 Minitab 中的列中输入数据，则可以右键单击该列以对该列或列中的数据进行格式更改。"
+            "text": "If you enter data into a column in Minitab, you can right click on that column to make format changes to the column or the data within the column."
           },
           {
-            "id": "ch25-content-zh-013",
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-008",
             "kind": "image",
             "assetId": "fig-710aacb7ed395414",
             "src": "assets/figures/fig-710aacb7ed395414.png",
@@ -900,17 +133,17 @@
             "height": 1000
           },
           {
-            "id": "ch25-content-zh-014",
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-009",
             "kind": "paragraph",
-            "text": "清除、删除、复制、剪切、查找和替换、排序、插入和条件格式的工作方式与这些功能在 Excel 中的工作方式非常相似。当您订购和准备数据以供分析时，或者您已分析数据并且想要创建更美观的演示文稿格式时，您可以使用这些选项。在格式化和呈现信息方面，Minitab 比 Excel 受到更多限制，这就是六西格玛专家经常同时在这两个程序中工作的原因。"
+            "text": "Clear, delete, copy, cut, find and replace, sort, insert, and conditional formatting all work very similar to the way these functions work in Excel. You might use these options when you are ordering and preparing data for analysis or if you have analyzed data and you want to create a more visually-pleasing format for a presentation. Minitab is more limited than Excel when it comes to formatting and presenting information, which is why Six Sigma experts often work simultaneously in both programs."
           },
           {
-            "id": "ch25-content-zh-015",
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-010",
             "kind": "paragraph",
-            "text": "更有价值的单元格/列功能之一是“设置列格式”选项。单击此选项将弹出“设置列格式”对话框。"
+            "text": "One of the more valuable cell/column functions is the “format columns” option. Clicking this option brings up the Format Column dialogue box."
           },
           {
-            "id": "ch25-content-zh-016",
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-011",
             "kind": "image",
             "assetId": "fig-b40091886f25323f",
             "src": "assets/figures/fig-b40091886f25323f.png",
@@ -918,17 +151,17 @@
             "height": 734
           },
           {
-            "id": "ch25-content-zh-017",
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-012",
             "kind": "paragraph",
-            "text": "该对话框允许您设置列中数字的格式以匹配某些参数。您可以将 Minitab 设置为仅显示 2 位小数，或设置百分比、货币或时间列。这有助于创建统一的数据并减少显示的混乱，特别是因为 Minitab 倾向于默认使用 3 或 4 位小数读数，这并不适合每个分析。例如，如果您正在分析一个班次的工人数量，您可能不想考虑 0.005 名工人。"
+            "text": "The dialogue box lets you format numbers within a column to match certain parameters. You can set Minitab to only display 2 decimal places, or set a column for percentage, currency, or time. This helps create uniform data and reduce the confusion of the display, especially since Minitab tends to default to a 3 or 4 decimal readout, which is not appropriate for every analysis. If you are analyzing the number of workers in a shift, for example, you probably don’t want to consider 0.005 of a worker."
           },
           {
-            "id": "ch25-content-zh-018",
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-013",
             "kind": "paragraph",
-            "text": "与 Excel 一样，Minitab 接受数字和字母数字条目。 如果列中的任何单元格具有字母数字文本，Minitab 会指出该列中的单元格是文本单元格。您无法对包含文本单元格的列执行计算。在 Minitab 中包含文本的目的是澄清数据的子组或划分，并用于自动标记某些图表。"
+            "text": "Like Excel, Minitab accepts both numerical and alpha-numerical entries. If any cell in a column features alpha-numerical text, Minitab notes that the cells in that column are text cells. You can’t perform calculations on a column with a text cell included. The purpose of including text in Minitab would be to clarify subgroups or divisions of data and for use in automatically labeling some charts."
           },
           {
-            "id": "ch25-content-zh-019",
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-014",
             "kind": "image",
             "assetId": "fig-dfd49f3d72139223",
             "src": "assets/figures/fig-dfd49f3d72139223.png",
@@ -936,17 +169,158 @@
             "height": 465
           },
           {
-            "id": "ch25-content-zh-020",
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-015",
+            "kind": "paragraph",
+            "text": "When you first open Minitab, the session window is located above the spreadsheet-style worksheet. The session window is critical to Minitab functionality because this is where all of the analysis and calculations are displayed. Below is an example of results in the session window. You can see that Minitab typically provides a bold header identifying what calculation or analysis was run, followed by a summary of the test or analysis and the results."
+          },
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-016",
+            "kind": "paragraph",
+            "text": "Here, for example, you see the results of a 1-Sample Z test. The null hypothesis is that the mean is equal to 5. The alternative is that the mean is not equal to 5. A standard deviation of 1 was assumed for this test."
+          },
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-017",
+            "kind": "paragraph",
+            "text": "Minitab provides several pieces of analysis, the most important in this case being the p-Value of 0.893. In this case, the p-Value is above 0.05, so we would fail to reject the null hypothesis."
+          },
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-018",
+            "kind": "image",
+            "assetId": "fig-5b521ad803a05e55",
+            "src": "assets/figures/fig-5b521ad803a05e55.png",
+            "width": 1191,
+            "height": 455
+          },
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-019",
+            "kind": "paragraph",
+            "text": "Throughout the next three chapters, we’ll look repeatedly at the session window when learning to run and interpret various tests in Minitab."
+          },
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-020",
+            "kind": "paragraph",
+            "text": "Before moving onto the various menu options in Minitab, consider one more window in the interface. The window might be minimized at the bottom of the screen. Click to maximize this window for a moment."
+          },
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-021",
+            "kind": "image",
+            "assetId": "fig-face9dcf9af30fa2",
+            "src": "assets/figures/fig-face9dcf9af30fa2.png",
+            "width": 674,
+            "height": 1310
+          },
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-022",
+            "kind": "paragraph",
+            "text": "This is the project window, where you can manage all of the data, worksheets, charts, and graphs you create with Minitab. Minitab functions similar to Microsoft OneNote in this regard. You can create a project file. Within that file, you can store additional files, including workbooks, reports, session windows, and graphs. You can also view the history of your open session; after a few hours of analysis, it can be difficult to remember what various results are. In this window, you can find tests you already ran and click back to view them."
+          },
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-en-023",
+            "kind": "image",
+            "assetId": "fig-d85e1e57525c0535",
+            "src": "assets/figures/fig-d85e1e57525c0535.png",
+            "width": 1045,
+            "height": 618
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-001",
+            "kind": "paragraph",
+            "text": "在了解某些特定的 Minitab 功能之前，请花一些时间了解 Minitab 界面。 乍一看，您可能认为这只是一个电子表格，但该界面实际上有三个突出的窗口。"
+          },
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-002",
+            "kind": "paragraph",
+            "text": "当您第一次打开 Minitab 时，您可能会在顶部看到会话窗口，在底部看到工作表窗口。工作表窗口的外观和行为与 Excel 中的工作表非常相似。您一次可以在 Minitab 中打开多个工作表窗口，并且可以将单个工作表保存为 Minitab 项目的一部分。"
+          },
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-003",
+            "kind": "image",
+            "assetId": "fig-835ef2ed4c45a0c7",
+            "src": "assets/figures/fig-835ef2ed4c45a0c7.png",
+            "width": 1191,
+            "height": 586
+          },
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-004",
+            "kind": "paragraph",
+            "text": "在工作表窗口的顶部，您将找到传统的基于 Windows 的图标，用于最小化、最大化和关闭工作表。您还可以使用鼠标抓住工作表的所有四个边的边缘，以根据需要将其在窗口中放大或缩小。"
+          },
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-005",
+            "kind": "image",
+            "assetId": "fig-b74c346abfc6d7ad",
+            "src": "assets/figures/fig-b74c346abfc6d7ad.png",
+            "width": 1191,
+            "height": 275
+          },
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-006",
+            "kind": "paragraph",
+            "text": "您可以在工作表中输入要尝试分析的数据。您可以通过自己输入数据来输入数据，但也可以将数据从许多其他电子表格程序（包括 Excel）复制到 Minitab 中。"
+          },
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-007",
+            "kind": "paragraph",
+            "text": "如果您在 Minitab 中的列中输入数据，则可以右键单击该列以对该列或列中的数据进行格式更改。"
+          },
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-008",
+            "kind": "image",
+            "assetId": "fig-710aacb7ed395414",
+            "src": "assets/figures/fig-710aacb7ed395414.png",
+            "width": 593,
+            "height": 1000
+          },
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-009",
+            "kind": "paragraph",
+            "text": "清除、删除、复制、剪切、查找和替换、排序、插入和条件格式的工作方式与这些功能在 Excel 中的工作方式非常相似。当您订购和准备数据以供分析时，或者您已分析数据并且想要创建更美观的演示文稿格式时，您可以使用这些选项。在格式化和呈现信息方面，Minitab 比 Excel 受到更多限制，这就是六西格玛专家经常同时在这两个程序中工作的原因。"
+          },
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-010",
+            "kind": "paragraph",
+            "text": "更有价值的单元格/列功能之一是“设置列格式”选项。单击此选项将弹出“设置列格式”对话框。"
+          },
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-011",
+            "kind": "image",
+            "assetId": "fig-b40091886f25323f",
+            "src": "assets/figures/fig-b40091886f25323f.png",
+            "width": 905,
+            "height": 734
+          },
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-012",
+            "kind": "paragraph",
+            "text": "该对话框允许您设置列中数字的格式以匹配某些参数。您可以将 Minitab 设置为仅显示 2 位小数，或设置百分比、货币或时间列。这有助于创建统一的数据并减少显示的混乱，特别是因为 Minitab 倾向于默认使用 3 或 4 位小数读数，这并不适合每个分析。例如，如果您正在分析一个班次的工人数量，您可能不想考虑 0.005 名工人。"
+          },
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-013",
+            "kind": "paragraph",
+            "text": "与 Excel 一样，Minitab 接受数字和字母数字条目。 如果列中的任何单元格具有字母数字文本，Minitab 会指出该列中的单元格是文本单元格。您无法对包含文本单元格的列执行计算。在 Minitab 中包含文本的目的是澄清数据的子组或划分，并用于自动标记某些图表。"
+          },
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-014",
+            "kind": "image",
+            "assetId": "fig-dfd49f3d72139223",
+            "src": "assets/figures/fig-dfd49f3d72139223.png",
+            "width": 432,
+            "height": 465
+          },
+          {
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-015",
             "kind": "paragraph",
             "text": "首次打开 Minitab 时，会话窗口位于电子表格样式工作表的上方。会话窗口对于 Minitab 功能至关重要，因为这是显示所有分析和计算的位置。下面是会话窗口中的结果示例。您可以看到，Minitab 通常提供粗体标题，标识运行的计算或分析，后面是测试或分析以及结果的摘要。"
           },
           {
-            "id": "ch25-content-zh-021",
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-016",
             "kind": "paragraph",
             "text": "例如，您可以在此处看到 1-Sample Z 检验的结果。原假设是均值等于 5。替代假设是均值不等于 5。此检验假设标准差为 1。"
           },
           {
-            "id": "ch25-content-zh-022",
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-017",
             "kind": "termNote",
             "rows": [
               [
@@ -956,12 +330,12 @@
             "text": "术语说明 Standard Deviation（标准差）：衡量数据离散程度的统计量；标准差越大，波动越明显。"
           },
           {
-            "id": "ch25-content-zh-023",
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-018",
             "kind": "paragraph",
             "text": "Minitab 提供了多项分析，本例中最重要的是 p 值 0.893。在这种情况下，p 值高于 0.05，因此我们无法拒绝原假设。"
           },
           {
-            "id": "ch25-content-zh-024",
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-019",
             "kind": "termNote",
             "rows": [
               [
@@ -971,7 +345,7 @@
             "text": "术语说明 p-value（p 值）：在原假设成立时观察到当前或更极端结果的概率；常用于判断显著性。"
           },
           {
-            "id": "ch25-content-zh-025",
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-020",
             "kind": "image",
             "assetId": "fig-5b521ad803a05e55",
             "src": "assets/figures/fig-5b521ad803a05e55.png",
@@ -979,17 +353,17 @@
             "height": 455
           },
           {
-            "id": "ch25-content-zh-026",
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-021",
             "kind": "paragraph",
             "text": "在接下来的三章中，当学习在 Minitab 中运行和解释各种测试时，我们将反复查看会话窗口。"
           },
           {
-            "id": "ch25-content-zh-027",
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-022",
             "kind": "paragraph",
             "text": "在转到 Minitab 中的各种菜单选项之前，请考虑界面中的另一个窗口。该窗口可能会最小化在屏幕底部。单击以暂时最大化该窗口。"
           },
           {
-            "id": "ch25-content-zh-028",
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-023",
             "kind": "image",
             "assetId": "fig-face9dcf9af30fa2",
             "src": "assets/figures/fig-face9dcf9af30fa2.png",
@@ -997,58 +371,94 @@
             "height": 1310
           },
           {
-            "id": "ch25-content-zh-029",
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-024",
             "kind": "paragraph",
             "text": "这是项目窗口，您可以在其中管理使用 Minitab 创建的所有数据、工作表、图表和图形。在这方面，Minitab 的功能与 Microsoft OneNote 类似。您可以创建一个项目文件。在该文件中，您可以存储其他文件，包括工作簿、报告、会话窗口和图表。您还可以查看您的公开会话的历史记录；经过几个小时的分析后，可能很难记住各种结果是什么。在此窗口中，您可以找到已运行的测试并单击返回以查看它们。"
           },
           {
-            "id": "ch25-content-zh-030",
+            "id": "ch25-s02-overview-of-the-minitab-interface-zh-025",
             "kind": "image",
             "assetId": "fig-d85e1e57525c0535",
             "src": "assets/figures/fig-d85e1e57525c0535.png",
             "width": 1045,
             "height": 618
-          },
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch25-s03-overview-of-the-minitab-menu",
+      "level": 2,
+      "page": 310,
+      "title": {
+        "en": "Overview of the Minitab Menu",
+        "zh": "Minitab 菜单概述"
+      },
+      "content": {
+        "en": [
           {
-            "id": "ch25-content-zh-031",
-            "kind": "heading",
-            "text": "Minitab 菜单概述"
-          },
-          {
-            "id": "ch25-content-zh-032",
+            "id": "ch25-s03-overview-of-the-minitab-menu-en-001",
             "kind": "paragraph",
-            "text": "Minitab 具有相当广泛的菜单栏，我们不会介绍该单元中的所有选项和图标。文件、编辑、窗口和帮助菜单栏选项非常不言自明，其功能与常见软件程序中的类似菜单选项保持一致。 如果您使用自己的 Minitab 版本，则可以自行尝试这些菜单选项以及菜单下方的各种图标。"
+            "text": "Minitab has a fairly expansive menu bar, and we will not cover all of the options and icons within this unit. The file, edit, window, and help menu bar options are fairly self-explanatory and function in keeping with similar menu options in common software programs. If you are working in your own version of Minitab, you can experiment with those menu options and the variety of icons below the menu on your own."
           },
           {
-            "id": "ch25-content-zh-033",
+            "id": "ch25-s03-overview-of-the-minitab-menu-en-002",
             "kind": "paragraph",
-            "text": "对于本单元，我们将重点关注具有统计分析功能的菜单选项：“计算”、“统计”和“图形”菜单。"
+            "text": "For this unit, we’ll concentrate on the menu options with statistical analysis functions: the Calc, Stat, and Graph menus."
           },
           {
-            "id": "ch25-content-zh-034",
+            "id": "ch25-s03-overview-of-the-minitab-menu-en-003",
             "kind": "image",
             "assetId": "fig-3bdf8d007f222a57",
             "src": "assets/figures/fig-3bdf8d007f222a57.png",
             "width": 1191,
             "height": 139
-          },
+          }
+        ],
+        "zh": [
           {
-            "id": "ch25-content-zh-035",
-            "kind": "heading",
-            "text": "计算菜单选项"
-          },
-          {
-            "id": "ch25-content-zh-036",
+            "id": "ch25-s03-overview-of-the-minitab-menu-zh-001",
             "kind": "paragraph",
-            "text": "在本章中，我们将了解 Calc 菜单选项下的三个主要功能："
+            "text": "Minitab 具有相当广泛的菜单栏，我们不会介绍该单元中的所有选项和图标。文件、编辑、窗口和帮助菜单栏选项非常不言自明，其功能与常见软件程序中的类似菜单选项保持一致。 如果您使用自己的 Minitab 版本，则可以自行尝试这些菜单选项以及菜单下方的各种图标。"
           },
           {
-            "id": "ch25-content-zh-037",
+            "id": "ch25-s03-overview-of-the-minitab-menu-zh-002",
             "kind": "paragraph",
-            "text": "- 生成随机数据 - 计算列或行统计数据 - 计算给定各种分布的概率"
+            "text": "对于本单元，我们将重点关注具有统计分析功能的菜单选项：“计算”、“统计”和“图形”菜单。"
           },
           {
-            "id": "ch25-content-zh-038",
+            "id": "ch25-s03-overview-of-the-minitab-menu-zh-003",
+            "kind": "image",
+            "assetId": "fig-3bdf8d007f222a57",
+            "src": "assets/figures/fig-3bdf8d007f222a57.png",
+            "width": 1191,
+            "height": 139
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch25-s04-the-calc-menu-option",
+      "level": 2,
+      "page": 310,
+      "title": {
+        "en": "The Calc Menu Option",
+        "zh": "计算菜单选项"
+      },
+      "content": {
+        "en": [
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-001",
+            "kind": "paragraph",
+            "text": "In this chapter, we’re going to look at three major capabilities found under the Calc menu option:"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-002",
+            "kind": "paragraph",
+            "text": "- Generate random data - Calculate column or row statistics - Calculate probabilities given various distributions"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-003",
             "kind": "image",
             "assetId": "fig-e371b1ced1c60186",
             "src": "assets/figures/fig-e371b1ced1c60186.png",
@@ -1056,27 +466,637 @@
             "height": 579
           },
           {
-            "id": "ch25-content-zh-039",
+            "id": "ch25-s04-the-calc-menu-option-en-004",
+            "kind": "heading",
+            "text": "Random Data"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-005",
+            "kind": "paragraph",
+            "text": "The random data tool lets you generate random data that conforms to a certain probability distribution. This tool is helpful if you are testing different capabilities in Minitab or practicing Six Sigma statistical analysis without any of your own data to start with. It can also be helpful if you want to compare your own data to various types of distributions."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-006",
+            "kind": "paragraph",
+            "text": "We’re going to use the random data generation function to create some data that we can use for other functions within this chapter."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-007",
+            "kind": "paragraph",
+            "text": "Click Calc > Random Data and then select a distribution you want to work with. For the purpose of this exercise, select the normal distribution."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-008",
+            "kind": "image",
+            "assetId": "fig-d369f677a83242f2",
+            "src": "assets/figures/fig-d369f677a83242f2.png",
+            "width": 1105,
+            "height": 1023
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-009",
+            "kind": "paragraph",
+            "text": "In the Normal Distribution dialogue box, type:"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-010",
+            "kind": "paragraph",
+            "text": "- 30 for the number of rows of data to generate. This will generate a sample size of 30. You can create a sample size of a few data points or hundreds of data points. - C1 for the column you want to store data in. You can type the alpha-numeric name of any column or, if you already named some columns, you can select them from the list on the left. - 5 for the mean. You can specific any mean when you generate random data on your own. - 1.0 for the standard deviation. You can also specific any standard deviation when you generate random data on your own."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-011",
+            "kind": "image",
+            "assetId": "fig-d3f16fa78e7bd0e9",
+            "src": "assets/figures/fig-d3f16fa78e7bd0e9.png",
+            "width": 803,
+            "height": 635
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-012",
+            "kind": "paragraph",
+            "text": "Once your dialogue box looks like the one pictured above, click OK."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-013",
+            "kind": "paragraph",
+            "text": "Minitab populates column C1 with data that fits the parameters you set. You can try creating other types of data using this function, with various other parameters such as different means and standard deviations, to see how inputting different information changes the data that is returned."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-014",
+            "kind": "heading",
+            "text": "Column and Row Statistics"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-015",
+            "kind": "paragraph",
+            "text": "Sometimes, you just need to know a specific statistic about your data quickly. The calculate Column or Row Statistics functions lets you calculate the sum, mean, standard deviation, min, max, range, median, sum of squares, or N total given data in a single column or row. You can only calculate one of these statistics at a time, though, which creates some limitations. In chapter 27, we’ll cover another Minitab function that returns all major descriptive statistics at one time."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-016",
+            "kind": "paragraph",
+            "text": "Using the random set of data created in the previous section, try out the column statistics function."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-017",
+            "kind": "paragraph",
+            "text": "Click Calc > Column Statistics."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-018",
+            "kind": "image",
+            "assetId": "fig-2df217156ddcb315",
+            "src": "assets/figures/fig-2df217156ddcb315.png",
+            "width": 691,
+            "height": 297
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-019",
+            "kind": "paragraph",
+            "text": "Click to select the mean."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-020",
+            "kind": "image",
+            "assetId": "fig-676b25ac3f14c95b",
+            "src": "assets/figures/fig-676b25ac3f14c95b.png",
+            "width": 801,
+            "height": 627
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-021",
+            "kind": "paragraph",
+            "text": "Click in the Input Variable box."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-022",
+            "kind": "image",
+            "assetId": "fig-f85089dc3df339f3",
+            "src": "assets/figures/fig-f85089dc3df339f3.png",
+            "width": 792,
+            "height": 629
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-023",
+            "kind": "paragraph",
+            "text": "Without clicking in any other box first, click on the C1 listing in the large box to the left."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-024",
+            "kind": "image",
+            "assetId": "fig-4f211ed88be50676",
+            "src": "assets/figures/fig-4f211ed88be50676.png",
+            "width": 809,
+            "height": 634
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-025",
+            "kind": "paragraph",
+            "text": "Click “Select” to select C1 into the Input Variable box. Note, you can also double click C1 to move it into the Input Variable box."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-026",
+            "kind": "paragraph",
+            "text": "Note, many of Minitab’s dialogue boxes follow a similar structure, with data columns listed in a box on the left. You have to select data by double clicking or by clicking the column name and clicking select."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-027",
+            "kind": "image",
+            "assetId": "fig-4bee4b897dd24668",
+            "src": "assets/figures/fig-4bee4b897dd24668.png",
+            "width": 796,
+            "height": 633
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-028",
+            "kind": "paragraph",
+            "text": "Click OK."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-029",
+            "kind": "paragraph",
+            "text": "Minitab displays the mean of the data in the session window."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-030",
+            "kind": "image",
+            "assetId": "fig-6a76b2933904ed31",
+            "src": "assets/figures/fig-6a76b2933904ed31.png",
+            "width": 518,
+            "height": 199
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-031",
+            "kind": "paragraph",
+            "text": "Note, the mean of your data will not necessarily be the same as the value calculated above, since you generated random data that is likely somewhat different from the data that was used to calculate the example in this book."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-032",
+            "kind": "paragraph",
+            "text": "Calculating statistics for row-based data is done in the exact same fashion, except that you would select a row name instead of a column name."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-033",
+            "kind": "heading",
+            "text": "Probability Distributions"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-034",
+            "kind": "paragraph",
+            "text": "Take a moment to recall the chapters on both normal probability distributions and non-normal probability distributions. In both of those chapters, we demonstrated calculations that let us determine the probability of certain outcomes given a set of data and a certain probability distribution."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-035",
+            "kind": "paragraph",
+            "text": "If you recall, we mentioned that some of these calculations can get fairly complex, and we only handled a few through manual calculations in those chapters. This is because software such as Minitab lets you calculate the PDF and CDF by entering a few pieces of information about your data."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-036",
+            "kind": "image",
+            "assetId": "fig-e688dce790d4ca44",
+            "src": "assets/figures/fig-e688dce790d4ca44.png",
+            "width": 1176,
+            "height": 458
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-037",
+            "kind": "paragraph",
+            "text": "To understand how to calculate PDF and CDF in Minitab, let’s look at a real-world example."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-038",
+            "kind": "paragraph",
+            "text": "A Six Sigma team working to increase the process efficiency of a library checkout system randomly measured the length of time it takes for librarians to check out patrons. For this purpose, assume the data is normal. The mean time of the sample was 5.5 minutes. The standard deviation was 3.028 minutes. What is the probability that it takes exactly 5 minutes to check out a patron?"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-039",
+            "kind": "heading",
+            "text": "Begin the calculation by selection Calc > Probability Distributions > Normal"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-040",
+            "kind": "image",
+            "assetId": "fig-b7c6e0506b280db2",
+            "src": "assets/figures/fig-b7c6e0506b280db2.png",
+            "width": 867,
+            "height": 666
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-041",
+            "kind": "paragraph",
+            "text": "Select “probability density” to calculate the PDF, since you want to know the probability of an exact value."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-042",
+            "kind": "paragraph",
+            "text": "Enter the data for the mean and standard deviation. Select “Input Constant,” since you want to find the answer for a specific number, not for a list of numbers in a column in your worksheet."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-043",
+            "kind": "image",
+            "assetId": "fig-6fbb7b8065b7f577",
+            "src": "assets/figures/fig-6fbb7b8065b7f577.png",
+            "width": 790,
+            "height": 685
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-044",
+            "kind": "paragraph",
+            "text": "Once your dialog box looks like the one pictured above, click OK."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-045",
+            "kind": "image",
+            "assetId": "fig-25add1b163a8d1db",
+            "src": "assets/figures/fig-25add1b163a8d1db.png",
+            "width": 816,
+            "height": 315
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-046",
+            "kind": "paragraph",
+            "text": "The PDF is calculated in Minitab’s session window. There is a 0.129 probability of the time being exactly 5 minutes."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-047",
+            "kind": "paragraph",
+            "text": "What if you wanted to find out what the probability was that the time would be 5 minutes or less?"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-048",
+            "kind": "paragraph",
+            "text": "Repeat the steps above, but choose cumulative probability instead."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-049",
+            "kind": "image",
+            "assetId": "fig-0341bd05062a0612",
+            "src": "assets/figures/fig-0341bd05062a0612.png",
+            "width": 813,
+            "height": 691
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-050",
+            "kind": "paragraph",
+            "text": "Minitab’s new answer is calculated and displayed in the session window."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-051",
+            "kind": "image",
+            "assetId": "fig-d63862f253d87d73",
+            "src": "assets/figures/fig-d63862f253d87d73.png",
+            "width": 788,
+            "height": 268
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-052",
+            "kind": "paragraph",
+            "text": "There is a 0.434 probability the time will be 5 minutes or less."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-053",
+            "kind": "paragraph",
+            "text": "What is the probability that the time will be greater than 5 minutes? The total probability is 1, so:"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-054",
+            "kind": "paragraph",
+            "text": "1 – 0.434 = 0.566."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-055",
+            "kind": "paragraph",
+            "text": "There is approximately 0.566 probability of the time being greater than 5 minutes."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-056",
+            "kind": "paragraph",
+            "text": "Let’s look at another example, this time using the box of chocolate scenario from chapter 20. In that scenario, a Six Sigma team was working with a process that produced boxes with 20 chocolates each. For each chocolate, there was a 0.05 probability of the chocolate being defective. What is the likelihood of getting a box of chocolates where 2 of those chocolates are defective?"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-057",
+            "kind": "paragraph",
+            "text": "This time, select Calc > Probability Distributions > Binomial."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-058",
+            "kind": "paragraph",
+            "text": "Unlike the normal curve, the binomial distribution deals with number of trials and event probability. If you recall from chapter 20, when discussing binomial probabilities, we talk about the likelihood of one event or the other occurring for each trial."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-059",
+            "kind": "paragraph",
+            "text": "For our chocolate boxes, there are effectively 20 trials in each box – each chocolate can be either defective or not defective. For each chocolate, there is a 0.05 probability that a defect will occur. This is the event probability. We can plug these two numbers into the Binomial Distribution dialog box and select the input constant “2” to determine the probability of getting a box with exactly 2 defective chocolates."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-060",
+            "kind": "image",
+            "assetId": "fig-0d3daf4851e82b48",
+            "src": "assets/figures/fig-0d3daf4851e82b48.png",
+            "width": 805,
+            "height": 687
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-061",
+            "kind": "paragraph",
+            "text": "Click OK."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-062",
+            "kind": "image",
+            "assetId": "fig-8b289c7f72e3f988",
+            "src": "assets/figures/fig-8b289c7f72e3f988.png",
+            "width": 492,
+            "height": 235
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-063",
+            "kind": "paragraph",
+            "text": "Minitab’s answer is that there is a probability of 0.189 of getting exactly two defective chocolates."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-064",
+            "kind": "paragraph",
+            "text": "What if we want to know the chance of getting over 5 defects? Repeat the steps above, but select “Cumulative probability” and enter 5 as the input constant."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-065",
+            "kind": "image",
+            "assetId": "fig-bfbc5af7ac46974c",
+            "src": "assets/figures/fig-bfbc5af7ac46974c.png",
+            "width": 798,
+            "height": 700
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-066",
+            "kind": "paragraph",
+            "text": "Click OK."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-067",
+            "kind": "image",
+            "assetId": "fig-d03c1174d589bbdf",
+            "src": "assets/figures/fig-d03c1174d589bbdf.png",
+            "width": 545,
+            "height": 229
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-068",
+            "kind": "paragraph",
+            "text": "Minitab returns an answer of 0.999, but remember that this is the cumulative probability. It is the probability of having 5 or less defects in the box. The probability of having more than 5 is:"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-069",
+            "kind": "paragraph",
+            "text": "1 – 0.999, or 0.001."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-070",
+            "kind": "paragraph",
+            "text": "It’s not a high probability at all."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-071",
+            "kind": "heading",
+            "text": "Calculating Multiple Probabilities at Once"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-072",
+            "kind": "paragraph",
+            "text": "One of the reasons for using Minitab is that it lets you analyze data with utmost efficiency. While you can see that calculating a single probability or CDF is much faster than handling the math on your own, what if you wanted information about a set of numbers at one time? What if the chocolate team wanted to know the probability of getting 1, 2, 3, 4, 5, 6, 7, 8, and 9 defects?"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-073",
+            "kind": "paragraph",
+            "text": "First, enter all of these numbers in a column in Minitab."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-074",
+            "kind": "image",
+            "assetId": "fig-f6637ce3f136b244",
+            "src": "assets/figures/fig-f6637ce3f136b244.png",
+            "width": 282,
+            "height": 558
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-075",
+            "kind": "paragraph",
+            "text": "Follow the steps above to choose the appropriate distribution. In this case, since we’re dealing with the defect/no defect data, it’s the binomial distribution."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-076",
+            "kind": "paragraph",
+            "text": "Choose “Probability” and enter the information about trials and event probability. Instead of inputting a constant, select “input column.” Select the column where you entered the numbers 1 through 9."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-077",
+            "kind": "image",
+            "assetId": "fig-62b85063e1972042",
+            "src": "assets/figures/fig-62b85063e1972042.png",
+            "width": 798,
+            "height": 683
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-078",
+            "kind": "paragraph",
+            "text": "Click OK."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-079",
+            "kind": "paragraph",
+            "text": "Minitab generates the probability for all the numbers you entered in the session window."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-080",
+            "kind": "paragraph",
+            "text": "Probability Density Function Binomial with n = 20 and p = 0.05 x P( X = x ) 1 0.377354 2 0.188677 3 0.059582 4 0.013328 5 0.002245 6 0.000295 7 0.000031 8 0.000003 9 0.000000"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-081",
+            "kind": "heading",
+            "text": "Remember to Work with the Right Probability Distribution"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-082",
+            "kind": "paragraph",
+            "text": "Before calculating probabilities, make sure you have the right distribution. If you have data that follows a Binomial Distribution and you use Minitab to calculate answers based on the normal curve, your answers will be incorrect."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-083",
+            "kind": "paragraph",
+            "text": "Use the Binomial Distribution when you are dealing with binomial data and a consistent event probability for every trial. Use the Normal Distribution when you are dealing with data that is normal or approximates the normal curve. Remember, the Central Limit Theorem says that, when dealing with continuous data, the larger the sample size, the closer it will approximately the normal curve."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-084",
+            "kind": "paragraph",
+            "text": "You can run a quick graphical analysis to determine if data you are working with is normal."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-085",
+            "kind": "paragraph",
+            "text": "To understand how to perform this analysis, copy the following data into Minitab."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-086",
+            "kind": "paragraph",
+            "text": "6.319075 3.556859 3.452996 3.300786 4.340399 5.242524 2.542238 4.429293 7.757632 7.582288 4.692596 4.450197 6.454293 3.666121 5.243754 2.025502"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-087",
+            "kind": "paragraph",
+            "text": "4.189321"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-088",
+            "kind": "paragraph",
+            "text": "2.79723 3.397714 5.507707"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-089",
+            "kind": "paragraph",
+            "text": "Select Stat > Basic Statistics > Graphical Summary."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-090",
+            "kind": "image",
+            "assetId": "fig-eee787838256ad86",
+            "src": "assets/figures/fig-eee787838256ad86.png",
+            "width": 1081,
+            "height": 437
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-091",
+            "kind": "paragraph",
+            "text": "For Variables, select the column where you copied the data from above. Leave the confidence level at 95."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-092",
+            "kind": "image",
+            "assetId": "fig-0070af4a482888ed",
+            "src": "assets/figures/fig-0070af4a482888ed.png",
+            "width": 659,
+            "height": 689
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-093",
+            "kind": "paragraph",
+            "text": "Click OK."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-094",
+            "kind": "paragraph",
+            "text": "Minitab generates a graphical and statistical analysis of the data."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-095",
+            "kind": "paragraph",
+            "text": "Summary Report for C1"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-096",
+            "kind": "image",
+            "assetId": "fig-13c9c30e2b7c72c8",
+            "src": "assets/figures/fig-13c9c30e2b7c72c8.png",
+            "width": 1429,
+            "height": 835
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-097",
+            "kind": "paragraph",
+            "text": "There are several things on this analysis that tell us the data is probably normal:"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-098",
+            "kind": "paragraph",
+            "text": "- The graphical analysis does somewhat appear to follow a normal curve. Because we only have 20 data points, though, it’s difficult to come to a conclusion based solely on the image. - The mean and median are fairly close, and the confidence interval of the mean is within the confidence interval of the median. This is another indication we could be dealing with a normal curve. - Finally, the p-value for the Anderson-Darling Normality test is listed as 0.486. Since the p-value is higher than the alpha value (remember, we left the confidence level at 95, which means alpha is 0.05), we fail to reject the null hypothesis. The null hypothesis in a normality test is always that the data is normal."
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-099",
+            "kind": "paragraph",
+            "text": "Summary Report for C1"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-100",
+            "kind": "image",
+            "assetId": "fig-b1323c87b24932bd",
+            "src": "assets/figures/fig-b1323c87b24932bd.png",
+            "width": 1208,
+            "height": 836
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-101",
+            "kind": "paragraph",
+            "text": "Mean"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-102",
+            "kind": "heading",
+            "text": "Median"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-103",
+            "kind": "paragraph",
+            "text": "Consider the graphical analysis above. Do you think the data is normal?"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-104",
+            "kind": "paragraph",
+            "text": "Summary Report for C2"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-105",
+            "kind": "image",
+            "assetId": "fig-586d90d246ec07f8",
+            "src": "assets/figures/fig-586d90d246ec07f8.png",
+            "width": 1420,
+            "height": 836
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-en-106",
+            "kind": "paragraph",
+            "text": "Consider the graphical analysis above. Do you think this data is normal? If not, what distribution might the data follow?"
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch25-s04-the-calc-menu-option-zh-001",
+            "kind": "paragraph",
+            "text": "在本章中，我们将了解 Calc 菜单选项下的三个主要功能："
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-zh-002",
+            "kind": "paragraph",
+            "text": "- 生成随机数据 - 计算列或行统计数据 - 计算给定各种分布的概率"
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-zh-003",
+            "kind": "image",
+            "assetId": "fig-e371b1ced1c60186",
+            "src": "assets/figures/fig-e371b1ced1c60186.png",
+            "width": 417,
+            "height": 579
+          },
+          {
+            "id": "ch25-s04-the-calc-menu-option-zh-004",
             "kind": "heading",
             "text": "随机数据"
           },
           {
-            "id": "ch25-content-zh-040",
+            "id": "ch25-s04-the-calc-menu-option-zh-005",
             "kind": "paragraph",
             "text": "随机数据工具可让您生成符合特定概率分布的随机数据。如果您在没有任何自己的数据的情况下测试 Minitab 中的不同功能或练习六西格玛统计分析，则此工具会很有帮助。如果您想将自己的数据与各种类型的分布进行比较，它也会很有帮助。"
           },
           {
-            "id": "ch25-content-zh-041",
+            "id": "ch25-s04-the-calc-menu-option-zh-006",
             "kind": "paragraph",
             "text": "我们将使用随机数据生成函数来创建一些可用于本章中其他函数的数据。"
           },
           {
-            "id": "ch25-content-zh-042",
+            "id": "ch25-s04-the-calc-menu-option-zh-007",
             "kind": "paragraph",
             "text": "单击计算 > 随机数据，然后选择要使用的分布。出于本练习的目的，选择正态分布。"
           },
           {
-            "id": "ch25-content-zh-043",
+            "id": "ch25-s04-the-calc-menu-option-zh-008",
             "kind": "termNote",
             "rows": [
               [
@@ -1086,7 +1106,7 @@
             "text": "术语说明 Normal Distribution（正态分布）：常见钟形分布，许多统计推断方法以其为基础。"
           },
           {
-            "id": "ch25-content-zh-044",
+            "id": "ch25-s04-the-calc-menu-option-zh-009",
             "kind": "image",
             "assetId": "fig-d369f677a83242f2",
             "src": "assets/figures/fig-d369f677a83242f2.png",
@@ -1094,17 +1114,17 @@
             "height": 1023
           },
           {
-            "id": "ch25-content-zh-045",
+            "id": "ch25-s04-the-calc-menu-option-zh-010",
             "kind": "paragraph",
             "text": "在正态分布对话框中，输入："
           },
           {
-            "id": "ch25-content-zh-046",
+            "id": "ch25-s04-the-calc-menu-option-zh-011",
             "kind": "paragraph",
             "text": "- 30 表示要生成的数据行数。这将生成 30 个样本大小。您可以创建几个数据点或数百个数据点的样本大小。 - C1 表示要在其中存储数据的列。您可以键入任何列的字母数字名称，或者如果您已经命名了某些列，则可以从左侧的列表中选择它们。 - 5 表示平均值。当您自己生成随机数据时，您可以指定任何平均值。 - 1.0 为标准差。当您自己生成随机数据时，您还可以指定任何标准差。"
           },
           {
-            "id": "ch25-content-zh-047",
+            "id": "ch25-s04-the-calc-menu-option-zh-012",
             "kind": "image",
             "assetId": "fig-d3f16fa78e7bd0e9",
             "src": "assets/figures/fig-d3f16fa78e7bd0e9.png",
@@ -1112,37 +1132,37 @@
             "height": 635
           },
           {
-            "id": "ch25-content-zh-048",
+            "id": "ch25-s04-the-calc-menu-option-zh-013",
             "kind": "paragraph",
             "text": "一旦您的对话框如上图所示，请单击“确定”。"
           },
           {
-            "id": "ch25-content-zh-049",
+            "id": "ch25-s04-the-calc-menu-option-zh-014",
             "kind": "paragraph",
             "text": "Minitab 会使用符合您设置的参数的数据填充 C1 列。您可以尝试使用此函数使用各种其他参数（例如不同的平均值和标准差）创建其他类型的数据，以查看输入不同的信息如何更改返回的数据。"
           },
           {
-            "id": "ch25-content-zh-050",
+            "id": "ch25-s04-the-calc-menu-option-zh-015",
             "kind": "heading",
             "text": "列和行统计"
           },
           {
-            "id": "ch25-content-zh-051",
+            "id": "ch25-s04-the-calc-menu-option-zh-016",
             "kind": "paragraph",
             "text": "有时，您只需要快速了解有关数据的特定统计信息。 计算列或行统计函数可让您计算单列或行中给定数据的总和、平均值、标准差、最小值、最大值、范围、中值、平方和或 N 总计。不过，您一次只能计算其中一项统计数据，这会产生一些限制。在第 27 章中，我们将介绍另一个 Minitab 函数，该函数一次返回所有主要描述性统计量。"
           },
           {
-            "id": "ch25-content-zh-052",
+            "id": "ch25-s04-the-calc-menu-option-zh-017",
             "kind": "paragraph",
             "text": "使用上一节中创建的随机数据集，尝试列统计功能。"
           },
           {
-            "id": "ch25-content-zh-053",
+            "id": "ch25-s04-the-calc-menu-option-zh-018",
             "kind": "paragraph",
             "text": "单击计算 > 列统计。"
           },
           {
-            "id": "ch25-content-zh-054",
+            "id": "ch25-s04-the-calc-menu-option-zh-019",
             "kind": "image",
             "assetId": "fig-2df217156ddcb315",
             "src": "assets/figures/fig-2df217156ddcb315.png",
@@ -1150,12 +1170,12 @@
             "height": 297
           },
           {
-            "id": "ch25-content-zh-055",
+            "id": "ch25-s04-the-calc-menu-option-zh-020",
             "kind": "paragraph",
             "text": "单击以选择平均值。"
           },
           {
-            "id": "ch25-content-zh-056",
+            "id": "ch25-s04-the-calc-menu-option-zh-021",
             "kind": "image",
             "assetId": "fig-676b25ac3f14c95b",
             "src": "assets/figures/fig-676b25ac3f14c95b.png",
@@ -1163,12 +1183,12 @@
             "height": 627
           },
           {
-            "id": "ch25-content-zh-057",
+            "id": "ch25-s04-the-calc-menu-option-zh-022",
             "kind": "paragraph",
             "text": "单击输入变量框。"
           },
           {
-            "id": "ch25-content-zh-058",
+            "id": "ch25-s04-the-calc-menu-option-zh-023",
             "kind": "image",
             "assetId": "fig-f85089dc3df339f3",
             "src": "assets/figures/fig-f85089dc3df339f3.png",
@@ -1176,12 +1196,12 @@
             "height": 629
           },
           {
-            "id": "ch25-content-zh-059",
+            "id": "ch25-s04-the-calc-menu-option-zh-024",
             "kind": "paragraph",
             "text": "无需先单击任何其他框，只需单击左侧大框中的 C1 列表。"
           },
           {
-            "id": "ch25-content-zh-060",
+            "id": "ch25-s04-the-calc-menu-option-zh-025",
             "kind": "image",
             "assetId": "fig-4f211ed88be50676",
             "src": "assets/figures/fig-4f211ed88be50676.png",
@@ -1189,17 +1209,17 @@
             "height": 634
           },
           {
-            "id": "ch25-content-zh-061",
+            "id": "ch25-s04-the-calc-menu-option-zh-026",
             "kind": "paragraph",
             "text": "单击“选择”将 C1 选择到输入变量框中。请注意，您还可以双击 C1 将其移至“输入变量”框中。"
           },
           {
-            "id": "ch25-content-zh-062",
+            "id": "ch25-s04-the-calc-menu-option-zh-027",
             "kind": "paragraph",
             "text": "请注意，Minitab 的许多对话框都遵循类似的结构，数据列列在左侧的框中。您必须通过双击或单击列名称并单击选择来选择数据。"
           },
           {
-            "id": "ch25-content-zh-063",
+            "id": "ch25-s04-the-calc-menu-option-zh-028",
             "kind": "image",
             "assetId": "fig-4bee4b897dd24668",
             "src": "assets/figures/fig-4bee4b897dd24668.png",
@@ -1207,17 +1227,17 @@
             "height": 633
           },
           {
-            "id": "ch25-content-zh-064",
+            "id": "ch25-s04-the-calc-menu-option-zh-029",
             "kind": "paragraph",
             "text": "单击“确定”。"
           },
           {
-            "id": "ch25-content-zh-065",
+            "id": "ch25-s04-the-calc-menu-option-zh-030",
             "kind": "paragraph",
             "text": "Minitab 在会话窗口中显示数据的平均值。"
           },
           {
-            "id": "ch25-content-zh-066",
+            "id": "ch25-s04-the-calc-menu-option-zh-031",
             "kind": "image",
             "assetId": "fig-6a76b2933904ed31",
             "src": "assets/figures/fig-6a76b2933904ed31.png",
@@ -1225,32 +1245,32 @@
             "height": 199
           },
           {
-            "id": "ch25-content-zh-067",
+            "id": "ch25-s04-the-calc-menu-option-zh-032",
             "kind": "paragraph",
             "text": "请注意，您的数据平均值不一定与上面计算的值相同，因为您生成的随机数据可能与用于计算本书示例的数据有些不同。"
           },
           {
-            "id": "ch25-content-zh-068",
+            "id": "ch25-s04-the-calc-menu-option-zh-033",
             "kind": "paragraph",
             "text": "计算基于行的数据的统计信息以完全相同的方式完成，只不过您将选择行名称而不是列名称。"
           },
           {
-            "id": "ch25-content-zh-069",
+            "id": "ch25-s04-the-calc-menu-option-zh-034",
             "kind": "heading",
             "text": "概率分布"
           },
           {
-            "id": "ch25-content-zh-070",
+            "id": "ch25-s04-the-calc-menu-option-zh-035",
             "kind": "paragraph",
             "text": "花点时间回顾一下有关正态概率分布和非正态概率分布的章节。在这两章中，我们演示了计算，这些计算使我们能够在给定一组数据和特定概率分布的情况下确定某些结果的概率。"
           },
           {
-            "id": "ch25-content-zh-071",
+            "id": "ch25-s04-the-calc-menu-option-zh-036",
             "kind": "paragraph",
             "text": "如果您还记得，我们提到过其中一些计算可能会变得相当复杂，并且我们在这些章节中仅通过手动计算处理了一些计算。这是因为 Minitab 等软件允许您通过输入一些有关数据的信息来计算 PDF 和 CDF。"
           },
           {
-            "id": "ch25-content-zh-072",
+            "id": "ch25-s04-the-calc-menu-option-zh-037",
             "kind": "image",
             "assetId": "fig-e688dce790d4ca44",
             "src": "assets/figures/fig-e688dce790d4ca44.png",
@@ -1258,22 +1278,22 @@
             "height": 458
           },
           {
-            "id": "ch25-content-zh-073",
+            "id": "ch25-s04-the-calc-menu-option-zh-038",
             "kind": "paragraph",
             "text": "要了解如何在 Minitab 中计算 PDF 和 CDF，让我们看一个实际示例。"
           },
           {
-            "id": "ch25-content-zh-074",
+            "id": "ch25-s04-the-calc-menu-option-zh-039",
             "kind": "paragraph",
             "text": "六西格玛团队致力于提高图书馆结帐系统的流程效率，随机测量了图书馆员结帐顾客所需的时间长度。为此，假设数据正常。样本的平均时间为 5.5 分钟。标准偏差为 3.028 分钟。恰好需要 5 分钟才能结帐顾客的概率是多少？"
           },
           {
-            "id": "ch25-content-zh-075",
+            "id": "ch25-s04-the-calc-menu-option-zh-040",
             "kind": "heading",
             "text": "通过选择 Calc > 概率分布 > 正态开始计算"
           },
           {
-            "id": "ch25-content-zh-076",
+            "id": "ch25-s04-the-calc-menu-option-zh-041",
             "kind": "image",
             "assetId": "fig-b7c6e0506b280db2",
             "src": "assets/figures/fig-b7c6e0506b280db2.png",
@@ -1281,17 +1301,17 @@
             "height": 666
           },
           {
-            "id": "ch25-content-zh-077",
+            "id": "ch25-s04-the-calc-menu-option-zh-042",
             "kind": "paragraph",
             "text": "选择“概率密度”来计算 PDF，因为您想知道精确值的概率。"
           },
           {
-            "id": "ch25-content-zh-078",
+            "id": "ch25-s04-the-calc-menu-option-zh-043",
             "kind": "paragraph",
             "text": "输入平均值和标准差的数据。选择“输入常量”，因为您想要查找特定数字的答案，而不是工作表列中数字列表的答案。"
           },
           {
-            "id": "ch25-content-zh-079",
+            "id": "ch25-s04-the-calc-menu-option-zh-044",
             "kind": "image",
             "assetId": "fig-6fbb7b8065b7f577",
             "src": "assets/figures/fig-6fbb7b8065b7f577.png",
@@ -1299,12 +1319,12 @@
             "height": 685
           },
           {
-            "id": "ch25-content-zh-080",
+            "id": "ch25-s04-the-calc-menu-option-zh-045",
             "kind": "paragraph",
             "text": "一旦您的对话框如上图所示，请单击“确定”。"
           },
           {
-            "id": "ch25-content-zh-081",
+            "id": "ch25-s04-the-calc-menu-option-zh-046",
             "kind": "image",
             "assetId": "fig-25add1b163a8d1db",
             "src": "assets/figures/fig-25add1b163a8d1db.png",
@@ -1312,22 +1332,22 @@
             "height": 315
           },
           {
-            "id": "ch25-content-zh-082",
+            "id": "ch25-s04-the-calc-menu-option-zh-047",
             "kind": "paragraph",
             "text": "PDF 在 Minitab 的会话窗口中计算。该时间恰好为 5 分钟的概率为 0.129。"
           },
           {
-            "id": "ch25-content-zh-083",
+            "id": "ch25-s04-the-calc-menu-option-zh-048",
             "kind": "paragraph",
             "text": "如果您想知道时间为 5 分钟或更短的概率怎么办？"
           },
           {
-            "id": "ch25-content-zh-084",
+            "id": "ch25-s04-the-calc-menu-option-zh-049",
             "kind": "paragraph",
             "text": "重复上述步骤，但选择累积概率。"
           },
           {
-            "id": "ch25-content-zh-085",
+            "id": "ch25-s04-the-calc-menu-option-zh-050",
             "kind": "image",
             "assetId": "fig-0341bd05062a0612",
             "src": "assets/figures/fig-0341bd05062a0612.png",
@@ -1335,12 +1355,12 @@
             "height": 691
           },
           {
-            "id": "ch25-content-zh-086",
+            "id": "ch25-s04-the-calc-menu-option-zh-051",
             "kind": "paragraph",
             "text": "Minitab 的新答案将被计算并显示在会话窗口中。"
           },
           {
-            "id": "ch25-content-zh-087",
+            "id": "ch25-s04-the-calc-menu-option-zh-052",
             "kind": "image",
             "assetId": "fig-d63862f253d87d73",
             "src": "assets/figures/fig-d63862f253d87d73.png",
@@ -1348,47 +1368,47 @@
             "height": 268
           },
           {
-            "id": "ch25-content-zh-088",
+            "id": "ch25-s04-the-calc-menu-option-zh-053",
             "kind": "paragraph",
             "text": "时间为 5 分钟或更短的概率为 0.434。"
           },
           {
-            "id": "ch25-content-zh-089",
+            "id": "ch25-s04-the-calc-menu-option-zh-054",
             "kind": "paragraph",
             "text": "时间大于 5 分钟的概率是多少？总概率为 1，因此："
           },
           {
-            "id": "ch25-content-zh-090",
+            "id": "ch25-s04-the-calc-menu-option-zh-055",
             "kind": "paragraph",
             "text": "1 – 0.434 = 0.566。"
           },
           {
-            "id": "ch25-content-zh-091",
+            "id": "ch25-s04-the-calc-menu-option-zh-056",
             "kind": "paragraph",
             "text": "时间大于 5 分钟的概率约为 0.566。"
           },
           {
-            "id": "ch25-content-zh-092",
+            "id": "ch25-s04-the-calc-menu-option-zh-057",
             "kind": "paragraph",
             "text": "让我们看另一个例子，这次使用第 20 章中的一盒巧克力场景。在该场景中，六西格玛团队正在使用一个流程，生产每盒装有 20 块巧克力的盒子。对于每种巧克力，该巧克力有缺陷的概率为 0.05。收到一盒巧克力，其中 2 块巧克力有缺陷的可能性有多大？"
           },
           {
-            "id": "ch25-content-zh-093",
+            "id": "ch25-s04-the-calc-menu-option-zh-058",
             "kind": "paragraph",
             "text": "这次，选择计算 > 概率分布 > 二项式。"
           },
           {
-            "id": "ch25-content-zh-094",
+            "id": "ch25-s04-the-calc-menu-option-zh-059",
             "kind": "paragraph",
             "text": "与正态曲线不同，二项分布涉及试验次数和事件概率。如果您还记得第 20 章，在讨论二项式概率时，我们讨论的是每次试验中一个事件或另一个事件发生的可能性。"
           },
           {
-            "id": "ch25-content-zh-095",
+            "id": "ch25-s04-the-calc-menu-option-zh-060",
             "kind": "paragraph",
             "text": "对于我们的巧克力盒，每个盒子实际上有 20 次试验 - 每块巧克力可能有缺陷，也可能没有缺陷。对于每种巧克力，出现缺陷的概率为 0.05。这就是事件概率。我们可以将这两个数字插入二项式分布对话框中，并选择输入常数“2”来确定盒子中正好有 2 颗有缺陷的巧克力的概率。"
           },
           {
-            "id": "ch25-content-zh-096",
+            "id": "ch25-s04-the-calc-menu-option-zh-061",
             "kind": "image",
             "assetId": "fig-0d3daf4851e82b48",
             "src": "assets/figures/fig-0d3daf4851e82b48.png",
@@ -1396,12 +1416,12 @@
             "height": 687
           },
           {
-            "id": "ch25-content-zh-097",
+            "id": "ch25-s04-the-calc-menu-option-zh-062",
             "kind": "paragraph",
             "text": "单击“确定”。"
           },
           {
-            "id": "ch25-content-zh-098",
+            "id": "ch25-s04-the-calc-menu-option-zh-063",
             "kind": "image",
             "assetId": "fig-8b289c7f72e3f988",
             "src": "assets/figures/fig-8b289c7f72e3f988.png",
@@ -1409,17 +1429,17 @@
             "height": 235
           },
           {
-            "id": "ch25-content-zh-099",
+            "id": "ch25-s04-the-calc-menu-option-zh-064",
             "kind": "paragraph",
             "text": "Minitab 的答案是，恰好得到两块有缺陷的巧克力的概率为 0.189。"
           },
           {
-            "id": "ch25-content-zh-100",
+            "id": "ch25-s04-the-calc-menu-option-zh-065",
             "kind": "paragraph",
             "text": "如果我们想知道出现超过 5 个缺陷的几率怎么办？重复上述步骤，但选择“累积概率”并输入 5 作为输入常数。"
           },
           {
-            "id": "ch25-content-zh-101",
+            "id": "ch25-s04-the-calc-menu-option-zh-066",
             "kind": "image",
             "assetId": "fig-bfbc5af7ac46974c",
             "src": "assets/figures/fig-bfbc5af7ac46974c.png",
@@ -1427,12 +1447,12 @@
             "height": 700
           },
           {
-            "id": "ch25-content-zh-102",
+            "id": "ch25-s04-the-calc-menu-option-zh-067",
             "kind": "paragraph",
             "text": "单击“确定”。"
           },
           {
-            "id": "ch25-content-zh-103",
+            "id": "ch25-s04-the-calc-menu-option-zh-068",
             "kind": "image",
             "assetId": "fig-d03c1174d589bbdf",
             "src": "assets/figures/fig-d03c1174d589bbdf.png",
@@ -1440,37 +1460,37 @@
             "height": 229
           },
           {
-            "id": "ch25-content-zh-104",
+            "id": "ch25-s04-the-calc-menu-option-zh-069",
             "kind": "paragraph",
             "text": "Minitab 返回的结果为 0.999，但请记住这是累积概率。它是盒子中有 5 个或更少缺陷的概率。超过 5 个的概率为："
           },
           {
-            "id": "ch25-content-zh-105",
+            "id": "ch25-s04-the-calc-menu-option-zh-070",
             "kind": "paragraph",
             "text": "1 – 0.999，或 0.001。"
           },
           {
-            "id": "ch25-content-zh-106",
+            "id": "ch25-s04-the-calc-menu-option-zh-071",
             "kind": "paragraph",
             "text": "这根本不是一个高概率。"
           },
           {
-            "id": "ch25-content-zh-107",
+            "id": "ch25-s04-the-calc-menu-option-zh-072",
             "kind": "heading",
             "text": "一次计算多个概率"
           },
           {
-            "id": "ch25-content-zh-108",
+            "id": "ch25-s04-the-calc-menu-option-zh-073",
             "kind": "paragraph",
             "text": "使用 Minitab 的原因之一是它可以让您以最高的效率分析数据。虽然您可以看到计算单个概率或 CDF 比您自己处理数学要快得多，但如果您一次想要有关一组数字的信息怎么办？如果巧克力团队想知道出现 1、2、3、4、5、6、7、8 和 9 个缺陷的概率怎么办？"
           },
           {
-            "id": "ch25-content-zh-109",
+            "id": "ch25-s04-the-calc-menu-option-zh-074",
             "kind": "paragraph",
             "text": "首先，在 Minitab 的一列中输入所有这些数字。"
           },
           {
-            "id": "ch25-content-zh-110",
+            "id": "ch25-s04-the-calc-menu-option-zh-075",
             "kind": "image",
             "assetId": "fig-f6637ce3f136b244",
             "src": "assets/figures/fig-f6637ce3f136b244.png",
@@ -1478,17 +1498,17 @@
             "height": 558
           },
           {
-            "id": "ch25-content-zh-111",
+            "id": "ch25-s04-the-calc-menu-option-zh-076",
             "kind": "paragraph",
             "text": "按照上述步骤选择合适的分布。在本例中，由于我们处理的是缺陷/无缺陷数据，因此它是二项式分布。"
           },
           {
-            "id": "ch25-content-zh-112",
+            "id": "ch25-s04-the-calc-menu-option-zh-077",
             "kind": "paragraph",
             "text": "选择“概率”并输入有关试验和事件概率的信息。选择“输入列”，而不是输入常量。选择您输入数字 1 到 9 的列。"
           },
           {
-            "id": "ch25-content-zh-113",
+            "id": "ch25-s04-the-calc-menu-option-zh-078",
             "kind": "image",
             "assetId": "fig-62b85063e1972042",
             "src": "assets/figures/fig-62b85063e1972042.png",
@@ -1496,67 +1516,67 @@
             "height": 683
           },
           {
-            "id": "ch25-content-zh-114",
+            "id": "ch25-s04-the-calc-menu-option-zh-079",
             "kind": "paragraph",
             "text": "单击“确定”。"
           },
           {
-            "id": "ch25-content-zh-115",
+            "id": "ch25-s04-the-calc-menu-option-zh-080",
             "kind": "paragraph",
             "text": "Minitab 会生成您在会话窗口中输入的所有数字的概率。"
           },
           {
-            "id": "ch25-content-zh-116",
+            "id": "ch25-s04-the-calc-menu-option-zh-081",
             "kind": "paragraph",
             "text": "概率密度函数二项式，n = 20 且 p = 0.05 x P( X = x ) 1 0.377354 2 0.188677 3 0.059582 4 0.013328 5 0.002245 6 0.000295 7 0.000031 8 0.000003 9 0.000000"
           },
           {
-            "id": "ch25-content-zh-117",
+            "id": "ch25-s04-the-calc-menu-option-zh-082",
             "kind": "heading",
             "text": "记住使用正确的概率分布"
           },
           {
-            "id": "ch25-content-zh-118",
+            "id": "ch25-s04-the-calc-menu-option-zh-083",
             "kind": "paragraph",
             "text": "在计算概率之前，请确保您拥有正确的分布。 如果您的数据遵循二项式分布，并且您使用 Minitab 根据正态曲线计算答案，则您的答案将不正确。"
           },
           {
-            "id": "ch25-content-zh-119",
+            "id": "ch25-s04-the-calc-menu-option-zh-084",
             "kind": "paragraph",
             "text": "当您处理二项式数据和每次试验的一致事件概率时，请使用二项式分布。当您处理正态或近似正态曲线的数据时，请使用正态分布。请记住，中心极限定理指出，在处理连续数据时，样本量越大，它就越接近正态曲线。"
           },
           {
-            "id": "ch25-content-zh-120",
+            "id": "ch25-s04-the-calc-menu-option-zh-085",
             "kind": "paragraph",
             "text": "您可以运行快速图形分析来确定您正在使用的数据是否正常。"
           },
           {
-            "id": "ch25-content-zh-121",
+            "id": "ch25-s04-the-calc-menu-option-zh-086",
             "kind": "paragraph",
             "text": "要了解如何执行此分析，请将以下数据复制到 Minitab 中。"
           },
           {
-            "id": "ch25-content-zh-122",
+            "id": "ch25-s04-the-calc-menu-option-zh-087",
             "kind": "paragraph",
             "text": "6.319075 3.556859 3.452996 3.300786 4.340399 5.242524 2.542238 4.429293 7.757632 7.582288 4.692596 4.450197 6.454293 3.666121 5.243754 2.025502"
           },
           {
-            "id": "ch25-content-zh-123",
+            "id": "ch25-s04-the-calc-menu-option-zh-088",
             "kind": "paragraph",
             "text": "4.189321"
           },
           {
-            "id": "ch25-content-zh-124",
+            "id": "ch25-s04-the-calc-menu-option-zh-089",
             "kind": "paragraph",
             "text": "2.79723 3.397714 5.507707"
           },
           {
-            "id": "ch25-content-zh-125",
+            "id": "ch25-s04-the-calc-menu-option-zh-090",
             "kind": "paragraph",
             "text": "选择统计 > 基本统计 > 图形摘要。"
           },
           {
-            "id": "ch25-content-zh-126",
+            "id": "ch25-s04-the-calc-menu-option-zh-091",
             "kind": "image",
             "assetId": "fig-eee787838256ad86",
             "src": "assets/figures/fig-eee787838256ad86.png",
@@ -1564,12 +1584,12 @@
             "height": 437
           },
           {
-            "id": "ch25-content-zh-127",
+            "id": "ch25-s04-the-calc-menu-option-zh-092",
             "kind": "paragraph",
             "text": "对于变量，选择您从上面复制数据的列。将置信水平保留为 95。"
           },
           {
-            "id": "ch25-content-zh-128",
+            "id": "ch25-s04-the-calc-menu-option-zh-093",
             "kind": "image",
             "assetId": "fig-0070af4a482888ed",
             "src": "assets/figures/fig-0070af4a482888ed.png",
@@ -1577,22 +1597,22 @@
             "height": 689
           },
           {
-            "id": "ch25-content-zh-129",
+            "id": "ch25-s04-the-calc-menu-option-zh-094",
             "kind": "paragraph",
             "text": "单击“确定”。"
           },
           {
-            "id": "ch25-content-zh-130",
+            "id": "ch25-s04-the-calc-menu-option-zh-095",
             "kind": "paragraph",
             "text": "Minitab 生成数据的图形和统计分析。"
           },
           {
-            "id": "ch25-content-zh-131",
+            "id": "ch25-s04-the-calc-menu-option-zh-096",
             "kind": "heading",
             "text": "C1 总结报告"
           },
           {
-            "id": "ch25-content-zh-132",
+            "id": "ch25-s04-the-calc-menu-option-zh-097",
             "kind": "image",
             "assetId": "fig-13c9c30e2b7c72c8",
             "src": "assets/figures/fig-13c9c30e2b7c72c8.png",
@@ -1600,22 +1620,22 @@
             "height": 835
           },
           {
-            "id": "ch25-content-zh-133",
+            "id": "ch25-s04-the-calc-menu-option-zh-098",
             "kind": "paragraph",
             "text": "此分析中有几件事告诉我们数据可能是正常的："
           },
           {
-            "id": "ch25-content-zh-134",
+            "id": "ch25-s04-the-calc-menu-option-zh-099",
             "kind": "paragraph",
             "text": "- 图形分析似乎确实遵循正常曲线。不过，由于我们只有 20 个数据点，因此很难仅根据图像得出结论。 - 平均值和中位数相当接近，并且平均值的置信区间在中位数的置信区间内。这是我们可能正在处理正态曲线的另一个迹象。 - 最后，Anderson-Darling 正态性检验的 p 值为 0.486。由于 p 值高于 alpha 值（请记住，我们将置信水平保留为 95，这意味着 alpha 为 0.05），因此我们无法拒绝原假设。正态性检验中的原假设始终是数据呈正态。"
           },
           {
-            "id": "ch25-content-zh-135",
+            "id": "ch25-s04-the-calc-menu-option-zh-100",
             "kind": "heading",
             "text": "C1 总结报告"
           },
           {
-            "id": "ch25-content-zh-136",
+            "id": "ch25-s04-the-calc-menu-option-zh-101",
             "kind": "image",
             "assetId": "fig-b1323c87b24932bd",
             "src": "assets/figures/fig-b1323c87b24932bd.png",
@@ -1623,27 +1643,27 @@
             "height": 836
           },
           {
-            "id": "ch25-content-zh-137",
+            "id": "ch25-s04-the-calc-menu-option-zh-102",
             "kind": "paragraph",
             "text": "平均值"
           },
           {
-            "id": "ch25-content-zh-138",
+            "id": "ch25-s04-the-calc-menu-option-zh-103",
             "kind": "heading",
             "text": "中位数"
           },
           {
-            "id": "ch25-content-zh-139",
+            "id": "ch25-s04-the-calc-menu-option-zh-104",
             "kind": "paragraph",
             "text": "考虑上面的图形分析。你觉得这个数据正常吗？"
           },
           {
-            "id": "ch25-content-zh-140",
+            "id": "ch25-s04-the-calc-menu-option-zh-105",
             "kind": "heading",
             "text": "C2 总结报告"
           },
           {
-            "id": "ch25-content-zh-141",
+            "id": "ch25-s04-the-calc-menu-option-zh-106",
             "kind": "image",
             "assetId": "fig-586d90d246ec07f8",
             "src": "assets/figures/fig-586d90d246ec07f8.png",
@@ -1651,7 +1671,7 @@
             "height": 836
           },
           {
-            "id": "ch25-content-zh-142",
+            "id": "ch25-s04-the-calc-menu-option-zh-107",
             "kind": "paragraph",
             "text": "考虑上面的图形分析。你觉得这个数据正常吗？如果不是，数据可能遵循什么分布？"
           }
@@ -1664,7 +1684,7 @@
       "id": "fig-0070af4a482888ed",
       "type": "figure",
       "path": "assets/figures/fig-0070af4a482888ed.png",
-      "page": 305,
+      "page": 310,
       "width": 659,
       "height": 689
     },
@@ -1672,7 +1692,7 @@
       "id": "fig-0341bd05062a0612",
       "type": "figure",
       "path": "assets/figures/fig-0341bd05062a0612.png",
-      "page": 305,
+      "page": 310,
       "width": 813,
       "height": 691
     },
@@ -1680,7 +1700,7 @@
       "id": "fig-0d3daf4851e82b48",
       "type": "figure",
       "path": "assets/figures/fig-0d3daf4851e82b48.png",
-      "page": 305,
+      "page": 310,
       "width": 805,
       "height": 687
     },
@@ -1688,7 +1708,7 @@
       "id": "fig-13c9c30e2b7c72c8",
       "type": "table-image",
       "path": "assets/figures/fig-13c9c30e2b7c72c8.png",
-      "page": 305,
+      "page": 310,
       "width": 1429,
       "height": 835
     },
@@ -1696,7 +1716,7 @@
       "id": "fig-25add1b163a8d1db",
       "type": "figure",
       "path": "assets/figures/fig-25add1b163a8d1db.png",
-      "page": 305,
+      "page": 310,
       "width": 816,
       "height": 315
     },
@@ -1704,7 +1724,7 @@
       "id": "fig-2df217156ddcb315",
       "type": "figure",
       "path": "assets/figures/fig-2df217156ddcb315.png",
-      "page": 305,
+      "page": 310,
       "width": 691,
       "height": 297
     },
@@ -1712,7 +1732,7 @@
       "id": "fig-3bdf8d007f222a57",
       "type": "formula-image",
       "path": "assets/figures/fig-3bdf8d007f222a57.png",
-      "page": 305,
+      "page": 310,
       "width": 1191,
       "height": 139
     },
@@ -1720,7 +1740,7 @@
       "id": "fig-4bee4b897dd24668",
       "type": "figure",
       "path": "assets/figures/fig-4bee4b897dd24668.png",
-      "page": 305,
+      "page": 310,
       "width": 796,
       "height": 633
     },
@@ -1728,7 +1748,7 @@
       "id": "fig-4f211ed88be50676",
       "type": "figure",
       "path": "assets/figures/fig-4f211ed88be50676.png",
-      "page": 305,
+      "page": 310,
       "width": 809,
       "height": 634
     },
@@ -1736,7 +1756,7 @@
       "id": "fig-586d90d246ec07f8",
       "type": "table-image",
       "path": "assets/figures/fig-586d90d246ec07f8.png",
-      "page": 305,
+      "page": 310,
       "width": 1420,
       "height": 836
     },
@@ -1752,7 +1772,7 @@
       "id": "fig-62b85063e1972042",
       "type": "figure",
       "path": "assets/figures/fig-62b85063e1972042.png",
-      "page": 305,
+      "page": 310,
       "width": 798,
       "height": 683
     },
@@ -1760,7 +1780,7 @@
       "id": "fig-676b25ac3f14c95b",
       "type": "figure",
       "path": "assets/figures/fig-676b25ac3f14c95b.png",
-      "page": 305,
+      "page": 310,
       "width": 801,
       "height": 627
     },
@@ -1768,7 +1788,7 @@
       "id": "fig-6a76b2933904ed31",
       "type": "figure",
       "path": "assets/figures/fig-6a76b2933904ed31.png",
-      "page": 305,
+      "page": 310,
       "width": 518,
       "height": 199
     },
@@ -1776,7 +1796,7 @@
       "id": "fig-6fbb7b8065b7f577",
       "type": "figure",
       "path": "assets/figures/fig-6fbb7b8065b7f577.png",
-      "page": 305,
+      "page": 310,
       "width": 790,
       "height": 685
     },
@@ -1800,7 +1820,7 @@
       "id": "fig-8b289c7f72e3f988",
       "type": "figure",
       "path": "assets/figures/fig-8b289c7f72e3f988.png",
-      "page": 305,
+      "page": 310,
       "width": 492,
       "height": 235
     },
@@ -1808,7 +1828,7 @@
       "id": "fig-b1323c87b24932bd",
       "type": "table-image",
       "path": "assets/figures/fig-b1323c87b24932bd.png",
-      "page": 305,
+      "page": 310,
       "width": 1208,
       "height": 836
     },
@@ -1832,7 +1852,7 @@
       "id": "fig-b7c6e0506b280db2",
       "type": "figure",
       "path": "assets/figures/fig-b7c6e0506b280db2.png",
-      "page": 305,
+      "page": 310,
       "width": 867,
       "height": 666
     },
@@ -1840,7 +1860,7 @@
       "id": "fig-bfbc5af7ac46974c",
       "type": "figure",
       "path": "assets/figures/fig-bfbc5af7ac46974c.png",
-      "page": 305,
+      "page": 310,
       "width": 798,
       "height": 700
     },
@@ -1848,7 +1868,7 @@
       "id": "fig-d03c1174d589bbdf",
       "type": "figure",
       "path": "assets/figures/fig-d03c1174d589bbdf.png",
-      "page": 305,
+      "page": 310,
       "width": 545,
       "height": 229
     },
@@ -1856,7 +1876,7 @@
       "id": "fig-d369f677a83242f2",
       "type": "table-image",
       "path": "assets/figures/fig-d369f677a83242f2.png",
-      "page": 305,
+      "page": 310,
       "width": 1105,
       "height": 1023
     },
@@ -1864,7 +1884,7 @@
       "id": "fig-d3f16fa78e7bd0e9",
       "type": "figure",
       "path": "assets/figures/fig-d3f16fa78e7bd0e9.png",
-      "page": 305,
+      "page": 310,
       "width": 803,
       "height": 635
     },
@@ -1872,7 +1892,7 @@
       "id": "fig-d63862f253d87d73",
       "type": "figure",
       "path": "assets/figures/fig-d63862f253d87d73.png",
-      "page": 305,
+      "page": 310,
       "width": 788,
       "height": 268
     },
@@ -1896,7 +1916,7 @@
       "id": "fig-e371b1ced1c60186",
       "type": "figure",
       "path": "assets/figures/fig-e371b1ced1c60186.png",
-      "page": 305,
+      "page": 310,
       "width": 417,
       "height": 579
     },
@@ -1904,7 +1924,7 @@
       "id": "fig-e688dce790d4ca44",
       "type": "table-image",
       "path": "assets/figures/fig-e688dce790d4ca44.png",
-      "page": 305,
+      "page": 310,
       "width": 1176,
       "height": 458
     },
@@ -1912,7 +1932,7 @@
       "id": "fig-eee787838256ad86",
       "type": "table-image",
       "path": "assets/figures/fig-eee787838256ad86.png",
-      "page": 305,
+      "page": 310,
       "width": 1081,
       "height": 437
     },
@@ -1920,7 +1940,7 @@
       "id": "fig-f6637ce3f136b244",
       "type": "figure",
       "path": "assets/figures/fig-f6637ce3f136b244.png",
-      "page": 305,
+      "page": 310,
       "width": 282,
       "height": 558
     },
@@ -1928,7 +1948,7 @@
       "id": "fig-f85089dc3df339f3",
       "type": "figure",
       "path": "assets/figures/fig-f85089dc3df339f3.png",
-      "page": 305,
+      "page": 310,
       "width": 792,
       "height": 629
     },

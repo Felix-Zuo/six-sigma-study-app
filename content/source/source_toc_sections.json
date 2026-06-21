@@ -1,0 +1,806 @@
+{
+  "source": "CSSC Six Sigma Black Belt Certification Training Manual source PDF table of contents",
+  "sourcePdf": "C:\\findjob_sixsigma_sources\\source_manual.pdf",
+  "sourcePageAfterLast": 558,
+  "chapters": [
+    {
+      "chapter": 1,
+      "title": "What Is Six Sigma?",
+      "sourcePage": 9,
+      "sections": [
+        {
+          "title": "Data Driven Processes and Decisions",
+          "sourcePage": 9
+        },
+        {
+          "title": "Defining 6σ",
+          "sourcePage": 10
+        },
+        {
+          "title": "Common Six Sigma Principles",
+          "sourcePage": 13
+        },
+        {
+          "title": "Challenges of Six Sigma",
+          "sourcePage": 16
+        }
+      ]
+    },
+    {
+      "chapter": 2,
+      "title": "Six Sigma History And Application",
+      "sourcePage": 18,
+      "sections": [
+        {
+          "title": "The Development of Statistical Process Control",
+          "sourcePage": 18
+        },
+        {
+          "title": "Continuous Process Improvement: Toyota and Lean",
+          "sourcePage": 19
+        },
+        {
+          "title": "Motorola’s Focus on Defects",
+          "sourcePage": 20
+        },
+        {
+          "title": "ABB, Allied Signal, and General Electric",
+          "sourcePage": 21
+        },
+        {
+          "title": "Continued Growth of Six Sigma",
+          "sourcePage": 22
+        },
+        {
+          "title": "Applying Six Sigma Knowledge",
+          "sourcePage": 23
+        }
+      ]
+    },
+    {
+      "chapter": 3,
+      "title": "Other Process Improvement And Quality Methods",
+      "sourcePage": 26,
+      "sections": [
+        {
+          "title": "Other Formal Quality or Process Improvement Programs",
+          "sourcePage": 26
+        },
+        {
+          "title": "When to Use Six Sigma",
+          "sourcePage": 32
+        }
+      ]
+    },
+    {
+      "chapter": 4,
+      "title": "Lean Concepts",
+      "sourcePage": 33,
+      "sections": [
+        {
+          "title": "The Seven Muda",
+          "sourcePage": 33
+        },
+        {
+          "title": "Other Forms of Waste",
+          "sourcePage": 41
+        },
+        {
+          "title": "Two Types of Muda",
+          "sourcePage": 42
+        },
+        {
+          "title": "5S",
+          "sourcePage": 42
+        },
+        {
+          "title": "Just-in-Time Manufacturing",
+          "sourcePage": 44
+        }
+      ]
+    },
+    {
+      "chapter": 5,
+      "title": "Basic Six Sigma Concepts",
+      "sourcePage": 46,
+      "sections": [
+        {
+          "title": "Standard Deviation",
+          "sourcePage": 46
+        },
+        {
+          "title": "The Pareto Principle",
+          "sourcePage": 52
+        },
+        {
+          "title": "Voice of the Customer",
+          "sourcePage": 57
+        },
+        {
+          "title": "Basic Metrics",
+          "sourcePage": 61
+        }
+      ]
+    },
+    {
+      "chapter": 6,
+      "title": "Approaching The Problem",
+      "sourcePage": 65,
+      "sections": [
+        {
+          "title": "Problem Functions: y = f(x)",
+          "sourcePage": 65
+        },
+        {
+          "title": "The 5 Whys",
+          "sourcePage": 66
+        },
+        {
+          "title": "Creating a Problem Statement",
+          "sourcePage": 68
+        }
+      ]
+    },
+    {
+      "chapter": 7,
+      "title": "What Is A Process?",
+      "sourcePage": 73,
+      "sections": [
+        {
+          "title": "What is a Process?",
+          "sourcePage": 73
+        },
+        {
+          "title": "Major Process Components",
+          "sourcePage": 75
+        },
+        {
+          "title": "Process Owners",
+          "sourcePage": 79
+        },
+        {
+          "title": "Data",
+          "sourcePage": 79
+        },
+        {
+          "title": "Defining Process Components: The SIPOC",
+          "sourcePage": 79
+        },
+        {
+          "title": "Tips for a SIPOC Brainstorming Session",
+          "sourcePage": 82
+        },
+        {
+          "title": "Sample SIPOC Diagrams",
+          "sourcePage": 82
+        }
+      ]
+    },
+    {
+      "chapter": 8,
+      "title": "Quality",
+      "sourcePage": 88,
+      "sections": [
+        {
+          "title": "Critical to Quality Characteristics",
+          "sourcePage": 88
+        },
+        {
+          "title": "The CoQ and the CoPQ",
+          "sourcePage": 93
+        },
+        {
+          "title": "Quality is Critical to Success",
+          "sourcePage": 98
+        }
+      ]
+    },
+    {
+      "chapter": 9,
+      "title": "Selecting The Right Projects",
+      "sourcePage": 99,
+      "sections": [
+        {
+          "title": "Juggling the Right Amount of Projects",
+          "sourcePage": 99
+        },
+        {
+          "title": "Enterprise-Level Selection Process",
+          "sourcePage": 99
+        },
+        {
+          "title": "See for Yourself",
+          "sourcePage": 108
+        }
+      ]
+    },
+    {
+      "chapter": 10,
+      "title": "Basic Six Sigma Team Management",
+      "sourcePage": 110,
+      "sections": [
+        {
+          "title": "Building a Six Sigma Team",
+          "sourcePage": 110
+        },
+        {
+          "title": "Timelines, Scheduling, and Milestones",
+          "sourcePage": 115
+        },
+        {
+          "title": "Budgets",
+          "sourcePage": 119
+        }
+      ]
+    },
+    {
+      "chapter": 11,
+      "title": "Introduction To Dmaic And Dmadv",
+      "sourcePage": 121,
+      "sections": [
+        {
+          "title": "DMAIC versus DMADV",
+          "sourcePage": 122
+        },
+        {
+          "title": "Define",
+          "sourcePage": 124
+        },
+        {
+          "title": "Measure",
+          "sourcePage": 125
+        },
+        {
+          "title": "Analyze",
+          "sourcePage": 126
+        },
+        {
+          "title": "Improve",
+          "sourcePage": 127
+        },
+        {
+          "title": "Control",
+          "sourcePage": 128
+        },
+        {
+          "title": "Design",
+          "sourcePage": 128
+        },
+        {
+          "title": "Verify",
+          "sourcePage": 129
+        },
+        {
+          "title": "Breaking up the Elephant",
+          "sourcePage": 130
+        }
+      ]
+    },
+    {
+      "chapter": 12,
+      "title": "Define",
+      "sourcePage": 131,
+      "sections": [
+        {
+          "title": "Creating a Project Charter",
+          "sourcePage": 131
+        },
+        {
+          "title": "Project Ground Rules",
+          "sourcePage": 134
+        },
+        {
+          "title": "Define Toolset",
+          "sourcePage": 135
+        },
+        {
+          "title": "Define Tollgate Checklist",
+          "sourcePage": 138
+        }
+      ]
+    },
+    {
+      "chapter": 13,
+      "title": "Measure",
+      "sourcePage": 141,
+      "sections": [
+        {
+          "title": "Failure Modes and Effect Analysis",
+          "sourcePage": 141
+        },
+        {
+          "title": "Collecting Data",
+          "sourcePage": 143
+        },
+        {
+          "title": "Measure Tollgate Checklist",
+          "sourcePage": 158
+        }
+      ]
+    },
+    {
+      "chapter": 14,
+      "title": "Analyze",
+      "sourcePage": 159,
+      "sections": [
+        {
+          "title": "Root Cause Analysis",
+          "sourcePage": 159
+        },
+        {
+          "title": "Graphical Analysis",
+          "sourcePage": 163
+        },
+        {
+          "title": "Statistical Analysis",
+          "sourcePage": 170
+        },
+        {
+          "title": "Analyze Tollgate Checklist",
+          "sourcePage": 172
+        }
+      ]
+    },
+    {
+      "chapter": 15,
+      "title": "Improve",
+      "sourcePage": 173,
+      "sections": [
+        {
+          "title": "Solutions Selection Matrix",
+          "sourcePage": 173
+        },
+        {
+          "title": "Cost Benefit Analysis",
+          "sourcePage": 176
+        },
+        {
+          "title": "Piloting a Solution",
+          "sourcePage": 177
+        },
+        {
+          "title": "Planning Implementation",
+          "sourcePage": 179
+        },
+        {
+          "title": "Improve Tollgate Checklist",
+          "sourcePage": 180
+        }
+      ]
+    },
+    {
+      "chapter": 16,
+      "title": "Control",
+      "sourcePage": 181,
+      "sections": [
+        {
+          "title": "Revise FMEA",
+          "sourcePage": 181
+        },
+        {
+          "title": "Create a Control Plan",
+          "sourcePage": 181
+        },
+        {
+          "title": "Visual Management",
+          "sourcePage": 184
+        },
+        {
+          "title": "SPC Charts",
+          "sourcePage": 184
+        },
+        {
+          "title": "Team Celebration and Reflection",
+          "sourcePage": 187
+        },
+        {
+          "title": "Control Tollgate Checklist",
+          "sourcePage": 187
+        }
+      ]
+    },
+    {
+      "chapter": 17,
+      "title": "Intermediate Graphical Analysis",
+      "sourcePage": 189,
+      "sections": [
+        {
+          "title": "Additional Graphical Analysis Tools",
+          "sourcePage": 189
+        },
+        {
+          "title": "Creating an X-Bar Control Chart without Statistical Software",
+          "sourcePage": 203
+        },
+        {
+          "title": "Adding Free Data Analysis Tools to Excel",
+          "sourcePage": 209
+        }
+      ]
+    },
+    {
+      "chapter": 18,
+      "title": "Normal Probability Distributions",
+      "sourcePage": 214,
+      "sections": [
+        {
+          "title": "Probability distributions",
+          "sourcePage": 214
+        },
+        {
+          "title": "Creating a Histogram in Excel",
+          "sourcePage": 223
+        },
+        {
+          "title": "Normal Distributions",
+          "sourcePage": 229
+        },
+        {
+          "title": "Normal Probabilities",
+          "sourcePage": 243
+        }
+      ]
+    },
+    {
+      "chapter": 19,
+      "title": "Correlation And Regression",
+      "sourcePage": 246,
+      "sections": [
+        {
+          "title": "Correlation",
+          "sourcePage": 246
+        },
+        {
+          "title": "Linear Regression Analysis",
+          "sourcePage": 255
+        },
+        {
+          "title": "Using Correlation and Regression in Six Sigma",
+          "sourcePage": 262
+        }
+      ]
+    },
+    {
+      "chapter": 20,
+      "title": "Non-Normal Probability Distributions",
+      "sourcePage": 267,
+      "sections": [
+        {
+          "title": "Reviewing Normal Probability Distributions",
+          "sourcePage": 267
+        },
+        {
+          "title": "Non-Normal Continuous Distributions",
+          "sourcePage": 268
+        },
+        {
+          "title": "Non-Normal Discrete Distributions",
+          "sourcePage": 281
+        },
+        {
+          "title": "Applying Data to Real-World Situations",
+          "sourcePage": 296
+        }
+      ]
+    },
+    {
+      "chapter": 21,
+      "title": "Hypothesis Testing",
+      "sourcePage": 297,
+      "sections": [
+        {
+          "title": "Hypothesis Test Basics",
+          "sourcePage": 297
+        },
+        {
+          "title": "Selecting the Right Hypothesis Test",
+          "sourcePage": 299
+        },
+        {
+          "title": "Why Run Hypothesis Tests",
+          "sourcePage": 305
+        },
+        {
+          "title": "Running Hypothesis Tests",
+          "sourcePage": 305
+        }
+      ]
+    },
+    {
+      "chapter": 22,
+      "title": "Sample Size",
+      "sourcePage": 315,
+      "sections": [
+        {
+          "title": "A Review of Hypothesis Testing Errors",
+          "sourcePage": 316
+        },
+        {
+          "title": "What Information is Required for Choosing Sample Size?",
+          "sourcePage": 316
+        },
+        {
+          "title": "Sample Size Calculations: Choosing the Right Method",
+          "sourcePage": 319
+        },
+        {
+          "title": "Running and Analyzing Sample Size Tests in Minitab",
+          "sourcePage": 320
+        }
+      ]
+    },
+    {
+      "chapter": 23,
+      "title": "Advanced Control Charts",
+      "sourcePage": 331,
+      "sections": [
+        {
+          "title": "Common Control Chart Types and When to Use Them",
+          "sourcePage": 331
+        },
+        {
+          "title": "Creating and Reading Control Charts in Minitab",
+          "sourcePage": 338
+        }
+      ]
+    },
+    {
+      "chapter": 24,
+      "title": "Applying Statistics To Business Applications Through Six Sigma",
+      "sourcePage": 361,
+      "sections": [
+        {
+          "title": "Common Challenges When Presenting Statistical Analysis",
+          "sourcePage": 361
+        },
+        {
+          "title": "Why Include Some Statistics?",
+          "sourcePage": 362
+        },
+        {
+          "title": "Tips for Creating Business-Friendly Presentations",
+          "sourcePage": 362
+        }
+      ]
+    },
+    {
+      "chapter": 25,
+      "title": "Introduction To Minitab",
+      "sourcePage": 372,
+      "sections": [
+        {
+          "title": "Overview of the Minitab Interface",
+          "sourcePage": 372
+        },
+        {
+          "title": "Overview of the Minitab Menu",
+          "sourcePage": 378
+        },
+        {
+          "title": "The Calc Menu Option",
+          "sourcePage": 378
+        }
+      ]
+    },
+    {
+      "chapter": 26,
+      "title": "Graphs And Quality Tools In Minitab",
+      "sourcePage": 396,
+      "sections": [
+        {
+          "title": "The Graph Menu Option",
+          "sourcePage": 396
+        },
+        {
+          "title": "The Stat Menu: Quality Tools",
+          "sourcePage": 426
+        },
+        {
+          "title": "Gage Studies",
+          "sourcePage": 436
+        }
+      ]
+    },
+    {
+      "chapter": 27,
+      "title": "The Stat Menu In Minitab",
+      "sourcePage": 441,
+      "sections": [
+        {
+          "title": "Basic Statistics",
+          "sourcePage": 441
+        },
+        {
+          "title": "Statistical Tests",
+          "sourcePage": 444
+        }
+      ]
+    },
+    {
+      "chapter": 28,
+      "title": "Analysis Of Variance (1-Way Anova)",
+      "sourcePage": 455,
+      "sections": [
+        {
+          "title": "Preparing for a 1-Way ANOVA",
+          "sourcePage": 456
+        },
+        {
+          "title": "Running a 1-Way ANOVA",
+          "sourcePage": 457
+        }
+      ]
+    },
+    {
+      "chapter": 29,
+      "title": "Design Of Experiments",
+      "sourcePage": 477,
+      "sections": [
+        {
+          "title": "When Analysis Can Occur on Existing Data",
+          "sourcePage": 477
+        },
+        {
+          "title": "Why Run an Experiment?",
+          "sourcePage": 478
+        },
+        {
+          "title": "Best-Guess Trial-and-Error versus Factorial Experiments",
+          "sourcePage": 479
+        },
+        {
+          "title": "What is Factorial Experimentation?",
+          "sourcePage": 480
+        },
+        {
+          "title": "Step-by-Step Guide for Creating a Designed Experiment",
+          "sourcePage": 481
+        },
+        {
+          "title": "Step-by-Step Guide to Running a 2k Factorial Experiment in Minitab",
+          "sourcePage": 484
+        },
+        {
+          "title": "Next Steps",
+          "sourcePage": 500
+        }
+      ]
+    },
+    {
+      "chapter": 30,
+      "title": "Interactions, Multi-Level Factorials, And Creating Experiments",
+      "sourcePage": 501,
+      "sections": [
+        {
+          "title": "The Importance of Understanding Interactions",
+          "sourcePage": 501
+        },
+        {
+          "title": "2k Factorials Versus Multi-Level Factorials",
+          "sourcePage": 511
+        },
+        {
+          "title": "Tips for Creating Successful Designed Experiments",
+          "sourcePage": 513
+        }
+      ]
+    },
+    {
+      "chapter": 31,
+      "title": "Brainstorming And Process Improvement Tools",
+      "sourcePage": 516,
+      "sections": [
+        {
+          "title": "Activity Network Diagram",
+          "sourcePage": 516
+        },
+        {
+          "title": "Affinity Diagram",
+          "sourcePage": 517
+        },
+        {
+          "title": "Interrelationship Diagram",
+          "sourcePage": 518
+        },
+        {
+          "title": "Force Field Analysis",
+          "sourcePage": 519
+        },
+        {
+          "title": "Responsibility Chart",
+          "sourcePage": 520
+        },
+        {
+          "title": "Nominal Group Technique",
+          "sourcePage": 521
+        },
+        {
+          "title": "Check Sheets",
+          "sourcePage": 522
+        },
+        {
+          "title": "SWOT Analysis",
+          "sourcePage": 522
+        },
+        {
+          "title": "Starburst Brainstorming",
+          "sourcePage": 523
+        },
+        {
+          "title": "Role-Play or Figuring Brainstorming",
+          "sourcePage": 524
+        },
+        {
+          "title": "Brainwriting",
+          "sourcePage": 524
+        },
+        {
+          "title": "Brainstorming Alone",
+          "sourcePage": 526
+        }
+      ]
+    },
+    {
+      "chapter": 32,
+      "title": "Process Maps",
+      "sourcePage": 527,
+      "sections": [
+        {
+          "title": "Why Create Process Maps",
+          "sourcePage": 527
+        },
+        {
+          "title": "Two Types of Process Map",
+          "sourcePage": 527
+        },
+        {
+          "title": "Process Map Symbols",
+          "sourcePage": 528
+        },
+        {
+          "title": "Basic Flow Charts",
+          "sourcePage": 535
+        },
+        {
+          "title": "Creating a Swimlane Diagram",
+          "sourcePage": 536
+        },
+        {
+          "title": "Tips for Creating Concise, Attractive Process Maps",
+          "sourcePage": 542
+        }
+      ]
+    },
+    {
+      "chapter": 33,
+      "title": "Value Stream Mapping",
+      "sourcePage": 544,
+      "sections": [
+        {
+          "title": "What is Value Stream Mapping?",
+          "sourcePage": 544
+        },
+        {
+          "title": "Value Stream Map Symbology",
+          "sourcePage": 544
+        },
+        {
+          "title": "Value Stream Mapping Tips",
+          "sourcePage": 550
+        },
+        {
+          "title": "Value Stream Mapping Steps",
+          "sourcePage": 550
+        },
+        {
+          "title": "What Do You Do with Value Stream Maps?",
+          "sourcePage": 555
+        },
+        {
+          "title": "Tips for Creating a Future-State Value Stream Map",
+          "sourcePage": 555
+        }
+      ]
+    }
+  ]
+}

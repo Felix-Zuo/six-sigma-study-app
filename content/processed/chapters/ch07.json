@@ -10,11 +10,11 @@
   "source": {
     "enDocx": "C:\\findjob_sixsigma_sources\\manual_en_aligned.docx",
     "zhDocx": "C:\\findjob_sixsigma_sources\\manual_zh_aligned.docx",
-    "extraction": "python-docx body-order extraction; generic chapter-level bilingual content"
+    "extraction": "python-docx body-order extraction; source-TOC sectionized bilingual content"
   },
   "sections": [
     {
-      "id": "ch07-content",
+      "id": "ch07-s01-what-is-a-process",
       "level": 1,
       "page": 59,
       "title": {
@@ -24,117 +24,117 @@
       "content": {
         "en": [
           {
-            "id": "ch07-content-en-001",
+            "id": "ch07-s01-what-is-a-process-en-001",
             "kind": "paragraph",
             "text": "In Unit 1, we introduced Six Sigma as a concept and covered a lot of principles that are foundational to creating and maintaining improvement in a business. In Unit 2, we’ll begin looking at what a process is, why quality is important in a process, and how Six Sigma projects can improve processes. The concepts you learn in Units 1 and 2 become the bricks used to build project work that we discuss throughout the rest of the book."
           },
           {
-            "id": "ch07-content-en-002",
+            "id": "ch07-s01-what-is-a-process-en-002",
             "kind": "paragraph",
             "text": "What is a Process?"
           },
           {
-            "id": "ch07-content-en-003",
+            "id": "ch07-s01-what-is-a-process-en-003",
             "kind": "paragraph",
             "text": "A process is a collection of tasks, steps, or activities that are performed, usually in a specific order, and result in an end product such as a tangible good or the provision of a service. In a business, multiple processes work together to achieve organizational goals. Technically, the business or organization itself can be seen as one enormous process. For example, a law firm that handles criminal defense cases operates via a huge, complex process. Defendants and their cases enter the process. The output of the process is the result of the case: a bargain with prosecutors, a win or loss in court, or dismissal of charges prior to court."
           },
           {
-            "id": "ch07-content-en-004",
+            "id": "ch07-s01-what-is-a-process-en-004",
             "kind": "paragraph",
             "text": "Within the huge process that sees the defendant through to his or her outcome, there are hundreds, possibly thousands, of smaller processes. There are processes within processes. A lawyer and team of paralegals might move through the process of negotiation; a legal secretary might go through the process of setting appointments. Holding depositions, making copies, sending letters, and filing legal documents are all examples of processes. At the most detailed level, even answering the phone or typing a letter can be considered processes."
           },
           {
-            "id": "ch07-content-en-005",
+            "id": "ch07-s01-what-is-a-process-en-005",
             "kind": "paragraph",
             "text": "In Chapter 6, we briefly introduced the idea of scope and scope creep. To define and maintain proper scope, we said that a Six Sigma team had to identify the processes that were related to a process improvement or project. In the legal firm example, a project to reduce the time it takes to set appointments would likely not include a process for filing a legal brief. To know that, however, you have to know that the legal brief process doesn’t share components with the appointment setting process. In this chapter, we’ll cover the components of processes and a format for mapping those components known as a SIPOC."
           },
           {
-            "id": "ch07-content-en-006",
+            "id": "ch07-s01-what-is-a-process-en-006",
             "kind": "heading",
             "text": "Four Layers of the Process Definition"
           },
           {
-            "id": "ch07-content-en-007",
+            "id": "ch07-s01-what-is-a-process-en-007",
             "kind": "paragraph",
             "text": "As you continue with this chapter, you’ll see that processes can be very complex. Our basic definition above is just that: Basic. Before we begin defining the components of a process, let’s peel back the layers of this concept known as “a process.”"
           },
           {
-            "id": "ch07-content-en-008",
+            "id": "ch07-s01-what-is-a-process-en-008",
             "kind": "heading",
             "text": "The Steps"
           },
           {
-            "id": "ch07-content-en-009",
+            "id": "ch07-s01-what-is-a-process-en-009",
             "kind": "paragraph",
             "text": "Whether physical, digital, or ideological, every process is a series of some number of steps. You can put those steps on paper in the form of instructions—often called a standard operating procedure in a formal business training or policy document -- or a visual diagram known as a process map. A process"
           },
           {
-            "id": "ch07-content-en-010",
+            "id": "ch07-s01-what-is-a-process-en-010",
             "kind": "paragraph",
             "text": "map uses standard shapes and connections to create a map of a process that can be understood by most employees and any Six Sigma team member."
           },
           {
-            "id": "ch07-content-en-011",
+            "id": "ch07-s01-what-is-a-process-en-011",
             "kind": "heading",
             "text": "Processing Time"
           },
           {
-            "id": "ch07-content-en-012",
+            "id": "ch07-s01-what-is-a-process-en-012",
             "kind": "paragraph",
             "text": "Processes all take a certain amount of time, and processing time can change with a variety of factors. Process maps and documents can only record information such as the average time a process takes or measures of variation in the processing time. This information is often noted in such documents because it provides valuable information to teams, but real-time observation of a process almost always provides better information about processing time."
           },
           {
-            "id": "ch07-content-en-013",
+            "id": "ch07-s01-what-is-a-process-en-013",
             "kind": "paragraph",
             "text": "A retail chain might create a process map for restocking a certain area. The process documentation notes an average time of two hours to fully restock the shelves in the defined area. In an effort to obtain more data about the process, a Six Sigma team observes employees actually performing job functions in real time at various times of day for two weeks. Some notes that come from those observations include:"
           },
           {
-            "id": "ch07-content-en-014",
+            "id": "ch07-s01-what-is-a-process-en-014",
             "kind": "listItem",
             "text": "Stocking in the evening takes only minutes."
           },
           {
-            "id": "ch07-content-en-015",
+            "id": "ch07-s01-what-is-a-process-en-015",
             "kind": "listItem",
             "text": "Stocking during the day is hampered by the movements of customers."
           },
           {
-            "id": "ch07-content-en-016",
+            "id": "ch07-s01-what-is-a-process-en-016",
             "kind": "listItem",
             "text": "Stocking work performed during peak shopping hours usually takes the longest."
           },
           {
-            "id": "ch07-content-en-017",
+            "id": "ch07-s01-what-is-a-process-en-017",
             "kind": "paragraph",
             "text": "With just this information, you can probably see an easy way to reduce stocking time in this example: move stocking duties to non-peak times when possible. Simply understanding the steps to stock the area is not enough to understand the process; you also have to gather data about process times."
           },
           {
-            "id": "ch07-content-en-018",
+            "id": "ch07-s01-what-is-a-process-en-018",
             "kind": "heading",
             "text": "Interdependencies"
           },
           {
-            "id": "ch07-content-en-019",
+            "id": "ch07-s01-what-is-a-process-en-019",
             "kind": "paragraph",
             "text": "Almost any process in a business will be dependent upon one or more other processes. Remember, the business itself is a series of linked processes all working toward the same goal or goals. Sometimes, interdependencies are noted on processes maps. Other times, interdependencies are resource-related."
           },
           {
-            "id": "ch07-content-en-020",
+            "id": "ch07-s01-what-is-a-process-en-020",
             "kind": "paragraph",
             "text": "For example, consider a very simple passenger train scenario. The train leaves station A with passengers, carrying them to station B. Before the train can leave, the engineer must be on board and prepared to operate the machine. Safety checks, clearance from the rail yard, the closing of all the doors: these are all processes that must be completed before the train leaves the station. The process of the train transporting passengers is dependent upon the completion of other processes."
           },
           {
-            "id": "ch07-content-en-021",
+            "id": "ch07-s01-what-is-a-process-en-021",
             "kind": "paragraph",
             "text": "When working with processes during a Six Sigma improvement project, teams must be aware of interdependencies. What does any process you are working on rely? What relies on your process? The first is important because you might need help from processes or people upstream from your process when making improvements. The second is important because you have to know how your improvements will impact downstream processes and people – and improvement in the performance of your process doesn’t do any good for the company or organization as a whole if it hinders the"
           },
           {
-            "id": "ch07-content-en-022",
+            "id": "ch07-s01-what-is-a-process-en-022",
             "kind": "paragraph",
             "text": "performance of a downstream process."
           },
           {
-            "id": "ch07-content-en-023",
+            "id": "ch07-s01-what-is-a-process-en-023",
             "kind": "image",
             "assetId": "fig-fb7ad74218d42c44",
             "src": "assets/figures/fig-fb7ad74218d42c44.png",
@@ -142,658 +142,44 @@
             "height": 266
           },
           {
-            "id": "ch07-content-en-024",
+            "id": "ch07-s01-what-is-a-process-en-024",
             "kind": "heading",
             "text": "Resources and Assignment"
           },
           {
-            "id": "ch07-content-en-025",
+            "id": "ch07-s01-what-is-a-process-en-025",
             "kind": "paragraph",
             "text": "Processes require resources. Like a motor vehicle requires fuel or electricity to run, a process requires resources such as power, people, cash, digital bandwidth, computer equipment, machinery, supplies, parts, and even skill. Since someone in an organization has to approve and pay for resources, project teams must understand the resources involved, the cost of those resources, and the owners of the processes and resources in question so they can make appropriate requests about needing additional resources."
-          },
-          {
-            "id": "ch07-content-en-026",
-            "kind": "heading",
-            "text": "Major Process Components"
-          },
-          {
-            "id": "ch07-content-en-027",
-            "kind": "paragraph",
-            "text": "Processes are made up of components that include inputs, outputs, events, tasks (activities), and decisions. Inputs enter the process when a specific event occurs; tasks and decisions are performed upon or with the inputs. At the end of the process, an output is generated. Most of the time, the idea of process components is introduced with a simple factory-based illustration: raw goods of some type enter the factory, work is performed, and finished goods leave the factory. For example, if a factory makes hard candy, things such as sugar, water, plastic, and electrical power enter the factory. Equipment and employees take the inputs and work with them. The end result is a wrapped piece of candy ready for the store."
-          },
-          {
-            "id": "ch07-content-en-028",
-            "kind": "paragraph",
-            "text": "The figure below illustrates the idea of process components using a pizza shop example. An event – the ordering of a certain pizza – begins the process. You can see all of the components in the diagram, and we’ll talk about each component in detail in the section that follows."
-          },
-          {
-            "id": "ch07-content-en-029",
-            "kind": "image",
-            "assetId": "fig-6789b6da9b681e9e",
-            "src": "assets/figures/fig-6789b6da9b681e9e.png",
-            "width": 805,
-            "height": 1206
-          },
-          {
-            "id": "ch07-content-en-030",
-            "kind": "paragraph",
-            "text": "Figure 1 Medium Cheese Pizza Process"
-          },
-          {
-            "id": "ch07-content-en-031",
-            "kind": "heading",
-            "text": "Inputs"
-          },
-          {
-            "id": "ch07-content-en-032",
-            "kind": "paragraph",
-            "text": "Input refers to anything that enters a process or is required to enter a process to drive the creation of an output. In the pizza example above, the inputs are all the ingredients needed to make the pizza. You might also consider factors such as oven temperature, type of oven, and the cook’s skill level to be inputs in the process."
-          },
-          {
-            "id": "ch07-content-en-033",
-            "kind": "paragraph",
-            "text": "Understanding all inputs to a process is important in Six Sigma because inputs are often causal – or related to causal – factors regarding a process. Inputs or the results of those inputs can cause errors or"
-          },
-          {
-            "id": "ch07-content-en-034",
-            "kind": "paragraph",
-            "text": "defects in the process. The cookies burn when the oven is too hot. The computers made in a factory don’t function when the circuit boards are bad. A lawyer doesn’t win his case if his or her information is wrong. The oven temperature, the circuit boards, and the lawyer’s information: these are all inputs into processes that are also causing problems within the processes."
-          },
-          {
-            "id": "ch07-content-en-035",
-            "kind": "paragraph",
-            "text": "Other reasons for defining inputs when working with a process include:"
-          },
-          {
-            "id": "ch07-content-en-036",
-            "kind": "listItem",
-            "text": "Understanding the resources required for a process to run"
-          },
-          {
-            "id": "ch07-content-en-037",
-            "kind": "listItem",
-            "text": "Identifying extraneous inputs that aren’t required"
-          },
-          {
-            "id": "ch07-content-en-038",
-            "kind": "listItem",
-            "text": "Understanding costs for the process"
-          },
-          {
-            "id": "ch07-content-en-039",
-            "kind": "listItem",
-            "text": "Understanding how the process relates to processes that come before it"
-          },
-          {
-            "id": "ch07-content-en-040",
-            "kind": "paragraph",
-            "text": "Remember, in a business, processes are linked together to accomplish a final goal or goals. The inputs entering process B might be the outputs leaving process A."
-          },
-          {
-            "id": "ch07-content-en-041",
-            "kind": "heading",
-            "text": "Outputs"
-          },
-          {
-            "id": "ch07-content-en-042",
-            "kind": "paragraph",
-            "text": "The output of a process is the service or product that is used by the customer of the process. In the pizza example, the output is the cheese pizza the customer is going to eat. In the candy factory example, the output is the hard candy that will be sold by the retail store."
-          },
-          {
-            "id": "ch07-content-en-043",
-            "kind": "paragraph",
-            "text": "The process customer is not always the traditional end customer who purchases a product or service. Customers can be internal or external. An example of a process serving an internal customer might be seen in a business office that employees a receptionist to answer phone calls. If the receptionist takes messages or transfers phone calls, he or she is serving both the person on the phone and the person who is receiving the call or message."
-          },
-          {
-            "id": "ch07-content-en-044",
-            "kind": "paragraph",
-            "text": "In some cases, the customer of a process is not even a person. Many processes feed other processes. In a pharmacy, the process of entering data about a prescription feeds the process that bills an insurance company for the medication."
-          },
-          {
-            "id": "ch07-content-en-045",
-            "kind": "paragraph",
-            "text": "From a Six Sigma perspective, an output is almost always of more value to the ultimate process than the input is. The process itself involves adding value of some kind to the inputs. A bakery puts raw bread dough through the oven to add value to it: the result is an edible and tasty product that a consumer is more likely to purchase or to pay more for."
-          },
-          {
-            "id": "ch07-content-en-046",
-            "kind": "heading",
-            "text": "Events"
-          },
-          {
-            "id": "ch07-content-en-047",
-            "kind": "paragraph",
-            "text": "Events are specific, predefined criteria or actions that cause a process to begin working. A process that performs well responds to an event just like a light bulb responds to the action of a switch being pulled. Six Sigma teams must determine what events trigger a process because it helps them understand why a process is being performed and whether the process is being run when it isn’t needed."
-          },
-          {
-            "id": "ch07-content-en-048",
-            "kind": "paragraph",
-            "text": "Consider an example about compliance audits in a financial sector company. Perhaps a company created a specific audit process that initiates when red flags on accounts are raised; the audit process is comprehensive and usually takes an average of 80 labor hours. You can imagine that it is an expensive process to run. In investigating, a Six Sigma team identifies the event associated with the process: anytime a discrepancy in an account is noted by a clerk, the compliance process is triggered."
-          },
-          {
-            "id": "ch07-content-en-049",
-            "kind": "paragraph",
-            "text": "The team investigates and realizes that this is true even when the discrepancy was minor – a few dollars or less – or the clerk was able to reconcile the discrepancy later in the day. The team might suggest that the relationship between the process and the event is a problem. The process is running at times when it might not be valuable for it to do so."
-          },
-          {
-            "id": "ch07-content-en-050",
-            "kind": "heading",
-            "text": "Tasks"
-          },
-          {
-            "id": "ch07-content-en-051",
-            "kind": "paragraph",
-            "text": "Tasks, or activities, are the heart of a process. Just as the heart pumps blood through your body, the tasks within a process pump the inputs through, turning them into the outputs. Tasks are the physical, automated, or computerized actions within a process. Examples of tasks include:"
-          },
-          {
-            "id": "ch07-content-en-052",
-            "kind": "listItem",
-            "text": "A machine joining two metal parts with a weld"
-          },
-          {
-            "id": "ch07-content-en-053",
-            "kind": "listItem",
-            "text": "A person entering data into a software program"
-          },
-          {
-            "id": "ch07-content-en-054",
-            "kind": "listItem",
-            "text": "A computer processing data to create a report"
-          },
-          {
-            "id": "ch07-content-en-055",
-            "kind": "listItem",
-            "text": "An email being written"
-          },
-          {
-            "id": "ch07-content-en-056",
-            "kind": "listItem",
-            "text": "A piece of computerized work being routed within a workflow system"
-          },
-          {
-            "id": "ch07-content-en-057",
-            "kind": "listItem",
-            "text": "A chef chopping ingredients for a recipe"
-          },
-          {
-            "id": "ch07-content-en-058",
-            "kind": "heading",
-            "text": "Decisions"
-          },
-          {
-            "id": "ch07-content-en-059",
-            "kind": "paragraph",
-            "text": "Decisions are closely related to tasks and can be tasks themselves. A chef preparing ingredients for a soup dish has to chop those ingredients, but he also has to decide how much of each ingredient he needs. His decision will likely be guided by the recipe and the number of people he has to feed."
-          },
-          {
-            "id": "ch07-content-en-060",
-            "kind": "paragraph",
-            "text": "Decisions within a process are typically governed by a set of rules. Sometimes those rules are formally documented; other times, decisions are made via informal rules along with staff knowledge and experience. Processes that are governed by informal rules can have problems of consistency; even when all staff are experienced, they could have individual variations on performing a task. And, as we discussed in Unit 1, variation can lead to more opportunities for defects and a reduction in quality."
-          },
-          {
-            "id": "ch07-content-en-061",
-            "kind": "paragraph",
-            "text": "Using the task examples above, here are examples of decisions in a process:"
-          },
-          {
-            "id": "ch07-content-en-062",
-            "kind": "listItem",
-            "text": "A person entering data into a software program makes a decision to select a certain drop down category because of training or rules provided by the software"
-          },
-          {
-            "id": "ch07-content-en-063",
-            "kind": "listItem",
-            "text": "A computer processes a report; the result of that report is a number above a set threshold, so the computer sends the report to a person"
-          },
-          {
-            "id": "ch07-content-en-064",
-            "kind": "listItem",
-            "text": "When writing an email, a person chooses to include certain specific information, such as an order number or customer number, because it is protocol to do so when sending this type of email"
-          },
-          {
-            "id": "ch07-content-en-065",
-            "kind": "heading",
-            "text": "All Components Are Related"
-          },
-          {
-            "id": "ch07-content-en-066",
-            "kind": "paragraph",
-            "text": "You’re probably noticing that processes can be extremely complex, and the relationships between all the components are equally complex. Inputs can be outputs from previous processes; outputs can be inputs in the next process. A decision might result in an event that starts a new process, but it can also be the factor that decides which task begins. As Six Sigma teams work with processes – observing them, diagramming them, and measuring them – the teams begin to understand the relationships of the components, and that helps them make decisions about possible improvements and changes."
-          },
-          {
-            "id": "ch07-content-en-067",
-            "kind": "heading",
-            "text": "Process Owners"
-          },
-          {
-            "id": "ch07-content-en-068",
-            "kind": "paragraph",
-            "text": "As teams work to improve processes, they need to understand who the process owners are. Depending on the business organization, process owners can be the people with the power to approve changes. In some organizations, the lowest-level owner might not have veto or decision power about all changes, but he or she is held responsible for the performance of the process."
-          },
-          {
-            "id": "ch07-content-en-069",
-            "kind": "paragraph",
-            "text": "A process owner can be:"
-          },
-          {
-            "id": "ch07-content-en-070",
-            "kind": "listItem",
-            "text": "A person in charge of a very specific process or function"
-          },
-          {
-            "id": "ch07-content-en-071",
-            "kind": "listItem",
-            "text": "A team supervisor or department manager"
-          },
-          {
-            "id": "ch07-content-en-072",
-            "kind": "listItem",
-            "text": "An executive-level individual who is probably responsible for a number of processes in his or her division"
-          },
-          {
-            "id": "ch07-content-en-073",
-            "kind": "paragraph",
-            "text": "What does a process owner do?"
-          },
-          {
-            "id": "ch07-content-en-074",
-            "kind": "paragraph",
-            "text": "The responsibilities of a process owner are often defined by the infrastructure of a specific business, but commonly, a process owner will:"
-          },
-          {
-            "id": "ch07-content-en-075",
-            "kind": "listItem",
-            "text": "Monitor how the process performs, usually using one or more metrics or regularly reported data elements."
-          },
-          {
-            "id": "ch07-content-en-076",
-            "kind": "listItem",
-            "text": "Understand how the process fits into the overall business, why the output of the process is critical to business goals, and what inputs feed the process."
-          },
-          {
-            "id": "ch07-content-en-077",
-            "kind": "listItem",
-            "text": "Ensures the process is documented via standard operating procedures (SOPs) and that process documentation is kept current and accurate."
-          },
-          {
-            "id": "ch07-content-en-078",
-            "kind": "listItem",
-            "text": "Ensures operators within the process have the resources and training they need to complete their jobs."
-          },
-          {
-            "id": "ch07-content-en-079",
-            "kind": "paragraph",
-            "text": "In a Six Sigma environment, process owners might also ensure a control plan is in place and regularly review the process for possible improvement opportunities."
-          },
-          {
-            "id": "ch07-content-en-080",
-            "kind": "paragraph",
-            "text": "Data"
-          },
-          {
-            "id": "ch07-content-en-081",
-            "kind": "paragraph",
-            "text": "Finally, all processes generate some form of data. Even if data isn’t yet being captured, information is inherent in any process. A computer program that automatically routes work in a workflow might generate data such as the number of items in work queues, how many items were worked that day, the time items have been waiting in queues, how many items were transferred, and where those items were transferred to. A process for filling bottles with liquid might generate data such as how much liquid is placed in each bottle, how many bottles per hour are filled, and perhaps variation between bottles."
-          },
-          {
-            "id": "ch07-content-en-082",
-            "kind": "paragraph",
-            "text": "Data is extremely valuable to Six Sigma teams because it’s often how they define whether a process is in control and successful."
-          },
-          {
-            "id": "ch07-content-en-083",
-            "kind": "heading",
-            "text": "Defining Process Components: The SIPOC"
-          },
-          {
-            "id": "ch07-content-en-084",
-            "kind": "paragraph",
-            "text": "The SIPOC diagram is often an important part of the define stage of a Six Sigma project. But you can use the SIPOC diagram anytime you want to learn more about a process or understand how a process in a business environment is linked to other processes."
-          },
-          {
-            "id": "ch07-content-en-085",
-            "kind": "paragraph",
-            "text": "SIPOC stands for Suppliers, Inputs, Process, Outputs, and Customer. For the purposes of a SIPOC, inputs and outputs follow the same guidelines described previously in this chapter. Suppliers are the people, processes, and organizations that supply inputs to your process. Customers are the people, processes, and organizations that make use of the outputs of your process. The process itself is the series of steps that take the inputs and make them outputs."
-          },
-          {
-            "id": "ch07-content-en-086",
-            "kind": "heading",
-            "text": "Benefits of a SIPOC Diagram"
-          },
-          {
-            "id": "ch07-content-en-087",
-            "kind": "paragraph",
-            "text": "The SIPOC diagram is one of the most often used tools for understanding process components and process relevance because it is so effective and simple. Teams can create SIPOC diagrams in a single brainstorming session, though effective diagramming usually requires the presence of a process owner and one or more SMEs who are familiar with the process on a daily level."
-          },
-          {
-            "id": "ch07-content-en-088",
-            "kind": "image",
-            "assetId": "fig-a897f4a452908379",
-            "src": "assets/figures/fig-a897f4a452908379.png",
-            "width": 482,
-            "height": 459
-          },
-          {
-            "id": "ch07-content-en-089",
-            "kind": "paragraph",
-            "text": "SIPOC diagrams are also infinitely scalable. Teams can diagram processes at a very minute level, but they can also use SIPOC to diagram an entire business. We’ll walk through creating a SIPOC diagram and then provide some examples of SIPOCs at various levels to illustrate scalability."
-          },
-          {
-            "id": "ch07-content-en-090",
-            "kind": "heading",
-            "text": "Creating a SIPOC Diagram"
-          },
-          {
-            "id": "ch07-content-en-091",
-            "kind": "paragraph",
-            "text": "You can create a SIPOC diagram as an individual exercise or within a team environment. SIPOCs can be created using a computer and software tool such as Word or Excel, but you can also draw them freehand on a whiteboard or piece of paper. Freehand diagramming is a valuable brainstorming tool because teams can quickly edit the rough draft of the diagram as they discuss a process. Keep this in mind :many of the diagrams presented in this book look clean because they have already been typed and edited. As you diagram your own processes, they can tend to look messy at first with edits, arrows, scratch outs, and inserts. “Editing” or putting rules on the brainstorming process can limit the ideas and information that flow during the process. You can always create a clean copy of the diagram for presentation purposes when you are finished brainstorming."
-          },
-          {
-            "id": "ch07-content-en-092",
-            "kind": "paragraph",
-            "text": "Step 1: Create Swim Lanes A SIPOC diagram is based on swim lanes. Swim lanes let you show how cross-functional activities and resources relate to your process. A SIPOC diagram gets five lanes: one each for Suppliers, Inputs, Process, Outputs, and Customers. You’ll end up with something that looks like the figure below."
-          },
-          {
-            "id": "ch07-content-en-093",
-            "kind": "image",
-            "assetId": "fig-201e9d173558d273",
-            "src": "assets/figures/fig-201e9d173558d273.png",
-            "width": 1218,
-            "height": 318
-          },
-          {
-            "id": "ch07-content-en-094",
-            "kind": "image",
-            "assetId": "fig-53763d055da4fb00",
-            "src": "assets/figures/fig-53763d055da4fb00.png",
-            "width": 1218,
-            "height": 85
-          },
-          {
-            "id": "ch07-content-en-095",
-            "kind": "paragraph",
-            "text": "Step 2: Set Boundaries and Name Your Process Before beginning a SIPOC session, set a definition for where your process or responsibility begins and ends. If you don’t understand the scope of your process, then your SIPOC session can get out of hand or produce a diagram that isn’t useful for your project."
-          },
-          {
-            "id": "ch07-content-en-096",
-            "kind": "paragraph",
-            "text": "Naming your process helps the team identify more readily with a specific aspect of the business. For example, a team working to improve processes within a medical office might look at a process named “Gathering New Patient Information.” By naming the process, the team has put some scope limitations in place: the team will talk about things related to gathering information from patients. The scope is further limited to the process by which staff gathers information from new patients."
-          },
-          {
-            "id": "ch07-content-en-097",
-            "kind": "paragraph",
-            "text": "As you work through the SIPOC diagramming exercise, you can point back to the name and the scope you’ve defined to keep the team on task with the discussion."
-          },
-          {
-            "id": "ch07-content-en-098",
-            "kind": "paragraph",
-            "text": "Step 3: Complete Swim Lanes You can complete SIPOC swim lanes in any order, but best practices usually have teams enter data in the following order:"
-          },
-          {
-            "id": "ch07-content-en-099",
-            "kind": "listItem",
-            "text": "Process"
-          },
-          {
-            "id": "ch07-content-en-100",
-            "kind": "listItem",
-            "text": "Outputs"
-          },
-          {
-            "id": "ch07-content-en-101",
-            "kind": "listItem",
-            "text": "Customer"
-          },
-          {
-            "id": "ch07-content-en-102",
-            "kind": "listItem",
-            "text": "Inputs"
-          },
-          {
-            "id": "ch07-content-en-103",
-            "kind": "listItem",
-            "text": "Suppliers"
-          },
-          {
-            "id": "ch07-content-en-104",
-            "kind": "paragraph",
-            "text": "Realistically, teams will think of things as they work through the process, so you’ll be returning to swim lanes repeatedly to move information around and add new information."
-          },
-          {
-            "id": "ch07-content-en-105",
-            "kind": "paragraph",
-            "text": "A SIPOC isn’t usually a low-level or detailed map of the actual process, so keep teams high-level when completing the process swim lane. You can simply enter the name of the process in that section, or you can list some of the high level steps required for the process. Listing steps is a good exercise if teams aren’t sure about outputs and inputs – beginning to visualize the process usually helps ideas flow about how the process is connected to other processes and resources in the company."
-          },
-          {
-            "id": "ch07-content-en-106",
-            "kind": "paragraph",
-            "text": "To keep the session from turning into a detailed process mapping activity, ask the team to describe the process in less than five to seven steps. Keep things simple by limiting process steps to short verb-noun combos such as “Enter information,” “Collect money,” or “Place labels.”"
-          },
-          {
-            "id": "ch07-content-en-107",
-            "kind": "heading",
-            "text": "Name Outputs and Customers"
-          },
-          {
-            "id": "ch07-content-en-108",
-            "kind": "paragraph",
-            "text": "Once you have a rudimentary process definition, begin with either inputs or outputs. Ask the team “What does this process make? What comes out of this process?” Those answers go into the outputs swim lane."
-          },
-          {
-            "id": "ch07-content-en-109",
-            "kind": "paragraph",
-            "text": "Next, ask the team “Who or what uses the things that come from this process?” Place those answers in the customer swim lane. Remember that customers can be external or internal, and another process can be the customer in cases of automation."
-          },
-          {
-            "id": "ch07-content-en-110",
-            "kind": "heading",
-            "text": "Name Inputs and Suppliers"
-          },
-          {
-            "id": "ch07-content-en-111",
-            "kind": "paragraph",
-            "text": "Ask the team “What does the process need to perform? What raw goods or materials feed the process?” Record those answers in the inputs section."
-          },
-          {
-            "id": "ch07-content-en-112",
-            "kind": "paragraph",
-            "text": "You can divide the idea of inputs into two types, if you like. First, you have the actual inputs – the goods and services that are transformed by the process to create the outputs. Second, you have enablers of the process. These aren’t technically inputs because they don’t enter the process and aren’t changed by the process; instead, they are required for the process to function. Machinery is an enabler. In a process that cuts metal parts from a steel sheet, the machine that does the cutting is an enabler. While it’s not required, separating enablers on your SIPOC helps you define the process and provides additional information for later in the project."
-          },
-          {
-            "id": "ch07-content-en-113",
-            "kind": "paragraph",
-            "text": "Once you have a list of inputs, ask the team, “Where do the inputs come from? Who or what supplies the process with these things?” As with customers, suppliers can be external or internal. A vendor might provide the raw sugar that goes into the candy in a factory; the marketing department might provide the leads that the sales department uses to create orders."
-          },
-          {
-            "id": "ch07-content-en-114",
-            "kind": "paragraph",
-            "text": "Suppliers can also be other processes, particularly in an automated environment, and you can have a list of several suppliers for one input in a raw SIPOC diagram. For example, support tickets come into the Information Technology (IT) department. The supplier of the ticket could be both the end-user submitting the ticket and the automated process that routes the ticket to the appropriate work queue. If you are documenting enablers, you might record the end-user as the supplier and the automated process as the enabler."
-          },
-          {
-            "id": "ch07-content-en-115",
-            "kind": "paragraph",
-            "text": "Step 4: Validate the Information Ensure that your understanding of the process at this high level is accurate by validating your diagram. If you’ve put together a comprehensive team that includes SMEs, the team can validate most of the information on its own. It’s always a good idea to get a second opinion on anything the team isn’t sure about, though. Invite other SMEs or the process owner to review the diagram briefly with the team and provide feedback."
-          },
-          {
-            "id": "ch07-content-en-116",
-            "kind": "heading",
-            "text": "Tips for a SIPOC Brainstorming Session"
-          },
-          {
-            "id": "ch07-content-en-117",
-            "kind": "paragraph",
-            "text": "One of the best ways to create an initial SIPOC diagram during a team session is on large pieces of paper or a whiteboard. Create swim lanes by drawing them on the whiteboard or hanging a piece of paper for each swim lane on the wall. Provide the team with sticky notes and markers; write on sticky notes instead of writing directly on the board or paper. This lets you move components around quickly as you work through the diagram."
-          },
-          {
-            "id": "ch07-content-en-118",
-            "kind": "heading",
-            "text": "Sample SIPOC Diagrams"
-          },
-          {
-            "id": "ch07-content-en-119",
-            "kind": "paragraph",
-            "text": "Here are some sample SIPOC diagrams. The first diagram is at the highest level: the process is the business itself. The second diagram features an automated process. The third diagram illustrates a people-powered factory process and includes enablers."
-          },
-          {
-            "id": "ch07-content-en-120",
-            "kind": "heading",
-            "text": "Business-Level SIPOC Diagram"
-          },
-          {
-            "id": "ch07-content-en-121",
-            "kind": "paragraph",
-            "text": "This diagram shows the SIPOC for a mid-sized printing company. It’s a very high-level, simplified SIPOC that shows how customers and vendors provide information and items; the printing company then turns those inputs into products such as printed business cards. The final product goes to individuals, businesses, and marketing professionals who placed the order."
-          },
-          {
-            "id": "ch07-content-en-122",
-            "kind": "image",
-            "assetId": "fig-7e16a41084a5c003",
-            "src": "assets/figures/fig-7e16a41084a5c003.png",
-            "width": 1218,
-            "height": 688
-          },
-          {
-            "id": "ch07-content-en-123",
-            "kind": "paragraph",
-            "text": "Most of the time, a Six Sigma team won’t deal with a business-level SIPOC diagram. However, if the team includes members from outside the division or company, such as vendors or consultants assisting with an improvement, then starting with a high-level diagram can help those outside of the business understand the overall goals of the company."
-          },
-          {
-            "id": "ch07-content-en-124",
-            "kind": "heading",
-            "text": "SIPOC of an Automated Process"
-          },
-          {
-            "id": "ch07-content-en-125",
-            "kind": "paragraph",
-            "text": "The diagram below represents an automated process in a mail-order pharmacy. The process in question puts labels on bottles that are to be filled with corresponding medications. The scope of the process is only the labeling of the bottles."
-          },
-          {
-            "id": "ch07-content-en-126",
-            "kind": "image",
-            "assetId": "fig-3dac98bfa17e9170",
-            "src": "assets/figures/fig-3dac98bfa17e9170.png",
-            "width": 1218,
-            "height": 321
-          },
-          {
-            "id": "ch07-content-en-127",
-            "kind": "image",
-            "assetId": "fig-eaa5742241054dd4",
-            "src": "assets/figures/fig-eaa5742241054dd4.png",
-            "width": 1218,
-            "height": 335
-          },
-          {
-            "id": "ch07-content-en-128",
-            "kind": "paragraph",
-            "text": "Because this is a process within a chain of automated processes, almost all of the components are machines, processes, and things. Prior to labeling, a machine sorts bottles by size. That machine feeds the labeling station as needed. After the labeling is done, another station fills the bottles."
-          },
-          {
-            "id": "ch07-content-en-129",
-            "kind": "heading",
-            "text": "SIPOC with Enablers Noted"
-          },
-          {
-            "id": "ch07-content-en-130",
-            "kind": "paragraph",
-            "text": "The SIPOC diagram below illustrates how enablers might be recorded for your process. The process in question takes place in a factory that makes furniture; in this process, a person attaches legs to a barstool on an assembly line. For the purposes of this illustration, leg attachment is the last step in the completion of the product, which means the product moves from the leg attachment station to packing and shipping."
-          },
-          {
-            "id": "ch07-content-en-131",
-            "kind": "image",
-            "assetId": "fig-3c932f57e2065761",
-            "src": "assets/figures/fig-3c932f57e2065761.png",
-            "width": 1218,
-            "height": 908
-          },
-          {
-            "id": "ch07-content-en-132",
-            "kind": "image",
-            "assetId": "fig-d02a8221a9e7ce25",
-            "src": "assets/figures/fig-d02a8221a9e7ce25.png",
-            "width": 1218,
-            "height": 90
-          },
-          {
-            "id": "ch07-content-en-133",
-            "kind": "paragraph",
-            "text": "Without the conveyor machine, the people in involved in this process would have to move items manually. The conveyor isn’t 100 percent required for legs to be added to the stool, but it enables the process to move at a more efficient pace. A case could be made that the drill isn’t required either – screws can be installed manually – but it’s certainly what enables the process to move at a speed required for mass production."
-          },
-          {
-            "id": "ch07-content-en-134",
-            "kind": "paragraph",
-            "text": "With just this simple SIPOC diagram of a process, a Six Sigma team would already have some idea about where variation could be hiding, what drives efficiencies in the process, and how the process relates to the overall business."
-          },
-          {
-            "id": "ch07-content-en-135",
-            "kind": "heading",
-            "text": "Create Your Own SIPOC Diagram"
-          },
-          {
-            "id": "ch07-content-en-136",
-            "kind": "paragraph",
-            "text": "Whether working in a team or on your own, choose a process you know about and practice creating your own diagram. Pick a process associated with your business or a business example you have experience with. Use the templates on the next page to get you started."
-          },
-          {
-            "id": "ch07-content-en-137",
-            "kind": "image",
-            "assetId": "fig-6624d527fc266a54",
-            "src": "assets/figures/fig-6624d527fc266a54.png",
-            "width": 1218,
-            "height": 1285
-          },
-          {
-            "id": "ch07-content-en-138",
-            "kind": "image",
-            "assetId": "fig-1cab2b9e73e4d6b0",
-            "src": "assets/figures/fig-1cab2b9e73e4d6b0.png",
-            "width": 1218,
-            "height": 258
-          },
-          {
-            "id": "ch07-content-en-139",
-            "kind": "image",
-            "assetId": "fig-2aae3e67ee918f1e",
-            "src": "assets/figures/fig-2aae3e67ee918f1e.png",
-            "width": 1218,
-            "height": 1050
-          },
-          {
-            "id": "ch07-content-en-140",
-            "kind": "image",
-            "assetId": "fig-181503f390e5d363",
-            "src": "assets/figures/fig-181503f390e5d363.png",
-            "width": 1105,
-            "height": 1417
           }
         ],
         "zh": [
           {
-            "id": "ch07-content-zh-001",
+            "id": "ch07-s01-what-is-a-process-zh-001",
             "kind": "paragraph",
             "text": "在第一单元中，我们介绍了六西格玛这一概念，并涵盖了许多对于创造和维持企业改进的基础原则。在第二单元中，我们将开始了解什么是流程、为什么质量在流程中很重要，以及六西格玛项目如何改进流程。您在第 1 单元和第 2 单元中学到的概念将成为构建项目工作的基石，我们将在本书的其余部分中讨论这些项目工作。"
           },
           {
-            "id": "ch07-content-zh-002",
+            "id": "ch07-s01-what-is-a-process-zh-002",
             "kind": "paragraph",
             "text": "什么是进程？"
           },
           {
-            "id": "ch07-content-zh-003",
+            "id": "ch07-s01-what-is-a-process-zh-003",
             "kind": "paragraph",
             "text": "流程是通常按特定顺序执行并产生最终产品（例如有形商品或提供服务）的任务、步骤或活动的集合。在企业中，多个流程协同工作以实现组织目标。从技术上讲，企业或组织本身可以被视为一个巨大的过程。例如，一家处理刑事辩护案件的律师事务所的运作流程庞大、复杂。被告及其案件进入程序。该过程的输出就是案件的结果：与检察官讨价还价、法庭上的胜负或在法庭上驳回指控。"
           },
           {
-            "id": "ch07-content-zh-004",
+            "id": "ch07-s01-what-is-a-process-zh-004",
             "kind": "paragraph",
             "text": "在被告达成其结果的庞大过程中，存在数百个甚至可能数千个较小的过程。流程中还有流程。律师和律师助理团队可能会完成谈判过程；法律秘书可能会经历任命的过程。持有证词、复印、发送信件和提交法律文件都是流程的例子。在最详细的层面上，甚至接电话或写信都可以被视为流程。"
           },
           {
-            "id": "ch07-content-zh-005",
+            "id": "ch07-s01-what-is-a-process-zh-005",
             "kind": "paragraph",
             "text": "在第六章中，我们简要介绍了范围和范围蠕变的概念。为了定义和维护适当的范围，我们说六西格玛团队必须识别与流程改进或项目相关的流程。在律师事务所的例子中，减少预约时间的项目可能不包括提交法律摘要的过程。然而，要知道这一点，您必须知道法律简要流程并不与预约设置流程共享组件。在本章中，我们将介绍流程的组件以及映射这些组件的格式（称为 SIPOC）。"
           },
           {
-            "id": "ch07-content-zh-006",
+            "id": "ch07-s01-what-is-a-process-zh-006",
             "kind": "termNote",
             "rows": [
               [
@@ -803,7 +189,7 @@
             "text": "术语说明 SIPOC：供应商、输入、流程、输出、客户；用于快速界定流程边界。"
           },
           {
-            "id": "ch07-content-zh-007",
+            "id": "ch07-s01-what-is-a-process-zh-007",
             "kind": "termNote",
             "rows": [
               [
@@ -813,27 +199,27 @@
             "text": "术语说明 Scope（项目范围）：说明改进项目包括什么、不包括什么，避免目标扩张。"
           },
           {
-            "id": "ch07-content-zh-008",
+            "id": "ch07-s01-what-is-a-process-zh-008",
             "kind": "heading",
             "text": "流程定义的四层"
           },
           {
-            "id": "ch07-content-zh-009",
+            "id": "ch07-s01-what-is-a-process-zh-009",
             "kind": "paragraph",
             "text": "当您继续阅读本章时，您会发现流程可能非常复杂。我们上面的基本定义就是：基本。在开始定义流程的组成部分之前，让我们剥开这个称为“流程”的概念的各个层次。"
           },
           {
-            "id": "ch07-content-zh-010",
+            "id": "ch07-s01-what-is-a-process-zh-010",
             "kind": "heading",
             "text": "步骤"
           },
           {
-            "id": "ch07-content-zh-011",
+            "id": "ch07-s01-what-is-a-process-zh-011",
             "kind": "paragraph",
             "text": "无论是物理的、数字的还是意识形态的，每个过程都是一系列的一些步骤。您可以将这些步骤以说明的形式写在纸上（在正式的业务培训或政策文档中通常称为标准操作程序）或称为流程图的可视化图表。一个过程"
           },
           {
-            "id": "ch07-content-zh-012",
+            "id": "ch07-s01-what-is-a-process-zh-012",
             "kind": "termNote",
             "rows": [
               [
@@ -843,72 +229,72 @@
             "text": "术语说明 Process Map（流程图）：把流程步骤、流向和责任可视化，帮助识别断点和浪费。"
           },
           {
-            "id": "ch07-content-zh-013",
+            "id": "ch07-s01-what-is-a-process-zh-013",
             "kind": "paragraph",
             "text": "地图使用标准形状和连接来创建大多数员工和任何六西格玛团队成员都可以理解的流程地图。"
           },
           {
-            "id": "ch07-content-zh-014",
+            "id": "ch07-s01-what-is-a-process-zh-014",
             "kind": "heading",
             "text": "处理时间"
           },
           {
-            "id": "ch07-content-zh-015",
+            "id": "ch07-s01-what-is-a-process-zh-015",
             "kind": "paragraph",
             "text": "所有流程都需要一定的时间，并且处理时间可能会因多种因素而变化。流程图和文档只能记录诸如流程平均时间或处理时间变化的度量等信息。这些信息通常会在此类文档中注明，因为它为团队提供了有价值的信息，但对流程的实时观察几乎总是可以提供有关处理时间的更好信息。"
           },
           {
-            "id": "ch07-content-zh-016",
+            "id": "ch07-s01-what-is-a-process-zh-016",
             "kind": "paragraph",
             "text": "零售连锁店可能会创建一个流程图来补充特定区域的库存。流程文件指出，在指定区域的货架上重新装满货物的平均时间为两个小时。为了获得更多有关流程的数据，六西格玛团队连续两周在一天中的不同时间实时观察员工实际履行工作职能的情况。来自这些观察的一些注释包括："
           },
           {
-            "id": "ch07-content-zh-017",
+            "id": "ch07-s01-what-is-a-process-zh-017",
             "kind": "listItem",
             "text": "晚上放养只需要几分钟。"
           },
           {
-            "id": "ch07-content-zh-018",
+            "id": "ch07-s01-what-is-a-process-zh-018",
             "kind": "listItem",
             "text": "白天的备货会因顾客的活动而受到阻碍。"
           },
           {
-            "id": "ch07-content-zh-019",
+            "id": "ch07-s01-what-is-a-process-zh-019",
             "kind": "listItem",
             "text": "在购物高峰时段进行的备货工作通常需要最长的时间。"
           },
           {
-            "id": "ch07-content-zh-020",
+            "id": "ch07-s01-what-is-a-process-zh-020",
             "kind": "paragraph",
             "text": "仅凭这些信息，您可能就可以在此示例中找到一种减少库存时间的简单方法：尽可能将库存工作转移到非高峰时间。仅仅了解该区域库存的步骤并不足以了解该过程；您还必须收集有关处理时间的数据。"
           },
           {
-            "id": "ch07-content-zh-021",
+            "id": "ch07-s01-what-is-a-process-zh-021",
             "kind": "heading",
             "text": "相互依赖性"
           },
           {
-            "id": "ch07-content-zh-022",
+            "id": "ch07-s01-what-is-a-process-zh-022",
             "kind": "paragraph",
             "text": "企业中几乎任何流程都将依赖于一个或多个其他流程。 请记住，业务本身是一系列相互关联的流程，所有流程都致力于实现相同的目标。有时，相互依赖性会在流程图上注明。其他时候，相互依赖性与资源相关。"
           },
           {
-            "id": "ch07-content-zh-023",
+            "id": "ch07-s01-what-is-a-process-zh-023",
             "kind": "paragraph",
             "text": "例如，考虑一个非常简单的客运列车场景。火车载着乘客离开 A 站，将他们带到 B 站。在火车出发之前，工程师必须在车上并准备操作机器。安全检查、出站、关闭所有车门：这些都是火车出站前必须完成的程序。火车运送乘客的过程取决于其他过程的完成。"
           },
           {
-            "id": "ch07-content-zh-024",
+            "id": "ch07-s01-what-is-a-process-zh-024",
             "kind": "paragraph",
             "text": "在六西格玛改进项目中处理流程时，团队必须意识到相互依赖性。您正在处理的流程依赖什么？什么依赖于你的流程？第一个很重要，因为在进行改进时，您可能需要流程或流程上游人员的帮助。第二点很重要，因为你必须知道你的改进将如何影响下游流程和人员——如果流程性能的改进阻碍了整个公司或组织的发展，那么它对整个公司或组织没有任何好处。"
           },
           {
-            "id": "ch07-content-zh-025",
+            "id": "ch07-s01-what-is-a-process-zh-025",
             "kind": "paragraph",
             "text": "下游过程的性能。"
           },
           {
-            "id": "ch07-content-zh-026",
+            "id": "ch07-s01-what-is-a-process-zh-026",
             "kind": "image",
             "assetId": "fig-fb7ad74218d42c44",
             "src": "assets/figures/fig-fb7ad74218d42c44.png",
@@ -916,32 +302,45 @@
             "height": 266
           },
           {
-            "id": "ch07-content-zh-027",
+            "id": "ch07-s01-what-is-a-process-zh-027",
             "kind": "heading",
             "text": "资源和分配"
           },
           {
-            "id": "ch07-content-zh-028",
+            "id": "ch07-s01-what-is-a-process-zh-028",
             "kind": "paragraph",
             "text": "流程需要资源。就像机动车辆需要燃料或电力才能运行一样，一个流程也需要电力、人力、现金、数字带宽、计算机设备、机械、供应品、零件甚至技能等资源。由于组织中的某人必须批准资源并为其付费，因此项目团队必须了解所涉及的资源、这些资源的成本以及相关流程和资源的所有者，以便他们可以就需要额外资源提出适当的请求。"
           },
           {
-            "id": "ch07-content-zh-029",
+            "id": "ch07-s01-what-is-a-process-zh-029",
             "kind": "heading",
             "text": "主要工艺组件"
-          },
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch07-s02-major-process-components",
+      "level": 2,
+      "page": 61,
+      "title": {
+        "en": "Major Process Components",
+        "zh": "主要工艺组件"
+      },
+      "content": {
+        "en": [
           {
-            "id": "ch07-content-zh-030",
+            "id": "ch07-s02-major-process-components-en-001",
             "kind": "paragraph",
-            "text": "流程由输入、输出、事件、任务（活动）和决策等组件组成。当特定事件发生时，输入进入流程；任务和决策是根据输入执行的。在该过程结束时，会生成输出。大多数时候，流程组件的概念是通过一个简单的基于工厂的说明来介绍的：某种类型的原材料进入工厂，进行工作，然后成品离开工厂。 例如，如果一家工厂生产硬糖，糖、水、塑料和电力等物质就会进入工厂。设备和员工接受输入并与之合作。最终的结果是一块包装好的糖果可供商店使用。"
+            "text": "Processes are made up of components that include inputs, outputs, events, tasks (activities), and decisions. Inputs enter the process when a specific event occurs; tasks and decisions are performed upon or with the inputs. At the end of the process, an output is generated. Most of the time, the idea of process components is introduced with a simple factory-based illustration: raw goods of some type enter the factory, work is performed, and finished goods leave the factory. For example, if a factory makes hard candy, things such as sugar, water, plastic, and electrical power enter the factory. Equipment and employees take the inputs and work with them. The end result is a wrapped piece of candy ready for the store."
           },
           {
-            "id": "ch07-content-zh-031",
+            "id": "ch07-s02-major-process-components-en-002",
             "kind": "paragraph",
-            "text": "下图使用披萨店示例说明了流程组件的想法。一个事件——订购某种披萨——开始了这个过程。您可以在图中看到所有组件，我们将在接下来的部分中详细讨论每个组件。"
+            "text": "The figure below illustrates the idea of process components using a pizza shop example. An event – the ordering of a certain pizza – begins the process. You can see all of the components in the diagram, and we’ll talk about each component in detail in the section that follows."
           },
           {
-            "id": "ch07-content-zh-032",
+            "id": "ch07-s02-major-process-components-en-003",
             "kind": "image",
             "assetId": "fig-6789b6da9b681e9e",
             "src": "assets/figures/fig-6789b6da9b681e9e.png",
@@ -949,297 +348,595 @@
             "height": 1206
           },
           {
-            "id": "ch07-content-zh-033",
+            "id": "ch07-s02-major-process-components-en-004",
+            "kind": "paragraph",
+            "text": "Figure 1 Medium Cheese Pizza Process"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-005",
+            "kind": "heading",
+            "text": "Inputs"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-006",
+            "kind": "paragraph",
+            "text": "Input refers to anything that enters a process or is required to enter a process to drive the creation of an output. In the pizza example above, the inputs are all the ingredients needed to make the pizza. You might also consider factors such as oven temperature, type of oven, and the cook’s skill level to be inputs in the process."
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-007",
+            "kind": "paragraph",
+            "text": "Understanding all inputs to a process is important in Six Sigma because inputs are often causal – or related to causal – factors regarding a process. Inputs or the results of those inputs can cause errors or"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-008",
+            "kind": "paragraph",
+            "text": "defects in the process. The cookies burn when the oven is too hot. The computers made in a factory don’t function when the circuit boards are bad. A lawyer doesn’t win his case if his or her information is wrong. The oven temperature, the circuit boards, and the lawyer’s information: these are all inputs into processes that are also causing problems within the processes."
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-009",
+            "kind": "paragraph",
+            "text": "Other reasons for defining inputs when working with a process include:"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-010",
+            "kind": "listItem",
+            "text": "Understanding the resources required for a process to run"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-011",
+            "kind": "listItem",
+            "text": "Identifying extraneous inputs that aren’t required"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-012",
+            "kind": "listItem",
+            "text": "Understanding costs for the process"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-013",
+            "kind": "listItem",
+            "text": "Understanding how the process relates to processes that come before it"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-014",
+            "kind": "paragraph",
+            "text": "Remember, in a business, processes are linked together to accomplish a final goal or goals. The inputs entering process B might be the outputs leaving process A."
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-015",
+            "kind": "heading",
+            "text": "Outputs"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-016",
+            "kind": "paragraph",
+            "text": "The output of a process is the service or product that is used by the customer of the process. In the pizza example, the output is the cheese pizza the customer is going to eat. In the candy factory example, the output is the hard candy that will be sold by the retail store."
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-017",
+            "kind": "paragraph",
+            "text": "The process customer is not always the traditional end customer who purchases a product or service. Customers can be internal or external. An example of a process serving an internal customer might be seen in a business office that employees a receptionist to answer phone calls. If the receptionist takes messages or transfers phone calls, he or she is serving both the person on the phone and the person who is receiving the call or message."
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-018",
+            "kind": "paragraph",
+            "text": "In some cases, the customer of a process is not even a person. Many processes feed other processes. In a pharmacy, the process of entering data about a prescription feeds the process that bills an insurance company for the medication."
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-019",
+            "kind": "paragraph",
+            "text": "From a Six Sigma perspective, an output is almost always of more value to the ultimate process than the input is. The process itself involves adding value of some kind to the inputs. A bakery puts raw bread dough through the oven to add value to it: the result is an edible and tasty product that a consumer is more likely to purchase or to pay more for."
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-020",
+            "kind": "heading",
+            "text": "Events"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-021",
+            "kind": "paragraph",
+            "text": "Events are specific, predefined criteria or actions that cause a process to begin working. A process that performs well responds to an event just like a light bulb responds to the action of a switch being pulled. Six Sigma teams must determine what events trigger a process because it helps them understand why a process is being performed and whether the process is being run when it isn’t needed."
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-022",
+            "kind": "paragraph",
+            "text": "Consider an example about compliance audits in a financial sector company. Perhaps a company created a specific audit process that initiates when red flags on accounts are raised; the audit process is comprehensive and usually takes an average of 80 labor hours. You can imagine that it is an expensive process to run. In investigating, a Six Sigma team identifies the event associated with the process: anytime a discrepancy in an account is noted by a clerk, the compliance process is triggered."
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-023",
+            "kind": "paragraph",
+            "text": "The team investigates and realizes that this is true even when the discrepancy was minor – a few dollars or less – or the clerk was able to reconcile the discrepancy later in the day. The team might suggest that the relationship between the process and the event is a problem. The process is running at times when it might not be valuable for it to do so."
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-024",
+            "kind": "heading",
+            "text": "Tasks"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-025",
+            "kind": "paragraph",
+            "text": "Tasks, or activities, are the heart of a process. Just as the heart pumps blood through your body, the tasks within a process pump the inputs through, turning them into the outputs. Tasks are the physical, automated, or computerized actions within a process. Examples of tasks include:"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-026",
+            "kind": "listItem",
+            "text": "A machine joining two metal parts with a weld"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-027",
+            "kind": "listItem",
+            "text": "A person entering data into a software program"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-028",
+            "kind": "listItem",
+            "text": "A computer processing data to create a report"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-029",
+            "kind": "listItem",
+            "text": "An email being written"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-030",
+            "kind": "listItem",
+            "text": "A piece of computerized work being routed within a workflow system"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-031",
+            "kind": "listItem",
+            "text": "A chef chopping ingredients for a recipe"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-032",
+            "kind": "heading",
+            "text": "Decisions"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-033",
+            "kind": "paragraph",
+            "text": "Decisions are closely related to tasks and can be tasks themselves. A chef preparing ingredients for a soup dish has to chop those ingredients, but he also has to decide how much of each ingredient he needs. His decision will likely be guided by the recipe and the number of people he has to feed."
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-034",
+            "kind": "paragraph",
+            "text": "Decisions within a process are typically governed by a set of rules. Sometimes those rules are formally documented; other times, decisions are made via informal rules along with staff knowledge and experience. Processes that are governed by informal rules can have problems of consistency; even when all staff are experienced, they could have individual variations on performing a task. And, as we discussed in Unit 1, variation can lead to more opportunities for defects and a reduction in quality."
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-035",
+            "kind": "paragraph",
+            "text": "Using the task examples above, here are examples of decisions in a process:"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-036",
+            "kind": "listItem",
+            "text": "A person entering data into a software program makes a decision to select a certain drop down category because of training or rules provided by the software"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-037",
+            "kind": "listItem",
+            "text": "A computer processes a report; the result of that report is a number above a set threshold, so the computer sends the report to a person"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-038",
+            "kind": "listItem",
+            "text": "When writing an email, a person chooses to include certain specific information, such as an order number or customer number, because it is protocol to do so when sending this type of email"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-039",
+            "kind": "heading",
+            "text": "All Components Are Related"
+          },
+          {
+            "id": "ch07-s02-major-process-components-en-040",
+            "kind": "paragraph",
+            "text": "You’re probably noticing that processes can be extremely complex, and the relationships between all the components are equally complex. Inputs can be outputs from previous processes; outputs can be inputs in the next process. A decision might result in an event that starts a new process, but it can also be the factor that decides which task begins. As Six Sigma teams work with processes – observing them, diagramming them, and measuring them – the teams begin to understand the relationships of the components, and that helps them make decisions about possible improvements and changes."
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch07-s02-major-process-components-zh-001",
+            "kind": "paragraph",
+            "text": "流程由输入、输出、事件、任务（活动）和决策等组件组成。当特定事件发生时，输入进入流程；任务和决策是根据输入执行的。在该过程结束时，会生成输出。大多数时候，流程组件的概念是通过一个简单的基于工厂的说明来介绍的：某种类型的原材料进入工厂，进行工作，然后成品离开工厂。 例如，如果一家工厂生产硬糖，糖、水、塑料和电力等物质就会进入工厂。设备和员工接受输入并与之合作。最终的结果是一块包装好的糖果可供商店使用。"
+          },
+          {
+            "id": "ch07-s02-major-process-components-zh-002",
+            "kind": "paragraph",
+            "text": "下图使用披萨店示例说明了流程组件的想法。一个事件——订购某种披萨——开始了这个过程。您可以在图中看到所有组件，我们将在接下来的部分中详细讨论每个组件。"
+          },
+          {
+            "id": "ch07-s02-major-process-components-zh-003",
+            "kind": "image",
+            "assetId": "fig-6789b6da9b681e9e",
+            "src": "assets/figures/fig-6789b6da9b681e9e.png",
+            "width": 805,
+            "height": 1206
+          },
+          {
+            "id": "ch07-s02-major-process-components-zh-004",
             "kind": "heading",
             "text": "图1 中型奶酪披萨流程"
           },
           {
-            "id": "ch07-content-zh-034",
+            "id": "ch07-s02-major-process-components-zh-005",
             "kind": "heading",
             "text": "输入"
           },
           {
-            "id": "ch07-content-zh-035",
+            "id": "ch07-s02-major-process-components-zh-006",
             "kind": "paragraph",
             "text": "输入是指进入流程或进入流程以驱动输出的创建所需的任何内容。在上面的披萨示例中，输入是制作披萨所需的所有原料。您还可以考虑烤箱温度、烤箱类型和厨师的技能水平等因素作为该过程的输入。"
           },
           {
-            "id": "ch07-content-zh-036",
+            "id": "ch07-s02-major-process-components-zh-007",
             "kind": "paragraph",
             "text": "在六西格玛中，了解流程的所有输入非常重要，因为输入通常是流程的因果因素（或与因果因素相关）。输入或这些输入的结果可能会导致错误或"
           },
           {
-            "id": "ch07-content-zh-037",
+            "id": "ch07-s02-major-process-components-zh-008",
             "kind": "paragraph",
             "text": "过程中的缺陷。当烤箱太热时，饼干会烧焦。当电路板损坏时，工厂制造的计算机就无法运行。如果律师的信息有误，他或她就不会赢得诉讼。烤箱温度、电路板和律师信息：这些都是流程的输入，也会在流程中引起问题。"
           },
           {
-            "id": "ch07-content-zh-038",
+            "id": "ch07-s02-major-process-components-zh-009",
             "kind": "paragraph",
             "text": "使用流程时定义输入的其他原因包括："
           },
           {
-            "id": "ch07-content-zh-039",
+            "id": "ch07-s02-major-process-components-zh-010",
             "kind": "listItem",
             "text": "了解进程运行所需的资源"
           },
           {
-            "id": "ch07-content-zh-040",
+            "id": "ch07-s02-major-process-components-zh-011",
             "kind": "listItem",
             "text": "识别不需要的无关输入"
           },
           {
-            "id": "ch07-content-zh-041",
+            "id": "ch07-s02-major-process-components-zh-012",
             "kind": "listItem",
             "text": "了解流程的成本"
           },
           {
-            "id": "ch07-content-zh-042",
+            "id": "ch07-s02-major-process-components-zh-013",
             "kind": "listItem",
             "text": "了解该流程与其之前的流程有何关系"
           },
           {
-            "id": "ch07-content-zh-043",
+            "id": "ch07-s02-major-process-components-zh-014",
             "kind": "paragraph",
             "text": "请记住，在企业中，流程链接在一起以实现一个或多个最终目标。进入流程 B 的输入可能是离开流程 A 的输出。"
           },
           {
-            "id": "ch07-content-zh-044",
+            "id": "ch07-s02-major-process-components-zh-015",
             "kind": "heading",
             "text": "输出"
           },
           {
-            "id": "ch07-content-zh-045",
+            "id": "ch07-s02-major-process-components-zh-016",
             "kind": "paragraph",
             "text": "流程的输出是流程的客户使用的服务或产品。在披萨示例中，输出是顾客要吃的奶酪披萨。在糖果工厂的示例中，产出是将由零售店出售的硬糖。"
           },
           {
-            "id": "ch07-content-zh-046",
+            "id": "ch07-s02-major-process-components-zh-017",
             "kind": "paragraph",
             "text": "流程客户并不总是购买产品或服务的传统最终客户。客户可以是内部客户，也可以是外部客户。为内部客户提供服务的流程示例可以在商务办公室中看到，该办公室雇用接待员接听电话。如果接待员接听消息或转接电话，他或她同时为打电话的人和接收电话或消息的人提供服务。"
           },
           {
-            "id": "ch07-content-zh-047",
+            "id": "ch07-s02-major-process-components-zh-018",
             "kind": "paragraph",
             "text": "在某些情况下，流程的客户甚至不是一个人。许多进程为其他进程提供支持。在药房中，输入处方数据的过程为向保险公司收取药物费用的过程提供支持。"
           },
           {
-            "id": "ch07-content-zh-048",
+            "id": "ch07-s02-major-process-components-zh-019",
             "kind": "paragraph",
             "text": "从六西格玛的角度来看，对于最终过程来说，输出几乎总是比输入更有价值。该过程本身涉及为输入增加某种价值。面包店将生面包面团放入烤箱以增加其价值：结果是消费者更有可能购买或支付更多费用的可食用且美味的产品。"
           },
           {
-            "id": "ch07-content-zh-049",
+            "id": "ch07-s02-major-process-components-zh-020",
             "kind": "heading",
             "text": "活动"
           },
           {
-            "id": "ch07-content-zh-050",
+            "id": "ch07-s02-major-process-components-zh-021",
             "kind": "paragraph",
             "text": "事件是导致流程开始工作的特定的、预定义的标准或操作。执行良好的流程对事件的响应就像灯泡对拉动开关的动作做出响应一样。 六西格玛团队必须确定哪些事件触发流程，因为这有助于他们了解执行流程的原因以及流程是否在不需要时运行。"
           },
           {
-            "id": "ch07-content-zh-051",
+            "id": "ch07-s02-major-process-components-zh-022",
             "kind": "paragraph",
             "text": "考虑一个有关金融部门公司合规审计的示例。也许一家公司创建了一个特定的审计流程，当账户出现危险信号时就会启动该流程；审核过程非常全面，通常平均需要80个工时。您可以想象这是一个运行成本高昂的过程。在调查中，六西格玛团队确定了与该流程相关的事件：只要职员发现账户存在差异，就会触发合规流程。"
           },
           {
-            "id": "ch07-content-zh-052",
+            "id": "ch07-s02-major-process-components-zh-023",
             "kind": "paragraph",
             "text": "团队进行调查并意识到，即使差异很小（几美元或更少），或者店员能够在当天晚些时候协调差异，情况也是如此。团队可能会认为流程和事件之间的关系存在问题。该进程有时会在其运行可能没有价值的情况下运行。"
           },
           {
-            "id": "ch07-content-zh-053",
+            "id": "ch07-s02-major-process-components-zh-024",
             "kind": "heading",
             "text": "任务"
           },
           {
-            "id": "ch07-content-zh-054",
+            "id": "ch07-s02-major-process-components-zh-025",
             "kind": "paragraph",
             "text": "任务或活动是流程的核心。 正如心脏将血液泵入您的身体一样，流程中的任务将输入泵入体内，将其转化为输出。任务是流程中的物理、自动或计算机化操作。任务示例包括："
           },
           {
-            "id": "ch07-content-zh-055",
+            "id": "ch07-s02-major-process-components-zh-026",
             "kind": "listItem",
             "text": "通过焊缝连接两个金属部件的机器"
           },
           {
-            "id": "ch07-content-zh-056",
+            "id": "ch07-s02-major-process-components-zh-027",
             "kind": "listItem",
             "text": "将数据输入软件程序的人"
           },
           {
-            "id": "ch07-content-zh-057",
+            "id": "ch07-s02-major-process-components-zh-028",
             "kind": "listItem",
             "text": "计算机处理数据以创建报告"
           },
           {
-            "id": "ch07-content-zh-058",
+            "id": "ch07-s02-major-process-components-zh-029",
             "kind": "listItem",
             "text": "正在写一封电子邮件"
           },
           {
-            "id": "ch07-content-zh-059",
+            "id": "ch07-s02-major-process-components-zh-030",
             "kind": "listItem",
             "text": "在工作流程系统中传送的一项计算机化工作"
           },
           {
-            "id": "ch07-content-zh-060",
+            "id": "ch07-s02-major-process-components-zh-031",
             "kind": "listItem",
             "text": "厨师正在切菜谱的原料"
           },
           {
-            "id": "ch07-content-zh-061",
+            "id": "ch07-s02-major-process-components-zh-032",
             "kind": "heading",
             "text": "决定"
           },
           {
-            "id": "ch07-content-zh-062",
+            "id": "ch07-s02-major-process-components-zh-033",
             "kind": "paragraph",
             "text": "决策与任务密切相关，并且可以是任务本身。准备汤菜原料的厨师必须将这些原料切碎，但他还必须决定每种原料需要多少。他的决定可能会受到食谱和他必须喂养的人数的指导。"
           },
           {
-            "id": "ch07-content-zh-063",
+            "id": "ch07-s02-major-process-components-zh-034",
             "kind": "paragraph",
             "text": "流程中的决策通常受一组规则的约束。有时这些规则会被正式记录下来；其他时候，决策是通过非正式规则以及工作人员的知识和经验做出的。由非正式规则控制的流程可能存在一致性问题；即使所有员工都经验丰富，他们在执行任务时也可能存在个体差异。而且，正如我们在第 1 单元中讨论的那样，变化可能会导致更多的缺陷机会和质量下降。"
           },
           {
-            "id": "ch07-content-zh-064",
+            "id": "ch07-s02-major-process-components-zh-035",
             "kind": "paragraph",
             "text": "使用上面的任务示例，以下是流程中的决策示例："
           },
           {
-            "id": "ch07-content-zh-065",
+            "id": "ch07-s02-major-process-components-zh-036",
             "kind": "listItem",
             "text": "由于软件提供的培训或规则，将数据输入软件程序的人决定选择某个下拉类别"
           },
           {
-            "id": "ch07-content-zh-066",
+            "id": "ch07-s02-major-process-components-zh-037",
             "kind": "listItem",
             "text": "计算机处理报告；该报告的结果是高于设定阈值的数字，因此计算机将报告发送给某人"
           },
           {
-            "id": "ch07-content-zh-067",
+            "id": "ch07-s02-major-process-components-zh-038",
             "kind": "listItem",
             "text": "在撰写电子邮件时，人们选择包含某些特定信息，例如订单号或客户编号，因为发送此类电子邮件时这样做是协议"
           },
           {
-            "id": "ch07-content-zh-068",
+            "id": "ch07-s02-major-process-components-zh-039",
             "kind": "heading",
             "text": "所有组件都是相关的"
           },
           {
-            "id": "ch07-content-zh-069",
+            "id": "ch07-s02-major-process-components-zh-040",
             "kind": "paragraph",
             "text": "您可能注意到流程可能极其复杂，并且所有组件之间的关系同样复杂。输入可以是先前流程的输出；输出可以作为下一个过程的输入。决策可能会导致启动新流程的事件，但它也可能是决定启动哪个任务的因素。 当六西格玛团队处理流程时（观察它们、绘制图表并测量它们），团队开始了解组件之间的关系，这有助于他们就可能的改进和变更做出决策。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch07-s03-process-owners",
+      "level": 2,
+      "page": 64,
+      "title": {
+        "en": "Process Owners",
+        "zh": "流程所有者"
+      },
+      "content": {
+        "en": [
+          {
+            "id": "ch07-s03-process-owners-en-001",
+            "kind": "paragraph",
+            "text": "As teams work to improve processes, they need to understand who the process owners are. Depending on the business organization, process owners can be the people with the power to approve changes. In some organizations, the lowest-level owner might not have veto or decision power about all changes, but he or she is held responsible for the performance of the process."
           },
           {
-            "id": "ch07-content-zh-070",
-            "kind": "heading",
-            "text": "流程所有者"
+            "id": "ch07-s03-process-owners-en-002",
+            "kind": "paragraph",
+            "text": "A process owner can be:"
           },
           {
-            "id": "ch07-content-zh-071",
+            "id": "ch07-s03-process-owners-en-003",
+            "kind": "listItem",
+            "text": "A person in charge of a very specific process or function"
+          },
+          {
+            "id": "ch07-s03-process-owners-en-004",
+            "kind": "listItem",
+            "text": "A team supervisor or department manager"
+          },
+          {
+            "id": "ch07-s03-process-owners-en-005",
+            "kind": "listItem",
+            "text": "An executive-level individual who is probably responsible for a number of processes in his or her division"
+          },
+          {
+            "id": "ch07-s03-process-owners-en-006",
+            "kind": "paragraph",
+            "text": "What does a process owner do?"
+          },
+          {
+            "id": "ch07-s03-process-owners-en-007",
+            "kind": "paragraph",
+            "text": "The responsibilities of a process owner are often defined by the infrastructure of a specific business, but commonly, a process owner will:"
+          },
+          {
+            "id": "ch07-s03-process-owners-en-008",
+            "kind": "listItem",
+            "text": "Monitor how the process performs, usually using one or more metrics or regularly reported data elements."
+          },
+          {
+            "id": "ch07-s03-process-owners-en-009",
+            "kind": "listItem",
+            "text": "Understand how the process fits into the overall business, why the output of the process is critical to business goals, and what inputs feed the process."
+          },
+          {
+            "id": "ch07-s03-process-owners-en-010",
+            "kind": "listItem",
+            "text": "Ensures the process is documented via standard operating procedures (SOPs) and that process documentation is kept current and accurate."
+          },
+          {
+            "id": "ch07-s03-process-owners-en-011",
+            "kind": "listItem",
+            "text": "Ensures operators within the process have the resources and training they need to complete their jobs."
+          },
+          {
+            "id": "ch07-s03-process-owners-en-012",
+            "kind": "paragraph",
+            "text": "In a Six Sigma environment, process owners might also ensure a control plan is in place and regularly review the process for possible improvement opportunities."
+          },
+          {
+            "id": "ch07-s03-process-owners-en-013",
+            "kind": "paragraph",
+            "text": "Data"
+          },
+          {
+            "id": "ch07-s03-process-owners-en-014",
+            "kind": "paragraph",
+            "text": "Finally, all processes generate some form of data. Even if data isn’t yet being captured, information is inherent in any process. A computer program that automatically routes work in a workflow might generate data such as the number of items in work queues, how many items were worked that day, the time items have been waiting in queues, how many items were transferred, and where those items were transferred to. A process for filling bottles with liquid might generate data such as how much liquid is placed in each bottle, how many bottles per hour are filled, and perhaps variation between bottles."
+          },
+          {
+            "id": "ch07-s03-process-owners-en-015",
+            "kind": "paragraph",
+            "text": "Data is extremely valuable to Six Sigma teams because it’s often how they define whether a process is in control and successful."
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch07-s03-process-owners-zh-001",
             "kind": "paragraph",
             "text": "当团队努力改进流程时，他们需要了解流程所有者是谁。根据业务组织的不同，流程所有者可以是有权批准变更的人员。在某些组织中，最低级别的所有者可能对所有变更没有否决权或决策权，但他或她对流程的执行负责。"
           },
           {
-            "id": "ch07-content-zh-072",
+            "id": "ch07-s03-process-owners-zh-002",
             "kind": "paragraph",
             "text": "流程所有者可以是："
           },
           {
-            "id": "ch07-content-zh-073",
+            "id": "ch07-s03-process-owners-zh-003",
             "kind": "listItem",
             "text": "负责非常具体的流程或职能的人"
           },
           {
-            "id": "ch07-content-zh-074",
+            "id": "ch07-s03-process-owners-zh-004",
             "kind": "listItem",
             "text": "团队主管或部门经理"
           },
           {
-            "id": "ch07-content-zh-075",
+            "id": "ch07-s03-process-owners-zh-005",
             "kind": "listItem",
             "text": "可能负责其部门的许多流程的高管级别人员"
           },
           {
-            "id": "ch07-content-zh-076",
+            "id": "ch07-s03-process-owners-zh-006",
             "kind": "paragraph",
             "text": "流程所有者做什么？"
           },
           {
-            "id": "ch07-content-zh-077",
+            "id": "ch07-s03-process-owners-zh-007",
             "kind": "paragraph",
             "text": "流程所有者的职责通常由特定业务的基础设施定义，但通常流程所有者将："
           },
           {
-            "id": "ch07-content-zh-078",
+            "id": "ch07-s03-process-owners-zh-008",
             "kind": "listItem",
             "text": "通常使用一个或多个指标或定期报告的数据元素来监视流程的执行情况。"
           },
           {
-            "id": "ch07-content-zh-079",
+            "id": "ch07-s03-process-owners-zh-009",
             "kind": "listItem",
             "text": "了解流程如何融入整体业务、为什么流程的输出对于业务目标至关重要，以及流程的输入是什么。"
           },
           {
-            "id": "ch07-content-zh-080",
+            "id": "ch07-s03-process-owners-zh-010",
             "kind": "listItem",
             "text": "确保通过标准操作程序 (SOP) 记录流程，并确保流程文档保持最新且准确。"
           },
           {
-            "id": "ch07-content-zh-081",
+            "id": "ch07-s03-process-owners-zh-011",
             "kind": "listItem",
             "text": "确保流程中的操作员拥有完成工作所需的资源和培训。"
           },
           {
-            "id": "ch07-content-zh-082",
+            "id": "ch07-s03-process-owners-zh-012",
             "kind": "paragraph",
             "text": "在六西格玛环境中，流程所有者还可以确保控制计划到位，并定期审查流程以寻找可能的改进机会。"
           },
           {
-            "id": "ch07-content-zh-083",
+            "id": "ch07-s03-process-owners-zh-013",
             "kind": "heading",
             "text": "数据"
           },
           {
-            "id": "ch07-content-zh-084",
+            "id": "ch07-s03-process-owners-zh-014",
             "kind": "paragraph",
             "text": "最后，所有进程都会生成某种形式的数据。即使尚未捕获数据，信息也是任何流程中固有的。在工作流中自动路由工作的计算机程序可能会生成数据，例如工作队列中的项目数量、当天工作的项目数量、项目在队列中等待的时间、转移的项目数量以及这些项目转移到的位置。 用液体填充瓶子的过程可能会生成数据，例如每个瓶子中放入了多少液体、每小时填充了多少个瓶子以及瓶子之间的差异。"
           },
           {
-            "id": "ch07-content-zh-085",
+            "id": "ch07-s03-process-owners-zh-015",
             "kind": "paragraph",
             "text": "数据对于六西格玛团队来说非常有价值，因为他们通常通过数据来定义流程是否受控且成功。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch07-s04-defining-process-components-the-sipoc",
+      "level": 2,
+      "page": 64,
+      "title": {
+        "en": "Defining Process Components: The SIPOC",
+        "zh": "定义流程组件：SIPOC"
+      },
+      "content": {
+        "en": [
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-001",
+            "kind": "paragraph",
+            "text": "The SIPOC diagram is often an important part of the define stage of a Six Sigma project. But you can use the SIPOC diagram anytime you want to learn more about a process or understand how a process in a business environment is linked to other processes."
           },
           {
-            "id": "ch07-content-zh-086",
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-002",
+            "kind": "paragraph",
+            "text": "SIPOC stands for Suppliers, Inputs, Process, Outputs, and Customer. For the purposes of a SIPOC, inputs and outputs follow the same guidelines described previously in this chapter. Suppliers are the people, processes, and organizations that supply inputs to your process. Customers are the people, processes, and organizations that make use of the outputs of your process. The process itself is the series of steps that take the inputs and make them outputs."
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-003",
             "kind": "heading",
-            "text": "定义流程组件：SIPOC"
+            "text": "Benefits of a SIPOC Diagram"
           },
           {
-            "id": "ch07-content-zh-087",
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-004",
             "kind": "paragraph",
-            "text": "SIPOC 图通常是六西格玛项目定义阶段的重要组成部分。但是，您可以随时使用 SIPOC 图来了解有关流程的更多信息或了解业务环境中的流程如何与其他流程链接。"
+            "text": "The SIPOC diagram is one of the most often used tools for understanding process components and process relevance because it is so effective and simple. Teams can create SIPOC diagrams in a single brainstorming session, though effective diagramming usually requires the presence of a process owner and one or more SMEs who are familiar with the process on a daily level."
           },
           {
-            "id": "ch07-content-zh-088",
-            "kind": "paragraph",
-            "text": "SIPOC 代表供应商、输入、流程、输出和客户。就 SIPOC 而言，输入和输出遵循本章前面所述的相同准则。供应商是为您的流程提供输入的人员、流程和组织。客户是使用流程输出的人员、流程和组织。该过程本身是获取输入并将其输出的一系列步骤。"
-          },
-          {
-            "id": "ch07-content-zh-089",
-            "kind": "heading",
-            "text": "SIPOC 图的好处"
-          },
-          {
-            "id": "ch07-content-zh-090",
-            "kind": "paragraph",
-            "text": "SIPOC 图是理解流程组件和流程相关性最常用的工具之一，因为它非常有效且简单。团队可以在一次头脑风暴会议中创建 SIPOC 图，但有效的图表通常需要流程所有者和一个或多个日常熟悉该流程的 SME 在场。"
-          },
-          {
-            "id": "ch07-content-zh-091",
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-005",
             "kind": "image",
             "assetId": "fig-a897f4a452908379",
             "src": "assets/figures/fig-a897f4a452908379.png",
@@ -1247,27 +944,27 @@
             "height": 459
           },
           {
-            "id": "ch07-content-zh-092",
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-006",
             "kind": "paragraph",
-            "text": "SIPOC 图还可以无限扩展。团队可以在非常精细的层面上绘制流程图，但他们也可以使用 SIPOC 绘制整个业务图。我们将逐步创建 SIPOC 图，然后提供一些不同级别的 SIPOC 示例来说明可扩展性。"
+            "text": "SIPOC diagrams are also infinitely scalable. Teams can diagram processes at a very minute level, but they can also use SIPOC to diagram an entire business. We’ll walk through creating a SIPOC diagram and then provide some examples of SIPOCs at various levels to illustrate scalability."
           },
           {
-            "id": "ch07-content-zh-093",
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-007",
             "kind": "heading",
-            "text": "创建 SIPOC 图"
+            "text": "Creating a SIPOC Diagram"
           },
           {
-            "id": "ch07-content-zh-094",
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-008",
             "kind": "paragraph",
-            "text": "您可以创建 SIPOC 图作为个人练习或在团队环境中。 SIPOC 可以使用计算机和软件工具（例如 Word 或 Excel）创建，但您也可以在白板或纸上徒手绘制它们。手绘图表是一种有价值的头脑风暴工具，因为团队可以在讨论流程时快速编辑图表的草稿。请记住这一点：本书中提供的许多图表看起来很干净，因为它们已经被输入和编辑过。 当您绘制自己的流程时，它们一开始可能会因编辑、箭头、草稿和插入而显得混乱。 “编辑”或在头脑风暴过程中制定规则可能会限制在此过程中流动的想法和信息。完成头脑风暴后，您始终可以创建图表的干净副本以供演示之用。"
+            "text": "You can create a SIPOC diagram as an individual exercise or within a team environment. SIPOCs can be created using a computer and software tool such as Word or Excel, but you can also draw them freehand on a whiteboard or piece of paper. Freehand diagramming is a valuable brainstorming tool because teams can quickly edit the rough draft of the diagram as they discuss a process. Keep this in mind :many of the diagrams presented in this book look clean because they have already been typed and edited. As you diagram your own processes, they can tend to look messy at first with edits, arrows, scratch outs, and inserts. “Editing” or putting rules on the brainstorming process can limit the ideas and information that flow during the process. You can always create a clean copy of the diagram for presentation purposes when you are finished brainstorming."
           },
           {
-            "id": "ch07-content-zh-095",
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-009",
             "kind": "paragraph",
-            "text": "步骤 1：创建泳道 SIPOC 图基于泳道。泳道可让您展示跨职能活动和资源如何与您的流程相关。 SIPOC 图有五个通道：供应商、输入、流程、输出和客户各一个。您最终会得到如下图所示的结果。"
+            "text": "Step 1: Create Swim Lanes A SIPOC diagram is based on swim lanes. Swim lanes let you show how cross-functional activities and resources relate to your process. A SIPOC diagram gets five lanes: one each for Suppliers, Inputs, Process, Outputs, and Customers. You’ll end up with something that looks like the figure below."
           },
           {
-            "id": "ch07-content-zh-096",
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-010",
             "kind": "image",
             "assetId": "fig-201e9d173558d273",
             "src": "assets/figures/fig-201e9d173558d273.png",
@@ -1275,7 +972,7 @@
             "height": 318
           },
           {
-            "id": "ch07-content-zh-097",
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-011",
             "kind": "image",
             "assetId": "fig-53763d055da4fb00",
             "src": "assets/figures/fig-53763d055da4fb00.png",
@@ -1283,127 +980,460 @@
             "height": 85
           },
           {
-            "id": "ch07-content-zh-098",
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-012",
+            "kind": "paragraph",
+            "text": "Step 2: Set Boundaries and Name Your Process Before beginning a SIPOC session, set a definition for where your process or responsibility begins and ends. If you don’t understand the scope of your process, then your SIPOC session can get out of hand or produce a diagram that isn’t useful for your project."
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-013",
+            "kind": "paragraph",
+            "text": "Naming your process helps the team identify more readily with a specific aspect of the business. For example, a team working to improve processes within a medical office might look at a process named “Gathering New Patient Information.” By naming the process, the team has put some scope limitations in place: the team will talk about things related to gathering information from patients. The scope is further limited to the process by which staff gathers information from new patients."
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-014",
+            "kind": "paragraph",
+            "text": "As you work through the SIPOC diagramming exercise, you can point back to the name and the scope you’ve defined to keep the team on task with the discussion."
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-015",
+            "kind": "paragraph",
+            "text": "Step 3: Complete Swim Lanes You can complete SIPOC swim lanes in any order, but best practices usually have teams enter data in the following order:"
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-016",
+            "kind": "listItem",
+            "text": "Process"
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-017",
+            "kind": "listItem",
+            "text": "Outputs"
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-018",
+            "kind": "listItem",
+            "text": "Customer"
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-019",
+            "kind": "listItem",
+            "text": "Inputs"
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-020",
+            "kind": "listItem",
+            "text": "Suppliers"
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-021",
+            "kind": "paragraph",
+            "text": "Realistically, teams will think of things as they work through the process, so you’ll be returning to swim lanes repeatedly to move information around and add new information."
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-022",
+            "kind": "paragraph",
+            "text": "A SIPOC isn’t usually a low-level or detailed map of the actual process, so keep teams high-level when completing the process swim lane. You can simply enter the name of the process in that section, or you can list some of the high level steps required for the process. Listing steps is a good exercise if teams aren’t sure about outputs and inputs – beginning to visualize the process usually helps ideas flow about how the process is connected to other processes and resources in the company."
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-023",
+            "kind": "paragraph",
+            "text": "To keep the session from turning into a detailed process mapping activity, ask the team to describe the process in less than five to seven steps. Keep things simple by limiting process steps to short verb-noun combos such as “Enter information,” “Collect money,” or “Place labels.”"
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-024",
+            "kind": "heading",
+            "text": "Name Outputs and Customers"
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-025",
+            "kind": "paragraph",
+            "text": "Once you have a rudimentary process definition, begin with either inputs or outputs. Ask the team “What does this process make? What comes out of this process?” Those answers go into the outputs swim lane."
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-026",
+            "kind": "paragraph",
+            "text": "Next, ask the team “Who or what uses the things that come from this process?” Place those answers in the customer swim lane. Remember that customers can be external or internal, and another process can be the customer in cases of automation."
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-027",
+            "kind": "heading",
+            "text": "Name Inputs and Suppliers"
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-028",
+            "kind": "paragraph",
+            "text": "Ask the team “What does the process need to perform? What raw goods or materials feed the process?” Record those answers in the inputs section."
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-029",
+            "kind": "paragraph",
+            "text": "You can divide the idea of inputs into two types, if you like. First, you have the actual inputs – the goods and services that are transformed by the process to create the outputs. Second, you have enablers of the process. These aren’t technically inputs because they don’t enter the process and aren’t changed by the process; instead, they are required for the process to function. Machinery is an enabler. In a process that cuts metal parts from a steel sheet, the machine that does the cutting is an enabler. While it’s not required, separating enablers on your SIPOC helps you define the process and provides additional information for later in the project."
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-030",
+            "kind": "paragraph",
+            "text": "Once you have a list of inputs, ask the team, “Where do the inputs come from? Who or what supplies the process with these things?” As with customers, suppliers can be external or internal. A vendor might provide the raw sugar that goes into the candy in a factory; the marketing department might provide the leads that the sales department uses to create orders."
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-031",
+            "kind": "paragraph",
+            "text": "Suppliers can also be other processes, particularly in an automated environment, and you can have a list of several suppliers for one input in a raw SIPOC diagram. For example, support tickets come into the Information Technology (IT) department. The supplier of the ticket could be both the end-user submitting the ticket and the automated process that routes the ticket to the appropriate work queue. If you are documenting enablers, you might record the end-user as the supplier and the automated process as the enabler."
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-en-032",
+            "kind": "paragraph",
+            "text": "Step 4: Validate the Information Ensure that your understanding of the process at this high level is accurate by validating your diagram. If you’ve put together a comprehensive team that includes SMEs, the team can validate most of the information on its own. It’s always a good idea to get a second opinion on anything the team isn’t sure about, though. Invite other SMEs or the process owner to review the diagram briefly with the team and provide feedback."
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-001",
+            "kind": "paragraph",
+            "text": "SIPOC 图通常是六西格玛项目定义阶段的重要组成部分。但是，您可以随时使用 SIPOC 图来了解有关流程的更多信息或了解业务环境中的流程如何与其他流程链接。"
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-002",
+            "kind": "paragraph",
+            "text": "SIPOC 代表供应商、输入、流程、输出和客户。就 SIPOC 而言，输入和输出遵循本章前面所述的相同准则。供应商是为您的流程提供输入的人员、流程和组织。客户是使用流程输出的人员、流程和组织。该过程本身是获取输入并将其输出的一系列步骤。"
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-003",
+            "kind": "heading",
+            "text": "SIPOC 图的好处"
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-004",
+            "kind": "paragraph",
+            "text": "SIPOC 图是理解流程组件和流程相关性最常用的工具之一，因为它非常有效且简单。团队可以在一次头脑风暴会议中创建 SIPOC 图，但有效的图表通常需要流程所有者和一个或多个日常熟悉该流程的 SME 在场。"
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-005",
+            "kind": "image",
+            "assetId": "fig-a897f4a452908379",
+            "src": "assets/figures/fig-a897f4a452908379.png",
+            "width": 482,
+            "height": 459
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-006",
+            "kind": "paragraph",
+            "text": "SIPOC 图还可以无限扩展。团队可以在非常精细的层面上绘制流程图，但他们也可以使用 SIPOC 绘制整个业务图。我们将逐步创建 SIPOC 图，然后提供一些不同级别的 SIPOC 示例来说明可扩展性。"
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-007",
+            "kind": "heading",
+            "text": "创建 SIPOC 图"
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-008",
+            "kind": "paragraph",
+            "text": "您可以创建 SIPOC 图作为个人练习或在团队环境中。 SIPOC 可以使用计算机和软件工具（例如 Word 或 Excel）创建，但您也可以在白板或纸上徒手绘制它们。手绘图表是一种有价值的头脑风暴工具，因为团队可以在讨论流程时快速编辑图表的草稿。请记住这一点：本书中提供的许多图表看起来很干净，因为它们已经被输入和编辑过。 当您绘制自己的流程时，它们一开始可能会因编辑、箭头、草稿和插入而显得混乱。 “编辑”或在头脑风暴过程中制定规则可能会限制在此过程中流动的想法和信息。完成头脑风暴后，您始终可以创建图表的干净副本以供演示之用。"
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-009",
+            "kind": "paragraph",
+            "text": "步骤 1：创建泳道 SIPOC 图基于泳道。泳道可让您展示跨职能活动和资源如何与您的流程相关。 SIPOC 图有五个通道：供应商、输入、流程、输出和客户各一个。您最终会得到如下图所示的结果。"
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-010",
+            "kind": "image",
+            "assetId": "fig-201e9d173558d273",
+            "src": "assets/figures/fig-201e9d173558d273.png",
+            "width": 1218,
+            "height": 318
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-011",
+            "kind": "image",
+            "assetId": "fig-53763d055da4fb00",
+            "src": "assets/figures/fig-53763d055da4fb00.png",
+            "width": 1218,
+            "height": 85
+          },
+          {
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-012",
             "kind": "paragraph",
             "text": "步骤 2：设置边界并命名您的流程 在开始 SIPOC 会议之前，为您的流程或责任的开始和结束位置设置定义。如果您不了解流程的范围，那么您的 SIPOC 会议可能会失控或生成对您的项目无用的图表。"
           },
           {
-            "id": "ch07-content-zh-099",
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-013",
             "kind": "paragraph",
             "text": "为流程命名有助于团队更轻松地识别业务的特定方面。例如，致力于改进医疗办公室内流程的团队可能会考虑名为“收集新患者信息”的流程。通过命名该流程，团队设置了一些范围限制：团队将讨论与从患者那里收集信息相关的事情。范围进一步限于工作人员从新患者收集信息的过程。"
           },
           {
-            "id": "ch07-content-zh-100",
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-014",
             "kind": "paragraph",
             "text": "当您完成 SIPOC 图表练习时，您可以回顾您定义的名称和范围，以使团队能够专注于讨论任务。"
           },
           {
-            "id": "ch07-content-zh-101",
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-015",
             "kind": "paragraph",
             "text": "步骤 3：完成泳道 您可以按任何顺序完成 SIPOC 泳道，但最佳实践通常让团队按以下顺序输入数据："
           },
           {
-            "id": "ch07-content-zh-102",
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-016",
             "kind": "listItem",
             "text": "工艺流程"
           },
           {
-            "id": "ch07-content-zh-103",
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-017",
             "kind": "listItem",
             "text": "输出"
           },
           {
-            "id": "ch07-content-zh-104",
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-018",
             "kind": "listItem",
             "text": "客户"
           },
           {
-            "id": "ch07-content-zh-105",
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-019",
             "kind": "listItem",
             "text": "输入"
           },
           {
-            "id": "ch07-content-zh-106",
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-020",
             "kind": "listItem",
             "text": "供应商"
           },
           {
-            "id": "ch07-content-zh-107",
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-021",
             "kind": "paragraph",
             "text": "实际上，团队会在整个流程中思考问题，因此您将反复返回泳道以移动信息并添加新信息。"
           },
           {
-            "id": "ch07-content-zh-108",
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-022",
             "kind": "paragraph",
             "text": "SIPOC 通常不是实际流程的低级或详细地图，因此在完成流程泳道时让团队保持高水平。您可以简单地在该部分中输入流程的名称，也可以列出该流程所需的一些高级步骤。 如果团队不确定输出和输入，列出步骤是一个很好的练习——开始可视化流程通常有助于了解该流程如何与公司其他流程和资源连接。"
           },
           {
-            "id": "ch07-content-zh-109",
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-023",
             "kind": "paragraph",
             "text": "为了防止会议变成详细的流程图活动，请要求团队用少于五到七个步骤来描述该流程。通过将流程步骤限制为简短的动词-名词组合（例如“输入信息”、“收钱”或“放置标签”）来使事情变得简单。"
           },
           {
-            "id": "ch07-content-zh-110",
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-024",
             "kind": "heading",
             "text": "名称输出和客户"
           },
           {
-            "id": "ch07-content-zh-111",
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-025",
             "kind": "paragraph",
             "text": "一旦有了基本的流程定义，就从输入或输出开始。询问团队“这个过程会产生什么？这个过程会产生什么结果？”这些答案进入输出泳道。"
           },
           {
-            "id": "ch07-content-zh-112",
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-026",
             "kind": "paragraph",
             "text": "接下来，询问团队“谁或什么使用了此过程中产生的东西？”将这些答案放在客户泳道中。请记住，客户可以是外部的，也可以是内部的，在自动化的情况下，另一个流程可以是客户。"
           },
           {
-            "id": "ch07-content-zh-113",
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-027",
             "kind": "heading",
             "text": "名称输入和供应商"
           },
           {
-            "id": "ch07-content-zh-114",
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-028",
             "kind": "paragraph",
             "text": "询问团队“该流程需要执行什么？该流程需要哪些原材料或材料？”将这些答案记录在输入部分。"
           },
           {
-            "id": "ch07-content-zh-115",
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-029",
             "kind": "paragraph",
             "text": "如果您愿意，您可以将输入的想法分为两种类型。首先，你有实际的输入——通过创建输出的过程转换的商品和服务。其次，你有这个过程的推动者。从技术上讲，这些不是输入，因为它们不进入流程，也不会被流程更改；相反，它们是流程正常运行所必需的。机械是推动者。在从钢板上切割金属零件的过程中，进行切割的机器是一个推动者。虽然这不是必需的，但在 SIPOC 上分离推动因素可以帮助您定义流程并为项目后期提供附加信息。"
           },
           {
-            "id": "ch07-content-zh-116",
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-030",
             "kind": "paragraph",
             "text": "获得输入列表后，询问团队：“输入从哪里来？谁或什么为流程提供这些东西？”与客户一样，供应商可以是外部的，也可以是内部的。供应商可能会在工厂提供用于制作糖果的原糖；营销部门可能会提供销售部门用来创建订单的线索。"
           },
           {
-            "id": "ch07-content-zh-117",
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-031",
             "kind": "paragraph",
             "text": "供应商也可以是其他流程，特别是在自动化环境中，并且您可以在原始 SIPOC 图中输入一个包含多个供应商的列表。 例如，支持票进入信息技术 (IT) 部门。票证的提供者既可以是提交票证的最终用户，也可以是将票证路由到适当的工作队列的自动化流程。如果您正在记录促成因素，则可以将最终用户记录为供应商，将自动化流程记录为促成因素。"
           },
           {
-            "id": "ch07-content-zh-118",
+            "id": "ch07-s04-defining-process-components-the-sipoc-zh-032",
             "kind": "paragraph",
             "text": "步骤 4：验证信息 通过验证图表，确保您对高层次流程的理解是准确的。如果您组建了一个包含中小企业的综合团队，该团队可以自行验证大部分信息。不过，对于团队不确定的任何事情寻求第二意见总是一个好主意。邀请其他 SME 或流程负责人与团队一起简要查看图表并提供反馈。"
-          },
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch07-s05-tips-for-a-sipoc-brainstorming-session",
+      "level": 2,
+      "page": 67,
+      "title": {
+        "en": "Tips for a SIPOC Brainstorming Session",
+        "zh": "SIPOC 头脑风暴会议的技巧"
+      },
+      "content": {
+        "en": [
           {
-            "id": "ch07-content-zh-119",
-            "kind": "heading",
-            "text": "SIPOC 头脑风暴会议的技巧"
-          },
+            "id": "ch07-s05-tips-for-a-sipoc-brainstorming-session-en-001",
+            "kind": "paragraph",
+            "text": "One of the best ways to create an initial SIPOC diagram during a team session is on large pieces of paper or a whiteboard. Create swim lanes by drawing them on the whiteboard or hanging a piece of paper for each swim lane on the wall. Provide the team with sticky notes and markers; write on sticky notes instead of writing directly on the board or paper. This lets you move components around quickly as you work through the diagram."
+          }
+        ],
+        "zh": [
           {
-            "id": "ch07-content-zh-120",
+            "id": "ch07-s05-tips-for-a-sipoc-brainstorming-session-zh-001",
             "kind": "paragraph",
             "text": "在团队会议期间创建初始 SIPOC 图的最佳方法之一是在大纸或白板上。通过在白板上绘制泳道或在墙上为每个泳道挂一张纸来创建泳道。为团队提供便利贴和记号笔；在便利贴上书写，而不是直接在黑板或纸上书写。这使您可以在处理图表时快速移动组件。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch07-s06-sample-sipoc-diagrams",
+      "level": 2,
+      "page": 67,
+      "title": {
+        "en": "Sample SIPOC Diagrams",
+        "zh": "SIPOC 图示例"
+      },
+      "content": {
+        "en": [
+          {
+            "id": "ch07-s06-sample-sipoc-diagrams-en-001",
+            "kind": "paragraph",
+            "text": "Here are some sample SIPOC diagrams. The first diagram is at the highest level: the process is the business itself. The second diagram features an automated process. The third diagram illustrates a people-powered factory process and includes enablers."
           },
           {
-            "id": "ch07-content-zh-121",
+            "id": "ch07-s06-sample-sipoc-diagrams-en-002",
             "kind": "heading",
-            "text": "SIPOC 图示例"
+            "text": "Business-Level SIPOC Diagram"
           },
           {
-            "id": "ch07-content-zh-122",
+            "id": "ch07-s06-sample-sipoc-diagrams-en-003",
+            "kind": "paragraph",
+            "text": "This diagram shows the SIPOC for a mid-sized printing company. It’s a very high-level, simplified SIPOC that shows how customers and vendors provide information and items; the printing company then turns those inputs into products such as printed business cards. The final product goes to individuals, businesses, and marketing professionals who placed the order."
+          },
+          {
+            "id": "ch07-s06-sample-sipoc-diagrams-en-004",
+            "kind": "image",
+            "assetId": "fig-7e16a41084a5c003",
+            "src": "assets/figures/fig-7e16a41084a5c003.png",
+            "width": 1218,
+            "height": 688
+          },
+          {
+            "id": "ch07-s06-sample-sipoc-diagrams-en-005",
+            "kind": "paragraph",
+            "text": "Most of the time, a Six Sigma team won’t deal with a business-level SIPOC diagram. However, if the team includes members from outside the division or company, such as vendors or consultants assisting with an improvement, then starting with a high-level diagram can help those outside of the business understand the overall goals of the company."
+          },
+          {
+            "id": "ch07-s06-sample-sipoc-diagrams-en-006",
+            "kind": "heading",
+            "text": "SIPOC of an Automated Process"
+          },
+          {
+            "id": "ch07-s06-sample-sipoc-diagrams-en-007",
+            "kind": "paragraph",
+            "text": "The diagram below represents an automated process in a mail-order pharmacy. The process in question puts labels on bottles that are to be filled with corresponding medications. The scope of the process is only the labeling of the bottles."
+          },
+          {
+            "id": "ch07-s06-sample-sipoc-diagrams-en-008",
+            "kind": "image",
+            "assetId": "fig-3dac98bfa17e9170",
+            "src": "assets/figures/fig-3dac98bfa17e9170.png",
+            "width": 1218,
+            "height": 321
+          },
+          {
+            "id": "ch07-s06-sample-sipoc-diagrams-en-009",
+            "kind": "image",
+            "assetId": "fig-eaa5742241054dd4",
+            "src": "assets/figures/fig-eaa5742241054dd4.png",
+            "width": 1218,
+            "height": 335
+          },
+          {
+            "id": "ch07-s06-sample-sipoc-diagrams-en-010",
+            "kind": "paragraph",
+            "text": "Because this is a process within a chain of automated processes, almost all of the components are machines, processes, and things. Prior to labeling, a machine sorts bottles by size. That machine feeds the labeling station as needed. After the labeling is done, another station fills the bottles."
+          },
+          {
+            "id": "ch07-s06-sample-sipoc-diagrams-en-011",
+            "kind": "heading",
+            "text": "SIPOC with Enablers Noted"
+          },
+          {
+            "id": "ch07-s06-sample-sipoc-diagrams-en-012",
+            "kind": "paragraph",
+            "text": "The SIPOC diagram below illustrates how enablers might be recorded for your process. The process in question takes place in a factory that makes furniture; in this process, a person attaches legs to a barstool on an assembly line. For the purposes of this illustration, leg attachment is the last step in the completion of the product, which means the product moves from the leg attachment station to packing and shipping."
+          },
+          {
+            "id": "ch07-s06-sample-sipoc-diagrams-en-013",
+            "kind": "image",
+            "assetId": "fig-3c932f57e2065761",
+            "src": "assets/figures/fig-3c932f57e2065761.png",
+            "width": 1218,
+            "height": 908
+          },
+          {
+            "id": "ch07-s06-sample-sipoc-diagrams-en-014",
+            "kind": "image",
+            "assetId": "fig-d02a8221a9e7ce25",
+            "src": "assets/figures/fig-d02a8221a9e7ce25.png",
+            "width": 1218,
+            "height": 90
+          },
+          {
+            "id": "ch07-s06-sample-sipoc-diagrams-en-015",
+            "kind": "paragraph",
+            "text": "Without the conveyor machine, the people in involved in this process would have to move items manually. The conveyor isn’t 100 percent required for legs to be added to the stool, but it enables the process to move at a more efficient pace. A case could be made that the drill isn’t required either – screws can be installed manually – but it’s certainly what enables the process to move at a speed required for mass production."
+          },
+          {
+            "id": "ch07-s06-sample-sipoc-diagrams-en-016",
+            "kind": "paragraph",
+            "text": "With just this simple SIPOC diagram of a process, a Six Sigma team would already have some idea about where variation could be hiding, what drives efficiencies in the process, and how the process relates to the overall business."
+          },
+          {
+            "id": "ch07-s06-sample-sipoc-diagrams-en-017",
+            "kind": "heading",
+            "text": "Create Your Own SIPOC Diagram"
+          },
+          {
+            "id": "ch07-s06-sample-sipoc-diagrams-en-018",
+            "kind": "paragraph",
+            "text": "Whether working in a team or on your own, choose a process you know about and practice creating your own diagram. Pick a process associated with your business or a business example you have experience with. Use the templates on the next page to get you started."
+          },
+          {
+            "id": "ch07-s06-sample-sipoc-diagrams-en-019",
+            "kind": "image",
+            "assetId": "fig-6624d527fc266a54",
+            "src": "assets/figures/fig-6624d527fc266a54.png",
+            "width": 1218,
+            "height": 1285
+          },
+          {
+            "id": "ch07-s06-sample-sipoc-diagrams-en-020",
+            "kind": "image",
+            "assetId": "fig-1cab2b9e73e4d6b0",
+            "src": "assets/figures/fig-1cab2b9e73e4d6b0.png",
+            "width": 1218,
+            "height": 258
+          },
+          {
+            "id": "ch07-s06-sample-sipoc-diagrams-en-021",
+            "kind": "image",
+            "assetId": "fig-2aae3e67ee918f1e",
+            "src": "assets/figures/fig-2aae3e67ee918f1e.png",
+            "width": 1218,
+            "height": 1050
+          },
+          {
+            "id": "ch07-s06-sample-sipoc-diagrams-en-022",
+            "kind": "image",
+            "assetId": "fig-181503f390e5d363",
+            "src": "assets/figures/fig-181503f390e5d363.png",
+            "width": 1105,
+            "height": 1417
+          }
+        ],
+        "zh": [
+          {
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-001",
             "kind": "termNote",
             "rows": [
               [
@@ -1413,22 +1443,22 @@
             "text": "术语说明 Sample / Sampling（样本/抽样）：从总体中选取部分数据进行分析；样本应尽量代表总体。"
           },
           {
-            "id": "ch07-content-zh-123",
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-002",
             "kind": "paragraph",
             "text": "以下是一些 SIPOC 图示例。第一个图位于最高级别：流程就是业务本身。第二张图展示了一个自动化流程。第三张图说明了以人为本的工厂流程并包括推动因素。"
           },
           {
-            "id": "ch07-content-zh-124",
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-003",
             "kind": "heading",
             "text": "业务级 SIPOC 图"
           },
           {
-            "id": "ch07-content-zh-125",
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-004",
             "kind": "paragraph",
             "text": "该图显示了一家中型印刷公司的 SIPOC。这是一个非常高级、简化的 SIPOC，显示客户和供应商如何提供信息和项目；然后，印刷公司将这些投入转化为印刷名片等产品。最终产品将交付给下订单的个人、企业和营销专业人士。"
           },
           {
-            "id": "ch07-content-zh-126",
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-005",
             "kind": "image",
             "assetId": "fig-7e16a41084a5c003",
             "src": "assets/figures/fig-7e16a41084a5c003.png",
@@ -1436,22 +1466,22 @@
             "height": 688
           },
           {
-            "id": "ch07-content-zh-127",
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-006",
             "kind": "paragraph",
             "text": "大多数时候，六西格玛团队不会处理业务级的SIPOC图。但是，如果团队包括来自部门或公司外部的成员，例如协助改进的供应商或顾问，那么从高级图表开始可以帮助业务外部的人员了解公司的总体目标。"
           },
           {
-            "id": "ch07-content-zh-128",
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-007",
             "kind": "heading",
             "text": "自动化流程的 SIPOC"
           },
           {
-            "id": "ch07-content-zh-129",
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-008",
             "kind": "paragraph",
             "text": "下图展示了邮购药房的自动化流程。该过程将标签贴在要填充相应药物的瓶子上。该过程的范围只是瓶子的标签。"
           },
           {
-            "id": "ch07-content-zh-130",
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-009",
             "kind": "image",
             "assetId": "fig-3dac98bfa17e9170",
             "src": "assets/figures/fig-3dac98bfa17e9170.png",
@@ -1459,7 +1489,7 @@
             "height": 321
           },
           {
-            "id": "ch07-content-zh-131",
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-010",
             "kind": "image",
             "assetId": "fig-eaa5742241054dd4",
             "src": "assets/figures/fig-eaa5742241054dd4.png",
@@ -1467,22 +1497,22 @@
             "height": 335
           },
           {
-            "id": "ch07-content-zh-132",
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-011",
             "kind": "paragraph",
             "text": "因为这是自动化流程链中的一个流程，所以几乎所有组件都是机器、流程和事物。在贴标之前，机器会按尺寸对瓶子进行分类。该机器根据需要向贴标站供料。贴标完成后，另一个站将灌装瓶子。"
           },
           {
-            "id": "ch07-content-zh-133",
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-012",
             "kind": "heading",
             "text": "SIPOC 已指出推动因素"
           },
           {
-            "id": "ch07-content-zh-134",
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-013",
             "kind": "paragraph",
             "text": "下面的 SIPOC 图说明了如何为您的流程记录促成因素。所讨论的过程发生在一家制造家具的工厂；在此过程中，一个人在装配线上将腿固定在高脚凳上。出于本说明的目的，支腿连接是完成产品的最后一步，这意味着产品从支腿连接站移动到包装和运输。"
           },
           {
-            "id": "ch07-content-zh-135",
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-014",
             "kind": "image",
             "assetId": "fig-3c932f57e2065761",
             "src": "assets/figures/fig-3c932f57e2065761.png",
@@ -1490,7 +1520,7 @@
             "height": 908
           },
           {
-            "id": "ch07-content-zh-136",
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-015",
             "kind": "image",
             "assetId": "fig-d02a8221a9e7ce25",
             "src": "assets/figures/fig-d02a8221a9e7ce25.png",
@@ -1498,27 +1528,27 @@
             "height": 90
           },
           {
-            "id": "ch07-content-zh-137",
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-016",
             "kind": "paragraph",
             "text": "如果没有输送机，参与此过程的人员将不得不手动移动物品。将腿添加到凳子上并不是 100% 需要传送带，但它可以使整个过程以更高效的速度进行。可以说，也不需要钻头——可以手动安装螺钉——但这确实可以使工艺以大规模生产所需的速度进行。"
           },
           {
-            "id": "ch07-content-zh-138",
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-017",
             "kind": "paragraph",
             "text": "仅仅通过这个简单的流程 SIPOC 图，六西格玛团队就已经知道差异可能隐藏在哪里、流程中的效率驱动因素以及流程与整体业务的关系。"
           },
           {
-            "id": "ch07-content-zh-139",
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-018",
             "kind": "heading",
             "text": "创建您自己的 SIPOC 图"
           },
           {
-            "id": "ch07-content-zh-140",
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-019",
             "kind": "paragraph",
             "text": "无论是在团队中工作还是独自工作，选择一个您了解的流程并练习创建自己的图表。选择与您的业务相关的流程或您有经验的业务示例。使用下一页上的模板来帮助您入门。"
           },
           {
-            "id": "ch07-content-zh-141",
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-020",
             "kind": "image",
             "assetId": "fig-6624d527fc266a54",
             "src": "assets/figures/fig-6624d527fc266a54.png",
@@ -1526,7 +1556,7 @@
             "height": 1285
           },
           {
-            "id": "ch07-content-zh-142",
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-021",
             "kind": "image",
             "assetId": "fig-5dbb7d10f52bc756",
             "src": "assets/figures/fig-5dbb7d10f52bc756.png",
@@ -1534,7 +1564,7 @@
             "height": 1253
           },
           {
-            "id": "ch07-content-zh-143",
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-022",
             "kind": "image",
             "assetId": "fig-1cab2b9e73e4d6b0",
             "src": "assets/figures/fig-1cab2b9e73e4d6b0.png",
@@ -1542,7 +1572,7 @@
             "height": 258
           },
           {
-            "id": "ch07-content-zh-144",
+            "id": "ch07-s06-sample-sipoc-diagrams-zh-023",
             "kind": "image",
             "assetId": "fig-2aae3e67ee918f1e",
             "src": "assets/figures/fig-2aae3e67ee918f1e.png",
@@ -1558,7 +1588,7 @@
       "id": "fig-181503f390e5d363",
       "type": "table-image",
       "path": "assets/figures/fig-181503f390e5d363.png",
-      "page": 59,
+      "page": 67,
       "width": 1105,
       "height": 1417
     },
@@ -1566,7 +1596,7 @@
       "id": "fig-1cab2b9e73e4d6b0",
       "type": "table-image",
       "path": "assets/figures/fig-1cab2b9e73e4d6b0.png",
-      "page": 59,
+      "page": 67,
       "width": 1218,
       "height": 258
     },
@@ -1574,7 +1604,7 @@
       "id": "fig-201e9d173558d273",
       "type": "table-image",
       "path": "assets/figures/fig-201e9d173558d273.png",
-      "page": 59,
+      "page": 64,
       "width": 1218,
       "height": 318
     },
@@ -1582,7 +1612,7 @@
       "id": "fig-2aae3e67ee918f1e",
       "type": "table-image",
       "path": "assets/figures/fig-2aae3e67ee918f1e.png",
-      "page": 59,
+      "page": 67,
       "width": 1218,
       "height": 1050
     },
@@ -1590,7 +1620,7 @@
       "id": "fig-3c932f57e2065761",
       "type": "table-image",
       "path": "assets/figures/fig-3c932f57e2065761.png",
-      "page": 59,
+      "page": 67,
       "width": 1218,
       "height": 908
     },
@@ -1598,7 +1628,7 @@
       "id": "fig-3dac98bfa17e9170",
       "type": "table-image",
       "path": "assets/figures/fig-3dac98bfa17e9170.png",
-      "page": 59,
+      "page": 67,
       "width": 1218,
       "height": 321
     },
@@ -1606,7 +1636,7 @@
       "id": "fig-53763d055da4fb00",
       "type": "formula-image",
       "path": "assets/figures/fig-53763d055da4fb00.png",
-      "page": 59,
+      "page": 64,
       "width": 1218,
       "height": 85
     },
@@ -1614,7 +1644,7 @@
       "id": "fig-5dbb7d10f52bc756",
       "type": "figure",
       "path": "assets/figures/fig-5dbb7d10f52bc756.png",
-      "page": 59,
+      "page": 67,
       "width": 344,
       "height": 1253
     },
@@ -1622,7 +1652,7 @@
       "id": "fig-6624d527fc266a54",
       "type": "table-image",
       "path": "assets/figures/fig-6624d527fc266a54.png",
-      "page": 59,
+      "page": 67,
       "width": 1218,
       "height": 1285
     },
@@ -1630,7 +1660,7 @@
       "id": "fig-6789b6da9b681e9e",
       "type": "figure",
       "path": "assets/figures/fig-6789b6da9b681e9e.png",
-      "page": 59,
+      "page": 61,
       "width": 805,
       "height": 1206
     },
@@ -1638,7 +1668,7 @@
       "id": "fig-7e16a41084a5c003",
       "type": "table-image",
       "path": "assets/figures/fig-7e16a41084a5c003.png",
-      "page": 59,
+      "page": 67,
       "width": 1218,
       "height": 688
     },
@@ -1646,7 +1676,7 @@
       "id": "fig-a897f4a452908379",
       "type": "figure",
       "path": "assets/figures/fig-a897f4a452908379.png",
-      "page": 59,
+      "page": 64,
       "width": 482,
       "height": 459
     },
@@ -1654,7 +1684,7 @@
       "id": "fig-d02a8221a9e7ce25",
       "type": "formula-image",
       "path": "assets/figures/fig-d02a8221a9e7ce25.png",
-      "page": 59,
+      "page": 67,
       "width": 1218,
       "height": 90
     },
@@ -1662,7 +1692,7 @@
       "id": "fig-eaa5742241054dd4",
       "type": "table-image",
       "path": "assets/figures/fig-eaa5742241054dd4.png",
-      "page": 59,
+      "page": 67,
       "width": 1218,
       "height": 335
     },

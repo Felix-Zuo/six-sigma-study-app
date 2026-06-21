@@ -35,9 +35,10 @@ Goal: convert all 449 aligned pages into app content.
 - [x] generate all chapter JSON files
 - [x] validate page/chapter mapping at chapter level
 - [x] build table of contents inside app
-- [ ] preserve figures/tables as optimized assets where semantic extraction is not enough
-- [ ] refine section/page anchors for Chapters 2-33
-- [ ] add reader virtualization or lazy tokenization for long chapters
+- [x] preserve figures/tables as optimized assets where semantic extraction is not enough
+- [x] refine section/page anchors for Chapters 2-33 where reliable Word headings exist
+- [x] add viewport-bound lazy tokenization for long chapters
+- [ ] add curated manual section mapping for chapters whose section titles are normal paragraphs
 
 ## Phase 3: Learning System
 
@@ -74,3 +75,4 @@ Goal: comfortable long-session study.
 - page/chapter search
 - notes and highlights
 - performance profiling on real phone
+- low-end-device profiling for long image-heavy chapters
