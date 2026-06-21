@@ -88,6 +88,12 @@ type LookupTextHandler = (text: string, page: number, sectionId: string, sourceT
 type TocSearchResult =
   | { kind: "chapter"; chapter: Lesson }
   | { kind: "section"; chapter: Lesson; section: LessonSection };
+type PendingLanguageScroll = {
+  sectionId: string;
+  blockIndex: number;
+  blockOffsetRatio: number;
+  sectionOffsetRatio: number;
+};
 const readerPreferencesKey = "six-sigma-study:reader-preferences:v1";
 const textScaleOrder: TextScale[] = ["standard", "large", "xlarge"];
 
@@ -117,6 +123,15 @@ function formatNextReview(term: SavedTerm): string {
   }
   const date = new Date(term.nextReviewAt);
   return `下次 ${date.getMonth() + 1}/${date.getDate()}`;
+}
+
+function clamp(value: number, min: number, max: number): number {
+  return Math.max(min, Math.min(max, value));
+}
+
+function readerAnchorOffset(): number {
+  const chromeHeight = document.querySelector(".readerChrome")?.getBoundingClientRect().height ?? 120;
+  return chromeHeight + 10;
 }
 
 function normalizeTocQuery(value: string): string {
@@ -289,6 +304,7 @@ export function App() {
   const overlayRef = useRef<OverlayName | null>(null);
   const overlayHistoryRef = useRef(false);
   const pendingScrollSectionRef = useRef<string | null>(null);
+  const pendingLanguageScrollRef = useRef<PendingLanguageScroll | null>(null);
 
   const lesson = manual?.chapters.find((chapter) => chapter.id === activeChapterId) ?? manual?.chapters[0];
   const activeSection = lesson?.sections.find((section) => section.id === activeSectionId) ?? lesson?.sections[0];
@@ -459,13 +475,38 @@ export function App() {
   }, [lesson]);
 
   useEffect(() => {
-    if (!activeSectionId) {
+    const pending = pendingLanguageScrollRef.current;
+    if (!pending) {
       return;
     }
-    const node = document.querySelector(`[data-section-id="${activeSectionId}"]`);
-    if (node) {
-      window.requestAnimationFrame(() => node.scrollIntoView({ block: "start" }));
-    }
+
+    const handle = window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        const sectionNode = document.querySelector<HTMLElement>(`[data-section-id="${pending.sectionId}"]`);
+        if (!sectionNode) {
+          pendingLanguageScrollRef.current = null;
+          return;
+        }
+
+        const sectionTop = window.scrollY + sectionNode.getBoundingClientRect().top;
+        const sectionFallbackTop =
+          sectionTop + sectionNode.scrollHeight * pending.sectionOffsetRatio - readerAnchorOffset();
+        const bodyNode = sectionNode.querySelector<HTMLElement>(".sectionBody");
+        const targetBlock = bodyNode?.children[pending.blockIndex] as HTMLElement | undefined;
+        if (!targetBlock) {
+          window.scrollTo({ top: Math.max(0, sectionFallbackTop) });
+          pendingLanguageScrollRef.current = null;
+          return;
+        }
+
+        const blockTop = window.scrollY + targetBlock.getBoundingClientRect().top;
+        const targetTop =
+          blockTop + targetBlock.scrollHeight * pending.blockOffsetRatio - readerAnchorOffset();
+        window.scrollTo({ top: Math.max(0, targetTop) });
+        pendingLanguageScrollRef.current = null;
+      });
+    });
+    return () => window.cancelAnimationFrame(handle);
   }, [language]);
 
   useEffect(() => {
@@ -630,6 +671,51 @@ export function App() {
       ...current,
       theme: current.theme === "dark" ? "light" : "dark"
     }));
+  }
+
+  function captureLanguageScrollPosition(): PendingLanguageScroll | null {
+    if (!activeSectionId) {
+      return null;
+    }
+
+    const sectionNode = document.querySelector<HTMLElement>(`[data-section-id="${activeSectionId}"]`);
+    if (!sectionNode) {
+      return null;
+    }
+
+    const anchorY = window.scrollY + readerAnchorOffset();
+    const sectionTop = window.scrollY + sectionNode.getBoundingClientRect().top;
+    const sectionOffsetRatio = clamp((anchorY - sectionTop) / Math.max(1, sectionNode.scrollHeight), 0, 1);
+    const bodyNode = sectionNode.querySelector<HTMLElement>(".sectionBody");
+    const blocks = Array.from(bodyNode?.children ?? []) as HTMLElement[];
+    const blockIndex = blocks.findIndex((block) => {
+      const rect = block.getBoundingClientRect();
+      return rect.bottom >= readerAnchorOffset();
+    });
+
+    if (blockIndex < 0) {
+      return {
+        sectionId: activeSectionId,
+        blockIndex: 0,
+        blockOffsetRatio: 0,
+        sectionOffsetRatio
+      };
+    }
+
+    const block = blocks[blockIndex];
+    const blockTop = window.scrollY + block.getBoundingClientRect().top;
+    const blockOffsetRatio = clamp((anchorY - blockTop) / Math.max(1, block.scrollHeight), 0, 1);
+    return {
+      sectionId: activeSectionId,
+      blockIndex,
+      blockOffsetRatio,
+      sectionOffsetRatio
+    };
+  }
+
+  function switchReadingLanguage() {
+    pendingLanguageScrollRef.current = captureLanguageScrollPosition();
+    setLanguage(language === "en" ? "zh" : "en");
   }
 
   function lookupText(text: string, page: number, sectionId: string, sourceText: string) {
@@ -799,7 +885,7 @@ export function App() {
             </button>
             <button
               className="modeButton"
-              onClick={() => setLanguage(language === "en" ? "zh" : "en")}
+              onClick={switchReadingLanguage}
               aria-label="switch reading language"
             >
               {language === "en" ? "中文" : "EN"}
