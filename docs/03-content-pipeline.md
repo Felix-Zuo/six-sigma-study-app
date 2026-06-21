@@ -44,7 +44,7 @@ npm run extract:ch01
 npm run lint:content
 ```
 
-The Chapter 1 extractor reads the aligned English and Chinese DOCX files from `C:\findjob_sixsigma_sources`, builds 23 bilingual sections for pages 6-13, preserves Chinese semantic tables, keeps Chinese term-note sidebars, and seeds 14 local terms for tap lookup.
+The Chapter 1 extractor reads the aligned English and Chinese DOCX files from `C:\findjob_sixsigma_sources`, builds 23 bilingual sections for pages 6-13, preserves Chinese semantic tables, keeps Chinese term-note sidebars, and seeds 16 local terms for tap lookup.
 
 The current alignment is section-based rather than sentence-perfect. This is intentional for the first product slice because the polished Chinese edition merges several English fragments and adds term notes that do not exist in the original English file.
 

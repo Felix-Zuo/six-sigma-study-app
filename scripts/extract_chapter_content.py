@@ -80,6 +80,14 @@ CURATED_TERMS: list[dict[str, Any]] = [
         "explanation": "统计学中常用来表示标准差。六西格玛语境中，它常用于表达流程波动水平和质量表现。",
     },
     {
+        "term": "sigma level",
+        "translation": "西格玛水平",
+        "partOfSpeech": "term",
+        "isSixSigmaTerm": True,
+        "lookupKeys": ["level", "sigma level", "sigma levels"],
+        "explanation": "用于概括流程质量表现的等级化指标。西格玛水平越高，通常代表缺陷机会越少、流程输出越稳定。",
+    },
+    {
         "term": "methodology",
         "translation": "方法论",
         "partOfSpeech": "noun",
@@ -132,6 +140,14 @@ CURATED_TERMS: list[dict[str, Any]] = [
         "isSixSigmaTerm": True,
         "lookupKeys": ["dpmo", "defects per million opportunities"],
         "explanation": "Defects Per Million Opportunities，指每百万次机会中的缺陷数；数值越低，流程质量越高。",
+    },
+    {
+        "term": "DMAIC",
+        "translation": "定义、测量、分析、改进、控制",
+        "partOfSpeech": "abbreviation",
+        "isSixSigmaTerm": True,
+        "lookupKeys": ["dmaic", "define measure analyze improve control"],
+        "explanation": "六西格玛改进既有流程时常用的五阶段方法：Define、Measure、Analyze、Improve、Control。",
     },
     {
         "term": "yield",
@@ -417,4 +433,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

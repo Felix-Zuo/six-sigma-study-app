@@ -35,7 +35,7 @@ The final product must support full-manual offline reading, position-preserving 
   - 127 English blocks
   - 91 Chinese blocks
   - pages 6-13
-- Generated `content/processed/dictionary/six-sigma-terms.json` with 14 curated terms.
+- Generated `content/processed/dictionary/six-sigma-terms.json` with 16 curated terms.
 - Connected the reader to generated Chapter 1 content.
 - Added localStorage-backed vocabulary persistence.
 - Added Chinese semantic table rendering and term-note sidebars.
