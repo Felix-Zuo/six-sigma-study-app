@@ -21,7 +21,7 @@ The final product must support full-manual offline reading, position-preserving 
 - Branch: `main`
 - Latest validated implementation commit: `2d794f7 Sectionize generic chapters from source TOC`
 - Local worktree: expected clean after the state-sync commit that contains this note
-- Latest implementation GitHub Actions state: local validation passed for `2d794f7`; GitHub Actions verification pending push for this stage
+- Latest implementation GitHub Actions state: CI passed for `9a775a4` in run `27917184492`
 - Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, section-preserving language toggle, persisted reading position across app restart, viewport-bound English word tokenization, tap-to-lookup bottom sheet, curated terminology, phrase-selection UI hook, persistent local vocabulary book, table of contents, extracted DOCX figure/table image assets, PWA manifest/service worker for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
