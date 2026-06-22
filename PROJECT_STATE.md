@@ -521,7 +521,7 @@ The final product must support full-manual offline reading, position-preserving 
   - `qa/screenshots/notes-panel-qa.png`
   - `qa/screenshots/android-key-ch01-zh.png`, `android-key-ch07-zh.png`, `android-key-ch26-zh.png`, `android-key-ch33-zh.png`, plus lookup/image screenshots.
 - Next required validation before completing the goal:
-  - Push to GitHub, watch GitHub Actions CI, and close issues whose acceptance criteria are satisfied.
+  - None for this multi-book product core pass.
 
 ## Known Limitations
 
@@ -542,6 +542,16 @@ The final product must support full-manual offline reading, position-preserving 
 
 ## Closed GitHub Work Items
 
+- #9 建立多教材 Catalog 和主页入口
+- #10 学习数据按教材隔离并兼容迁移旧数据
+- #11 添加 Logo 开幕和中英文非商业说明
+- #12 主页和关于入口加入 GitHub 链接与克制水印
+- #13 修复底部半屏面板滚动穿透
+- #14 重做页码和阅读进度 UI
+- #15 添加沉浸阅读模式并处理 Android 返回键
+- #16 提高中英文切换后的段落/块级对齐
+- #17 改造词典和术语层以支持多教材
+- #18 补齐多教材和关键阅读体验 QA
 - #1 Build Chapter 1 content extraction pipeline
 - #3 Implement tap-to-lookup bottom sheet
 - #4 Seed curated Six Sigma terminology dictionary
