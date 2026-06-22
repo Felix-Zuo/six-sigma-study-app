@@ -96,6 +96,7 @@ type TocSearchResult =
 type PendingLanguageScroll = {
   sectionId: string;
   blockIndex: number;
+  sourceBlockCount: number;
   blockOffsetRatio: number;
   sectionOffsetRatio: number;
 };
@@ -516,6 +517,19 @@ export function App() {
       const sectionFallbackTop =
         sectionTop + sectionNode.scrollHeight * pendingScroll.sectionOffsetRatio - readerAnchorOffset();
       const bodyNode = sectionNode.querySelector<HTMLElement>(".sectionBody");
+      const targetBlockCount = bodyNode?.children.length ?? 0;
+      const blockCountDifference = Math.abs(pendingScroll.sourceBlockCount - targetBlockCount);
+      const blockCountDifferenceRatio =
+        blockCountDifference / Math.max(1, pendingScroll.sourceBlockCount, targetBlockCount);
+      const shouldUseSectionRatio =
+        targetBlockCount <= pendingScroll.blockIndex || blockCountDifferenceRatio > 0.2;
+      if (shouldUseSectionRatio) {
+        window.scrollTo({ top: Math.max(0, sectionFallbackTop) });
+        if (finalAttempt) {
+          pendingLanguageScrollRef.current = null;
+        }
+        return;
+      }
       const targetBlock = bodyNode?.children[pendingScroll.blockIndex] as HTMLElement | undefined;
       if (!targetBlock) {
         window.scrollTo({ top: Math.max(0, sectionFallbackTop) });
@@ -757,6 +771,7 @@ export function App() {
       return {
         sectionId,
         blockIndex: 0,
+        sourceBlockCount: blocks.length,
         blockOffsetRatio: 0,
         sectionOffsetRatio
       };
@@ -768,6 +783,7 @@ export function App() {
     return {
       sectionId,
       blockIndex,
+      sourceBlockCount: blocks.length,
       blockOffsetRatio,
       sectionOffsetRatio
     };

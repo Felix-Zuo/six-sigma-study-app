@@ -6,8 +6,7 @@ This document records the current evidence that the Android study app is install
 
 - Repository: `https://github.com/Felix-Zuo/six-sigma-study-app`
 - Local path: `C:\findjob_sixsigma_app`
-- Latest verified implementation commit when this document was updated: `0a25113`
-- Latest verified implementation GitHub Actions run: `27921587212`
+- Latest local release validation pass when this document was updated: 2026-06-22 08:18 Asia/Shanghai
 - Release APK: `C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB: `C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab`
 
@@ -35,6 +34,15 @@ npm run typecheck
 npm run build
 npm run android:release-apk
 npm run android:aab
+```
+
+Android release APK runtime verification with WebView CDP forwarded to `127.0.0.1:9222`:
+
+```powershell
+node scripts\qa-language-toggle-cdp.mjs
+npm run qa:android-key-chapters
+node scripts\qa-vocab-export-cdp.mjs
+node scripts\qa-notes-cdp.mjs
 ```
 
 Package inspection:
@@ -70,10 +78,10 @@ node scripts\qa-dictionary-cdp.mjs
 - 174 reader sections are generated across the manual.
 - 9542 generated content blocks carry page anchors; English and Chinese block coverage spans every page from 6 through 449.
 - 470 deduplicated PNG figure/table/formula assets are bundled.
-- 3952 offline dictionary entries are bundled: 92 curated course/term entries and 3860 ECDICT-derived learner entries.
+- 3954 offline dictionary entries are bundled: 94 curated course/term entries and 3860 ECDICT-derived learner entries.
 - Dictionary generation covers 5582 of 5673 single-word manual forms; the remaining uncovered forms are mostly proper names, URL fragments, OCR/formatting artifacts, and unusual compound tokens.
 - `manual.json`, `asset-manifest.json`, PWA shell files, hashed reader assets, and all figure PNGs are present in both APK and AAB.
-- Targeted APK/AAB package checks count 481 public runtime entries for the reader shell, manifest, service worker, manual, asset manifest, and figures.
+- Targeted APK/AAB package checks found 917 APK zip entries and 925 AAB zip entries, including the full `manual.json`, 33 chapters, 449 pages, 3954 dictionary entries, and 470 figure PNGs.
 - Chapter 28 remains one section because its TOC-like headings are normal paragraphs, not reliable Word headings.
 
 ## PWA Browser Offline QA
@@ -102,11 +110,12 @@ Verified on local emulator `SixSigmaQA` / `emulator-5554`.
 - Vocabulary review: Android WebView QA verified adding a term from lookup, due-count display, due/all filters, `认识` scheduling, `再记` scheduling, and 0 horizontal overflow in the vocabulary panel.
 - Vocabulary export: Android WebView QA verified CSV export with header, review fields, source text, quote/comma escaping, clipboard fallback, and 0 horizontal overflow.
 - Study notes: Android WebView QA verified selected Chinese text can be saved with language/page/section metadata, edited in the notes panel, and rendered with 0 horizontal overflow.
+- Key chapter release APK QA: `npm run qa:android-key-chapters` passed on Chapters 1, 7, 26, and 33. It verified EN -> ZH -> EN position restoration, tap-to-lookup, no generic lookup fallback, no horizontal overflow, and all target chapter figure images loading without broken images. Chapter 33 specifically verified `left-to-right` opens the curated `left-to-right` phrase entry.
 - Dictionary lookup: Android WebView QA verified a clicked word after EN/ZH round trip used a real dictionary entry (`to`) rather than the generic fallback explanation.
-- Dictionary coverage: browser CDP QA verified runtime `manual.json` contains 3952 entries, 3860 ECDICT-derived entries, curated hits for `COPQ`, `DMADV`, `poka-yoke`, `5S`, and `Anderson-Darling`, and a real lookup sheet for `both` with phonetic text and 0 horizontal overflow.
+- Dictionary coverage: browser CDP QA verified runtime `manual.json` contains ECDICT-derived learner entries, curated hits for `COPQ`, `DMADV`, `poka-yoke`, `5S`, and `Anderson-Darling`, and a real lookup sheet for `both` with phonetic text and 0 horizontal overflow. The current package inspection verified 3954 bundled dictionary entries.
 - Full-manual validator: `npm run lint:content` now checks 33 chapters, pageCount 449, continuous chapter page ranges, manifest chapter paths, global duplicate section/block IDs, block page anchors, complete EN/ZH page coverage, image asset metadata consistency, unsafe asset paths, asset page bounds, and reader-style dictionary lookup key uniqueness.
 - Source coverage validator: `npm run qa:source-coverage` passed with source PDF page count 557, manual page count 449, 9542 content blocks, 940 image blocks, 470 assets, 142 source TOC sections, 127 matched source section anchors, 15 explicitly allowed normal-paragraph source headings, and nonblank source-page renders for pages 9, 73, 396, 544, and 555.
-- Current release package sizes after this validation pass: APK 37,822,535 bytes; AAB 35,605,671 bytes.
+- Current release package sizes after this validation pass: APK 37,822,807 bytes; AAB 35,605,948 bytes.
 
 ## Known Remaining Gaps
 

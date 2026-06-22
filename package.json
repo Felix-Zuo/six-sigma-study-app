@@ -17,7 +17,8 @@
     "extract:manual": "python scripts/extract_manual_content.py",
     "build:dictionary": "python scripts/build_manual_dictionary.py",
     "lint:content": "python scripts/validate_content.py content/processed",
-    "qa:source-coverage": "python scripts/qa_source_coverage.py"
+    "qa:source-coverage": "python scripts/qa_source_coverage.py",
+    "qa:android-key-chapters": "node scripts/qa-android-key-chapters-cdp.mjs"
   },
   "devDependencies": {
     "@capacitor/android": "^8.4.1",

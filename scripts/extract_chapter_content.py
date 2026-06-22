@@ -207,6 +207,20 @@ CURATED_TERMS: list[dict[str, Any]] = [
         "explanation": "为了产生最终结果所需的所有活动、事项、人员和信息的序列，可用于识别浪费和改进机会。",
     },
     {
+        "term": "left",
+        "translation": "左侧；左边的；剩余的",
+        "partOfSpeech": "word",
+        "lookupKeys": ["left"],
+        "explanation": "在流程图、价值流图或软件界面说明中，通常表示左侧方向或从左侧开始阅读；如果出现在普通句子里，也可能表示“剩余的”。",
+    },
+    {
+        "term": "left-to-right",
+        "translation": "从左到右；按流程顺序推进",
+        "partOfSpeech": "phrase",
+        "lookupKeys": ["left-to-right", "left to right"],
+        "explanation": "阅读流程图、价值流图或步骤图时常见的方向说明，意思是沿页面或流程从左侧向右侧依次查看。",
+    },
+    {
         "term": "continuous process improvement",
         "translation": "持续流程改进",
         "partOfSpeech": "phrase",

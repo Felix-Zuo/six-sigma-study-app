@@ -32,11 +32,11 @@ It intentionally does **not** commit the full manual DOCX/PDF/PNG assets. Those 
 
 - Android-first app: release APK and AAB build locally.
 - Full manual: all 33 chapters, 449 aligned study pages, 174 generated reader sections.
-- Offline runtime package: `manual.json`, 3952-entry offline learner dictionary, local vocabulary store, PWA install cache, and 470 bundled figure/table/formula PNG assets.
+- Offline runtime package: `manual.json`, 3954-entry offline learner dictionary, local vocabulary store, PWA install cache, and 470 bundled figure/table/formula PNG assets.
 - Reader interactions: EN/ZH toggle with block-aware position restoration, table-of-contents search, persisted dark mode and font size controls, tap-to-lookup, phrase selection lookup, bottom-sheet explanations, local vocabulary save/status, due-based vocabulary review, vocabulary CSV export, and selected-text study notes.
 - Page anchors: every generated content block carries a page anchor, and both English and Chinese content streams cover pages 6-449.
 - Long chapter handling: English word buttons are mounted only near the viewport to avoid huge DOMs.
-- Latest verified implementation CI at the time of this note: `27921587212` on commit `0a25113`.
+- Latest local release validation pass at the time of this note: 2026-06-22 08:18 Asia/Shanghai.
 
 See [Release Verification](docs/08-release-verification.md) for the current evidence matrix.
 
@@ -85,6 +85,12 @@ Current generated figure package:
 - `apps/reader/public/content/assets`: generated offline figure assets used by the app
 - `scripts`: validation and extraction tools
 - `docs`: PRD, architecture, roadmap, research, and ADRs
+
+Android WebView key chapter QA expects a running release APK with WebView DevTools forwarded to `127.0.0.1:9222`:
+
+```powershell
+npm run qa:android-key-chapters
+```
 
 ## Android Build
 
@@ -150,10 +156,11 @@ adb shell monkey -p com.findjob.sixsigmastudy -c android.intent.category.LAUNCHE
 
 Primary Android QA coverage currently focuses on Chapters 1, 7, 21, 26, and 33. Chapter 7 is used for section and phrase-selection checks; Chapters 26 and 33 are used for long, image-heavy chapter checks.
 
-After launching the release APK and forwarding the app WebView CDP socket to `127.0.0.1:9222`, run this targeted language-position QA:
+After launching the release APK and forwarding the app WebView CDP socket to `127.0.0.1:9222`, run these targeted Android QA checks:
 
 ```powershell
 node scripts\qa-language-toggle-cdp.mjs
+npm run qa:android-key-chapters
 ```
 
 ## PWA Offline QA
@@ -175,4 +182,4 @@ npm run build:dictionary
 node scripts\qa-dictionary-cdp.mjs
 ```
 
-The current passing run verified 3952 runtime dictionary entries, 3860 ECDICT-derived entries, 5582/5673 single-word manual forms covered, real lookup UI for `both`, and curated hits for terms such as `COPQ`, `DMADV`, `poka-yoke`, `5S`, and `Anderson-Darling`.
+The current package contains 3954 runtime dictionary entries, including 3860 ECDICT-derived entries. The passing dictionary QA verified real lookup UI for `both` and curated hits for terms such as `COPQ`, `DMADV`, `poka-yoke`, `5S`, and `Anderson-Darling`; Android key chapter QA also verifies the curated `left-to-right` phrase entry.

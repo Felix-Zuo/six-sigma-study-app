@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 07:35 Asia/Shanghai
+Last updated: 2026-06-22 08:18 Asia/Shanghai
 
 ## Objective
 
@@ -12,17 +12,19 @@ The final product must support full-manual offline reading, position-preserving 
 
 - App repository: `C:\findjob_sixsigma_app`
 - Private GitHub repository: `https://github.com/Felix-Zuo/six-sigma-study-app`
-- Local source documents: `C:\Users\左雅轩\Desktop\Find Job\6ς`
-- Chinese aligned manual: `C:\Users\左雅轩\Desktop\Find Job\6ς\六西格玛黑带认证培训手册_中文译注版_打印学习版.docx`
-- English aligned manual: `C:\Users\左雅轩\Desktop\Find Job\6ς\Six_Sigma_Black_Belt_Training_Manual_English_Reference_Page_Aligned.docx`
+- Local processing source folder: `C:\findjob_sixsigma_sources`
+- Original download workspace: `C:\Users\左雅轩\Desktop\Find Job\6ς`
+- Chinese aligned manual used by scripts: `C:\findjob_sixsigma_sources\manual_zh_aligned.docx`
+- English aligned manual used by scripts: `C:\findjob_sixsigma_sources\manual_en_aligned.docx`
+- Source PDF used by coverage QA: `C:\findjob_sixsigma_sources\source_manual.pdf`
 
 ## Current Evidence
 
 - Branch: `main`
-- Latest validated implementation commit: `0a25113 Add source coverage validation`
+- Latest local release validation pass: 2026-06-22 08:18 Asia/Shanghai
 - Local worktree: expected clean after the state-sync commit that contains this note
-- Latest implementation GitHub Actions state: CI passed for `0a25113` in run `27921587212`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 3952-entry offline learner dictionary with curated Six Sigma terms first, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service worker with verified offline app-shell/figure caching for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Latest pushed GitHub Actions state before this local pass: CI passed for `bcc393c` in run `27921632279`
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 3954-entry offline learner dictionary with curated Six Sigma terms first, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service worker with verified offline app-shell/figure caching for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
 
 ## Completed In Current Stage
 
@@ -106,7 +108,7 @@ The final product must support full-manual offline reading, position-preserving 
 - Added `scripts/qa-pwa-offline-cdp.mjs` to verify service-worker control, cache contents, offline reload behavior, and mobile horizontal overflow through Chrome CDP.
 - Added `scripts/build_manual_dictionary.py` to build a manual-scoped offline English-Chinese learner dictionary from local `C:\findjob_sixsigma_sources\ecdict.csv` while preserving curated Six Sigma terms as the highest-priority layer.
 - Expanded curated course terminology with DMADV, DMADOV, COPQ, COQ, CTC, EWMA, 5S, poka-yoke, jidoka, RTY, FTY, OFAT, RACI, Anderson-Darling, and related chart/lean terms.
-- Generated 3952 committed dictionary entries: 92 curated course terms and 3860 ECDICT-derived learner entries.
+- Generated 3954 committed dictionary entries: 94 curated course terms and 3860 ECDICT-derived learner entries.
 - Added ECDICT MIT license attribution in `THIRD_PARTY_NOTICES.md`.
 - Added browser CDP dictionary QA in `scripts/qa-dictionary-cdp.mjs` and lookup-sheet phonetic rendering for ECDICT entries.
 - Strengthened content validation so the production dictionary must contain at least 3000 entries and include ECDICT-derived learner entries.
@@ -115,12 +117,25 @@ The final product must support full-manual offline reading, position-preserving 
 - Strengthened `scripts/validate_content.py` so every generated content block must have an in-range page anchor and English/Chinese content streams must cover every page from 6 through 449.
 - Copied Poppler to the pure-English local path `C:\findjob_sixsigma_tools\poppler` for source PDF QA, avoiding Unicode path problems in the bundled Poppler wrapper.
 - Added `scripts/qa_source_coverage.py` and `npm run qa:source-coverage` to validate the 557-page source PDF, source TOC anchors, block-level page coverage, asset manifest consistency, and nonblank source-page render samples.
+- Added `scripts/qa-android-key-chapters-cdp.mjs` and `npm run qa:android-key-chapters` for release APK WebView QA across Chapters 1, 7, 26, and 33.
+- Refined language-toggle scroll restoration so chapters with near-identical EN/ZH block counts use block anchors, while highly divergent sections such as Chapter 1 real-world tables use proportional section anchors.
+- Added curated `left` and `left-to-right` dictionary entries so Chapter 33 value-stream-map directions do not fall through to the ECDICT `leave` entry.
 
 ## Verification In Current Stage
 
 - `npm run lint:content`: passed
 - `npm run typecheck`: passed
 - `npm run build`: passed
+- `node --check scripts\qa-android-key-chapters-cdp.mjs`: passed
+- `npm run build:dictionary`: passed with 94 curated entries, 3860 ECDICT entries, and 3954 total entries
+- `npm run qa:android-key-chapters`: passed on release APK with Chapters 1, 7, 26, and 33, including image loading checks and `left-to-right` phrase lookup
+- `node scripts\qa-language-toggle-cdp.mjs`: passed on release APK for Chapter 26 EN/ZH/EN block restoration and tap-to-lookup
+- `node scripts\qa-vocab-export-cdp.mjs`: passed on release APK
+- `node scripts\qa-notes-cdp.mjs`: passed on release APK
+- `npm run qa:source-coverage`: passed after the final dictionary and scroll-restoration changes
+- Final package inspection: APK 37,822,807 bytes, AAB 35,605,948 bytes, 33 chapters, 449 pages, 3954 dictionary entries, and 470 figure PNGs in both release packages
+- `apksigner verify --print-certs android\app\build\outputs\apk\release\app-release.apk`: passed with SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
+- `jarsigner -verify -certs android\app\build\outputs\bundle\release\app-release.aab`: verified with expected self-signed certificate/no timestamp warnings
 - Mobile browser check at `http://127.0.0.1:5188/`: passed for first-screen render, English word lookup, save-to-vocabulary, Chinese toggle, term notes, and semantic table rendering
 - GitHub Actions CI for `28f1a39`: passed
 - GitHub Actions CI for `0e4b823`: passed
