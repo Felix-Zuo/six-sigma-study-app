@@ -2,6 +2,9 @@ import fs from "node:fs";
 
 const endpoint = process.env.CDP_ENDPOINT ?? "http://127.0.0.1:9222/json";
 const storageKey = "six-sigma-study:vocab:v1";
+const noticeAcceptedKey = "six-sigma-study:notice-accepted:v1";
+const activeBookKey = "six-sigma-study:active-book:v1";
+const bookId = "six-sigma-black-belt";
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -115,12 +118,16 @@ async function main() {
   ];
 
   await evalPage(`(() => {
+    localStorage.setItem(${JSON.stringify(noticeAcceptedKey)}, "true");
+    localStorage.setItem(${JSON.stringify(activeBookKey)}, ${JSON.stringify(bookId)});
     localStorage.setItem(${JSON.stringify(storageKey)}, ${JSON.stringify(JSON.stringify(seedTerms))});
     location.reload();
     return true;
   })()`);
 
   await sleep(1800);
+  await waitFor("book library", () => evalPage(`Boolean(document.querySelector(".bookCard .primaryAction"))`));
+  await evalPage(`document.querySelector(".bookCard .primaryAction")?.click()`);
   await waitFor("reader shell", () => evalPage(`Boolean(document.querySelector(".vocabDock"))`));
   await evalPage(`(() => {
     Object.defineProperty(navigator, "canShare", { value: () => false, configurable: true });
@@ -147,8 +154,8 @@ async function main() {
     const doc = document.documentElement;
     return {
       rows: csv.split("\\r\\n").length,
-      hasHeader: csv.startsWith('"term","translation","status"'),
-      hasSixSigma: csv.includes('"Six Sigma","六西格玛","learning"'),
+      hasHeader: csv.startsWith('"term","bookId","bookTitle","contentVersion","translation","status"'),
+      hasSixSigma: csv.includes('"Six Sigma","six-sigma-black-belt","六西格玛黑带教材",') && csv.includes('"六西格玛","learning"'),
       escapedQuote: csv.includes('"A quoted field, with ""commas"", must export safely."'),
       message,
       horizontalOverflow: Math.max(document.body.scrollWidth, doc.scrollWidth) - doc.clientWidth

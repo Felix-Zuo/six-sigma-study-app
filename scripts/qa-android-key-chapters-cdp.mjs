@@ -3,6 +3,9 @@ import fs from "node:fs";
 const endpoint = process.env.CDP_ENDPOINT ?? "http://127.0.0.1:9222/json";
 const manualPath = "apps/reader/public/content/manual.json";
 const readerPositionKey = "six-sigma-study:reader-position:v1";
+const noticeAcceptedKey = "six-sigma-study:notice-accepted:v1";
+const activeBookKey = "six-sigma-study:active-book:v1";
+const bookId = "six-sigma-black-belt";
 const targetChapterNumbers = [1, 7, 26, 33];
 const languageSettleMs = 900;
 
@@ -139,9 +142,13 @@ async function main() {
 
   async function loadChapter(sample, language) {
     await evalPage(`(() => {
+      localStorage.setItem(${JSON.stringify(noticeAcceptedKey)}, "true");
+      localStorage.setItem(${JSON.stringify(activeBookKey)}, ${JSON.stringify(bookId)});
       localStorage.setItem(${JSON.stringify(readerPositionKey)}, JSON.stringify({
+        bookId: ${JSON.stringify(bookId)},
         chapterId: ${JSON.stringify(sample.chapterId)},
         sectionId: ${JSON.stringify(sample.textSectionId)},
+        page: ${sample.pageStart},
         language: ${JSON.stringify(language)},
         scrollY: 0,
         updatedAt: new Date().toISOString()
@@ -149,10 +156,19 @@ async function main() {
       location.reload();
       return true;
     })()`);
+    await waitFor("book library", () => evalPage(`Boolean(document.querySelector(".bookCard .primaryAction"))`));
+    await evalPage(`document.querySelector(".bookCard .primaryAction")?.click()`);
     await waitFor(`Chapter ${sample.chapter} reader render`, () => evalPage(`Boolean(document.querySelector(".readerPanel"))`));
     await waitFor(`Chapter ${sample.chapter} section render`, () =>
       evalPage(`Boolean(document.querySelector(${JSON.stringify(`[data-section-id="${sample.textSectionId}"] .sectionBody`)}))`)
     );
+    const currentLanguage = await evalPage(
+      `document.querySelector(${JSON.stringify(`[data-section-id="${sample.textSectionId}"] .sectionBody`)})?.classList.contains("zhText") ? "zh" : "en"`
+    );
+    if (currentLanguage !== language) {
+      await evalPage(`document.querySelector(".modeButton")?.click()`);
+      await sleep(languageSettleMs);
+    }
     await waitFor(`Chapter ${sample.chapter} ${language} mode`, () =>
       evalPage(`Boolean(document.querySelector(${JSON.stringify(`[data-section-id="${sample.textSectionId}"] .sectionBody${language === "zh" ? ".zhText" : ""}`)})) && ${language === "en" ? `!document.querySelector(${JSON.stringify(`[data-section-id="${sample.textSectionId}"] .sectionBody`)})?.classList.contains("zhText")` : "true"}`)
     );
@@ -222,8 +238,15 @@ async function main() {
         const rect = item.getBoundingClientRect();
         return rect.top > anchor && rect.top < window.innerHeight - 150 && rect.width > 8 && rect.height > 8;
       });
+      const preferredAnywhere = preferred
+        ? Array.from(document.querySelectorAll(".wordToken")).find((item) => item.textContent?.trim().toLowerCase() === preferred.toLowerCase())
+        : null;
+      if (preferredAnywhere && !tokens.includes(preferredAnywhere)) {
+        preferredAnywhere.scrollIntoView({ block: "center" });
+      }
       const token =
         (preferred ? tokens.find((item) => item.textContent?.trim().toLowerCase() === preferred.toLowerCase()) : null) ??
+        preferredAnywhere ??
         tokens.find((item) => !item.textContent?.includes("-")) ??
         tokens[0];
       if (!token) {

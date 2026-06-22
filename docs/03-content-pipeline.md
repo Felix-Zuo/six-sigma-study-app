@@ -17,6 +17,7 @@ Generated app package:
 
 - `chapters/ch01.json` through `chapters/ch33.json`
 - `manual.json` full-manual runtime package
+- `catalog.json` / `apps/reader/public/content/catalog.json` runtime book registry
 - `content/source/source_toc_sections.json` source table-of-contents metadata for section anchors
 - deduplicated figure assets under `apps/reader/public/content/assets/figures/`
 - `apps/reader/public/content/assets/asset-manifest.json`
@@ -35,8 +36,9 @@ Generated app package:
    - `ch01-fig0001`
    - `term-dmaic`
 7. Estimate a page anchor for every generated content block inside the chapter/section page range.
-8. Validate JSON against schema and source coverage gates.
-9. Render spot-check pages in the app.
+8. Generate or update the book catalog with `bookId`, source notice, language pair, and runtime content path.
+9. Validate JSON against schema, catalog, and source coverage gates.
+10. Render spot-check pages in the app.
 
 ## Current Chapter 1 Implementation
 
@@ -59,6 +61,7 @@ Current generated content includes:
 - 940 image blocks across English and Chinese content streams
 - 3952 offline dictionary entries: curated Six Sigma/course terms plus a manual-scoped ECDICT learner subset
 - `asset-manifest.json` for PWA figure pre-cache
+- `catalog.json` with `six-sigma-black-belt` as the first book and bilingual non-commercial source notice
 
 The Android runtime bundles these assets inside the APK/AAB. Native Android does not register the PWA service worker, so app upgrades are not blocked by stale browser caches.
 
@@ -90,6 +93,8 @@ The source PDF is copied locally to `C:\findjob_sixsigma_sources\source_manual.p
 - curated term references resolve
 - source coverage QA confirms the 557-page source PDF, 142 source TOC sections, 127 matched source section anchors, 15 explicitly allowed normal-paragraph source headings, 470 app assets, and nonblank Poppler renders for sampled source pages 9, 73, 396, 544, and 555
 - sample chapter opens on phone viewport without horizontal overflow
+- catalog validation confirms every book has `bookId`, bilingual title, language pair, source notice, and a resolvable runtime `contentPath`
+- browser/CDP multi-book UX QA confirms the opening notice, home library, GitHub link, page 340 search, book-scoped vocabulary save, bottom-sheet scroll lock, immersive mode, and subtle watermark
 
 ## Open Extraction Problems
 

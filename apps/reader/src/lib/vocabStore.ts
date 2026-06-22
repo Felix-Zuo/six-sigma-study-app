@@ -1,11 +1,15 @@
 export type SavedTerm = {
   id: string;
+  bookId: string;
+  bookTitle: string;
+  contentVersion?: string;
   term: string;
   translation: string;
   chapter: number;
   chapterTitle: string;
   page: number;
   sectionId: string;
+  blockId?: string;
   sourceText: string;
   savedAt: string;
   status: "new" | "learning" | "mastered";
@@ -17,6 +21,8 @@ export type SavedTerm = {
 };
 
 const storageKey = "six-sigma-study:vocab:v1";
+const defaultBookId = "six-sigma-black-belt";
+const defaultBookTitle = "六西格玛黑带教材";
 const dayMs = 24 * 60 * 60 * 1000;
 const reviewIntervalsByStreak = [1, 3, 7, 14, 30, 60];
 
@@ -43,12 +49,16 @@ function normalizeSavedTerm(item: Partial<SavedTerm>): SavedTerm {
   const correctStreak = toSafeNumber(item.correctStreak, status === "mastered" ? 3 : 0);
   return {
     id: item.id ?? `term-${Date.now()}`,
+    bookId: item.bookId || defaultBookId,
+    bookTitle: item.bookTitle || defaultBookTitle,
+    contentVersion: item.contentVersion,
     term: item.term ?? "",
     translation: item.translation ?? "待完善",
     chapter: item.chapter ?? 1,
     chapterTitle: item.chapterTitle ?? "Chapter 1: What is Six Sigma?",
     page: item.page ?? 1,
     sectionId: item.sectionId ?? "",
+    blockId: item.blockId,
     sourceText: item.sourceText ?? "",
     savedAt,
     status,
@@ -141,6 +151,9 @@ function csvCell(value: string | number | undefined): string {
 export function savedTermsToCsv(terms: SavedTerm[]): string {
   const headers = [
     "term",
+    "bookId",
+    "bookTitle",
+    "contentVersion",
     "translation",
     "status",
     "reviewCount",
@@ -152,10 +165,14 @@ export function savedTermsToCsv(terms: SavedTerm[]): string {
     "chapterTitle",
     "page",
     "sectionId",
+    "blockId",
     "sourceText"
   ];
   const rows = terms.map((term) => [
     term.term,
+    term.bookId,
+    term.bookTitle,
+    term.contentVersion,
     term.translation,
     term.status,
     term.reviewCount,
@@ -167,6 +184,7 @@ export function savedTermsToCsv(terms: SavedTerm[]): string {
     term.chapterTitle,
     term.page,
     term.sectionId,
+    term.blockId,
     term.sourceText
   ]);
   return [headers, ...rows].map((row) => row.map(csvCell).join(",")).join("\r\n");

@@ -3,6 +3,9 @@ import fs from "node:fs";
 const endpoint = process.env.CDP_ENDPOINT ?? "http://127.0.0.1:9222/json";
 const readerPositionKey = "six-sigma-study:reader-position:v1";
 const notesKey = "six-sigma-study:notes:v1";
+const noticeAcceptedKey = "six-sigma-study:notice-accepted:v1";
+const activeBookKey = "six-sigma-study:active-book:v1";
+const bookId = "six-sigma-black-belt";
 const targetChapterId = "ch01";
 const targetSectionId = "data-driven-processes";
 
@@ -81,9 +84,13 @@ async function main() {
   }
 
   await evalPage(`(() => {
+    localStorage.setItem(${JSON.stringify(noticeAcceptedKey)}, "true");
+    localStorage.setItem(${JSON.stringify(activeBookKey)}, ${JSON.stringify(bookId)});
     localStorage.setItem(${JSON.stringify(readerPositionKey)}, JSON.stringify({
+      bookId: ${JSON.stringify(bookId)},
       chapterId: ${JSON.stringify(targetChapterId)},
       sectionId: ${JSON.stringify(targetSectionId)},
+      page: 13,
       language: "zh",
       scrollY: 0,
       updatedAt: new Date().toISOString()
@@ -94,6 +101,8 @@ async function main() {
   })()`);
 
   await sleep(1800);
+  await waitFor("book library", () => evalPage(`Boolean(document.querySelector(".bookCard .primaryAction"))`));
+  await evalPage(`document.querySelector(".bookCard .primaryAction")?.click()`);
   await waitFor("Chinese target section", () =>
     evalPage(`Boolean(document.querySelector('[data-section-id="${targetSectionId}"] .sectionBody.zhText'))`)
   );
@@ -130,6 +139,7 @@ async function main() {
     return {
       count: notes.length,
       text: item?.text ?? null,
+      bookId: item?.bookId ?? null,
       language: item?.language ?? null,
       page: item?.page ?? null,
       sectionId: item?.sectionId ?? null
@@ -164,6 +174,7 @@ async function main() {
     selectedText.length >= 2 &&
     savedState.count === 1 &&
     savedState.text === selectedText &&
+    savedState.bookId === bookId &&
     savedState.language === "zh" &&
     savedState.sectionId === targetSectionId &&
     editedState.note === "复习：注意术语定义和例句。" &&

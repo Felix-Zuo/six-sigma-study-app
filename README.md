@@ -1,6 +1,6 @@
 # Six Sigma Study App
 
-Private product repository for a mobile-first bilingual reader for the Six Sigma Black Belt training manual.
+Product repository for a mobile-first bilingual study platform. The first bundled book is the Six Sigma Black Belt training manual.
 
 The goal is not to make a static PDF viewer. The app should turn the manual into a structured study product:
 
@@ -10,6 +10,10 @@ The goal is not to make a static PDF viewer. The app should turn the manual into
 - support phrases and Six Sigma terms, not only isolated words
 - save words or phrases into a local vocabulary book
 - preserve original figures, tables, and chart images where structured rebuilding would reduce fidelity
+- start from a non-commercial source notice and a book library instead of opening a fixed manual directly
+- keep vocabulary, notes, and source anchors scoped by book so later manuals can be added safely
+
+This project is for personal study, Chinese translation, and bilingual reference only. It is not an official CSSC product, and commercial use of the bundled manual content is prohibited.
 
 ## Current Decision
 
@@ -32,8 +36,9 @@ It intentionally does **not** commit the full manual DOCX/PDF/PNG assets. Those 
 
 - Android-first app: release APK and AAB build locally.
 - Full manual: all 33 chapters, 449 aligned study pages, 174 generated reader sections.
-- Offline runtime package: `manual.json`, 3954-entry offline learner dictionary, local vocabulary store, PWA install cache, and 470 bundled figure/table/formula PNG assets.
-- Reader interactions: EN/ZH toggle with block-aware position restoration, table-of-contents search, persisted dark mode and font size controls, tap-to-lookup, phrase selection lookup, bottom-sheet explanations, local vocabulary save/status, due-based vocabulary review, vocabulary CSV export, and selected-text study notes.
+- Multi-book runtime package: `catalog.json` plus the first `manual.json` book package, 3954-entry offline learner dictionary, local vocabulary store, PWA install cache, and 470 bundled figure/table/formula PNG assets.
+- Reader interactions: opening non-commercial notice, book-library home, EN/ZH toggle with block-aware position restoration, page-level table-of-contents search, deduplicated page rail, persisted dark mode and font size controls, immersive reading mode, tap-to-lookup, phrase selection lookup, bottom-sheet explanations, local vocabulary save/status, due-based vocabulary review, vocabulary CSV export, selected-text study notes, and return-to-source actions.
+- Learning data isolation: reader position, vocabulary, notes, and saved source anchors carry `bookId`; old localStorage data migrates to `six-sigma-black-belt`.
 - Page anchors: every generated content block carries a page anchor, and both English and Chinese content streams cover pages 6-449.
 - Long chapter handling: English word buttons are mounted only near the viewport to avoid huge DOMs.
 - Latest local release validation pass at the time of this note: 2026-06-22 08:18 Asia/Shanghai.
@@ -50,6 +55,7 @@ npm run lint:content
 npm run qa:source-coverage
 npm run build
 npm run dev
+npm run qa:multibook-ux
 ```
 
 `npm run extract:manual` expects local aligned DOCX copies at:
@@ -79,7 +85,8 @@ Current generated figure package:
 - `apps/reader`: mobile reader PWA prototype
 - `content/schemas`: app content contracts
 - `content/processed/chapters/ch01.json`: generated real Chapter 1 bilingual content
-- `content/processed/manual.json`: generated full-manual bilingual content package
+- `content/processed/manual.json`: generated full-manual bilingual book package
+- `apps/reader/public/content/catalog.json`: runtime book catalog and source notice metadata
 - `content/processed/dictionary/six-sigma-terms.json`: curated Six Sigma terms plus manual-scoped ECDICT learner dictionary subset
 - `content/processed/manual.sample.json`: small legacy sample lesson for UI development
 - `apps/reader/public/content/assets`: generated offline figure assets used by the app
@@ -90,6 +97,14 @@ Android WebView key chapter QA expects a running release APK with WebView DevToo
 
 ```powershell
 npm run qa:android-key-chapters
+```
+
+For browser/CDP verification of the multi-book shell and reading UX, serve the app and expose a clean Chrome target, then run:
+
+```powershell
+$env:CDP_ENDPOINT = "http://127.0.0.1:9333/json"
+$env:QA_APP_URL = "http://127.0.0.1:4177/"
+npm run qa:multibook-ux
 ```
 
 ## Android Build

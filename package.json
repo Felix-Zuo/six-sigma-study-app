@@ -18,6 +18,7 @@
     "build:dictionary": "python scripts/build_manual_dictionary.py",
     "lint:content": "python scripts/validate_content.py content/processed",
     "qa:source-coverage": "python scripts/qa_source_coverage.py",
+    "qa:multibook-ux": "node scripts/qa-multibook-ux-cdp.mjs",
     "qa:android-key-chapters": "node scripts/qa-android-key-chapters-cdp.mjs"
   },
   "devDependencies": {

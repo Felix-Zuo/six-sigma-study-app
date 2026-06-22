@@ -259,6 +259,48 @@ def validate_manifest(path: Path, data: dict) -> None:
     print(f"ok: {path} ({len(chapters)} manifest chapters)")
 
 
+def validate_catalog(path: Path, data: dict) -> None:
+    if not data.get("defaultBookId"):
+        fail("catalog missing defaultBookId")
+    books = data.get("books")
+    if not isinstance(books, list) or not books:
+        fail("catalog books must be a non-empty array")
+    seen_ids: set[str] = set()
+    default_seen = False
+    for book in books:
+        if not isinstance(book, dict):
+            fail(f"catalog book is not an object: {book!r}")
+        for key in ["bookId", "title", "languagePair", "contentPath", "pageCount", "chapterCount", "source", "licenseNotice"]:
+            if key not in book:
+                fail(f"catalog book missing {key}: {book!r}")
+        book_id = book["bookId"]
+        if not isinstance(book_id, str) or not book_id.strip():
+            fail(f"invalid catalog bookId: {book_id!r}")
+        if book_id in seen_ids:
+            fail(f"duplicate catalog bookId: {book_id}")
+        seen_ids.add(book_id)
+        default_seen = default_seen or book_id == data["defaultBookId"]
+        for text_key in ["title", "licenseNotice"]:
+            localized = book[text_key]
+            if not isinstance(localized, dict) or not localized.get("en") or not localized.get("zh"):
+                fail(f"catalog book {book_id} missing bilingual {text_key}")
+        language_pair = book["languagePair"]
+        if not isinstance(language_pair, list) or "en" not in language_pair or "zh" not in language_pair:
+            fail(f"catalog book {book_id} languagePair must include en and zh")
+        if not isinstance(book["pageCount"], int) or book["pageCount"] < 1:
+            fail(f"catalog book {book_id} invalid pageCount")
+        if not isinstance(book["chapterCount"], int) or book["chapterCount"] < 1:
+            fail(f"catalog book {book_id} invalid chapterCount")
+        content_path = str(book["contentPath"])
+        if content_path.startswith("/") or ".." in Path(content_path).parts:
+            fail(f"catalog book {book_id} unsafe contentPath: {content_path}")
+        if not (REPO_ROOT / "apps" / "reader" / "public" / content_path).exists():
+            fail(f"catalog book {book_id} contentPath does not exist: {content_path}")
+    if not default_seen:
+        fail(f"catalog defaultBookId not found: {data['defaultBookId']}")
+    print(f"ok: {path} ({len(books)} catalog books)")
+
+
 def validate_manual(path: Path, data: dict) -> None:
     if data.get("pageCount") != EXPECTED_PAGE_COUNT:
         fail(f"manual pageCount must be {EXPECTED_PAGE_COUNT}: {data.get('pageCount')}")
@@ -295,6 +337,8 @@ def validate_file(path: Path) -> None:
             validate_manual(path, data)
         else:
             validate_manifest(path, data)
+    elif isinstance(data, dict) and "books" in data:
+        validate_catalog(path, data)
     else:
         fail(f"unrecognized content file: {path}")
 

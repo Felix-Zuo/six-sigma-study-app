@@ -481,6 +481,48 @@ The final product must support full-manual offline reading, position-preserving 
   - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`
   - AAB `jarsigner -verify`: verified with expected self-signed certificate warnings
 
+## 2026-06-23 Multi-Book Product Core Update
+
+- GitHub issue planning:
+  - Created bounded issues #9 through #18 for multi-book catalog, book-scoped storage, opening notice, GitHub/watermark, scroll containment, page/progress UI, immersive mode, alignment anchors, dictionary scoping, and QA gates.
+- Product/runtime implementation:
+  - Added runtime catalog at `apps/reader/public/content/catalog.json` with first book `six-sigma-black-belt`.
+  - Added bilingual opening notice: public study material, personal study/translation use, no commercial use, not an official CSSC product, original rights retained by the rights holder.
+  - Added home/library view with one Six Sigma book card and a natural GitHub profile link to `https://github.com/Felix-Zuo`.
+  - Added subtle author/non-commercial watermark on home and reader screens.
+  - Added `bookId`, `bookTitle`, optional `contentVersion`, and `blockId` to vocabulary and note records; old records normalize to `six-sigma-black-belt`.
+  - Added `bookId`, `page`, and `blockId` to reader position persistence.
+  - Added rendered `data-block-id` and `data-page` anchors for all block types.
+  - Reworked page UI to show current page, full-book progress, chapter page range, chapter progress, and deduplicated page rail.
+  - Added page-level TOC search; verified page 340 inside long Chapter 26 section jumps to the matching block.
+  - Added bottom-sheet/body scroll lock with `overscroll-behavior: contain`.
+  - Added immersive reading mode with Android/back-button-aware exit path and hidden chrome/docks.
+  - Added return-to-source actions from lookup sheet, vocabulary entries, and notes.
+  - Shortened lookup source context to sentence/near-sentence snippets instead of saving full long paragraphs.
+- Validation completed in this stage:
+  - `npm run typecheck`: passed.
+  - `npm run build`: passed.
+  - `npm run lint:content`: passed after adding catalog validation.
+  - `npm run qa:source-coverage`: passed; sourcePdfPages=557, manualPages=449, chapters=33, contentBlocks=9542, imageBlocks=940, assets=470.
+  - `npm run qa:multibook-ux`: passed against Vite dev server `http://127.0.0.1:4177/` and Chrome CDP `http://127.0.0.1:9333/json`.
+  - `node scripts\qa-vocab-export-cdp.mjs`: passed; verified legacy vocab migration to `bookId`, CSV escaping, current-book export, and no horizontal overflow.
+  - `node scripts\qa-notes-cdp.mjs`: passed; verified note `bookId`, Chinese selection save/edit, and no horizontal overflow.
+  - `node scripts\qa-android-key-chapters-cdp.mjs`: passed against Chrome CDP as WebView-equivalent check for Chapters 1, 7, 26, and 33; verified lookup, EN/ZH block restoration, image counts, no broken images, and no horizontal overflow.
+  - `npm run android:release-apk`: passed.
+  - `npm run android:aab`: passed.
+  - Release APK: `C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk`, 37,823,763 bytes.
+  - Release AAB: `C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab`, 35,607,003 bytes.
+  - APK/AAB package contents: 473 checked runtime content entries, covering `catalog.json`, `manual.json`, `asset-manifest.json`, and 470 figure PNG files.
+  - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`.
+  - AAB `jarsigner -verify`: verified with expected self-signed certificate path warnings.
+- Current screenshots:
+  - `qa/screenshots/multibook-ux-qa.png`
+  - `qa/screenshots/vocab-export-qa.png`
+  - `qa/screenshots/notes-panel-qa.png`
+  - `qa/screenshots/android-key-ch01-zh.png`, `android-key-ch07-zh.png`, `android-key-ch26-zh.png`, `android-key-ch33-zh.png`, plus lookup/image screenshots.
+- Next required validation before completing the goal:
+  - Push to GitHub, watch GitHub Actions CI, and close issues whose acceptance criteria are satisfied.
+
 ## Known Limitations
 
 - The release signing key is a local self-signed key for this project; store upload key policy and distribution channel are not finalized.
