@@ -570,6 +570,14 @@ The final product must support full-manual offline reading, position-preserving 
   - AAB `jarsigner -verify -certs`: verified with expected self-signed/no-timestamp certificate warnings.
   - Release merged manifest confirms `android:allowBackup="false"`.
 
+## 2026-06-25 Target Two Finalization
+
+- Final public showcase / Agent import commit: `277bd4b6e5098cd97ace8774b94e86d95249167a`.
+- Public repository URL verified with HTTP 200: `https://github.com/Felix-Zuo/six-sigma-study-app`.
+- GitHub Actions CI run `28132353539` passed on `main` for the final commit.
+- Closed target-two GitHub issues #19 through #28 with evidence comments.
+- Final local worktree was verified clean after commit and push.
+
 ## Known Limitations
 
 - The release signing key is a local self-signed key for this project; store upload key policy and distribution channel are not finalized.
@@ -599,6 +607,16 @@ The final product must support full-manual offline reading, position-preserving 
 - #16 提高中英文切换后的段落/块级对齐
 - #17 改造词典和术语层以支持多教材
 - #18 补齐多教材和关键阅读体验 QA
+- #19 建立公开合规内容边界与 public-readiness 记录
+- #20 清理 runtime JSON 本机路径并加入公开审计门禁
+- #21 定义 Agent 教材导入输入契约和输出 book schema
+- #22 实现 Agent 导入 contract validator 与 sample book
+- #23 用第二本安全样例证明多教材 runtime
+- #24 将 README 重做为作品集级展示入口
+- #25 提交展示截图和系统展示文档
+- #26 完成竞品和优秀展示页调研
+- #27 完善 GitHub public surface 和社区健康项
+- #28 完成目标二最终验证、Android 构建、CI 和 issue closure
 - #1 Build Chapter 1 content extraction pipeline
 - #3 Implement tap-to-lookup bottom sheet
 - #4 Seed curated Six Sigma terminology dictionary
@@ -619,7 +637,7 @@ After context compression or a new session, do this before making changes:
 
 ## Next Action
 
-Improve curated manual section mapping for the 15 normal-paragraph source headings, run physical-phone long-press QA, add inline highlight rendering for saved notes, review remaining dictionary fallback tokens, perform low-end-device performance profiling, and run the final Android release verification sweep.
+Future product polish: improve curated manual section mapping for the 15 normal-paragraph source headings, run physical-phone long-press QA, add inline highlight rendering for saved notes, review remaining dictionary fallback tokens, and perform low-end-device performance profiling.
 
 ## Constraints
 
