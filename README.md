@@ -1,200 +1,205 @@
 # Six Sigma Study App
 
-Product repository for a mobile-first bilingual study platform. The first bundled book is the Six Sigma Black Belt training manual.
+[![CI](https://github.com/Felix-Zuo/six-sigma-study-app/actions/workflows/ci.yml/badge.svg)](https://github.com/Felix-Zuo/six-sigma-study-app/actions/workflows/ci.yml)
 
-The goal is not to make a static PDF viewer. The app should turn the manual into a structured study product:
+A local-first Android/PWA bilingual textbook study platform that turns legally usable technical manuals into aligned reading, tap-to-lookup vocabulary, notes, and review workflows.
 
-- switch Chinese and English with one always-available button
-- keep page, chapter, paragraph, and figure alignment between languages
-- tap any English word to open a half-screen explanation sheet
-- support phrases and Six Sigma terms, not only isolated words
-- save words or phrases into a local vocabulary book
-- preserve original figures, tables, and chart images where structured rebuilding would reduce fidelity
-- start from a non-commercial source notice and a book library instead of opening a fixed manual directly
-- keep vocabulary, notes, and source anchors scoped by book so later manuals can be added safely
+The first full book is a non-commercial Chinese-English study edition of the CSSC Six Sigma Black Belt training manual. A second synthetic sample book proves the Agent import contract and multi-book runtime path.
 
-This project is for personal study, Chinese translation, and bilingual reference only. It is not an official CSSC product, and commercial use of the bundled manual content is prohibited.
+This is not an official CSSC product. The bundled manual-derived content is for personal study, Chinese translation, and bilingual reference only. Commercial use is prohibited.
 
-## Current Decision
+## Product Snapshot
 
-Use a PWA-first reader runtime wrapped with Capacitor for native Android packaging.
+| Metric | Current State |
+| --- | --- |
+| Runtime books | 2 catalog books: full Six Sigma manual + synthetic Agent import sample |
+| Six Sigma content | 33 chapters, 449 aligned study pages, 174 reader sections |
+| Preserved assets | 470 figure/table/formula PNG runtime assets |
+| Dictionary | 3954 local entries, curated Six Sigma terms first |
+| Platforms | Android APK/AAB via Capacitor, PWA runtime for browser QA |
+| Study data | `bookId`-scoped reading position, vocabulary, notes, and source anchors |
+| Public gates | content validation, Agent book contract validation, public-readiness audit, CI |
 
-Why:
+## Screenshots
 
-- The reader needs clickable inline text; web DOM spans make this easier and more precise than native text layout.
-- The first usable product can run through a browser during development and the same codebase now builds a local Android debug APK.
-- Capacitor keeps the Android packaging path close to the web reader while preserving a future route to iOS/TestFlight.
-- Manual data can stay local-first, with optional sync added later.
+| Library | Reader | Lookup |
+| --- | --- | --- |
+| ![Book library](docs/assets/showcase/home-library.png) | ![Bilingual reader](docs/assets/showcase/bilingual-reader.png) | ![Lookup sheet](docs/assets/showcase/lookup-sheet.png) |
 
-## Repository Scope
+| Notes | Figure Preservation |
+| --- | --- |
+| ![Notes panel](docs/assets/showcase/notes-panel.png) | ![Figure preservation](docs/assets/showcase/figure-preservation.png) |
 
-This repo contains product planning, app scaffolding, content schema, pipeline scripts, generated app content, and the Capacitor Android shell.
+## Study Workflow
 
-It intentionally does **not** commit the full manual DOCX/PDF/PNG assets. Those files stay local and are transformed into generated content packages.
+1. Open the Android app and accept the bilingual non-commercial source notice.
+2. Choose a book from the library.
+3. Switch English/Chinese at any time; the reader restores the same section/block when possible.
+4. Tap an English word or selected phrase to open the half-screen explanation sheet.
+5. Save terms to the local vocabulary book or save selected text as notes.
+6. Return from vocabulary/notes back to the exact source page and block.
 
-## Current Product State
+When another book is selected, vocabulary and notes are filtered to that book. Legacy localStorage records from the first book are migrated to `six-sigma-black-belt`.
 
-- Android-first app: release APK and AAB build locally.
-- Full manual: all 33 chapters, 449 aligned study pages, 174 generated reader sections.
-- Multi-book runtime package: `catalog.json` plus the first `manual.json` book package, 3954-entry offline learner dictionary, local vocabulary store, PWA install cache, and 470 bundled figure/table/formula PNG assets.
-- Reader interactions: opening non-commercial notice, book-library home, EN/ZH toggle with block-aware position restoration, page-level table-of-contents search, deduplicated page rail, persisted dark mode and font size controls, immersive reading mode, tap-to-lookup, phrase selection lookup, bottom-sheet explanations, local vocabulary save/status, due-based vocabulary review, vocabulary CSV export, selected-text study notes, and return-to-source actions.
-- Learning data isolation: reader position, vocabulary, notes, and saved source anchors carry `bookId`; old localStorage data migrates to `six-sigma-black-belt`.
-- Page anchors: every generated content block carries a page anchor, and both English and Chinese content streams cover pages 6-449.
-- Long chapter handling: English word buttons are mounted only near the viewport to avoid huge DOMs.
-- Latest local release validation pass at the time of this note: 2026-06-22 08:18 Asia/Shanghai.
+## Core Features
 
-See [Release Verification](docs/08-release-verification.md) for the current evidence matrix.
+- Multi-book catalog and home/library screen.
+- Opening logo and bilingual rights/non-commercial notice.
+- English/Chinese reading mode with block-aware position restoration.
+- Deduplicated page rail, chapter progress, page search, and table-of-contents navigation.
+- Immersive reading mode with Android back-button handling.
+- Bottom-sheet lookup with scroll containment, so sheet scrolling does not drag the reader behind it.
+- Curated terms, learner dictionary entries, phrase lookup, vocabulary review scheduling, and CSV export.
+- Selected-text notes with source return actions.
+- Offline Android packaging with generated figures bundled in APK/AAB.
+- Agent textbook import contract for future legally usable books.
 
-## Local Start
+## Architecture
+
+```mermaid
+flowchart LR
+  A["Book catalog<br/>catalog.json"] --> B["Reader shell<br/>React + Vite"]
+  C["Book package<br/>manual.json"] --> B
+  D["Dictionary<br/>curated + learner terms"] --> B
+  E["Figure assets<br/>safe relative paths"] --> B
+  B --> F["Android WebView<br/>Capacitor APK/AAB"]
+  B --> G["PWA runtime<br/>service worker cache"]
+  B --> H["Local study data<br/>bookId-scoped localStorage"]
+```
+
+More system diagrams: [docs/09-showcase-systems.md](docs/09-showcase-systems.md).
+
+## Content Pipeline
+
+```mermaid
+flowchart TD
+  A["Legal source material<br/>PDF/DOCX/structured input"] --> B["Extraction or Agent import"]
+  B --> C["Bilingual chapters<br/>page + block anchors"]
+  C --> D["Runtime book package<br/>content/books/<bookId>/manual.json"]
+  D --> E["Catalog entry"]
+  E --> F["Validation gates"]
+  F --> G["Android/PWA build"]
+```
+
+The Six Sigma profile remains strict for the complete manual. The generic Agent import path validates future books without depending on the Six Sigma 33-chapter constants.
+
+## Agent Textbook Import
+
+Future textbook Agents should follow [docs/agent-import.md](docs/agent-import.md).
+
+| Contract Piece | Path |
+| --- | --- |
+| Agent input schema | `content/schemas/agent-import-request.schema.json` |
+| Book package schema | `content/schemas/book-package.schema.json` |
+| Sample request | `samples/agent-import/sample-book-request.json` |
+| Sample book source package | `content/books/agent-import-sample/manual.json` |
+| Runtime sample package | `apps/reader/public/content/books/agent-import-sample/manual.json` |
+| Validator | `scripts/import_book_agent_contract.py` |
+
+Validation:
 
 ```powershell
-cd C:\findjob_sixsigma_app
-npm install
-npm run extract:manual
-npm run lint:content
-npm run qa:source-coverage
-npm run build
-npm run dev
-npm run qa:multibook-ux
+npm run lint:books
+npm run qa:book-import
 ```
 
-`npm run extract:manual` expects local aligned DOCX copies at:
+The sample book is original synthetic content. It exists to prove that a new book can enter the library through catalog/package files without changing the reader core.
 
-- `C:\findjob_sixsigma_sources\manual_en_aligned.docx`
-- `C:\findjob_sixsigma_sources\manual_zh_aligned.docx`
-- `C:\findjob_sixsigma_sources\ecdict.csv` for the ECDICT-derived offline learner dictionary subset
+## Public Rights Boundary
 
-The script generates structured content for all 33 chapters into `content/processed`, then copies the full manual package into `apps/reader/public/content/manual.json` for runtime loading. It also extracts DOCX-embedded figures and table screenshots, deduplicates them by content hash, and writes the app assets under `apps/reader/public/content/assets/`.
+- CSSC training-materials page: https://www.sixsigmacouncil.org/six-sigma-training-material/
+- Listed file: `CSSC Lean Six Sigma Black Belt Certification Training Manual.pdf`
+- Project use: personal study, Chinese translation organization, bilingual reference, and non-commercial portfolio demonstration.
+- Not allowed: commercial use, paid redistribution, paid training use, resale, or implication of official endorsement.
+- Original rights: original manual text, figures, tables, and course material remain owned by their original rights holder.
 
-For source-TOC-guided section anchors, the local source PDF is copied to:
+Public-readiness evidence: [PUBLIC_READINESS.md](PUBLIC_READINESS.md). Attribution and third-party notices: [ATTRIBUTION.md](ATTRIBUTION.md), [NOTICE.md](NOTICE.md), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
-- `C:\findjob_sixsigma_sources\source_manual.pdf`
+## Validation Matrix
 
-The derived metadata committed to the repo is `content/source/source_toc_sections.json`; the original PDF is not committed.
+| Area | Command / Evidence | Coverage |
+| --- | --- | --- |
+| Six Sigma content | `npm run lint:content` | 33 chapters, 449 pages, block page anchors, assets, dictionary lookup uniqueness |
+| Agent books | `npm run lint:books` | Agent request, generic book packages, catalog uniqueness, sample import |
+| Public safety | `npm run audit:public` | denylisted tracked files and runtime JSON local-path scan |
+| Source coverage | `npm run qa:source-coverage` | source TOC anchors, assets, sampled nonblank source renders |
+| Reader UX | `npm run qa:multibook-ux` | notice, home, page search, book-scoped vocab, scroll lock, immersive mode |
+| Android WebView | `npm run qa:android-key-chapters` | Chapters 1, 7, 26, 33, lookup, alignment, image checks |
+| Release package | `npm run android:release-apk` and `npm run android:aab` | local signed APK/AAB with runtime content bundled |
 
-`npm run qa:source-coverage` validates the local source PDF, source TOC anchors, generated block-level page coverage, 470 app assets, and sampled nonblank Poppler renders. The preferred Poppler runtime is copied to the pure-English path `C:\findjob_sixsigma_tools\poppler\Library\bin` to avoid Unicode path issues in older Poppler wrappers.
+Detailed evidence: [docs/08-release-verification.md](docs/08-release-verification.md).
 
-Current generated figure package:
+## Android Install / Build
 
-- 470 PNG assets
-- about 31.7 MB before APK compression
-- bundled into both release APK and release AAB
-
-## Key Folders
-
-- `apps/reader`: mobile reader PWA prototype
-- `content/schemas`: app content contracts
-- `content/processed/chapters/ch01.json`: generated real Chapter 1 bilingual content
-- `content/processed/manual.json`: generated full-manual bilingual book package
-- `apps/reader/public/content/catalog.json`: runtime book catalog and source notice metadata
-- `content/processed/dictionary/six-sigma-terms.json`: curated Six Sigma terms plus manual-scoped ECDICT learner dictionary subset
-- `content/processed/manual.sample.json`: small legacy sample lesson for UI development
-- `apps/reader/public/content/assets`: generated offline figure assets used by the app
-- `scripts`: validation and extraction tools
-- `docs`: PRD, architecture, roadmap, research, and ADRs
-
-Android WebView key chapter QA expects a running release APK with WebView DevTools forwarded to `127.0.0.1:9222`:
-
-```powershell
-npm run qa:android-key-chapters
-```
-
-For browser/CDP verification of the multi-book shell and reading UX, serve the app and expose a clean Chrome target, then run:
-
-```powershell
-$env:CDP_ENDPOINT = "http://127.0.0.1:9333/json"
-$env:QA_APP_URL = "http://127.0.0.1:4177/"
-npm run qa:multibook-ux
-```
-
-## Android Build
-
-Local Android SDK path used for the first debug build:
-
-```powershell
-$env:ANDROID_HOME = "C:\android-sdk"
-$env:ANDROID_SDK_ROOT = "C:\android-sdk"
-$env:PATH = "C:\android-sdk\platform-tools;C:\android-sdk\cmdline-tools\latest\bin;$env:PATH"
-npm run android:apk
-```
-
-Debug APK output:
-
-```text
-C:\findjob_sixsigma_app\android\app\build\outputs\apk\debug\app-debug.apk
-```
-
-This debug APK is for local testing.
-
-Release APK/AAB builds use `android\keystore.properties`, which is ignored by Git. Start from `android\keystore.properties.example`, keep the actual keystore outside the repo, then run:
-
-```powershell
-npm run android:release-apk
-npm run android:aab
-```
-
-Release outputs:
+Release outputs are generated locally:
 
 ```text
 C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk
 C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab
 ```
 
-Build APK and AAB sequentially. Running both Android release scripts in parallel can make Vite compete over the same `apps\reader\dist` directory.
-
-Current release package checks verify that both APK and AAB contain:
-
-- `index.html`, `manifest.webmanifest`, and `sw.js`
-- Vite hashed JS/CSS reader shell assets
-- `content/manual.json`
-- `content/assets/asset-manifest.json`
-- 470 figure PNG files
-
-The local signing certificate SHA-256 currently used for release builds is:
-
-```text
-126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba
-```
-
-## Android Emulator QA
-
-The local QA emulator is named `SixSigmaQA`:
+Build sequentially:
 
 ```powershell
-$env:ANDROID_HOME = "C:\android-sdk"
-$env:ANDROID_SDK_ROOT = "C:\android-sdk"
-$env:PATH = "C:\android-sdk\emulator;C:\android-sdk\platform-tools;C:\android-sdk\cmdline-tools\latest\bin;$env:PATH"
-emulator -avd SixSigmaQA -no-window -gpu swiftshader_indirect -no-audio -no-boot-anim -no-snapshot
-adb install -r android\app\build\outputs\apk\debug\app-debug.apk
-adb shell monkey -p com.findjob.sixsigmastudy -c android.intent.category.LAUNCHER 1
+npm install
+npm run android:release-apk
+npm run android:aab
 ```
 
-Primary Android QA coverage currently focuses on Chapters 1, 7, 21, 26, and 33. Chapter 7 is used for section and phrase-selection checks; Chapters 26 and 33 are used for long, image-heavy chapter checks.
+Release signing uses ignored local files:
 
-After launching the release APK and forwarding the app WebView CDP socket to `127.0.0.1:9222`, run these targeted Android QA checks:
+- `android\keystore.properties`
+- external keystore such as `C:\findjob_sixsigma_secrets\sixsigma-release.jks`
+
+Do not commit signing files.
+
+## Local Development
 
 ```powershell
-node scripts\qa-language-toggle-cdp.mjs
-npm run qa:android-key-chapters
+npm install
+npm run lint:content
+npm run lint:books
+npm run audit:public
+npm run typecheck
+npm run build
+npm run dev
 ```
 
-## PWA Offline QA
+The full Six Sigma extraction profile expects local source files outside Git, normally under `C:\findjob_sixsigma_sources`:
 
-With the production build served by `vite preview` on `127.0.0.1:4175` and a clean Chrome instance exposed through CDP on `127.0.0.1:9333`, run:
+- aligned English DOCX
+- aligned Chinese DOCX
+- source PDF for source-coverage QA
+- ECDICT CSV for dictionary subset generation
 
-```powershell
-node scripts\qa-pwa-offline-cdp.mjs
-```
+The source files are not committed. Runtime JSON uses public-safe provenance fields instead of local source paths.
 
-The current passing run verified service-worker control, 479 cached runtime entries including 470 figures, offline reload rendering, 23 Chapter 1 sections, and 0 horizontal overflow.
+## Key Folders
 
-## Dictionary QA
+- `apps/reader`: React/Vite reader wrapped by Capacitor for Android.
+- `apps/reader/public/content`: public runtime catalog, book packages, and figure assets.
+- `content/books`: source-controlled generic book packages for Agent import fixtures.
+- `content/processed`: generated Six Sigma content and processed catalog.
+- `content/schemas`: content, Agent request, and book package contracts.
+- `scripts`: extraction, validation, QA, import-contract, and public-audit tooling.
+- `docs`: architecture, pipeline, release verification, showcase systems, and research notes.
 
-The committed learner dictionary is generated from curated course terms plus an ECDICT subset scoped to words that appear in this manual.
+## Known Limits
 
-```powershell
-npm run build:dictionary
-node scripts\qa-dictionary-cdp.mjs
-```
+- Sentence-level semantic alignment is not separately modeled; current restoration is section/block-level.
+- Full OCR/PDF layout reconstruction is not part of the Agent sample yet.
+- Physical long-press QA on a real phone remains separate from WebView/CDP checks.
+- The offline dictionary is scoped to this manual and curated terms, not a full arbitrary English dictionary.
+- Some extracted tables intentionally remain images when that preserves fidelity better than rebuilding them.
 
-The current package contains 3954 runtime dictionary entries, including 3860 ECDICT-derived entries. The passing dictionary QA verified real lookup UI for `both` and curated hits for terms such as `COPQ`, `DMADV`, `poka-yoke`, `5S`, and `Anderson-Darling`; Android key chapter QA also verifies the curated `left-to-right` phrase entry.
+## Roadmap
+
+- Add a real `--input-manifest --report-json` converter around the Agent import contract.
+- Add highlighted rendering for saved notes.
+- Improve curated section mapping for the remaining normal-paragraph source headings.
+- Profile low-end Android devices.
+- Add optional sync/export workflows after the local-first model is stable.
+
+## Author
+
+Author profile: https://github.com/Felix-Zuo

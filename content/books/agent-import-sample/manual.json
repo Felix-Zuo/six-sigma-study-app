@@ -1,0 +1,268 @@
+{
+  "manual": "Agent Import Sample Workbook",
+  "bookId": "agent-import-sample",
+  "version": "0.1.0",
+  "pageCount": 5,
+  "title": {
+    "en": "Agent Import Sample Workbook",
+    "zh": "Agent 教材导入示例手册"
+  },
+  "subtitle": {
+    "en": "Synthetic two-chapter fixture",
+    "zh": "自写双章节验证样例"
+  },
+  "domainLabel": "导入示例术语",
+  "source": "Original sample text authored for this repository.",
+  "licenseNotice": {
+    "en": "This sample book is original synthetic content created for validating the Agent import contract. It is non-commercial and carries no third-party textbook material.",
+    "zh": "本示例教材为本项目自写的合成内容，仅用于验证 Agent 导入契约；非商业使用，不包含第三方教材素材。"
+  },
+  "chapters": [
+    {
+      "id": "sample-ch01",
+      "chapter": 1,
+      "pageStart": 1,
+      "pageEnd": 2,
+      "title": {
+        "en": "Chapter 1: Import Contract",
+        "zh": "第 1 章：导入契约"
+      },
+      "sections": [
+        {
+          "id": "sample-ch01-s01",
+          "page": 1,
+          "level": 1,
+          "title": {
+            "en": "What the Agent Receives",
+            "zh": "Agent 接收什么"
+          },
+          "content": {
+            "en": [
+              {
+                "id": "sample-ch01-s01-en-001",
+                "kind": "heading",
+                "page": 1,
+                "text": "What the Agent Receives"
+              },
+              {
+                "id": "sample-ch01-s01-en-002",
+                "kind": "paragraph",
+                "page": 1,
+                "text": "An import request describes the book identity, source files, rights status, language pair, and review gates before any runtime package is generated."
+              },
+              {
+                "id": "sample-ch01-s01-en-003",
+                "kind": "termNote",
+                "page": 1,
+                "text": "Import contract: a machine-readable agreement that tells the Agent what inputs are allowed and which checks must pass."
+              }
+            ],
+            "zh": [
+              {
+                "id": "sample-ch01-s01-zh-001",
+                "kind": "heading",
+                "page": 1,
+                "text": "Agent 接收什么"
+              },
+              {
+                "id": "sample-ch01-s01-zh-002",
+                "kind": "paragraph",
+                "page": 1,
+                "text": "导入请求会先描述教材身份、源文件、权利状态、语言组合和人工审核门槛，然后才允许生成运行时教材包。"
+              },
+              {
+                "id": "sample-ch01-s01-zh-003",
+                "kind": "termNote",
+                "page": 1,
+                "text": "导入契约：一种机器可读约定，用来告诉 Agent 哪些输入可以使用，以及哪些检查必须通过。"
+              }
+            ]
+          }
+        },
+        {
+          "id": "sample-ch01-s02",
+          "page": 2,
+          "level": 2,
+          "title": {
+            "en": "Human Review Gates",
+            "zh": "人工审核门槛"
+          },
+          "content": {
+            "en": [
+              {
+                "id": "sample-ch01-s02-en-001",
+                "kind": "paragraph",
+                "page": 2,
+                "text": "A public book must pass copyright, table-of-contents, image quality, terminology, and bilingual alignment review before it is added to the catalog."
+              },
+              {
+                "id": "sample-ch01-s02-en-002",
+                "kind": "listItem",
+                "page": 2,
+                "text": "Blocked or unknown rights keep the book out of the public runtime package."
+              }
+            ],
+            "zh": [
+              {
+                "id": "sample-ch01-s02-zh-001",
+                "kind": "paragraph",
+                "page": 2,
+                "text": "公开教材必须先通过版权、目录、图片质量、术语词典和中英对齐审核，之后才能加入教材目录。"
+              },
+              {
+                "id": "sample-ch01-s02-zh-002",
+                "kind": "listItem",
+                "page": 2,
+                "text": "权利状态未知或被阻断的内容不得进入公开运行时教材包。"
+              }
+            ]
+          }
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "sample-ch02",
+      "chapter": 2,
+      "pageStart": 3,
+      "pageEnd": 5,
+      "title": {
+        "en": "Chapter 2: Runtime Package",
+        "zh": "第 2 章：运行时教材包"
+      },
+      "sections": [
+        {
+          "id": "sample-ch02-s01",
+          "page": 3,
+          "level": 1,
+          "title": {
+            "en": "Stable Anchors",
+            "zh": "稳定锚点"
+          },
+          "content": {
+            "en": [
+              {
+                "id": "sample-ch02-s01-en-001",
+                "kind": "paragraph",
+                "page": 3,
+                "text": "Every section and content block receives a stable identifier so language switching, notes, vocabulary, and return-to-source actions can keep their place."
+              },
+              {
+                "id": "sample-ch02-s01-en-002",
+                "kind": "table",
+                "page": 3,
+                "rows": [
+                  ["Runtime field", "Purpose"],
+                  ["bookId", "Separates learning data by textbook"],
+                  ["blockId", "Restores the same semantic block after switching language"]
+                ]
+              }
+            ],
+            "zh": [
+              {
+                "id": "sample-ch02-s01-zh-001",
+                "kind": "paragraph",
+                "page": 3,
+                "text": "每个章节和内容块都会获得稳定标识，因此语言切换、笔记、词本和回到原文都能尽量保持当前位置。"
+              },
+              {
+                "id": "sample-ch02-s01-zh-002",
+                "kind": "table",
+                "page": 3,
+                "rows": [
+                  ["运行时字段", "用途"],
+                  ["bookId", "按教材隔离学习数据"],
+                  ["blockId", "切换语言后回到同一个语义块"]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "sample-ch02-s02",
+          "page": 4,
+          "level": 2,
+          "title": {
+            "en": "Dictionary Scope",
+            "zh": "词典范围"
+          },
+          "content": {
+            "en": [
+              {
+                "id": "sample-ch02-s02-en-001",
+                "kind": "paragraph",
+                "page": 4,
+                "text": "Each book may carry a small curated glossary first. A larger learner dictionary can be layered later when the source allows it."
+              }
+            ],
+            "zh": [
+              {
+                "id": "sample-ch02-s02-zh-001",
+                "kind": "paragraph",
+                "page": 4,
+                "text": "每本教材可以先携带小型人工术语表；如果来源允许，再叠加更大的学习词典。"
+              }
+            ]
+          }
+        },
+        {
+          "id": "sample-ch02-s03",
+          "page": 5,
+          "level": 2,
+          "title": {
+            "en": "Validation Output",
+            "zh": "验证输出"
+          },
+          "content": {
+            "en": [
+              {
+                "id": "sample-ch02-s03-en-001",
+                "kind": "paragraph",
+                "page": 5,
+                "text": "The import validator checks schema shape, page continuity, safe asset paths, unique lookup keys, unique book identifiers, and catalog visibility."
+              }
+            ],
+            "zh": [
+              {
+                "id": "sample-ch02-s03-zh-001",
+                "kind": "paragraph",
+                "page": 5,
+                "text": "导入验证器会检查 schema 结构、页码连续性、安全图片路径、唯一 lookup key、唯一 bookId，以及是否进入主页目录。"
+              }
+            ]
+          }
+        }
+      ],
+      "assets": []
+    }
+  ],
+  "dictionary": [
+    {
+      "term": "import contract",
+      "translation": "导入契约",
+      "partOfSpeech": "noun phrase",
+      "explanation": "A machine-readable agreement for what a textbook Agent may receive, generate, and validate.",
+      "lookupKeys": ["import contract", "contract"],
+      "isSixSigmaTerm": false,
+      "source": "sample"
+    },
+    {
+      "term": "bookId",
+      "translation": "教材标识",
+      "partOfSpeech": "noun",
+      "explanation": "A stable identifier used to separate catalog entries, reading position, vocabulary, notes, and favorites by textbook.",
+      "lookupKeys": ["bookId", "book id", "book identifier"],
+      "isSixSigmaTerm": false,
+      "source": "sample"
+    },
+    {
+      "term": "review gate",
+      "translation": "审核门槛",
+      "partOfSpeech": "noun phrase",
+      "explanation": "A required human or automated check that must pass before imported content can enter the public runtime package.",
+      "lookupKeys": ["review gate", "review gates"],
+      "isSixSigmaTerm": false,
+      "source": "sample"
+    }
+  ]
+}

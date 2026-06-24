@@ -9,7 +9,7 @@ Status: in progress
 - architecture
 - research notes
 - content schema
-- sample reader prototype
+- sample reader runtime
 - issue backlog
 
 ## Phase 1: Chapter 1 MVP

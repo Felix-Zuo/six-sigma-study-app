@@ -43,11 +43,32 @@ async function cacheFigureAssets(cache) {
   }
 }
 
+async function cacheBookPackages(cache) {
+  try {
+    const response = await fetch("/content/catalog.json", { cache: "reload" });
+    if (!response.ok) {
+      return;
+    }
+    const catalog = await response.json();
+    const paths = Array.isArray(catalog.books)
+      ? catalog.books
+          .map((book) => book && book.contentPath)
+          .filter(Boolean)
+          .map((path) => `/${path}`)
+      : [];
+    if (paths.length > 0) {
+      await cache.addAll([...new Set(paths)]);
+    }
+  } catch (error) {
+    console.warn("book package precache skipped", error);
+  }
+}
+
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
       .open(CACHE_NAME)
-      .then((cache) => cacheApplicationShell(cache).then(() => cacheFigureAssets(cache)))
+      .then((cache) => cacheApplicationShell(cache).then(() => cacheBookPackages(cache)).then(() => cacheFigureAssets(cache)))
       .then(() => self.skipWaiting())
   );
 });

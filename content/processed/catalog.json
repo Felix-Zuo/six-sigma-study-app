@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "defaultBookId": "six-sigma-black-belt",
   "books": [
     {
@@ -18,10 +18,33 @@
       "pageCount": 449,
       "chapterCount": 33,
       "assetCount": 470,
-      "source": "The Council for Six Sigma Certification public training manual",
+      "source": "The Council for Six Sigma Certification training-materials page lists the Lean Six Sigma Black Belt Certification Training Manual as a free PDF download: https://www.sixsigmacouncil.org/six-sigma-training-material/",
       "licenseNotice": {
-        "zh": "本教材据用户说明为官网下载公开学习资料，允许下载并转赠。本 App 仅用于个人学习、中文翻译整理和对照阅读，禁止任何商业化使用；本项目不代表 CSSC 官方产品，原版权归原权利方所有。",
-        "en": "The source manual is described by the user as a publicly downloadable study resource that may be shared. This app is for personal study, Chinese translation, and bilingual reference only. Commercial use is prohibited. This project is not an official CSSC product; all original rights remain with their respective owner."
+        "zh": "本教材来源于 CSSC 官网训练材料页面列出的免费 PDF。本 App 仅用于个人学习、中文翻译整理和对照阅读，禁止任何商业化使用；本项目不代表 CSSC 官方产品，原版权归原权利方所有。",
+        "en": "The source manual is listed as a free PDF on the CSSC training-materials page. This app is for personal study, Chinese translation, and bilingual reference only. Commercial use is prohibited. This project is not an official CSSC product; all original rights remain with their respective owner."
+      }
+    },
+    {
+      "bookId": "agent-import-sample",
+      "title": {
+        "en": "Agent Import Sample Workbook",
+        "zh": "Agent 教材导入示例手册"
+      },
+      "subtitle": {
+        "en": "Synthetic import fixture",
+        "zh": "自写导入验证样例"
+      },
+      "languagePair": ["en", "zh"],
+      "cover": "AI",
+      "domainLabel": "导入示例术语",
+      "contentPath": "content/books/agent-import-sample/manual.json",
+      "pageCount": 5,
+      "chapterCount": 2,
+      "assetCount": 0,
+      "source": "Original sample text authored for this repository.",
+      "licenseNotice": {
+        "zh": "本示例教材为本项目自写的合成内容，仅用于验证 Agent 导入契约；非商业使用，不包含第三方教材素材。",
+        "en": "This sample book is original synthetic content created for validating the Agent import contract. It is non-commercial and carries no third-party textbook material."
       }
     }
   ]

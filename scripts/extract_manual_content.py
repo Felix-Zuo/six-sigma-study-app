@@ -502,8 +502,8 @@ def generic_chapter(
             "zh": f"第 {chapter} 章：{zh_title}",
         },
         "source": {
-            "enDocx": str(en_docx),
-            "zhDocx": str(zh_docx),
+            "sourceId": "cssc-six-sigma-black-belt-public-manual",
+            "sourceEdition": "2018 public training manual",
             "extraction": extraction,
         },
         "sections": sections,

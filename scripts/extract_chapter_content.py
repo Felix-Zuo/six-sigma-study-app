@@ -1062,8 +1062,8 @@ def build_lesson(en_docx: Path, zh_docx: Path) -> dict[str, Any]:
             "zh": "第一章：什么是六西格玛？",
         },
         "source": {
-            "enDocx": str(en_docx),
-            "zhDocx": str(zh_docx),
+            "sourceId": "cssc-six-sigma-black-belt-public-manual",
+            "sourceEdition": "2018 public training manual",
             "extraction": "python-docx body-order extraction; section-aligned bilingual content",
         },
         "sections": sections,

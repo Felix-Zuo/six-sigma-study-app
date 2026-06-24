@@ -8,8 +8,8 @@
     "zh": "第一章：什么是六西格玛？"
   },
   "source": {
-    "enDocx": "C:\\findjob_sixsigma_sources\\manual_en_aligned.docx",
-    "zhDocx": "C:\\findjob_sixsigma_sources\\manual_zh_aligned.docx",
+    "sourceId": "cssc-six-sigma-black-belt-public-manual",
+    "sourceEdition": "2018 public training manual",
     "extraction": "python-docx body-order extraction; section-aligned bilingual content"
   },
   "sections": [

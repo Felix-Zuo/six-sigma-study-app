@@ -3,6 +3,7 @@ import fs from "node:fs";
 const endpoint = process.env.CDP_ENDPOINT ?? "http://127.0.0.1:9222/json";
 const appUrl = process.env.QA_APP_URL ?? "http://127.0.0.1:4177/";
 const bookId = "six-sigma-black-belt";
+const sampleBookId = "agent-import-sample";
 const noticeAcceptedKey = "six-sigma-study:notice-accepted:v1";
 const activeBookKey = "six-sigma-study:active-book:v1";
 const vocabKey = "six-sigma-study:vocab:v1";
@@ -111,12 +112,53 @@ async function main() {
   await waitFor("home library", () => evalPage(`Boolean(document.querySelector(".bookCard .primaryAction"))`));
   const home = await evalPage(`(() => ({
     cardTitle: document.querySelector(".bookCard h2")?.textContent?.trim() ?? "",
+    bookCount: document.querySelectorAll(".bookCard").length,
+    intro: document.querySelector(".libraryIntro p")?.textContent?.trim() ?? "",
+    sampleTitle: Array.from(document.querySelectorAll(".bookCard h2")).find((item) => item.textContent.includes("Agent"))?.textContent?.trim() ?? "",
     githubHref: document.querySelector('.libraryIntro a')?.href ?? "",
     watermark: document.querySelector(".homeWatermark")?.textContent?.trim() ?? "",
     noticeAccepted: localStorage.getItem(${JSON.stringify(noticeAcceptedKey)})
   }))()`);
 
-  await evalPage(`document.querySelector(".bookCard .primaryAction")?.click()`);
+  await evalPage(`(() => {
+    const sampleCard = Array.from(document.querySelectorAll(".bookCard")).find((card) =>
+      card.innerText.includes("Agent 教材导入示例手册")
+    );
+    sampleCard?.querySelector(".primaryAction")?.click();
+  })()`);
+  await waitFor("sample reader panel", () => evalPage(`Boolean(document.querySelector(".readerPanel"))`));
+  await sleep(600);
+  const sampleReader = await evalPage(`(() => ({
+    activeBook: localStorage.getItem(${JSON.stringify(activeBookKey)}),
+    title: document.querySelector(".readerChrome h1")?.textContent?.trim() ?? "",
+    hasSampleText: document.body.innerText.includes("Import Contract") && document.body.innerText.includes("What the Agent Receives")
+  }))()`);
+  const sampleLookup = await evalPage(`(() => {
+    const token = Array.from(document.querySelectorAll(".wordToken")).find((item) =>
+      item.textContent.trim().toLowerCase() === "import"
+    ) ?? Array.from(document.querySelectorAll(".wordToken")).find((item) => item.textContent.trim().length > 3);
+    token?.scrollIntoView({ block: "center" });
+    token?.click();
+    return token?.textContent?.trim() ?? "";
+  })()`);
+  await waitFor("sample lookup sheet", () => evalPage(`Boolean(document.querySelector(".bottomSheet"))`));
+  await evalPage(`document.querySelector(".saveButton")?.click()`);
+  await sleep(300);
+  const savedSampleTerm = await evalPage(`(() => {
+    const terms = JSON.parse(localStorage.getItem(${JSON.stringify(vocabKey)}) ?? "[]");
+    return terms.find((item) => item.bookId === ${JSON.stringify(sampleBookId)}) ?? null;
+  })()`);
+  await evalPage(`document.querySelector(".closeButton")?.click()`);
+  await sleep(200);
+  await evalPage(`document.querySelector('[aria-label="back to library"]')?.click()`);
+  await waitFor("home library after sample", () => evalPage(`Boolean(document.querySelector(".bookCard .primaryAction"))`));
+
+  await evalPage(`(() => {
+    const sixSigmaCard = Array.from(document.querySelectorAll(".bookCard")).find((card) =>
+      card.innerText.includes("六西格玛黑带培训教材")
+    );
+    sixSigmaCard?.querySelector(".primaryAction")?.click();
+  })()`);
   await waitFor("reader panel", () => evalPage(`Boolean(document.querySelector(".readerPanel"))`));
   await sleep(600);
 
@@ -172,7 +214,7 @@ async function main() {
   await sleep(300);
   const savedTerm = await evalPage(`(() => {
     const terms = JSON.parse(localStorage.getItem(${JSON.stringify(vocabKey)}) ?? "[]");
-    return terms[0] ?? null;
+    return terms.find((item) => item.bookId === ${JSON.stringify(bookId)}) ?? null;
   })()`);
   await evalPage(`document.querySelector(".closeButton")?.click()`);
   await sleep(400);
@@ -198,9 +240,17 @@ async function main() {
     splash.hasEnglishNotice &&
     !splash.hasReader &&
     home.cardTitle.includes("六西格玛") &&
+    home.bookCount >= 2 &&
+    home.intro.includes(`${home.bookCount} 本教材`) &&
+    home.sampleTitle.includes("Agent") &&
     home.githubHref === "https://github.com/Felix-Zuo" &&
     home.watermark.includes("Felix-Zuo") &&
     home.noticeAccepted === "true" &&
+    sampleReader.activeBook === sampleBookId &&
+    sampleReader.title.includes("Import Contract") &&
+    sampleReader.hasSampleText &&
+    sampleLookup.length > 0 &&
+    savedSampleTerm?.bookId === sampleBookId &&
     pageSearch.currentText.toLowerCase().includes("page 340") &&
     pageSearch.visiblePage340 &&
     pageSearch.activeBook === bookId &&
@@ -220,6 +270,16 @@ async function main() {
         ok,
         splash,
         home,
+        sampleReader,
+        savedSampleTerm: savedSampleTerm
+          ? {
+              bookId: savedSampleTerm.bookId,
+              bookTitle: savedSampleTerm.bookTitle,
+              page: savedSampleTerm.page,
+              sectionId: savedSampleTerm.sectionId,
+              blockId: savedSampleTerm.blockId
+            }
+          : null,
         pageSearch,
         sheetLock,
         savedTerm: savedTerm

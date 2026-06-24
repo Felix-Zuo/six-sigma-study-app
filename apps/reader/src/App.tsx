@@ -176,10 +176,10 @@ const fallbackCatalog: CatalogData = {
       pageCount: 449,
       chapterCount: 33,
       assetCount: 470,
-      source: "The Council for Six Sigma Certification public training manual",
+      source: "The Council for Six Sigma Certification training-materials page lists the Lean Six Sigma Black Belt Certification Training Manual as a free PDF download: https://www.sixsigmacouncil.org/six-sigma-training-material/",
       licenseNotice: {
-        zh: "本教材据用户说明为官网下载公开学习资料，允许下载并转赠。本 App 仅用于个人学习、中文翻译整理和对照阅读，禁止任何商业化使用；本项目不代表 CSSC 官方产品，原版权归原权利方所有。",
-        en: "The source manual is described by the user as a publicly downloadable study resource that may be shared. This app is for personal study, Chinese translation, and bilingual reference only. Commercial use is prohibited. This project is not an official CSSC product; all original rights remain with their respective owner."
+        zh: "本教材来源于 CSSC 官网训练材料页面列出的免费 PDF。本 App 仅用于个人学习、中文翻译整理和对照阅读，禁止任何商业化使用；本项目不代表 CSSC 官方产品，原版权归原权利方所有。",
+        en: "The source manual is listed as a free PDF on the CSSC training-materials page. This app is for personal study, Chinese translation, and bilingual reference only. Commercial use is prohibited. This project is not an official CSSC product; all original rights remain with their respective owner."
       }
     }
   ]
@@ -1023,7 +1023,7 @@ export function App() {
           </div>
         </header>
         <section className="libraryIntro">
-          <p>当前已收录 1 本教材。后续新教材会作为独立 book 接入，词本、笔记、收藏按教材隔离。</p>
+          <p>当前已收录 {books.length} 本教材。后续新教材会作为独立 book 接入，词本、笔记、收藏按教材隔离。</p>
           <a href={githubProfileUrl} target="_blank" rel="noreferrer">GitHub: Felix-Zuo</a>
         </section>
         <section className="bookGrid" aria-label="book library">
@@ -1032,7 +1032,7 @@ export function App() {
             const bookNotes = savedNotes.filter((item) => item.bookId === book.bookId);
             return (
               <article key={book.bookId} className="bookCard">
-                <div className="bookCover" aria-hidden="true">6σ</div>
+                <div className="bookCover" aria-hidden="true">{book.cover ?? "6σ"}</div>
                 <div className="bookCardBody">
                   <p className="eyebrow">{book.subtitle?.zh ?? "中英对照学习版"}</p>
                   <h2>{book.title.zh}</h2>

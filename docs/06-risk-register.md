@@ -10,4 +10,7 @@
 | Raw manual assets accidentally committed | High | `.gitignore` excludes raw/generated large files; commit only schema and samples. |
 | Page alignment drifts after content extraction | High | Treat 449-page print edition as canonical; store page in every paragraph/asset. |
 | UI becomes cluttered on small phones | Medium | Bottom-sheet interaction and one floating language button only for MVP. |
-
+| Public content rights boundary is misunderstood | High | Document CSSC training-materials source, non-commercial use, original-rights ownership, and no official endorsement in README, NOTICE, ATTRIBUTION, LICENSE, and THIRD_PARTY_NOTICES. |
+| Runtime JSON leaks local source paths | High | Use public-safe provenance fields; run `npm run audit:public` in CI to reject `C:\`, `enDocx`, `zhDocx`, and `sourcePdf` tokens in runtime JSON. |
+| Android backs up local learning data unexpectedly | Medium | Set `android:allowBackup="false"` so WebView/localStorage vocabulary and notes are not included in system backup by default. |
+| Future books bypass rights review | High | Require Agent import request review gates for copyright, TOC, image quality, terminology, and bilingual alignment before catalog inclusion. |

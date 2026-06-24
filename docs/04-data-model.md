@@ -29,6 +29,8 @@ type BookManifest = {
 
 The first shipped book uses `bookId = "six-sigma-black-belt"`. Future books should add a catalog entry and a separate content package without changing the reader core.
 
+The committed `agent-import-sample` book is a synthetic second catalog entry used to validate the generic import path.
+
 ## Manual Package
 
 ```ts
@@ -47,6 +49,44 @@ type ManualPackage = {
 };
 ```
 
+Generic Agent-imported books use the same package shape. The formal runtime package schema is `content/schemas/book-package.schema.json`.
+
+## Agent Import Request
+
+```ts
+type AgentImportRequest = {
+  schemaVersion: "1.0.0";
+  book: {
+    bookId: string;
+    title: { en: string; zh: string };
+    subtitle?: { en: string; zh: string };
+    languagePair: ("en" | "zh")[];
+    source: string;
+    sourceUrl?: string;
+    rightsStatus: "confirmed-public" | "original-author-owned" | "user-provided-approved" | "blocked-unknown";
+    licenseNotice: { en: string; zh: string };
+    intendedUse: "non-commercial-study" | "internal-review-only";
+  };
+  sources: {
+    type: "pdf" | "docx" | "bilingual-doc" | "image-folder" | "structured-json" | "dictionary";
+    path: string;
+    language?: "en" | "zh" | "mixed" | "not-applicable";
+    rightsStatus: string;
+  }[];
+  conversionPlan: {
+    outputContentPath: `content/books/${string}/manual.json`;
+    runtimeContentPath: `content/books/${string}/manual.json`;
+    alignmentLevel: "chapter" | "section" | "block" | "sentence";
+    assetPolicy: "preserve-original-images" | "structured-tables-first" | "no-images";
+    glossaryPolicy: "curated-only" | "curated-plus-local-dictionary" | "none";
+    allowCommercialUse: false;
+  };
+  reviewGates: Record<string, { required: boolean; status: "pending" | "passed" | "blocked"; notes?: string }>;
+};
+```
+
+Formal schema: `content/schemas/agent-import-request.schema.json`.
+
 ## Lesson
 
 ```ts
@@ -60,6 +100,8 @@ type Lesson = {
   assets?: Asset[];
 };
 ```
+
+Dictionary lookup keys are validated per book package. Duplicate normalized lookup keys are rejected because they produce ambiguous tap-to-lookup results.
 
 ## Lesson Section
 

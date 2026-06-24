@@ -81,7 +81,7 @@ def parse_toc(lines: list[str]) -> dict[str, Any]:
 
     return {
         "source": "CSSC Six Sigma Black Belt Certification Training Manual source PDF table of contents",
-        "sourcePdf": str(DEFAULT_SOURCE_PDF),
+        "sourceDocument": "local public-manual PDF, not committed",
         "sourcePageAfterLast": 558,
         "chapters": chapters,
     }

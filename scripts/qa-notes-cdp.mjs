@@ -6,6 +6,7 @@ const notesKey = "six-sigma-study:notes:v1";
 const noticeAcceptedKey = "six-sigma-study:notice-accepted:v1";
 const activeBookKey = "six-sigma-study:active-book:v1";
 const bookId = "six-sigma-black-belt";
+const sampleBookId = "agent-import-sample";
 const targetChapterId = "ch01";
 const targetSectionId = "data-driven-processes";
 
@@ -95,7 +96,23 @@ async function main() {
       scrollY: 0,
       updatedAt: new Date().toISOString()
     }));
-    localStorage.setItem(${JSON.stringify(notesKey)}, "[]");
+    localStorage.setItem(${JSON.stringify(notesKey)}, JSON.stringify([
+      {
+        id: "sample-note-existing",
+        bookId: ${JSON.stringify(sampleBookId)},
+        bookTitle: "Agent 教材导入示例手册",
+        text: "Sample book note",
+        note: "This note must stay hidden while the Six Sigma book is active.",
+        language: "en",
+        chapter: 1,
+        chapterTitle: "Chapter 1: Import Contract",
+        page: 1,
+        sectionId: "sample-ch01-s01",
+        blockId: "sample-ch01-s01-en-002",
+        savedAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      }
+    ]));
     location.reload();
     return true;
   })()`);
@@ -135,9 +152,13 @@ async function main() {
 
   const savedState = await evalPage(`(() => {
     const notes = JSON.parse(localStorage.getItem(${JSON.stringify(notesKey)}) ?? "[]");
-    const item = notes[0];
+    const item = notes.find((note) => note.bookId === ${JSON.stringify(bookId)});
+    const sampleItem = notes.find((note) => note.bookId === ${JSON.stringify(sampleBookId)});
+    const visibleItems = Array.from(document.querySelectorAll(".notesPanel .noteItem")).map((item) => item.innerText);
     return {
       count: notes.length,
+      visibleCount: visibleItems.length,
+      sampleHidden: Boolean(sampleItem) && visibleItems.every((text) => !text.includes("Sample book note")),
       text: item?.text ?? null,
       bookId: item?.bookId ?? null,
       language: item?.language ?? null,
@@ -157,9 +178,11 @@ async function main() {
 
   const editedState = await evalPage(`(() => {
     const notes = JSON.parse(localStorage.getItem(${JSON.stringify(notesKey)}) ?? "[]");
+    const item = notes.find((note) => note.bookId === ${JSON.stringify(bookId)});
     const doc = document.documentElement;
     return {
-      note: notes[0]?.note ?? "",
+      totalNotes: notes.length,
+      note: item?.note ?? "",
       textareaValue: document.querySelector(".noteItem textarea")?.value ?? "",
       horizontalOverflow: Math.max(document.body.scrollWidth, doc.scrollWidth) - doc.clientWidth
     };
@@ -172,11 +195,14 @@ async function main() {
   const ok =
     typeof selectedText === "string" &&
     selectedText.length >= 2 &&
-    savedState.count === 1 &&
+    savedState.count === 2 &&
+    savedState.visibleCount === 1 &&
+    savedState.sampleHidden &&
     savedState.text === selectedText &&
     savedState.bookId === bookId &&
     savedState.language === "zh" &&
     savedState.sectionId === targetSectionId &&
+    editedState.totalNotes === 2 &&
     editedState.note === "复习：注意术语定义和例句。" &&
     editedState.textareaValue === editedState.note &&
     editedState.horizontalOverflow <= 1;

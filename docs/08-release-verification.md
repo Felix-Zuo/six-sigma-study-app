@@ -1,5 +1,19 @@
 # Release Verification
 
+## Summary Matrix
+
+| Area | Command / Evidence | Latest Expected Result | Residual Risk |
+| --- | --- | --- | --- |
+| Six Sigma content package | `npm run lint:content` | 33 chapters, 449 pages, catalog validation, dictionary uniqueness, image asset checks | Six Sigma-specific constants intentionally remain in this profile |
+| Agent book import contract | `npm run lint:books` | validates request schema, generic book package shape, two catalog books, sample import package | converter automation is still future work |
+| Public safety | `npm run audit:public` | tracked-file denylist and runtime JSON local-path scan pass | human rights review still required for new third-party books |
+| Source coverage | `npm run qa:source-coverage` | source TOC, block page anchors, assets, sampled nonblank renders pass | exhaustive 557-page pixel comparison is out of scope |
+| Multi-book UX | `npm run qa:multibook-ux` | opening notice, home, page search, scroll lock, immersive mode, book-scoped vocab pass | real-device physical long-press QA remains separate |
+| Android key chapters | `npm run qa:android-key-chapters` | Chapters 1, 7, 26, and 33 render, lookup, align, and load images | WebView/CDP is not a full physical-device matrix |
+| Release packaging | `npm run android:release-apk`; `npm run android:aab` | APK/AAB build with runtime packages and figure assets bundled | store upload-key policy is not finalized |
+
+## Current Release Artifacts
+
 This document records the current evidence that the Android study app is installable, complete enough for full-manual study, and not just a prototype.
 
 ## Repository And Build

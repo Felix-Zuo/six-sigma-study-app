@@ -11,7 +11,7 @@ The final product must support full-manual offline reading, position-preserving 
 ## Authoritative Paths
 
 - App repository: `C:\findjob_sixsigma_app`
-- Private GitHub repository: `https://github.com/Felix-Zuo/six-sigma-study-app`
+- Public GitHub repository: `https://github.com/Felix-Zuo/six-sigma-study-app`
 - Local processing source folder: `C:\findjob_sixsigma_sources`
 - Original download workspace: `C:\Users\左雅轩\Desktop\Find Job\6ς`
 - Chinese aligned manual used by scripts: `C:\findjob_sixsigma_sources\manual_zh_aligned.docx`
@@ -522,6 +522,53 @@ The final product must support full-manual offline reading, position-preserving 
   - `qa/screenshots/android-key-ch01-zh.png`, `android-key-ch07-zh.png`, `android-key-ch26-zh.png`, `android-key-ch33-zh.png`, plus lookup/image screenshots.
 - Next required validation before completing the goal:
   - None for this multi-book product core pass.
+
+## 2026-06-24 Public Showcase And Agent Import Update
+
+- GitHub issue planning:
+  - Created bounded target-two issues #19 through #28 for public compliance, runtime local-path cleanup, Agent import contract, sample book, README/showcase, screenshots/systems docs, benchmark research, GitHub surface, and final verification.
+- Public compliance and repository surface:
+  - Confirmed repository visibility is `PUBLIC`.
+  - Updated GitHub description to `Local-first Android bilingual textbook study app with Agent import pipeline`.
+  - Added topics: `android`, `pwa`, `bilingual-learning`, `six-sigma`, `textbook-reader`, `local-first`, `vocabulary`, and `content-pipeline`.
+  - Added `LICENSE`, `NOTICE.md`, `ATTRIBUTION.md`, `SECURITY.md`, `CONTRIBUTING.md`, and `PUBLIC_READINESS.md`.
+  - Updated `THIRD_PARTY_NOTICES.md` with CSSC training-materials source and non-commercial/no-official-endorsement boundary.
+  - Added `scripts/audit_public_ready.py` and `npm run audit:public`; CI now runs the public audit.
+  - Removed local source paths from runtime JSON and source metadata, replacing `enDocx`, `zhDocx`, and `sourcePdf` with public-safe provenance fields.
+  - Set Android `android:allowBackup="false"` so local WebView/localStorage study data is not included in system backup by default.
+- Agent textbook import interface:
+  - Added `docs/agent-import.md`.
+  - Added `content/schemas/agent-import-request.schema.json` and `content/schemas/book-package.schema.json`.
+  - Added `scripts/import_book_agent_contract.py`, `npm run lint:books`, and `npm run qa:book-import`.
+  - Added safe synthetic sample request at `samples/agent-import/sample-book-request.json`.
+  - Added safe synthetic sample book package at `content/books/agent-import-sample/manual.json` and public runtime copy at `apps/reader/public/content/books/agent-import-sample/manual.json`.
+  - Updated both runtime catalogs to include `six-sigma-black-belt` and `agent-import-sample`.
+  - Updated the service worker so install-time precache reads catalog book `contentPath` values.
+- Showcase and documentation:
+  - Rebuilt `README.md` as a public portfolio entry with product snapshot, screenshots, learning workflow, features, diagrams, Agent import docs, validation matrix, Android build notes, limits, and roadmap.
+  - Added public showcase screenshots under `docs/assets/showcase/`.
+  - Added `docs/09-showcase-systems.md` with architecture, content pipeline, Agent interface, and verification matrix diagrams.
+  - Added competitor/showcase research at `docs/research/showcase-benchmark.md`.
+  - Added `scripts/check_docs_links.py`, `npm run docs:links`, and CI link checking.
+- Validation completed in this stage:
+  - `npm run lint:content`: passed with 2 catalog books and the existing 33-chapter Six Sigma manual profile.
+  - `npm run lint:books`: passed; validated Agent request, generic book packages, catalog uniqueness, page continuity, safe assets, dictionary lookup uniqueness, and sample-book presence.
+  - `npm run qa:book-import`: passed for `agent-import-sample`.
+  - `npm run audit:public`: passed; tracked-file denylist and runtime JSON local-path scan passed.
+  - `npm run docs:links`: passed across 18 Markdown files.
+  - `npm run typecheck`: passed.
+  - `npm run build`: passed.
+  - `npm run qa:source-coverage`: passed; sourcePdfPages=557, manualPages=449, chapters=33, contentBlocks=9542, imageBlocks=940, assets=470, sourceTocSections=142, sourceTocMatchedSections=127, allowedUnmatchedSourceSections=15.
+  - `npm run qa:multibook-ux`: passed against Vite preview and Chrome CDP; verified 2-book home, sample book load, sample `bookId` vocabulary save, Six Sigma page 340 jump, bottom-sheet scroll containment, Six Sigma `bookId` vocabulary save, and immersive mode.
+  - `node scripts\qa-notes-cdp.mjs`: passed; verified a pre-existing sample-book note stays hidden while Six Sigma is active, and new Six Sigma notes persist with `bookId`.
+  - `npm run android:release-apk`: passed.
+  - `npm run android:aab`: passed.
+  - Release APK: `C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk`, 37,831,752 bytes.
+  - Release AAB: `C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab`, 35,615,154 bytes.
+  - APK/AAB package contents: `catalog.json`, Six Sigma `manual.json`, `books/agent-import-sample/manual.json`, `asset-manifest.json`, and 470 figure PNGs are present.
+  - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`.
+  - AAB `jarsigner -verify -certs`: verified with expected self-signed/no-timestamp certificate warnings.
+  - Release merged manifest confirms `android:allowBackup="false"`.
 
 ## Known Limitations
 

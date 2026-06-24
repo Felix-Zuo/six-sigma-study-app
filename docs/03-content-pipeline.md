@@ -18,6 +18,8 @@ Generated app package:
 - `chapters/ch01.json` through `chapters/ch33.json`
 - `manual.json` full-manual runtime package
 - `catalog.json` / `apps/reader/public/content/catalog.json` runtime book registry
+- generic Agent-imported packages under `content/books/<bookId>/manual.json`
+- runtime copies under `apps/reader/public/content/books/<bookId>/manual.json`
 - `content/source/source_toc_sections.json` source table-of-contents metadata for section anchors
 - deduplicated figure assets under `apps/reader/public/content/assets/figures/`
 - `apps/reader/public/content/assets/asset-manifest.json`
@@ -39,6 +41,21 @@ Generated app package:
 8. Generate or update the book catalog with `bookId`, source notice, language pair, and runtime content path.
 9. Validate JSON against schema, catalog, and source coverage gates.
 10. Render spot-check pages in the app.
+
+## Agent Import Path
+
+Future textbooks should enter through the Agent contract documented in `docs/agent-import.md`.
+
+The minimal committed path is:
+
+1. Write an Agent request that follows `content/schemas/agent-import-request.schema.json`.
+2. Generate or provide a book package that follows `content/schemas/book-package.schema.json`.
+3. Store the source-controlled package under `content/books/<bookId>/manual.json`.
+4. Copy the runtime package to `apps/reader/public/content/books/<bookId>/manual.json`.
+5. Add a catalog entry to both `content/processed/catalog.json` and `apps/reader/public/content/catalog.json`.
+6. Run `npm run lint:books` and `npm run qa:book-import`.
+
+The current safe sample is `agent-import-sample`. It is fully synthetic and proves that new books can enter the home library without changing the reader core.
 
 ## Current Chapter 1 Implementation
 
@@ -94,6 +111,8 @@ The source PDF is copied locally to `C:\findjob_sixsigma_sources\source_manual.p
 - source coverage QA confirms the 557-page source PDF, 142 source TOC sections, 127 matched source section anchors, 15 explicitly allowed normal-paragraph source headings, 470 app assets, and nonblank Poppler renders for sampled source pages 9, 73, 396, 544, and 555
 - sample chapter opens on phone viewport without horizontal overflow
 - catalog validation confirms every book has `bookId`, bilingual title, language pair, source notice, and a resolvable runtime `contentPath`
+- Agent book validation confirms safe `content/books/<bookId>` runtime paths, continuous page ranges, block page anchors, unique book IDs, unique dictionary lookup keys, safe asset paths, and sample-book presence
+- public-readiness audit rejects tracked raw source files, signing files, build packages, and runtime JSON containing local source paths
 - browser/CDP multi-book UX QA confirms the opening notice, home library, GitHub link, page 340 search, book-scoped vocabulary save, bottom-sheet scroll lock, immersive mode, and subtle watermark
 
 ## Open Extraction Problems

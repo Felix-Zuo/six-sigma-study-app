@@ -1,5 +1,15 @@
 # Third Party Notices
 
+## Six Sigma Black Belt Training Manual-Derived Study Content
+
+- Original rights holder: The Council for Six Sigma Certification / respective rights holder.
+- Official training-materials page: https://www.sixsigmacouncil.org/six-sigma-training-material/
+- Listed source file: `CSSC Lean Six Sigma Black Belt Certification Training Manual.pdf`
+- Use in this repository: bilingual non-commercial study package, Chinese translation organization, page/block anchors, and Android/PWA runtime assets.
+- Boundary: this repository is not affiliated with, endorsed by, or sponsored by CSSC. Original text, figures, tables, and training material remain owned by the original rights holder. Commercial use of the bundled manual-derived content is prohibited.
+
+The committed runtime figure assets and structured manual JSON are included only to preserve the study experience in this non-commercial app.
+
 ## ECDICT
 
 The offline English-Chinese learner dictionary subset is derived from ECDICT:

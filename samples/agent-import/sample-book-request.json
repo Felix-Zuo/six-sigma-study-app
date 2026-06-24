@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0.0",
+  "book": {
+    "bookId": "agent-import-sample",
+    "title": {
+      "en": "Agent Import Sample Workbook",
+      "zh": "Agent 教材导入示例手册"
+    },
+    "subtitle": {
+      "en": "Synthetic two-chapter fixture",
+      "zh": "自写双章节验证样例"
+    },
+    "languagePair": ["en", "zh"],
+    "domainLabel": "导入示例术语",
+    "source": "Original sample text authored for this repository.",
+    "sourceUrl": "repository://samples/agent-import/sample-book-request.json",
+    "accessedAt": "2026-06-24",
+    "rightsStatus": "original-author-owned",
+    "licenseNotice": {
+      "en": "This sample book is original synthetic content created for validating the Agent import contract. It is non-commercial and carries no third-party textbook material.",
+      "zh": "本示例教材为本项目自写的合成内容，仅用于验证 Agent 导入契约；非商业使用，不包含第三方教材素材。"
+    },
+    "intendedUse": "non-commercial-study"
+  },
+  "sources": [
+    {
+      "type": "structured-json",
+      "path": "content/books/agent-import-sample/manual.json",
+      "language": "mixed",
+      "rightsStatus": "original-author-owned",
+      "notes": "Committed fixture used to prove catalog import, bookId isolation, and generic book package validation."
+    }
+  ],
+  "conversionPlan": {
+    "outputContentPath": "content/books/agent-import-sample/manual.json",
+    "runtimeContentPath": "content/books/agent-import-sample/manual.json",
+    "alignmentLevel": "block",
+    "assetPolicy": "no-images",
+    "glossaryPolicy": "curated-only",
+    "allowCommercialUse": false
+  },
+  "reviewGates": {
+    "copyright": {
+      "required": true,
+      "status": "passed",
+      "reviewer": "repository-owner",
+      "reviewedAt": "2026-06-24",
+      "notes": "Synthetic original content; no third-party textbook material."
+    },
+    "toc": {
+      "required": true,
+      "status": "passed",
+      "notes": "Two chapters, five continuous pages."
+    },
+    "imageQuality": {
+      "required": true,
+      "status": "passed",
+      "notes": "No image assets in this sample."
+    },
+    "terminology": {
+      "required": true,
+      "status": "passed",
+      "notes": "Three curated import terms included."
+    },
+    "bilingualAlignment": {
+      "required": true,
+      "status": "passed",
+      "notes": "Every English and Chinese block carries matching page anchors and parallel block order."
+    }
+  }
+}

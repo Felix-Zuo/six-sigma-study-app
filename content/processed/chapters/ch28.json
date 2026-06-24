@@ -8,8 +8,8 @@
     "zh": "第 28 章：方差分析（单因素 ANOVA）"
   },
   "source": {
-    "enDocx": "C:\\findjob_sixsigma_sources\\manual_en_aligned.docx",
-    "zhDocx": "C:\\findjob_sixsigma_sources\\manual_zh_aligned.docx",
+    "sourceId": "cssc-six-sigma-black-belt-public-manual",
+    "sourceEdition": "2018 public training manual",
     "extraction": "python-docx body-order extraction; source-TOC sectionized bilingual content"
   },
   "sections": [

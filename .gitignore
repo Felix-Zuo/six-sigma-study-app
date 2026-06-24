@@ -13,11 +13,19 @@ devserver.log
 devserver*.log
 *.tsbuildinfo
 qa/
+.qa/
 
 # Local environment
 .env
 .env.*
 !.env.example
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+android/keystore.properties
+android/local.properties
 
 # Generated content and large source files
 content/raw/*
@@ -38,6 +46,9 @@ content/processed/*
 !apps/reader/public/content/assets/asset-manifest.json
 !apps/reader/public/content/assets/figures/
 !apps/reader/public/content/assets/figures/*.png
+!docs/assets/
+!docs/assets/showcase/
+!docs/assets/showcase/*.png
 
 # OS/editor
 .DS_Store

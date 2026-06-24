@@ -33,3 +33,11 @@ jobs:
       - name: Validate sample content
         run: npm run lint:content
 
+      - name: Validate Agent book contracts
+        run: npm run lint:books
+
+      - name: Public readiness audit
+        run: npm run audit:public
+
+      - name: Documentation link check
+        run: npm run docs:links
