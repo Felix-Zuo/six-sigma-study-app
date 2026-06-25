@@ -578,6 +578,52 @@ The final product must support full-manual offline reading, position-preserving 
 - Closed target-two GitHub issues #19 through #28 with evidence comments.
 - Final local worktree was verified clean after commit and push.
 
+## 2026-06-25 Target Three Product Experience Update
+
+- Target-three issue planning:
+  - Created bounded issues #29 through #40 for the automatic opening, study workbench/home navigation, per-book reading progress, independent vocabulary/notes/favorites pages, Chinese image fidelity, draggable bottom sheet, reader GUI, settings/about/data management, motion/safe-area polish, and final QA/Android/CI closure.
+  - Four-role review completed through product manager, learner, UI/motion designer, and code engineer perspectives; duplicated findings were consolidated into the #29-#40 issue set.
+- Product/runtime implementation:
+  - Replaced the click-to-accept opening with an automatic logo animation and short bilingual non-commercial sentence.
+  - Moved the full copyright/source/non-commercial notice to the settings/about area.
+  - Rebuilt the home view as a study workbench with continue-learning, study metrics, book progress, recent notes, and bottom navigation.
+  - Added top-level pages for Library, Vocabulary, Notes, Favorites, and Settings.
+  - Added `favoriteStore.ts` and `bookId`-scoped favorites with source anchors and source-return actions.
+  - Upgraded reader positions to a `bookId -> position` map while preserving legacy single-position migration.
+  - Added independent vocabulary, notes, and favorites workflows with book filtering, search, sorting, and source return.
+  - Preserved reader-side quick lookup, save-to-vocabulary, selected-text note saving, favorite current source, immersive reading, TOC, progress rail, and EN/ZH switching.
+  - Fixed Chinese-mode figure loss by injecting missing English image blocks into Chinese sections only where the Chinese stream has fewer image blocks.
+  - Rebuilt the bottom sheet interaction with pointer/touch dragging, half/full snap heights, stronger handle affordance, scroll containment, and body scroll lock.
+  - Hid floating reader docks while a bottom sheet is open and removed opacity-based sheet entry so the panel remains readable during animation.
+  - Added note/favorite source markers in the reading body.
+  - Refined mobile GUI: bottom navigation, restrained surfaces, safer spacing, safe-area padding, reduced long explanatory copy, and `prefers-reduced-motion` support.
+- Validation completed in this stage:
+  - `npm run lint:content`: passed.
+  - `npm run lint:books`: passed.
+  - `npm run qa:book-import`: passed for `agent-import-sample`.
+  - `npm run audit:public`: passed tracked-file denylist and runtime local-path scan.
+  - `npm run docs:links`: passed across 18 Markdown files.
+  - `npm run typecheck`: passed.
+  - `npm run build`: passed; current Vite output includes `assets/index-CF1ldPoX.css` and `assets/index-BOa1HJ7L.js`.
+  - `npm run qa:source-coverage`: passed; sourcePdfPages=557, manualPages=449, contentBlocks=9542, imageBlocks=940, assets=470.
+  - `npm run qa:target3-product`: passed; verified automatic opening, short bilingual copy, bottom navigation, two-book home, English reader, Chinese reader with images, draggable half/full lookup sheet, scroll lock, saved term/favorite `bookId`, and independent vocabulary/notes/favorites pages.
+  - `npm run qa:notes`: passed; verified Chinese selection note save/edit, book filter isolation, and 0 horizontal overflow.
+  - `npm run qa:image-fidelity`: passed for Chapters 1, 7, 26, and 33 with EN/ZH image counts 2/2, 14/14, 50/50, and 25/25, no broken images, lookup success, and 0 horizontal overflow.
+  - `npm run qa:sheet-gestures`: passed with the same draggable half/full sheet and scroll-containment checks.
+  - `npm run android:release-apk`: passed.
+  - `npm run android:aab`: passed.
+  - Release APK: `C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk`, 37,836,140 bytes.
+  - Release AAB: `C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab`, 35,619,526 bytes.
+  - APK/AAB package contents: APK 919 entries, AAB 927 entries; both contain `catalog.json`, Six Sigma `manual.json`, Agent sample `manual.json`, and 470 figure PNG assets.
+  - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`.
+  - AAB `jarsigner -verify -certs`: verified with expected local self-signed/no-timestamp certificate warnings.
+  - Target-three screenshots saved under `qa/screenshots/target3-01-splash.png` through `target3-09-favorites.png`; public-safe copies are committed under `docs/assets/showcase/target3-*.png`.
+- Known limitations after this stage:
+  - Physical-device long-press and drag QA remains separate from CDP/WebView-equivalent checks.
+  - Sentence-level semantic alignment is still not separately modeled; accepted alignment remains section/block based.
+  - Inline note highlighting is implemented as source-block markers, not exact selected-text range highlights.
+  - Agent import remains a validated contract/sample path rather than a complete one-command converter for arbitrary PDF/DOCX input.
+
 ## Known Limitations
 
 - The release signing key is a local self-signed key for this project; store upload key policy and distribution channel are not finalized.
@@ -617,6 +663,18 @@ The final product must support full-manual offline reading, position-preserving 
 - #26 完成竞品和优秀展示页调研
 - #27 完善 GitHub public surface 和社区健康项
 - #28 完成目标二最终验证、Android 构建、CI 和 issue closure
+- #29 Target 3 automatic opening animation and short non-commercial copy
+- #30 Target 3 bottom navigation and study workbench home
+- #31 Target 3 per-book reading progress
+- #32 Target 3 independent vocabulary page with filters/search/sort/source return
+- #33 Target 3 independent notes page and source markers
+- #34 Target 3 book-scoped favorites/bookmarks page
+- #35 Target 3 Chinese-mode image fidelity
+- #36 Target 3 draggable bottom sheet interaction
+- #37 Target 3 reader chrome and core reading GUI polish
+- #38 Target 3 settings/about/data management page
+- #39 Target 3 restrained motion system and mobile safe-area polish
+- #40 Target 3 QA, screenshots, Android builds, CI, and issue closure
 - #1 Build Chapter 1 content extraction pipeline
 - #3 Implement tap-to-lookup bottom sheet
 - #4 Seed curated Six Sigma terminology dictionary

@@ -3,11 +3,11 @@ import fs from "node:fs";
 const endpoint = process.env.CDP_ENDPOINT ?? "http://127.0.0.1:9222/json";
 const appUrl = process.env.QA_APP_URL ?? "http://127.0.0.1:4177/";
 const bookId = "six-sigma-black-belt";
-const sampleBookId = "agent-import-sample";
 const noticeAcceptedKey = "six-sigma-study:notice-accepted:v1";
 const activeBookKey = "six-sigma-study:active-book:v1";
 const vocabKey = "six-sigma-study:vocab:v1";
 const notesKey = "six-sigma-study:notes:v1";
+const favoritesKey = "six-sigma-study:favorites:v1";
 const readerPositionKey = "six-sigma-study:reader-position:v1";
 
 function sleep(ms) {
@@ -20,13 +20,11 @@ async function connect() {
   if (!page) {
     throw new Error("No debuggable page found");
   }
-
   const ws = new WebSocket(page.webSocketDebuggerUrl);
   await new Promise((resolve, reject) => {
     ws.addEventListener("open", resolve, { once: true });
     ws.addEventListener("error", reject, { once: true });
   });
-
   let id = 0;
   const pending = new Map();
   ws.addEventListener("message", (event) => {
@@ -42,13 +40,11 @@ async function connect() {
     }
     resolve(payload.result);
   });
-
   function send(method, params = {}) {
     const callId = ++id;
     ws.send(JSON.stringify({ id: callId, method, params }));
     return new Promise((resolve, reject) => pending.set(callId, { resolve, reject }));
   }
-
   return { send, close: () => ws.close() };
 }
 
@@ -56,8 +52,14 @@ async function main() {
   const cdp = await connect();
   await cdp.send("Page.enable");
   await cdp.send("Runtime.enable");
+  await cdp.send("Emulation.setDeviceMetricsOverride", {
+    width: 390,
+    height: 844,
+    deviceScaleFactor: 2,
+    mobile: true
+  });
   await cdp.send("Page.navigate", { url: appUrl });
-  await sleep(800);
+  await sleep(500);
 
   async function evalPage(expression, awaitPromise = false) {
     const result = await cdp.send("Runtime.evaluate", {
@@ -72,7 +74,7 @@ async function main() {
     return result.result?.value;
   }
 
-  async function waitFor(description, fn, timeout = 12000) {
+  async function waitFor(description, fn, timeout = 14000) {
     const started = Date.now();
     while (Date.now() - started < timeout) {
       try {
@@ -82,9 +84,17 @@ async function main() {
       } catch {
         // DOM can be unavailable during reloads.
       }
-      await sleep(150);
+      await sleep(120);
     }
     throw new Error(`Timed out waiting for ${description}`);
+  }
+
+  async function capture(name) {
+    fs.mkdirSync("qa/screenshots", { recursive: true });
+    const screenshot = await cdp.send("Page.captureScreenshot", { format: "png", fromSurface: true });
+    const path = `qa/screenshots/${name}.png`;
+    fs.writeFileSync(path, Buffer.from(screenshot.data, "base64"));
+    return path;
   }
 
   await evalPage(`(() => {
@@ -92,212 +102,217 @@ async function main() {
     localStorage.removeItem(${JSON.stringify(activeBookKey)});
     localStorage.removeItem(${JSON.stringify(vocabKey)});
     localStorage.removeItem(${JSON.stringify(notesKey)});
+    localStorage.removeItem(${JSON.stringify(favoritesKey)});
     localStorage.removeItem(${JSON.stringify(readerPositionKey)});
     location.reload();
     return true;
   })()`);
 
-  await waitFor("splash notice", () => evalPage(`Boolean(document.querySelector(".splashPanel .noticeBox"))`));
+  await waitFor("animated splash", () => evalPage(`Boolean(document.querySelector(".splashPanel .appLogo.cinematic"))`));
   const splash = await evalPage(`(() => {
     const text = document.body.innerText;
     return {
       logo: document.querySelector(".appLogo")?.textContent?.trim() ?? "",
-      hasChineseNotice: text.includes("禁止任何商业化使用") && text.includes("不代表 CSSC 官方产品"),
-      hasEnglishNotice: text.includes("Commercial use is prohibited") && text.includes("not an official CSSC product"),
-      hasReader: Boolean(document.querySelector(".readerPanel"))
+      hasShortChinese: text.includes("仅供学习与翻译研究"),
+      hasShortEnglish: text.includes("For study and translation reference only"),
+      hasOldButton: Boolean(document.querySelector(".splashPanel .primaryAction")),
+      hasLongNotice: Boolean(document.querySelector(".splashPanel .noticeBox"))
     };
   })()`);
+  const splashShot = await capture("target3-01-splash");
 
-  await evalPage(`document.querySelector(".splashPanel .primaryAction")?.click()`);
-  await waitFor("home library", () => evalPage(`Boolean(document.querySelector(".bookCard .primaryAction"))`));
+  await waitFor("home dashboard", () => evalPage(`Boolean(document.querySelector(".dashboardHero") && document.querySelector(".mainNav"))`));
   const home = await evalPage(`(() => ({
-    cardTitle: document.querySelector(".bookCard h2")?.textContent?.trim() ?? "",
+    navItems: Array.from(document.querySelectorAll(".mainNavItem strong")).map((item) => item.textContent.trim()),
     bookCount: document.querySelectorAll(".bookCard").length,
-    intro: document.querySelector(".libraryIntro p")?.textContent?.trim() ?? "",
-    sampleTitle: Array.from(document.querySelectorAll(".bookCard h2")).find((item) => item.textContent.includes("Agent"))?.textContent?.trim() ?? "",
-    githubHref: document.querySelector('.libraryIntro a')?.href ?? "",
-    watermark: document.querySelector(".homeWatermark")?.textContent?.trim() ?? "",
-    noticeAccepted: localStorage.getItem(${JSON.stringify(noticeAcceptedKey)})
+    hasDashboard: Boolean(document.querySelector(".dashboardHero")),
+    hasMetrics: document.querySelectorAll(".metricGrid button").length === 3,
+    noticeAccepted: localStorage.getItem(${JSON.stringify(noticeAcceptedKey)}),
+    horizontalOverflow: Math.max(document.body.scrollWidth, document.documentElement.scrollWidth) - document.documentElement.clientWidth
   }))()`);
+  const homeShot = await capture("target3-02-home");
 
-  await evalPage(`(() => {
-    const sampleCard = Array.from(document.querySelectorAll(".bookCard")).find((card) =>
-      card.innerText.includes("Agent 教材导入示例手册")
-    );
-    sampleCard?.querySelector(".primaryAction")?.click();
-  })()`);
-  await waitFor("sample reader panel", () => evalPage(`Boolean(document.querySelector(".readerPanel"))`));
-  await sleep(600);
-  const sampleReader = await evalPage(`(() => ({
-    activeBook: localStorage.getItem(${JSON.stringify(activeBookKey)}),
+  await evalPage(`Array.from(document.querySelectorAll(".bookCard")).find((card) => card.innerText.includes("六西格玛黑带培训教材"))?.querySelector(".primaryAction")?.click()`);
+  await waitFor("reader", () => evalPage(`Boolean(document.querySelector(".readerPanel"))`));
+  await sleep(700);
+  const readerEn = await evalPage(`(() => ({
     title: document.querySelector(".readerChrome h1")?.textContent?.trim() ?? "",
-    hasSampleText: document.body.innerText.includes("Import Contract") && document.body.innerText.includes("What the Agent Receives")
+    headerButtons: document.querySelectorAll(".headerActions button").length,
+    imageCount: document.querySelectorAll(".figureBlock img").length,
+    hasMainNav: Boolean(document.querySelector(".mainNav"))
   }))()`);
-  const sampleLookup = await evalPage(`(() => {
-    const token = Array.from(document.querySelectorAll(".wordToken")).find((item) =>
-      item.textContent.trim().toLowerCase() === "import"
-    ) ?? Array.from(document.querySelectorAll(".wordToken")).find((item) => item.textContent.trim().length > 3);
-    token?.scrollIntoView({ block: "center" });
-    token?.click();
-    return token?.textContent?.trim() ?? "";
-  })()`);
-  await waitFor("sample lookup sheet", () => evalPage(`Boolean(document.querySelector(".bottomSheet"))`));
-  await evalPage(`document.querySelector(".saveButton")?.click()`);
-  await sleep(300);
-  const savedSampleTerm = await evalPage(`(() => {
-    const terms = JSON.parse(localStorage.getItem(${JSON.stringify(vocabKey)}) ?? "[]");
-    return terms.find((item) => item.bookId === ${JSON.stringify(sampleBookId)}) ?? null;
-  })()`);
-  await evalPage(`document.querySelector(".closeButton")?.click()`);
-  await sleep(200);
-  await evalPage(`document.querySelector('[aria-label="back to library"]')?.click()`);
-  await waitFor("home library after sample", () => evalPage(`Boolean(document.querySelector(".bookCard .primaryAction"))`));
+  const readerEnShot = await capture("target3-03-reader-en");
 
-  await evalPage(`(() => {
-    const sixSigmaCard = Array.from(document.querySelectorAll(".bookCard")).find((card) =>
-      card.innerText.includes("六西格玛黑带培训教材")
-    );
-    sixSigmaCard?.querySelector(".primaryAction")?.click();
-  })()`);
-  await waitFor("reader panel", () => evalPage(`Boolean(document.querySelector(".readerPanel"))`));
-  await sleep(600);
+  await evalPage(`document.querySelector(".modeButton")?.click()`);
+  await waitFor("reader zh with images", () => evalPage(`document.querySelector(".sectionBody")?.classList.contains("zhText") && document.querySelectorAll(".figureBlock img").length >= 2`));
+  await evalPage(`document.querySelector(".figureBlock img")?.scrollIntoView({ block: "center", inline: "nearest" })`);
+  await waitFor("reader zh image loaded", () => evalPage(`Array.from(document.querySelectorAll(".figureBlock img")).some((img) => img.complete && img.naturalWidth > 4 && img.naturalHeight > 4 && img.getBoundingClientRect().height > 20)`));
+  const readerZh = await evalPage(`(() => ({
+    imageCount: document.querySelectorAll(".figureBlock img").length,
+    imagesLoaded: Array.from(document.querySelectorAll(".figureBlock img")).some((img) => img.complete && img.naturalWidth > 4 && img.naturalHeight > 4 && img.getBoundingClientRect().height > 20),
+    horizontalOverflow: Math.max(document.body.scrollWidth, document.documentElement.scrollWidth) - document.documentElement.clientWidth
+  }))()`);
+  const readerZhShot = await capture("target3-04-reader-zh-image");
 
-  await evalPage(`document.querySelector(".tocButton")?.click()`);
-  await waitFor("toc panel", () => evalPage(`Boolean(document.querySelector(".tocPanel"))`));
-  await evalPage(`(() => {
-    const input = document.querySelector(".tocSearch input");
-    const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value").set;
-    setter.call(input, "340");
-    input.dispatchEvent(new Event("input", { bubbles: true }));
-    return true;
-  })()`);
-  await waitFor("page 340 result", () => evalPage(`Array.from(document.querySelectorAll(".tocItem")).some((item) => item.innerText.includes("p. 340"))`));
-  await evalPage(`Array.from(document.querySelectorAll(".tocItem")).find((item) => item.innerText.includes("p. 340"))?.click()`);
-  await waitFor("page 340 active", () =>
-    evalPage(`document.querySelector(".readerChrome")?.innerText.toLowerCase().includes("page 340")`)
-  );
-
-  const pageSearch = await evalPage(`(() => {
-    const block = Array.from(document.querySelectorAll("[data-block-id]")).find((item) => {
+  await evalPage(`document.querySelector(".modeButton")?.click()`);
+  await sleep(500);
+  const lookupWord = await evalPage(`(() => {
+    const token = Array.from(document.querySelectorAll(".wordToken")).find((item) => {
       const rect = item.getBoundingClientRect();
-      return item.dataset.page === "340" && rect.top >= 0 && rect.top < window.innerHeight;
-    });
-    return {
-      currentText: document.querySelector(".readerChrome")?.innerText ?? "",
-      visiblePage340: Boolean(block),
-      activeBook: localStorage.getItem(${JSON.stringify(activeBookKey)})
-    };
-  })()`);
-
-  const lookup = await evalPage(`(() => {
-    const tokens = Array.from(document.querySelectorAll(".wordToken"));
-    const visibleToken = tokens.find((item) => {
-      const rect = item.getBoundingClientRect();
-      return rect.top > 120 && rect.top < window.innerHeight - 160 && item.textContent.trim().length > 2;
-    });
-    const token =
-      visibleToken ??
-      tokens.find((item) => item.closest("[data-page='340']") && item.textContent.trim().length > 2) ??
-      tokens.find((item) => item.textContent.trim().length > 2);
+      return rect.top > 140 && rect.top < window.innerHeight - 180 && item.textContent.trim().length > 3;
+    }) ?? document.querySelector(".wordToken");
     token?.scrollIntoView({ block: "center" });
     token?.click();
     return token?.textContent?.trim() ?? "";
   })()`);
   await waitFor("lookup sheet", () => evalPage(`Boolean(document.querySelector(".bottomSheet"))`));
-  const sheetLock = await evalPage(`(() => ({
-    lookup: ${JSON.stringify(lookup)},
-    bodyFixed: document.body.style.position === "fixed",
-    sheetOverscroll: getComputedStyle(document.querySelector(".bottomSheet")).overscrollBehaviorY,
-    sourceLength: document.querySelector(".exampleBox p")?.textContent?.length ?? 0
-  }))()`);
-  await evalPage(`document.querySelector(".saveButton")?.click()`);
-  await sleep(300);
-  const savedTerm = await evalPage(`(() => {
-    const terms = JSON.parse(localStorage.getItem(${JSON.stringify(vocabKey)}) ?? "[]");
-    return terms.find((item) => item.bookId === ${JSON.stringify(bookId)}) ?? null;
+  const sheetHalf = await evalPage(`(() => {
+    const sheet = document.querySelector(".bottomSheet");
+    const save = document.querySelector(".saveButton");
+    return {
+      word: ${JSON.stringify(lookupWord)},
+      heightRatio: sheet.getBoundingClientRect().height / window.innerHeight,
+      saveVisible: save.getBoundingClientRect().bottom <= window.innerHeight,
+      bodyFixed: document.body.style.position === "fixed",
+      overscroll: getComputedStyle(sheet).overscrollBehaviorY
+    };
   })()`);
-  await evalPage(`document.querySelector(".closeButton")?.click()`);
-  await sleep(400);
+  const sheetHalfShot = await capture("target3-05-sheet-half");
 
-  await evalPage(`document.querySelector('[aria-label="enter immersive reading"]')?.click()`);
-  await waitFor("immersive mode", () => evalPage(`Boolean(document.querySelector(".immersiveExit"))`));
-  const immersive = await evalPage(`(() => ({
-    chromeHidden: getComputedStyle(document.querySelector(".readerChrome")).display === "none",
-    dockHidden: !document.querySelector(".vocabDock"),
-    exitText: document.querySelector(".immersiveExit")?.textContent?.trim() ?? ""
-  }))()`);
-  await evalPage(`document.querySelector(".immersiveExit")?.click()`);
+  await evalPage(`(() => {
+    const handle = document.querySelector(".bottomSheet .sheetHandle");
+    handle.dispatchEvent(new PointerEvent("pointerdown", { pointerId: 1, clientY: 720, bubbles: true }));
+    handle.dispatchEvent(new PointerEvent("pointermove", { pointerId: 1, clientY: 80, bubbles: true }));
+    handle.dispatchEvent(new PointerEvent("pointerup", { pointerId: 1, clientY: 80, bubbles: true }));
+    return true;
+  })()`);
+  await sleep(350);
+  const sheetFull = await evalPage(`document.querySelector(".bottomSheet").getBoundingClientRect().height / window.innerHeight`);
+  const sheetFullShot = await capture("target3-06-sheet-full");
+
+  await evalPage(`(() => {
+    const handle = document.querySelector(".bottomSheet .sheetHandle");
+    handle.dispatchEvent(new PointerEvent("pointerdown", { pointerId: 2, clientY: 100, bubbles: true }));
+    handle.dispatchEvent(new PointerEvent("pointermove", { pointerId: 2, clientY: 720, bubbles: true }));
+    handle.dispatchEvent(new PointerEvent("pointerup", { pointerId: 2, clientY: 720, bubbles: true }));
+    document.querySelector(".saveButton")?.click();
+    return true;
+  })()`);
+  await sleep(300);
+  const savedTerm = await evalPage(`JSON.parse(localStorage.getItem(${JSON.stringify(vocabKey)}) ?? "[]").find((item) => item.bookId === ${JSON.stringify(bookId)}) ?? null`);
+  await evalPage(`document.querySelector(".closeButton")?.click()`);
   await sleep(300);
 
-  fs.mkdirSync("qa/screenshots", { recursive: true });
-  const screenshot = await cdp.send("Page.captureScreenshot", { format: "png", fromSurface: true });
-  const screenshotPath = "qa/screenshots/multibook-ux-qa.png";
-  fs.writeFileSync(screenshotPath, Buffer.from(screenshot.data, "base64"));
+  await evalPage(`document.querySelector(".vocabDock")?.click()`);
+  await waitFor("vocab page", () => evalPage(`Boolean(document.querySelector(".appPageHeader h1")?.textContent?.includes("单词本") && document.querySelector(".studyItem"))`));
+  const vocabPage = await evalPage(`(() => ({
+    itemCount: document.querySelectorAll(".studyItem").length,
+    hasReader: Boolean(document.querySelector(".readerPanel")),
+    hasSourceButton: Boolean(Array.from(document.querySelectorAll(".studyItemActions button")).find((item) => item.textContent.includes("原文")))
+  }))()`);
+  const vocabShot = await capture("target3-07-vocab");
+
+  await evalPage(`Array.from(document.querySelectorAll(".studyItemActions button")).find((item) => item.textContent.includes("原文"))?.click()`);
+  await waitFor("reader from vocab source", () => evalPage(`Boolean(document.querySelector(".readerPanel"))`));
+  await sleep(500);
+  await evalPage(`document.querySelector('[aria-label="favorite current source"]')?.click()`);
+  const savedFavorite = await evalPage(`JSON.parse(localStorage.getItem(${JSON.stringify(favoritesKey)}) ?? "[]")[0] ?? null`);
+
+  await evalPage(`(() => {
+    const paragraph = Array.from(document.querySelectorAll(".readerText")).find((item) => item.innerText.trim().length > 20);
+    const walker = document.createTreeWalker(paragraph, NodeFilter.SHOW_TEXT);
+    const node = walker.nextNode();
+    if (!node || !node.nodeValue) return false;
+    const start = Math.max(0, node.nodeValue.search(/\\S/));
+    const end = Math.min(node.nodeValue.length, start + 18);
+    const range = document.createRange();
+    range.setStart(node, start);
+    range.setEnd(node, end);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+    return selection.toString();
+  })()`);
+  await waitFor("selection actions", () => evalPage(`Boolean(document.querySelector(".selectionActions button"))`));
+  await evalPage(`document.querySelector(".selectionActions button:last-child")?.click()`);
+  await waitFor("notes page", () => evalPage(`Boolean(document.querySelector(".appPageHeader h1")?.textContent?.includes("笔记") && document.querySelector(".studyItem"))`));
+  const notesPage = await evalPage(`(() => ({
+    itemCount: document.querySelectorAll(".studyItem").length,
+    hasTextarea: Boolean(document.querySelector(".studyItem textarea")),
+    hasSourceButton: Boolean(Array.from(document.querySelectorAll(".studyItemActions button")).find((item) => item.textContent.includes("原文")))
+  }))()`);
+  const notesShot = await capture("target3-08-notes");
+
+  await evalPage(`Array.from(document.querySelectorAll(".mainNavItem")).find((item) => item.innerText.includes("收藏"))?.click()`);
+  await waitFor("favorites page", () => evalPage(`Boolean(document.querySelector(".appPageHeader h1")?.textContent?.includes("收藏") && document.querySelector(".studyItem"))`));
+  const favoritesPage = await evalPage(`(() => ({
+    itemCount: document.querySelectorAll(".studyItem").length,
+    hasSourceButton: Boolean(Array.from(document.querySelectorAll(".studyItemActions button")).find((item) => item.textContent.includes("原文")))
+  }))()`);
+  const favoritesShot = await capture("target3-09-favorites");
 
   const ok =
     splash.logo === "6σ" &&
-    splash.hasChineseNotice &&
-    splash.hasEnglishNotice &&
-    !splash.hasReader &&
-    home.cardTitle.includes("六西格玛") &&
+    splash.hasShortChinese &&
+    splash.hasShortEnglish &&
+    !splash.hasOldButton &&
+    !splash.hasLongNotice &&
+    home.navItems.join("|") === "书库|单词|笔记|收藏|我的" &&
     home.bookCount >= 2 &&
-    home.intro.includes(`${home.bookCount} 本教材`) &&
-    home.sampleTitle.includes("Agent") &&
-    home.githubHref === "https://github.com/Felix-Zuo" &&
-    home.watermark.includes("Felix-Zuo") &&
+    home.hasDashboard &&
+    home.hasMetrics &&
     home.noticeAccepted === "true" &&
-    sampleReader.activeBook === sampleBookId &&
-    sampleReader.title.includes("Import Contract") &&
-    sampleReader.hasSampleText &&
-    sampleLookup.length > 0 &&
-    savedSampleTerm?.bookId === sampleBookId &&
-    pageSearch.currentText.toLowerCase().includes("page 340") &&
-    pageSearch.visiblePage340 &&
-    pageSearch.activeBook === bookId &&
-    sheetLock.bodyFixed &&
-    sheetLock.sheetOverscroll === "contain" &&
-    sheetLock.sourceLength > 0 &&
-    sheetLock.sourceLength <= 340 &&
+    home.horizontalOverflow <= 1 &&
+    readerEn.title.length > 0 &&
+    readerEn.headerButtons <= 8 &&
+    !readerEn.hasMainNav &&
+    readerZh.imageCount >= 2 &&
+    readerZh.imagesLoaded &&
+    readerZh.horizontalOverflow <= 1 &&
+    sheetHalf.word.length > 0 &&
+    sheetHalf.heightRatio > 0.42 &&
+    sheetHalf.heightRatio < 0.7 &&
+    sheetHalf.saveVisible &&
+    sheetHalf.bodyFixed &&
+    sheetHalf.overscroll === "contain" &&
+    sheetFull > 0.84 &&
     savedTerm?.bookId === bookId &&
-    savedTerm?.blockId &&
-    immersive.chromeHidden &&
-    immersive.dockHidden &&
-    immersive.exitText.includes("p.");
+    vocabPage.itemCount >= 1 &&
+    vocabPage.hasSourceButton &&
+    !vocabPage.hasReader &&
+    savedFavorite?.bookId === bookId &&
+    notesPage.itemCount >= 1 &&
+    notesPage.hasTextarea &&
+    notesPage.hasSourceButton &&
+    favoritesPage.itemCount >= 1 &&
+    favoritesPage.hasSourceButton;
 
-  console.log(
-    JSON.stringify(
-      {
-        ok,
-        splash,
-        home,
-        sampleReader,
-        savedSampleTerm: savedSampleTerm
-          ? {
-              bookId: savedSampleTerm.bookId,
-              bookTitle: savedSampleTerm.bookTitle,
-              page: savedSampleTerm.page,
-              sectionId: savedSampleTerm.sectionId,
-              blockId: savedSampleTerm.blockId
-            }
-          : null,
-        pageSearch,
-        sheetLock,
-        savedTerm: savedTerm
-          ? {
-              bookId: savedTerm.bookId,
-              bookTitle: savedTerm.bookTitle,
-              page: savedTerm.page,
-              sectionId: savedTerm.sectionId,
-              blockId: savedTerm.blockId
-            }
-          : null,
-        immersive,
-        screenshot: screenshotPath
-      },
-      null,
-      2
-    )
-  );
+  console.log(JSON.stringify({
+    ok,
+    splash,
+    home,
+    readerEn,
+    readerZh,
+    sheetHalf,
+    sheetFull,
+    savedTerm: savedTerm ? { bookId: savedTerm.bookId, page: savedTerm.page, blockId: savedTerm.blockId } : null,
+    savedFavorite: savedFavorite ? { bookId: savedFavorite.bookId, page: savedFavorite.page, blockId: savedFavorite.blockId } : null,
+    vocabPage,
+    notesPage,
+    favoritesPage,
+    screenshots: {
+      splash: splashShot,
+      home: homeShot,
+      readerEn: readerEnShot,
+      readerZh: readerZhShot,
+      sheetHalf: sheetHalfShot,
+      sheetFull: sheetFullShot,
+      vocab: vocabShot,
+      notes: notesShot,
+      favorites: favoritesShot
+    }
+  }, null, 2));
 
   cdp.close();
   if (!ok) {

@@ -117,7 +117,6 @@ async function main() {
     return true;
   })()`);
 
-  await sleep(1800);
   await waitFor("book library", () => evalPage(`Boolean(document.querySelector(".bookCard .primaryAction"))`));
   await evalPage(`document.querySelector(".bookCard .primaryAction")?.click()`);
   await waitFor("Chinese target section", () =>
@@ -148,13 +147,13 @@ async function main() {
 
   await waitFor("selection actions", () => evalPage(`Boolean(document.querySelector(".selectionActions button"))`));
   await evalPage(`document.querySelector(".selectionActions button:last-child")?.click()`);
-  await waitFor("notes panel", () => evalPage(`Boolean(document.querySelector(".notesPanel .noteItem"))`));
+  await waitFor("notes page", () => evalPage(`document.querySelector(".appPageHeader h1")?.textContent?.includes("笔记") && Boolean(document.querySelector(".studyItem"))`));
 
   const savedState = await evalPage(`(() => {
     const notes = JSON.parse(localStorage.getItem(${JSON.stringify(notesKey)}) ?? "[]");
     const item = notes.find((note) => note.bookId === ${JSON.stringify(bookId)});
     const sampleItem = notes.find((note) => note.bookId === ${JSON.stringify(sampleBookId)});
-    const visibleItems = Array.from(document.querySelectorAll(".notesPanel .noteItem")).map((item) => item.innerText);
+    const visibleItems = Array.from(document.querySelectorAll(".studyItem")).map((item) => item.innerText);
     return {
       count: notes.length,
       visibleCount: visibleItems.length,
@@ -168,7 +167,7 @@ async function main() {
   })()`);
 
   await evalPage(`(() => {
-    const textarea = document.querySelector(".noteItem textarea");
+    const textarea = document.querySelector(".studyItem textarea");
     const setter = Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, "value").set;
     setter.call(textarea, "复习：注意术语定义和例句。");
     textarea.dispatchEvent(new Event("input", { bubbles: true }));
@@ -183,7 +182,7 @@ async function main() {
     return {
       totalNotes: notes.length,
       note: item?.note ?? "",
-      textareaValue: document.querySelector(".noteItem textarea")?.value ?? "",
+      textareaValue: document.querySelector(".studyItem textarea")?.value ?? "",
       horizontalOverflow: Math.max(document.body.scrollWidth, doc.scrollWidth) - doc.clientWidth
     };
   })()`);

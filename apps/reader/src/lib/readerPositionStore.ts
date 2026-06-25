@@ -1,5 +1,6 @@
 export type ReaderPosition = {
   bookId?: string;
+  bookTitle?: string;
   chapterId?: string;
   sectionId?: string;
   blockId?: string;
@@ -12,34 +13,76 @@ export type ReaderPosition = {
 const storageKey = "six-sigma-study:reader-position:v1";
 const defaultBookId = "six-sigma-black-belt";
 
-export function loadReaderPosition(): ReaderPosition {
+export type ReaderPositionMap = Record<string, ReaderPosition>;
+
+function normalizePosition(position: ReaderPosition, fallbackBookId = defaultBookId): ReaderPosition {
+  return {
+    bookId: typeof position.bookId === "string" ? position.bookId : fallbackBookId,
+    bookTitle: typeof position.bookTitle === "string" ? position.bookTitle : undefined,
+    chapterId: typeof position.chapterId === "string" ? position.chapterId : undefined,
+    sectionId: typeof position.sectionId === "string" ? position.sectionId : undefined,
+    blockId: typeof position.blockId === "string" ? position.blockId : undefined,
+    page: typeof position.page === "number" && Number.isFinite(position.page) ? position.page : undefined,
+    language: position.language === "zh" ? "zh" : position.language === "en" ? "en" : undefined,
+    scrollY: typeof position.scrollY === "number" && Number.isFinite(position.scrollY) ? position.scrollY : undefined,
+    updatedAt: typeof position.updatedAt === "string" ? position.updatedAt : undefined
+  };
+}
+
+export function loadReaderPositions(): ReaderPositionMap {
   try {
     const raw = window.localStorage.getItem(storageKey);
     if (!raw) {
       return {};
     }
-    const parsed = JSON.parse(raw) as ReaderPosition;
-    return {
-      bookId: typeof parsed.bookId === "string" ? parsed.bookId : defaultBookId,
-      chapterId: typeof parsed.chapterId === "string" ? parsed.chapterId : undefined,
-      sectionId: typeof parsed.sectionId === "string" ? parsed.sectionId : undefined,
-      blockId: typeof parsed.blockId === "string" ? parsed.blockId : undefined,
-      page: typeof parsed.page === "number" && Number.isFinite(parsed.page) ? parsed.page : undefined,
-      language: parsed.language === "zh" ? "zh" : parsed.language === "en" ? "en" : undefined,
-      scrollY: typeof parsed.scrollY === "number" && Number.isFinite(parsed.scrollY) ? parsed.scrollY : undefined,
-      updatedAt: typeof parsed.updatedAt === "string" ? parsed.updatedAt : undefined
+    const parsed = JSON.parse(raw) as ReaderPosition & {
+      activeBookId?: string;
+      positions?: Record<string, ReaderPosition>;
     };
+    if (parsed.positions && typeof parsed.positions === "object") {
+      return Object.fromEntries(
+        Object.entries(parsed.positions).map(([bookId, position]) => [
+          bookId,
+          normalizePosition(position, bookId)
+        ])
+      );
+    }
+    const legacy = normalizePosition(parsed, parsed.bookId ?? defaultBookId);
+    return legacy.bookId ? { [legacy.bookId]: legacy } : {};
   } catch {
     return {};
   }
 }
 
+export function loadReaderPosition(bookId?: string): ReaderPosition {
+  const positions = loadReaderPositions();
+  if (bookId && positions[bookId]) {
+    return positions[bookId];
+  }
+  const values = Object.values(positions);
+  return values.sort((a, b) => Date.parse(b.updatedAt ?? "") - Date.parse(a.updatedAt ?? ""))[0] ?? {};
+}
+
 export function persistReaderPosition(position: ReaderPosition): void {
+  const bookId = position.bookId ?? defaultBookId;
+  const positions = loadReaderPositions();
+  const nextPosition = normalizePosition(
+    {
+      ...positions[bookId],
+      ...position,
+      bookId,
+      updatedAt: new Date().toISOString()
+    },
+    bookId
+  );
   window.localStorage.setItem(
     storageKey,
     JSON.stringify({
-      ...position,
-      bookId: position.bookId ?? defaultBookId,
+      activeBookId: bookId,
+      positions: {
+        ...positions,
+        [bookId]: nextPosition
+      },
       updatedAt: new Date().toISOString()
     })
   );

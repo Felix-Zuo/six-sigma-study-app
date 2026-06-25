@@ -62,7 +62,7 @@ function chooseSamples() {
       preferredLookupText: chapter.chapter === 33 ? "left-to-right" : null,
       expectedImages: {
         en: imageBlockCount(chapter, "en"),
-        zh: imageBlockCount(chapter, "zh")
+        zh: Math.max(imageBlockCount(chapter, "en"), imageBlockCount(chapter, "zh"))
       }
     };
   });
@@ -231,31 +231,39 @@ async function main() {
   }
 
   async function clickVisibleWord(preferredText = null) {
-    const clickedWord = await evalPage(`(() => {
-      const anchor = (document.querySelector(".readerChrome")?.getBoundingClientRect().height ?? 120) + 10;
-      const preferred = ${JSON.stringify(preferredText)};
-      const tokens = Array.from(document.querySelectorAll(".wordToken")).filter((item) => {
-        const rect = item.getBoundingClientRect();
-        return rect.top > anchor && rect.top < window.innerHeight - 150 && rect.width > 8 && rect.height > 8;
-      });
-      const preferredAnywhere = preferred
-        ? Array.from(document.querySelectorAll(".wordToken")).find((item) => item.textContent?.trim().toLowerCase() === preferred.toLowerCase())
-        : null;
-      if (preferredAnywhere && !tokens.includes(preferredAnywhere)) {
-        preferredAnywhere.scrollIntoView({ block: "center" });
+    let clickedWord = null;
+    for (let attempt = 0; attempt < 3 && !clickedWord; attempt += 1) {
+      clickedWord = await evalPage(`(() => {
+        const anchor = (document.querySelector(".readerChrome")?.getBoundingClientRect().height ?? 120) + 10;
+        const preferred = ${JSON.stringify(preferredText)};
+        const tokens = Array.from(document.querySelectorAll(".wordToken")).filter((item) => {
+          const rect = item.getBoundingClientRect();
+          return rect.top > anchor && rect.top < window.innerHeight - 150 && rect.width > 8 && rect.height > 8;
+        });
+        const preferredAnywhere = preferred
+          ? Array.from(document.querySelectorAll(".wordToken")).find((item) => item.textContent?.trim().toLowerCase() === preferred.toLowerCase())
+          : null;
+        if (preferredAnywhere && !tokens.includes(preferredAnywhere)) {
+          preferredAnywhere.scrollIntoView({ block: "center" });
+        }
+        const token =
+          (preferred ? tokens.find((item) => item.textContent?.trim().toLowerCase() === preferred.toLowerCase()) : null) ??
+          preferredAnywhere ??
+          tokens.find((item) => !item.textContent?.includes("-")) ??
+          tokens[0];
+        if (!token) {
+          const fallbackText = Array.from(document.querySelectorAll(".readerText")).find((item) => /[A-Za-z]{4,}/.test(item.innerText));
+          fallbackText?.scrollIntoView({ block: "center" });
+          return null;
+        }
+        const text = token.textContent;
+        token.click();
+        return text;
+      })()`);
+      if (!clickedWord) {
+        await sleep(550);
       }
-      const token =
-        (preferred ? tokens.find((item) => item.textContent?.trim().toLowerCase() === preferred.toLowerCase()) : null) ??
-        preferredAnywhere ??
-        tokens.find((item) => !item.textContent?.includes("-")) ??
-        tokens[0];
-      if (!token) {
-        return null;
-      }
-      const text = token.textContent;
-      token.click();
-      return text;
-    })()`);
+    }
     await sleep(450);
     return evalPage(`(() => {
       const sheet = document.querySelector(".bottomSheet[aria-label='word explanation']");

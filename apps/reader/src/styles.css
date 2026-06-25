@@ -68,6 +68,21 @@ button {
   background: var(--app-bg);
 }
 
+.appFrame {
+  display: grid;
+  gap: 16px;
+  padding: 18px 14px calc(94px + env(safe-area-inset-bottom));
+}
+
+.splashShell {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(31, 91, 79, 0.12), transparent 34%),
+    var(--app-bg);
+}
+
 .appShell[data-theme="dark"] {
   --app-bg: #11171d;
   --chrome-bg: rgba(17, 23, 29, 0.96);
@@ -113,6 +128,8 @@ button {
   gap: 14px;
   min-height: calc(100vh - 140px);
   align-content: center;
+  justify-items: center;
+  text-align: center;
 }
 
 .appLogo {
@@ -127,6 +144,19 @@ button {
   font-size: 34px;
   font-weight: 900;
   box-shadow: 0 16px 36px var(--accent-shadow);
+}
+
+.appLogo.cinematic {
+  width: 92px;
+  height: 92px;
+  animation: logoReveal 2.8s cubic-bezier(0.2, 0.72, 0.2, 1) both;
+}
+
+.splashCopy {
+  display: grid;
+  gap: 7px;
+  max-width: 330px;
+  animation: splashCopyReveal 2.8s ease both;
 }
 
 .appLogo.small {
@@ -168,6 +198,74 @@ button {
   font-weight: 850;
 }
 
+.appPageHeader {
+  display: grid;
+  gap: 6px;
+  padding: 2px 2px 0;
+}
+
+.appPageHeader h1,
+.dashboardHero h2,
+.sectionHeader h2,
+.settingsPanel h2 {
+  margin: 0;
+  color: var(--heading);
+}
+
+.appPageHeader p,
+.dashboardHero p,
+.settingsPanel p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.dashboardHero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--surface), var(--surface-muted));
+  box-shadow: 0 14px 34px rgba(24, 34, 46, 0.08);
+}
+
+.dashboardHero h2 {
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.metricGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.metricGrid button {
+  display: grid;
+  gap: 3px;
+  min-height: 72px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  background: var(--surface);
+  text-align: left;
+}
+
+.metricGrid strong {
+  color: var(--heading);
+  font-size: 22px;
+}
+
+.metricGrid span {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
 .homeHeader {
   display: flex;
   align-items: center;
@@ -198,6 +296,25 @@ button {
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--surface);
+}
+
+.studyBookCard {
+  box-shadow: 0 10px 26px rgba(24, 34, 46, 0.06);
+}
+
+.bookProgress {
+  height: 5px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--border);
+}
+
+.bookProgress span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+  transition: width 0.18s ease;
 }
 
 .bookCover {
@@ -251,6 +368,202 @@ button {
   text-align: center;
 }
 
+.recentPanel,
+.settingsPanel {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.sectionHeader button,
+.settingsRow button,
+.inlineActions button,
+.studyItemActions button,
+.studyToolbar select,
+.studyToolbar input {
+  min-height: 42px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--accent-strong);
+  background: var(--surface);
+  font-weight: 800;
+}
+
+.compactStudyItem {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  padding: 10px 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+  color: var(--text);
+  background: transparent;
+  text-align: left;
+}
+
+.compactStudyItem span {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.studyToolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+}
+
+.studyToolbar select,
+.studyToolbar input {
+  width: 100%;
+  min-width: 0;
+  padding: 0 12px;
+}
+
+.studyList {
+  display: grid;
+  gap: 10px;
+}
+
+.studyItem {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 92px;
+  gap: 12px;
+  align-items: start;
+  padding: 13px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.studyItem h2,
+.studyItem p,
+.studyItem small,
+.studyItem blockquote {
+  overflow-wrap: anywhere;
+}
+
+.studyItem h2 {
+  margin: 0 0 4px;
+  color: var(--heading);
+  font-size: 19px;
+  line-height: 1.2;
+}
+
+.studyItem p,
+.studyItem small {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.studyItem blockquote {
+  margin: 0 0 8px;
+  padding-left: 10px;
+  border-left: 3px solid var(--accent);
+  line-height: 1.55;
+}
+
+.studyItem textarea {
+  width: 100%;
+  min-height: 82px;
+  resize: vertical;
+  padding: 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--text);
+  background: var(--surface-muted);
+  font: inherit;
+}
+
+.studyItemActions {
+  display: grid;
+  gap: 8px;
+}
+
+.studyItemActions button.primary {
+  color: var(--accent-text);
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.settingsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.inlineActions {
+  display: flex;
+  gap: 8px;
+}
+
+.dangerButton {
+  min-height: 44px;
+  border: 1px solid #b85c4f;
+  border-radius: 8px;
+  color: #8d2f24;
+  background: transparent;
+  font-weight: 850;
+}
+
+.mainNav {
+  position: fixed;
+  right: 10px;
+  bottom: calc(10px + env(safe-area-inset-bottom));
+  left: 10px;
+  z-index: 12;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 4px;
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 7px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 18px 42px var(--panel-shadow);
+  backdrop-filter: blur(18px);
+}
+
+.appShell[data-theme="dark"] .mainNav {
+  background: rgba(26, 35, 43, 0.92);
+}
+
+.mainNavItem {
+  display: grid;
+  place-items: center;
+  min-height: 48px;
+  border: 0;
+  border-radius: 13px;
+  color: var(--text-muted);
+  background: transparent;
+  font-size: 12px;
+}
+
+.mainNavItem strong {
+  font-size: 13px;
+}
+
+.mainNavItem span {
+  font-size: 10px;
+}
+
+.mainNavItem.active {
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+}
+
 .loadWarning {
   color: #a14f28;
 }
@@ -295,6 +608,7 @@ h1 {
   justify-content: flex-end;
   gap: 7px;
   max-width: 250px;
+  position: relative;
 }
 
 .modeButton,
@@ -368,6 +682,31 @@ h1 {
 .readerControlButton:disabled {
   color: var(--text-muted);
   opacity: 0.46;
+}
+
+.readerMenu {
+  position: absolute;
+  top: 44px;
+  right: 0;
+  z-index: 9;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(68px, 1fr));
+  gap: 7px;
+  width: 190px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 18px 42px var(--panel-shadow);
+}
+
+.readerMenu button {
+  min-height: 38px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--accent-strong);
+  background: var(--surface-muted);
+  font-weight: 800;
 }
 
 .chapterRail {
@@ -613,6 +952,14 @@ h1 {
   font-size: 13px;
 }
 
+.panelOpen .vocabDock,
+.panelOpen .notesDock,
+.panelOpen .selectionActions {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+}
+
 .bottomSheet,
 .notesPanel,
 .vocabPanel,
@@ -635,6 +982,12 @@ h1 {
   box-shadow: 0 -20px 44px var(--panel-shadow);
 }
 
+.draggableSheet {
+  height: min(var(--sheet-height, 58vh), calc(100vh - 22px));
+  max-height: none;
+  animation: sheetEnter 0.18s ease both;
+}
+
 .overlayBackdrop {
   position: fixed;
   inset: 0;
@@ -652,11 +1005,22 @@ h1 {
 }
 
 .sheetHandle {
-  width: 42px;
-  height: 4px;
-  margin: 0 auto 14px;
-  border-radius: 2px;
+  width: 58px;
+  height: 22px;
+  margin: 0 auto 8px;
+  border-radius: 999px;
   background: var(--border-strong);
+  cursor: ns-resize;
+  touch-action: none;
+  position: relative;
+}
+
+.sheetHandle::after {
+  position: absolute;
+  inset: 9px 12px;
+  border-radius: 999px;
+  background: var(--surface);
+  content: "";
 }
 
 .sheetHeader {
@@ -764,6 +1128,28 @@ h1 {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
   transition: outline-color 0.2s ease;
+}
+
+.hasNoteMarker,
+.hasFavoriteMarker {
+  position: relative;
+}
+
+.hasNoteMarker::after,
+.hasFavoriteMarker::after {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--accent);
+  content: "";
+  opacity: 0.75;
+}
+
+.hasFavoriteMarker::after {
+  background: #b7791f;
 }
 
 .immersiveMode {
@@ -1118,6 +1504,17 @@ h1 {
   .notesDock {
     bottom: 68px;
   }
+
+  .dashboardHero,
+  .bookCard,
+  .studyItem {
+    grid-template-columns: 1fr;
+  }
+
+  .mainNav {
+    right: 8px;
+    left: 8px;
+  }
 }
 
 @media (min-width: 760px) {
@@ -1132,5 +1529,62 @@ h1 {
   .tocPanel {
     right: calc((100vw - 760px) / 2);
     left: calc((100vw - 760px) / 2);
+  }
+
+  .studyToolbar {
+    grid-template-columns: 160px minmax(0, 1fr) 140px;
+  }
+}
+
+@keyframes logoReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.86);
+    filter: blur(8px);
+  }
+  28% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+  72% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.14;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes splashCopyReveal {
+  0%,
+  38% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  58%,
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sheetEnter {
+  from {
+    transform: translateY(18px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
   }
 }

@@ -22,35 +22,40 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 
 ## Screenshots
 
-| Library | Reader | Lookup |
+| Opening | Study Home | Chinese Reader With Figure |
 | --- | --- | --- |
-| ![Book library](docs/assets/showcase/home-library.png) | ![Bilingual reader](docs/assets/showcase/bilingual-reader.png) | ![Lookup sheet](docs/assets/showcase/lookup-sheet.png) |
+| ![Opening animation](docs/assets/showcase/target3-splash.png) | ![Study workbench](docs/assets/showcase/target3-home.png) | ![Chinese reader with preserved figure](docs/assets/showcase/target3-reader-zh-image.png) |
 
-| Notes | Figure Preservation |
-| --- | --- |
-| ![Notes panel](docs/assets/showcase/notes-panel.png) | ![Figure preservation](docs/assets/showcase/figure-preservation.png) |
+| Lookup Half Sheet | Lookup Full Sheet | Vocabulary |
+| --- | --- | --- |
+| ![Draggable lookup sheet](docs/assets/showcase/target3-sheet-half.png) | ![Full-height lookup sheet](docs/assets/showcase/target3-sheet-full.png) | ![Vocabulary page](docs/assets/showcase/target3-vocab.png) |
+
+| Notes | Favorites | English Reader |
+| --- | --- | --- |
+| ![Notes page](docs/assets/showcase/target3-notes.png) | ![Favorites page](docs/assets/showcase/target3-favorites.png) | ![English reader](docs/assets/showcase/target3-reader-en.png) |
 
 ## Study Workflow
 
-1. Open the Android app and accept the bilingual non-commercial source notice.
-2. Choose a book from the library.
+1. Open the Android app; the logo opening runs automatically and then enters the study home.
+2. Continue the current book or open another book from the library.
 3. Switch English/Chinese at any time; the reader restores the same section/block when possible.
-4. Tap an English word or selected phrase to open the half-screen explanation sheet.
-5. Save terms to the local vocabulary book or save selected text as notes.
-6. Return from vocabulary/notes back to the exact source page and block.
+4. Tap an English word or selected phrase to open the draggable explanation sheet.
+5. Save terms, notes, and favorites locally.
+6. Review vocabulary, notes, and favorites from their own bottom-navigation pages, then jump back to the exact source page and block.
 
 When another book is selected, vocabulary and notes are filtered to that book. Legacy localStorage records from the first book are migrated to `six-sigma-black-belt`.
 
 ## Core Features
 
-- Multi-book catalog and home/library screen.
-- Opening logo and bilingual rights/non-commercial notice.
+- Multi-book study workbench with bottom navigation for Library, Vocabulary, Notes, Favorites, and Settings.
+- Automatic opening logo animation with the full rights/non-commercial notice moved to Settings/About.
 - English/Chinese reading mode with block-aware position restoration.
 - Deduplicated page rail, chapter progress, page search, and table-of-contents navigation.
 - Immersive reading mode with Android back-button handling.
-- Bottom-sheet lookup with scroll containment, so sheet scrolling does not drag the reader behind it.
-- Curated terms, learner dictionary entries, phrase lookup, vocabulary review scheduling, and CSV export.
-- Selected-text notes with source return actions.
+- Draggable bottom-sheet lookup with half, tall, and full-height states plus scroll containment.
+- Curated terms, learner dictionary entries, phrase lookup, vocabulary review scheduling, source return, and CSV export.
+- Independent vocabulary, notes, and favorites pages with book filters, search, sorting, and source return actions.
+- Chinese mode preserves figure, table, and formula images rather than falling back to text-only reading.
 - Offline Android packaging with generated figures bundled in APK/AAB.
 - Agent textbook import contract for future legally usable books.
 
@@ -124,6 +129,7 @@ Public-readiness evidence: [PUBLIC_READINESS.md](PUBLIC_READINESS.md). Attributi
 | Public safety | `npm run audit:public` | denylisted tracked files and runtime JSON local-path scan |
 | Source coverage | `npm run qa:source-coverage` | source TOC anchors, assets, sampled nonblank source renders |
 | Reader UX | `npm run qa:multibook-ux` | notice, home, page search, book-scoped vocab, scroll lock, immersive mode |
+| Target 3 product UX | `npm run qa:target3-product`, `npm run qa:notes`, `npm run qa:image-fidelity` | auto opening, bottom navigation, independent study pages, draggable sheets, Chinese image fidelity |
 | Android WebView | `npm run qa:android-key-chapters` | Chapters 1, 7, 26, 33, lookup, alignment, image checks |
 | Release package | `npm run android:release-apk` and `npm run android:aab` | local signed APK/AAB with runtime content bundled |
 
@@ -195,7 +201,7 @@ The source files are not committed. Runtime JSON uses public-safe provenance fie
 ## Roadmap
 
 - Add a real `--input-manifest --report-json` converter around the Agent import contract.
-- Add highlighted rendering for saved notes.
+- Refine inline note highlight ranges beyond current source-block markers.
 - Improve curated section mapping for the remaining normal-paragraph source headings.
 - Profile low-end Android devices.
 - Add optional sync/export workflows after the local-first model is stable.
