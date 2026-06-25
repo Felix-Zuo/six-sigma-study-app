@@ -141,46 +141,40 @@ Every rendered block is emitted with `data-block-id` and `data-page`. These anch
 
 ```ts
 type TermEntry = {
-  id: string;
   term: string;
-  normalized: string;
-  kind: "word" | "phrase" | "acronym";
   translation: string;
   partOfSpeech?: string;
+  phonetic?: string;
   explanation: string;
-  examples: string[];
-  isSixSigmaTerm: boolean;
+  lookupKeys: string[];
+  isSixSigmaTerm?: boolean;
+  source?: string;
 };
 ```
 
 ## Vocabulary Record
 
 ```ts
-type VocabRecord = {
+type SavedTerm = {
   id: string;
   bookId: string;
   bookTitle: string;
   contentVersion?: string;
-  termId?: string;
-  text: string;
-  normalized: string;
+  term: string;
   translation: string;
-  explanation: string;
-  source: {
-    chapter: number;
-    page: number;
-    sectionId: string;
-    blockId?: string;
-    sentence: string;
-  };
+  chapter: number;
+  chapterTitle: string;
+  page: number;
+  sectionId: string;
+  blockId?: string;
+  sourceText: string;
+  savedAt: string;
   status: "new" | "learning" | "mastered";
   reviewCount: number;
   correctStreak: number;
-  nextReviewAt: string;
   lastReviewedAt?: string;
+  nextReviewAt: string;
   masteredAt?: string;
-  createdAt: string;
-  reviewedAt?: string;
 };
 ```
 
@@ -208,11 +202,33 @@ type SavedNote = {
 
 Notes and selected paragraph captures are scoped by `bookId`. The current UI filters to the active book and provides a return-to-source action.
 
+## Favorite Record
+
+```ts
+type SavedFavorite = {
+  id: string;
+  bookId: string;
+  bookTitle: string;
+  chapter: number;
+  chapterTitle: string;
+  page: number;
+  sectionId: string;
+  blockId?: string;
+  title: string;
+  note?: string;
+  savedAt: string;
+  updatedAt: string;
+};
+```
+
+Favorites/bookmarks are scoped by `bookId` and use the same source-anchor fields as vocabulary and notes. The Favorites page can filter by book, search titles/chapters/notes, sort by recent or page order, and return to the original source block.
+
 ## Reader Position
 
 ```ts
 type ReaderPosition = {
   bookId?: string;
+  bookTitle?: string;
   chapterId?: string;
   sectionId?: string;
   blockId?: string;
@@ -221,7 +237,21 @@ type ReaderPosition = {
   scrollY?: number;
   updatedAt?: string;
 };
+
+type ReaderPositionMap = Record<string, ReaderPosition>;
 ```
+
+Runtime storage uses a map-shaped payload so each book keeps its own last-read position:
+
+```ts
+type ReaderPositionStorage = {
+  activeBookId: string;
+  positions: ReaderPositionMap;
+  updatedAt: string;
+};
+```
+
+Legacy single-position records are migrated at load time into the map shape under their `bookId`, or `six-sigma-black-belt` when the older record has no `bookId`.
 
 ## Asset
 

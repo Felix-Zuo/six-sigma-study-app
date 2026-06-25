@@ -1,21 +1,21 @@
 {
-  "manual": "Agent Import Sample Workbook",
+  "manual": "Import Practice Workbook",
   "bookId": "agent-import-sample",
   "version": "0.1.0",
   "pageCount": 5,
   "title": {
-    "en": "Agent Import Sample Workbook",
-    "zh": "Agent 教材导入示例手册"
+    "en": "Import Practice Workbook",
+    "zh": "教材导入练习手册"
   },
   "subtitle": {
-    "en": "Synthetic two-chapter fixture",
-    "zh": "自写双章节验证样例"
+    "en": "Original two-chapter practice",
+    "zh": "自写双章节练习样例"
   },
-  "domainLabel": "导入示例术语",
+  "domainLabel": "导入练习术语",
   "source": "Original sample text authored for this repository.",
   "licenseNotice": {
-    "en": "This sample book is original synthetic content created for validating the Agent import contract. It is non-commercial and carries no third-party textbook material.",
-    "zh": "本示例教材为本项目自写的合成内容，仅用于验证 Agent 导入契约；非商业使用，不包含第三方教材素材。"
+    "en": "This practice book is original content created for validating the textbook import contract. It is non-commercial and carries no third-party textbook material.",
+    "zh": "本练习教材为本项目自写内容，仅用于验证教材导入契约；非商业使用，不包含第三方教材素材。"
   },
   "chapters": [
     {
@@ -33,8 +33,8 @@
           "page": 1,
           "level": 1,
           "title": {
-            "en": "What the Agent Receives",
-            "zh": "Agent 接收什么"
+            "en": "What the Importer Receives",
+            "zh": "导入器接收什么"
           },
           "content": {
             "en": [
@@ -42,7 +42,7 @@
                 "id": "sample-ch01-s01-en-001",
                 "kind": "heading",
                 "page": 1,
-                "text": "What the Agent Receives"
+                "text": "What the Importer Receives"
               },
               {
                 "id": "sample-ch01-s01-en-002",
@@ -54,7 +54,7 @@
                 "id": "sample-ch01-s01-en-003",
                 "kind": "termNote",
                 "page": 1,
-                "text": "Import contract: a machine-readable agreement that tells the Agent what inputs are allowed and which checks must pass."
+                "text": "Import contract: a machine-readable agreement that tells the importer what inputs are allowed and which checks must pass."
               }
             ],
             "zh": [
@@ -62,7 +62,7 @@
                 "id": "sample-ch01-s01-zh-001",
                 "kind": "heading",
                 "page": 1,
-                "text": "Agent 接收什么"
+                "text": "导入器接收什么"
               },
               {
                 "id": "sample-ch01-s01-zh-002",
@@ -74,7 +74,7 @@
                 "id": "sample-ch01-s01-zh-003",
                 "kind": "termNote",
                 "page": 1,
-                "text": "导入契约：一种机器可读约定，用来告诉 Agent 哪些输入可以使用，以及哪些检查必须通过。"
+                "text": "导入契约：一种机器可读约定，用来告诉导入器哪些输入可以使用，以及哪些检查必须通过。"
               }
             ]
           }
@@ -241,7 +241,7 @@
       "term": "import contract",
       "translation": "导入契约",
       "partOfSpeech": "noun phrase",
-      "explanation": "A machine-readable agreement for what a textbook Agent may receive, generate, and validate.",
+      "explanation": "A machine-readable agreement for what a textbook importer may receive, generate, and validate.",
       "lookupKeys": ["import contract", "contract"],
       "isSixSigmaTerm": false,
       "source": "sample"

@@ -419,7 +419,8 @@ button {
 .studyToolbar {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 8px;
+  gap: 7px;
+  margin-top: -4px;
 }
 
 .studyToolbar select,
@@ -436,10 +437,10 @@ button {
 
 .studyItem {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 92px;
-  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
   align-items: start;
-  padding: 13px;
+  padding: 12px;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--surface);
@@ -486,8 +487,16 @@ button {
 }
 
 .studyItemActions {
-  display: grid;
-  gap: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 7px;
+  min-width: 88px;
+}
+
+.studyItemActions button {
+  min-width: 76px;
+  padding: 0 10px;
 }
 
 .studyItemActions button.primary {
@@ -742,6 +751,7 @@ h1 {
 .readerPanel {
   display: grid;
   gap: 12px;
+  padding-bottom: calc(118px + env(safe-area-inset-bottom));
 }
 
 .sectionBlock {
@@ -903,7 +913,7 @@ h1 {
 .selectionActions {
   position: fixed;
   left: 16px;
-  bottom: 18px;
+  bottom: calc(18px + env(safe-area-inset-bottom));
   z-index: 7;
   display: flex;
   gap: 8px;
@@ -918,42 +928,9 @@ h1 {
   background: var(--surface);
   font-weight: 850;
   box-shadow: 0 12px 30px var(--panel-shadow);
+  transition: opacity 0.16s ease, transform 0.16s ease;
 }
 
-.vocabDock,
-.notesDock {
-  position: fixed;
-  right: 16px;
-  z-index: 7;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-width: 96px;
-  height: 44px;
-  padding: 0 14px;
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  color: var(--text);
-  background: var(--surface);
-  box-shadow: 0 12px 30px var(--panel-shadow);
-}
-
-.vocabDock {
-  bottom: 18px;
-}
-
-.notesDock {
-  bottom: 72px;
-}
-
-.vocabDock span,
-.notesDock span {
-  color: var(--text-muted);
-  font-size: 13px;
-}
-
-.panelOpen .vocabDock,
-.panelOpen .notesDock,
 .panelOpen .selectionActions {
   opacity: 0;
   pointer-events: none;
@@ -1158,8 +1135,6 @@ h1 {
 
 .immersiveMode .readerChrome,
 .immersiveMode .selectionActions,
-.immersiveMode .vocabDock,
-.immersiveMode .notesDock,
 .immersiveMode .readerWatermark {
   display: none;
 }
@@ -1185,9 +1160,24 @@ h1 {
 }
 
 .emptyState {
-  margin: 14px 0 0;
+  margin: 0;
+  padding: 14px;
+  border: 1px dashed var(--border-strong);
+  border-radius: 8px;
   color: var(--text-muted);
+  background: var(--surface);
   line-height: 1.6;
+}
+
+.emptyState strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--heading);
+  font-size: 16px;
+}
+
+.emptyState button {
+  margin-top: 10px;
 }
 
 .vocabList {
@@ -1501,14 +1491,14 @@ h1 {
     right: 16px;
   }
 
-  .notesDock {
-    bottom: 68px;
-  }
-
   .dashboardHero,
   .bookCard,
   .studyItem {
     grid-template-columns: 1fr;
+  }
+
+  .studyItemActions {
+    justify-content: flex-start;
   }
 
   .mainNav {

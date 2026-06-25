@@ -27,24 +27,24 @@
     {
       "bookId": "agent-import-sample",
       "title": {
-        "en": "Agent Import Sample Workbook",
-        "zh": "Agent 教材导入示例手册"
+        "en": "Import Practice Workbook",
+        "zh": "教材导入练习手册"
       },
       "subtitle": {
-        "en": "Synthetic import fixture",
-        "zh": "自写导入验证样例"
+        "en": "Original sample learning material",
+        "zh": "自写学习样例"
       },
       "languagePair": ["en", "zh"],
-      "cover": "AI",
-      "domainLabel": "导入示例术语",
+      "cover": "EX",
+      "domainLabel": "导入练习术语",
       "contentPath": "content/books/agent-import-sample/manual.json",
       "pageCount": 5,
       "chapterCount": 2,
       "assetCount": 0,
       "source": "Original sample text authored for this repository.",
       "licenseNotice": {
-        "zh": "本示例教材为本项目自写的合成内容，仅用于验证 Agent 导入契约；非商业使用，不包含第三方教材素材。",
-        "en": "This sample book is original synthetic content created for validating the Agent import contract. It is non-commercial and carries no third-party textbook material."
+        "zh": "本练习教材为本项目自写内容，仅用于验证教材导入契约；非商业使用，不包含第三方教材素材。",
+        "en": "This practice book is original content created for validating the textbook import contract. It is non-commercial and carries no third-party textbook material."
       }
     }
   ]

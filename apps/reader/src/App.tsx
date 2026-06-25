@@ -127,6 +127,7 @@ type NotesSort = "updated" | "page";
 type FavoritesSort = "recent" | "page";
 type SourceAnchor = {
   bookId: string;
+  chapterId?: string;
   page: number;
   sectionId: string;
   blockId?: string;
@@ -214,7 +215,11 @@ function loadReaderPreferences(): { theme: ThemeMode; textScale: TextScale } {
 }
 
 function persistReaderPreferences(theme: ThemeMode, textScale: TextScale): void {
-  window.localStorage.setItem(readerPreferencesKey, JSON.stringify({ theme, textScale }));
+  try {
+    window.localStorage.setItem(readerPreferencesKey, JSON.stringify({ theme, textScale }));
+  } catch {
+    // Preferences are useful but should not make the app unusable.
+  }
 }
 
 function loadInitialView(): AppView {
@@ -222,7 +227,11 @@ function loadInitialView(): AppView {
 }
 
 function loadInitialBookId(positionBookId?: string): string {
-  return positionBookId || window.localStorage.getItem(activeBookKey) || defaultBookId;
+  try {
+    return positionBookId || window.localStorage.getItem(activeBookKey) || defaultBookId;
+  } catch {
+    return positionBookId || defaultBookId;
+  }
 }
 
 function getBookTitle(book?: BookManifest | null, language: Language = "zh"): string {
@@ -656,9 +665,15 @@ export function App() {
       return;
     }
 
+    let cancelled = false;
+    const requestedBookId = activeBook.bookId;
     setManualLoading(true);
     setLoadError("");
-    window.localStorage.setItem(activeBookKey, activeBook.bookId);
+    try {
+      window.localStorage.setItem(activeBookKey, activeBook.bookId);
+    } catch {
+      // Local storage can be unavailable in constrained WebView modes.
+    }
     fetch(activeBook.contentPath)
       .then((response) => {
         if (!response.ok) {
@@ -667,7 +682,13 @@ export function App() {
         return response.json() as Promise<ManualData>;
       })
       .then((data) => {
+        if (cancelled || requestedBookId !== activeBook.bookId) {
+          return;
+        }
         const enriched = enrichManualData(data, activeBook);
+        if (enriched.bookId !== requestedBookId) {
+          throw new Error(`manual bookId mismatch: expected ${requestedBookId}, received ${enriched.bookId}`);
+        }
         const savedPosition = loadReaderPosition(activeBook.bookId);
         const canRestore = (savedPosition.bookId ?? defaultBookId) === activeBook.bookId;
         const initialChapter =
@@ -707,10 +728,16 @@ export function App() {
         }
       })
       .catch((error: unknown) => {
+        if (cancelled) {
+          return;
+        }
         setManual(null);
         setManualLoading(false);
         setLoadError(error instanceof Error ? error.message : "manual load failed");
       });
+    return () => {
+      cancelled = true;
+    };
   }, [activeBook, view]);
 
   useEffect(() => {
@@ -737,9 +764,18 @@ export function App() {
     if (view !== "splash") {
       return;
     }
-    const hasSeenSplash = window.localStorage.getItem(noticeAcceptedKey) === "true";
+    let hasSeenSplash = false;
+    try {
+      hasSeenSplash = window.localStorage.getItem(noticeAcceptedKey) === "true";
+    } catch {
+      hasSeenSplash = false;
+    }
     const timer = window.setTimeout(() => {
-      window.localStorage.setItem(noticeAcceptedKey, "true");
+      try {
+        window.localStorage.setItem(noticeAcceptedKey, "true");
+      } catch {
+        // The opening can still finish when persistence is unavailable.
+      }
       setView("home");
     }, hasSeenSplash ? 1850 : 2800);
     return () => window.clearTimeout(timer);
@@ -876,6 +912,11 @@ export function App() {
         return;
       }
 
+      if (view !== "home" && view !== "splash") {
+        setView("home");
+        return;
+      }
+
       if (canGoBack) {
         window.history.back();
         return;
@@ -894,7 +935,7 @@ export function App() {
       removed = true;
       void listener?.remove();
     };
-  }, [isImmersive]);
+  }, [isImmersive, view]);
 
   useEffect(() => {
     const root = readerRef.current;
@@ -1105,8 +1146,10 @@ export function App() {
   }
 
   function openSourceAnchor(anchor: SourceAnchor) {
+    const targetBookLoaded = anchor.bookId === currentBookId && manual?.bookId === anchor.bookId;
     persistReaderPosition({
       bookId: anchor.bookId,
+      chapterId: anchor.chapterId,
       sectionId: anchor.sectionId,
       blockId: anchor.blockId,
       page: anchor.page,
@@ -1117,6 +1160,11 @@ export function App() {
     setActiveBookId(anchor.bookId);
     setView("reader");
     setReaderMenuOpen(false);
+    pendingScrollSectionRef.current = anchor.sectionId;
+    pendingScrollBlockRef.current = anchor.blockId ?? null;
+    if (targetBookLoaded) {
+      selectSource(anchor.sectionId, anchor.blockId, anchor.page);
+    }
   }
 
   function progressForBook(book: BookManifest): { page?: number; percent: number; label: string } {
@@ -1253,7 +1301,7 @@ export function App() {
               <article key={book.bookId} className="bookCard studyBookCard">
                 <div className="bookCover" aria-hidden="true">{book.cover ?? "6σ"}</div>
                 <div className="bookCardBody">
-                  <p className="eyebrow">{book.bookId === "agent-import-sample" ? "导入示例" : book.subtitle?.zh ?? "中英对照学习版"}</p>
+                  <p className="eyebrow">{book.bookId === "agent-import-sample" ? "练习样例" : book.subtitle?.zh ?? "中英对照学习版"}</p>
                   <h2>{book.title.zh}</h2>
                   <p>{book.title.en}</p>
                   <div className="bookProgress">
@@ -1321,7 +1369,13 @@ export function App() {
         </section>
         <section className="studyList">
           {filteredStudyTerms.length === 0 ? (
-            <p className="emptyState">暂无匹配词条。英文阅读时点击单词即可加入词本。</p>
+            <div className="emptyState">
+              <strong>还没有可复习的词条</strong>
+              <span>英文阅读时点击单词或短语，可以直接加入单词本。</span>
+              <button className="readerControlButton" onClick={() => openBook(studyBookFilter === "all" ? defaultBookId : studyBookFilter)}>
+                去阅读
+              </button>
+            </div>
           ) : (
             filteredStudyTerms.map((item) => (
               <article key={item.id} className="studyItem">
@@ -1364,7 +1418,13 @@ export function App() {
         </section>
         <section className="studyList">
           {filteredStudyNotes.length === 0 ? (
-            <p className="emptyState">暂无匹配笔记。阅读时选中文本后点击摘录。</p>
+            <div className="emptyState">
+              <strong>还没有笔记</strong>
+              <span>阅读时选中文本并点击摘录，可以把疑问和理解保存到这里。</span>
+              <button className="readerControlButton" onClick={() => openBook(studyBookFilter === "all" ? defaultBookId : studyBookFilter)}>
+                去阅读
+              </button>
+            </div>
           ) : (
             filteredStudyNotes.map((item) => (
               <article key={item.id} className="studyItem noteStudyItem">
@@ -1409,7 +1469,13 @@ export function App() {
         </section>
         <section className="studyList">
           {filteredFavorites.length === 0 ? (
-            <p className="emptyState">暂无收藏。阅读器顶部可收藏当前段落或页面。</p>
+            <div className="emptyState">
+              <strong>还没有收藏</strong>
+              <span>阅读器顶部的收藏按钮可以保存重点段落、页面或图表。</span>
+              <button className="readerControlButton" onClick={() => openBook(studyBookFilter === "all" ? defaultBookId : studyBookFilter)}>
+                去阅读
+              </button>
+            </div>
           ) : (
             filteredFavorites.map((item) => (
               <article key={item.id} className="studyItem">
@@ -1609,8 +1675,11 @@ export function App() {
   }
 
   function closeOverlayForJump() {
-    overlayHistoryRef.current = false;
     closeOverlay();
+    if (overlayHistoryRef.current) {
+      overlayHistoryRef.current = false;
+      window.history.back();
+    }
   }
 
   function openToc() {
@@ -2310,22 +2379,6 @@ export function App() {
           </div>
         </section>
       )}
-
-      {!isImmersive && <button className="vocabDock" aria-label="saved vocabulary" onClick={() => {
-        setStudyBookFilter(currentBookId);
-        setView("vocab");
-      }}>
-        <strong>词本</strong>
-        <span>{dueTerms.length > 0 ? `待 ${dueTerms.length}` : `${bookSavedTerms.length} 个`}</span>
-      </button>}
-
-      {!isImmersive && <button className="notesDock" aria-label="saved notes" onClick={() => {
-        setStudyBookFilter(currentBookId);
-        setView("notes");
-      }}>
-        <strong>笔记</strong>
-        <span>{bookSavedNotes.length} 条</span>
-      </button>}
 
       {isOverlayOpen && <div className="overlayBackdrop" aria-hidden="true" onClick={closeOverlayFromControl} />}
 

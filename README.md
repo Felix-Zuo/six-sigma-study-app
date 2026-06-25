@@ -4,7 +4,7 @@
 
 A local-first Android/PWA bilingual textbook study platform that turns legally usable technical manuals into aligned reading, tap-to-lookup vocabulary, notes, and review workflows.
 
-The first full book is a non-commercial Chinese-English study edition of the CSSC Six Sigma Black Belt training manual. A second synthetic sample book proves the Agent import contract and multi-book runtime path.
+The first full book is a non-commercial Chinese-English study edition of the CSSC Six Sigma Black Belt training manual. A second original import-practice workbook proves the Agent import contract and multi-book runtime path.
 
 This is not an official CSSC product. The bundled manual-derived content is for personal study, Chinese translation, and bilingual reference only. Commercial use is prohibited.
 
@@ -12,7 +12,7 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 
 | Metric | Current State |
 | --- | --- |
-| Runtime books | 2 catalog books: full Six Sigma manual + synthetic Agent import sample |
+| Runtime books | 2 catalog books: full Six Sigma manual + original import-practice workbook |
 | Six Sigma content | 33 chapters, 449 aligned study pages, 174 reader sections |
 | Preserved assets | 470 figure/table/formula PNG runtime assets |
 | Dictionary | 3954 local entries, curated Six Sigma terms first |
@@ -22,17 +22,21 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 
 ## Screenshots
 
-| Opening | Study Home | Chinese Reader With Figure |
+| Study Home | Chinese Reader With Figure | Lookup Half Sheet |
 | --- | --- | --- |
-| ![Opening animation](docs/assets/showcase/target3-splash.png) | ![Study workbench](docs/assets/showcase/target3-home.png) | ![Chinese reader with preserved figure](docs/assets/showcase/target3-reader-zh-image.png) |
+| ![Study workbench](docs/assets/showcase/target4-home.png) | ![Chinese reader with preserved figure](docs/assets/showcase/target4-reader-zh-image.png) | ![Draggable lookup sheet](docs/assets/showcase/target4-lookup-half.png) |
 
-| Lookup Half Sheet | Lookup Full Sheet | Vocabulary |
+| Opening | Lookup Full Sheet | Vocabulary |
 | --- | --- | --- |
-| ![Draggable lookup sheet](docs/assets/showcase/target3-sheet-half.png) | ![Full-height lookup sheet](docs/assets/showcase/target3-sheet-full.png) | ![Vocabulary page](docs/assets/showcase/target3-vocab.png) |
+| ![Opening animation](docs/assets/showcase/target4-opening.png) | ![Full-height lookup sheet](docs/assets/showcase/target4-lookup-full.png) | ![Vocabulary page](docs/assets/showcase/target4-vocab.png) |
 
 | Notes | Favorites | English Reader |
 | --- | --- | --- |
-| ![Notes page](docs/assets/showcase/target3-notes.png) | ![Favorites page](docs/assets/showcase/target3-favorites.png) | ![English reader](docs/assets/showcase/target3-reader-en.png) |
+| ![Notes page](docs/assets/showcase/target4-notes.png) | ![Favorites page](docs/assets/showcase/target4-favorites.png) | ![English reader](docs/assets/showcase/target4-reader-en.png) |
+
+| Import Practice Book | Table of Contents | Settings |
+| --- | --- | --- |
+| ![Second book](docs/assets/showcase/target4-second-book.png) | ![Table of contents](docs/assets/showcase/target4-toc.png) | ![Settings and about](docs/assets/showcase/target4-settings.png) |
 
 ## Study Workflow
 
@@ -43,7 +47,7 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 5. Save terms, notes, and favorites locally.
 6. Review vocabulary, notes, and favorites from their own bottom-navigation pages, then jump back to the exact source page and block.
 
-When another book is selected, vocabulary and notes are filtered to that book. Legacy localStorage records from the first book are migrated to `six-sigma-black-belt`.
+When another book is selected, vocabulary, notes, and favorites are filtered to that book. Legacy localStorage records from the first book are migrated to `six-sigma-black-belt`.
 
 ## Core Features
 
@@ -130,6 +134,7 @@ Public-readiness evidence: [PUBLIC_READINESS.md](PUBLIC_READINESS.md). Attributi
 | Source coverage | `npm run qa:source-coverage` | source TOC anchors, assets, sampled nonblank source renders |
 | Reader UX | `npm run qa:multibook-ux` | notice, home, page search, book-scoped vocab, scroll lock, immersive mode |
 | Target 3 product UX | `npm run qa:target3-product`, `npm run qa:notes`, `npm run qa:image-fidelity` | auto opening, bottom navigation, independent study pages, draggable sheets, Chinese image fidelity |
+| Target 4 product audit | `npm run qa:target4-flow` | opening, home, second book, settings, TOC, immersive, lookup half/full, source return, Chinese image fidelity, notes, favorites, vocabulary |
 | Android WebView | `npm run qa:android-key-chapters` | Chapters 1, 7, 26, 33, lookup, alignment, image checks |
 | Release package | `npm run android:release-apk` and `npm run android:aab` | local signed APK/AAB with runtime content bundled |
 

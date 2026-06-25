@@ -24,6 +24,7 @@
     "qa:source-coverage": "python scripts/qa_source_coverage.py",
     "qa:multibook-ux": "node scripts/qa-multibook-ux-cdp.mjs",
     "qa:target3-product": "node scripts/qa-multibook-ux-cdp.mjs",
+    "qa:target4-flow": "node scripts/qa-target4-flow-cdp.mjs",
     "qa:notes": "node scripts/qa-notes-cdp.mjs",
     "qa:sheet-gestures": "node scripts/qa-multibook-ux-cdp.mjs",
     "qa:image-fidelity": "node scripts/qa-android-key-chapters-cdp.mjs",

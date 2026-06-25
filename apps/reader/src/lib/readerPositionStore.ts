@@ -75,15 +75,19 @@ export function persistReaderPosition(position: ReaderPosition): void {
     },
     bookId
   );
-  window.localStorage.setItem(
-    storageKey,
-    JSON.stringify({
-      activeBookId: bookId,
-      positions: {
-        ...positions,
-        [bookId]: nextPosition
-      },
-      updatedAt: new Date().toISOString()
-    })
-  );
+  try {
+    window.localStorage.setItem(
+      storageKey,
+      JSON.stringify({
+        activeBookId: bookId,
+        positions: {
+          ...positions,
+          [bookId]: nextPosition
+        },
+        updatedAt: new Date().toISOString()
+      })
+    );
+  } catch {
+    // Position persistence should not block core reading.
+  }
 }

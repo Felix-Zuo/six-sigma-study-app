@@ -56,5 +56,9 @@ export function loadSavedFavorites(): SavedFavorite[] {
 }
 
 export function persistSavedFavorites(favorites: SavedFavorite[]): void {
-  window.localStorage.setItem(storageKey, JSON.stringify(favorites));
+  try {
+    window.localStorage.setItem(storageKey, JSON.stringify(favorites));
+  } catch {
+    // Bookmarks should fail softly in privacy-restricted WebView contexts.
+  }
 }

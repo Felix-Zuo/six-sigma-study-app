@@ -87,7 +87,11 @@ export function loadSavedTerms(): SavedTerm[] {
 }
 
 export function persistSavedTerms(terms: SavedTerm[]): void {
-  window.localStorage.setItem(storageKey, JSON.stringify(terms));
+  try {
+    window.localStorage.setItem(storageKey, JSON.stringify(terms));
+  } catch {
+    // Study data is local-first; failing to persist should not crash reading.
+  }
 }
 
 export function isTermDue(term: SavedTerm, now = new Date()): boolean {

@@ -58,5 +58,9 @@ export function loadSavedNotes(): SavedNote[] {
 }
 
 export function persistSavedNotes(notes: SavedNote[]): void {
-  window.localStorage.setItem(storageKey, JSON.stringify(notes));
+  try {
+    window.localStorage.setItem(storageKey, JSON.stringify(notes));
+  } catch {
+    // Keep the reading flow usable even when local storage is unavailable.
+  }
 }

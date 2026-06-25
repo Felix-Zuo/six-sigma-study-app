@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-22 08:18 Asia/Shanghai
+Last updated: 2026-06-25 17:09 Asia/Shanghai
 
 ## Objective
 
@@ -21,10 +21,81 @@ The final product must support full-manual offline reading, position-preserving 
 ## Current Evidence
 
 - Branch: `main`
-- Latest local release validation pass: 2026-06-22 08:18 Asia/Shanghai
-- Local worktree: expected clean after the state-sync commit that contains this note
-- Latest pushed GitHub Actions state before this local pass: CI passed for `bcc393c` in run `27921632279`
+- Latest local target-four validation pass in progress: 2026-06-25 17:09 Asia/Shanghai
+- Local worktree: target-four audit changes are pending final Android build, commit, push, CI, and issue closure
+- Latest pushed GitHub Actions state before target-four commit: CI passed for `6b37bb2` in run `28156191994`
 - Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 3954-entry offline learner dictionary with curated Six Sigma terms first, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service worker with verified offline app-shell/figure caching for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+
+## Target Four Audit Status
+
+Target four is a bounded three-round product验收 loop for the current multi-book Android-first learning product.
+
+### Round 1 - Full Product Smoke Trial
+
+- Used four audit roles from the active subagent set before this state update:
+  - Product manager: identified missing target-four evidence for Settings/About, second book, source return exactness, and screenshot coverage.
+  - Learner: identified source-anchor exactness, old QA selector drift, settings coverage, and physical touch limitations.
+  - UI/motion designer: identified reader floating-dock occlusion, header density, sample-book demo wording, and old README screenshot priority.
+  - Code engineer: identified stale manual fetch risk, localStorage write exceptions, overlay history edge cases, and data-model drift.
+- Created bounded GitHub issues #41-#48 for target-four evidence, multi-book sample polish, source-return behavior, localStorage tolerance, sheet gestures, image fidelity, independent study pages, and release/CI closure.
+- Implemented fixes:
+  - Added `scripts/qa-target4-flow-cdp.mjs` and `npm run qa:target4-flow`.
+  - Hardened manual loading against stale fetches and bookId mismatches.
+  - Added block-level pending scroll and source-return highlighting.
+  - Added Android back fallback from non-home app views.
+  - Wrapped localStorage writes for active book, splash notice, preferences, vocabulary, notes, favorites, and reader positions.
+  - Updated the sample workbook runtime copy from visible "Agent Import Sample" wording to "Import Practice Workbook" product wording.
+  - Updated `docs/04-data-model.md` to match runtime `TermEntry`, `SavedTerm`, `SavedNote`, `SavedFavorite`, and reader-position storage.
+  - Removed reader floating study docks after screenshots proved they could cover Chinese text; independent study pages remain available through bottom navigation and the reader menu.
+- Round 1 verification:
+  - `npm run typecheck`: passed.
+  - `npm run build`: passed.
+  - `npm run lint:content`: passed.
+  - `npm run lint:books`: passed.
+  - `npm run qa:book-import`: passed.
+  - `npm run qa:target4-flow`: passed.
+  - Key target-four screenshots saved under `qa/target4-audit/screenshots/round1-01-opening.png` through `round1-13-vocab.png`.
+
+### Round 2 - Deep Interaction And Data Consistency
+
+- Fixed legacy `qa-multibook-ux-cdp.mjs` drift after the reader floating vocab dock was removed; the script now uses the real product path: back to library, bottom-nav Vocabulary, then source return.
+- Re-ran each CDP QA in an isolated clean Chrome profile to avoid browser-state interference.
+- Round 2 verification:
+  - `npm run qa:source-coverage`: passed with 557 source PDF pages, 449 manual pages, 9542 content blocks, 940 image blocks, 470 assets, 142 source TOC sections, 127 matched sections, and nonblank sampled source renders.
+  - `npm run qa:target3-product`: passed with current navigation path, opening, home, reader EN/ZH, lookup half/full, saved term/favorite, independent vocabulary/notes/favorites, and source-return controls.
+  - `npm run qa:notes`: passed with two scoped notes, sample-book note hidden from Six Sigma filter, Chinese selected text saved/edited, and 0 horizontal overflow.
+  - `npm run qa:image-fidelity`: passed for Chapters 1, 7, 26, and 33 with matching EN/ZH image counts and 0 broken images.
+  - `npm run qa:sheet-gestures`: passed with half/full sheet states, body scroll lock, and scroll containment.
+  - `npm run qa:android-key-chapters`: passed for Chapters 1, 7, 26, and 33 with EN -> ZH -> EN restoration, lookup, image loading, and 0 horizontal overflow.
+
+### Round 3 - Release-Level Acceptance
+
+- Status: local release-level validation complete; final GitHub push, CI confirmation, issue closure, and clean-worktree check remain before target four is marked complete.
+- Round 3 verification:
+  - `npm run audit:public`: passed.
+  - `npm run docs:links`: passed.
+  - `npm run lint:content`: passed.
+  - `npm run lint:books`: passed.
+  - `npm run qa:book-import`: passed.
+  - `npm run typecheck`: passed.
+  - `npm run build`: passed.
+  - `npm run qa:target4-flow`: passed.
+  - `npm run android:release-apk`: passed; APK at `C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk`.
+  - `npm run android:aab`: passed; AAB at `C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab`.
+  - APK package inspection: 919 entries, `content/catalog.json`, Six Sigma `content/manual.json`, Import Practice Workbook `content/books/agent-import-sample/manual.json`, and 470 figure PNG assets present.
+  - AAB package inspection: 927 entries, same runtime content and 470 figure PNG assets present.
+  - APK signature verification: `apksigner verify --verbose --print-certs` exit code 0, v2 signature verified, one signer.
+  - AAB signature verification: `jarsigner -verify` exit code 0 with expected local self-signed certificate warning.
+- Remaining gates before marking target four complete:
+  - Commit and push target-four changes.
+  - Confirm GitHub Actions CI for the pushed commit.
+  - Close issues #41-#48.
+  - Confirm final clean worktree and stop local QA browser/preview processes.
+
+### Known Limitations After Round 2
+
+- Physical long-press QA on an actual phone is still separate from WebView/CDP automation.
+- Sentence-level semantic alignment is still not separately modeled; section/block-level restoration is the accepted runtime contract.
 
 ## Completed In Current Stage
 

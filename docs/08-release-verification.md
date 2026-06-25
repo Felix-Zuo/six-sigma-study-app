@@ -10,6 +10,7 @@
 | Source coverage | `npm run qa:source-coverage` | source TOC, block page anchors, assets, sampled nonblank renders pass | exhaustive 557-page pixel comparison is out of scope |
 | Multi-book UX | `npm run qa:multibook-ux` | study workbench, source jump, scroll lock, immersive mode, book-scoped vocab pass | real-device physical long-press QA remains separate |
 | Target 3 product UX | `npm run qa:target3-product`; `npm run qa:notes`; `npm run qa:image-fidelity`; `npm run qa:sheet-gestures` | automatic opening, bottom navigation, independent pages, draggable sheets, favorites, Chinese image fidelity pass | CDP gestures are not a full physical-device matrix |
+| Target 4 product audit | `npm run qa:target4-flow` | opening, home, second book, settings, TOC, immersive mode, lookup half/full, exact source return, Chinese image fidelity, notes, favorites, and vocabulary pass | real-device physical long-press QA remains separate |
 | Android key chapters | `npm run qa:android-key-chapters` | Chapters 1, 7, 26, and 33 render, lookup, align, and load images | WebView/CDP is not a full physical-device matrix |
 | Release packaging | `npm run android:release-apk`; `npm run android:aab` | APK/AAB build with runtime packages and figure assets bundled | store upload-key policy is not finalized |
 
@@ -21,7 +22,7 @@ This document records the current evidence that the Android study app is install
 
 - Repository: `https://github.com/Felix-Zuo/six-sigma-study-app`
 - Local path: `C:\findjob_sixsigma_app`
-- Latest local release validation pass when this document was updated: 2026-06-25 16:06 Asia/Shanghai
+- Latest local release validation pass when this document was updated: 2026-06-25 17:09 Asia/Shanghai
 - Release APK: `C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB: `C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab`
 
@@ -49,6 +50,7 @@ npm run qa:target3-product
 npm run qa:notes
 npm run qa:image-fidelity
 npm run qa:sheet-gestures
+npm run qa:target4-flow
 npm run typecheck
 npm run build
 npm run android:release-apk
@@ -131,6 +133,9 @@ Verified on local emulator `SixSigmaQA` / `emulator-5554`.
 - Study notes: Android WebView QA verified selected Chinese text can be saved with language/page/section metadata, edited in the notes panel, and rendered with 0 horizontal overflow.
 - Key chapter release APK QA: `npm run qa:android-key-chapters` passed on Chapters 1, 7, 26, and 33. It verified EN -> ZH -> EN position restoration, tap-to-lookup, no generic lookup fallback, no horizontal overflow, and all target chapter figure images loading without broken images. Chapter 33 specifically verified `left-to-right` opens the curated `left-to-right` phrase entry.
 - Target 3 product QA: `npm run qa:target3-product` passed with automatic no-click opening, short bilingual opening copy, bottom navigation entries (`书库`, `单词`, `笔记`, `收藏`, `我的`), two-book home, dashboard metrics, English reader, Chinese reader with 2 preserved Chapter 1 images, draggable lookup sheet at about 52% and 92% height, body scroll lock, source return buttons, saved term/favorite `bookId`, and independent vocabulary/notes/favorites pages.
+- Target 4 product audit: `npm run qa:target4-flow` passed against a clean mobile CDP run. It verified automatic opening, 5-item bottom navigation, two-book home, Import Practice Workbook rendering, Settings/About panels with GitHub link and data controls, English reader, TOC search sheet, immersive mode, lookup half/full states, exact source-return highlight for `ch01-overview-en-001`, Chinese reader with loaded image, notes/favorites/vocabulary pages, and `bookId: six-sigma-black-belt` persistence for created study data.
+- Target 4 screenshots were captured under `qa/target4-audit/screenshots/round1-01-opening.png` through `round1-13-vocab.png`; public-safe copies are committed under `docs/assets/showcase/target4-*.png`.
+- Target 4 product fixes: visible sample-book wording now uses Import Practice Workbook copy; reader floating study docks were removed after screenshot audit showed they could occlude Chinese text; source-return anchors now preserve block-level pending scroll and highlighting; localStorage writes fail softly in restricted contexts; stale manual fetches are ignored when switching books.
 - Sheet gesture QA: `npm run qa:sheet-gestures` passed with the same draggable half/full sheet checks and scroll containment.
 - Notes QA: `npm run qa:notes` passed with book-scoped note filtering, Chinese selection save/edit, source metadata, and 0 horizontal overflow.
 - Image fidelity QA: `npm run qa:image-fidelity` passed for Chapters 1, 7, 26, and 33. English/Chinese image counts matched the expected chapter counts (2, 14, 50, and 25 respectively), every checked image loaded without broken assets, lookup opened in each chapter, and horizontal overflow stayed 0.
@@ -139,8 +144,9 @@ Verified on local emulator `SixSigmaQA` / `emulator-5554`.
 - Dictionary coverage: browser CDP QA verified runtime `manual.json` contains ECDICT-derived learner entries, curated hits for `COPQ`, `DMADV`, `poka-yoke`, `5S`, and `Anderson-Darling`, and a real lookup sheet for `both` with phonetic text and 0 horizontal overflow. The current package inspection verified 3954 bundled dictionary entries.
 - Full-manual validator: `npm run lint:content` now checks 33 chapters, pageCount 449, continuous chapter page ranges, manifest chapter paths, global duplicate section/block IDs, block page anchors, complete EN/ZH page coverage, image asset metadata consistency, unsafe asset paths, asset page bounds, and reader-style dictionary lookup key uniqueness.
 - Source coverage validator: `npm run qa:source-coverage` passed with source PDF page count 557, manual page count 449, 9542 content blocks, 940 image blocks, 470 assets, 142 source TOC sections, 127 matched source section anchors, 15 explicitly allowed normal-paragraph source headings, and nonblank source-page renders for pages 9, 73, 396, 544, and 555.
-- Current release package sizes after this validation pass: APK 37,836,140 bytes; AAB 35,619,526 bytes.
-- Current release package inspection: APK 919 entries and AAB 927 entries; both include `content/catalog.json`, Six Sigma `manual.json`, Agent sample `manual.json`, and 470 figure PNG assets.
+- Current release package sizes after this validation pass: APK 37,836,304 bytes; AAB 35,619,720 bytes.
+- Current release package inspection: APK 919 entries and AAB 927 entries; both include `content/catalog.json`, Six Sigma `manual.json`, Import Practice Workbook `content/books/agent-import-sample/manual.json`, and 470 figure PNG assets.
+- Signature verification: `apksigner verify --verbose --print-certs android/app/build/outputs/apk/release/app-release.apk` returned exit code 0 with APK Signature Scheme v2 verified and one signer. `jarsigner -verify android/app/build/outputs/bundle/release/app-release.aab` returned exit code 0; the expected local self-signed certificate trust-chain warning remains because the release key is local.
 
 ## Known Remaining Gaps
 

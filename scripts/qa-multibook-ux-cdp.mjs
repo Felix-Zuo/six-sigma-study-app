@@ -203,7 +203,9 @@ async function main() {
   await evalPage(`document.querySelector(".closeButton")?.click()`);
   await sleep(300);
 
-  await evalPage(`document.querySelector(".vocabDock")?.click()`);
+  await evalPage(`document.querySelector('[aria-label="back to library"]')?.click()`);
+  await waitFor("home before vocab page", () => evalPage(`Boolean(document.querySelector(".dashboardHero") && document.querySelector(".mainNav"))`));
+  await evalPage(`document.querySelectorAll(".mainNavItem")[1]?.click()`);
   await waitFor("vocab page", () => evalPage(`Boolean(document.querySelector(".appPageHeader h1")?.textContent?.includes("单词本") && document.querySelector(".studyItem"))`));
   const vocabPage = await evalPage(`(() => ({
     itemCount: document.querySelectorAll(".studyItem").length,
