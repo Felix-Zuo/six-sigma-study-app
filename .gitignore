@@ -28,6 +28,8 @@ android/keystore.properties
 android/local.properties
 
 # Generated content and large source files
+private-question-bank/
+*.private.json
 content/raw/*
 content/processed/*
 !content/processed/manual.sample.json

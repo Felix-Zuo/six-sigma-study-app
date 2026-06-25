@@ -39,5 +39,8 @@ jobs:
       - name: Public readiness audit
         run: npm run audit:public
 
+      - name: Learning modules QA
+        run: npm run qa:learning-modules
+
       - name: Documentation link check
         run: npm run docs:links

@@ -13,12 +13,35 @@ import {
 import { loadReaderPosition, loadReaderPositions, persistReaderPosition, type ReaderPositionMap } from "./lib/readerPositionStore";
 import { loadSavedNotes, persistSavedNotes, type SavedNote } from "./lib/noteStore";
 import { loadSavedFavorites, persistSavedFavorites, type SavedFavorite } from "./lib/favoriteStore";
+import { loadDailyStats, persistDailyStats, recordDailyReviewCompletion, type DailyStudyStats } from "./lib/streakStore";
+import {
+  loadExamResults,
+  loadQuestionProgress,
+  loadUserQuestionBank,
+  markQuestionSeen,
+  normalizeQuestionBank,
+  persistExamResults,
+  persistQuestionProgress,
+  persistUserQuestionBank,
+  progressForQuestion,
+  recordQuestionAnswer,
+  toggleQuestionFavorite,
+  type ExamResult,
+  type QuestionBankPayload,
+  type QuestionDifficulty,
+  type QuestionItem,
+  type QuestionProgress
+} from "./lib/questionBank";
+import { publicQuestionBank } from "./data/publicQuestionBank";
 
 type Language = "en" | "zh";
 type ThemeMode = "light" | "dark";
 type TextScale = "standard" | "large" | "xlarge";
-type AppView = "splash" | "home" | "reader" | "vocab" | "notes" | "favorites" | "settings";
+type AppView = "splash" | "home" | "reader" | "vocab" | "questions" | "notes" | "favorites" | "settings";
 type LocalizedText = Record<Language, string>;
+type QuestionMode = "home" | "browse" | "practice" | "wrong" | "exam";
+type QuestionFilter = "all" | string;
+type DifficultyFilter = "all" | QuestionDifficulty;
 
 type ContentBlock = {
   id: string;
@@ -109,6 +132,13 @@ type ActiveLookup = {
   sectionId: string;
   blockId?: string;
   sourceText: string;
+  questionSource?: {
+    questionId: string;
+    examId: string;
+    domain: string;
+    page: number;
+    sourceRef: string;
+  };
 };
 
 type SelectedPhrase = {
@@ -497,6 +527,41 @@ function InlineReaderText({
   );
 }
 
+function InlineQuestionText({
+  text,
+  language,
+  onLookup
+}: {
+  text: string;
+  language: Language;
+  onLookup: (text: string, sourceText: string) => void;
+}) {
+  const displayText = text || "";
+  const tokens = useMemo(() => (language === "en" ? tokenizeEnglish(displayText) : []), [displayText, language]);
+
+  if (language !== "en") {
+    return <>{displayText}</>;
+  }
+
+  return (
+    <>
+      {tokens.map((token) =>
+        token.kind === "word" ? (
+          <button
+            key={token.id}
+            className="wordToken questionWordToken"
+            onClick={() => onLookup(token.text, sourceContextForTerm(displayText, token.text))}
+          >
+            {token.text}
+          </button>
+        ) : (
+          <span key={token.id}>{token.text}</span>
+        )
+      )}
+    </>
+  );
+}
+
 export function App() {
   const initialPositionRef = useRef(loadReaderPosition());
   const [readerPositions, setReaderPositions] = useState<ReaderPositionMap>(() => loadReaderPositions());
@@ -517,6 +582,10 @@ export function App() {
   const [savedTerms, setSavedTerms] = useState<SavedTerm[]>(() => loadSavedTerms());
   const [savedNotes, setSavedNotes] = useState<SavedNote[]>(() => loadSavedNotes());
   const [savedFavorites, setSavedFavorites] = useState<SavedFavorite[]>(() => loadSavedFavorites());
+  const [dailyStats, setDailyStats] = useState<DailyStudyStats>(() => loadDailyStats());
+  const [userQuestionBank, setUserQuestionBank] = useState<QuestionBankPayload | null>(() => loadUserQuestionBank());
+  const [questionProgress, setQuestionProgress] = useState<Record<string, QuestionProgress>>(() => loadQuestionProgress());
+  const [examResults, setExamResults] = useState<ExamResult[]>(() => loadExamResults());
   const [showToc, setShowToc] = useState(false);
   const [showVocab, setShowVocab] = useState(false);
   const [showNotes, setShowNotes] = useState(false);
@@ -530,6 +599,24 @@ export function App() {
   const [favoritesQuery, setFavoritesQuery] = useState("");
   const [favoritesSort, setFavoritesSort] = useState<FavoritesSort>("recent");
   const [vocabExportMessage, setVocabExportMessage] = useState("");
+  const [flashReviewActive, setFlashReviewActive] = useState(false);
+  const [flashReviewIndex, setFlashReviewIndex] = useState(0);
+  const [flashReviewRevealed, setFlashReviewRevealed] = useState(false);
+  const [questionMode, setQuestionMode] = useState<QuestionMode>("home");
+  const [questionLanguage, setQuestionLanguage] = useState<Language>("zh");
+  const [questionDomainFilter, setQuestionDomainFilter] = useState<QuestionFilter>("all");
+  const [questionChapterFilter, setQuestionChapterFilter] = useState<QuestionFilter>("all");
+  const [questionDifficultyFilter, setQuestionDifficultyFilter] = useState<DifficultyFilter>("all");
+  const [questionIndex, setQuestionIndex] = useState(0);
+  const [selectedQuestionAnswers, setSelectedQuestionAnswers] = useState<string[]>([]);
+  const [revealedQuestionId, setRevealedQuestionId] = useState<string | null>(null);
+  const [questionImportMessage, setQuestionImportMessage] = useState("");
+  const [examQuestionCount, setExamQuestionCount] = useState(20);
+  const [examMinutes, setExamMinutes] = useState(30);
+  const [examQuestionIds, setExamQuestionIds] = useState<string[]>([]);
+  const [examStartedAt, setExamStartedAt] = useState("");
+  const [examAnswers, setExamAnswers] = useState<Record<string, string[]>>({});
+  const [examFinishedResult, setExamFinishedResult] = useState<ExamResult | null>(null);
   const [isImmersive, setIsImmersive] = useState(false);
   const [readerMenuOpen, setReaderMenuOpen] = useState(false);
   const [sheetHeightVh, setSheetHeightVh] = useState(52);
@@ -628,6 +715,61 @@ export function App() {
     () => new Set(bookSavedTerms.map((item) => `${item.bookId}:${normalizeLookup(item.term)}`)),
     [bookSavedTerms]
   );
+  const allQuestions = useMemo(
+    () => [...publicQuestionBank.questions, ...(userQuestionBank?.questions ?? [])],
+    [userQuestionBank]
+  );
+  const questionDomains = useMemo(
+    () => [...new Set(allQuestions.map((question) => question.domain))].sort((a, b) => a.localeCompare(b)),
+    [allQuestions]
+  );
+  const questionChapters = useMemo(
+    () => [...new Set(allQuestions.map((question) => question.chapterId))].sort((a, b) => a.localeCompare(b)),
+    [allQuestions]
+  );
+  const filteredQuestions = useMemo(() => {
+    return allQuestions.filter(
+      (question) =>
+        (questionDomainFilter === "all" || question.domain === questionDomainFilter) &&
+        (questionChapterFilter === "all" || question.chapterId === questionChapterFilter) &&
+        (questionDifficultyFilter === "all" || question.difficulty === questionDifficultyFilter)
+    );
+  }, [allQuestions, questionChapterFilter, questionDifficultyFilter, questionDomainFilter]);
+  const wrongQuestions = useMemo(() => {
+    return allQuestions
+      .filter((question) => {
+        const progress = progressForQuestion(questionProgress, question.questionId);
+        return progress.wrongPriority > 0 && !progress.mastered;
+      })
+      .sort(
+        (a, b) =>
+          progressForQuestion(questionProgress, b.questionId).wrongPriority -
+          progressForQuestion(questionProgress, a.questionId).wrongPriority
+      );
+  }, [allQuestions, questionProgress]);
+  const weakDomains = useMemo(() => {
+    const byDomain = new Map<string, { domain: string; wrong: number; total: number }>();
+    for (const question of allQuestions) {
+      const progress = progressForQuestion(questionProgress, question.questionId);
+      const current = byDomain.get(question.domain) ?? { domain: question.domain, wrong: 0, total: 0 };
+      current.wrong += progress.wrongCount + progress.unknownCount;
+      current.total += progress.correctCount + progress.wrongCount + progress.unknownCount;
+      byDomain.set(question.domain, current);
+    }
+    return [...byDomain.values()]
+      .filter((item) => item.total > 0 && item.wrong > 0)
+      .sort((a, b) => b.wrong / b.total - a.wrong / a.total)
+      .slice(0, 4);
+  }, [allQuestions, questionProgress]);
+  const currentQuestionList = questionMode === "wrong" ? wrongQuestions : filteredQuestions;
+  const currentQuestion =
+    currentQuestionList.length > 0 ? currentQuestionList[Math.min(questionIndex, currentQuestionList.length - 1)] : undefined;
+  const flashReviewTerms = useMemo(() => {
+    const source = filteredStudyTerms.filter((item) => (vocabSort === "due" ? isTermDue(item) : true));
+    return source.length > 0 ? source : filteredStudyTerms;
+  }, [filteredStudyTerms, vocabSort]);
+  const currentFlashTerm =
+    flashReviewTerms.length > 0 ? flashReviewTerms[Math.min(flashReviewIndex, flashReviewTerms.length - 1)] : undefined;
   const textScaleIndex = textScaleOrder.indexOf(readerPreferences.textScale);
   const pageGroups = useMemo(() => buildPageGroups(lesson?.sections ?? []), [lesson]);
   const chapterProgress = lesson
@@ -753,6 +895,22 @@ export function App() {
   }, [savedFavorites]);
 
   useEffect(() => {
+    persistDailyStats(dailyStats);
+  }, [dailyStats]);
+
+  useEffect(() => {
+    persistUserQuestionBank(userQuestionBank);
+  }, [userQuestionBank]);
+
+  useEffect(() => {
+    persistQuestionProgress(questionProgress);
+  }, [questionProgress]);
+
+  useEffect(() => {
+    persistExamResults(examResults);
+  }, [examResults]);
+
+  useEffect(() => {
     persistReaderPreferences(readerPreferences.theme, readerPreferences.textScale);
   }, [readerPreferences]);
 
@@ -780,6 +938,17 @@ export function App() {
     }, hasSeenSplash ? 1850 : 2800);
     return () => window.clearTimeout(timer);
   }, [view]);
+
+  useEffect(() => {
+    setQuestionIndex(0);
+    setSelectedQuestionAnswers([]);
+    setRevealedQuestionId(null);
+  }, [questionChapterFilter, questionDifficultyFilter, questionDomainFilter, questionMode]);
+
+  useEffect(() => {
+    setFlashReviewIndex(0);
+    setFlashReviewRevealed(false);
+  }, [studyBookFilter, vocabQuery, vocabSort]);
 
   useEffect(() => {
     if (!activeChapterId || !activeSectionId) {
@@ -1180,6 +1349,209 @@ export function App() {
     };
   }
 
+  function recordDailyCompletion(count = 1) {
+    setDailyStats((stats) => recordDailyReviewCompletion(stats, count));
+  }
+
+  function questionText(value: LocalizedText | { en: string; zh: string }): string {
+    return (questionLanguage === "zh" ? value.zh || value.en : value.en || value.zh) || "";
+  }
+
+  function answerKey(values: string[]): string {
+    return [...values].map((value) => value.trim().toUpperCase()).filter(Boolean).sort().join("|");
+  }
+
+  function isQuestionAnswerCorrect(question: QuestionItem, values: string[]): boolean {
+    return answerKey(question.correctAnswer) === answerKey(values);
+  }
+
+  function updateQuestionProgress(questionId: string, updater: (progress: QuestionProgress) => QuestionProgress) {
+    setQuestionProgress((items) => ({
+      ...items,
+      [questionId]: updater(progressForQuestion(items, questionId))
+    }));
+  }
+
+  function markCurrentQuestionSeen(question: QuestionItem) {
+    updateQuestionProgress(question.questionId, (progress) => markQuestionSeen(progress));
+  }
+
+  function toggleCurrentQuestionFavorite(question: QuestionItem) {
+    updateQuestionProgress(question.questionId, (progress) => toggleQuestionFavorite(progress));
+  }
+
+  function selectQuestionOption(question: QuestionItem, optionId: string) {
+    setSelectedQuestionAnswers((answers) => {
+      if (question.questionType === "multiple") {
+        return answers.includes(optionId) ? answers.filter((item) => item !== optionId) : [...answers, optionId];
+      }
+      return [optionId];
+    });
+  }
+
+  function moveToNextQuestion(list = currentQuestionList) {
+    setSelectedQuestionAnswers([]);
+    setRevealedQuestionId(null);
+    if (list.length === 0) {
+      setQuestionIndex(0);
+      return;
+    }
+    setQuestionIndex((index) => Math.min(index + 1, Math.max(0, list.length - 1)));
+  }
+
+  function submitQuestionAnswer(question: QuestionItem) {
+    if (selectedQuestionAnswers.length === 0) {
+      return;
+    }
+    const isCorrect = isQuestionAnswerCorrect(question, selectedQuestionAnswers);
+    updateQuestionProgress(question.questionId, (progress) => recordQuestionAnswer(progress, isCorrect ? "correct" : "wrong"));
+    if (isCorrect) {
+      moveToNextQuestion();
+      return;
+    }
+    setRevealedQuestionId(question.questionId);
+  }
+
+  function markQuestionUnknown(question: QuestionItem) {
+    updateQuestionProgress(question.questionId, (progress) => recordQuestionAnswer(progress, "unknown"));
+    setRevealedQuestionId(question.questionId);
+  }
+
+  function markQuestionCorrectFromBrowse(question: QuestionItem) {
+    updateQuestionProgress(question.questionId, (progress) => recordQuestionAnswer(progress, "correct"));
+  }
+
+  function lookupQuestionText(text: string, question: QuestionItem, sourceText: string) {
+    const entry = lookupCandidates(text).map((key) => termIndex.get(key)).find(Boolean) ?? lookupFallback(text);
+    ensureOverlayHistory();
+    setShowToc(false);
+    setShowVocab(false);
+    setShowNotes(false);
+    setSheetHeightVh(52);
+    setActiveLookup({
+      entry,
+      page: question.page,
+      sectionId: "__question__",
+      blockId: question.questionId,
+      sourceText,
+      questionSource: {
+        questionId: question.questionId,
+        examId: question.examId,
+        domain: question.domain,
+        page: question.page,
+        sourceRef: question.sourceRef
+      }
+    });
+  }
+
+  function renderQuestionText(text: string, question: QuestionItem) {
+    return (
+      <InlineQuestionText
+        text={text}
+        language={questionLanguage}
+        onLookup={(token, sourceText) => lookupQuestionText(token, question, sourceText)}
+      />
+    );
+  }
+
+  async function importPrivateQuestionBank(file: File | undefined) {
+    if (!file) {
+      return;
+    }
+    try {
+      const parsed = JSON.parse(await file.text());
+      const bank = normalizeQuestionBank({ ...parsed, sourceType: "user-private" }, "user-private-bank");
+      if (bank.questions.length === 0) {
+        throw new Error("没有读到题目");
+      }
+      setUserQuestionBank(bank);
+      setQuestionImportMessage(`已导入 ${bank.questions.length} 道私有题。`);
+    } catch (error) {
+      setQuestionImportMessage(error instanceof Error ? `导入失败：${error.message}` : "导入失败。");
+    }
+  }
+
+  function startPractice(mode: QuestionMode) {
+    setQuestionMode(mode);
+    setQuestionIndex(0);
+    setSelectedQuestionAnswers([]);
+    setRevealedQuestionId(null);
+  }
+
+  function openQuestionAnchor(questionId?: string) {
+    if (!questionId) {
+      setQuestionMode("home");
+      setView("questions");
+      return;
+    }
+    const index = allQuestions.findIndex((question) => question.questionId === questionId);
+    setQuestionDomainFilter("all");
+    setQuestionChapterFilter("all");
+    setQuestionDifficultyFilter("all");
+    setQuestionMode("browse");
+    setQuestionIndex(index >= 0 ? index : 0);
+    setRevealedQuestionId(questionId);
+    setView("questions");
+    window.setTimeout(() => setQuestionIndex(index >= 0 ? index : 0), 0);
+  }
+
+  function startExam() {
+    const pool = [...filteredQuestions];
+    const shuffled = pool
+      .map((question) => ({ question, rank: Math.random() }))
+      .sort((a, b) => a.rank - b.rank)
+      .slice(0, Math.min(examQuestionCount, pool.length))
+      .map((item) => item.question.questionId);
+    setExamQuestionIds(shuffled);
+    setExamStartedAt(new Date().toISOString());
+    setExamAnswers({});
+    setExamFinishedResult(null);
+    setQuestionIndex(0);
+    setQuestionMode("exam");
+  }
+
+  function finishExam() {
+    const questions = examQuestionIds
+      .map((questionId) => allQuestions.find((question) => question.questionId === questionId))
+      .filter((question): question is QuestionItem => Boolean(question));
+    const wrongQuestionIds: string[] = [];
+    let correct = 0;
+    for (const question of questions) {
+      const answers = examAnswers[question.questionId] ?? [];
+      const isCorrect = isQuestionAnswerCorrect(question, answers);
+      if (isCorrect) {
+        correct += 1;
+      } else {
+        wrongQuestionIds.push(question.questionId);
+      }
+      updateQuestionProgress(question.questionId, (progress) => recordQuestionAnswer(progress, isCorrect ? "correct" : "wrong"));
+    }
+    const domainMap = new Map<string, { domain: string; wrong: number; total: number }>();
+    for (const question of questions) {
+      const current = domainMap.get(question.domain) ?? { domain: question.domain, wrong: 0, total: 0 };
+      current.total += 1;
+      if (wrongQuestionIds.includes(question.questionId)) {
+        current.wrong += 1;
+      }
+      domainMap.set(question.domain, current);
+    }
+    const finishedAt = new Date().toISOString();
+    const result: ExamResult = {
+      id: `exam-${Date.now()}`,
+      startedAt: examStartedAt || finishedAt,
+      finishedAt,
+      total: questions.length,
+      correct,
+      accuracy: questions.length > 0 ? Math.round((correct / questions.length) * 100) : 0,
+      minutes: examMinutes,
+      questionIds: questions.map((question) => question.questionId),
+      wrongQuestionIds,
+      weakDomains: [...domainMap.values()].filter((item) => item.wrong > 0).sort((a, b) => b.wrong - a.wrong)
+    };
+    setExamFinishedResult(result);
+    setExamResults((items) => [result, ...items].slice(0, 20));
+  }
+
   function renderBookFilter(value: BookFilter, onChange: (bookId: BookFilter) => void) {
     return (
       <select value={value} onChange={(event) => onChange(event.target.value)} aria-label="filter by book">
@@ -1217,6 +1589,7 @@ export function App() {
     const items: { view: AppView; label: string; detail?: string }[] = [
       { view: "home", label: "书库", detail: `${studyBooks.length}` },
       { view: "vocab", label: "单词", detail: `${allDueTerms.length}` },
+      { view: "questions", label: "刷题", detail: `${allQuestions.length}` },
       { view: "notes", label: "笔记", detail: `${savedNotes.length}` },
       { view: "favorites", label: "收藏", detail: `${savedFavorites.length}` },
       { view: "settings", label: "我的" }
@@ -1279,8 +1652,16 @@ export function App() {
         </section>
         <section className="metricGrid" aria-label="study summary">
           <button onClick={() => setView("vocab")}>
-            <strong>{allDueTerms.length}</strong>
-            <span>今日复习</span>
+            <strong>{dailyStats.completed}/{dailyStats.goal}</strong>
+            <span>今日目标</span>
+          </button>
+          <button onClick={() => setView("vocab")}>
+            <strong>{dailyStats.streak}</strong>
+            <span>连续天数</span>
+          </button>
+          <button onClick={() => setView("questions")}>
+            <strong>{allQuestions.length}</strong>
+            <span>题库</span>
           </button>
           <button onClick={() => setView("notes")}>
             <strong>{savedNotes.length}</strong>
@@ -1349,10 +1730,82 @@ export function App() {
   }
 
   if (view === "vocab") {
+    if (flashReviewActive) {
+      const flashEntry = currentFlashTerm ? termIndex.get(normalizeLookup(currentFlashTerm.term)) : undefined;
+      return studyShell(
+        "快闪背词",
+        "先自测，再看释义并选择掌握程度。",
+        <section className="flashReviewPanel" aria-label="flash vocabulary review">
+          {!currentFlashTerm ? (
+            <div className="emptyState">
+              <strong>当前没有可复习词条</strong>
+              <span>阅读或刷题时加入单词后，会进入这里复习。</span>
+              <button className="readerControlButton" onClick={() => setFlashReviewActive(false)}>返回单词本</button>
+            </div>
+          ) : (
+            <>
+              <div className="dailyStatusCard">
+                <span>今日 {dailyStats.completed}/{dailyStats.goal}</span>
+                <span>连续 {dailyStats.streak} 天</span>
+                {dailyStats.missedDays > 0 && <span>补学目标已计入今日上限</span>}
+              </div>
+              <article className="flashCard">
+                <p className="eyebrow">
+                  {currentFlashTerm.sourceType === "question" ? "题目来源单词" : currentFlashTerm.bookTitle}
+                </p>
+                <h2>{currentFlashTerm.term}</h2>
+                <p className="flashHint">先在心里回忆释义和使用场景。</p>
+                {!flashReviewRevealed ? (
+                  <button className="primaryAction" onClick={() => setFlashReviewRevealed(true)}>
+                    不认识 / 查看释义
+                  </button>
+                ) : (
+                  <div className="flashAnswer">
+                    <p className="translation">{currentFlashTerm.translation}</p>
+                    <p>{flashEntry?.explanation ?? currentFlashTerm.sourceText}</p>
+                    <div className="sourceMetaGrid">
+                      <span>来源：{currentFlashTerm.sourceType === "question" ? "刷题页" : currentFlashTerm.bookTitle}</span>
+                      <span>{currentFlashTerm.sourceDomain ?? currentFlashTerm.chapterTitle}</span>
+                      <span>p. {currentFlashTerm.sourcePage ?? currentFlashTerm.page}</span>
+                      {currentFlashTerm.sourceQuestionId && <span>{currentFlashTerm.sourceQuestionId}</span>}
+                    </div>
+                    <div className="flashActions">
+                      <button onClick={() => reviewSavedTerm(currentFlashTerm.id, "again")}>不认识</button>
+                      <button onClick={() => reviewSavedTerm(currentFlashTerm.id, "fuzzy")}>模糊</button>
+                      <button className="primary" onClick={() => reviewSavedTerm(currentFlashTerm.id, "remembered")}>认识</button>
+                    </div>
+                  </div>
+                )}
+              </article>
+              <button className="readerControlButton" onClick={() => setFlashReviewActive(false)}>结束复习</button>
+            </>
+          )}
+        </section>
+      );
+    }
+
     return studyShell(
       "单词本",
       "按教材复习术语和生词，随时回到原文语境。",
       <>
+        <section className="dailyStatusCard" aria-label="daily study status">
+          <span>今日目标 {dailyStats.completed}/{dailyStats.goal}</span>
+          <span>连续 {dailyStats.streak} 天</span>
+          <span>{dailyStats.checkedInToday ? "今日已打卡" : "完成目标后自动打卡"}</span>
+        </section>
+        <section className="inlineActions">
+          <button
+            className="primaryAction"
+            onClick={() => {
+              setFlashReviewActive(true);
+              setFlashReviewIndex(0);
+              setFlashReviewRevealed(false);
+            }}
+            disabled={filteredStudyTerms.length === 0}
+          >
+            开始复习
+          </button>
+        </section>
         <section className="studyToolbar">
           {renderBookFilter(studyBookFilter, setStudyBookFilter)}
           <input
@@ -1384,16 +1837,316 @@ export function App() {
                   <h2>{item.term}</h2>
                   <p>{item.translation}</p>
                   <small>{item.sourceText}</small>
+                  <small>
+                    熟练度 {item.familiarity}/100 · 间隔 {item.intervalDays} 天 ·
+                    {item.sourceType === "question" ? ` 题目来源 ${item.sourceDomain ?? ""}` : " 教材来源"}
+                  </small>
                 </div>
                 <div className="studyItemActions">
-                  <button onClick={() => openSourceAnchor(item)}>原文</button>
+                  <button onClick={() => item.sourceType === "question" ? openQuestionAnchor(item.sourceQuestionId) : openSourceAnchor(item)}>
+                    {item.sourceType === "question" ? "题目" : "原文"}
+                  </button>
                   <button onClick={() => reviewSavedTerm(item.id, "again")}>再记</button>
+                  <button onClick={() => reviewSavedTerm(item.id, "fuzzy")}>模糊</button>
                   <button className="primary" onClick={() => reviewSavedTerm(item.id, "remembered")}>认识</button>
                 </div>
               </article>
             ))
           )}
         </section>
+      </>
+    );
+  }
+
+  if (view === "questions") {
+    const renderedQuestion = currentQuestion;
+    const examQuestions = examQuestionIds
+      .map((questionId) => allQuestions.find((question) => question.questionId === questionId))
+      .filter((question): question is QuestionItem => Boolean(question));
+    const currentExamQuestion = examQuestions[Math.min(questionIndex, Math.max(0, examQuestions.length - 1))];
+
+    function renderQuestionFilters() {
+      return (
+        <section className="questionFilters" aria-label="question filters">
+          <select value={questionDomainFilter} onChange={(event) => setQuestionDomainFilter(event.target.value)}>
+            <option value="all">全部知识域</option>
+            {questionDomains.map((domain) => (
+              <option key={domain} value={domain}>{domain}</option>
+            ))}
+          </select>
+          <select value={questionChapterFilter} onChange={(event) => setQuestionChapterFilter(event.target.value)}>
+            <option value="all">全部章节</option>
+            {questionChapters.map((chapter) => (
+              <option key={chapter} value={chapter}>{chapter}</option>
+            ))}
+          </select>
+          <select value={questionDifficultyFilter} onChange={(event) => setQuestionDifficultyFilter(event.target.value as DifficultyFilter)}>
+            <option value="all">全部难度</option>
+            <option value="easy">easy</option>
+            <option value="medium">medium</option>
+            <option value="hard">hard</option>
+          </select>
+        </section>
+      );
+    }
+
+    function renderQuestionCard(question: QuestionItem, variant: "browse" | "practice" | "exam-result") {
+      const progress = progressForQuestion(questionProgress, question.questionId);
+      const showAnswer = variant === "browse" || variant === "exam-result" || revealedQuestionId === question.questionId;
+      return (
+        <article className="questionCard" data-question-id={question.questionId}>
+          <div className="questionMeta">
+            <span>{question.domain}</span>
+            <span>{question.chapterId}</span>
+            <span>{question.difficulty}</span>
+            <span>{question.sourceType === "user-private" ? "私有" : "样例"}</span>
+          </div>
+          <h2>{renderQuestionText(questionText(question.stem), question)}</h2>
+          <div className="questionOptions">
+            {question.options.map((option) => {
+              const selected = selectedQuestionAnswers.includes(option.id);
+              const correct = question.correctAnswer.includes(option.id);
+              const className = [
+                "questionOption",
+                selected ? "selected" : "",
+                showAnswer && correct ? "correct" : "",
+                showAnswer && selected && !correct ? "wrong" : ""
+              ].filter(Boolean).join(" ");
+              return (
+                <button
+                  key={option.id}
+                  className={className}
+                  disabled={variant === "browse" || variant === "exam-result"}
+                  onClick={() => selectQuestionOption(question, option.id)}
+                >
+                  <strong>{option.id}</strong>
+                  <span>{renderQuestionText(questionLanguage === "zh" ? option.zh || option.en : option.en || option.zh, question)}</span>
+                </button>
+              );
+            })}
+          </div>
+          {variant !== "exam-result" && (
+            <div className="questionActions">
+              <button onClick={() => toggleCurrentQuestionFavorite(question)}>
+                {progress.favorite ? "已收藏" : "收藏"}
+              </button>
+              {variant === "browse" ? (
+                <>
+                  <button onClick={() => markCurrentQuestionSeen(question)}>标记已看</button>
+                  <button className="primary" onClick={() => markQuestionCorrectFromBrowse(question)}>确认答对</button>
+                </>
+              ) : (
+                <>
+                  <button onClick={() => markQuestionUnknown(question)}>不会</button>
+                  <button className="primary" disabled={selectedQuestionAnswers.length === 0} onClick={() => submitQuestionAnswer(question)}>
+                    提交
+                  </button>
+                </>
+              )}
+            </div>
+          )}
+          {showAnswer && (
+            <section className="answerPanel">
+              <p><strong>答案：</strong>{question.correctAnswer.join(", ") || "待复核"}</p>
+              <p>{renderQuestionText(questionText(question.explanation) || "待补充精讲", question)}</p>
+              <small>{question.sourceRef}</small>
+            </section>
+          )}
+        </article>
+      );
+    }
+
+    function renderQuestionRunner() {
+      const listLabel = questionMode === "wrong" ? `${wrongQuestions.length} 道错题` : `${filteredQuestions.length} 道题`;
+      if (!renderedQuestion) {
+        return (
+          <div className="emptyState">
+            <strong>当前没有匹配题目</strong>
+            <span>调整筛选条件，或导入本机私有题库 JSON。</span>
+          </div>
+        );
+      }
+      return (
+        <>
+          <div className="questionProgressLine">
+            <span>{listLabel}</span>
+            <span>{Math.min(questionIndex + 1, currentQuestionList.length)} / {currentQuestionList.length}</span>
+          </div>
+          {renderQuestionCard(renderedQuestion, questionMode === "browse" ? "browse" : "practice")}
+          <div className="questionPager">
+            <button onClick={() => setQuestionIndex((index) => Math.max(0, index - 1))} disabled={questionIndex <= 0}>上一题</button>
+            <button onClick={() => moveToNextQuestion()} disabled={questionIndex >= currentQuestionList.length - 1}>下一题</button>
+          </div>
+        </>
+      );
+    }
+
+    function renderExamMode() {
+      if (examFinishedResult) {
+        return (
+          <section className="examResult">
+            <div className="scoreBlock">
+              <strong>{examFinishedResult.accuracy}%</strong>
+              <span>{examFinishedResult.correct}/{examFinishedResult.total} 正确</span>
+            </div>
+            <div className="weakDomainList">
+              {examFinishedResult.weakDomains.length === 0 ? (
+                <span>本次没有明显薄弱知识域。</span>
+              ) : (
+                examFinishedResult.weakDomains.map((item) => (
+                  <span key={item.domain}>{item.domain}: {item.wrong}/{item.total}</span>
+                ))
+              )}
+            </div>
+            <div className="questionStack">
+              {examQuestions.map((question) => renderQuestionCard(question, "exam-result"))}
+            </div>
+          </section>
+        );
+      }
+
+      if (examQuestionIds.length === 0) {
+        return (
+          <section className="examSetup">
+            <label>
+              题量
+              <input
+                type="number"
+                min={1}
+                max={Math.max(1, filteredQuestions.length)}
+                value={examQuestionCount}
+                onChange={(event) => setExamQuestionCount(Number(event.target.value))}
+              />
+            </label>
+            <label>
+              时间（分钟）
+              <input
+                type="number"
+                min={5}
+                max={240}
+                value={examMinutes}
+                onChange={(event) => setExamMinutes(Number(event.target.value))}
+              />
+            </label>
+            <button className="primaryAction" onClick={startExam} disabled={filteredQuestions.length === 0}>开始模拟考试</button>
+          </section>
+        );
+      }
+
+      if (!currentExamQuestion) {
+        return <p className="emptyState">本次考试题目为空。</p>;
+      }
+
+      const currentAnswer = examAnswers[currentExamQuestion.questionId] ?? [];
+      return (
+        <section className="examSession">
+          <div className="questionProgressLine">
+            <span>模拟考试 · {examMinutes} 分钟</span>
+            <span>{questionIndex + 1} / {examQuestions.length}</span>
+          </div>
+          <article className="questionCard" data-question-id={currentExamQuestion.questionId}>
+            <div className="questionMeta">
+              <span>{currentExamQuestion.domain}</span>
+              <span>{currentExamQuestion.difficulty}</span>
+              <span>{questionLanguage === "zh" ? "中文" : "EN"}</span>
+            </div>
+            <h2>{renderQuestionText(questionText(currentExamQuestion.stem), currentExamQuestion)}</h2>
+            <div className="questionOptions">
+              {currentExamQuestion.options.map((option) => {
+                const selected = currentAnswer.includes(option.id);
+                return (
+                  <button
+                    key={option.id}
+                    className={selected ? "questionOption selected" : "questionOption"}
+                    onClick={() => {
+                      setExamAnswers((answers) => {
+                        const existing = answers[currentExamQuestion.questionId] ?? [];
+                        const next =
+                          currentExamQuestion.questionType === "multiple"
+                            ? existing.includes(option.id)
+                              ? existing.filter((item) => item !== option.id)
+                              : [...existing, option.id]
+                            : [option.id];
+                        return { ...answers, [currentExamQuestion.questionId]: next };
+                      });
+                    }}
+                  >
+                    <strong>{option.id}</strong>
+                    <span>{renderQuestionText(questionLanguage === "zh" ? option.zh || option.en : option.en || option.zh, currentExamQuestion)}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </article>
+          <div className="questionPager">
+            <button onClick={() => setQuestionIndex((index) => Math.max(0, index - 1))} disabled={questionIndex <= 0}>上一题</button>
+            {questionIndex >= examQuestions.length - 1 ? (
+              <button className="primary" onClick={finishExam}>交卷</button>
+            ) : (
+              <button onClick={() => setQuestionIndex((index) => index + 1)}>下一题</button>
+            )}
+          </div>
+        </section>
+      );
+    }
+
+    return studyShell(
+      "刷题",
+      "看题、刷题、错题和模拟考试共用本地题库与进度。",
+      <>
+        <section className="questionHero">
+          <div>
+            <p className="eyebrow">question bank</p>
+            <h2>{allQuestions.length} 道题</h2>
+            <p>{userQuestionBank ? `已导入私有题库 ${userQuestionBank.questions.length} 道` : "当前使用公开样例题，可导入本机私有 JSON。"}</p>
+          </div>
+          <button className="modeButton" onClick={() => setQuestionLanguage(questionLanguage === "zh" ? "en" : "zh")}>
+            {questionLanguage === "zh" ? "EN" : "中文"}
+          </button>
+        </section>
+
+        <section className="questionModeGrid" aria-label="question modes">
+          <button className={questionMode === "browse" ? "active" : ""} onClick={() => startPractice("browse")}>看题</button>
+          <button className={questionMode === "practice" ? "active" : ""} onClick={() => startPractice("practice")}>刷题</button>
+          <button className={questionMode === "wrong" ? "active" : ""} onClick={() => startPractice("wrong")}>错题</button>
+          <button className={questionMode === "exam" ? "active" : ""} onClick={() => startPractice("exam")}>模拟考试</button>
+        </section>
+
+        <section className="questionImportPanel">
+          <label>
+            导入私有题库 JSON
+            <input
+              type="file"
+              accept="application/json,.json"
+              onChange={(event) => void importPrivateQuestionBank(event.currentTarget.files?.[0])}
+            />
+          </label>
+          {questionImportMessage && <small>{questionImportMessage}</small>}
+        </section>
+
+        {renderQuestionFilters()}
+
+        {questionMode === "home" ? (
+          <>
+            <section className="questionStatsGrid">
+              <span><strong>{filteredQuestions.length}</strong>筛选题</span>
+              <span><strong>{wrongQuestions.length}</strong>错题</span>
+              <span><strong>{examResults.length}</strong>考试记录</span>
+            </section>
+            <section className="weakPanel">
+              <h2>薄弱知识点</h2>
+              {weakDomains.length === 0 ? (
+                <p>暂无明显薄弱项。</p>
+              ) : (
+                weakDomains.map((item) => <span key={item.domain}>{item.domain} · {item.wrong}/{item.total}</span>)
+              )}
+            </section>
+          </>
+        ) : questionMode === "exam" ? (
+          renderExamMode()
+        ) : (
+          renderQuestionRunner()
+        )}
       </>
     );
   }
@@ -1534,10 +2287,18 @@ export function App() {
               setSavedNotes([]);
               setSavedFavorites([]);
               setReaderPositions({});
+              setQuestionProgress({});
+              setExamResults([]);
+              setUserQuestionBank(null);
+              setDailyStats(loadDailyStats());
               window.localStorage.removeItem("six-sigma-study:vocab:v1");
               window.localStorage.removeItem("six-sigma-study:notes:v1");
               window.localStorage.removeItem("six-sigma-study:favorites:v1");
               window.localStorage.removeItem("six-sigma-study:reader-position:v1");
+              window.localStorage.removeItem("six-sigma-study:daily-streak:v1");
+              window.localStorage.removeItem("six-sigma-study:question-bank:v1");
+              window.localStorage.removeItem("six-sigma-study:question-progress:v1");
+              window.localStorage.removeItem("six-sigma-study:exam-results:v1");
             }}
           >
             清除本地学习数据
@@ -1914,9 +2675,19 @@ export function App() {
       sourceText: activeLookup.sourceText,
       savedAt: now.toISOString(),
       status: "new",
+      familiarity: 0,
       reviewCount: 0,
+      lapseCount: 0,
       correctStreak: 0,
-      nextReviewAt: now.toISOString()
+      nextReviewAt: now.toISOString(),
+      intervalDays: 0,
+      easeFactor: 2.1,
+      sourceType: activeLookup.questionSource ? "question" : "manual",
+      sourceBookId: activeLookup.questionSource ? undefined : currentBookId,
+      sourceQuestionId: activeLookup.questionSource?.questionId,
+      sourceExamId: activeLookup.questionSource?.examId,
+      sourceDomain: activeLookup.questionSource?.domain,
+      sourcePage: activeLookup.questionSource?.page ?? activeLookup.page
     };
     setSavedTerms((items) => [saved, ...items]);
   }
@@ -1925,8 +2696,14 @@ export function App() {
     setSavedTerms((items) => items.map((item) => (item.id === id ? setTermStatus(item, status) : item)));
   }
 
-  function reviewSavedTerm(id: string, outcome: "again" | "remembered") {
+  function reviewSavedTerm(id: string, outcome: "again" | "fuzzy" | "remembered") {
     setSavedTerms((items) => items.map((item) => (item.id === id ? scheduleTermReview(item, outcome) : item)));
+    recordDailyCompletion(1);
+    setFlashReviewRevealed(false);
+    setFlashReviewIndex((index) => {
+      const nextIndex = index + 1;
+      return nextIndex >= Math.max(1, flashReviewTerms.length) ? 0 : nextIndex;
+    });
   }
 
   function updateSavedNote(id: string, noteText: string) {
@@ -2433,8 +3210,11 @@ export function App() {
                     <small>{formatNextReview(item)}</small>
                   </div>
                   <div className="vocabItemActions">
-                    <button onClick={() => selectSource(item.sectionId, item.blockId, item.page)}>原文</button>
+                    <button onClick={() => item.sourceType === "question" ? openQuestionAnchor(item.sourceQuestionId) : selectSource(item.sectionId, item.blockId, item.page)}>
+                      {item.sourceType === "question" ? "题目" : "原文"}
+                    </button>
                     <button onClick={() => reviewSavedTerm(item.id, "again")}>再记</button>
+                    <button onClick={() => reviewSavedTerm(item.id, "fuzzy")}>模糊</button>
                     <button className="primary" onClick={() => reviewSavedTerm(item.id, "remembered")}>认识</button>
                     <select
                       value={item.status}
@@ -2506,6 +3286,7 @@ export function App() {
           {activeLookup.entry.phonetic && <p className="phonetic">/{activeLookup.entry.phonetic}/</p>}
           {activeLookup.entry.partOfSpeech && <p className="partOfSpeech">{activeLookup.entry.partOfSpeech}</p>}
           {activeLookup.entry.isSixSigmaTerm && <span className="termBadge">{activeBook?.domainLabel ?? "教材术语"}</span>}
+          {activeLookup.questionSource && <span className="termBadge">题目来源 · {activeLookup.questionSource.domain}</span>}
           <button className="saveButton" onClick={saveActiveTerm}>
             {savedSet.has(`${currentBookId}:${normalizeLookup(activeLookup.entry.term)}`) ? "已加入词本" : "加入词本"}
           </button>
@@ -2514,9 +3295,15 @@ export function App() {
             <strong>来源原句</strong>
             <p>{activeLookup.sourceText}</p>
           </div>
-          <button className="sourceButton" onClick={() => selectSource(activeLookup.sectionId, activeLookup.blockId, activeLookup.page)}>
-            回到原文位置
-          </button>
+          {activeLookup.questionSource ? (
+            <button className="sourceButton" onClick={() => openQuestionAnchor(activeLookup.questionSource?.questionId)}>
+              回到题目
+            </button>
+          ) : (
+            <button className="sourceButton" onClick={() => selectSource(activeLookup.sectionId, activeLookup.blockId, activeLookup.page)}>
+              回到原文位置
+            </button>
+          )}
         </section>
       )}
     </main>

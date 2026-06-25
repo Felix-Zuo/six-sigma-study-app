@@ -16,8 +16,9 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 | Six Sigma content | 33 chapters, 449 aligned study pages, 174 reader sections |
 | Preserved assets | 470 figure/table/formula PNG runtime assets |
 | Dictionary | 3954 local entries, curated Six Sigma terms first |
+| Practice | Public sample question bank, private JSON import, browse/practice/wrong/exam modes |
 | Platforms | Android APK/AAB via Capacitor, PWA runtime for browser QA |
-| Study data | `bookId`-scoped reading position, vocabulary, notes, and source anchors |
+| Study data | `bookId`-scoped reading position, vocabulary, notes, source anchors, streaks, question progress |
 | Public gates | content validation, Agent book contract validation, public-readiness audit, CI |
 
 ## Screenshots
@@ -58,7 +59,11 @@ When another book is selected, vocabulary, notes, and favorites are filtered to 
 - Immersive reading mode with Android back-button handling.
 - Draggable bottom-sheet lookup with half, tall, and full-height states plus scroll containment.
 - Curated terms, learner dictionary entries, phrase lookup, vocabulary review scheduling, source return, and CSV export.
+- Flashcard vocabulary review with familiarity, lapse, interval, ease factor, and question-source metadata.
+- Daily local streak target with capped catch-up workload after missed days.
 - Independent vocabulary, notes, and favorites pages with book filters, search, sorting, and source return actions.
+- Question practice workspace with Browse, Practice, Wrong Questions, and Mock Exam modes.
+- Private question-bank JSON import for local user-provided study material; full private banks stay outside Git.
 - Chinese mode preserves figure, table, and formula images rather than falling back to text-only reading.
 - Offline Android packaging with generated figures bundled in APK/AAB.
 - Agent textbook import contract for future legally usable books.
@@ -114,6 +119,19 @@ npm run qa:book-import
 
 The sample book is original synthetic content. It exists to prove that a new book can enter the library through catalog/package files without changing the reader core.
 
+## Question Practice
+
+The committed question path contains only schema, import tooling, and small original public samples:
+
+| Contract Piece | Path |
+| --- | --- |
+| Question-bank schema | `content/schemas/question-bank.schema.json` |
+| Public sample questions | `samples/question-bank/public-sample.questions.json` |
+| Private PDF importer | `scripts/import_ucourse_question_bank.py` |
+| Learning-module QA | `npm run qa:learning-modules` |
+
+Private imports are written outside the repository under `D:\0A OpenClaw\projects\6sigma\private-question-bank`. The app imports the generated JSON through the local file picker and stores it in localStorage for personal offline study.
+
 ## Public Rights Boundary
 
 - CSSC training-materials page: https://www.sixsigmacouncil.org/six-sigma-training-material/
@@ -135,6 +153,7 @@ Public-readiness evidence: [PUBLIC_READINESS.md](PUBLIC_READINESS.md). Attributi
 | Reader UX | `npm run qa:multibook-ux` | notice, home, page search, book-scoped vocab, scroll lock, immersive mode |
 | Target 3 product UX | `npm run qa:target3-product`, `npm run qa:notes`, `npm run qa:image-fidelity` | auto opening, bottom navigation, independent study pages, draggable sheets, Chinese image fidelity |
 | Target 4 product audit | `npm run qa:target4-flow` | opening, home, second book, settings, TOC, immersive, lookup half/full, source return, Chinese image fidelity, notes, favorites, vocabulary |
+| Learning modules | `npm run qa:learning-modules` | flashcards, streak, question schema, question modes, question word lookup, private-bank isolation |
 | Android WebView | `npm run qa:android-key-chapters` | Chapters 1, 7, 26, 33, lookup, alignment, image checks |
 | Release package | `npm run android:release-apk` and `npm run android:aab` | local signed APK/AAB with runtime content bundled |
 
@@ -173,6 +192,7 @@ npm run lint:books
 npm run audit:public
 npm run typecheck
 npm run build
+npm run qa:learning-modules
 npm run dev
 ```
 
@@ -192,6 +212,7 @@ The source files are not committed. Runtime JSON uses public-safe provenance fie
 - `content/books`: source-controlled generic book packages for Agent import fixtures.
 - `content/processed`: generated Six Sigma content and processed catalog.
 - `content/schemas`: content, Agent request, and book package contracts.
+- `samples/question-bank`: safe original public sample questions for schema and UI QA.
 - `scripts`: extraction, validation, QA, import-contract, and public-audit tooling.
 - `docs`: architecture, pipeline, release verification, showcase systems, and research notes.
 

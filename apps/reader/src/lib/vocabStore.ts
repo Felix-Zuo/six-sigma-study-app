@@ -13,18 +13,29 @@ export type SavedTerm = {
   sourceText: string;
   savedAt: string;
   status: "new" | "learning" | "mastered";
+  familiarity: number;
   reviewCount: number;
+  lapseCount: number;
   correctStreak: number;
   lastReviewedAt?: string;
   nextReviewAt: string;
+  intervalDays: number;
+  easeFactor: number;
   masteredAt?: string;
+  sourceType: "manual" | "question";
+  sourceBookId?: string;
+  sourceQuestionId?: string;
+  sourceExamId?: string;
+  sourceDomain?: string;
+  sourcePage?: number;
 };
 
 const storageKey = "six-sigma-study:vocab:v1";
 const defaultBookId = "six-sigma-black-belt";
 const defaultBookTitle = "六西格玛黑带教材";
 const dayMs = 24 * 60 * 60 * 1000;
-const reviewIntervalsByStreak = [1, 3, 7, 14, 30, 60];
+const minEaseFactor = 1.3;
+const maxEaseFactor = 2.8;
 
 function isIsoDate(value: unknown): value is string {
   return typeof value === "string" && !Number.isNaN(Date.parse(value));
@@ -38,15 +49,35 @@ function addDays(date: Date, days: number): string {
   return new Date(date.getTime() + days * dayMs).toISOString();
 }
 
-function intervalDaysForStreak(streak: number): number {
-  const index = Math.max(0, Math.min(reviewIntervalsByStreak.length - 1, streak - 1));
-  return reviewIntervalsByStreak[index];
+function clamp(value: number, min: number, max: number): number {
+  return Math.max(min, Math.min(max, value));
+}
+
+function normalizeSourceType(value: unknown): "manual" | "question" {
+  return value === "question" ? "question" : "manual";
+}
+
+function scheduleIntervalDays(term: SavedTerm, outcome: "again" | "fuzzy" | "remembered"): number {
+  if (outcome === "again") {
+    return 1;
+  }
+  if (outcome === "fuzzy") {
+    return Math.max(1, Math.min(3, Math.ceil(Math.max(1, term.intervalDays) * 0.7)));
+  }
+  if (term.correctStreak <= 0 || term.intervalDays <= 0) {
+    return 1;
+  }
+  if (term.correctStreak === 1) {
+    return 3;
+  }
+  return Math.max(4, Math.round(term.intervalDays * term.easeFactor));
 }
 
 function normalizeSavedTerm(item: Partial<SavedTerm>): SavedTerm {
   const savedAt = isIsoDate(item.savedAt) ? item.savedAt : new Date().toISOString();
   const status = item.status === "learning" || item.status === "mastered" ? item.status : "new";
   const correctStreak = toSafeNumber(item.correctStreak, status === "mastered" ? 3 : 0);
+  const sourceType = normalizeSourceType(item.sourceType);
   return {
     id: item.id ?? `term-${Date.now()}`,
     bookId: item.bookId || defaultBookId,
@@ -62,11 +93,21 @@ function normalizeSavedTerm(item: Partial<SavedTerm>): SavedTerm {
     sourceText: item.sourceText ?? "",
     savedAt,
     status,
+    familiarity: clamp(toSafeNumber(item.familiarity, status === "mastered" ? 85 : correctStreak * 18), 0, 100),
     reviewCount: toSafeNumber(item.reviewCount),
+    lapseCount: toSafeNumber(item.lapseCount),
     correctStreak,
     lastReviewedAt: isIsoDate(item.lastReviewedAt) ? item.lastReviewedAt : undefined,
     nextReviewAt: isIsoDate(item.nextReviewAt) ? item.nextReviewAt : savedAt,
-    masteredAt: isIsoDate(item.masteredAt) ? item.masteredAt : undefined
+    intervalDays: Math.max(0, toSafeNumber(item.intervalDays)),
+    easeFactor: clamp(toSafeNumber(item.easeFactor, 2.1), minEaseFactor, maxEaseFactor),
+    masteredAt: isIsoDate(item.masteredAt) ? item.masteredAt : undefined,
+    sourceType,
+    sourceBookId: item.sourceBookId || (sourceType === "manual" ? item.bookId || defaultBookId : undefined),
+    sourceQuestionId: item.sourceQuestionId,
+    sourceExamId: item.sourceExamId,
+    sourceDomain: item.sourceDomain,
+    sourcePage: toSafeNumber(item.sourcePage, item.page)
   };
 }
 
@@ -100,17 +141,37 @@ export function isTermDue(term: SavedTerm, now = new Date()): boolean {
 
 export function scheduleTermReview(
   term: SavedTerm,
-  outcome: "again" | "remembered",
+  outcome: "again" | "fuzzy" | "remembered",
   now = new Date()
 ): SavedTerm {
+  const intervalDays = scheduleIntervalDays(term, outcome);
+
   if (outcome === "again") {
     return {
       ...term,
       status: "learning",
+      familiarity: clamp(term.familiarity - 18, 0, 100),
       reviewCount: term.reviewCount + 1,
+      lapseCount: term.lapseCount + 1,
       correctStreak: 0,
       lastReviewedAt: now.toISOString(),
-      nextReviewAt: addDays(now, 1)
+      intervalDays,
+      easeFactor: clamp(term.easeFactor - 0.18, minEaseFactor, maxEaseFactor),
+      nextReviewAt: addDays(now, intervalDays)
+    };
+  }
+
+  if (outcome === "fuzzy") {
+    return {
+      ...term,
+      status: "learning",
+      familiarity: clamp(term.familiarity + 8, 0, 100),
+      reviewCount: term.reviewCount + 1,
+      correctStreak: Math.max(0, term.correctStreak),
+      lastReviewedAt: now.toISOString(),
+      intervalDays,
+      easeFactor: clamp(term.easeFactor - 0.06, minEaseFactor, maxEaseFactor),
+      nextReviewAt: addDays(now, intervalDays)
     };
   }
 
@@ -119,10 +180,13 @@ export function scheduleTermReview(
   return {
     ...term,
     status,
+    familiarity: clamp(term.familiarity + (correctStreak >= 3 ? 16 : 14), 0, 100),
     reviewCount: term.reviewCount + 1,
     correctStreak,
     lastReviewedAt: now.toISOString(),
-    nextReviewAt: addDays(now, intervalDaysForStreak(correctStreak)),
+    intervalDays,
+    easeFactor: clamp(term.easeFactor + 0.05, minEaseFactor, maxEaseFactor),
+    nextReviewAt: addDays(now, intervalDays),
     masteredAt: status === "mastered" ? term.masteredAt ?? now.toISOString() : term.masteredAt
   };
 }
@@ -132,7 +196,9 @@ export function setTermStatus(term: SavedTerm, status: SavedTerm["status"], now 
     return {
       ...term,
       status,
+      familiarity: Math.max(term.familiarity, 90),
       correctStreak: Math.max(term.correctStreak, 3),
+      intervalDays: 30,
       nextReviewAt: addDays(now, 30),
       masteredAt: term.masteredAt ?? now.toISOString()
     };
@@ -141,7 +207,9 @@ export function setTermStatus(term: SavedTerm, status: SavedTerm["status"], now 
   return {
     ...term,
     status,
+    familiarity: status === "new" ? Math.min(term.familiarity, 20) : term.familiarity,
     correctStreak: status === "new" ? 0 : term.correctStreak,
+    intervalDays: status === "new" ? 0 : term.intervalDays,
     nextReviewAt: now.toISOString(),
     masteredAt: status === "new" ? undefined : term.masteredAt
   };
@@ -160,11 +228,21 @@ export function savedTermsToCsv(terms: SavedTerm[]): string {
     "contentVersion",
     "translation",
     "status",
+    "familiarity",
     "reviewCount",
+    "lapseCount",
     "correctStreak",
+    "intervalDays",
+    "easeFactor",
     "nextReviewAt",
     "lastReviewedAt",
     "savedAt",
+    "sourceType",
+    "sourceBookId",
+    "sourceQuestionId",
+    "sourceExamId",
+    "sourceDomain",
+    "sourcePage",
     "chapter",
     "chapterTitle",
     "page",
@@ -179,11 +257,21 @@ export function savedTermsToCsv(terms: SavedTerm[]): string {
     term.contentVersion,
     term.translation,
     term.status,
+    term.familiarity,
     term.reviewCount,
+    term.lapseCount,
     term.correctStreak,
+    term.intervalDays,
+    term.easeFactor,
     term.nextReviewAt,
     term.lastReviewedAt,
     term.savedAt,
+    term.sourceType,
+    term.sourceBookId,
+    term.sourceQuestionId,
+    term.sourceExamId,
+    term.sourceDomain,
+    term.sourcePage,
     term.chapter,
     term.chapterTitle,
     term.page,

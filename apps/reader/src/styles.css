@@ -239,7 +239,7 @@ button {
 
 .metricGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
 }
 
@@ -533,7 +533,7 @@ button {
   left: 10px;
   z-index: 12;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 4px;
   max-width: 740px;
   margin: 0 auto;
@@ -557,11 +557,11 @@ button {
   border-radius: 13px;
   color: var(--text-muted);
   background: transparent;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .mainNavItem strong {
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .mainNavItem span {
@@ -1460,6 +1460,268 @@ h1 {
   font-weight: 800;
 }
 
+.dailyStatusCard,
+.questionHero,
+.questionImportPanel,
+.weakPanel,
+.examSetup,
+.examResult,
+.flashReviewPanel {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.dailyStatusCard {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dailyStatusCard span,
+.questionStatsGrid span,
+.weakDomainList span,
+.weakPanel span,
+.sourceMetaGrid span {
+  min-width: 0;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  color: var(--text-muted);
+  background: var(--surface-muted);
+  font-size: 12px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.flashCard,
+.questionCard {
+  display: grid;
+  gap: 14px;
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.flashCard h2,
+.questionCard h2,
+.questionHero h2,
+.weakPanel h2 {
+  margin: 0;
+  color: var(--heading);
+  line-height: 1.25;
+}
+
+.flashCard h2 {
+  font-size: 30px;
+}
+
+.flashHint,
+.weakPanel p,
+.questionHero p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.flashAnswer {
+  display: grid;
+  gap: 10px;
+}
+
+.sourceMetaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.flashActions,
+.questionActions,
+.questionPager,
+.questionModeGrid,
+.questionFilters,
+.questionStatsGrid,
+.weakDomainList {
+  display: grid;
+  gap: 8px;
+}
+
+.flashActions {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.questionModeGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.questionFilters {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.questionStatsGrid,
+.weakDomainList {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.questionHero {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+.questionModeGrid button,
+.flashActions button,
+.questionActions button,
+.questionPager button,
+.questionFilters select,
+.questionImportPanel input,
+.examSetup input,
+.examSetup button {
+  min-height: 42px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--accent-strong);
+  background: var(--surface);
+  font: inherit;
+  font-weight: 800;
+}
+
+.questionModeGrid button.active,
+.flashActions button.primary,
+.questionActions button.primary,
+.questionPager button.primary,
+.examSetup button.primaryAction {
+  color: var(--accent-text);
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.questionMeta,
+.questionProgressLine {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.questionMeta span,
+.questionProgressLine span {
+  padding: 5px 8px;
+  border-radius: 6px;
+  color: var(--text-muted);
+  background: var(--surface-muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.questionOptions {
+  display: grid;
+  gap: 9px;
+}
+
+.questionOption {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  width: 100%;
+  min-height: 52px;
+  padding: 11px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  background: var(--surface-muted);
+  text-align: left;
+}
+
+.questionOption strong {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+}
+
+.questionOption span {
+  min-width: 0;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.questionOption.selected {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.questionOption.correct {
+  border-color: #2f7d4f;
+  background: #e7f5ed;
+}
+
+.questionOption.wrong {
+  border-color: #b85c4f;
+  background: #faece9;
+}
+
+.answerPanel {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+  background: var(--surface-muted);
+}
+
+.answerPanel p,
+.answerPanel small {
+  margin: 0;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.questionWordToken {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+
+.examSetup {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: end;
+}
+
+.examSetup label,
+.questionImportPanel label {
+  display: grid;
+  gap: 5px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.scoreBlock {
+  display: grid;
+  place-items: center;
+  min-height: 92px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-muted);
+}
+
+.scoreBlock strong {
+  color: var(--heading);
+  font-size: 34px;
+}
+
+.questionStack {
+  display: grid;
+  gap: 12px;
+}
+
 @media (max-width: 420px) {
   .topBar {
     grid-template-columns: 1fr;
@@ -1504,6 +1766,20 @@ h1 {
   .mainNav {
     right: 8px;
     left: 8px;
+  }
+
+  .questionModeGrid,
+  .questionFilters,
+  .questionStatsGrid,
+  .weakDomainList,
+  .examSetup,
+  .dailyStatusCard {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .questionHero,
+  .sourceMetaGrid {
+    grid-template-columns: 1fr;
   }
 }
 

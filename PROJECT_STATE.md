@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-26 00:33 Asia/Shanghai
+Last updated: 2026-06-26 01:48 Asia/Shanghai
 
 ## Objective
 
@@ -28,6 +28,43 @@ The final product must support full-manual offline reading, position-preserving 
 - Release APK after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
 - Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 3954-entry offline learner dictionary with curated Six Sigma terms first, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service worker with verified offline app-shell/figure caching for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+
+## 2026-06-26 Flashcards, Streaks, And Question Practice Update
+
+- Added vocabulary flashcard review on the independent vocabulary page:
+  - one term per card, self-test first, reveal with Chinese translation/explanation/source, then `认识` / `模糊` / `不认识`.
+  - extended `SavedTerm` with `familiarity`, `lapseCount`, `intervalDays`, `easeFactor`, and question-source metadata.
+  - kept legacy localStorage migration defaults for older vocabulary records.
+- Added local daily streak tracking:
+  - default goal 8 reviews/day.
+  - completed reviews auto-check-in when the goal is reached.
+  - missed days add capped catch-up load without negative copy.
+- Added a standalone `刷题` bottom-nav module:
+  - modes: `看题`, `刷题`, `错题`, `模拟考试`.
+  - supports filters by domain, chapter, and difficulty.
+  - wrong/unknown answers feed the wrong-question queue; repeated correct answers reduce priority and eventually mark mastery.
+  - mock exam hides answers until submission, then reports score, weak domains, wrong questions, and explanations.
+  - question text in English mode supports tap-to-lookup; saved terms carry `sourceType: "question"` plus `questionId`, `examId`, and `domain`.
+- Added public-safe question-bank artifacts:
+  - schema: `content/schemas/question-bank.schema.json`
+  - safe sample: `samples/question-bank/public-sample.questions.json`
+  - runtime sample data: `apps/reader/src/data/publicQuestionBank.ts`
+  - local importer: `scripts/import_ucourse_question_bank.py`
+- Processed the user-provided UCOURSE CSSBB PDF as private local study data only:
+  - private JSON: `D:\0A OpenClaw\projects\6sigma\private-question-bank\ucourse-cssbb-1000.private.json`
+  - report: `D:\0A OpenClaw\projects\6sigma\private-question-bank\IMPORT_REPORT.md`
+  - parsed questions: 1000
+  - missing answers: 0
+  - missing explanations: 0
+  - `needsReview`: 0
+- Added workspace and repo ignore protections for `private-question-bank/` and `*.private.json`.
+- Added QA:
+  - `npm run qa:vocab-flashcards`
+  - `npm run qa:streak`
+  - `npm run qa:question-schema`
+  - `npm run qa:question-modes`
+  - `npm run qa:private-isolation`
+  - `npm run qa:learning-modules`
 
 ## Workspace Migration Status
 

@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/six-sigma-study/question-bank.schema.json",
+  "title": "Six Sigma Study Question Bank",
+  "type": "object",
+  "required": ["schemaVersion", "bankId", "title", "sourceType", "questions"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "bankId": { "type": "string", "minLength": 1 },
+    "title": { "$ref": "#/$defs/localizedText" },
+    "sourceType": {
+      "type": "string",
+      "enum": ["public-sample", "original-practice", "user-private"]
+    },
+    "importedAt": { "type": "string" },
+    "questions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/question" }
+    }
+  },
+  "$defs": {
+    "localizedText": {
+      "type": "object",
+      "required": ["en", "zh"],
+      "additionalProperties": false,
+      "properties": {
+        "en": { "type": "string" },
+        "zh": { "type": "string" }
+      }
+    },
+    "option": {
+      "type": "object",
+      "required": ["id", "en", "zh"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "en": { "type": "string" },
+        "zh": { "type": "string" }
+      }
+    },
+    "reviewStats": {
+      "type": "object",
+      "required": ["seenCount", "correctCount", "wrongCount", "unknownCount"],
+      "additionalProperties": false,
+      "properties": {
+        "seenCount": { "type": "integer", "minimum": 0 },
+        "correctCount": { "type": "integer", "minimum": 0 },
+        "wrongCount": { "type": "integer", "minimum": 0 },
+        "unknownCount": { "type": "integer", "minimum": 0 },
+        "lastSeenAt": { "type": "string" },
+        "lastAnsweredAt": { "type": "string" }
+      }
+    },
+    "question": {
+      "type": "object",
+      "required": [
+        "questionId",
+        "examId",
+        "sourceType",
+        "domain",
+        "chapterId",
+        "page",
+        "difficulty",
+        "questionType",
+        "stem",
+        "options",
+        "correctAnswer",
+        "explanation",
+        "tags",
+        "sourceRef",
+        "reviewStats"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "questionId": { "type": "string", "minLength": 1 },
+        "examId": { "type": "string", "minLength": 1 },
+        "sourceType": {
+          "type": "string",
+          "enum": ["public-sample", "original-practice", "user-private"]
+        },
+        "domain": { "type": "string", "minLength": 1 },
+        "chapterId": { "type": "string", "minLength": 1 },
+        "page": { "type": "integer", "minimum": 0 },
+        "difficulty": {
+          "type": "string",
+          "enum": ["easy", "medium", "hard"]
+        },
+        "questionType": {
+          "type": "string",
+          "enum": ["single", "multiple", "true_false", "case"]
+        },
+        "stem": { "$ref": "#/$defs/localizedText" },
+        "options": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "$ref": "#/$defs/option" }
+        },
+        "correctAnswer": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "explanation": { "$ref": "#/$defs/localizedText" },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "sourceRef": { "type": "string" },
+        "reviewStats": { "$ref": "#/$defs/reviewStats" },
+        "needsReview": { "type": "boolean" }
+      }
+    }
+  }
+}

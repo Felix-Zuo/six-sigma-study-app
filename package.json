@@ -28,7 +28,13 @@
     "qa:notes": "node scripts/qa-notes-cdp.mjs",
     "qa:sheet-gestures": "node scripts/qa-multibook-ux-cdp.mjs",
     "qa:image-fidelity": "node scripts/qa-android-key-chapters-cdp.mjs",
-    "qa:android-key-chapters": "node scripts/qa-android-key-chapters-cdp.mjs"
+    "qa:android-key-chapters": "node scripts/qa-android-key-chapters-cdp.mjs",
+    "qa:vocab-flashcards": "node scripts/qa-vocab-flashcards.mjs",
+    "qa:streak": "node scripts/qa-streak.mjs",
+    "qa:question-schema": "python scripts/qa_question_schema.py",
+    "qa:question-modes": "node scripts/qa-question-modes.mjs",
+    "qa:private-isolation": "python scripts/qa_private_question_bank_isolation.py",
+    "qa:learning-modules": "npm run qa:vocab-flashcards && npm run qa:streak && npm run qa:question-schema && npm run qa:question-modes && npm run qa:private-isolation"
   },
   "devDependencies": {
     "@capacitor/android": "^8.4.1",

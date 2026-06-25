@@ -170,15 +170,79 @@ type SavedTerm = {
   sourceText: string;
   savedAt: string;
   status: "new" | "learning" | "mastered";
+  familiarity: number;
   reviewCount: number;
+  lapseCount: number;
   correctStreak: number;
   lastReviewedAt?: string;
   nextReviewAt: string;
+  intervalDays: number;
+  easeFactor: number;
   masteredAt?: string;
+  sourceType: "manual" | "question";
+  sourceBookId?: string;
+  sourceQuestionId?: string;
+  sourceExamId?: string;
+  sourceDomain?: string;
+  sourcePage?: number;
 };
 ```
 
 Legacy vocabulary records without `bookId` are normalized to `six-sigma-black-belt` at load time.
+
+Vocabulary review now uses a lightweight local spaced-repetition model inspired by SM-2, Anki, and FSRS. Review outcomes are `remembered`, `fuzzy`, and `again`; the scheduler updates `familiarity`, `lapseCount`, `correctStreak`, `intervalDays`, `easeFactor`, `lastReviewedAt`, and `nextReviewAt`. Question-sourced terms keep `sourceType = "question"` plus `sourceQuestionId`, `sourceExamId`, and `sourceDomain`.
+
+## Daily Streak
+
+```ts
+type DailyStudyStats = {
+  day: string;
+  baseGoal: number;
+  goal: number;
+  completed: number;
+  streak: number;
+  missedDays: number;
+  checkedInToday: boolean;
+  lastCheckInDate?: string;
+  updatedAt: string;
+};
+```
+
+Runtime storage key: `six-sigma-study:daily-streak:v1`. The default target is 8 completed vocabulary reviews. Missed days add catch-up reviews with a capped extra load; completing the day's target automatically checks in without negative or shaming copy.
+
+## Question Bank
+
+Formal schema: `content/schemas/question-bank.schema.json`.
+
+```ts
+type QuestionItem = {
+  questionId: string;
+  examId: string;
+  sourceType: "public-sample" | "original-practice" | "user-private";
+  domain: string;
+  chapterId: string;
+  page: number;
+  difficulty: "easy" | "medium" | "hard";
+  questionType: "single" | "multiple" | "true_false" | "case";
+  stem: { en: string; zh: string };
+  options: { id: string; en: string; zh: string }[];
+  correctAnswer: string[];
+  explanation: { en: string; zh: string };
+  tags: string[];
+  sourceRef: string;
+  reviewStats: {
+    seenCount: number;
+    correctCount: number;
+    wrongCount: number;
+    unknownCount: number;
+    lastSeenAt?: string;
+    lastAnsweredAt?: string;
+  };
+  needsReview?: boolean;
+};
+```
+
+Committed runtime samples are original public samples. User-private banks are imported through the local file picker and persisted under `six-sigma-study:question-bank:v1`; question progress uses `six-sigma-study:question-progress:v1`; mock exam history uses `six-sigma-study:exam-results:v1`.
 
 ## Note Record
 
