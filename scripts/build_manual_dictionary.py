@@ -13,7 +13,8 @@ from extract_chapter_content import CURATED_TERMS, write_json
 
 
 DEFAULT_REPO_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_ECDICT_CSV = Path(r"C:\findjob_sixsigma_sources\ecdict.csv")
+DEFAULT_WORKSPACE_ROOT = DEFAULT_REPO_ROOT.parent
+DEFAULT_ECDICT_CSV = DEFAULT_WORKSPACE_ROOT / "sources" / "ecdict.csv"
 WORD_RE = re.compile(r"[A-Za-z][A-Za-z0-9'’.-]*")
 EXCHANGE_LABELS = {
     "p": "过去式",

@@ -10,8 +10,11 @@ from pathlib import Path
 from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_SOURCE_PDF = Path(r"C:\findjob_sixsigma_sources\source_manual.pdf")
-LOCAL_POPPLER_BIN = Path(r"C:\findjob_sixsigma_tools\poppler\Library\bin")
+WORKSPACE_ROOT = REPO_ROOT.parent
+DEFAULT_SOURCE_PDF = WORKSPACE_ROOT / "sources" / "source_manual.pdf"
+LOCAL_POPPLER_BIN = (
+    WORKSPACE_ROOT / "tools" / "findjob_sixsigma_tools" / "poppler" / "Library" / "bin"
+)
 BUNDLED_POPPLER_BIN = (
     Path.home()
     / ".cache"

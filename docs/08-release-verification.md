@@ -21,25 +21,25 @@ This document records the current evidence that the Android study app is install
 ## Repository And Build
 
 - Repository: `https://github.com/Felix-Zuo/six-sigma-study-app`
-- Local path: `C:\findjob_sixsigma_app`
+- Local path: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app`
 - Latest local release validation pass when this document was updated: 2026-06-25 17:09 Asia/Shanghai
-- Release APK: `C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk`
-- Release AAB: `C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab`
+- Release APK: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
+- Release AAB: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
 
 ## Required Local Inputs
 
 These stay outside Git:
 
-- `C:\findjob_sixsigma_sources\manual_en_aligned.docx`
-- `C:\findjob_sixsigma_sources\manual_zh_aligned.docx`
-- `C:\findjob_sixsigma_sources\source_manual.pdf`
-- `C:\findjob_sixsigma_sources\ecdict.csv`
-- `C:\findjob_sixsigma_secrets\sixsigma-release.jks`
-- `C:\findjob_sixsigma_app\android\keystore.properties`
+- `D:\0A OpenClaw\projects\6sigma\sources\manual_en_aligned.docx`
+- `D:\0A OpenClaw\projects\6sigma\sources\manual_zh_aligned.docx`
+- `D:\0A OpenClaw\projects\6sigma\sources\source_manual.pdf`
+- `D:\0A OpenClaw\projects\6sigma\sources\ecdict.csv`
+- `D:\0A OpenClaw\projects\6sigma\secrets\sixsigma-release.jks`
+- `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\keystore.properties`
 
 ## Verification Commands
 
-Run from `C:\findjob_sixsigma_app`:
+Run from `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app`:
 
 ```powershell
 npm run extract:manual
@@ -69,7 +69,7 @@ node scripts\qa-notes-cdp.mjs
 Package inspection:
 
 ```powershell
-$tool = Get-ChildItem 'C:\android-sdk\build-tools' -Recurse -Filter apksigner.bat |
+$tool = Get-ChildItem 'D:\0A OpenClaw\projects\6sigma\tools\android-sdk\build-tools' -Recurse -Filter apksigner.bat |
   Sort-Object FullName -Descending |
   Select-Object -First 1 -ExpandProperty FullName
 & $tool verify --print-certs 'android/app/build/outputs/apk/release/app-release.apk'

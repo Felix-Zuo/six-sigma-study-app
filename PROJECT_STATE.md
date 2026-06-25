@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-25 17:09 Asia/Shanghai
+Last updated: 2026-06-26 00:33 Asia/Shanghai
 
 ## Objective
 
@@ -10,21 +10,32 @@ The final product must support full-manual offline reading, position-preserving 
 
 ## Authoritative Paths
 
-- App repository: `C:\findjob_sixsigma_app`
+- App repository: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app`
 - Public GitHub repository: `https://github.com/Felix-Zuo/six-sigma-study-app`
-- Local processing source folder: `C:\findjob_sixsigma_sources`
-- Original download workspace: `C:\Users\左雅轩\Desktop\Find Job\6ς`
-- Chinese aligned manual used by scripts: `C:\findjob_sixsigma_sources\manual_zh_aligned.docx`
-- English aligned manual used by scripts: `C:\findjob_sixsigma_sources\manual_en_aligned.docx`
-- Source PDF used by coverage QA: `C:\findjob_sixsigma_sources\source_manual.pdf`
+- Local processing source folder: `D:\0A OpenClaw\projects\6sigma\sources`
+- Original download workspace: `D:\0A OpenClaw\projects\6sigma\original-materials\desktop-manual-pack`
+- Chinese aligned manual used by scripts: `D:\0A OpenClaw\projects\6sigma\sources\manual_zh_aligned.docx`
+- English aligned manual used by scripts: `D:\0A OpenClaw\projects\6sigma\sources\manual_en_aligned.docx`
+- Source PDF used by coverage QA: `D:\0A OpenClaw\projects\6sigma\sources\source_manual.pdf`
 
 ## Current Evidence
 
 - Branch: `main`
-- Latest local target-four validation pass in progress: 2026-06-25 17:09 Asia/Shanghai
-- Local worktree: target-four audit changes are pending final Android build, commit, push, CI, and issue closure
-- Latest pushed GitHub Actions state before target-four commit: CI passed for `6b37bb2` in run `28156191994`
+- Latest workspace migration validation pass: 2026-06-26 00:33 Asia/Shanghai
+- Local workspace root: `D:\0A OpenClaw\projects\6sigma`
+- Local worktree: path migration and documentation updates pending commit after verification
+- Latest pre-migration pushed GitHub Actions state: CI passed for `1d6ef7f` in run `28159917559`
+- Release APK after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
+- Release AAB after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
 - Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 3954-entry offline learner dictionary with curated Six Sigma terms first, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service worker with verified offline app-shell/figure caching for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+
+## Workspace Migration Status
+
+- Consolidated app repository, source files, signing keystore, Android SDK, Poppler, LibreOffice folders, legacy translation work, and original desktop materials under `D:\0A OpenClaw\projects\6sigma`.
+- Moved the old C-drive and desktop Six Sigma project paths into the D-drive workspace.
+- Updated Android local configuration to use `D:\0A OpenClaw\projects\6sigma\tools\android-sdk` and `D:\0A OpenClaw\projects\6sigma\secrets\sixsigma-release.jks`.
+- Updated local content/QA scripts to resolve `sources/` and `tools/findjob_sixsigma_tools/` from the workspace root instead of hard-coding the old C-drive locations.
+- Root migration map is stored outside the Git repository at `D:\0A OpenClaw\projects\6sigma\MIGRATION_NOTES.md`.
 
 ## Target Four Audit Status
 
@@ -80,8 +91,8 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
   - `npm run typecheck`: passed.
   - `npm run build`: passed.
   - `npm run qa:target4-flow`: passed.
-  - `npm run android:release-apk`: passed; APK at `C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk`.
-  - `npm run android:aab`: passed; AAB at `C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab`.
+  - `npm run android:release-apk`: passed; APK at `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`.
+  - `npm run android:aab`: passed; AAB at `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`.
   - APK package inspection: 919 entries, `content/catalog.json`, Six Sigma `content/manual.json`, Import Practice Workbook `content/books/agent-import-sample/manual.json`, and 470 figure PNG assets present.
   - AAB package inspection: 927 entries, same runtime content and 470 figure PNG assets present.
   - APK signature verification: `apksigner verify --verbose --print-certs` exit code 0, v2 signature verified, one signer.
@@ -100,8 +111,8 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
 ## Completed In Current Stage
 
 - Copied local aligned DOCX inputs to pure-English local processing paths:
-  - `C:\findjob_sixsigma_sources\manual_en_aligned.docx`
-  - `C:\findjob_sixsigma_sources\manual_zh_aligned.docx`
+  - `D:\0A OpenClaw\projects\6sigma\sources\manual_en_aligned.docx`
+  - `D:\0A OpenClaw\projects\6sigma\sources\manual_zh_aligned.docx`
 - Added `scripts/extract_chapter_content.py`.
 - Generated `content/processed/chapters/ch01.json`:
   - 23 sections
@@ -123,10 +134,10 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
 - Added in-app table of contents and chapter switching.
 - Moved full manual loading out of the JS bundle and into static `content/manual.json`.
 - Added PWA manifest, SVG icon, and service worker base.
-- Installed Android command-line tools to `C:\android-sdk`.
+- Installed Android command-line tools to `D:\0A OpenClaw\projects\6sigma\tools\android-sdk`.
 - Installed Android SDK platform-tools, Android 36 platform, and build-tools 36.0.0.
 - Added Capacitor 8 Android project with app id `com.findjob.sixsigmastudy`.
-- Built debug APK at `C:\findjob_sixsigma_app\android\app\build\outputs\apk\debug\app-debug.apk`.
+- Built debug APK at `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\debug\app-debug.apk`.
 - Confirmed the debug APK bundles `content/manual.json`, `manifest.webmanifest`, and `sw.js`.
 - Installed Android Emulator 36.6.11 and Android 36 Google APIs x86_64 system image.
 - Created local AVD `SixSigmaQA` and installed the debug APK on `emulator-5554`.
@@ -134,9 +145,9 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
 - Reworked the sticky reader header so long chapter titles no longer clip the page rail.
 - Added ignored Android release signing configuration via `android\keystore.properties`.
 - Added `npm run android:release-apk` and `npm run android:aab`.
-- Generated local signing keystore at `C:\findjob_sixsigma_secrets\sixsigma-release.jks`.
-- Built release APK at `C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk`.
-- Built release AAB at `C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab`.
+- Generated local signing keystore at `D:\0A OpenClaw\projects\6sigma\secrets\sixsigma-release.jks`.
+- Built release APK at `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`.
+- Built release AAB at `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`.
 - Added localStorage-backed reader position persistence for language, chapter, section, and scroll offset.
 - Added DOCX image extraction in body order for paragraph-level drawing relationships.
 - Deduplicated English/Chinese DOCX media by content hash into app figure assets.
@@ -177,7 +188,7 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
 - Strengthened `scripts/validate_content.py` with full-manual gates for 33 chapters, 449 pages, continuous chapter ranges, manifest paths, global duplicate section/block IDs, image block/asset metadata consistency, unsafe asset paths, asset page bounds, and reader-style dictionary lookup key uniqueness.
 - Improved the browser PWA service worker to pre-cache the production app shell from `index.html`, including Vite hashed JS/CSS assets, before caching the full figure asset manifest.
 - Added `scripts/qa-pwa-offline-cdp.mjs` to verify service-worker control, cache contents, offline reload behavior, and mobile horizontal overflow through Chrome CDP.
-- Added `scripts/build_manual_dictionary.py` to build a manual-scoped offline English-Chinese learner dictionary from local `C:\findjob_sixsigma_sources\ecdict.csv` while preserving curated Six Sigma terms as the highest-priority layer.
+- Added `scripts/build_manual_dictionary.py` to build a manual-scoped offline English-Chinese learner dictionary from local `D:\0A OpenClaw\projects\6sigma\sources\ecdict.csv` while preserving curated Six Sigma terms as the highest-priority layer.
 - Expanded curated course terminology with DMADV, DMADOV, COPQ, COQ, CTC, EWMA, 5S, poka-yoke, jidoka, RTY, FTY, OFAT, RACI, Anderson-Darling, and related chart/lean terms.
 - Generated 3954 committed dictionary entries: 94 curated course terms and 3860 ECDICT-derived learner entries.
 - Added ECDICT MIT license attribution in `THIRD_PARTY_NOTICES.md`.
@@ -186,7 +197,7 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
 - Added `scripts/qa-language-toggle-sweep-cdp.mjs` to sample one comparable section/block in every chapter and verify EN -> ZH -> EN position restoration across the full manual.
 - Added block-level page anchors to generated English/Chinese content blocks and updated the reader to use `block.page ?? section.page` for lookup and vocabulary source metadata.
 - Strengthened `scripts/validate_content.py` so every generated content block must have an in-range page anchor and English/Chinese content streams must cover every page from 6 through 449.
-- Copied Poppler to the pure-English local path `C:\findjob_sixsigma_tools\poppler` for source PDF QA, avoiding Unicode path problems in the bundled Poppler wrapper.
+- Copied Poppler to the pure-English local path `D:\0A OpenClaw\projects\6sigma\tools\findjob_sixsigma_tools\poppler` for source PDF QA, avoiding Unicode path problems in the bundled Poppler wrapper.
 - Added `scripts/qa_source_coverage.py` and `npm run qa:source-coverage` to validate the 557-page source PDF, source TOC anchors, block-level page coverage, asset manifest consistency, and nonblank source-page render samples.
 - Added `scripts/qa-android-key-chapters-cdp.mjs` and `npm run qa:android-key-chapters` for release APK WebView QA across Chapters 1, 7, 26, and 33.
 - Refined language-toggle scroll restoration so chapters with near-identical EN/ZH block counts use block anchors, while highly divergent sections such as Chapter 1 real-world tables use proportional section anchors.
@@ -221,7 +232,7 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
 - `npm run build`: passed with main JS at about 203 KB, manual JSON served separately
 - Browser check at `http://127.0.0.1:5188/`: Chapter 26 and Chapter 33 can be opened from table of contents; Chapter 33 Chinese toggle checked
 - HTTP checks: `/manifest.webmanifest`, `/sw.js`, `/icons/icon.svg`, and `/content/manual.json` return 200
-- `adb version`: passed from `C:\android-sdk\platform-tools\adb.exe`
+- `adb version`: passed from `D:\0A OpenClaw\projects\6sigma\tools\android-sdk\platform-tools\adb.exe`
 - `npx cap sync android`: passed
 - `android\gradlew.bat assembleDebug`: passed
 - APK content check: `assets/public/content/manual.json`, `assets/public/manifest.webmanifest`, and `assets/public/sw.js` exist inside `app-debug.apk`
@@ -234,7 +245,7 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
   - Chapter 7 English/Chinese visual check: passed
   - Chapter 26 English/Chinese visual check: passed after sticky header fix
   - Chapter 33 English/Chinese visual check: passed
-  - QA screenshots are local under `C:\findjob_sixsigma_app\qa\screenshots` and are not committed because PNG files are ignored.
+  - QA screenshots are local under `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\qa\screenshots` and are not committed because PNG files are ignored.
 - Release build verification:
   - `npm run android:release-apk`: passed
   - `npm run android:aab`: passed
@@ -269,7 +280,7 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
     - Chapter 7: 14 image elements, loaded visible figures, no broken images, no horizontal overflow
     - Chapter 26: 50 image elements, loaded visible figures, no broken images, no horizontal overflow
     - Chapter 33: 25 image elements, first figures load, no broken images, no horizontal overflow
-  - Android screenshots are local under `C:\findjob_sixsigma_app\qa\screenshots` and are ignored by Git.
+  - Android screenshots are local under `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\qa\screenshots` and are ignored by Git.
 - Long-chapter performance verification:
   - `npm run typecheck`: passed
   - `npm run build`: passed
@@ -345,7 +356,7 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
     - Chapter 7: 6 sections, 14 images, 0 visible broken images across sampled scroll positions, 0 horizontal overflow
     - Chapter 26: 4 sections, 50 images, 0 visible broken images across sampled scroll positions, 0 horizontal overflow
     - Chapter 33: 5 sections, 25 images, 0 visible broken images across sampled scroll positions, 0 horizontal overflow
-  - Local QA screenshot captured at `C:\findjob_sixsigma_app\qa\screenshots\reader-dark-xlarge-ch33.png` and ignored by Git.
+  - Local QA screenshot captured at `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\qa\screenshots\reader-dark-xlarge-ch33.png` and ignored by Git.
   - `npm run android:aab`: passed
   - APK size: 37,318,723 bytes
   - AAB size: 35,101,868 bytes
@@ -365,7 +376,7 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
     - `价值流图` matched Chinese title metadata while displaying English UI and jumping opened `Chapter 33: Value Stream Maps`
     - no-match query showed `没有匹配的章节或页码。`
     - each verified jump closed the TOC panel and left page-level horizontal overflow at 0
-  - Local QA screenshot captured at `C:\findjob_sixsigma_app\qa\screenshots\toc-search-ch33.png` and ignored by Git.
+  - Local QA screenshot captured at `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\qa\screenshots\toc-search-ch33.png` and ignored by Git.
   - `npm run android:aab`: passed
   - APK size: 37,319,327 bytes
   - AAB size: 35,102,470 bytes
@@ -388,7 +399,7 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
     - `再记` changed the other due term to `learning`, incremented `reviewCount`, reset `correctStreak: 0`, and scheduled `nextReviewAt` in the future
     - after both actions, due queue showed the empty-state message and the all filter showed both stored terms
     - vocabulary panel horizontal overflow remained 0
-  - Local QA screenshot captured at `C:\findjob_sixsigma_app\qa\screenshots\vocab-review-schedule.png` and ignored by Git.
+  - Local QA screenshot captured at `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\qa\screenshots\vocab-review-schedule.png` and ignored by Git.
   - `npm run android:aab`: passed
   - APK size: 37,320,403 bytes
   - AAB size: 35,103,544 bytes
@@ -407,7 +418,7 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
     - after switching to Chinese: same section, block index 120, horizontal overflow 0
     - after switching back to English: same section, block index 119, horizontal overflow 0
     - tap-to-lookup still opened the bottom sheet after language round trip
-  - Local QA screenshot captured at `C:\findjob_sixsigma_app\qa\screenshots\language-toggle-block-qa.png` and ignored by Git.
+  - Local QA screenshot captured at `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\qa\screenshots\language-toggle-block-qa.png` and ignored by Git.
   - `npm run lint:content`: passed
   - `npm run android:aab`: passed
   - APK size: 37,320,771 bytes
@@ -446,7 +457,7 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
     - quoted text with commas is escaped correctly
     - export fallback copied CSV and showed the expected status message
     - vocabulary panel horizontal overflow remained 0
-  - Local QA screenshot captured at `C:\findjob_sixsigma_app\qa\screenshots\vocab-export-qa.png` and ignored by Git.
+  - Local QA screenshot captured at `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\qa\screenshots\vocab-export-qa.png` and ignored by Git.
   - `npm run lint:content`: passed
   - `npm run android:aab`: passed
   - APK size: 37,325,443 bytes
@@ -462,7 +473,7 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
   - Release APK install and relaunch on `emulator-5554`: passed
   - `node scripts\qa-notes-cdp.mjs`: passed
   - Android WebView QA selected Chinese text in Chapter 1 page 6, saved it as a note, verified `language: zh`, `page: 6`, and `sectionId: data-driven-processes`, edited the note text, and confirmed horizontal overflow 0
-  - Local QA screenshot captured at `C:\findjob_sixsigma_app\qa\screenshots\notes-panel-qa.png` and ignored by Git.
+  - Local QA screenshot captured at `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\qa\screenshots\notes-panel-qa.png` and ignored by Git.
   - `npm run lint:content`: passed
   - `npm run android:aab`: passed
   - APK size: 37,326,123 bytes
@@ -485,7 +496,7 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
   - Service worker cache: `six-sigma-study-v0.4.0`
   - Online cache contents: 479 entries with `/`, `/index.html`, hashed JS/CSS shell assets, `content/manual.json`, `manifest.webmanifest`, and 470 figure assets
   - Offline reload state: `Chapter 1: What is Six Sigma?`, 23 rendered sections, service-worker controller present, and horizontal overflow 0
-  - Local QA screenshot captured at `C:\findjob_sixsigma_app\qa\screenshots\pwa-offline-qa.png` and ignored by Git.
+  - Local QA screenshot captured at `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\qa\screenshots\pwa-offline-qa.png` and ignored by Git.
   - `npm run lint:content`: passed
   - `npm run typecheck`: passed
   - `npm run build`: passed
@@ -498,14 +509,14 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
   - AAB `jarsigner -verify`: verified with expected self-signed certificate warnings
   - GitHub Actions CI for `7f5d2ec`: passed in run `27919872550`
 - Manual-scoped offline learner dictionary verification:
-  - ECDICT source CSV kept outside Git at `C:\findjob_sixsigma_sources\ecdict.csv` (65,933,428 bytes)
+  - ECDICT source CSV kept outside Git at `D:\0A OpenClaw\projects\6sigma\sources\ecdict.csv` (65,933,428 bytes)
   - `npm run build:dictionary`: passed
   - Dictionary generation stats: 6137 manual lookup candidates, 5848 covered candidates, 5673 single-word forms, 5582 covered single-word forms
   - Runtime dictionary count: 3952 entries, including 3860 ECDICT-derived entries and 92 curated course-term entries
   - Key curated hits verified: `COPQ`, `DMADV`, `DMADOV`, `poka-yoke`, `5S`, `Anderson-Darling`, `EWMA`, `CTC`, `CSSC`, `change management`
   - `node scripts\qa-dictionary-cdp.mjs`: passed against Vite preview and clean Chrome CDP
   - Browser QA clicked `both` in the reader and verified Chinese translation, phonetic text, explanation text, and horizontal overflow 0
-  - Local QA screenshot captured at `C:\findjob_sixsigma_app\qa\screenshots\dictionary-lookup-qa.png` and ignored by Git.
+  - Local QA screenshot captured at `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\qa\screenshots\dictionary-lookup-qa.png` and ignored by Git.
   - `npm run lint:content`: passed with 3952 dictionary terms
   - `npm run typecheck`: passed
   - `npm run build`: passed
@@ -525,7 +536,7 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
   - `node scripts\qa-language-toggle-sweep-cdp.mjs`: passed against Vite preview and clean Chrome CDP
   - Sweep sample count: 33 chapters
   - Result: 0 failures; every sample stayed in the same section through EN -> ZH -> EN, block index remained within tolerance, and horizontal overflow stayed 0
-  - Local QA screenshot captured at `C:\findjob_sixsigma_app\qa\screenshots\language-toggle-sweep-qa.png` and ignored by Git.
+  - Local QA screenshot captured at `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\qa\screenshots\language-toggle-sweep-qa.png` and ignored by Git.
   - GitHub Actions CI for `365fe1a`: passed in run `27920637568`
 - Source coverage and block-page-anchor verification:
   - `npm run extract:manual`: passed with 33 chapters, 4640 English blocks, and 4902 Chinese blocks
@@ -581,8 +592,8 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
   - `node scripts\qa-android-key-chapters-cdp.mjs`: passed against Chrome CDP as WebView-equivalent check for Chapters 1, 7, 26, and 33; verified lookup, EN/ZH block restoration, image counts, no broken images, and no horizontal overflow.
   - `npm run android:release-apk`: passed.
   - `npm run android:aab`: passed.
-  - Release APK: `C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk`, 37,823,763 bytes.
-  - Release AAB: `C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab`, 35,607,003 bytes.
+  - Release APK: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`, 37,823,763 bytes.
+  - Release AAB: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`, 35,607,003 bytes.
   - APK/AAB package contents: 473 checked runtime content entries, covering `catalog.json`, `manual.json`, `asset-manifest.json`, and 470 figure PNG files.
   - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`.
   - AAB `jarsigner -verify`: verified with expected self-signed certificate path warnings.
@@ -634,8 +645,8 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
   - `node scripts\qa-notes-cdp.mjs`: passed; verified a pre-existing sample-book note stays hidden while Six Sigma is active, and new Six Sigma notes persist with `bookId`.
   - `npm run android:release-apk`: passed.
   - `npm run android:aab`: passed.
-  - Release APK: `C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk`, 37,831,752 bytes.
-  - Release AAB: `C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab`, 35,615,154 bytes.
+  - Release APK: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`, 37,831,752 bytes.
+  - Release AAB: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`, 35,615,154 bytes.
   - APK/AAB package contents: `catalog.json`, Six Sigma `manual.json`, `books/agent-import-sample/manual.json`, `asset-manifest.json`, and 470 figure PNGs are present.
   - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`.
   - AAB `jarsigner -verify -certs`: verified with expected self-signed/no-timestamp certificate warnings.
@@ -683,8 +694,8 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
   - `npm run qa:sheet-gestures`: passed with the same draggable half/full sheet and scroll-containment checks.
   - `npm run android:release-apk`: passed.
   - `npm run android:aab`: passed.
-  - Release APK: `C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk`, 37,836,140 bytes.
-  - Release AAB: `C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab`, 35,619,526 bytes.
+  - Release APK: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`, 37,836,140 bytes.
+  - Release AAB: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`, 35,619,526 bytes.
   - APK/AAB package contents: APK 919 entries, AAB 927 entries; both contain `catalog.json`, Six Sigma `manual.json`, Agent sample `manual.json`, and 470 figure PNG assets.
   - APK `apksigner verify --print-certs`: passed with certificate SHA-256 `126c115cba42287dfbe62a8b49b40884a508d92257570ebd478bf1edd79418ba`.
   - AAB `jarsigner -verify -certs`: verified with expected local self-signed/no-timestamp certificate warnings.

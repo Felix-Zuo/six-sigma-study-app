@@ -67,7 +67,7 @@ npm run lint:content
 npm run qa:source-coverage
 ```
 
-The manual extractor reads the aligned English and Chinese DOCX files from `C:\findjob_sixsigma_sources`, builds all 33 chapters for pages 6-449, uses source table-of-contents metadata to split generic chapters into stable section anchors where Word headings exist, preserves Chinese semantic tables, keeps Chinese term-note sidebars, extracts DOCX-embedded figures/tables in body order, deduplicates them by content hash, and builds the offline learner dictionary when `C:\findjob_sixsigma_sources\ecdict.csv` exists.
+The manual extractor reads the aligned English and Chinese DOCX files from `D:\0A OpenClaw\projects\6sigma\sources`, builds all 33 chapters for pages 6-449, uses source table-of-contents metadata to split generic chapters into stable section anchors where Word headings exist, preserves Chinese semantic tables, keeps Chinese term-note sidebars, extracts DOCX-embedded figures/tables in body order, deduplicates them by content hash, and builds the offline learner dictionary when `D:\0A OpenClaw\projects\6sigma\sources\ecdict.csv` exists.
 
 Current generated content includes:
 
@@ -90,9 +90,9 @@ The source TOC metadata is generated from the local source PDF with:
 python scripts/extract_source_toc.py
 ```
 
-The source PDF is copied locally to `C:\findjob_sixsigma_sources\source_manual.pdf` and is not committed.
+The source PDF is copied locally to `D:\0A OpenClaw\projects\6sigma\sources\source_manual.pdf` and is not committed.
 
-`npm run qa:source-coverage` expects Poppler under the pure-English local tool path `C:\findjob_sixsigma_tools\poppler\Library\bin` when available. It falls back to the bundled Codex Poppler path or `PATH` binaries.
+`npm run qa:source-coverage` expects Poppler under the pure-English local tool path `D:\0A OpenClaw\projects\6sigma\tools\findjob_sixsigma_tools\poppler\Library\bin` when available. It falls back to the bundled Codex Poppler path or `PATH` binaries.
 
 ## Quality Gates
 

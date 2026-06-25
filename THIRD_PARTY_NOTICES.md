@@ -15,7 +15,7 @@ The committed runtime figure assets and structured manual JSON are included only
 The offline English-Chinese learner dictionary subset is derived from ECDICT:
 
 - Source: https://github.com/skywind3000/ECDICT
-- Local source CSV expected at: `C:\findjob_sixsigma_sources\ecdict.csv`
+- Local source CSV expected at: `D:\0A OpenClaw\projects\6sigma\sources\ecdict.csv`
 - Use in this app: manual-scoped subset generation through `scripts/build_manual_dictionary.py`
 
 MIT License

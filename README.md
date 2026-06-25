@@ -145,8 +145,8 @@ Detailed evidence: [docs/08-release-verification.md](docs/08-release-verificatio
 Release outputs are generated locally:
 
 ```text
-C:\findjob_sixsigma_app\android\app\build\outputs\apk\release\app-release.apk
-C:\findjob_sixsigma_app\android\app\build\outputs\bundle\release\app-release.aab
+D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk
+D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab
 ```
 
 Build sequentially:
@@ -160,7 +160,7 @@ npm run android:aab
 Release signing uses ignored local files:
 
 - `android\keystore.properties`
-- external keystore such as `C:\findjob_sixsigma_secrets\sixsigma-release.jks`
+- external keystore such as `D:\0A OpenClaw\projects\6sigma\secrets\sixsigma-release.jks`
 
 Do not commit signing files.
 
@@ -176,7 +176,7 @@ npm run build
 npm run dev
 ```
 
-The full Six Sigma extraction profile expects local source files outside Git, normally under `C:\findjob_sixsigma_sources`:
+The full Six Sigma extraction profile expects local source files outside Git, normally under `D:\0A OpenClaw\projects\6sigma\sources`:
 
 - aligned English DOCX
 - aligned Chinese DOCX

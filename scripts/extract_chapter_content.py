@@ -16,9 +16,10 @@ from docx.table import Table
 from docx.text.paragraph import Paragraph
 
 
-DEFAULT_EN_DOCX = Path(r"C:\findjob_sixsigma_sources\manual_en_aligned.docx")
-DEFAULT_ZH_DOCX = Path(r"C:\findjob_sixsigma_sources\manual_zh_aligned.docx")
 DEFAULT_REPO_ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_WORKSPACE_ROOT = DEFAULT_REPO_ROOT.parent
+DEFAULT_EN_DOCX = DEFAULT_WORKSPACE_ROOT / "sources" / "manual_en_aligned.docx"
+DEFAULT_ZH_DOCX = DEFAULT_WORKSPACE_ROOT / "sources" / "manual_zh_aligned.docx"
 
 
 @dataclass(frozen=True)
@@ -1084,7 +1085,7 @@ def main() -> None:
 
     if not args.en_docx.exists() or not args.zh_docx.exists():
         raise SystemExit(
-            "Aligned DOCX files were not found. Copy them to C:\\findjob_sixsigma_sources "
+            f"Aligned DOCX files were not found. Copy them to {DEFAULT_WORKSPACE_ROOT / 'sources'} "
             "or pass --en-docx and --zh-docx."
         )
 

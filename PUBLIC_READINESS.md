@@ -2,7 +2,7 @@
 
 Audit date: 2026-06-24
 Repository: https://github.com/Felix-Zuo/six-sigma-study-app
-Local path: `C:\findjob_sixsigma_app`
+Local path: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app`
 
 ## Conclusion
 
@@ -75,7 +75,7 @@ Current result: passed.
 - Update GitHub repository description so it no longer says `Private`.
 - Add repository topics that describe the project as a local-first Android bilingual study app and content pipeline.
 - Keep Android release signing material outside the repository.
-- Keep raw textbook source files in `C:\findjob_sixsigma_sources` or another private local path.
+- Keep raw textbook source files in `D:\0A OpenClaw\projects\6sigma\sources` or another private local path.
 
 ## Decision
 

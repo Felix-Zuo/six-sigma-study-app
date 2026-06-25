@@ -15,8 +15,9 @@ except ImportError as exc:  # pragma: no cover - local tooling guard
     ) from exc
 
 
-DEFAULT_SOURCE_PDF = Path(r"C:\findjob_sixsigma_sources\source_manual.pdf")
 DEFAULT_REPO_ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_WORKSPACE_ROOT = DEFAULT_REPO_ROOT.parent
+DEFAULT_SOURCE_PDF = DEFAULT_WORKSPACE_ROOT / "sources" / "source_manual.pdf"
 TOC_LINE_RE = re.compile(r"^(?P<title>.+?)\s*\.{3,}\s*(?P<page>\d+)$")
 CHAPTER_RE = re.compile(r"^CHAPTER\s+(?P<number>\d+)\s*:\s*(?P<title>.+)$", re.IGNORECASE)
 
