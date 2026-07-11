@@ -25,6 +25,7 @@
     "docs:links": "python scripts/check_docs_links.py",
     "qa:source-coverage": "python scripts/qa_source_coverage.py",
     "qa:content-fidelity": "python scripts/qa_content_fidelity.py",
+    "qa:content-fidelity-reviewed": "python scripts/qa_content_fidelity.py --strict-reviewed",
     "qa:multibook-ux": "node scripts/qa-multibook-ux-cdp.mjs",
     "qa:target3-product": "node scripts/qa-multibook-ux-cdp.mjs",
     "qa:target4-flow": "node scripts/qa-target4-flow-cdp.mjs",
@@ -37,6 +38,7 @@
     "qa:streak": "node scripts/qa-streak.mjs",
     "qa:question-schema": "python scripts/qa_question_schema.py",
     "qa:question-modes": "node scripts/qa-question-modes.mjs",
+    "qa:learning-ui": "node scripts/qa-learning-ui-cdp.mjs",
     "qa:private-isolation": "python scripts/qa_private_question_bank_isolation.py",
     "qa:learning-modules": "npm run qa:vocab-flashcards && npm run qa:context-lookup && npm run qa:streak && npm run qa:question-schema && npm run qa:question-modes && npm run qa:private-isolation"
   },

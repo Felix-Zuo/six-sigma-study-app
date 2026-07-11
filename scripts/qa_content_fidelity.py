@@ -417,6 +417,11 @@ def main() -> None:
     parser.add_argument("--manual", type=Path, default=DEFAULT_MANUAL)
     parser.add_argument("--json", type=Path, default=None, help="also write the full report as JSON")
     parser.add_argument("--max-list", type=int, default=15, help="max findings listed per category on stdout")
+    parser.add_argument(
+        "--strict-reviewed",
+        action="store_true",
+        help="fail when any unreviewed P0 or P1 candidate remains",
+    )
     args = parser.parse_args()
 
     result = audit(args.manual)
@@ -426,6 +431,12 @@ def main() -> None:
         args.json.parent.mkdir(parents=True, exist_ok=True)
         args.json.write_text(payload, encoding="utf-8")
         print(f"\nok: JSON report written to {args.json}")
+    if args.strict_reviewed:
+        blocking = [finding for finding in result["findings"] if finding["priority"] in {"P0", "P1"}]
+        if blocking:
+            print(f"\ncontent fidelity reviewed gate FAILED: {len(blocking)} P0/P1 findings remain")
+            raise SystemExit(1)
+        print("\nok: reviewed fidelity gate passed (P0=0, P1=0)")
     print("\nok: content fidelity baseline audit completed")
 
 

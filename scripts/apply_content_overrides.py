@@ -127,6 +127,15 @@ def write_manual(repo_root: Path, manual: dict[str, Any]) -> None:
         json.dumps(asset_manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
 
+    book_id = manual.get("bookId", "six-sigma-black-belt")
+    for catalog_path in (processed / "catalog.json", public_content / "catalog.json"):
+        catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+        catalog_book = next((book for book in catalog.get("books", []) if book.get("bookId") == book_id), None)
+        if catalog_book is None:
+            raise KeyError(f"override catalog book not found: {book_id}")
+        catalog_book["assetCount"] = len(manifest_assets)
+        catalog_path.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Apply durable human-reviewed corrections to generated manual content.")

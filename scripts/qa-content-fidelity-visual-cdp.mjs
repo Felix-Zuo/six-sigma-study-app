@@ -4,6 +4,7 @@ import path from "node:path";
 const endpoint = process.env.CDP_ENDPOINT ?? "http://127.0.0.1:9222/json";
 const appUrl = process.env.QA_APP_URL ?? "http://127.0.0.1:4180/";
 const screenshotDir = process.env.QA_SCREENSHOT_DIR ?? "qa/content-fidelity/screenshots";
+const nativeWebView = process.env.QA_NATIVE_WEBVIEW === "1";
 const bookId = "six-sigma-black-belt";
 
 const samples = [
@@ -126,7 +127,9 @@ async function main() {
     return file.replaceAll("\\", "/");
   }
 
-  await cdp.send("Page.navigate", { url: appUrl });
+  if (!nativeWebView) {
+    await cdp.send("Page.navigate", { url: appUrl });
+  }
   await waitFor("application shell", () => evaluate(`Boolean(document.querySelector(".appShell"))`));
   await evaluate(`(async () => {
     const registrations = await navigator.serviceWorker?.getRegistrations?.() ?? [];

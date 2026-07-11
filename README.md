@@ -14,9 +14,9 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 | --- | --- |
 | Runtime books | 2 catalog books: full Six Sigma manual + original import-practice workbook |
 | Six Sigma content | 33 chapters, 449 aligned study pages, 174 reader sections |
-| Preserved assets | 470 figure/table/formula PNG runtime assets |
+| Preserved assets | 475 figure/table/formula PNG runtime assets; EN/ZH image counts 476/476 |
 | Dictionary | 3954 local entries, curated Six Sigma terms first |
-| Practice | Public sample question bank, private JSON import, browse/practice/wrong/exam modes |
+| Practice | 1006 questions in local Android release; browse/practice/wrong/exam modes |
 | Platforms | Android APK/AAB via Capacitor, PWA runtime for browser QA |
 | Study data | `bookId`-scoped reading position, vocabulary, notes, source anchors, streaks, question progress |
 | Public gates | content validation, Agent book contract validation, public-readiness audit, CI |
@@ -39,6 +39,10 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 | --- | --- | --- |
 | ![Second book](docs/assets/showcase/target4-second-book.png) | ![Table of contents](docs/assets/showcase/target4-toc.png) | ![Settings and about](docs/assets/showcase/target4-settings.png) |
 
+| Vocabulary Plan | Question Training | Question Word Lookup |
+| --- | --- | --- |
+| ![Context vocabulary plan](docs/assets/showcase/learning-vocab-plan.png) | ![Question training dashboard](docs/assets/showcase/learning-question-home.png) | ![Question word context lookup](docs/assets/showcase/learning-question-lookup.png) |
+
 ## Study Workflow
 
 1. Open the Android app; the logo opening runs automatically and then enters the study home.
@@ -58,7 +62,7 @@ When another book is selected, vocabulary, notes, and favorites are filtered to 
 - Deduplicated page rail, chapter progress, page search, and table-of-contents navigation.
 - Immersive reading mode with Android back-button handling.
 - Draggable bottom-sheet lookup with half, tall, and full-height states plus scroll containment.
-- Curated terms, learner dictionary entries, phrase lookup, vocabulary review scheduling, source return, and CSV export.
+- Curated terms, learner dictionary entries, phrase lookup, sentence-specific meanings and examples, source return, and CSV export.
 - Flashcard vocabulary review with familiarity, lapse, interval, ease factor, and question-source metadata.
 - Daily local streak target with capped catch-up workload after missed days.
 - Independent vocabulary, notes, and favorites pages with book filters, search, sorting, and source return actions.
@@ -130,7 +134,7 @@ The committed question path contains only schema, import tooling, and small orig
 | Private PDF importer | `scripts/import_ucourse_question_bank.py` |
 | Learning-module QA | `npm run qa:learning-modules` |
 
-Private imports are written outside the repository under `D:\0A OpenClaw\projects\6sigma\private-question-bank`. The app imports the generated JSON through the local file picker and stores it in localStorage for personal offline study.
+Private imports are written outside the repository under `D:\0A OpenClaw\projects\6sigma\private-question-bank`. Local Android builds stage the private bank into an ignored runtime asset, while the public repository retains only schema, tooling, and original samples. The file picker remains available for another user-owned local bank.
 
 ## Public Rights Boundary
 
@@ -150,10 +154,12 @@ Public-readiness evidence: [PUBLIC_READINESS.md](PUBLIC_READINESS.md). Attributi
 | Agent books | `npm run lint:books` | Agent request, generic book packages, catalog uniqueness, sample import |
 | Public safety | `npm run audit:public` | denylisted tracked files and runtime JSON local-path scan |
 | Source coverage | `npm run qa:source-coverage` | source TOC anchors, assets, sampled nonblank source renders |
+| Reviewed fidelity | `npm run qa:content-fidelity-reviewed` | P0/P1=0, no flattened-table or EN/ZH table/image count regression |
 | Reader UX | `npm run qa:multibook-ux` | notice, home, page search, book-scoped vocab, scroll lock, immersive mode |
 | Target 3 product UX | `npm run qa:target3-product`, `npm run qa:notes`, `npm run qa:image-fidelity` | auto opening, bottom navigation, independent study pages, draggable sheets, Chinese image fidelity |
 | Target 4 product audit | `npm run qa:target4-flow` | opening, home, second book, settings, TOC, immersive, lookup half/full, source return, Chinese image fidelity, notes, favorites, vocabulary |
 | Learning modules | `npm run qa:learning-modules` | flashcards, streak, question schema, question modes, question word lookup, private-bank isolation |
+| Learning UI | `npm run qa:learning-ui` | recall-first word review, contextual answer, question lookup, unknown explanation, correct auto-next |
 | Android WebView | `npm run qa:android-key-chapters` | Chapters 1, 7, 26, 33, lookup, alignment, image checks |
 | Release package | `npm run android:release-apk` and `npm run android:aab` | local signed APK/AAB with runtime content bundled |
 

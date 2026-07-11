@@ -1579,6 +1579,7 @@ h1 {
 
 .studySessionShell {
   min-height: 100dvh;
+  align-content: start;
   padding-bottom: max(24px, env(safe-area-inset-bottom));
 }
 
@@ -1944,7 +1945,13 @@ h1 {
 }
 
 .questionWordToken {
+  text-decoration: none;
+}
+
+.questionWordToken:active,
+.questionWordToken:focus-visible {
   text-decoration: underline;
+  text-decoration-color: var(--border-strong);
   text-decoration-style: dotted;
   text-underline-offset: 3px;
 }

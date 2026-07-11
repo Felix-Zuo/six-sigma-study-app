@@ -14,6 +14,16 @@ type ContextRule = {
 };
 
 const rules: Record<string, ContextRule[]> = {
+  which: [{ meaning: "哪一个；哪些", explanation: "这里是疑问限定词，用来询问给定对象或选项中的哪一个。" }],
+  what: [{ meaning: "什么", explanation: "这里是疑问词，用来询问事物、内容或定义。" }],
+  why: [{ meaning: "为什么", explanation: "这里是疑问词，用来询问原因或依据。" }],
+  how: [{ meaning: "如何；怎样", explanation: "这里是疑问词，用来询问方法、程度或过程。" }],
+  when: [{ meaning: "何时；当……时", explanation: "这里用于询问时间，或引出某个条件发生的时间。" }],
+  where: [{ meaning: "哪里；在……的地方", explanation: "这里用于询问位置，或说明某事发生的位置。" }],
+  who: [{ meaning: "谁", explanation: "这里是疑问代词，用来询问相关人员或角色。" }],
+  the: [{ meaning: "该；这个", explanation: "这里是定冠词，用来特指句中已经明确的对象。" }],
+  a: [{ meaning: "一个；某个", explanation: "这里是不定冠词，用来引出一个尚未特指的对象。" }],
+  an: [{ meaning: "一个；某个", explanation: "这里是不定冠词，用来引出一个尚未特指的对象。" }],
   scope: [
     {
       meaning: "范围；项目边界",
@@ -71,7 +81,16 @@ function normalize(value: string): string {
 }
 
 function firstMeaning(translation: string): string {
-  return translation.split(/[；;，,]/)[0]?.trim() || translation.trim() || "待完善";
+  const first = translation.split(/[；;，,]/)[0]?.trim() || translation.trim() || "待完善";
+  return first.replace(/^(?:n|v|vt|vi|adj|adv|pron|prep|conj|art|num|aux|int)\.\s*/i, "").trim() || first;
+}
+
+function clippedTranslation(value?: string): string | undefined {
+  const clean = value?.replace(/\s+/g, " ").trim();
+  if (!clean || !/[\u3400-\u9fff]/.test(clean)) {
+    return undefined;
+  }
+  return clean.length <= 72 ? clean : `${clean.slice(0, 71)}…`;
 }
 
 export function resolveContextExplanation(input: {
@@ -85,9 +104,12 @@ export function resolveContextExplanation(input: {
   const candidates = rules[key] ?? [];
   const rule = candidates.find((item) => !item.when || item.when.test(input.sourceText));
   const meaning = rule?.meaning ?? firstMeaning(input.dictionaryTranslation);
+  const translatedSentence = clippedTranslation(input.sourceTranslation);
   const explanation =
     rule?.explanation ??
-    `本句中“${input.query}”作${input.partOfSpeech ? ` ${input.partOfSpeech} ` : "词语"}使用，结合上下文应理解为“${meaning}”。`;
+    (translatedSentence
+      ? `结合整句译文“${translatedSentence}”，这里的“${input.query}”应理解为“${meaning}”。`
+      : `在当前句子的具体语境中，“${input.query}”表示“${meaning}”。`);
 
   return {
     meaning,

@@ -240,7 +240,7 @@ const fallbackCatalog: CatalogData = {
       contentPath: "content/manual.json",
       pageCount: 449,
       chapterCount: 33,
-      assetCount: 470,
+      assetCount: 475,
       source: "The Council for Six Sigma Certification training-materials page lists the Lean Six Sigma Black Belt Certification Training Manual as a free PDF download: https://www.sixsigmacouncil.org/six-sigma-training-material/",
       licenseNotice: {
         zh: "本教材来源于 CSSC 官网训练材料页面列出的免费 PDF。本 App 仅用于个人学习、中文翻译整理和对照阅读，禁止任何商业化使用；本项目不代表 CSSC 官方产品，原版权归原权利方所有。",
@@ -1054,6 +1054,14 @@ export function App() {
     setFlashSessionReviewed(0);
     setFlashQuizSelection("");
   }, [studyBookFilter, vocabQuery, vocabSort]);
+
+  useEffect(() => {
+    if (!flashReviewActive) {
+      return;
+    }
+    const frame = window.requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "instant" }));
+    return () => window.cancelAnimationFrame(frame);
+  }, [flashReviewActive, flashReviewIndex, flashReviewStage]);
 
   useEffect(() => {
     if (!activeChapterId || !activeSectionId) {

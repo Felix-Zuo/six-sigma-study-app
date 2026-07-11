@@ -97,19 +97,19 @@ node scripts\qa-dictionary-cdp.mjs
 - 33 chapters are generated into app content.
 - 449 aligned study pages are represented in the manifest.
 - 174 reader sections are generated across the manual.
-- 9542 generated content blocks carry page anchors; English and Chinese block coverage spans every page from 6 through 449.
-- 470 deduplicated PNG figure/table/formula assets are bundled.
+- 8994 generated content blocks carry page anchors; English and Chinese block coverage spans every page from 6 through 449.
+- 475 PNG figure/table/formula assets are bundled, including five reviewed source-PDF recovery crops.
 - 3954 offline dictionary entries are bundled: 94 curated course/term entries and 3860 ECDICT-derived learner entries.
 - Dictionary generation covers 5582 of 5673 single-word manual forms; the remaining uncovered forms are mostly proper names, URL fragments, OCR/formatting artifacts, and unusual compound tokens.
 - `manual.json`, `asset-manifest.json`, PWA shell files, hashed reader assets, and all figure PNGs are present in both APK and AAB.
-- Targeted APK/AAB package checks found 917 APK zip entries and 925 AAB zip entries, including the full `manual.json`, 33 chapters, 449 pages, 3954 dictionary entries, and 470 figure PNGs.
+- Current APK/AAB checks found 925 APK entries and 933 AAB entries, including the full `manual.json`, 33 chapters, 449 pages, 3954 dictionary entries, 475 figure PNGs, and the ignored local private-question-bank runtime asset.
 - Chapter 28 remains one section because its TOC-like headings are normal paragraphs, not reliable Word headings.
 
 ## PWA Browser Offline QA
 
 - `node scripts\qa-pwa-offline-cdp.mjs`: passed against Vite preview on `127.0.0.1:4175` and clean headless Chrome CDP on `127.0.0.1:9333`.
-- Service worker cache: `six-sigma-study-v0.5.0`.
-- Online cache state: 479 entries, including `/`, `/index.html`, hashed JS/CSS shell assets, `content/manual.json`, `manifest.webmanifest`, and 470 figure assets.
+- Service worker cache: `six-sigma-study-v0.7.0`.
+- Online cache state includes `/`, `/index.html`, hashed JS/CSS shell assets, `content/manual.json`, `manifest.webmanifest`, and all 475 figure assets.
 - Offline reload state: CDP network offline, cache-ignored reload rendered `Chapter 1: What is Six Sigma?`, 23 sections, service-worker controller present, and horizontal overflow 0.
 
 ## Android Runtime QA
@@ -143,9 +143,9 @@ Verified on local emulator `SixSigmaQA` / `emulator-5554`.
 - Dictionary lookup: Android WebView QA verified a clicked word after EN/ZH round trip used a real dictionary entry (`to`) rather than the generic fallback explanation.
 - Dictionary coverage: browser CDP QA verified runtime `manual.json` contains ECDICT-derived learner entries, curated hits for `COPQ`, `DMADV`, `poka-yoke`, `5S`, and `Anderson-Darling`, and a real lookup sheet for `both` with phonetic text and 0 horizontal overflow. The current package inspection verified 3954 bundled dictionary entries.
 - Full-manual validator: `npm run lint:content` now checks 33 chapters, pageCount 449, continuous chapter page ranges, manifest chapter paths, global duplicate section/block IDs, block page anchors, complete EN/ZH page coverage, image asset metadata consistency, unsafe asset paths, asset page bounds, and reader-style dictionary lookup key uniqueness.
-- Source coverage validator: `npm run qa:source-coverage` passed with source PDF page count 557, manual page count 449, 9542 content blocks, 940 image blocks, 470 assets, 142 source TOC sections, 127 matched source section anchors, 15 explicitly allowed normal-paragraph source headings, and nonblank source-page renders for pages 9, 73, 396, 544, and 555.
-- Current release package sizes after this validation pass: APK 37,836,304 bytes; AAB 35,619,720 bytes.
-- Current release package inspection: APK 919 entries and AAB 927 entries; both include `content/catalog.json`, Six Sigma `manual.json`, Import Practice Workbook `content/books/agent-import-sample/manual.json`, and 470 figure PNG assets.
+- Source coverage validator: `npm run qa:source-coverage` passed with source PDF page count 557, manual page count 449, 8994 content blocks, 952 image blocks, 475 assets, 142 source TOC sections, 127 matched source section anchors, 15 explicitly allowed normal-paragraph source headings, and nonblank source-page renders for pages 9, 73, 396, 544, and 555.
+- Current release package sizes after this validation pass: APK 38,391,237 bytes; AAB 36,143,459 bytes.
+- Current release package inspection: APK 925 entries and AAB 933 entries; both include `content/catalog.json`, Six Sigma `manual.json`, Import Practice Workbook `content/books/agent-import-sample/manual.json`, 475 figure PNG assets, and the ignored local private question-bank runtime asset.
 - Signature verification: `apksigner verify --verbose --print-certs android/app/build/outputs/apk/release/app-release.apk` returned exit code 0 with APK Signature Scheme v2 verified and one signer. `jarsigner -verify android/app/build/outputs/bundle/release/app-release.aab` returned exit code 0; the expected local self-signed certificate trust-chain warning remains because the release key is local.
 
 ## Known Remaining Gaps

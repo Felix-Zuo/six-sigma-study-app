@@ -76,6 +76,10 @@ horizontal containment, and saves screenshots for human review.
   chapter set is not exactly chapters 1–33 in order, or duplicate
   section/block IDs exist.
 
+With `--strict-reviewed`, exit code `1` also means at least one P0 or P1
+candidate remains. CI runs this reviewed gate and intentionally permits the
+documented P2 advisory candidates.
+
 The command is **intentionally not wired into GitHub Actions yet**. After the
 chapter-by-chapter content repair is complete, a strict gate (candidate counts
 must not regress) can be enabled in CI.

@@ -33,6 +33,9 @@ jobs:
       - name: Validate sample content
         run: npm run lint:content
 
+      - name: Reviewed content fidelity gate
+        run: npm run qa:content-fidelity-reviewed
+
       - name: Validate Agent book contracts
         run: npm run lint:books
 

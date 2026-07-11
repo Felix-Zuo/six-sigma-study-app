@@ -49,6 +49,20 @@ The final product must support full-manual offline reading, position-preserving 
   overflow, and zero unintended horizontal scroll.
 - Bumped the PWA cache to `six-sigma-study-v0.7.0` so repaired content replaces
   stale browser assets after upgrade.
+- Added the reviewed-fidelity CI gate (`P0=0`, `P1=0`) and Android-native CDP
+  coverage for the contextual vocabulary session and question-training flow.
+- Release APK installed and launched on Android 16 emulator `SixSigmaQA`.
+  Native WebView QA passed contextual word review, question lookup, `不会`
+  explanation, correct auto-next, and Chapters 1/7/26/33 image/alignment checks.
+- Native content visual QA passed Chapters 5/16/23/29/30 in EN and ZH with
+  valid semantic tables/decoded report images and zero body overflow.
+- Current release artifacts:
+  - APK: 38,391,237 bytes, SHA-256 `CA0418D87065C06A6E8F1C9388F3224F2FDE8576B78CD23C0A292D6C3511440C`
+  - AAB: 36,143,459 bytes, SHA-256 `486D98F2CF56B04E11DEA2AED734C708F1876F44AA22E4EC0FD88D1F83928CB8`
+  - package contents: 925 APK entries / 933 AAB entries, 475 figure PNGs,
+    catalog/manual packages, and the ignored local private question-bank asset
+  - APK signature: v2 verified, one signer; AAB JAR verification passed with
+    the expected local self-signed certificate warning
 
 ## 2026-06-26 Flashcards, Streaks, And Question Practice Update
 
