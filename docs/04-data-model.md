@@ -149,6 +149,11 @@ type TermEntry = {
   lookupKeys: string[];
   isSixSigmaTerm?: boolean;
   source?: string;
+  contextMeanings?: {
+    meaning: string;
+    explanation: string;
+    when?: string;
+  }[];
 };
 ```
 
@@ -168,6 +173,11 @@ type SavedTerm = {
   sectionId: string;
   blockId?: string;
   sourceText: string;
+  sourceTranslation?: string;
+  contextMeaning?: string;
+  contextExplanation?: string;
+  exampleText?: string;
+  exampleTranslation?: string;
   savedAt: string;
   status: "new" | "learning" | "mastered";
   familiarity: number;
@@ -189,6 +199,8 @@ type SavedTerm = {
 ```
 
 Legacy vocabulary records without `bookId` are normalized to `six-sigma-black-belt` at load time.
+
+Lookup now stores a context snapshot instead of relying only on the dictionary's first translation. The snapshot keeps the tapped word form, its meaning in the current manual/question sentence, a concise usage explanation, and a bilingual example. Older records are migrated with their existing translation and source sentence as fallbacks.
 
 Vocabulary review now uses a lightweight local spaced-repetition model inspired by SM-2, Anki, and FSRS. Review outcomes are `remembered`, `fuzzy`, and `again`; the scheduler updates `familiarity`, `lapseCount`, `correctStreak`, `intervalDays`, `easeFactor`, `lastReviewedAt`, and `nextReviewAt`. Question-sourced terms keep `sourceType = "question"` plus `sourceQuestionId`, `sourceExamId`, and `sourceDomain`.
 

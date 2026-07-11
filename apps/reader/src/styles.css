@@ -1029,6 +1029,47 @@ h1 {
   font-weight: 850;
 }
 
+.contextMeaningCard {
+  display: grid;
+  gap: 5px;
+  margin: 12px 0;
+  padding: 12px;
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+  background: var(--accent-soft);
+}
+
+.contextMeaningCard span {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.contextMeaningCard strong {
+  color: var(--accent-strong);
+  font-size: 21px;
+}
+
+.contextMeaningCard p,
+.dictionaryDetails p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.dictionaryDetails {
+  margin: 12px 0;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface-muted);
+}
+
+.dictionaryDetails summary {
+  color: var(--accent-strong);
+  cursor: pointer;
+  font-weight: 800;
+}
+
 .phonetic {
   margin: 0 0 4px;
   color: var(--text-muted);
@@ -1531,6 +1572,210 @@ h1 {
   gap: 10px;
 }
 
+.studySessionShell {
+  min-height: 100dvh;
+  padding-bottom: max(24px, env(safe-area-inset-bottom));
+}
+
+.studySessionShell .appPageHeader {
+  padding-bottom: 4px;
+}
+
+.studySessionBar {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.sessionProgressTrack {
+  height: 5px;
+  overflow: hidden;
+  border-radius: 3px;
+  background: var(--border);
+}
+
+.sessionProgressTrack span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.24s ease;
+}
+
+.flashPromptActions,
+.flashQuiz,
+.flashCompleteState {
+  display: grid;
+  gap: 10px;
+}
+
+.flashPromptActions button,
+.flashQuiz button,
+.flashCompleteState button {
+  min-height: 48px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--accent-strong);
+  background: var(--surface);
+  font: inherit;
+  font-weight: 800;
+}
+
+.flashQuiz p,
+.flashExample p,
+.flashCompleteState p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.flashExample {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  border-left: 4px solid var(--accent);
+  background: var(--surface-muted);
+}
+
+.answerFeedback {
+  color: #9b3f34;
+  font-weight: 800;
+}
+
+.sourceLine {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.vocabModeTabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 8px;
+  background: var(--surface-muted);
+}
+
+.vocabModeTabs button {
+  min-height: 42px;
+  border: 0;
+  border-radius: 6px;
+  color: var(--text-muted);
+  background: transparent;
+  font-weight: 800;
+}
+
+.vocabModeTabs button.active {
+  color: var(--accent-strong);
+  background: var(--surface);
+  box-shadow: 0 2px 8px var(--panel-shadow);
+}
+
+.vocabPlanHero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  padding: 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.vocabPlanHero h2,
+.vocabPlanHero p {
+  margin: 0;
+}
+
+.planProgressRing {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: conic-gradient(var(--accent) var(--progress), var(--border) 0);
+  position: relative;
+}
+
+.planProgressRing::after {
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  background: var(--surface);
+  content: "";
+}
+
+.planProgressRing strong {
+  z-index: 1;
+}
+
+.vocabStartButton {
+  width: 100%;
+}
+
+.vocabSourceSummary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--border);
+  background: var(--border);
+}
+
+.vocabSourceSummary div {
+  display: grid;
+  gap: 3px;
+  padding: 12px;
+  background: var(--surface);
+}
+
+.vocabSourceSummary span,
+.recentTerms small {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.sectionHeaderRow,
+.recentTerms article {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sectionHeaderRow h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.sectionHeaderRow button {
+  border: 0;
+  color: var(--accent-strong);
+  background: transparent;
+  font-weight: 800;
+}
+
+.recentTerms {
+  display: grid;
+  gap: 0;
+}
+
+.recentTerms article {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.recentTerms article div {
+  display: grid;
+  gap: 3px;
+}
+
+.vocabLibraryItem details {
+  margin-top: 8px;
+}
+
+.vocabLibraryItem summary {
+  color: var(--accent-strong);
+  cursor: pointer;
+  font-weight: 800;
+}
+
 .sourceMetaGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1634,6 +1879,16 @@ h1 {
   color: var(--text);
   background: var(--surface-muted);
   text-align: left;
+  cursor: pointer;
+}
+
+.questionOption[aria-disabled="true"] {
+  cursor: default;
+}
+
+.questionOption:focus-visible {
+  outline: 3px solid var(--accent-soft);
+  outline-offset: 2px;
 }
 
 .questionOption strong {

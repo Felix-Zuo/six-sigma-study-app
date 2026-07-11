@@ -1,3 +1,5 @@
+import { resolveContextExplanation } from "./contextLookup";
+
 export type SavedTerm = {
   id: string;
   bookId: string;
@@ -11,6 +13,11 @@ export type SavedTerm = {
   sectionId: string;
   blockId?: string;
   sourceText: string;
+  sourceTranslation?: string;
+  contextMeaning?: string;
+  contextExplanation?: string;
+  exampleText?: string;
+  exampleTranslation?: string;
   savedAt: string;
   status: "new" | "learning" | "mastered";
   familiarity: number;
@@ -57,6 +64,14 @@ function normalizeSourceType(value: unknown): "manual" | "question" {
   return value === "question" ? "question" : "manual";
 }
 
+function cleanSavedTerm(value: unknown): string {
+  const term = typeof value === "string" ? value.trim() : "";
+  if (!/[A-Za-z]/.test(term)) {
+    return term;
+  }
+  return term.replace(/^[^A-Za-z0-9]+|[^A-Za-z0-9]+$/g, "") || term;
+}
+
 function scheduleIntervalDays(term: SavedTerm, outcome: "again" | "fuzzy" | "remembered"): number {
   if (outcome === "again") {
     return 1;
@@ -78,19 +93,36 @@ function normalizeSavedTerm(item: Partial<SavedTerm>): SavedTerm {
   const status = item.status === "learning" || item.status === "mastered" ? item.status : "new";
   const correctStreak = toSafeNumber(item.correctStreak, status === "mastered" ? 3 : 0);
   const sourceType = normalizeSourceType(item.sourceType);
+  const term = cleanSavedTerm(item.term);
+  const translation = item.translation ?? "待完善";
+  const sourceText = item.sourceText ?? "";
+  const context = resolveContextExplanation({
+    query: term,
+    dictionaryTranslation: translation,
+    sourceText,
+    sourceTranslation: item.sourceTranslation
+  });
+  const contextMeaning = !item.contextMeaning || item.contextMeaning === translation
+    ? context.meaning
+    : item.contextMeaning;
   return {
     id: item.id ?? `term-${Date.now()}`,
     bookId: item.bookId || defaultBookId,
     bookTitle: item.bookTitle || defaultBookTitle,
     contentVersion: item.contentVersion,
-    term: item.term ?? "",
-    translation: item.translation ?? "待完善",
+    term,
+    translation,
     chapter: item.chapter ?? 1,
     chapterTitle: item.chapterTitle ?? "Chapter 1: What is Six Sigma?",
     page: item.page ?? 1,
     sectionId: item.sectionId ?? "",
     blockId: item.blockId,
-    sourceText: item.sourceText ?? "",
+    sourceText,
+    sourceTranslation: item.sourceTranslation,
+    contextMeaning,
+    contextExplanation: item.contextExplanation || context.explanation,
+    exampleText: item.exampleText || sourceText,
+    exampleTranslation: item.exampleTranslation || item.sourceTranslation,
     savedAt,
     status,
     familiarity: clamp(toSafeNumber(item.familiarity, status === "mastered" ? 85 : correctStreak * 18), 0, 100),
@@ -248,7 +280,12 @@ export function savedTermsToCsv(terms: SavedTerm[]): string {
     "page",
     "sectionId",
     "blockId",
-    "sourceText"
+    "sourceText",
+    "sourceTranslation",
+    "contextMeaning",
+    "contextExplanation",
+    "exampleText",
+    "exampleTranslation"
   ];
   const rows = terms.map((term) => [
     term.term,
@@ -277,7 +314,12 @@ export function savedTermsToCsv(terms: SavedTerm[]): string {
     term.page,
     term.sectionId,
     term.blockId,
-    term.sourceText
+    term.sourceText,
+    term.sourceTranslation,
+    term.contextMeaning,
+    term.contextExplanation,
+    term.exampleText,
+    term.exampleTranslation
   ]);
   return [headers, ...rows].map((row) => row.map(csvCell).join(",")).join("\r\n");
 }

@@ -17,6 +17,8 @@ const checks = [
   ["exam delayed answers", app.includes("finishExam") && app.includes("examFinishedResult") && app.includes("交卷")],
   ["language toggle", app.includes("setQuestionLanguage") && app.includes("questionLanguage === \"zh\"")],
   ["question lookup", app.includes("InlineQuestionText") && app.includes("lookupQuestionText")],
+  ["global question lookup sheet", app.includes("function renderLookupSheet()") && app.includes("{renderLookupSheet()}")],
+  ["question option word events", app.includes("event.stopPropagation()") && app.includes('role="button"')],
   ["question vocab source", app.includes('sourceType: activeLookup.questionSource ? "question" : "manual"')],
   ["sample single and multiple", sampleHasSingle && sampleHasMultiple]
 ];

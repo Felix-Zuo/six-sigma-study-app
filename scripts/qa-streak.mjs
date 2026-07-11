@@ -10,7 +10,7 @@ const checks = [
   ["missed days", store.includes("missedDays") && store.includes("daysSinceCheckIn - 1")],
   ["auto check-in", store.includes("checkedInToday: true") && store.includes("lastCheckInDate: current.day")],
   ["home status", app.includes("今日目标") && app.includes("连续天数")],
-  ["vocab status", app.includes("完成目标后自动打卡")]
+  ["vocab status", app.includes("开始今日学习") && app.includes("今日已完成") && app.includes("补学内容")]
 ];
 
 const failed = checks.filter(([, ok]) => !ok);
