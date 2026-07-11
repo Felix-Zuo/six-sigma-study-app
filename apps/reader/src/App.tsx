@@ -215,6 +215,7 @@ const defaultBookId = "six-sigma-black-belt";
 const defaultBookTitle = "六西格玛黑带教材";
 const githubProfileUrl = "https://github.com/Felix-Zuo";
 const catalogPath = "content/catalog.json";
+const bundledQuestionBankPath = "content/private/question-bank.private.json";
 const noticeAcceptedKey = "six-sigma-study:notice-accepted:v1";
 const activeBookKey = "six-sigma-study:active-book:v1";
 const readerPreferencesKey = "six-sigma-study:reader-preferences:v1";
@@ -617,6 +618,7 @@ export function App() {
   const [savedNotes, setSavedNotes] = useState<SavedNote[]>(() => loadSavedNotes());
   const [savedFavorites, setSavedFavorites] = useState<SavedFavorite[]>(() => loadSavedFavorites());
   const [dailyStats, setDailyStats] = useState<DailyStudyStats>(() => loadDailyStats());
+  const [bundledQuestionBank, setBundledQuestionBank] = useState<QuestionBankPayload | null>(null);
   const [userQuestionBank, setUserQuestionBank] = useState<QuestionBankPayload | null>(() => loadUserQuestionBank());
   const [questionProgress, setQuestionProgress] = useState<Record<string, QuestionProgress>>(() => loadQuestionProgress());
   const [examResults, setExamResults] = useState<ExamResult[]>(() => loadExamResults());
@@ -753,10 +755,17 @@ export function App() {
     () => new Set(bookSavedTerms.map((item) => `${item.bookId}:${normalizeLookup(item.term)}`)),
     [bookSavedTerms]
   );
-  const allQuestions = useMemo(
-    () => [...publicQuestionBank.questions, ...(userQuestionBank?.questions ?? [])],
-    [userQuestionBank]
-  );
+  const allQuestions = useMemo(() => {
+    const byId = new Map<string, QuestionItem>();
+    for (const question of [
+      ...publicQuestionBank.questions,
+      ...(bundledQuestionBank?.questions ?? []),
+      ...(userQuestionBank?.questions ?? [])
+    ]) {
+      byId.set(question.questionId, question);
+    }
+    return [...byId.values()];
+  }, [bundledQuestionBank, userQuestionBank]);
   const questionDomains = useMemo(
     () => [...new Set(allQuestions.map((question) => question.domain))].sort((a, b) => a.localeCompare(b)),
     [allQuestions]
@@ -868,6 +877,31 @@ export function App() {
         setCatalog(fallbackCatalog);
         setActiveBookId(fallbackCatalog.defaultBookId);
       });
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch(bundledQuestionBankPath, { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`bundled question bank unavailable: ${response.status}`);
+        }
+        return response.json() as Promise<Partial<QuestionBankPayload>>;
+      })
+      .then((payload) => {
+        if (!cancelled) {
+          const bank = normalizeQuestionBank({ ...payload, sourceType: "user-private" }, "bundled-private-bank");
+          setBundledQuestionBank(bank);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setBundledQuestionBank(null);
+        }
+      });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   useEffect(() => {
@@ -2361,7 +2395,13 @@ export function App() {
 
           <details className="questionBankManager">
             <summary>本机题库管理</summary>
-            <p>{userQuestionBank ? `已加载私有题库 ${userQuestionBank.questions.length} 道` : `当前可用 ${allQuestions.length} 道题`}</p>
+            <p>
+              {bundledQuestionBank
+                ? `本机内置 ${bundledQuestionBank.questions.length} 道题`
+                : userQuestionBank
+                  ? `已导入私有题库 ${userQuestionBank.questions.length} 道`
+                  : `当前可用 ${allQuestions.length} 道题`}
+            </p>
             <label>
               导入本机 JSON
               <input type="file" accept="application/json,.json" onChange={(event) => void importPrivateQuestionBank(event.currentTarget.files?.[0])} />

@@ -29,6 +29,7 @@ android/local.properties
 
 # Generated content and large source files
 private-question-bank/
+apps/reader/public/content/private/
 *.private.json
 content/raw/*
 content/processed/*

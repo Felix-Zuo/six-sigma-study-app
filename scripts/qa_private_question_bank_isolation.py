@@ -8,6 +8,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 WORKSPACE_ROOT = REPO_ROOT.parent
 PRIVATE_DIR = WORKSPACE_ROOT / "private-question-bank"
+STAGED_PATH = REPO_ROOT / "apps" / "reader" / "public" / "content" / "private" / "question-bank.private.json"
 
 
 def run_git(args: list[str]) -> str:
@@ -34,7 +35,11 @@ def main() -> None:
     repo_gitignore = (REPO_ROOT / ".gitignore").read_text(encoding="utf-8")
     workspace_gitignore_path = WORKSPACE_ROOT / ".gitignore"
     workspace_gitignore = workspace_gitignore_path.read_text(encoding="utf-8") if workspace_gitignore_path.exists() else ""
-    if "private-question-bank/" not in repo_gitignore or "*.private.json" not in repo_gitignore:
+    if (
+        "private-question-bank/" not in repo_gitignore
+        or "apps/reader/public/content/private/" not in repo_gitignore
+        or "*.private.json" not in repo_gitignore
+    ):
         raise AssertionError("repo .gitignore does not protect private question bank files")
     if workspace_gitignore_path.exists() and "private-question-bank/" not in workspace_gitignore:
         raise AssertionError("workspace .gitignore does not protect private-question-bank")
@@ -46,6 +51,7 @@ def main() -> None:
         "privateDir": str(PRIVATE_DIR),
         "privateJsonExists": private_json.exists(),
         "reportExists": report.exists(),
+        "stagedAssetExists": STAGED_PATH.exists(),
         "trackedLeakCount": 0,
     }
     print(json.dumps(result, ensure_ascii=False, indent=2))
