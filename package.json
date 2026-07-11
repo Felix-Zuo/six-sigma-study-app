@@ -22,6 +22,7 @@
     "audit:public": "python scripts/audit_public_ready.py",
     "docs:links": "python scripts/check_docs_links.py",
     "qa:source-coverage": "python scripts/qa_source_coverage.py",
+    "qa:content-fidelity": "python scripts/qa_content_fidelity.py",
     "qa:multibook-ux": "node scripts/qa-multibook-ux-cdp.mjs",
     "qa:target3-product": "node scripts/qa-multibook-ux-cdp.mjs",
     "qa:target4-flow": "node scripts/qa-target4-flow-cdp.mjs",
