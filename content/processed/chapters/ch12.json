@@ -961,45 +961,31 @@
           },
           {
             "id": "ch12-s04-define-toolset-en-029",
-            "kind": "heading",
+            "kind": "table",
             "page": 115,
-            "text": "Is"
-          },
-          {
-            "id": "ch12-s04-define-toolset-en-030",
-            "kind": "heading",
-            "page": 115,
-            "text": "Is Not"
-          },
-          {
-            "id": "ch12-s04-define-toolset-en-031",
-            "kind": "heading",
-            "page": 115,
-            "text": "Where"
-          },
-          {
-            "id": "ch12-s04-define-toolset-en-032",
-            "kind": "heading",
-            "page": 115,
-            "text": "South plant North or East plan"
-          },
-          {
-            "id": "ch12-s04-define-toolset-en-033",
-            "kind": "heading",
-            "page": 115,
-            "text": "What"
-          },
-          {
-            "id": "ch12-s04-define-toolset-en-034",
-            "kind": "heading",
-            "page": 115,
-            "text": "Steam furnaces Wood furnaces"
-          },
-          {
-            "id": "ch12-s04-define-toolset-en-035",
-            "kind": "paragraph",
-            "page": 115,
-            "text": "When January 2015 Prior to January 2015"
+            "rows": [
+              [
+                "",
+                "Is",
+                "Is Not"
+              ],
+              [
+                "Where",
+                "South plant",
+                "North or East plan"
+              ],
+              [
+                "What",
+                "Steam furnaces",
+                "Wood furnaces"
+              ],
+              [
+                "When",
+                "January 2015",
+                "Prior to January 2015"
+              ]
+            ],
+            "text": " Is Is Not Where South plant North or East plan What Steam furnaces Wood furnaces When January 2015 Prior to January 2015"
           },
           {
             "id": "ch12-s04-define-toolset-en-036",
@@ -1215,39 +1201,32 @@
           },
           {
             "id": "ch12-s04-define-toolset-zh-032",
-            "kind": "heading",
+            "kind": "table",
             "page": 115,
-            "text": "是"
-          },
-          {
-            "id": "ch12-s04-define-toolset-zh-033",
-            "kind": "heading",
-            "page": 115,
-            "text": "不是"
-          },
-          {
-            "id": "ch12-s04-define-toolset-zh-034",
-            "kind": "heading",
-            "page": 115,
-            "text": "哪里"
-          },
-          {
-            "id": "ch12-s04-define-toolset-zh-035",
-            "kind": "heading",
-            "page": 115,
-            "text": "南厂北或东规划"
-          },
-          {
-            "id": "ch12-s04-define-toolset-zh-036",
-            "kind": "heading",
-            "page": 115,
-            "text": "什么"
-          },
-          {
-            "id": "ch12-s04-define-toolset-zh-037",
-            "kind": "heading",
-            "page": 115,
-            "text": "蒸汽炉 燃木炉"
+            "rows": [
+              [
+                "",
+                "Is",
+                "Is Not"
+              ],
+              [
+                "Where",
+                "South plant",
+                "North or East plan"
+              ],
+              [
+                "What",
+                "Steam furnaces",
+                "Wood furnaces"
+              ],
+              [
+                "When",
+                "January 2015",
+                "Prior to January 2015"
+              ]
+            ],
+            "text": " Is Is Not Where South plant North or East plan What Steam furnaces Wood furnaces When January 2015 Prior to January 2015",
+            "preserveOriginal": true
           }
         ]
       }

@@ -33,6 +33,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MANUAL = REPO_ROOT / "content" / "processed" / "manual.json"
 PUBLIC_CONTENT_ROOT = REPO_ROOT / "apps" / "reader" / "public" / "content"
+DISPOSITIONS_PATH = REPO_ROOT / "content" / "overrides" / "content-fidelity-dispositions.json"
 
 EXPECTED_CHAPTERS = 33
 BLOCK_KINDS = ["paragraph", "heading", "listItem", "table", "image", "termNote"]
@@ -187,6 +188,14 @@ def audit(manual_path: Path) -> dict:
 
     findings: list[dict] = []  # {priority, category, chapter, where, detail}
     chapter_stats: list[dict] = []
+    accepted_table_candidates: set[tuple[str, str, str]] = set()
+    if DISPOSITIONS_PATH.exists():
+        dispositions = json.loads(DISPOSITIONS_PATH.read_text(encoding="utf-8"))
+        accepted_table_candidates = {
+            (item["sectionId"], item["startBlockId"], item["endBlockId"])
+            for item in dispositions.get("acceptedTableCandidates", [])
+            if item.get("decision") == "keep-as-authored"
+        }
 
     def add(priority: str, category: str, chapter: int, where: str, detail: str) -> None:
         findings.append(
@@ -231,7 +240,7 @@ def audit(manual_path: Path) -> dict:
                     else:
                         text = block_text(block)
                         lang_text_parts.append(text)
-                        if lang == "zh" and kind in TEXT_KINDS:
+                        if lang == "zh" and kind in TEXT_KINDS and not block.get("preserveOriginal"):
                             cjk = count_cjk(text)
                             latin = count_latin(text)
                             if latin >= 20:
@@ -256,6 +265,9 @@ def audit(manual_path: Path) -> dict:
             }
             en_has_table = any(blk.get("kind") == "table" for blk in en_blocks)
             for run in find_flattened_table_runs(en_blocks):
+                candidate_key = (section_id, run["blockIds"][0], run["blockIds"][-1])
+                if candidate_key in accepted_table_candidates:
+                    continue
                 near_zh_table = any(
                     any(abs(page - zh_page) <= 1 for page in run["pages"]) for zh_page in zh_table_pages
                 )

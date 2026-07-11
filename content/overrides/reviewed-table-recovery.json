@@ -1,0 +1,4400 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewedAgainst": "sources/source_manual.pdf",
+  "assets": [
+    {
+      "chapterId": "ch16",
+      "asset": {
+        "id": "source-formula-sigma-level-ch16",
+        "type": "table-image",
+        "path": "assets/figures/source-formula-sigma-level-ch16.png",
+        "page": 155,
+        "width": 765,
+        "height": 330
+      }
+    },
+    {
+      "chapterId": "ch27",
+      "asset": {
+        "id": "source-chart-fitted-line-ch27",
+        "type": "table-image",
+        "path": "assets/figures/source-chart-fitted-line-ch27.png",
+        "page": 362,
+        "width": 1050,
+        "height": 726
+      }
+    },
+    {
+      "chapterId": "ch05",
+      "asset": {
+        "id": "source-chart-pareto-ch05",
+        "type": "table-image",
+        "path": "assets/figures/source-chart-pareto-ch05.png",
+        "page": 42,
+        "width": 1263,
+        "height": 575
+      }
+    },
+    {
+      "chapterId": "ch29",
+      "asset": {
+        "id": "source-report-modeling-summary-ch29",
+        "type": "table-image",
+        "path": "assets/figures/source-report-modeling-summary-ch29.png",
+        "page": 408,
+        "width": 1275,
+        "height": 938
+      }
+    },
+    {
+      "chapterId": "ch29",
+      "asset": {
+        "id": "source-report-prediction-ch29",
+        "type": "table-image",
+        "path": "assets/figures/source-report-prediction-ch29.png",
+        "page": 408,
+        "width": 1263,
+        "height": 938
+      }
+    }
+  ],
+  "operations": [
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch14",
+      "sectionId": "ch14-s03-graphical-analysis",
+      "language": "en",
+      "startBlockId": "ch14-s03-graphical-analysis-en-026",
+      "endBlockId": "ch14-s03-graphical-analysis-en-029",
+      "blocks": [
+        {
+          "id": "ch14-s03-graphical-analysis-en-026",
+          "kind": "table",
+          "page": 140,
+          "rows": [
+            [
+              "One Monitor",
+              "Two Monitors"
+            ],
+            [
+              "9",
+              "10"
+            ],
+            [
+              "8",
+              "4"
+            ],
+            [
+              "4",
+              "9"
+            ],
+            [
+              "7",
+              "7"
+            ],
+            [
+              "2",
+              "8"
+            ],
+            [
+              "6",
+              "7"
+            ],
+            [
+              "1",
+              "9"
+            ],
+            [
+              "8",
+              "9"
+            ],
+            [
+              "5",
+              "14"
+            ],
+            [
+              "4",
+              "10"
+            ],
+            [
+              "3",
+              "12"
+            ],
+            [
+              "7",
+              "7"
+            ],
+            [
+              "9",
+              "9"
+            ],
+            [
+              "5",
+              "4"
+            ],
+            [
+              "1",
+              "9"
+            ]
+          ],
+          "text": "One Monitor Two Monitors 9 10 8 4 4 9 7 7 2 8 6 7 1 9 8 9 5 14 4 10 3 12 7 7 9 9 5 4 1 9"
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch15",
+      "sectionId": "ch15-s03-cost-benefit-analysis",
+      "language": "en",
+      "startBlockId": "ch15-s03-cost-benefit-analysis-en-015",
+      "endBlockId": "ch15-s03-cost-benefit-analysis-en-029",
+      "blocks": [
+        {
+          "id": "ch15-s03-cost-benefit-analysis-en-015",
+          "kind": "table",
+          "page": 147,
+          "rows": [
+            [
+              "",
+              "This year",
+              "First Year",
+              "Second Year",
+              "Third Year Total"
+            ],
+            [
+              "Benefits",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Increased revenue",
+              "",
+              "$10,000",
+              "$20,000",
+              "$30,000"
+            ],
+            [
+              "Cost Savings",
+              "",
+              "$5,000",
+              "$10,000",
+              "$15,000"
+            ],
+            [
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Costs",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Capital",
+              "-$20,000",
+              "",
+              "",
+              "-$20,000"
+            ],
+            [
+              "Equipment",
+              "-$15,000",
+              "",
+              "",
+              "-$15,000"
+            ],
+            [
+              "Training",
+              "-$5,000",
+              "",
+              "",
+              "-$5,000"
+            ],
+            [
+              "Labor",
+              "",
+              "-$2,000",
+              "-$2,000",
+              "-$2,000"
+            ],
+            [
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Total Benefits – Cost Annual",
+              "-$50,000",
+              "$13,000",
+              "$27,000",
+              "$3,000"
+            ],
+            [
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "NPV (Discounted 5 percent)",
+              "",
+              "$12,350",
+              "$25,650",
+              "$2,850"
+            ]
+          ],
+          "text": " This year First Year Second Year Third Year Total Benefits     Increased revenue  $10,000 $20,000 $30,000 Cost Savings  $5,000 $10,000 $15,000      Costs     Capital -$20,000   -$20,000 Equipment -$15,000   -$15,000 Training -$5,000   -$5,000 Labor  -$2,000 -$2,000 -$2,000      Total Benefits – Cost Annual -$50,000 $13,000 $27,000 $3,000      NPV (Discounted 5 percent)  $12,350 $25,650 $2,850"
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch16",
+      "sectionId": "ch16-s03-create-a-control-plan",
+      "language": "en",
+      "startBlockId": "ch16-s03-create-a-control-plan-en-037",
+      "endBlockId": "ch16-s03-create-a-control-plan-en-041",
+      "blocks": [
+        {
+          "id": "ch16-s03-create-a-control-plan-en-037",
+          "kind": "table",
+          "page": 153,
+          "rows": [
+            [
+              "Method of measurement",
+              "6-cup sugar test bowl",
+              "Read integrated digital thermometer on mixing machine"
+            ],
+            [
+              "Sample Size",
+              "One batch",
+              "3 reading, 2 minutes apart, during mixing"
+            ],
+            [
+              "Frequency",
+              "Every 2 hours",
+              "Every 2 hours"
+            ],
+            [
+              "Employee",
+              "Mixer operator",
+              "Mixer Operator"
+            ],
+            [
+              "Record data in",
+              "Mix operation log spreadsheet",
+              "Mix operation log spreadsheet"
+            ],
+            [
+              "Corrective action",
+              "Manually measure correct amount for current batch to allow for processing, calibrate sugar disbursement machine following SOP 100.54, test sugar disbursement for first batch after calibration to ensure problem is resolved. Report issue to supervisor.",
+              "Turn off machine, waste inappropriately heated batch, and report temperature calibration issue to maintenance."
+            ]
+          ],
+          "text": "Method of measurement 6-cup sugar test bowl Read integrated digital thermometer on mixing machine Sample Size One batch 3 reading, 2 minutes apart, during mixing Frequency Every 2 hours Every 2 hours Employee Mixer operator Mixer Operator Record data in Mix operation log spreadsheet Mix operation log spreadsheet Corrective action Manually measure correct amount for current batch to allow for processing, calibrate sugar disbursement machine following SOP 100.54, test sugar disbursement for first batch after calibration to ensure problem is resolved. Report issue to supervisor. Turn off machine, waste inappropriately heated batch, and report temperature calibration issue to maintenance."
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch17",
+      "sectionId": "ch17-s03-creating-an-x-bar-control-chart-without-statistical-software",
+      "language": "en",
+      "startBlockId": "ch17-s03-creating-an-x-bar-control-chart-without-statistical-software-en-009",
+      "endBlockId": "ch17-s03-creating-an-x-bar-control-chart-without-statistical-software-en-012",
+      "blocks": [
+        {
+          "id": "ch17-s03-creating-an-x-bar-control-chart-without-statistical-software-en-009",
+          "kind": "table",
+          "page": 171,
+          "rows": [
+            [
+              "X-Bar Data Points"
+            ],
+            [
+              "24.1"
+            ],
+            [
+              "25.2"
+            ],
+            [
+              "24.7"
+            ],
+            [
+              "28.3"
+            ],
+            [
+              "27.1"
+            ],
+            [
+              "26.4"
+            ],
+            [
+              "25.4"
+            ],
+            [
+              "21.4"
+            ],
+            [
+              "24.5"
+            ],
+            [
+              "23.5"
+            ],
+            [
+              "27.5"
+            ],
+            [
+              "29.5"
+            ],
+            [
+              "24.5"
+            ],
+            [
+              "26.8"
+            ]
+          ],
+          "text": "X-Bar Data Points 24.1 25.2 24.7 28.3 27.1 26.4 25.4 21.4 24.5 23.5 27.5 29.5 24.5 26.8"
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch21",
+      "sectionId": "ch21-s05-running-hypothesis-tests",
+      "language": "en",
+      "startBlockId": "ch21-s05-running-hypothesis-tests-en-025",
+      "endBlockId": "ch21-s05-running-hypothesis-tests-en-028",
+      "blocks": [
+        {
+          "id": "ch21-s05-running-hypothesis-tests-en-025",
+          "kind": "table",
+          "page": 256,
+          "rows": [
+            [
+              "Test and CI for One Proportion",
+              "Test and CI for One Proportion",
+              "Test and CI for One Proportion",
+              "Test and CI for One Proportion",
+              "Test and CI for One Proportion",
+              "Test and CI for One Proportion"
+            ],
+            [
+              "Test of p = 0.2 vs p > 0.2",
+              "Test of p = 0.2 vs p > 0.2",
+              "Test of p = 0.2 vs p > 0.2",
+              "Test of p = 0.2 vs p > 0.2",
+              "Test of p = 0.2 vs p > 0.2",
+              "Test of p = 0.2 vs p > 0.2"
+            ],
+            [
+              "Sample",
+              "X",
+              "N",
+              "Sample p",
+              "95% Lower Bound",
+              "P-Value"
+            ],
+            [
+              "1",
+              "38",
+              "142",
+              "0.267606",
+              "0.207083",
+              "0.031"
+            ]
+          ],
+          "text": "Test and CI for One Proportion Test and CI for One Proportion Test and CI for One Proportion Test and CI for One Proportion Test and CI for One Proportion Test and CI for One Proportion Test of p = 0.2 vs p > 0.2 Test of p = 0.2 vs p > 0.2 Test of p = 0.2 vs p > 0.2 Test of p = 0.2 vs p > 0.2 Test of p = 0.2 vs p > 0.2 Test of p = 0.2 vs p > 0.2 Sample X N Sample p 95% Lower Bound P-Value 1 38 142 0.267606 0.207083 0.031"
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch21",
+      "sectionId": "ch21-s05-running-hypothesis-tests",
+      "language": "en",
+      "startBlockId": "ch21-s05-running-hypothesis-tests-en-069",
+      "endBlockId": "ch21-s05-running-hypothesis-tests-en-072",
+      "blocks": [
+        {
+          "id": "ch21-s05-running-hypothesis-tests-en-069",
+          "kind": "table",
+          "page": 259,
+          "rows": [
+            [
+              "Number of Bedrooms",
+              "Number of Bedrooms",
+              "Number of Bedrooms",
+              "Number of Bedrooms"
+            ],
+            [
+              "4",
+              "5",
+              "6",
+              "4"
+            ],
+            [
+              "4",
+              "5",
+              "6",
+              "4"
+            ],
+            [
+              "4",
+              "3",
+              "6",
+              "3"
+            ],
+            [
+              "4",
+              "3",
+              "6",
+              "3"
+            ],
+            [
+              "4",
+              "3",
+              "6",
+              "3"
+            ],
+            [
+              "5",
+              "3",
+              "7",
+              "2"
+            ],
+            [
+              "5",
+              "3",
+              "7",
+              "2"
+            ]
+          ],
+          "text": "Number of Bedrooms Number of Bedrooms Number of Bedrooms Number of Bedrooms 4 5 6 4 4 5 6 4 4 3 6 3 4 3 6 3 4 3 6 3 5 3 7 2 5 3 7 2"
+        },
+        {
+          "id": "ch21-s05-running-hypothesis-tests-en-069-page-260",
+          "kind": "table",
+          "page": 260,
+          "rows": [
+            [
+              "Number of Bedrooms",
+              "Number of Bedrooms",
+              "Number of Bedrooms",
+              "Number of Bedrooms"
+            ],
+            [
+              "5",
+              "3",
+              "5",
+              "2"
+            ],
+            [
+              "5",
+              "3",
+              "5",
+              "2"
+            ],
+            [
+              "5",
+              "3",
+              "5",
+              "1"
+            ],
+            [
+              "5",
+              "6",
+              "5",
+              "1"
+            ],
+            [
+              "5",
+              "6",
+              "4",
+              "1"
+            ],
+            [
+              "5",
+              "6",
+              "4",
+              ""
+            ]
+          ],
+          "text": "Number of Bedrooms Number of Bedrooms Number of Bedrooms Number of Bedrooms 5 3 5 2 5 3 5 2 5 3 5 1 5 6 5 1 5 6 4 1 5 6 4 "
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch23",
+      "sectionId": "ch23-s03-creating-and-reading-control-charts-in-minitab",
+      "language": "en",
+      "startBlockId": "ch23-s03-creating-and-reading-control-charts-in-minitab-en-086",
+      "endBlockId": "ch23-s03-creating-and-reading-control-charts-in-minitab-en-091",
+      "blocks": [
+        {
+          "id": "ch23-s03-creating-and-reading-control-charts-in-minitab-en-086",
+          "kind": "table",
+          "page": 288,
+          "rows": [
+            [
+              "Incoming Tickets",
+              "Complete Tickets",
+              "Tickets Left Unresolved"
+            ],
+            [
+              "10",
+              "8",
+              "2"
+            ],
+            [
+              "12",
+              "10",
+              "4"
+            ],
+            [
+              "15",
+              "12",
+              "7"
+            ],
+            [
+              "7",
+              "9",
+              "5"
+            ],
+            [
+              "2",
+              "5",
+              "2"
+            ],
+            [
+              "8",
+              "9",
+              "1"
+            ],
+            [
+              "9",
+              "8",
+              "2"
+            ],
+            [
+              "11",
+              "12",
+              "1"
+            ],
+            [
+              "1",
+              "2",
+              "0"
+            ]
+          ],
+          "text": "Incoming Tickets Complete Tickets Tickets Left Unresolved 10 8 2 12 10 4 15 12 7 7 9 5 2 5 2 8 9 1 9 8 2 11 12 1 1 2 0"
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch26",
+      "sectionId": "ch26-s02-the-graph-menu-option",
+      "language": "en",
+      "startBlockId": "ch26-s02-the-graph-menu-option-en-005",
+      "endBlockId": "ch26-s02-the-graph-menu-option-en-007",
+      "blocks": [
+        {
+          "id": "ch26-s02-the-graph-menu-option-en-005",
+          "kind": "table",
+          "page": 325,
+          "rows": [
+            [
+              "C1",
+              "C2"
+            ],
+            [
+              "1",
+              "4.6"
+            ],
+            [
+              "2",
+              "3.8"
+            ],
+            [
+              "3",
+              "4.8"
+            ],
+            [
+              "4",
+              "2.7"
+            ],
+            [
+              "5",
+              "3.5"
+            ],
+            [
+              "1",
+              "4.3"
+            ],
+            [
+              "2",
+              "3.6"
+            ],
+            [
+              "3",
+              "5.8"
+            ],
+            [
+              "4",
+              "4.7"
+            ],
+            [
+              "5",
+              "3.0"
+            ],
+            [
+              "1",
+              "4.3"
+            ],
+            [
+              "2",
+              "5.6"
+            ],
+            [
+              "3",
+              "6.2"
+            ],
+            [
+              "4",
+              "4.7"
+            ],
+            [
+              "5",
+              "2.2"
+            ],
+            [
+              "1",
+              "3.3"
+            ],
+            [
+              "2",
+              "2.8"
+            ],
+            [
+              "3",
+              "1.6"
+            ],
+            [
+              "4",
+              "1.4"
+            ],
+            [
+              "5",
+              "2.8"
+            ]
+          ],
+          "text": "C1 C2 1 4.6 2 3.8 3 4.8 4 2.7 5 3.5 1 4.3 2 3.6 3 5.8 4 4.7 5 3.0 1 4.3 2 5.6 3 6.2 4 4.7 5 2.2 1 3.3 2 2.8 3 1.6 4 1.4 5 2.8"
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch26",
+      "sectionId": "ch26-s02-the-graph-menu-option",
+      "language": "en",
+      "startBlockId": "ch26-s02-the-graph-menu-option-en-186",
+      "endBlockId": "ch26-s02-the-graph-menu-option-en-202",
+      "blocks": [
+        {
+          "id": "ch26-s02-the-graph-menu-option-en-186",
+          "kind": "table",
+          "page": 339,
+          "rows": [
+            [
+              "Hour",
+              "Phone calls"
+            ],
+            [
+              "8:00 AM",
+              "78"
+            ],
+            [
+              "9:00 AM",
+              "89"
+            ],
+            [
+              "10:00 AM",
+              "107"
+            ],
+            [
+              "11:00 AM",
+              "118"
+            ],
+            [
+              "12:00 PM",
+              "149"
+            ],
+            [
+              "1:00 PM",
+              "147"
+            ],
+            [
+              "2:00 PM",
+              "105"
+            ]
+          ],
+          "text": "Hour Phone calls 8:00 AM 78 9:00 AM 89 10:00 AM 107 11:00 AM 118 12:00 PM 149 1:00 PM 147 2:00 PM 105"
+        },
+        {
+          "id": "ch26-s02-the-graph-menu-option-en-186-page-340",
+          "kind": "table",
+          "page": 340,
+          "rows": [
+            [
+              "Hour",
+              "Phone calls"
+            ],
+            [
+              "3:00 PM",
+              "90"
+            ],
+            [
+              "4:00 PM",
+              "97"
+            ],
+            [
+              "5:00 PM",
+              "85"
+            ],
+            [
+              "6:00 PM",
+              "178"
+            ],
+            [
+              "7:00 PM",
+              "198"
+            ],
+            [
+              "8:00 PM",
+              "145"
+            ],
+            [
+              "9:00 PM",
+              "57"
+            ]
+          ],
+          "text": "Hour Phone calls 3:00 PM 90 4:00 PM 97 5:00 PM 85 6:00 PM 178 7:00 PM 198 8:00 PM 145 9:00 PM 57"
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch29",
+      "sectionId": "ch29-s03-best-guess-trial-and-error-versus-factorial-experiments",
+      "language": "en",
+      "startBlockId": "ch29-s03-best-guess-trial-and-error-versus-factorial-experiments-en-019",
+      "endBlockId": "ch29-s03-best-guess-trial-and-error-versus-factorial-experiments-en-036",
+      "blocks": [
+        {
+          "id": "ch29-s03-best-guess-trial-and-error-versus-factorial-experiments-en-019",
+          "kind": "table",
+          "page": 394,
+          "rows": [
+            [
+              "Run Number",
+              "Driver Experience",
+              "GPS",
+              "Dispatcher",
+              "Pieces of Furniture"
+            ],
+            [
+              "1",
+              "0 years",
+              "Yes",
+              "Follows Procedure",
+              "1 piece"
+            ],
+            [
+              "2",
+              "0 years",
+              "Yes",
+              "Follows Procedure",
+              "5 pieces"
+            ],
+            [
+              "3",
+              "0 years",
+              "Yes",
+              "No Procedure",
+              "1 piece"
+            ],
+            [
+              "4",
+              "0 years",
+              "Yes",
+              "No Procedure",
+              "5 pieces"
+            ],
+            [
+              "5",
+              "0 years",
+              "No",
+              "Follows Procedure",
+              "1 piece"
+            ],
+            [
+              "6",
+              "0 years",
+              "No",
+              "Follows Procedure",
+              "5 pieces"
+            ]
+          ],
+          "text": "Run Number Driver Experience GPS Dispatcher Pieces of Furniture 1 0 years Yes Follows Procedure 1 piece 2 0 years Yes Follows Procedure 5 pieces 3 0 years Yes No Procedure 1 piece 4 0 years Yes No Procedure 5 pieces 5 0 years No Follows Procedure 1 piece 6 0 years No Follows Procedure 5 pieces"
+        },
+        {
+          "id": "ch29-s03-best-guess-trial-and-error-versus-factorial-experiments-en-019-page-395",
+          "kind": "table",
+          "page": 395,
+          "rows": [
+            [
+              "Run Number",
+              "Driver Experience",
+              "GPS",
+              "Dispatcher",
+              "Pieces of Furniture"
+            ],
+            [
+              "7",
+              "0 years",
+              "No",
+              "No Procedure",
+              "1 piece"
+            ],
+            [
+              "8",
+              "0 years",
+              "No",
+              "No Procedure",
+              "5 pieces"
+            ],
+            [
+              "9",
+              "1 year",
+              "Yes",
+              "Follows Procedure",
+              "1 piece"
+            ],
+            [
+              "10",
+              "1 year",
+              "Yes",
+              "Follows Procedure",
+              "5 pieces"
+            ],
+            [
+              "11",
+              "1 year",
+              "Yes",
+              "No Procedure",
+              "1 piece"
+            ],
+            [
+              "12",
+              "1 year",
+              "Yes",
+              "No Procedure",
+              "5 pieces"
+            ]
+          ],
+          "text": "Run Number Driver Experience GPS Dispatcher Pieces of Furniture 7 0 years No No Procedure 1 piece 8 0 years No No Procedure 5 pieces 9 1 year Yes Follows Procedure 1 piece 10 1 year Yes Follows Procedure 5 pieces 11 1 year Yes No Procedure 1 piece 12 1 year Yes No Procedure 5 pieces"
+        },
+        {
+          "id": "ch29-s03-best-guess-trial-and-error-versus-factorial-experiments-en-019-page-396",
+          "kind": "table",
+          "page": 396,
+          "rows": [
+            [
+              "Run Number",
+              "Driver Experience",
+              "GPS",
+              "Dispatcher",
+              "Pieces of Furniture"
+            ],
+            [
+              "13",
+              "1 year",
+              "No",
+              "Follows Procedure",
+              "1 piece"
+            ],
+            [
+              "14",
+              "1 year",
+              "No",
+              "Follows Procedure",
+              "5 pieces"
+            ],
+            [
+              "15",
+              "1 year",
+              "No",
+              "No Procedure",
+              "1 piece"
+            ],
+            [
+              "16",
+              "1 year",
+              "No",
+              "No Procedure",
+              "5 pieces"
+            ]
+          ],
+          "text": "Run Number Driver Experience GPS Dispatcher Pieces of Furniture 13 1 year No Follows Procedure 1 piece 14 1 year No Follows Procedure 5 pieces 15 1 year No No Procedure 1 piece 16 1 year No No Procedure 5 pieces"
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch29",
+      "sectionId": "ch29-s04-next-steps",
+      "language": "en",
+      "startBlockId": "ch29-s04-next-steps-en-054",
+      "endBlockId": "ch29-s04-next-steps-en-091",
+      "blocks": [
+        {
+          "id": "ch29-s04-next-steps-en-054",
+          "kind": "table",
+          "page": 408,
+          "rows": [
+            [
+              "StdOrder",
+              "RunOrder",
+              "CenterPt",
+              "Blocks",
+              "StaffEd",
+              "TimeShift",
+              "NoPts",
+              "Compliance"
+            ],
+            [
+              "8",
+              "1",
+              "1",
+              "1",
+              "Yes",
+              "Over 4",
+              "80% or more",
+              "8.2"
+            ],
+            [
+              "2",
+              "2",
+              "1",
+              "1",
+              "Yes",
+              "4 or under",
+              "Below 80%",
+              "9.5"
+            ],
+            [
+              "7",
+              "3",
+              "1",
+              "1",
+              "No",
+              "Over 4",
+              "80% or more",
+              "7.2"
+            ],
+            [
+              "1",
+              "4",
+              "1",
+              "1",
+              "No",
+              "4 or under",
+              "Below 80%",
+              "7.8"
+            ],
+            [
+              "5",
+              "5",
+              "1",
+              "1",
+              "No",
+              "4 or under",
+              "80% or more",
+              "5.2"
+            ],
+            [
+              "3",
+              "6",
+              "1",
+              "1",
+              "No",
+              "Over 4",
+              "Below 80%",
+              "5.4"
+            ],
+            [
+              "4",
+              "7",
+              "1",
+              "1",
+              "Yes",
+              "Over 4",
+              "Below 80%",
+              "8.5"
+            ],
+            [
+              "6",
+              "8",
+              "1",
+              "1",
+              "Yes",
+              "4 or under",
+              "80% or more",
+              "9.7"
+            ],
+            [
+              "11",
+              "9",
+              "1",
+              "2",
+              "No",
+              "Over 4",
+              "Below 80%",
+              "7.2"
+            ],
+            [
+              "16",
+              "10",
+              "1",
+              "2",
+              "Yes",
+              "Over 4",
+              "80% or more",
+              "8.8"
+            ],
+            [
+              "10",
+              "11",
+              "1",
+              "2",
+              "Yes",
+              "4 or under",
+              "Below 80%",
+              "9.2"
+            ],
+            [
+              "9",
+              "12",
+              "1",
+              "2",
+              "No",
+              "4 or under",
+              "Below 80%",
+              "6.3"
+            ],
+            [
+              "14",
+              "13",
+              "1",
+              "2",
+              "Yes",
+              "4 or under",
+              "80% or more",
+              "9.7"
+            ],
+            [
+              "13",
+              "14",
+              "1",
+              "2",
+              "No",
+              "4 or under",
+              "80% or more",
+              "8.1"
+            ],
+            [
+              "15",
+              "15",
+              "1",
+              "2",
+              "No",
+              "Over 4",
+              "80% or more",
+              "5.6"
+            ],
+            [
+              "12",
+              "16",
+              "1",
+              "2",
+              "Yes",
+              "Over 4",
+              "Below 80%",
+              "8.9"
+            ]
+          ],
+          "text": "StdOrder RunOrder CenterPt Blocks StaffEd TimeShift NoPts Compliance 8 1 1 1 Yes Over 4 80% or more 8.2 2 2 1 1 Yes 4 or under Below 80% 9.5 7 3 1 1 No Over 4 80% or more 7.2 1 4 1 1 No 4 or under Below 80% 7.8 5 5 1 1 No 4 or under 80% or more 5.2 3 6 1 1 No Over 4 Below 80% 5.4 4 7 1 1 Yes Over 4 Below 80% 8.5 6 8 1 1 Yes 4 or under 80% or more 9.7 11 9 1 2 No Over 4 Below 80% 7.2 16 10 1 2 Yes Over 4 80% or more 8.8 10 11 1 2 Yes 4 or under Below 80% 9.2 9 12 1 2 No 4 or under Below 80% 6.3 14 13 1 2 Yes 4 or under 80% or more 9.7 13 14 1 2 No 4 or under 80% or more 8.1 15 15 1 2 No Over 4 80% or more 5.6 12 16 1 2 Yes Over 4 Below 80% 8.9"
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch30",
+      "sectionId": "ch30-s02-the-importance-of-understanding-interactions",
+      "language": "en",
+      "startBlockId": "ch30-s02-the-importance-of-understanding-interactions-en-011",
+      "endBlockId": "ch30-s02-the-importance-of-understanding-interactions-en-020",
+      "blocks": [
+        {
+          "id": "ch30-s02-the-importance-of-understanding-interactions-en-011",
+          "kind": "table",
+          "page": 409,
+          "rows": [
+            [
+              "Row Number",
+              "Brand",
+              "Temperature",
+              "Kernels"
+            ],
+            [
+              "1",
+              "A",
+              "400 degrees F",
+              "1 scoop"
+            ],
+            [
+              "2",
+              "A",
+              "400 degrees F",
+              "2 scoops"
+            ],
+            [
+              "3",
+              "A",
+              "600 degrees F",
+              "1 scoop"
+            ],
+            [
+              "4",
+              "A",
+              "600 degrees F",
+              "2 scoops"
+            ]
+          ],
+          "text": "Row Number Brand Temperature Kernels 1 A 400 degrees F 1 scoop 2 A 400 degrees F 2 scoops 3 A 600 degrees F 1 scoop 4 A 600 degrees F 2 scoops"
+        },
+        {
+          "id": "ch30-s02-the-importance-of-understanding-interactions-en-011-page-410",
+          "kind": "table",
+          "page": 410,
+          "rows": [
+            [
+              "Row Number",
+              "Brand",
+              "Temperature",
+              "Kernels"
+            ],
+            [
+              "5",
+              "B",
+              "400 degrees F",
+              "1 scoop"
+            ],
+            [
+              "6",
+              "B",
+              "400 degrees F",
+              "2 scoops"
+            ],
+            [
+              "7",
+              "B",
+              "600 degrees F",
+              "1 scoop"
+            ],
+            [
+              "8",
+              "B",
+              "600 degrees F",
+              "2 scoops"
+            ]
+          ],
+          "text": "Row Number Brand Temperature Kernels 5 B 400 degrees F 1 scoop 6 B 400 degrees F 2 scoops 7 B 600 degrees F 1 scoop 8 B 600 degrees F 2 scoops"
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch30",
+      "sectionId": "ch30-s02-the-importance-of-understanding-interactions",
+      "language": "en",
+      "startBlockId": "ch30-s02-the-importance-of-understanding-interactions-en-024",
+      "endBlockId": "ch30-s02-the-importance-of-understanding-interactions-en-029",
+      "blocks": [
+        {
+          "id": "ch30-s02-the-importance-of-understanding-interactions-en-024",
+          "kind": "table",
+          "page": 411,
+          "rows": [
+            [
+              "Row Number",
+              "Brand",
+              "Temperature",
+              "Kernels",
+              "Est. No Kernals",
+              "Kernels Left",
+              "Percent Left"
+            ],
+            [
+              "1",
+              "A",
+              "400 degrees F",
+              "1 scoop",
+              "2300",
+              "125",
+              "5.43%"
+            ],
+            [
+              "9",
+              "A",
+              "400 degrees F",
+              "1 scoop",
+              "2300",
+              "115",
+              "5.00%"
+            ],
+            [
+              "17",
+              "A",
+              "400 degrees F",
+              "1 scoop",
+              "2300",
+              "118",
+              "5.13%"
+            ],
+            [
+              "25",
+              "A",
+              "400 degrees F",
+              "1 scoop",
+              "2300",
+              "127",
+              "5.52%"
+            ],
+            [
+              "2",
+              "A",
+              "400 degrees F",
+              "2 scoops",
+              "4600",
+              "298",
+              "6.48%"
+            ],
+            [
+              "10",
+              "A",
+              "400 degrees F",
+              "2 scoops",
+              "4600",
+              "275",
+              "5.98%"
+            ],
+            [
+              "18",
+              "A",
+              "400 degrees F",
+              "2 scoops",
+              "4600",
+              "298",
+              "6.48%"
+            ],
+            [
+              "26",
+              "A",
+              "400 degrees F",
+              "2 scoops",
+              "4600",
+              "275",
+              "5.98%"
+            ],
+            [
+              "3",
+              "A",
+              "600 degrees F",
+              "1 scoop",
+              "4600",
+              "98",
+              "2.13%"
+            ],
+            [
+              "11",
+              "A",
+              "600 degrees F",
+              "1 scoop",
+              "4600",
+              "101",
+              "2.20%"
+            ],
+            [
+              "19",
+              "A",
+              "600 degrees F",
+              "1 scoop",
+              "4600",
+              "99",
+              "2.15%"
+            ],
+            [
+              "27",
+              "A",
+              "600 degrees F",
+              "1 scoop",
+              "4600",
+              "105",
+              "2.28%"
+            ],
+            [
+              "4",
+              "A",
+              "600 degrees F",
+              "2 scoops",
+              "4600",
+              "187",
+              "4.07%"
+            ],
+            [
+              "12",
+              "A",
+              "600 degrees F",
+              "2 scoops",
+              "4600",
+              "192",
+              "4.17%"
+            ],
+            [
+              "20",
+              "A",
+              "600 degrees F",
+              "2 scoops",
+              "4600",
+              "175",
+              "3.80%"
+            ],
+            [
+              "28",
+              "A",
+              "600 degrees F",
+              "2 scoops",
+              "4600",
+              "201",
+              "4.37%"
+            ],
+            [
+              "5",
+              "B",
+              "400 degrees F",
+              "1 scoop",
+              "4600",
+              "145",
+              "3.15%"
+            ],
+            [
+              "13",
+              "B",
+              "400 degrees F",
+              "1 scoop",
+              "4600",
+              "129",
+              "2.80%"
+            ],
+            [
+              "21",
+              "B",
+              "400 degrees F",
+              "1 scoop",
+              "4600",
+              "138",
+              "3.00%"
+            ],
+            [
+              "29",
+              "B",
+              "400 degrees F",
+              "1 scoop",
+              "4600",
+              "142",
+              "3.09%"
+            ]
+          ],
+          "text": "Row Number Brand Temperature Kernels Est. No Kernals Kernels Left Percent Left 1 A 400 degrees F 1 scoop 2300 125 5.43% 9 A 400 degrees F 1 scoop 2300 115 5.00% 17 A 400 degrees F 1 scoop 2300 118 5.13% 25 A 400 degrees F 1 scoop 2300 127 5.52% 2 A 400 degrees F 2 scoops 4600 298 6.48% 10 A 400 degrees F 2 scoops 4600 275 5.98% 18 A 400 degrees F 2 scoops 4600 298 6.48% 26 A 400 degrees F 2 scoops 4600 275 5.98% 3 A 600 degrees F 1 scoop 4600 98 2.13% 11 A 600 degrees F 1 scoop 4600 101 2.20% 19 A 600 degrees F 1 scoop 4600 99 2.15% 27 A 600 degrees F 1 scoop 4600 105 2.28% 4 A 600 degrees F 2 scoops 4600 187 4.07% 12 A 600 degrees F 2 scoops 4600 192 4.17% 20 A 600 degrees F 2 scoops 4600 175 3.80% 28 A 600 degrees F 2 scoops 4600 201 4.37% 5 B 400 degrees F 1 scoop 4600 145 3.15% 13 B 400 degrees F 1 scoop 4600 129 2.80% 21 B 400 degrees F 1 scoop 4600 138 3.00% 29 B 400 degrees F 1 scoop 4600 142 3.09%"
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch30",
+      "sectionId": "ch30-s02-the-importance-of-understanding-interactions",
+      "language": "en",
+      "startBlockId": "ch30-s02-the-importance-of-understanding-interactions-en-085",
+      "endBlockId": "ch30-s02-the-importance-of-understanding-interactions-en-098",
+      "blocks": [
+        {
+          "id": "ch30-s02-the-importance-of-understanding-interactions-en-085",
+          "kind": "table",
+          "page": 416,
+          "rows": [
+            [
+              "Row Number",
+              "Brand",
+              "Temperature",
+              "Kernels"
+            ],
+            [
+              "1",
+              "A",
+              "400 degrees F",
+              "1 scoop"
+            ],
+            [
+              "2",
+              "A",
+              "400 degrees F",
+              "2 scoops"
+            ],
+            [
+              "3",
+              "A",
+              "500 degrees F",
+              "1 scoop"
+            ],
+            [
+              "4",
+              "A",
+              "500 degrees F",
+              "2 scoops"
+            ],
+            [
+              "5",
+              "A",
+              "600 degrees F",
+              "1 scoop"
+            ],
+            [
+              "6",
+              "A",
+              "600 degrees F",
+              "2 scoops"
+            ],
+            [
+              "7",
+              "B",
+              "400 degrees F",
+              "1 scoop"
+            ],
+            [
+              "8",
+              "B",
+              "400 degrees F",
+              "2 scoops"
+            ],
+            [
+              "9",
+              "B",
+              "500 degrees F",
+              "1 scoop"
+            ],
+            [
+              "10",
+              "B",
+              "500 degrees F",
+              "2 scoops"
+            ],
+            [
+              "11",
+              "B",
+              "600 degrees F",
+              "1 scoop"
+            ],
+            [
+              "12",
+              "B",
+              "600 degrees F",
+              "2 scoops"
+            ]
+          ],
+          "text": "Row Number Brand Temperature Kernels 1 A 400 degrees F 1 scoop 2 A 400 degrees F 2 scoops 3 A 500 degrees F 1 scoop 4 A 500 degrees F 2 scoops 5 A 600 degrees F 1 scoop 6 A 600 degrees F 2 scoops 7 B 400 degrees F 1 scoop 8 B 400 degrees F 2 scoops 9 B 500 degrees F 1 scoop 10 B 500 degrees F 2 scoops 11 B 600 degrees F 1 scoop 12 B 600 degrees F 2 scoops"
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch12",
+      "sectionId": "ch12-s04-define-toolset",
+      "language": "en",
+      "startBlockId": "ch12-s04-define-toolset-en-029",
+      "endBlockId": "ch12-s04-define-toolset-en-035",
+      "blocks": [
+        {
+          "id": "ch12-s04-define-toolset-en-029",
+          "kind": "table",
+          "page": 115,
+          "rows": [
+            [
+              "",
+              "Is",
+              "Is Not"
+            ],
+            [
+              "Where",
+              "South plant",
+              "North or East plan"
+            ],
+            [
+              "What",
+              "Steam furnaces",
+              "Wood furnaces"
+            ],
+            [
+              "When",
+              "January 2015",
+              "Prior to January 2015"
+            ]
+          ],
+          "text": " Is Is Not Where South plant North or East plan What Steam furnaces Wood furnaces When January 2015 Prior to January 2015"
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch16",
+      "sectionId": "ch16-s03-create-a-control-plan",
+      "language": "en",
+      "startBlockId": "ch16-s03-create-a-control-plan-en-023",
+      "endBlockId": "ch16-s03-create-a-control-plan-en-028",
+      "blocks": [
+        {
+          "id": "ch16-s03-create-a-control-plan-en-023",
+          "kind": "table",
+          "page": 152,
+          "rows": [
+            [
+              "Company: XYZ Sweets",
+              "",
+              "Control Plan Created by: Joe Black Belt",
+              ""
+            ],
+            [
+              "Process: Sugar addition, raw goods mixture",
+              "",
+              "Control Plan Created on: Jan. 4, 2012",
+              ""
+            ],
+            [
+              "Process Owner: Sue Processor",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Process Step",
+              "Addition of sugar to batch",
+              "",
+              "Heating of batch"
+            ],
+            [
+              "CTQ/Metric",
+              "Total amount added to batch",
+              "",
+              "Mean temperature during mixing"
+            ],
+            [
+              "Limit specification",
+              "LSL: 4.90 cups USL: 5.10 cups",
+              "",
+              "LSL: 105 F USL: 110 F"
+            ],
+            [
+              "Unit of measurement",
+              "Cups",
+              "",
+              "Degrees F"
+            ]
+          ],
+          "text": "Company: XYZ Sweets  Control Plan Created by: Joe Black Belt  Process: Sugar addition, raw goods mixture  Control Plan Created on: Jan. 4, 2012  Process Owner: Sue Processor        Process Step Addition of sugar to batch  Heating of batch CTQ/Metric Total amount added to batch  Mean temperature during mixing Limit specification LSL: 4.90 cups USL: 5.10 cups  LSL: 105 F USL: 110 F Unit of measurement Cups  Degrees F"
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch23",
+      "sectionId": "ch23-s03-creating-and-reading-control-charts-in-minitab",
+      "language": "en",
+      "startBlockId": "ch23-s03-creating-and-reading-control-charts-in-minitab-en-077",
+      "endBlockId": "ch23-s03-creating-and-reading-control-charts-in-minitab-en-079",
+      "blocks": [
+        {
+          "id": "ch23-s03-creating-and-reading-control-charts-in-minitab-en-077",
+          "kind": "table",
+          "page": 287,
+          "rows": [
+            [
+              "Incoming Tickets",
+              "Complete Tickets"
+            ],
+            [
+              "10",
+              "8"
+            ],
+            [
+              "12",
+              "10"
+            ],
+            [
+              "15",
+              "12"
+            ],
+            [
+              "7",
+              "9"
+            ],
+            [
+              "2",
+              "5"
+            ],
+            [
+              "8",
+              "9"
+            ],
+            [
+              "9",
+              "8"
+            ],
+            [
+              "11",
+              "12"
+            ],
+            [
+              "1",
+              "2"
+            ],
+            [
+              "16",
+              "14"
+            ],
+            [
+              "18",
+              "17"
+            ],
+            [
+              "5",
+              "6"
+            ],
+            [
+              "8",
+              "7"
+            ],
+            [
+              "14",
+              "13"
+            ],
+            [
+              "7",
+              "6"
+            ],
+            [
+              "6",
+              "7"
+            ],
+            [
+              "17",
+              "12"
+            ],
+            [
+              "8",
+              "10"
+            ],
+            [
+              "5",
+              "6"
+            ]
+          ],
+          "text": "Incoming Tickets Complete Tickets 10 8 12 10 15 12 7 9 2 5 8 9 9 8 11 12 1 2 16 14 18 17 5 6 8 7 14 13 7 6 6 7 17 12 8 10 5 6"
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch23",
+      "sectionId": "ch23-s03-creating-and-reading-control-charts-in-minitab",
+      "language": "en",
+      "startBlockId": "ch23-s03-creating-and-reading-control-charts-in-minitab-en-130",
+      "endBlockId": "ch23-s03-creating-and-reading-control-charts-in-minitab-en-133",
+      "blocks": [
+        {
+          "id": "ch23-s03-creating-and-reading-control-charts-in-minitab-en-130",
+          "kind": "table",
+          "page": 292,
+          "rows": [
+            [
+              "Hour",
+              "Calls Monitored",
+              "Errors",
+              "PCI Non- compliance"
+            ],
+            [
+              "1",
+              "15",
+              "3",
+              "1"
+            ],
+            [
+              "2",
+              "13",
+              "5",
+              "0"
+            ],
+            [
+              "3",
+              "18",
+              "4",
+              "1"
+            ],
+            [
+              "4",
+              "10",
+              "0",
+              "0"
+            ],
+            [
+              "5",
+              "12",
+              "2",
+              "1"
+            ],
+            [
+              "6",
+              "9",
+              "2",
+              "1"
+            ],
+            [
+              "7",
+              "11",
+              "4",
+              "2"
+            ],
+            [
+              "8",
+              "12",
+              "5",
+              "2"
+            ],
+            [
+              "9",
+              "8",
+              "0",
+              "0"
+            ],
+            [
+              "10",
+              "7",
+              "1",
+              "1"
+            ]
+          ],
+          "text": "Hour Calls Monitored Errors PCI Non- compliance 1 15 3 1 2 13 5 0 3 18 4 1 4 10 0 0 5 12 2 1 6 9 2 1 7 11 4 2 8 12 5 2 9 8 0 0 10 7 1 1"
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch28",
+      "sectionId": "ch28-content",
+      "language": "en",
+      "startBlockId": "ch28-content-en-028",
+      "endBlockId": "ch28-content-en-032",
+      "blocks": [
+        {
+          "id": "ch28-content-en-028",
+          "kind": "table",
+          "page": 376,
+          "rows": [
+            [
+              "Original Packaging",
+              "Padded Envelope",
+              "Packing Peanuts"
+            ],
+            [
+              "5",
+              "5",
+              "6"
+            ],
+            [
+              "5",
+              "5",
+              "8"
+            ],
+            [
+              "4",
+              "3",
+              "8"
+            ],
+            [
+              "6",
+              "6",
+              "6"
+            ],
+            [
+              "4",
+              "6",
+              "5"
+            ],
+            [
+              "6",
+              "8",
+              "5"
+            ],
+            [
+              "6",
+              "7",
+              "8"
+            ],
+            [
+              "6",
+              "6",
+              "7"
+            ],
+            [
+              "5",
+              "7",
+              "8"
+            ],
+            [
+              "4",
+              "5",
+              "6"
+            ],
+            [
+              "6",
+              "6",
+              "6"
+            ],
+            [
+              "6",
+              "5",
+              "10"
+            ],
+            [
+              "5",
+              "6",
+              "7"
+            ],
+            [
+              "4",
+              "4",
+              "9"
+            ],
+            [
+              "5",
+              "6",
+              "6"
+            ]
+          ],
+          "text": "Original Packaging Padded Envelope Packing Peanuts 5 5 6 5 5 8 4 3 8 6 6 6 4 6 5 6 8 5 6 7 8 6 6 7 5 7 8 4 5 6 6 6 6 6 5 10 5 6 7 4 4 9 5 6 6"
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch23",
+      "sectionId": "ch23-s03-creating-and-reading-control-charts-in-minitab",
+      "language": "en",
+      "startBlockId": "ch23-s03-creating-and-reading-control-charts-in-minitab-en-110",
+      "endBlockId": "ch23-s03-creating-and-reading-control-charts-in-minitab-en-112",
+      "blocks": [
+        {
+          "id": "ch23-s03-creating-and-reading-control-charts-in-minitab-en-110",
+          "kind": "table",
+          "page": 290,
+          "rows": [
+            [
+              "Skein Sampled",
+              "Defects Found"
+            ],
+            [
+              "10",
+              "8"
+            ],
+            [
+              "10",
+              "2"
+            ],
+            [
+              "10",
+              "12"
+            ],
+            [
+              "10",
+              "15"
+            ],
+            [
+              "10",
+              "22"
+            ],
+            [
+              "10",
+              "6"
+            ],
+            [
+              "10",
+              "8"
+            ],
+            [
+              "10",
+              "14"
+            ],
+            [
+              "10",
+              "9"
+            ],
+            [
+              "10",
+              "23"
+            ],
+            [
+              "10",
+              "24"
+            ],
+            [
+              "10",
+              "26"
+            ],
+            [
+              "10",
+              "10"
+            ],
+            [
+              "10",
+              "7"
+            ],
+            [
+              "10",
+              "5"
+            ],
+            [
+              "10",
+              "12"
+            ],
+            [
+              "10",
+              "15"
+            ],
+            [
+              "10",
+              "18"
+            ],
+            [
+              "10",
+              "19"
+            ],
+            [
+              "10",
+              "14"
+            ],
+            [
+              "10",
+              "27"
+            ]
+          ],
+          "text": "Skein Sampled Defects Found 10 8 10 2 10 12 10 15 10 22 10 6 10 8 10 14 10 9 10 23 10 24 10 26 10 10 10 7 10 5 10 12 10 15 10 18 10 19 10 14 10 27"
+        },
+        {
+          "id": "ch23-s03-creating-and-reading-control-charts-in-minitab-en-110-explanation",
+          "kind": "paragraph",
+          "page": 290,
+          "text": "Because all the sample sizes are the same and the team is concerned with the number of defects, it chooses to create a c-chart in Minitab."
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch14",
+      "sectionId": "ch14-s03-graphical-analysis",
+      "language": "zh",
+      "startBlockId": "ch14-s03-graphical-analysis-zh-035",
+      "endBlockId": "ch14-s03-graphical-analysis-zh-038",
+      "blocks": [
+        {
+          "id": "ch14-s03-graphical-analysis-zh-035",
+          "kind": "table",
+          "page": 141,
+          "rows": [
+            [
+              "One Monitor",
+              "Two Monitors"
+            ],
+            [
+              "9",
+              "10"
+            ],
+            [
+              "8",
+              "4"
+            ],
+            [
+              "4",
+              "9"
+            ],
+            [
+              "7",
+              "7"
+            ],
+            [
+              "2",
+              "8"
+            ],
+            [
+              "6",
+              "7"
+            ],
+            [
+              "1",
+              "9"
+            ],
+            [
+              "8",
+              "9"
+            ],
+            [
+              "5",
+              "14"
+            ],
+            [
+              "4",
+              "10"
+            ],
+            [
+              "3",
+              "12"
+            ],
+            [
+              "7",
+              "7"
+            ],
+            [
+              "9",
+              "9"
+            ],
+            [
+              "5",
+              "4"
+            ],
+            [
+              "1",
+              "9"
+            ]
+          ],
+          "text": "One Monitor Two Monitors 9 10 8 4 4 9 7 7 2 8 6 7 1 9 8 9 5 14 4 10 3 12 7 7 9 9 5 4 1 9",
+          "preserveOriginal": true
+        }
+      ],
+      "obsoleteBlockIds": []
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch15",
+      "sectionId": "ch15-s03-cost-benefit-analysis",
+      "language": "zh",
+      "startBlockId": "ch15-s03-cost-benefit-analysis-zh-015",
+      "endBlockId": "ch15-s03-cost-benefit-analysis-zh-020",
+      "blocks": [
+        {
+          "id": "ch15-s03-cost-benefit-analysis-zh-015",
+          "kind": "table",
+          "page": 147,
+          "rows": [
+            [
+              "",
+              "This year",
+              "First Year",
+              "Second Year",
+              "Third Year Total"
+            ],
+            [
+              "Benefits",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Increased revenue",
+              "",
+              "$10,000",
+              "$20,000",
+              "$30,000"
+            ],
+            [
+              "Cost Savings",
+              "",
+              "$5,000",
+              "$10,000",
+              "$15,000"
+            ],
+            [
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Costs",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Capital",
+              "-$20,000",
+              "",
+              "",
+              "-$20,000"
+            ],
+            [
+              "Equipment",
+              "-$15,000",
+              "",
+              "",
+              "-$15,000"
+            ],
+            [
+              "Training",
+              "-$5,000",
+              "",
+              "",
+              "-$5,000"
+            ],
+            [
+              "Labor",
+              "",
+              "-$2,000",
+              "-$2,000",
+              "-$2,000"
+            ],
+            [
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Total Benefits – Cost Annual",
+              "-$50,000",
+              "$13,000",
+              "$27,000",
+              "$3,000"
+            ],
+            [
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "NPV (Discounted 5 percent)",
+              "",
+              "$12,350",
+              "$25,650",
+              "$2,850"
+            ]
+          ],
+          "text": " This year First Year Second Year Third Year Total Benefits     Increased revenue  $10,000 $20,000 $30,000 Cost Savings  $5,000 $10,000 $15,000      Costs     Capital -$20,000   -$20,000 Equipment -$15,000   -$15,000 Training -$5,000   -$5,000 Labor  -$2,000 -$2,000 -$2,000      Total Benefits – Cost Annual -$50,000 $13,000 $27,000 $3,000      NPV (Discounted 5 percent)  $12,350 $25,650 $2,850",
+          "preserveOriginal": true
+        }
+      ],
+      "obsoleteBlockIds": []
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch16",
+      "sectionId": "ch16-s03-create-a-control-plan",
+      "language": "zh",
+      "startBlockId": "ch16-s03-create-a-control-plan-zh-037",
+      "endBlockId": "ch16-s03-create-a-control-plan-zh-046",
+      "blocks": [
+        {
+          "id": "ch16-s03-create-a-control-plan-zh-037",
+          "kind": "table",
+          "page": 153,
+          "rows": [
+            [
+              "Method of measurement",
+              "6-cup sugar test bowl",
+              "Read integrated digital thermometer on mixing machine"
+            ],
+            [
+              "Sample Size",
+              "One batch",
+              "3 reading, 2 minutes apart, during mixing"
+            ],
+            [
+              "Frequency",
+              "Every 2 hours",
+              "Every 2 hours"
+            ],
+            [
+              "Employee",
+              "Mixer operator",
+              "Mixer Operator"
+            ],
+            [
+              "Record data in",
+              "Mix operation log spreadsheet",
+              "Mix operation log spreadsheet"
+            ],
+            [
+              "Corrective action",
+              "Manually measure correct amount for current batch to allow for processing, calibrate sugar disbursement machine following SOP 100.54, test sugar disbursement for first batch after calibration to ensure problem is resolved. Report issue to supervisor.",
+              "Turn off machine, waste inappropriately heated batch, and report temperature calibration issue to maintenance."
+            ]
+          ],
+          "text": "Method of measurement 6-cup sugar test bowl Read integrated digital thermometer on mixing machine Sample Size One batch 3 reading, 2 minutes apart, during mixing Frequency Every 2 hours Every 2 hours Employee Mixer operator Mixer Operator Record data in Mix operation log spreadsheet Mix operation log spreadsheet Corrective action Manually measure correct amount for current batch to allow for processing, calibrate sugar disbursement machine following SOP 100.54, test sugar disbursement for first batch after calibration to ensure problem is resolved. Report issue to supervisor. Turn off machine, waste inappropriately heated batch, and report temperature calibration issue to maintenance.",
+          "preserveOriginal": true
+        }
+      ],
+      "obsoleteBlockIds": []
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch17",
+      "sectionId": "ch17-s03-creating-an-x-bar-control-chart-without-statistical-software",
+      "language": "zh",
+      "startBlockId": "ch17-s03-creating-an-x-bar-control-chart-without-statistical-software-zh-011",
+      "endBlockId": "ch17-s03-creating-an-x-bar-control-chart-without-statistical-software-zh-013",
+      "blocks": [
+        {
+          "id": "ch17-s03-creating-an-x-bar-control-chart-without-statistical-software-zh-011",
+          "kind": "table",
+          "page": 171,
+          "rows": [
+            [
+              "X-Bar Data Points"
+            ],
+            [
+              "24.1"
+            ],
+            [
+              "25.2"
+            ],
+            [
+              "24.7"
+            ],
+            [
+              "28.3"
+            ],
+            [
+              "27.1"
+            ],
+            [
+              "26.4"
+            ],
+            [
+              "25.4"
+            ],
+            [
+              "21.4"
+            ],
+            [
+              "24.5"
+            ],
+            [
+              "23.5"
+            ],
+            [
+              "27.5"
+            ],
+            [
+              "29.5"
+            ],
+            [
+              "24.5"
+            ],
+            [
+              "26.8"
+            ]
+          ],
+          "text": "X-Bar Data Points 24.1 25.2 24.7 28.3 27.1 26.4 25.4 21.4 24.5 23.5 27.5 29.5 24.5 26.8",
+          "preserveOriginal": true
+        }
+      ],
+      "obsoleteBlockIds": []
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch21",
+      "sectionId": "ch21-s05-running-hypothesis-tests",
+      "language": "zh",
+      "startBlockId": "ch21-s05-running-hypothesis-tests-zh-028",
+      "endBlockId": "ch21-s05-running-hypothesis-tests-zh-031",
+      "blocks": [
+        {
+          "id": "ch21-s05-running-hypothesis-tests-zh-028",
+          "kind": "table",
+          "page": 256,
+          "rows": [
+            [
+              "Test and CI for One Proportion",
+              "Test and CI for One Proportion",
+              "Test and CI for One Proportion",
+              "Test and CI for One Proportion",
+              "Test and CI for One Proportion",
+              "Test and CI for One Proportion"
+            ],
+            [
+              "Test of p = 0.2 vs p > 0.2",
+              "Test of p = 0.2 vs p > 0.2",
+              "Test of p = 0.2 vs p > 0.2",
+              "Test of p = 0.2 vs p > 0.2",
+              "Test of p = 0.2 vs p > 0.2",
+              "Test of p = 0.2 vs p > 0.2"
+            ],
+            [
+              "Sample",
+              "X",
+              "N",
+              "Sample p",
+              "95% Lower Bound",
+              "P-Value"
+            ],
+            [
+              "1",
+              "38",
+              "142",
+              "0.267606",
+              "0.207083",
+              "0.031"
+            ]
+          ],
+          "text": "Test and CI for One Proportion Test and CI for One Proportion Test and CI for One Proportion Test and CI for One Proportion Test and CI for One Proportion Test and CI for One Proportion Test of p = 0.2 vs p > 0.2 Test of p = 0.2 vs p > 0.2 Test of p = 0.2 vs p > 0.2 Test of p = 0.2 vs p > 0.2 Test of p = 0.2 vs p > 0.2 Test of p = 0.2 vs p > 0.2 Sample X N Sample p 95% Lower Bound P-Value 1 38 142 0.267606 0.207083 0.031",
+          "preserveOriginal": true
+        }
+      ],
+      "obsoleteBlockIds": []
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch21",
+      "sectionId": "ch21-s05-running-hypothesis-tests",
+      "language": "zh",
+      "startBlockId": "ch21-s05-running-hypothesis-tests-zh-072",
+      "endBlockId": "ch21-s05-running-hypothesis-tests-zh-075",
+      "blocks": [
+        {
+          "id": "ch21-s05-running-hypothesis-tests-zh-072",
+          "kind": "table",
+          "page": 259,
+          "rows": [
+            [
+              "Number of Bedrooms",
+              "Number of Bedrooms",
+              "Number of Bedrooms",
+              "Number of Bedrooms"
+            ],
+            [
+              "4",
+              "5",
+              "6",
+              "4"
+            ],
+            [
+              "4",
+              "5",
+              "6",
+              "4"
+            ],
+            [
+              "4",
+              "3",
+              "6",
+              "3"
+            ],
+            [
+              "4",
+              "3",
+              "6",
+              "3"
+            ],
+            [
+              "4",
+              "3",
+              "6",
+              "3"
+            ],
+            [
+              "5",
+              "3",
+              "7",
+              "2"
+            ],
+            [
+              "5",
+              "3",
+              "7",
+              "2"
+            ]
+          ],
+          "text": "Number of Bedrooms Number of Bedrooms Number of Bedrooms Number of Bedrooms 4 5 6 4 4 5 6 4 4 3 6 3 4 3 6 3 4 3 6 3 5 3 7 2 5 3 7 2",
+          "preserveOriginal": true
+        },
+        {
+          "id": "ch21-s05-running-hypothesis-tests-zh-072-page-260",
+          "kind": "table",
+          "page": 260,
+          "rows": [
+            [
+              "Number of Bedrooms",
+              "Number of Bedrooms",
+              "Number of Bedrooms",
+              "Number of Bedrooms"
+            ],
+            [
+              "5",
+              "3",
+              "5",
+              "2"
+            ],
+            [
+              "5",
+              "3",
+              "5",
+              "2"
+            ],
+            [
+              "5",
+              "3",
+              "5",
+              "1"
+            ],
+            [
+              "5",
+              "6",
+              "5",
+              "1"
+            ],
+            [
+              "5",
+              "6",
+              "4",
+              "1"
+            ],
+            [
+              "5",
+              "6",
+              "4",
+              ""
+            ]
+          ],
+          "text": "Number of Bedrooms Number of Bedrooms Number of Bedrooms Number of Bedrooms 5 3 5 2 5 3 5 2 5 3 5 1 5 6 5 1 5 6 4 1 5 6 4 ",
+          "preserveOriginal": true
+        }
+      ],
+      "obsoleteBlockIds": []
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch23",
+      "sectionId": "ch23-s03-creating-and-reading-control-charts-in-minitab",
+      "language": "zh",
+      "startBlockId": "ch23-s03-creating-and-reading-control-charts-in-minitab-zh-087",
+      "endBlockId": "ch23-s03-creating-and-reading-control-charts-in-minitab-zh-092",
+      "blocks": [
+        {
+          "id": "ch23-s03-creating-and-reading-control-charts-in-minitab-zh-087",
+          "kind": "table",
+          "page": 288,
+          "rows": [
+            [
+              "Incoming Tickets",
+              "Complete Tickets",
+              "Tickets Left Unresolved"
+            ],
+            [
+              "10",
+              "8",
+              "2"
+            ],
+            [
+              "12",
+              "10",
+              "4"
+            ],
+            [
+              "15",
+              "12",
+              "7"
+            ],
+            [
+              "7",
+              "9",
+              "5"
+            ],
+            [
+              "2",
+              "5",
+              "2"
+            ],
+            [
+              "8",
+              "9",
+              "1"
+            ],
+            [
+              "9",
+              "8",
+              "2"
+            ],
+            [
+              "11",
+              "12",
+              "1"
+            ],
+            [
+              "1",
+              "2",
+              "0"
+            ]
+          ],
+          "text": "Incoming Tickets Complete Tickets Tickets Left Unresolved 10 8 2 12 10 4 15 12 7 7 9 5 2 5 2 8 9 1 9 8 2 11 12 1 1 2 0",
+          "preserveOriginal": true
+        }
+      ],
+      "obsoleteBlockIds": []
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch26",
+      "sectionId": "ch26-s02-the-graph-menu-option",
+      "language": "zh",
+      "startBlockId": "ch26-s02-the-graph-menu-option-zh-005",
+      "endBlockId": "ch26-s02-the-graph-menu-option-zh-006",
+      "blocks": [
+        {
+          "id": "ch26-s02-the-graph-menu-option-zh-005",
+          "kind": "table",
+          "page": 325,
+          "rows": [
+            [
+              "C1",
+              "C2"
+            ],
+            [
+              "1",
+              "4.6"
+            ],
+            [
+              "2",
+              "3.8"
+            ],
+            [
+              "3",
+              "4.8"
+            ],
+            [
+              "4",
+              "2.7"
+            ],
+            [
+              "5",
+              "3.5"
+            ],
+            [
+              "1",
+              "4.3"
+            ],
+            [
+              "2",
+              "3.6"
+            ],
+            [
+              "3",
+              "5.8"
+            ],
+            [
+              "4",
+              "4.7"
+            ],
+            [
+              "5",
+              "3.0"
+            ],
+            [
+              "1",
+              "4.3"
+            ],
+            [
+              "2",
+              "5.6"
+            ],
+            [
+              "3",
+              "6.2"
+            ],
+            [
+              "4",
+              "4.7"
+            ],
+            [
+              "5",
+              "2.2"
+            ],
+            [
+              "1",
+              "3.3"
+            ],
+            [
+              "2",
+              "2.8"
+            ],
+            [
+              "3",
+              "1.6"
+            ],
+            [
+              "4",
+              "1.4"
+            ],
+            [
+              "5",
+              "2.8"
+            ]
+          ],
+          "text": "C1 C2 1 4.6 2 3.8 3 4.8 4 2.7 5 3.5 1 4.3 2 3.6 3 5.8 4 4.7 5 3.0 1 4.3 2 5.6 3 6.2 4 4.7 5 2.2 1 3.3 2 2.8 3 1.6 4 1.4 5 2.8",
+          "preserveOriginal": true
+        }
+      ],
+      "obsoleteBlockIds": []
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch26",
+      "sectionId": "ch26-s02-the-graph-menu-option",
+      "language": "zh",
+      "startBlockId": "ch26-s02-the-graph-menu-option-zh-190",
+      "endBlockId": "ch26-s02-the-graph-menu-option-zh-209",
+      "blocks": [
+        {
+          "id": "ch26-s02-the-graph-menu-option-zh-190",
+          "kind": "table",
+          "page": 339,
+          "rows": [
+            [
+              "Hour",
+              "Phone calls"
+            ],
+            [
+              "8:00 AM",
+              "78"
+            ],
+            [
+              "9:00 AM",
+              "89"
+            ],
+            [
+              "10:00 AM",
+              "107"
+            ],
+            [
+              "11:00 AM",
+              "118"
+            ],
+            [
+              "12:00 PM",
+              "149"
+            ],
+            [
+              "1:00 PM",
+              "147"
+            ],
+            [
+              "2:00 PM",
+              "105"
+            ]
+          ],
+          "text": "Hour Phone calls 8:00 AM 78 9:00 AM 89 10:00 AM 107 11:00 AM 118 12:00 PM 149 1:00 PM 147 2:00 PM 105",
+          "preserveOriginal": true
+        },
+        {
+          "id": "ch26-s02-the-graph-menu-option-zh-190-page-340",
+          "kind": "table",
+          "page": 340,
+          "rows": [
+            [
+              "Hour",
+              "Phone calls"
+            ],
+            [
+              "3:00 PM",
+              "90"
+            ],
+            [
+              "4:00 PM",
+              "97"
+            ],
+            [
+              "5:00 PM",
+              "85"
+            ],
+            [
+              "6:00 PM",
+              "178"
+            ],
+            [
+              "7:00 PM",
+              "198"
+            ],
+            [
+              "8:00 PM",
+              "145"
+            ],
+            [
+              "9:00 PM",
+              "57"
+            ]
+          ],
+          "text": "Hour Phone calls 3:00 PM 90 4:00 PM 97 5:00 PM 85 6:00 PM 178 7:00 PM 198 8:00 PM 145 9:00 PM 57",
+          "preserveOriginal": true
+        }
+      ],
+      "obsoleteBlockIds": []
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch29",
+      "sectionId": "ch29-s03-best-guess-trial-and-error-versus-factorial-experiments",
+      "language": "zh",
+      "startBlockId": "ch29-s03-best-guess-trial-and-error-versus-factorial-experiments-zh-022",
+      "endBlockId": "ch29-s03-best-guess-trial-and-error-versus-factorial-experiments-zh-039",
+      "blocks": [
+        {
+          "id": "ch29-s03-best-guess-trial-and-error-versus-factorial-experiments-zh-022",
+          "kind": "table",
+          "page": 394,
+          "rows": [
+            [
+              "Run Number",
+              "Driver Experience",
+              "GPS",
+              "Dispatcher",
+              "Pieces of Furniture"
+            ],
+            [
+              "1",
+              "0 years",
+              "Yes",
+              "Follows Procedure",
+              "1 piece"
+            ],
+            [
+              "2",
+              "0 years",
+              "Yes",
+              "Follows Procedure",
+              "5 pieces"
+            ],
+            [
+              "3",
+              "0 years",
+              "Yes",
+              "No Procedure",
+              "1 piece"
+            ],
+            [
+              "4",
+              "0 years",
+              "Yes",
+              "No Procedure",
+              "5 pieces"
+            ],
+            [
+              "5",
+              "0 years",
+              "No",
+              "Follows Procedure",
+              "1 piece"
+            ],
+            [
+              "6",
+              "0 years",
+              "No",
+              "Follows Procedure",
+              "5 pieces"
+            ]
+          ],
+          "text": "Run Number Driver Experience GPS Dispatcher Pieces of Furniture 1 0 years Yes Follows Procedure 1 piece 2 0 years Yes Follows Procedure 5 pieces 3 0 years Yes No Procedure 1 piece 4 0 years Yes No Procedure 5 pieces 5 0 years No Follows Procedure 1 piece 6 0 years No Follows Procedure 5 pieces",
+          "preserveOriginal": true
+        },
+        {
+          "id": "ch29-s03-best-guess-trial-and-error-versus-factorial-experiments-zh-022-page-395",
+          "kind": "table",
+          "page": 395,
+          "rows": [
+            [
+              "Run Number",
+              "Driver Experience",
+              "GPS",
+              "Dispatcher",
+              "Pieces of Furniture"
+            ],
+            [
+              "7",
+              "0 years",
+              "No",
+              "No Procedure",
+              "1 piece"
+            ],
+            [
+              "8",
+              "0 years",
+              "No",
+              "No Procedure",
+              "5 pieces"
+            ],
+            [
+              "9",
+              "1 year",
+              "Yes",
+              "Follows Procedure",
+              "1 piece"
+            ],
+            [
+              "10",
+              "1 year",
+              "Yes",
+              "Follows Procedure",
+              "5 pieces"
+            ],
+            [
+              "11",
+              "1 year",
+              "Yes",
+              "No Procedure",
+              "1 piece"
+            ],
+            [
+              "12",
+              "1 year",
+              "Yes",
+              "No Procedure",
+              "5 pieces"
+            ]
+          ],
+          "text": "Run Number Driver Experience GPS Dispatcher Pieces of Furniture 7 0 years No No Procedure 1 piece 8 0 years No No Procedure 5 pieces 9 1 year Yes Follows Procedure 1 piece 10 1 year Yes Follows Procedure 5 pieces 11 1 year Yes No Procedure 1 piece 12 1 year Yes No Procedure 5 pieces",
+          "preserveOriginal": true
+        },
+        {
+          "id": "ch29-s03-best-guess-trial-and-error-versus-factorial-experiments-zh-022-page-396",
+          "kind": "table",
+          "page": 396,
+          "rows": [
+            [
+              "Run Number",
+              "Driver Experience",
+              "GPS",
+              "Dispatcher",
+              "Pieces of Furniture"
+            ],
+            [
+              "13",
+              "1 year",
+              "No",
+              "Follows Procedure",
+              "1 piece"
+            ],
+            [
+              "14",
+              "1 year",
+              "No",
+              "Follows Procedure",
+              "5 pieces"
+            ],
+            [
+              "15",
+              "1 year",
+              "No",
+              "No Procedure",
+              "1 piece"
+            ],
+            [
+              "16",
+              "1 year",
+              "No",
+              "No Procedure",
+              "5 pieces"
+            ]
+          ],
+          "text": "Run Number Driver Experience GPS Dispatcher Pieces of Furniture 13 1 year No Follows Procedure 1 piece 14 1 year No Follows Procedure 5 pieces 15 1 year No No Procedure 1 piece 16 1 year No No Procedure 5 pieces",
+          "preserveOriginal": true
+        }
+      ],
+      "obsoleteBlockIds": []
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch29",
+      "sectionId": "ch29-s04-next-steps",
+      "language": "zh",
+      "startBlockId": "ch29-s04-next-steps-zh-061",
+      "endBlockId": "ch29-s04-next-steps-zh-098",
+      "blocks": [
+        {
+          "id": "ch29-s04-next-steps-zh-061",
+          "kind": "table",
+          "page": 408,
+          "rows": [
+            [
+              "StdOrder",
+              "RunOrder",
+              "CenterPt",
+              "Blocks",
+              "StaffEd",
+              "TimeShift",
+              "NoPts",
+              "Compliance"
+            ],
+            [
+              "8",
+              "1",
+              "1",
+              "1",
+              "Yes",
+              "Over 4",
+              "80% or more",
+              "8.2"
+            ],
+            [
+              "2",
+              "2",
+              "1",
+              "1",
+              "Yes",
+              "4 or under",
+              "Below 80%",
+              "9.5"
+            ],
+            [
+              "7",
+              "3",
+              "1",
+              "1",
+              "No",
+              "Over 4",
+              "80% or more",
+              "7.2"
+            ],
+            [
+              "1",
+              "4",
+              "1",
+              "1",
+              "No",
+              "4 or under",
+              "Below 80%",
+              "7.8"
+            ],
+            [
+              "5",
+              "5",
+              "1",
+              "1",
+              "No",
+              "4 or under",
+              "80% or more",
+              "5.2"
+            ],
+            [
+              "3",
+              "6",
+              "1",
+              "1",
+              "No",
+              "Over 4",
+              "Below 80%",
+              "5.4"
+            ],
+            [
+              "4",
+              "7",
+              "1",
+              "1",
+              "Yes",
+              "Over 4",
+              "Below 80%",
+              "8.5"
+            ],
+            [
+              "6",
+              "8",
+              "1",
+              "1",
+              "Yes",
+              "4 or under",
+              "80% or more",
+              "9.7"
+            ],
+            [
+              "11",
+              "9",
+              "1",
+              "2",
+              "No",
+              "Over 4",
+              "Below 80%",
+              "7.2"
+            ],
+            [
+              "16",
+              "10",
+              "1",
+              "2",
+              "Yes",
+              "Over 4",
+              "80% or more",
+              "8.8"
+            ],
+            [
+              "10",
+              "11",
+              "1",
+              "2",
+              "Yes",
+              "4 or under",
+              "Below 80%",
+              "9.2"
+            ],
+            [
+              "9",
+              "12",
+              "1",
+              "2",
+              "No",
+              "4 or under",
+              "Below 80%",
+              "6.3"
+            ],
+            [
+              "14",
+              "13",
+              "1",
+              "2",
+              "Yes",
+              "4 or under",
+              "80% or more",
+              "9.7"
+            ],
+            [
+              "13",
+              "14",
+              "1",
+              "2",
+              "No",
+              "4 or under",
+              "80% or more",
+              "8.1"
+            ],
+            [
+              "15",
+              "15",
+              "1",
+              "2",
+              "No",
+              "Over 4",
+              "80% or more",
+              "5.6"
+            ],
+            [
+              "12",
+              "16",
+              "1",
+              "2",
+              "Yes",
+              "Over 4",
+              "Below 80%",
+              "8.9"
+            ]
+          ],
+          "text": "StdOrder RunOrder CenterPt Blocks StaffEd TimeShift NoPts Compliance 8 1 1 1 Yes Over 4 80% or more 8.2 2 2 1 1 Yes 4 or under Below 80% 9.5 7 3 1 1 No Over 4 80% or more 7.2 1 4 1 1 No 4 or under Below 80% 7.8 5 5 1 1 No 4 or under 80% or more 5.2 3 6 1 1 No Over 4 Below 80% 5.4 4 7 1 1 Yes Over 4 Below 80% 8.5 6 8 1 1 Yes 4 or under 80% or more 9.7 11 9 1 2 No Over 4 Below 80% 7.2 16 10 1 2 Yes Over 4 80% or more 8.8 10 11 1 2 Yes 4 or under Below 80% 9.2 9 12 1 2 No 4 or under Below 80% 6.3 14 13 1 2 Yes 4 or under 80% or more 9.7 13 14 1 2 No 4 or under 80% or more 8.1 15 15 1 2 No Over 4 80% or more 5.6 12 16 1 2 Yes Over 4 Below 80% 8.9",
+          "preserveOriginal": true
+        }
+      ],
+      "obsoleteBlockIds": []
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch30",
+      "sectionId": "ch30-s02-the-importance-of-understanding-interactions",
+      "language": "zh",
+      "startBlockId": "ch30-s02-the-importance-of-understanding-interactions-zh-014",
+      "endBlockId": "ch30-s02-the-importance-of-understanding-interactions-zh-023",
+      "blocks": [
+        {
+          "id": "ch30-s02-the-importance-of-understanding-interactions-zh-014",
+          "kind": "table",
+          "page": 410,
+          "rows": [
+            [
+              "Row Number",
+              "Brand",
+              "Temperature",
+              "Kernels"
+            ],
+            [
+              "1",
+              "A",
+              "400 degrees F",
+              "1 scoop"
+            ],
+            [
+              "2",
+              "A",
+              "400 degrees F",
+              "2 scoops"
+            ],
+            [
+              "3",
+              "A",
+              "600 degrees F",
+              "1 scoop"
+            ],
+            [
+              "4",
+              "A",
+              "600 degrees F",
+              "2 scoops"
+            ]
+          ],
+          "text": "Row Number Brand Temperature Kernels 1 A 400 degrees F 1 scoop 2 A 400 degrees F 2 scoops 3 A 600 degrees F 1 scoop 4 A 600 degrees F 2 scoops",
+          "preserveOriginal": true
+        },
+        {
+          "id": "ch30-s02-the-importance-of-understanding-interactions-zh-014-page-410",
+          "kind": "table",
+          "page": 410,
+          "rows": [
+            [
+              "Row Number",
+              "Brand",
+              "Temperature",
+              "Kernels"
+            ],
+            [
+              "5",
+              "B",
+              "400 degrees F",
+              "1 scoop"
+            ],
+            [
+              "6",
+              "B",
+              "400 degrees F",
+              "2 scoops"
+            ],
+            [
+              "7",
+              "B",
+              "600 degrees F",
+              "1 scoop"
+            ],
+            [
+              "8",
+              "B",
+              "600 degrees F",
+              "2 scoops"
+            ]
+          ],
+          "text": "Row Number Brand Temperature Kernels 5 B 400 degrees F 1 scoop 6 B 400 degrees F 2 scoops 7 B 600 degrees F 1 scoop 8 B 600 degrees F 2 scoops",
+          "preserveOriginal": true
+        }
+      ],
+      "obsoleteBlockIds": []
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch30",
+      "sectionId": "ch30-s02-the-importance-of-understanding-interactions",
+      "language": "zh",
+      "startBlockId": "ch30-s02-the-importance-of-understanding-interactions-zh-027",
+      "endBlockId": "ch30-s02-the-importance-of-understanding-interactions-zh-032",
+      "blocks": [
+        {
+          "id": "ch30-s02-the-importance-of-understanding-interactions-zh-027",
+          "kind": "table",
+          "page": 411,
+          "rows": [
+            [
+              "Row Number",
+              "Brand",
+              "Temperature",
+              "Kernels",
+              "Est. No Kernals",
+              "Kernels Left",
+              "Percent Left"
+            ],
+            [
+              "1",
+              "A",
+              "400 degrees F",
+              "1 scoop",
+              "2300",
+              "125",
+              "5.43%"
+            ],
+            [
+              "9",
+              "A",
+              "400 degrees F",
+              "1 scoop",
+              "2300",
+              "115",
+              "5.00%"
+            ],
+            [
+              "17",
+              "A",
+              "400 degrees F",
+              "1 scoop",
+              "2300",
+              "118",
+              "5.13%"
+            ],
+            [
+              "25",
+              "A",
+              "400 degrees F",
+              "1 scoop",
+              "2300",
+              "127",
+              "5.52%"
+            ],
+            [
+              "2",
+              "A",
+              "400 degrees F",
+              "2 scoops",
+              "4600",
+              "298",
+              "6.48%"
+            ],
+            [
+              "10",
+              "A",
+              "400 degrees F",
+              "2 scoops",
+              "4600",
+              "275",
+              "5.98%"
+            ],
+            [
+              "18",
+              "A",
+              "400 degrees F",
+              "2 scoops",
+              "4600",
+              "298",
+              "6.48%"
+            ],
+            [
+              "26",
+              "A",
+              "400 degrees F",
+              "2 scoops",
+              "4600",
+              "275",
+              "5.98%"
+            ],
+            [
+              "3",
+              "A",
+              "600 degrees F",
+              "1 scoop",
+              "4600",
+              "98",
+              "2.13%"
+            ],
+            [
+              "11",
+              "A",
+              "600 degrees F",
+              "1 scoop",
+              "4600",
+              "101",
+              "2.20%"
+            ],
+            [
+              "19",
+              "A",
+              "600 degrees F",
+              "1 scoop",
+              "4600",
+              "99",
+              "2.15%"
+            ],
+            [
+              "27",
+              "A",
+              "600 degrees F",
+              "1 scoop",
+              "4600",
+              "105",
+              "2.28%"
+            ],
+            [
+              "4",
+              "A",
+              "600 degrees F",
+              "2 scoops",
+              "4600",
+              "187",
+              "4.07%"
+            ],
+            [
+              "12",
+              "A",
+              "600 degrees F",
+              "2 scoops",
+              "4600",
+              "192",
+              "4.17%"
+            ],
+            [
+              "20",
+              "A",
+              "600 degrees F",
+              "2 scoops",
+              "4600",
+              "175",
+              "3.80%"
+            ],
+            [
+              "28",
+              "A",
+              "600 degrees F",
+              "2 scoops",
+              "4600",
+              "201",
+              "4.37%"
+            ],
+            [
+              "5",
+              "B",
+              "400 degrees F",
+              "1 scoop",
+              "4600",
+              "145",
+              "3.15%"
+            ],
+            [
+              "13",
+              "B",
+              "400 degrees F",
+              "1 scoop",
+              "4600",
+              "129",
+              "2.80%"
+            ],
+            [
+              "21",
+              "B",
+              "400 degrees F",
+              "1 scoop",
+              "4600",
+              "138",
+              "3.00%"
+            ],
+            [
+              "29",
+              "B",
+              "400 degrees F",
+              "1 scoop",
+              "4600",
+              "142",
+              "3.09%"
+            ]
+          ],
+          "text": "Row Number Brand Temperature Kernels Est. No Kernals Kernels Left Percent Left 1 A 400 degrees F 1 scoop 2300 125 5.43% 9 A 400 degrees F 1 scoop 2300 115 5.00% 17 A 400 degrees F 1 scoop 2300 118 5.13% 25 A 400 degrees F 1 scoop 2300 127 5.52% 2 A 400 degrees F 2 scoops 4600 298 6.48% 10 A 400 degrees F 2 scoops 4600 275 5.98% 18 A 400 degrees F 2 scoops 4600 298 6.48% 26 A 400 degrees F 2 scoops 4600 275 5.98% 3 A 600 degrees F 1 scoop 4600 98 2.13% 11 A 600 degrees F 1 scoop 4600 101 2.20% 19 A 600 degrees F 1 scoop 4600 99 2.15% 27 A 600 degrees F 1 scoop 4600 105 2.28% 4 A 600 degrees F 2 scoops 4600 187 4.07% 12 A 600 degrees F 2 scoops 4600 192 4.17% 20 A 600 degrees F 2 scoops 4600 175 3.80% 28 A 600 degrees F 2 scoops 4600 201 4.37% 5 B 400 degrees F 1 scoop 4600 145 3.15% 13 B 400 degrees F 1 scoop 4600 129 2.80% 21 B 400 degrees F 1 scoop 4600 138 3.00% 29 B 400 degrees F 1 scoop 4600 142 3.09%",
+          "preserveOriginal": true
+        }
+      ],
+      "obsoleteBlockIds": []
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch30",
+      "sectionId": "ch30-s02-the-importance-of-understanding-interactions",
+      "language": "zh",
+      "startBlockId": "ch30-s02-the-importance-of-understanding-interactions-zh-088",
+      "endBlockId": "ch30-s02-the-importance-of-understanding-interactions-zh-101",
+      "blocks": [
+        {
+          "id": "ch30-s02-the-importance-of-understanding-interactions-zh-088",
+          "kind": "table",
+          "page": 416,
+          "rows": [
+            [
+              "Row Number",
+              "Brand",
+              "Temperature",
+              "Kernels"
+            ],
+            [
+              "1",
+              "A",
+              "400 degrees F",
+              "1 scoop"
+            ],
+            [
+              "2",
+              "A",
+              "400 degrees F",
+              "2 scoops"
+            ],
+            [
+              "3",
+              "A",
+              "500 degrees F",
+              "1 scoop"
+            ],
+            [
+              "4",
+              "A",
+              "500 degrees F",
+              "2 scoops"
+            ],
+            [
+              "5",
+              "A",
+              "600 degrees F",
+              "1 scoop"
+            ],
+            [
+              "6",
+              "A",
+              "600 degrees F",
+              "2 scoops"
+            ],
+            [
+              "7",
+              "B",
+              "400 degrees F",
+              "1 scoop"
+            ],
+            [
+              "8",
+              "B",
+              "400 degrees F",
+              "2 scoops"
+            ],
+            [
+              "9",
+              "B",
+              "500 degrees F",
+              "1 scoop"
+            ],
+            [
+              "10",
+              "B",
+              "500 degrees F",
+              "2 scoops"
+            ],
+            [
+              "11",
+              "B",
+              "600 degrees F",
+              "1 scoop"
+            ],
+            [
+              "12",
+              "B",
+              "600 degrees F",
+              "2 scoops"
+            ]
+          ],
+          "text": "Row Number Brand Temperature Kernels 1 A 400 degrees F 1 scoop 2 A 400 degrees F 2 scoops 3 A 500 degrees F 1 scoop 4 A 500 degrees F 2 scoops 5 A 600 degrees F 1 scoop 6 A 600 degrees F 2 scoops 7 B 400 degrees F 1 scoop 8 B 400 degrees F 2 scoops 9 B 500 degrees F 1 scoop 10 B 500 degrees F 2 scoops 11 B 600 degrees F 1 scoop 12 B 600 degrees F 2 scoops",
+          "preserveOriginal": true
+        }
+      ],
+      "obsoleteBlockIds": []
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch12",
+      "sectionId": "ch12-s04-define-toolset",
+      "language": "zh",
+      "startBlockId": "ch12-s04-define-toolset-zh-032",
+      "endBlockId": "ch12-s04-define-toolset-zh-037",
+      "blocks": [
+        {
+          "id": "ch12-s04-define-toolset-zh-032",
+          "kind": "table",
+          "page": 115,
+          "rows": [
+            [
+              "",
+              "Is",
+              "Is Not"
+            ],
+            [
+              "Where",
+              "South plant",
+              "North or East plan"
+            ],
+            [
+              "What",
+              "Steam furnaces",
+              "Wood furnaces"
+            ],
+            [
+              "When",
+              "January 2015",
+              "Prior to January 2015"
+            ]
+          ],
+          "text": " Is Is Not Where South plant North or East plan What Steam furnaces Wood furnaces When January 2015 Prior to January 2015",
+          "preserveOriginal": true
+        }
+      ],
+      "obsoleteBlockIds": []
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch16",
+      "sectionId": "ch16-s03-create-a-control-plan",
+      "language": "zh",
+      "startBlockId": "ch16-s03-create-a-control-plan-zh-025",
+      "endBlockId": "ch16-s03-create-a-control-plan-zh-036",
+      "blocks": [
+        {
+          "id": "ch16-s03-create-a-control-plan-zh-025",
+          "kind": "table",
+          "page": 152,
+          "rows": [
+            [
+              "Company: XYZ Sweets",
+              "",
+              "Control Plan Created by: Joe Black Belt",
+              ""
+            ],
+            [
+              "Process: Sugar addition, raw goods mixture",
+              "",
+              "Control Plan Created on: Jan. 4, 2012",
+              ""
+            ],
+            [
+              "Process Owner: Sue Processor",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Process Step",
+              "Addition of sugar to batch",
+              "",
+              "Heating of batch"
+            ],
+            [
+              "CTQ/Metric",
+              "Total amount added to batch",
+              "",
+              "Mean temperature during mixing"
+            ],
+            [
+              "Limit specification",
+              "LSL: 4.90 cups USL: 5.10 cups",
+              "",
+              "LSL: 105 F USL: 110 F"
+            ],
+            [
+              "Unit of measurement",
+              "Cups",
+              "",
+              "Degrees F"
+            ]
+          ],
+          "text": "Company: XYZ Sweets  Control Plan Created by: Joe Black Belt  Process: Sugar addition, raw goods mixture  Control Plan Created on: Jan. 4, 2012  Process Owner: Sue Processor        Process Step Addition of sugar to batch  Heating of batch CTQ/Metric Total amount added to batch  Mean temperature during mixing Limit specification LSL: 4.90 cups USL: 5.10 cups  LSL: 105 F USL: 110 F Unit of measurement Cups  Degrees F",
+          "preserveOriginal": true
+        }
+      ],
+      "obsoleteBlockIds": []
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch23",
+      "sectionId": "ch23-s03-creating-and-reading-control-charts-in-minitab",
+      "language": "zh",
+      "startBlockId": "ch23-s03-creating-and-reading-control-charts-in-minitab-zh-078",
+      "endBlockId": "ch23-s03-creating-and-reading-control-charts-in-minitab-zh-080",
+      "blocks": [
+        {
+          "id": "ch23-s03-creating-and-reading-control-charts-in-minitab-zh-078",
+          "kind": "table",
+          "page": 287,
+          "rows": [
+            [
+              "Incoming Tickets",
+              "Complete Tickets"
+            ],
+            [
+              "10",
+              "8"
+            ],
+            [
+              "12",
+              "10"
+            ],
+            [
+              "15",
+              "12"
+            ],
+            [
+              "7",
+              "9"
+            ],
+            [
+              "2",
+              "5"
+            ],
+            [
+              "8",
+              "9"
+            ],
+            [
+              "9",
+              "8"
+            ],
+            [
+              "11",
+              "12"
+            ],
+            [
+              "1",
+              "2"
+            ],
+            [
+              "16",
+              "14"
+            ],
+            [
+              "18",
+              "17"
+            ],
+            [
+              "5",
+              "6"
+            ],
+            [
+              "8",
+              "7"
+            ],
+            [
+              "14",
+              "13"
+            ],
+            [
+              "7",
+              "6"
+            ],
+            [
+              "6",
+              "7"
+            ],
+            [
+              "17",
+              "12"
+            ],
+            [
+              "8",
+              "10"
+            ],
+            [
+              "5",
+              "6"
+            ]
+          ],
+          "text": "Incoming Tickets Complete Tickets 10 8 12 10 15 12 7 9 2 5 8 9 9 8 11 12 1 2 16 14 18 17 5 6 8 7 14 13 7 6 6 7 17 12 8 10 5 6",
+          "preserveOriginal": true
+        }
+      ],
+      "obsoleteBlockIds": []
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch23",
+      "sectionId": "ch23-s03-creating-and-reading-control-charts-in-minitab",
+      "language": "zh",
+      "startBlockId": "ch23-s03-creating-and-reading-control-charts-in-minitab-zh-132",
+      "endBlockId": "ch23-s03-creating-and-reading-control-charts-in-minitab-zh-135",
+      "blocks": [
+        {
+          "id": "ch23-s03-creating-and-reading-control-charts-in-minitab-zh-132",
+          "kind": "table",
+          "page": 292,
+          "rows": [
+            [
+              "Hour",
+              "Calls Monitored",
+              "Errors",
+              "PCI Non- compliance"
+            ],
+            [
+              "1",
+              "15",
+              "3",
+              "1"
+            ],
+            [
+              "2",
+              "13",
+              "5",
+              "0"
+            ],
+            [
+              "3",
+              "18",
+              "4",
+              "1"
+            ],
+            [
+              "4",
+              "10",
+              "0",
+              "0"
+            ],
+            [
+              "5",
+              "12",
+              "2",
+              "1"
+            ],
+            [
+              "6",
+              "9",
+              "2",
+              "1"
+            ],
+            [
+              "7",
+              "11",
+              "4",
+              "2"
+            ],
+            [
+              "8",
+              "12",
+              "5",
+              "2"
+            ],
+            [
+              "9",
+              "8",
+              "0",
+              "0"
+            ],
+            [
+              "10",
+              "7",
+              "1",
+              "1"
+            ]
+          ],
+          "text": "Hour Calls Monitored Errors PCI Non- compliance 1 15 3 1 2 13 5 0 3 18 4 1 4 10 0 0 5 12 2 1 6 9 2 1 7 11 4 2 8 12 5 2 9 8 0 0 10 7 1 1",
+          "preserveOriginal": true
+        }
+      ],
+      "obsoleteBlockIds": []
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch28",
+      "sectionId": "ch28-content",
+      "language": "zh",
+      "startBlockId": "ch28-content-zh-034",
+      "endBlockId": "ch28-content-zh-038",
+      "blocks": [
+        {
+          "id": "ch28-content-zh-034",
+          "kind": "table",
+          "page": 376,
+          "rows": [
+            [
+              "Original Packaging",
+              "Padded Envelope",
+              "Packing Peanuts"
+            ],
+            [
+              "5",
+              "5",
+              "6"
+            ],
+            [
+              "5",
+              "5",
+              "8"
+            ],
+            [
+              "4",
+              "3",
+              "8"
+            ],
+            [
+              "6",
+              "6",
+              "6"
+            ],
+            [
+              "4",
+              "6",
+              "5"
+            ],
+            [
+              "6",
+              "8",
+              "5"
+            ],
+            [
+              "6",
+              "7",
+              "8"
+            ],
+            [
+              "6",
+              "6",
+              "7"
+            ],
+            [
+              "5",
+              "7",
+              "8"
+            ],
+            [
+              "4",
+              "5",
+              "6"
+            ],
+            [
+              "6",
+              "6",
+              "6"
+            ],
+            [
+              "6",
+              "5",
+              "10"
+            ],
+            [
+              "5",
+              "6",
+              "7"
+            ],
+            [
+              "4",
+              "4",
+              "9"
+            ],
+            [
+              "5",
+              "6",
+              "6"
+            ]
+          ],
+          "text": "Original Packaging Padded Envelope Packing Peanuts 5 5 6 5 5 8 4 3 8 6 6 6 4 6 5 6 8 5 6 7 8 6 6 7 5 7 8 4 5 6 6 6 6 6 5 10 5 6 7 4 4 9 5 6 6",
+          "preserveOriginal": true
+        }
+      ],
+      "obsoleteBlockIds": []
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch23",
+      "sectionId": "ch23-s03-creating-and-reading-control-charts-in-minitab",
+      "language": "zh",
+      "startBlockId": "ch23-s03-creating-and-reading-control-charts-in-minitab-zh-112",
+      "endBlockId": "ch23-s03-creating-and-reading-control-charts-in-minitab-zh-114",
+      "blocks": [
+        {
+          "id": "ch23-s03-creating-and-reading-control-charts-in-minitab-zh-112",
+          "kind": "table",
+          "page": 290,
+          "rows": [
+            [
+              "Skein Sampled",
+              "Defects Found"
+            ],
+            [
+              "10",
+              "8"
+            ],
+            [
+              "10",
+              "2"
+            ],
+            [
+              "10",
+              "12"
+            ],
+            [
+              "10",
+              "15"
+            ],
+            [
+              "10",
+              "22"
+            ],
+            [
+              "10",
+              "6"
+            ],
+            [
+              "10",
+              "8"
+            ],
+            [
+              "10",
+              "14"
+            ],
+            [
+              "10",
+              "9"
+            ],
+            [
+              "10",
+              "23"
+            ],
+            [
+              "10",
+              "24"
+            ],
+            [
+              "10",
+              "26"
+            ],
+            [
+              "10",
+              "10"
+            ],
+            [
+              "10",
+              "7"
+            ],
+            [
+              "10",
+              "5"
+            ],
+            [
+              "10",
+              "12"
+            ],
+            [
+              "10",
+              "15"
+            ],
+            [
+              "10",
+              "18"
+            ],
+            [
+              "10",
+              "19"
+            ],
+            [
+              "10",
+              "14"
+            ],
+            [
+              "10",
+              "27"
+            ]
+          ],
+          "text": "Skein Sampled Defects Found 10 8 10 2 10 12 10 15 10 22 10 6 10 8 10 14 10 9 10 23 10 24 10 26 10 10 10 7 10 5 10 12 10 15 10 18 10 19 10 14 10 27",
+          "preserveOriginal": true
+        },
+        {
+          "id": "ch23-s03-creating-and-reading-control-charts-in-minitab-zh-112-explanation",
+          "kind": "paragraph",
+          "page": 290,
+          "text": "由于所有样本量都相同，并且团队关注缺陷数量，因此选择在 Minitab 中创建 c 控制图。"
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch16",
+      "sectionId": "ch16-s05-spc-charts",
+      "language": "en",
+      "startBlockId": "ch16-s05-spc-charts-en-033",
+      "endBlockId": "ch16-s05-spc-charts-en-034",
+      "blocks": [
+        {
+          "id": "source-formula-sigma-level-ch16",
+          "kind": "image",
+          "assetId": "source-formula-sigma-level-ch16",
+          "src": "assets/figures/source-formula-sigma-level-ch16.png",
+          "page": 155,
+          "width": 765,
+          "height": 330
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch16",
+      "sectionId": "ch16-s05-spc-charts",
+      "language": "zh",
+      "startBlockId": "ch16-s05-spc-charts-zh-038",
+      "endBlockId": "ch16-s05-spc-charts-zh-039",
+      "blocks": [
+        {
+          "id": "ch16-s05-spc-charts-zh-source-formula",
+          "kind": "image",
+          "assetId": "source-formula-sigma-level-ch16",
+          "src": "assets/figures/source-formula-sigma-level-ch16.png",
+          "page": 155,
+          "width": 765,
+          "height": 330
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch27",
+      "sectionId": "ch27-s02-basic-statistics",
+      "language": "en",
+      "startBlockId": "ch27-s02-basic-statistics-en-024",
+      "endBlockId": "ch27-s02-basic-statistics-en-034",
+      "blocks": [
+        {
+          "id": "source-chart-fitted-line-ch27",
+          "kind": "image",
+          "assetId": "source-chart-fitted-line-ch27",
+          "src": "assets/figures/source-chart-fitted-line-ch27.png",
+          "page": 362,
+          "width": 1050,
+          "height": 726
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch27",
+      "sectionId": "ch27-s02-basic-statistics",
+      "language": "zh",
+      "startBlockId": "ch27-s02-basic-statistics-zh-026",
+      "endBlockId": "ch27-s02-basic-statistics-zh-036",
+      "blocks": [
+        {
+          "id": "ch27-s02-basic-statistics-zh-source-fitted-line",
+          "kind": "image",
+          "assetId": "source-chart-fitted-line-ch27",
+          "src": "assets/figures/source-chart-fitted-line-ch27.png",
+          "page": 362,
+          "width": 1050,
+          "height": 726
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch05",
+      "sectionId": "ch05-s03-the-pareto-principle",
+      "language": "en",
+      "startBlockId": "ch05-s03-the-pareto-principle-en-007",
+      "endBlockId": "ch05-s03-the-pareto-principle-en-022",
+      "blocks": [
+        {
+          "id": "ch05-s03-the-pareto-principle-en-007",
+          "kind": "table",
+          "page": 42,
+          "rows": [
+            [
+              "Reasons for Denying Medical Claims",
+              "Reasons for Denying Medical Claims"
+            ],
+            [
+              "Reason",
+              "Count"
+            ],
+            [
+              "Duplicate claim",
+              "18,012"
+            ],
+            [
+              "Timely filing",
+              "13,245"
+            ],
+            [
+              "No beneficiary found",
+              "10,215"
+            ],
+            [
+              "Claim lacks information",
+              "4,548"
+            ],
+            [
+              "Service not covered",
+              "2,154"
+            ],
+            [
+              "Medical necessity",
+              "1,423"
+            ],
+            [
+              "Date of service issue",
+              "526"
+            ]
+          ],
+          "text": "Reasons for Denying Medical Claims Reasons for Denying Medical Claims Reason Count Duplicate claim 18,012 Timely filing 13,245 No beneficiary found 10,215 Claim lacks information 4,548 Service not covered 2,154 Medical necessity 1,423 Date of service issue 526"
+        },
+        {
+          "id": "source-chart-pareto-ch05",
+          "kind": "image",
+          "assetId": "source-chart-pareto-ch05",
+          "src": "assets/figures/source-chart-pareto-ch05.png",
+          "page": 42,
+          "width": 1263,
+          "height": 575
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch05",
+      "sectionId": "ch05-s03-the-pareto-principle",
+      "language": "zh",
+      "startBlockId": "ch05-s03-the-pareto-principle-zh-009",
+      "endBlockId": "ch05-s03-the-pareto-principle-zh-024",
+      "blocks": [
+        {
+          "id": "ch05-s03-the-pareto-principle-zh-009",
+          "kind": "table",
+          "page": 42,
+          "rows": [
+            [
+              "Reasons for Denying Medical Claims",
+              "Reasons for Denying Medical Claims"
+            ],
+            [
+              "Reason",
+              "Count"
+            ],
+            [
+              "Duplicate claim",
+              "18,012"
+            ],
+            [
+              "Timely filing",
+              "13,245"
+            ],
+            [
+              "No beneficiary found",
+              "10,215"
+            ],
+            [
+              "Claim lacks information",
+              "4,548"
+            ],
+            [
+              "Service not covered",
+              "2,154"
+            ],
+            [
+              "Medical necessity",
+              "1,423"
+            ],
+            [
+              "Date of service issue",
+              "526"
+            ]
+          ],
+          "text": "Reasons for Denying Medical Claims Reasons for Denying Medical Claims Reason Count Duplicate claim 18,012 Timely filing 13,245 No beneficiary found 10,215 Claim lacks information 4,548 Service not covered 2,154 Medical necessity 1,423 Date of service issue 526",
+          "preserveOriginal": true
+        },
+        {
+          "id": "source-chart-pareto-ch05-zh",
+          "kind": "image",
+          "assetId": "source-chart-pareto-ch05",
+          "src": "assets/figures/source-chart-pareto-ch05.png",
+          "page": 42,
+          "width": 1263,
+          "height": 575
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch26",
+      "sectionId": "ch26-s02-the-graph-menu-option",
+      "language": "en",
+      "startBlockId": "ch26-s02-the-graph-menu-option-en-213",
+      "endBlockId": "ch26-s02-the-graph-menu-option-en-233",
+      "blocks": [
+        {
+          "id": "ch26-s02-the-graph-menu-option-en-213",
+          "kind": "paragraph",
+          "page": 342,
+          "text": "The plotted values and axis labels are preserved in the chart above."
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch26",
+      "sectionId": "ch26-s02-the-graph-menu-option",
+      "language": "en",
+      "startBlockId": "ch26-s02-the-graph-menu-option-en-255",
+      "endBlockId": "ch26-s02-the-graph-menu-option-en-275",
+      "blocks": [
+        {
+          "id": "ch26-s02-the-graph-menu-option-en-255",
+          "kind": "paragraph",
+          "page": 345,
+          "text": "The plotted values and axis labels are preserved in the chart above."
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch26",
+      "sectionId": "ch26-s02-the-graph-menu-option",
+      "language": "zh",
+      "startBlockId": "ch26-s02-the-graph-menu-option-zh-219",
+      "endBlockId": "ch26-s02-the-graph-menu-option-zh-239",
+      "blocks": [
+        {
+          "id": "ch26-s02-the-graph-menu-option-zh-219",
+          "kind": "paragraph",
+          "page": 342,
+          "text": "绘制值与坐标轴标签已完整保留在上方图表中。"
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch26",
+      "sectionId": "ch26-s02-the-graph-menu-option",
+      "language": "zh",
+      "startBlockId": "ch26-s02-the-graph-menu-option-zh-261",
+      "endBlockId": "ch26-s02-the-graph-menu-option-zh-281",
+      "blocks": [
+        {
+          "id": "ch26-s02-the-graph-menu-option-zh-261",
+          "kind": "paragraph",
+          "page": 345,
+          "text": "绘制值与坐标轴标签已完整保留在上方图表中。"
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch29",
+      "sectionId": "ch29-s04-next-steps",
+      "language": "en",
+      "startBlockId": "ch29-s04-next-steps-en-004",
+      "endBlockId": "ch29-s04-next-steps-en-032",
+      "blocks": [
+        {
+          "id": "source-report-modeling-summary-ch29",
+          "kind": "image",
+          "assetId": "source-report-modeling-summary-ch29",
+          "src": "assets/figures/source-report-modeling-summary-ch29.png",
+          "page": 408,
+          "width": 1275,
+          "height": 938
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch29",
+      "sectionId": "ch29-s04-next-steps",
+      "language": "zh",
+      "startBlockId": "ch29-s04-next-steps-zh-011",
+      "endBlockId": "ch29-s04-next-steps-zh-039",
+      "blocks": [
+        {
+          "id": "source-report-modeling-summary-ch29-zh",
+          "kind": "image",
+          "assetId": "source-report-modeling-summary-ch29",
+          "src": "assets/figures/source-report-modeling-summary-ch29.png",
+          "page": 408,
+          "width": 1275,
+          "height": 938
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch29",
+      "sectionId": "ch29-s04-next-steps",
+      "language": "en",
+      "startBlockId": "ch29-s04-next-steps-en-107",
+      "endBlockId": "ch29-s04-next-steps-en-121",
+      "blocks": [
+        {
+          "id": "source-report-prediction-ch29",
+          "kind": "image",
+          "assetId": "source-report-prediction-ch29",
+          "src": "assets/figures/source-report-prediction-ch29.png",
+          "page": 408,
+          "width": 1263,
+          "height": 938
+        }
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch29",
+      "sectionId": "ch29-s04-next-steps",
+      "language": "zh",
+      "startBlockId": "ch29-s04-next-steps-zh-114",
+      "endBlockId": "ch29-s04-next-steps-zh-128",
+      "blocks": [
+        {
+          "id": "source-report-prediction-ch29-zh",
+          "kind": "image",
+          "assetId": "source-report-prediction-ch29",
+          "src": "assets/figures/source-report-prediction-ch29.png",
+          "page": 408,
+          "width": 1263,
+          "height": 938
+        }
+      ]
+    }
+  ]
+}

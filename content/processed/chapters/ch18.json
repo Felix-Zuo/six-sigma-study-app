@@ -2490,7 +2490,7 @@
             "id": "ch18-s04-normal-probabilities-zh-004",
             "kind": "paragraph",
             "page": 203,
-            "text": "=NORMDIST(x, 平均值, standard_dev, 累积)"
+            "text": "Excel 公式为 =NORMDIST(x, mean, standard_dev, cumulative)，参数依次表示取值、均值、标准差和是否返回累积分布。"
           },
           {
             "id": "ch18-s04-normal-probabilities-zh-005",

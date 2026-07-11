@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-06-26 01:48 Asia/Shanghai
+Last updated: 2026-07-11 Asia/Shanghai
 
 ## Objective
 
@@ -28,6 +28,27 @@ The final product must support full-manual offline reading, position-preserving 
 - Release APK after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
 - Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 3954-entry offline learner dictionary with curated Six Sigma terms first, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service worker with verified offline app-shell/figure caching for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+
+## 2026-07-11 Product And Content Upgrade
+
+- Added sentence-context vocabulary explanations and examples for reader and
+  question-bank lookup, with question-source metadata preserved in the word
+  book.
+- Rebuilt the independent vocabulary area around a daily plan and a separate
+  searchable library instead of exposing all answer content before recall.
+- Rebuilt the question area as a dedicated training workbench and session UI;
+  local Android builds stage the private 1000-question bank without tracking it.
+- Added repeatable source-reviewed content overrides and a content-fidelity
+  audit. Current package: P0=0, P1=0, flattened-table candidates=0, semantic
+  tables EN/ZH=31/31, image blocks EN/ZH=476/476.
+- Restored semantic tables and original visual reports/charts in Chapters 1,
+  5, 12, 14-17, 21, 23, 26-30; corrected selected source references, formulas,
+  and hypothesis notation.
+- Added mobile content visual QA for Chapters 5, 16, 23, 29, and 30. The latest
+  run passed both languages with decoded images, valid tables, zero body
+  overflow, and zero unintended horizontal scroll.
+- Bumped the PWA cache to `six-sigma-study-v0.7.0` so repaired content replaces
+  stale browser assets after upgrade.
 
 ## 2026-06-26 Flashcards, Streaks, And Question Practice Update
 

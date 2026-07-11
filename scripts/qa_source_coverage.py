@@ -221,10 +221,14 @@ def validate_manual_coverage(manual: dict[str, Any]) -> tuple[int, int]:
 
 def validate_asset_manifest(manual: dict[str, Any], asset_manifest: dict[str, Any], repo_root: Path) -> int:
     manifest_assets = asset_manifest.get("assets")
-    if asset_manifest.get("assetCount") != EXPECTED_ASSETS or not isinstance(manifest_assets, list):
-        fail(f"asset manifest must contain {EXPECTED_ASSETS} assets")
+    if not isinstance(manifest_assets, list):
+        fail("asset manifest must contain an assets array")
+    if asset_manifest.get("assetCount") != len(manifest_assets):
+        fail("asset manifest count does not match assets array")
+    if len(manifest_assets) < EXPECTED_ASSETS:
+        fail(f"asset manifest must retain at least the {EXPECTED_ASSETS} extracted source assets")
     manifest_by_id = {asset["id"]: asset for asset in manifest_assets}
-    if len(manifest_by_id) != EXPECTED_ASSETS:
+    if len(manifest_by_id) != len(manifest_assets):
         fail("asset manifest contains duplicate asset ids")
     chapter_assets: dict[str, dict[str, Any]] = {}
     image_asset_ids: set[str] = set()

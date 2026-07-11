@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewedAgainst": "sources/source_manual.pdf",
+  "operations": [
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch01",
+      "sectionId": "chapter-sources",
+      "language": "zh",
+      "startBlockId": "chapter-sources-zh-001",
+      "endBlockId": "chapter-sources-zh-004",
+      "blocks": [
+        {"id": "chapter-sources-zh-001", "kind": "listItem", "page": 13, "text": "美国国家海洋和大气管理局（NOAA），Science on a Sphere： http://sos.noaa.gov/Datasets/dataset.php?id=44"},
+        {"id": "chapter-sources-zh-002", "kind": "listItem", "page": 13, "text": "美国疾病控制与预防中心（CDC），FastStats： http://www.cdc.gov/nchs/fastats/inpatient-surgery.htm"},
+        {"id": "chapter-sources-zh-003", "kind": "listItem", "page": 13, "text": "Boy Genius Report，2013 年 12 月 26 日： http://bgr.com/2013/12/26/amazon-holiday-season-sales-2013/"},
+        {"id": "chapter-sources-zh-004", "kind": "listItem", "page": 13, "text": "《质量文摘》（Quality Digest），《小型企业的六西格玛成功实践》： http://www.qualitydigest.com/april05/articles/02_article.shtml"}
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch08",
+      "sectionId": "ch08-s02-critical-to-quality-characteristics",
+      "language": "zh",
+      "startBlockId": "ch08-s02-critical-to-quality-characteristics-zh-004",
+      "endBlockId": "ch08-s02-critical-to-quality-characteristics-zh-004",
+      "blocks": [
+        {"id": "ch08-s02-critical-to-quality-characteristics-zh-004", "kind": "paragraph", "page": 72, "text": "7 参见 ISO 9000:2015 术语 3.9.11： https://www.iso.org/obp/ui/#iso:std:iso:9000:ed-3:v1:en:term:3.9.11"}
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch18",
+      "sectionId": "ch18-s04-normal-probabilities",
+      "language": "zh",
+      "startBlockId": "ch18-s04-normal-probabilities-zh-004",
+      "endBlockId": "ch18-s04-normal-probabilities-zh-004",
+      "blocks": [
+        {"id": "ch18-s04-normal-probabilities-zh-004", "kind": "paragraph", "page": 203, "text": "Excel 公式为 =NORMDIST(x, mean, standard_dev, cumulative)，参数依次表示取值、均值、标准差和是否返回累积分布。"}
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch21",
+      "sectionId": "ch21-s03-selecting-the-right-hypothesis-test",
+      "language": "en",
+      "startBlockId": "ch21-s03-selecting-the-right-hypothesis-test-en-024",
+      "endBlockId": "ch21-s03-selecting-the-right-hypothesis-test-en-029",
+      "blocks": [
+        {"id": "ch21-s03-selecting-the-right-hypothesis-test-en-024", "kind": "listItem", "page": 250, "text": "H0: There is no difference in failure rate between classes taught in the specific classroom and classes taught elsewhere."},
+        {"id": "ch21-s03-selecting-the-right-hypothesis-test-en-025", "kind": "listItem", "page": 250, "text": "P(classroom) = P(elsewhere) = 0.20"},
+        {"id": "ch21-s03-selecting-the-right-hypothesis-test-en-027", "kind": "listItem", "page": 250, "text": "Ha: The failure rate is greater for classes taught in the specific classroom."},
+        {"id": "ch21-s03-selecting-the-right-hypothesis-test-en-028", "kind": "listItem", "page": 250, "text": "P(classroom) > P(elsewhere) = 0.20"}
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch21",
+      "sectionId": "ch21-s03-selecting-the-right-hypothesis-test",
+      "language": "zh",
+      "startBlockId": "ch21-s03-selecting-the-right-hypothesis-test-zh-024",
+      "endBlockId": "ch21-s03-selecting-the-right-hypothesis-test-zh-029",
+      "blocks": [
+        {"id": "ch21-s03-selecting-the-right-hypothesis-test-zh-024", "kind": "listItem", "page": 250, "text": "H0（原假设）：指定教室与其他教室授课班级的不及格率没有差异。"},
+        {"id": "ch21-s03-selecting-the-right-hypothesis-test-zh-025", "kind": "listItem", "page": 250, "text": "P（指定教室）= P（其他教室）= 0.20"},
+        {"id": "ch21-s03-selecting-the-right-hypothesis-test-zh-027", "kind": "listItem", "page": 250, "text": "Ha（备择假设）：指定教室授课班级的不及格率更高。"},
+        {"id": "ch21-s03-selecting-the-right-hypothesis-test-zh-028", "kind": "listItem", "page": 250, "text": "P（指定教室）> P（其他教室）= 0.20"}
+      ]
+    },
+    {
+      "operation": "replaceRange",
+      "chapterId": "ch21",
+      "sectionId": "ch21-s03-selecting-the-right-hypothesis-test",
+      "language": "zh",
+      "startBlockId": "ch21-s03-selecting-the-right-hypothesis-test-zh-059",
+      "endBlockId": "ch21-s03-selecting-the-right-hypothesis-test-zh-059",
+      "blocks": [
+        {"id": "ch21-s03-selecting-the-right-hypothesis-test-zh-059", "kind": "listItem", "page": 251, "text": "Minitab 和 Excel 的 Analysis ToolPak（分析工具库）均提供配对 t 检验。"}
+      ]
+    }
+  ]
+}

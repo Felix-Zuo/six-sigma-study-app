@@ -190,33 +190,91 @@
           },
           {
             "id": "ch28-content-en-028",
-            "kind": "heading",
-            "page": 375,
-            "text": "Original"
-          },
-          {
-            "id": "ch28-content-en-029",
-            "kind": "heading",
-            "page": 375,
-            "text": "Packaging"
-          },
-          {
-            "id": "ch28-content-en-030",
-            "kind": "heading",
+            "kind": "table",
             "page": 376,
-            "text": "Padded"
-          },
-          {
-            "id": "ch28-content-en-031",
-            "kind": "heading",
-            "page": 376,
-            "text": "Envelope"
-          },
-          {
-            "id": "ch28-content-en-032",
-            "kind": "paragraph",
-            "page": 376,
-            "text": "Packing Peanuts 5 5 6 5 5 8 4 3 8 6 6 6 4 6 5 6 8 5 6 7 8 6 6 7 5 7 8 4 5 6 6 6 6 6 5 10 5 6 7 4 4 9 5 6 6"
+            "rows": [
+              [
+                "Original Packaging",
+                "Padded Envelope",
+                "Packing Peanuts"
+              ],
+              [
+                "5",
+                "5",
+                "6"
+              ],
+              [
+                "5",
+                "5",
+                "8"
+              ],
+              [
+                "4",
+                "3",
+                "8"
+              ],
+              [
+                "6",
+                "6",
+                "6"
+              ],
+              [
+                "4",
+                "6",
+                "5"
+              ],
+              [
+                "6",
+                "8",
+                "5"
+              ],
+              [
+                "6",
+                "7",
+                "8"
+              ],
+              [
+                "6",
+                "6",
+                "7"
+              ],
+              [
+                "5",
+                "7",
+                "8"
+              ],
+              [
+                "4",
+                "5",
+                "6"
+              ],
+              [
+                "6",
+                "6",
+                "6"
+              ],
+              [
+                "6",
+                "5",
+                "10"
+              ],
+              [
+                "5",
+                "6",
+                "7"
+              ],
+              [
+                "4",
+                "4",
+                "9"
+              ],
+              [
+                "5",
+                "6",
+                "6"
+              ]
+            ],
+            "text": "Original Packaging Padded Envelope Packing Peanuts 5 5 6 5 5 8 4 3 8 6 6 6 4 6 5 6 8 5 6 7 8 6 6 7 5 7 8 4 5 6 6 6 6 6 5 10 5 6 7 4 4 9 5 6 6"
           },
           {
             "id": "ch28-content-en-033",
@@ -1098,33 +1156,92 @@
           },
           {
             "id": "ch28-content-zh-034",
-            "kind": "heading",
+            "kind": "table",
             "page": 376,
-            "text": "原创"
-          },
-          {
-            "id": "ch28-content-zh-035",
-            "kind": "heading",
-            "page": 376,
-            "text": "包装"
-          },
-          {
-            "id": "ch28-content-zh-036",
-            "kind": "heading",
-            "page": 376,
-            "text": "带衬垫"
-          },
-          {
-            "id": "ch28-content-zh-037",
-            "kind": "heading",
-            "page": 376,
-            "text": "信封"
-          },
-          {
-            "id": "ch28-content-zh-038",
-            "kind": "paragraph",
-            "page": 376,
-            "text": "包装花生 5 5 6 5 5 8 4 3 8 6 6 6 4 6 5 6 8 5 6 7 8 6 6 7 5 7 8 4 5 6 6 6 6 6 5 10 5 6 7 4 4 9 5 6 6"
+            "rows": [
+              [
+                "Original Packaging",
+                "Padded Envelope",
+                "Packing Peanuts"
+              ],
+              [
+                "5",
+                "5",
+                "6"
+              ],
+              [
+                "5",
+                "5",
+                "8"
+              ],
+              [
+                "4",
+                "3",
+                "8"
+              ],
+              [
+                "6",
+                "6",
+                "6"
+              ],
+              [
+                "4",
+                "6",
+                "5"
+              ],
+              [
+                "6",
+                "8",
+                "5"
+              ],
+              [
+                "6",
+                "7",
+                "8"
+              ],
+              [
+                "6",
+                "6",
+                "7"
+              ],
+              [
+                "5",
+                "7",
+                "8"
+              ],
+              [
+                "4",
+                "5",
+                "6"
+              ],
+              [
+                "6",
+                "6",
+                "6"
+              ],
+              [
+                "6",
+                "5",
+                "10"
+              ],
+              [
+                "5",
+                "6",
+                "7"
+              ],
+              [
+                "4",
+                "4",
+                "9"
+              ],
+              [
+                "5",
+                "6",
+                "6"
+              ]
+            ],
+            "text": "Original Packaging Padded Envelope Packing Peanuts 5 5 6 5 5 8 4 3 8 6 6 6 4 6 5 6 8 5 6 7 8 6 6 7 5 7 8 4 5 6 6 6 6 6 5 10 5 6 7 4 4 9 5 6 6",
+            "preserveOriginal": true
           },
           {
             "id": "ch28-content-zh-039",

@@ -1627,27 +1627,56 @@
           },
           {
             "id": "ch17-s03-creating-an-x-bar-control-chart-without-statistical-software-en-009",
-            "kind": "paragraph",
+            "kind": "table",
             "page": 171,
-            "text": "(Practice steps 1 through 9 with the following data.)"
-          },
-          {
-            "id": "ch17-s03-creating-an-x-bar-control-chart-without-statistical-software-en-010",
-            "kind": "heading",
-            "page": 171,
-            "text": "X-Bar Data Points"
-          },
-          {
-            "id": "ch17-s03-creating-an-x-bar-control-chart-without-statistical-software-en-011",
-            "kind": "paragraph",
-            "page": 171,
-            "text": "24.1 25.2 24.7 28.3 27.1 26.4 25.4"
-          },
-          {
-            "id": "ch17-s03-creating-an-x-bar-control-chart-without-statistical-software-en-012",
-            "kind": "paragraph",
-            "page": 171,
-            "text": "21.4 24.5 23.5 27.5 29.5 24.5 26.8"
+            "rows": [
+              [
+                "X-Bar Data Points"
+              ],
+              [
+                "24.1"
+              ],
+              [
+                "25.2"
+              ],
+              [
+                "24.7"
+              ],
+              [
+                "28.3"
+              ],
+              [
+                "27.1"
+              ],
+              [
+                "26.4"
+              ],
+              [
+                "25.4"
+              ],
+              [
+                "21.4"
+              ],
+              [
+                "24.5"
+              ],
+              [
+                "23.5"
+              ],
+              [
+                "27.5"
+              ],
+              [
+                "29.5"
+              ],
+              [
+                "24.5"
+              ],
+              [
+                "26.8"
+              ]
+            ],
+            "text": "X-Bar Data Points 24.1 25.2 24.7 28.3 27.1 26.4 25.4 21.4 24.5 23.5 27.5 29.5 24.5 26.8"
           },
           {
             "id": "ch17-s03-creating-an-x-bar-control-chart-without-statistical-software-en-013",
@@ -1880,21 +1909,57 @@
           },
           {
             "id": "ch17-s03-creating-an-x-bar-control-chart-without-statistical-software-zh-011",
-            "kind": "heading",
+            "kind": "table",
             "page": 171,
-            "text": "X-Bar 数据点"
-          },
-          {
-            "id": "ch17-s03-creating-an-x-bar-control-chart-without-statistical-software-zh-012",
-            "kind": "paragraph",
-            "page": 171,
-            "text": "24.1 25.2 24.7 28.3 27.1 26.4 25.4"
-          },
-          {
-            "id": "ch17-s03-creating-an-x-bar-control-chart-without-statistical-software-zh-013",
-            "kind": "paragraph",
-            "page": 171,
-            "text": "21.4 24.5 23.5 27.5 29.5 24.5 26.8"
+            "rows": [
+              [
+                "X-Bar Data Points"
+              ],
+              [
+                "24.1"
+              ],
+              [
+                "25.2"
+              ],
+              [
+                "24.7"
+              ],
+              [
+                "28.3"
+              ],
+              [
+                "27.1"
+              ],
+              [
+                "26.4"
+              ],
+              [
+                "25.4"
+              ],
+              [
+                "21.4"
+              ],
+              [
+                "24.5"
+              ],
+              [
+                "23.5"
+              ],
+              [
+                "27.5"
+              ],
+              [
+                "29.5"
+              ],
+              [
+                "24.5"
+              ],
+              [
+                "26.8"
+              ]
+            ],
+            "text": "X-Bar Data Points 24.1 25.2 24.7 28.3 27.1 26.4 25.4 21.4 24.5 23.5 27.5 29.5 24.5 26.8",
+            "preserveOriginal": true
           },
           {
             "id": "ch17-s03-creating-an-x-bar-control-chart-without-statistical-software-zh-014",

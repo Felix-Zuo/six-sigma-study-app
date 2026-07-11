@@ -1,6 +1,6 @@
 {
   "version": "0.2.0",
-  "assetCount": 470,
+  "assetCount": 475,
   "assets": [
     {
       "id": "fig-0070af4a482888ed",
@@ -2351,6 +2351,31 @@
       "id": "fig-ff4e99b83bae13ef",
       "path": "assets/figures/fig-ff4e99b83bae13ef.png",
       "bytes": 109862
+    },
+    {
+      "id": "source-chart-fitted-line-ch27",
+      "path": "assets/figures/source-chart-fitted-line-ch27.png",
+      "bytes": 38690
+    },
+    {
+      "id": "source-chart-pareto-ch05",
+      "path": "assets/figures/source-chart-pareto-ch05.png",
+      "bytes": 40401
+    },
+    {
+      "id": "source-formula-sigma-level-ch16",
+      "path": "assets/figures/source-formula-sigma-level-ch16.png",
+      "bytes": 11900
+    },
+    {
+      "id": "source-report-modeling-summary-ch29",
+      "path": "assets/figures/source-report-modeling-summary-ch29.png",
+      "bytes": 161777
+    },
+    {
+      "id": "source-report-prediction-ch29",
+      "path": "assets/figures/source-report-prediction-ch29.png",
+      "bytes": 59103
     }
   ]
 }

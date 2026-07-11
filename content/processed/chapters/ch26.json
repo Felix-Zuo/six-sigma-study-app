@@ -168,21 +168,95 @@
           },
           {
             "id": "ch26-s02-the-graph-menu-option-en-005",
-            "kind": "paragraph",
+            "kind": "table",
             "page": 325,
-            "text": "1 4.6 2 3.8 3 4.8 4 2.7 5 3.5 1 4.3 2 3.6 3 5.8 4 4.7"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-006",
-            "kind": "paragraph",
-            "page": 325,
-            "text": "5 3.0 1 4.3 2 5.6 3 6.2 4 4.7 5 2.2 1 3.3 2 2.8 3 1.6 4 1.4 5 2.8"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-007",
-            "kind": "heading",
-            "page": 325,
-            "text": "Scatter Plot"
+            "rows": [
+              [
+                "C1",
+                "C2"
+              ],
+              [
+                "1",
+                "4.6"
+              ],
+              [
+                "2",
+                "3.8"
+              ],
+              [
+                "3",
+                "4.8"
+              ],
+              [
+                "4",
+                "2.7"
+              ],
+              [
+                "5",
+                "3.5"
+              ],
+              [
+                "1",
+                "4.3"
+              ],
+              [
+                "2",
+                "3.6"
+              ],
+              [
+                "3",
+                "5.8"
+              ],
+              [
+                "4",
+                "4.7"
+              ],
+              [
+                "5",
+                "3.0"
+              ],
+              [
+                "1",
+                "4.3"
+              ],
+              [
+                "2",
+                "5.6"
+              ],
+              [
+                "3",
+                "6.2"
+              ],
+              [
+                "4",
+                "4.7"
+              ],
+              [
+                "5",
+                "2.2"
+              ],
+              [
+                "1",
+                "3.3"
+              ],
+              [
+                "2",
+                "2.8"
+              ],
+              [
+                "3",
+                "1.6"
+              ],
+              [
+                "4",
+                "1.4"
+              ],
+              [
+                "5",
+                "2.8"
+              ]
+            ],
+            "text": "C1 C2 1 4.6 2 3.8 3 4.8 4 2.7 5 3.5 1 4.3 2 3.6 3 5.8 4 4.7 5 3.0 1 4.3 2 5.6 3 6.2 4 4.7 5 2.2 1 3.3 2 2.8 3 1.6 4 1.4 5 2.8"
           },
           {
             "id": "ch26-s02-the-graph-menu-option-en-008",
@@ -1314,105 +1388,83 @@
           },
           {
             "id": "ch26-s02-the-graph-menu-option-en-186",
-            "kind": "paragraph",
+            "kind": "table",
             "page": 339,
-            "text": "calls 8:00"
+            "rows": [
+              [
+                "Hour",
+                "Phone calls"
+              ],
+              [
+                "8:00 AM",
+                "78"
+              ],
+              [
+                "9:00 AM",
+                "89"
+              ],
+              [
+                "10:00 AM",
+                "107"
+              ],
+              [
+                "11:00 AM",
+                "118"
+              ],
+              [
+                "12:00 PM",
+                "149"
+              ],
+              [
+                "1:00 PM",
+                "147"
+              ],
+              [
+                "2:00 PM",
+                "105"
+              ]
+            ],
+            "text": "Hour Phone calls 8:00 AM 78 9:00 AM 89 10:00 AM 107 11:00 AM 118 12:00 PM 149 1:00 PM 147 2:00 PM 105"
           },
           {
-            "id": "ch26-s02-the-graph-menu-option-en-187",
-            "kind": "heading",
-            "page": 339,
-            "text": "AM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-188",
-            "kind": "paragraph",
-            "page": 339,
-            "text": "78"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-189",
-            "kind": "paragraph",
-            "page": 339,
-            "text": "9:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-190",
-            "kind": "paragraph",
-            "page": 339,
-            "text": "AM 89 10:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-191",
-            "kind": "paragraph",
-            "page": 339,
-            "text": "AM 107 11:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-192",
-            "kind": "paragraph",
-            "page": 339,
-            "text": "AM 118 12:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-193",
-            "kind": "paragraph",
-            "page": 339,
-            "text": "PM 149 1:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-194",
-            "kind": "paragraph",
+            "id": "ch26-s02-the-graph-menu-option-en-186-page-340",
+            "kind": "table",
             "page": 340,
-            "text": "PM 147 2:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-195",
-            "kind": "paragraph",
-            "page": 340,
-            "text": "PM 105 3:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-196",
-            "kind": "paragraph",
-            "page": 340,
-            "text": "PM 90 4:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-197",
-            "kind": "paragraph",
-            "page": 340,
-            "text": "PM 97 5:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-198",
-            "kind": "paragraph",
-            "page": 340,
-            "text": "PM 85 6:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-199",
-            "kind": "paragraph",
-            "page": 340,
-            "text": "PM 178 7:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-200",
-            "kind": "paragraph",
-            "page": 340,
-            "text": "PM 198 8:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-201",
-            "kind": "paragraph",
-            "page": 340,
-            "text": "PM 145 9:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-202",
-            "kind": "heading",
-            "page": 340,
-            "text": "PM"
+            "rows": [
+              [
+                "Hour",
+                "Phone calls"
+              ],
+              [
+                "3:00 PM",
+                "90"
+              ],
+              [
+                "4:00 PM",
+                "97"
+              ],
+              [
+                "5:00 PM",
+                "85"
+              ],
+              [
+                "6:00 PM",
+                "178"
+              ],
+              [
+                "7:00 PM",
+                "198"
+              ],
+              [
+                "8:00 PM",
+                "145"
+              ],
+              [
+                "9:00 PM",
+                "57"
+              ]
+            ],
+            "text": "Hour Phone calls 3:00 PM 90 4:00 PM 97 5:00 PM 85 6:00 PM 178 7:00 PM 198 8:00 PM 145 9:00 PM 57"
           },
           {
             "id": "ch26-s02-the-graph-menu-option-en-203",
@@ -1483,128 +1535,8 @@
           {
             "id": "ch26-s02-the-graph-menu-option-en-213",
             "kind": "paragraph",
-            "page": 341,
-            "text": "200"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-214",
-            "kind": "paragraph",
-            "page": 341,
-            "text": "150"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-215",
-            "kind": "heading",
-            "page": 341,
-            "text": "Phone calls"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-216",
-            "kind": "paragraph",
-            "page": 341,
-            "text": "100"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-217",
-            "kind": "paragraph",
-            "page": 341,
-            "text": "50"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-218",
-            "kind": "paragraph",
-            "page": 341,
-            "text": "0"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-219",
-            "kind": "paragraph",
-            "page": 341,
-            "text": "10:00 AM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-220",
-            "kind": "paragraph",
             "page": 342,
-            "text": "11:00 AM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-221",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "8:00 AM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-222",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "9:00 AM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-223",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "1:00 PM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-224",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "2:00 PM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-225",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "5:00 PM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-226",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "12:00 PM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-227",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "4:00 PM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-228",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "7:00 PM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-229",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "3:00 PM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-230",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "6:00 PM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-231",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "8:00 PM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-232",
-            "kind": "paragraph",
-            "page": 343,
-            "text": "9:00 PM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-233",
-            "kind": "paragraph",
-            "page": 343,
-            "text": "Hour"
+            "text": "The plotted values and axis labels are preserved in the chart above."
           },
           {
             "id": "ch26-s02-the-graph-menu-option-en-234",
@@ -1747,128 +1679,8 @@
           {
             "id": "ch26-s02-the-graph-menu-option-en-255",
             "kind": "paragraph",
-            "page": 344,
-            "text": "200"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-256",
-            "kind": "paragraph",
-            "page": 344,
-            "text": "150"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-257",
-            "kind": "heading",
-            "page": 344,
-            "text": "Phone calls"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-258",
-            "kind": "paragraph",
             "page": 345,
-            "text": "100"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-259",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "50"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-260",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "0"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-261",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "10:00 AM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-262",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "11:00 AM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-263",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "8:00 AM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-264",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "9:00 AM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-265",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "3:00 PM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-266",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "12:00 PM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-267",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "1:00 PM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-268",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "7:00 PM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-269",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "6:00 PM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-270",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "8:00 PM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-271",
-            "kind": "paragraph",
-            "page": 346,
-            "text": "2:00 PM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-272",
-            "kind": "paragraph",
-            "page": 346,
-            "text": "4:00 PM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-273",
-            "kind": "paragraph",
-            "page": 346,
-            "text": "5:00 PM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-274",
-            "kind": "paragraph",
-            "page": 346,
-            "text": "9:00 PM"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-en-275",
-            "kind": "paragraph",
-            "page": 346,
-            "text": "Hour"
+            "text": "The plotted values and axis labels are preserved in the chart above."
           },
           {
             "id": "ch26-s02-the-graph-menu-option-en-276",
@@ -2120,15 +1932,96 @@
           },
           {
             "id": "ch26-s02-the-graph-menu-option-zh-005",
-            "kind": "paragraph",
+            "kind": "table",
             "page": 325,
-            "text": "1 4.6 2 3.8 3 4.8 4 2.7 5 3.5 1 4.3 2 3.6 3 5.8 4 4.7"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-006",
-            "kind": "paragraph",
-            "page": 325,
-            "text": "5 3.0 1 4.3 2 5.6 3 6.2 4 4.7 5 2.2 1 3.3 2 2.8 3 1.6 4 1.4 5 2.8"
+            "rows": [
+              [
+                "C1",
+                "C2"
+              ],
+              [
+                "1",
+                "4.6"
+              ],
+              [
+                "2",
+                "3.8"
+              ],
+              [
+                "3",
+                "4.8"
+              ],
+              [
+                "4",
+                "2.7"
+              ],
+              [
+                "5",
+                "3.5"
+              ],
+              [
+                "1",
+                "4.3"
+              ],
+              [
+                "2",
+                "3.6"
+              ],
+              [
+                "3",
+                "5.8"
+              ],
+              [
+                "4",
+                "4.7"
+              ],
+              [
+                "5",
+                "3.0"
+              ],
+              [
+                "1",
+                "4.3"
+              ],
+              [
+                "2",
+                "5.6"
+              ],
+              [
+                "3",
+                "6.2"
+              ],
+              [
+                "4",
+                "4.7"
+              ],
+              [
+                "5",
+                "2.2"
+              ],
+              [
+                "1",
+                "3.3"
+              ],
+              [
+                "2",
+                "2.8"
+              ],
+              [
+                "3",
+                "1.6"
+              ],
+              [
+                "4",
+                "1.4"
+              ],
+              [
+                "5",
+                "2.8"
+              ]
+            ],
+            "text": "C1 C2 1 4.6 2 3.8 3 4.8 4 2.7 5 3.5 1 4.3 2 3.6 3 5.8 4 4.7 5 3.0 1 4.3 2 5.6 3 6.2 4 4.7 5 2.2 1 3.3 2 2.8 3 1.6 4 1.4 5 2.8",
+            "preserveOriginal": true
           },
           {
             "id": "ch26-s02-the-graph-menu-option-zh-007",
@@ -3320,123 +3213,85 @@
           },
           {
             "id": "ch26-s02-the-graph-menu-option-zh-190",
-            "kind": "paragraph",
+            "kind": "table",
             "page": 339,
-            "text": "电话"
+            "rows": [
+              [
+                "Hour",
+                "Phone calls"
+              ],
+              [
+                "8:00 AM",
+                "78"
+              ],
+              [
+                "9:00 AM",
+                "89"
+              ],
+              [
+                "10:00 AM",
+                "107"
+              ],
+              [
+                "11:00 AM",
+                "118"
+              ],
+              [
+                "12:00 PM",
+                "149"
+              ],
+              [
+                "1:00 PM",
+                "147"
+              ],
+              [
+                "2:00 PM",
+                "105"
+              ]
+            ],
+            "text": "Hour Phone calls 8:00 AM 78 9:00 AM 89 10:00 AM 107 11:00 AM 118 12:00 PM 149 1:00 PM 147 2:00 PM 105",
+            "preserveOriginal": true
           },
           {
-            "id": "ch26-s02-the-graph-menu-option-zh-191",
-            "kind": "paragraph",
-            "page": 339,
-            "text": "小时"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-192",
-            "kind": "paragraph",
-            "page": 339,
-            "text": "致电 8:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-193",
-            "kind": "heading",
-            "page": 339,
-            "text": "调幅"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-194",
-            "kind": "paragraph",
-            "page": 339,
-            "text": "78"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-195",
-            "kind": "paragraph",
-            "page": 339,
-            "text": "9:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-196",
-            "kind": "paragraph",
-            "page": 339,
-            "text": "上午 89 10:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-197",
-            "kind": "paragraph",
-            "page": 339,
-            "text": "上午 107 11:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-198",
-            "kind": "paragraph",
+            "id": "ch26-s02-the-graph-menu-option-zh-190-page-340",
+            "kind": "table",
             "page": 340,
-            "text": "上午 118 12:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-199",
-            "kind": "paragraph",
-            "page": 340,
-            "text": "下午 149 1:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-200",
-            "kind": "paragraph",
-            "page": 340,
-            "text": "下午 147 2:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-201",
-            "kind": "paragraph",
-            "page": 340,
-            "text": "下午 105 3:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-202",
-            "kind": "paragraph",
-            "page": 340,
-            "text": "下午 90 4:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-203",
-            "kind": "paragraph",
-            "page": 340,
-            "text": "下午 97 5:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-204",
-            "kind": "paragraph",
-            "page": 340,
-            "text": "下午 85 6:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-205",
-            "kind": "paragraph",
-            "page": 340,
-            "text": "下午 178 7:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-206",
-            "kind": "paragraph",
-            "page": 340,
-            "text": "下午 198 8:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-207",
-            "kind": "paragraph",
-            "page": 340,
-            "text": "下午 145 9:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-208",
-            "kind": "heading",
-            "page": 340,
-            "text": "下午"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-209",
-            "kind": "paragraph",
-            "page": 340,
-            "text": "57"
+            "rows": [
+              [
+                "Hour",
+                "Phone calls"
+              ],
+              [
+                "3:00 PM",
+                "90"
+              ],
+              [
+                "4:00 PM",
+                "97"
+              ],
+              [
+                "5:00 PM",
+                "85"
+              ],
+              [
+                "6:00 PM",
+                "178"
+              ],
+              [
+                "7:00 PM",
+                "198"
+              ],
+              [
+                "8:00 PM",
+                "145"
+              ],
+              [
+                "9:00 PM",
+                "57"
+              ]
+            ],
+            "text": "Hour Phone calls 3:00 PM 90 4:00 PM 97 5:00 PM 85 6:00 PM 178 7:00 PM 198 8:00 PM 145 9:00 PM 57",
+            "preserveOriginal": true
           },
           {
             "id": "ch26-s02-the-graph-menu-option-zh-210",
@@ -3501,128 +3356,8 @@
           {
             "id": "ch26-s02-the-graph-menu-option-zh-219",
             "kind": "paragraph",
-            "page": 341,
-            "text": "200"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-220",
-            "kind": "paragraph",
-            "page": 341,
-            "text": "150"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-221",
-            "kind": "heading",
-            "page": 341,
-            "text": "电话"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-222",
-            "kind": "paragraph",
-            "page": 341,
-            "text": "100"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-223",
-            "kind": "paragraph",
-            "page": 341,
-            "text": "50"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-224",
-            "kind": "paragraph",
-            "page": 341,
-            "text": "0"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-225",
-            "kind": "paragraph",
             "page": 342,
-            "text": "上午 10:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-226",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "上午 11:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-227",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "上午 8:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-228",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "上午 9:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-229",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "下午 1:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-230",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "下午 2:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-231",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "下午 5:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-232",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "中午 12:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-233",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "下午 4:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-234",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "晚上 7:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-235",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "下午 3:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-236",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "下午 6:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-237",
-            "kind": "paragraph",
-            "page": 342,
-            "text": "晚上 8:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-238",
-            "kind": "paragraph",
-            "page": 343,
-            "text": "晚上 9:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-239",
-            "kind": "paragraph",
-            "page": 343,
-            "text": "小时"
+            "text": "绘制值与坐标轴标签已完整保留在上方图表中。"
           },
           {
             "id": "ch26-s02-the-graph-menu-option-zh-240",
@@ -3765,128 +3500,8 @@
           {
             "id": "ch26-s02-the-graph-menu-option-zh-261",
             "kind": "paragraph",
-            "page": 344,
-            "text": "200"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-262",
-            "kind": "paragraph",
-            "page": 344,
-            "text": "150"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-263",
-            "kind": "heading",
-            "page": 344,
-            "text": "电话"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-264",
-            "kind": "paragraph",
             "page": 345,
-            "text": "100"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-265",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "50"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-266",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "0"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-267",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "上午 10:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-268",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "上午 11:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-269",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "上午 8:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-270",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "上午 9:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-271",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "下午 3:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-272",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "中午 12:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-273",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "下午 1:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-274",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "晚上 7:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-275",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "下午 6:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-276",
-            "kind": "paragraph",
-            "page": 345,
-            "text": "晚上 8:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-277",
-            "kind": "paragraph",
-            "page": 346,
-            "text": "下午 2:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-278",
-            "kind": "paragraph",
-            "page": 346,
-            "text": "下午 4:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-279",
-            "kind": "paragraph",
-            "page": 346,
-            "text": "下午 5:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-280",
-            "kind": "paragraph",
-            "page": 346,
-            "text": "晚上 9:00"
-          },
-          {
-            "id": "ch26-s02-the-graph-menu-option-zh-281",
-            "kind": "paragraph",
-            "page": 346,
-            "text": "小时"
+            "text": "绘制值与坐标轴标签已完整保留在上方图表中。"
           },
           {
             "id": "ch26-s02-the-graph-menu-option-zh-282",

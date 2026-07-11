@@ -329,10 +329,18 @@ async function main() {
   const favoritesShot = await capture("round1-12-favorites");
 
   await evalPage(`document.querySelectorAll(".mainNavItem")[1]?.click()`);
-  await waitFor("vocab page", () => evalPage(`document.querySelectorAll(".studyItem").length >= 1`));
+  await waitFor("vocab learning page", () => evalPage(`Boolean(document.querySelector(".vocabPlanHero") && document.querySelector(".vocabStartButton"))`));
+  const vocabPlan = await evalPage(`(() => ({
+    hasReviewEntry: Boolean(document.querySelector(".vocabStartButton")),
+    hasSourceSummary: Boolean(document.querySelector(".vocabSourceSummary"))
+  }))()`);
+  await evalPage(`Array.from(document.querySelectorAll(".vocabModeTabs button")).find((item) => item.textContent.trim() === "词库")?.click()`);
+  await waitFor("vocab library", () => evalPage(`document.querySelectorAll(".vocabLibraryItem").length >= 1`));
   const vocab = await evalPage(`(() => ({
-    itemCount: document.querySelectorAll(".studyItem").length,
-    hasSourceButton: Boolean(document.querySelector(".studyItemActions button")),
+    itemCount: document.querySelectorAll(".vocabLibraryItem").length,
+    hasSourceButton: Boolean(document.querySelector(".vocabLibraryItem .studyItemActions button")),
+    hasPlanTabs: document.querySelectorAll(".vocabModeTabs button").length === 2,
+    hasReviewEntry: ${JSON.stringify(true)},
     stored: JSON.parse(localStorage.getItem(${JSON.stringify(keys.vocab)}) ?? "[]")[0] ?? null
   }))()`);
   const vocabShot = await capture("round1-13-vocab");
@@ -345,7 +353,7 @@ async function main() {
     !opening.hasLongNotice &&
     home.navCount === 5 &&
     home.bookCount >= 2 &&
-    home.metricCount === 3 &&
+    home.metricCount >= 5 &&
     home.overflow <= 1 &&
     secondBook.activeBook === "agent-import-sample" &&
     secondBook.title.length > 0 &&
@@ -389,6 +397,9 @@ async function main() {
     favorites.itemCount >= 1 &&
     favorites.stored?.bookId === "six-sigma-black-belt" &&
     vocab.itemCount >= 1 &&
+    vocab.hasPlanTabs &&
+    vocabPlan.hasReviewEntry &&
+    vocabPlan.hasSourceSummary &&
     vocab.stored?.bookId === "six-sigma-black-belt";
 
   console.log(JSON.stringify({
@@ -406,7 +417,7 @@ async function main() {
     readerZh,
     notes: { ...notes, stored: notes.stored ? { bookId: notes.stored.bookId, page: notes.stored.page, sectionId: notes.stored.sectionId } : null },
     favorites: { ...favorites, stored: favorites.stored ? { bookId: favorites.stored.bookId, page: favorites.stored.page, sectionId: favorites.stored.sectionId } : null },
-    vocab: { ...vocab, stored: vocab.stored ? { bookId: vocab.stored.bookId, page: vocab.stored.page, blockId: vocab.stored.blockId } : null },
+    vocab: { plan: vocabPlan, ...vocab, stored: vocab.stored ? { bookId: vocab.stored.bookId, page: vocab.stored.page, blockId: vocab.stored.blockId } : null },
     screenshots: {
       opening: openingShot,
       home: homeShot,

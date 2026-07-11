@@ -166,63 +166,79 @@
           },
           {
             "id": "ch30-s02-the-importance-of-understanding-interactions-en-011",
-            "kind": "heading",
+            "kind": "table",
             "page": 409,
-            "text": "Row Number"
+            "rows": [
+              [
+                "Row Number",
+                "Brand",
+                "Temperature",
+                "Kernels"
+              ],
+              [
+                "1",
+                "A",
+                "400 degrees F",
+                "1 scoop"
+              ],
+              [
+                "2",
+                "A",
+                "400 degrees F",
+                "2 scoops"
+              ],
+              [
+                "3",
+                "A",
+                "600 degrees F",
+                "1 scoop"
+              ],
+              [
+                "4",
+                "A",
+                "600 degrees F",
+                "2 scoops"
+              ]
+            ],
+            "text": "Row Number Brand Temperature Kernels 1 A 400 degrees F 1 scoop 2 A 400 degrees F 2 scoops 3 A 600 degrees F 1 scoop 4 A 600 degrees F 2 scoops"
           },
           {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-012",
-            "kind": "heading",
-            "page": 409,
-            "text": "Brand Temperature Kernels"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-013",
-            "kind": "paragraph",
+            "id": "ch30-s02-the-importance-of-understanding-interactions-en-011-page-410",
+            "kind": "table",
             "page": 410,
-            "text": "1 A 400 degrees F 1 scoop"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-014",
-            "kind": "paragraph",
-            "page": 410,
-            "text": "2 A 400 degrees F 2 scoops"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-015",
-            "kind": "paragraph",
-            "page": 410,
-            "text": "3 A 600 degrees F 1 scoop"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-016",
-            "kind": "paragraph",
-            "page": 410,
-            "text": "4 A 600 degrees F 2 scoops"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-017",
-            "kind": "paragraph",
-            "page": 410,
-            "text": "5 B 400 degrees F 1 scoop"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-018",
-            "kind": "paragraph",
-            "page": 410,
-            "text": "6 B 400 degrees F 2 scoops"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-019",
-            "kind": "paragraph",
-            "page": 410,
-            "text": "7 B 600 degrees F 1 scoop"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-020",
-            "kind": "paragraph",
-            "page": 410,
-            "text": "8 B 600 degrees F 2 scoops"
+            "rows": [
+              [
+                "Row Number",
+                "Brand",
+                "Temperature",
+                "Kernels"
+              ],
+              [
+                "5",
+                "B",
+                "400 degrees F",
+                "1 scoop"
+              ],
+              [
+                "6",
+                "B",
+                "400 degrees F",
+                "2 scoops"
+              ],
+              [
+                "7",
+                "B",
+                "600 degrees F",
+                "1 scoop"
+              ],
+              [
+                "8",
+                "B",
+                "600 degrees F",
+                "2 scoops"
+              ]
+            ],
+            "text": "Row Number Brand Temperature Kernels 5 B 400 degrees F 1 scoop 6 B 400 degrees F 2 scoops 7 B 600 degrees F 1 scoop 8 B 600 degrees F 2 scoops"
           },
           {
             "id": "ch30-s02-the-importance-of-understanding-interactions-en-021",
@@ -244,39 +260,200 @@
           },
           {
             "id": "ch30-s02-the-importance-of-understanding-interactions-en-024",
-            "kind": "heading",
+            "kind": "table",
             "page": 411,
-            "text": "Row"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-025",
-            "kind": "heading",
-            "page": 411,
-            "text": "Number Brand Temperature Kernels Est. No Kernals"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-026",
-            "kind": "heading",
-            "page": 411,
-            "text": "Kernels"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-027",
-            "kind": "heading",
-            "page": 411,
-            "text": "Left Percent Left"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-028",
-            "kind": "paragraph",
-            "page": 411,
-            "text": "1 A 400 degrees F 1 scoop 2300 125 5.43% 9 A 400 degrees F 1 scoop 2300 115 5.00% 17 A 400 degrees F 1 scoop 2300 118 5.13% 25 A 400 degrees F 1 scoop 2300 127 5.52% 2 A 400 degrees F 2 scoops 4600 298 6.48% 10 A 400 degrees F 2 scoops 4600 275 5.98% 18 A 400 degrees F 2 scoops 4600 298 6.48% 26 A 400 degrees F 2 scoops 4600 275 5.98% 3 A 600 degrees F 1 scoop 4600 98 2.13% 11 A 600 degrees F 1 scoop 4600 101 2.20% 19 A 600 degrees F 1 scoop 4600 99 2.15% 27 A 600 degrees F 1 scoop 4600 105 2.28% 4 A 600 degrees F 2 scoops 4600 187 4.07% 12 A 600 degrees F 2 scoops 4600 192 4.17% 20 A 600 degrees F 2 scoops 4600 175 3.80% 28 A 600 degrees F 2 scoops 4600 201 4.37% 5 B 400 degrees F 1 scoop 4600 145 3.15% 13 B 400 degrees F 1 scoop 4600 129 2.80% 21 B 400 degrees F 1 scoop 4600 138 3.00% 29 B 400 degrees F 1 scoop 4600 142 3.09%"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-029",
-            "kind": "paragraph",
-            "page": 411,
-            "text": "6 B 400 degrees F 2 scoops 4600 324 7.04% 14 B 400 degrees F 2 scoops 4600 298 6.48% 22 B 400 degrees F 2 scoops 4600 307 6.67% 30 B 400 degrees F 2 scoops 4600 399 8.67% 7 B 600 degrees F 1 scoop 4600 109 2.37% 15 B 600 degrees F 1 scoop 4600 138 3.00% 23 B 600 degrees F 1 scoop 4600 109 2.37% 31 B 600 degrees F 1 scoop 4600 124 2.70% 8 B 600 degrees F 2 scoops 4600 202 4.39% 16 B 600 degrees F 2 scoops 4600 225 4.89% 24 B 600 degrees F 2 scoops 4600 198 4.30% 32 B 600 degrees F 2 scoops 4600 225 4.89%"
+            "rows": [
+              [
+                "Row Number",
+                "Brand",
+                "Temperature",
+                "Kernels",
+                "Est. No Kernals",
+                "Kernels Left",
+                "Percent Left"
+              ],
+              [
+                "1",
+                "A",
+                "400 degrees F",
+                "1 scoop",
+                "2300",
+                "125",
+                "5.43%"
+              ],
+              [
+                "9",
+                "A",
+                "400 degrees F",
+                "1 scoop",
+                "2300",
+                "115",
+                "5.00%"
+              ],
+              [
+                "17",
+                "A",
+                "400 degrees F",
+                "1 scoop",
+                "2300",
+                "118",
+                "5.13%"
+              ],
+              [
+                "25",
+                "A",
+                "400 degrees F",
+                "1 scoop",
+                "2300",
+                "127",
+                "5.52%"
+              ],
+              [
+                "2",
+                "A",
+                "400 degrees F",
+                "2 scoops",
+                "4600",
+                "298",
+                "6.48%"
+              ],
+              [
+                "10",
+                "A",
+                "400 degrees F",
+                "2 scoops",
+                "4600",
+                "275",
+                "5.98%"
+              ],
+              [
+                "18",
+                "A",
+                "400 degrees F",
+                "2 scoops",
+                "4600",
+                "298",
+                "6.48%"
+              ],
+              [
+                "26",
+                "A",
+                "400 degrees F",
+                "2 scoops",
+                "4600",
+                "275",
+                "5.98%"
+              ],
+              [
+                "3",
+                "A",
+                "600 degrees F",
+                "1 scoop",
+                "4600",
+                "98",
+                "2.13%"
+              ],
+              [
+                "11",
+                "A",
+                "600 degrees F",
+                "1 scoop",
+                "4600",
+                "101",
+                "2.20%"
+              ],
+              [
+                "19",
+                "A",
+                "600 degrees F",
+                "1 scoop",
+                "4600",
+                "99",
+                "2.15%"
+              ],
+              [
+                "27",
+                "A",
+                "600 degrees F",
+                "1 scoop",
+                "4600",
+                "105",
+                "2.28%"
+              ],
+              [
+                "4",
+                "A",
+                "600 degrees F",
+                "2 scoops",
+                "4600",
+                "187",
+                "4.07%"
+              ],
+              [
+                "12",
+                "A",
+                "600 degrees F",
+                "2 scoops",
+                "4600",
+                "192",
+                "4.17%"
+              ],
+              [
+                "20",
+                "A",
+                "600 degrees F",
+                "2 scoops",
+                "4600",
+                "175",
+                "3.80%"
+              ],
+              [
+                "28",
+                "A",
+                "600 degrees F",
+                "2 scoops",
+                "4600",
+                "201",
+                "4.37%"
+              ],
+              [
+                "5",
+                "B",
+                "400 degrees F",
+                "1 scoop",
+                "4600",
+                "145",
+                "3.15%"
+              ],
+              [
+                "13",
+                "B",
+                "400 degrees F",
+                "1 scoop",
+                "4600",
+                "129",
+                "2.80%"
+              ],
+              [
+                "21",
+                "B",
+                "400 degrees F",
+                "1 scoop",
+                "4600",
+                "138",
+                "3.00%"
+              ],
+              [
+                "29",
+                "B",
+                "400 degrees F",
+                "1 scoop",
+                "4600",
+                "142",
+                "3.09%"
+              ]
+            ],
+            "text": "Row Number Brand Temperature Kernels Est. No Kernals Kernels Left Percent Left 1 A 400 degrees F 1 scoop 2300 125 5.43% 9 A 400 degrees F 1 scoop 2300 115 5.00% 17 A 400 degrees F 1 scoop 2300 118 5.13% 25 A 400 degrees F 1 scoop 2300 127 5.52% 2 A 400 degrees F 2 scoops 4600 298 6.48% 10 A 400 degrees F 2 scoops 4600 275 5.98% 18 A 400 degrees F 2 scoops 4600 298 6.48% 26 A 400 degrees F 2 scoops 4600 275 5.98% 3 A 600 degrees F 1 scoop 4600 98 2.13% 11 A 600 degrees F 1 scoop 4600 101 2.20% 19 A 600 degrees F 1 scoop 4600 99 2.15% 27 A 600 degrees F 1 scoop 4600 105 2.28% 4 A 600 degrees F 2 scoops 4600 187 4.07% 12 A 600 degrees F 2 scoops 4600 192 4.17% 20 A 600 degrees F 2 scoops 4600 175 3.80% 28 A 600 degrees F 2 scoops 4600 201 4.37% 5 B 400 degrees F 1 scoop 4600 145 3.15% 13 B 400 degrees F 1 scoop 4600 129 2.80% 21 B 400 degrees F 1 scoop 4600 138 3.00% 29 B 400 degrees F 1 scoop 4600 142 3.09%"
           },
           {
             "id": "ch30-s02-the-importance-of-understanding-interactions-en-030",
@@ -640,87 +817,89 @@
           },
           {
             "id": "ch30-s02-the-importance-of-understanding-interactions-en-085",
-            "kind": "heading",
+            "kind": "table",
             "page": 416,
-            "text": "Row Number"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-086",
-            "kind": "heading",
-            "page": 416,
-            "text": "Brand Temperature Kernels"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-087",
-            "kind": "paragraph",
-            "page": 416,
-            "text": "1 A 400 degrees F 1 scoop"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-088",
-            "kind": "paragraph",
-            "page": 416,
-            "text": "2 A 400 degrees F 2 scoops"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-089",
-            "kind": "paragraph",
-            "page": 416,
-            "text": "3 A 500 degrees F 1 scoop"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-090",
-            "kind": "paragraph",
-            "page": 416,
-            "text": "4 A 500 degrees F 2 scoops"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-091",
-            "kind": "paragraph",
-            "page": 416,
-            "text": "5 A 600 degrees F 1 scoop"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-092",
-            "kind": "paragraph",
-            "page": 417,
-            "text": "6 A 600 degrees F 2 scoops"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-093",
-            "kind": "paragraph",
-            "page": 417,
-            "text": "7 B 400 degrees F 1 scoop"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-094",
-            "kind": "paragraph",
-            "page": 417,
-            "text": "8 B 400 degrees F 2 scoops"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-095",
-            "kind": "paragraph",
-            "page": 417,
-            "text": "9 B 500 degrees F 1 scoop"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-096",
-            "kind": "paragraph",
-            "page": 417,
-            "text": "10 B 500 degrees F 2 scoops"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-097",
-            "kind": "paragraph",
-            "page": 417,
-            "text": "11 B 600 degrees F 1 scoop"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-en-098",
-            "kind": "paragraph",
-            "page": 417,
-            "text": "12 B 600 degrees F 2 scoops"
+            "rows": [
+              [
+                "Row Number",
+                "Brand",
+                "Temperature",
+                "Kernels"
+              ],
+              [
+                "1",
+                "A",
+                "400 degrees F",
+                "1 scoop"
+              ],
+              [
+                "2",
+                "A",
+                "400 degrees F",
+                "2 scoops"
+              ],
+              [
+                "3",
+                "A",
+                "500 degrees F",
+                "1 scoop"
+              ],
+              [
+                "4",
+                "A",
+                "500 degrees F",
+                "2 scoops"
+              ],
+              [
+                "5",
+                "A",
+                "600 degrees F",
+                "1 scoop"
+              ],
+              [
+                "6",
+                "A",
+                "600 degrees F",
+                "2 scoops"
+              ],
+              [
+                "7",
+                "B",
+                "400 degrees F",
+                "1 scoop"
+              ],
+              [
+                "8",
+                "B",
+                "400 degrees F",
+                "2 scoops"
+              ],
+              [
+                "9",
+                "B",
+                "500 degrees F",
+                "1 scoop"
+              ],
+              [
+                "10",
+                "B",
+                "500 degrees F",
+                "2 scoops"
+              ],
+              [
+                "11",
+                "B",
+                "600 degrees F",
+                "1 scoop"
+              ],
+              [
+                "12",
+                "B",
+                "600 degrees F",
+                "2 scoops"
+              ]
+            ],
+            "text": "Row Number Brand Temperature Kernels 1 A 400 degrees F 1 scoop 2 A 400 degrees F 2 scoops 3 A 500 degrees F 1 scoop 4 A 500 degrees F 2 scoops 5 A 600 degrees F 1 scoop 6 A 600 degrees F 2 scoops 7 B 400 degrees F 1 scoop 8 B 400 degrees F 2 scoops 9 B 500 degrees F 1 scoop 10 B 500 degrees F 2 scoops 11 B 600 degrees F 1 scoop 12 B 600 degrees F 2 scoops"
           },
           {
             "id": "ch30-s02-the-importance-of-understanding-interactions-en-099",
@@ -846,63 +1025,81 @@
           },
           {
             "id": "ch30-s02-the-importance-of-understanding-interactions-zh-014",
-            "kind": "heading",
+            "kind": "table",
             "page": 410,
-            "text": "行号"
+            "rows": [
+              [
+                "Row Number",
+                "Brand",
+                "Temperature",
+                "Kernels"
+              ],
+              [
+                "1",
+                "A",
+                "400 degrees F",
+                "1 scoop"
+              ],
+              [
+                "2",
+                "A",
+                "400 degrees F",
+                "2 scoops"
+              ],
+              [
+                "3",
+                "A",
+                "600 degrees F",
+                "1 scoop"
+              ],
+              [
+                "4",
+                "A",
+                "600 degrees F",
+                "2 scoops"
+              ]
+            ],
+            "text": "Row Number Brand Temperature Kernels 1 A 400 degrees F 1 scoop 2 A 400 degrees F 2 scoops 3 A 600 degrees F 1 scoop 4 A 600 degrees F 2 scoops",
+            "preserveOriginal": true
           },
           {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-015",
-            "kind": "heading",
+            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-014-page-410",
+            "kind": "table",
             "page": 410,
-            "text": "品牌温度内核"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-016",
-            "kind": "paragraph",
-            "page": 410,
-            "text": "1 A 400 华氏度 1 勺"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-017",
-            "kind": "paragraph",
-            "page": 410,
-            "text": "2 A 400 华氏度 2 勺"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-018",
-            "kind": "paragraph",
-            "page": 410,
-            "text": "3 A 600 华氏度 1 勺"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-019",
-            "kind": "paragraph",
-            "page": 410,
-            "text": "4 A 600 华氏度 2 勺"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-020",
-            "kind": "paragraph",
-            "page": 410,
-            "text": "5 B 400 华氏度 1 勺"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-021",
-            "kind": "paragraph",
-            "page": 410,
-            "text": "6 B 400 华氏度 2 勺"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-022",
-            "kind": "paragraph",
-            "page": 410,
-            "text": "7 B 600 华氏度 1 勺"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-023",
-            "kind": "paragraph",
-            "page": 410,
-            "text": "8 B 600 华氏度 2 勺"
+            "rows": [
+              [
+                "Row Number",
+                "Brand",
+                "Temperature",
+                "Kernels"
+              ],
+              [
+                "5",
+                "B",
+                "400 degrees F",
+                "1 scoop"
+              ],
+              [
+                "6",
+                "B",
+                "400 degrees F",
+                "2 scoops"
+              ],
+              [
+                "7",
+                "B",
+                "600 degrees F",
+                "1 scoop"
+              ],
+              [
+                "8",
+                "B",
+                "600 degrees F",
+                "2 scoops"
+              ]
+            ],
+            "text": "Row Number Brand Temperature Kernels 5 B 400 degrees F 1 scoop 6 B 400 degrees F 2 scoops 7 B 600 degrees F 1 scoop 8 B 600 degrees F 2 scoops",
+            "preserveOriginal": true
           },
           {
             "id": "ch30-s02-the-importance-of-understanding-interactions-zh-024",
@@ -924,39 +1121,201 @@
           },
           {
             "id": "ch30-s02-the-importance-of-understanding-interactions-zh-027",
-            "kind": "heading",
+            "kind": "table",
             "page": 411,
-            "text": "行"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-028",
-            "kind": "heading",
-            "page": 411,
-            "text": "编号 品牌 温度内核 估计值 无内核"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-029",
-            "kind": "heading",
-            "page": 411,
-            "text": "内核"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-030",
-            "kind": "heading",
-            "page": 411,
-            "text": "左侧百分比"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-031",
-            "kind": "paragraph",
-            "page": 411,
-            "text": "1 A 400 华氏度 1 勺 2300 125 5.43% 9 A 400 华氏度 1 勺 2300 115 5.00% 17 A 400 华氏度 1 勺 2300 118 5.13% 25 A 400 华氏度 1 勺 2300 127 5.52% 2 A 400 华氏度 2 勺 4600 298 6.48% 10 A 400 华氏度 2 勺 4600 275 5.98% 18 A 400 华氏度 2 勺 4600 298 6.48% 26 A 400 华氏度 2 勺 4600 275 5.98% 3 A 600°F 1 勺 4600 98 2.13% 11 A 600°F 1 勺 4600 101 2.20% 19 A 600°F 1 勺 4600 99 2.15% 27 A 600°F 1 勺 4600 105 2.28% 4 A 600华氏度 2 勺 4600 187 4.07% 12 A 600 华氏度 2 勺 4600 192 4.17% 20 A 600 华氏度 2 勺 4600 175 3.80% 28 A 600 华氏度 2 勺 4600 201 4.37% 5 B 400 华氏度 1 勺 4600 145 3.15% 13 B 400 华氏度 1 勺 4600 129 2.80% 21 B 400 华氏度 1 勺 4600 138 3.00% 29 B 400 华氏度 1 勺 4600 142 3.09%"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-032",
-            "kind": "paragraph",
-            "page": 411,
-            "text": "6 B 400 华氏度 2 勺 4600 324 7.04% 14 B 400 华氏度 2 勺 4600 298 6.48% 22 B 400 华氏度 2 勺 4600 307 6.67% 30 B 400 华氏度 2 勺 4600 399 8.67% 7 B 600 华氏度 1 勺 4600 109 2.37% 15 B 600 华氏度 1 勺 4600 138 3.00% 23 B 600 华氏度 1 勺 4600 109 2.37% 31 B 600 华氏度 1 勺 4600 124 2.70% 8 B 600 华氏度 2 勺 4600 202 4.39% 16 B 600 华氏度 2 勺 4600 225 4.89% 24 B 600 华氏度 2 勺 4600 198 4.30% 32 B 600 华氏度 2 勺 4600 225 4.89%"
+            "rows": [
+              [
+                "Row Number",
+                "Brand",
+                "Temperature",
+                "Kernels",
+                "Est. No Kernals",
+                "Kernels Left",
+                "Percent Left"
+              ],
+              [
+                "1",
+                "A",
+                "400 degrees F",
+                "1 scoop",
+                "2300",
+                "125",
+                "5.43%"
+              ],
+              [
+                "9",
+                "A",
+                "400 degrees F",
+                "1 scoop",
+                "2300",
+                "115",
+                "5.00%"
+              ],
+              [
+                "17",
+                "A",
+                "400 degrees F",
+                "1 scoop",
+                "2300",
+                "118",
+                "5.13%"
+              ],
+              [
+                "25",
+                "A",
+                "400 degrees F",
+                "1 scoop",
+                "2300",
+                "127",
+                "5.52%"
+              ],
+              [
+                "2",
+                "A",
+                "400 degrees F",
+                "2 scoops",
+                "4600",
+                "298",
+                "6.48%"
+              ],
+              [
+                "10",
+                "A",
+                "400 degrees F",
+                "2 scoops",
+                "4600",
+                "275",
+                "5.98%"
+              ],
+              [
+                "18",
+                "A",
+                "400 degrees F",
+                "2 scoops",
+                "4600",
+                "298",
+                "6.48%"
+              ],
+              [
+                "26",
+                "A",
+                "400 degrees F",
+                "2 scoops",
+                "4600",
+                "275",
+                "5.98%"
+              ],
+              [
+                "3",
+                "A",
+                "600 degrees F",
+                "1 scoop",
+                "4600",
+                "98",
+                "2.13%"
+              ],
+              [
+                "11",
+                "A",
+                "600 degrees F",
+                "1 scoop",
+                "4600",
+                "101",
+                "2.20%"
+              ],
+              [
+                "19",
+                "A",
+                "600 degrees F",
+                "1 scoop",
+                "4600",
+                "99",
+                "2.15%"
+              ],
+              [
+                "27",
+                "A",
+                "600 degrees F",
+                "1 scoop",
+                "4600",
+                "105",
+                "2.28%"
+              ],
+              [
+                "4",
+                "A",
+                "600 degrees F",
+                "2 scoops",
+                "4600",
+                "187",
+                "4.07%"
+              ],
+              [
+                "12",
+                "A",
+                "600 degrees F",
+                "2 scoops",
+                "4600",
+                "192",
+                "4.17%"
+              ],
+              [
+                "20",
+                "A",
+                "600 degrees F",
+                "2 scoops",
+                "4600",
+                "175",
+                "3.80%"
+              ],
+              [
+                "28",
+                "A",
+                "600 degrees F",
+                "2 scoops",
+                "4600",
+                "201",
+                "4.37%"
+              ],
+              [
+                "5",
+                "B",
+                "400 degrees F",
+                "1 scoop",
+                "4600",
+                "145",
+                "3.15%"
+              ],
+              [
+                "13",
+                "B",
+                "400 degrees F",
+                "1 scoop",
+                "4600",
+                "129",
+                "2.80%"
+              ],
+              [
+                "21",
+                "B",
+                "400 degrees F",
+                "1 scoop",
+                "4600",
+                "138",
+                "3.00%"
+              ],
+              [
+                "29",
+                "B",
+                "400 degrees F",
+                "1 scoop",
+                "4600",
+                "142",
+                "3.09%"
+              ]
+            ],
+            "text": "Row Number Brand Temperature Kernels Est. No Kernals Kernels Left Percent Left 1 A 400 degrees F 1 scoop 2300 125 5.43% 9 A 400 degrees F 1 scoop 2300 115 5.00% 17 A 400 degrees F 1 scoop 2300 118 5.13% 25 A 400 degrees F 1 scoop 2300 127 5.52% 2 A 400 degrees F 2 scoops 4600 298 6.48% 10 A 400 degrees F 2 scoops 4600 275 5.98% 18 A 400 degrees F 2 scoops 4600 298 6.48% 26 A 400 degrees F 2 scoops 4600 275 5.98% 3 A 600 degrees F 1 scoop 4600 98 2.13% 11 A 600 degrees F 1 scoop 4600 101 2.20% 19 A 600 degrees F 1 scoop 4600 99 2.15% 27 A 600 degrees F 1 scoop 4600 105 2.28% 4 A 600 degrees F 2 scoops 4600 187 4.07% 12 A 600 degrees F 2 scoops 4600 192 4.17% 20 A 600 degrees F 2 scoops 4600 175 3.80% 28 A 600 degrees F 2 scoops 4600 201 4.37% 5 B 400 degrees F 1 scoop 4600 145 3.15% 13 B 400 degrees F 1 scoop 4600 129 2.80% 21 B 400 degrees F 1 scoop 4600 138 3.00% 29 B 400 degrees F 1 scoop 4600 142 3.09%",
+            "preserveOriginal": true
           },
           {
             "id": "ch30-s02-the-importance-of-understanding-interactions-zh-033",
@@ -1320,87 +1679,90 @@
           },
           {
             "id": "ch30-s02-the-importance-of-understanding-interactions-zh-088",
-            "kind": "heading",
+            "kind": "table",
             "page": 416,
-            "text": "行号"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-089",
-            "kind": "heading",
-            "page": 416,
-            "text": "品牌温度内核"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-090",
-            "kind": "paragraph",
-            "page": 416,
-            "text": "1 A 400 华氏度 1 勺"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-091",
-            "kind": "paragraph",
-            "page": 416,
-            "text": "2 A 400 华氏度 2 勺"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-092",
-            "kind": "paragraph",
-            "page": 416,
-            "text": "3 A 500 华氏度 1 勺"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-093",
-            "kind": "paragraph",
-            "page": 416,
-            "text": "4 A 500 华氏度 2 勺"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-094",
-            "kind": "paragraph",
-            "page": 416,
-            "text": "5 A 600 华氏度 1 勺"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-095",
-            "kind": "paragraph",
-            "page": 417,
-            "text": "6 A 600 华氏度 2 勺"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-096",
-            "kind": "paragraph",
-            "page": 417,
-            "text": "7 B 400 华氏度 1 勺"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-097",
-            "kind": "paragraph",
-            "page": 417,
-            "text": "8 B 400 华氏度 2 勺"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-098",
-            "kind": "paragraph",
-            "page": 417,
-            "text": "9 B 500 华氏度 1 勺"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-099",
-            "kind": "paragraph",
-            "page": 417,
-            "text": "10 B 500 华氏度 2 勺"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-100",
-            "kind": "paragraph",
-            "page": 417,
-            "text": "11 B 600 华氏度 1 勺"
-          },
-          {
-            "id": "ch30-s02-the-importance-of-understanding-interactions-zh-101",
-            "kind": "paragraph",
-            "page": 417,
-            "text": "12 B 600 华氏度 2 勺"
+            "rows": [
+              [
+                "Row Number",
+                "Brand",
+                "Temperature",
+                "Kernels"
+              ],
+              [
+                "1",
+                "A",
+                "400 degrees F",
+                "1 scoop"
+              ],
+              [
+                "2",
+                "A",
+                "400 degrees F",
+                "2 scoops"
+              ],
+              [
+                "3",
+                "A",
+                "500 degrees F",
+                "1 scoop"
+              ],
+              [
+                "4",
+                "A",
+                "500 degrees F",
+                "2 scoops"
+              ],
+              [
+                "5",
+                "A",
+                "600 degrees F",
+                "1 scoop"
+              ],
+              [
+                "6",
+                "A",
+                "600 degrees F",
+                "2 scoops"
+              ],
+              [
+                "7",
+                "B",
+                "400 degrees F",
+                "1 scoop"
+              ],
+              [
+                "8",
+                "B",
+                "400 degrees F",
+                "2 scoops"
+              ],
+              [
+                "9",
+                "B",
+                "500 degrees F",
+                "1 scoop"
+              ],
+              [
+                "10",
+                "B",
+                "500 degrees F",
+                "2 scoops"
+              ],
+              [
+                "11",
+                "B",
+                "600 degrees F",
+                "1 scoop"
+              ],
+              [
+                "12",
+                "B",
+                "600 degrees F",
+                "2 scoops"
+              ]
+            ],
+            "text": "Row Number Brand Temperature Kernels 1 A 400 degrees F 1 scoop 2 A 400 degrees F 2 scoops 3 A 500 degrees F 1 scoop 4 A 500 degrees F 2 scoops 5 A 600 degrees F 1 scoop 6 A 600 degrees F 2 scoops 7 B 400 degrees F 1 scoop 8 B 400 degrees F 2 scoops 9 B 500 degrees F 1 scoop 10 B 500 degrees F 2 scoops 11 B 600 degrees F 1 scoop 12 B 600 degrees F 2 scoops",
+            "preserveOriginal": true
           },
           {
             "id": "ch30-s02-the-importance-of-understanding-interactions-zh-102",

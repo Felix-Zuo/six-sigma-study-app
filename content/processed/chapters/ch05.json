@@ -908,99 +908,56 @@
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-007",
-            "kind": "paragraph",
+            "kind": "table",
             "page": 42,
-            "text": "Reasons for Denying Medical Claims Reason Count Duplicate claim 18012 Timely Filing 13245 No beneficiary found 10215 Claim lacks information 4548 Service not covered 2154 Medical necessity 1423 Date of service issue 526"
+            "rows": [
+              [
+                "Reasons for Denying Medical Claims",
+                "Reasons for Denying Medical Claims"
+              ],
+              [
+                "Reason",
+                "Count"
+              ],
+              [
+                "Duplicate claim",
+                "18,012"
+              ],
+              [
+                "Timely filing",
+                "13,245"
+              ],
+              [
+                "No beneficiary found",
+                "10,215"
+              ],
+              [
+                "Claim lacks information",
+                "4,548"
+              ],
+              [
+                "Service not covered",
+                "2,154"
+              ],
+              [
+                "Medical necessity",
+                "1,423"
+              ],
+              [
+                "Date of service issue",
+                "526"
+              ]
+            ],
+            "text": "Reasons for Denying Medical Claims Reasons for Denying Medical Claims Reason Count Duplicate claim 18,012 Timely filing 13,245 No beneficiary found 10,215 Claim lacks information 4,548 Service not covered 2,154 Medical necessity 1,423 Date of service issue 526"
           },
           {
-            "id": "ch05-s03-the-pareto-principle-en-008",
-            "kind": "paragraph",
+            "id": "source-chart-pareto-ch05",
+            "kind": "image",
+            "assetId": "source-chart-pareto-ch05",
+            "src": "assets/figures/source-chart-pareto-ch05.png",
             "page": 42,
-            "text": "Reasons for claim denials"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-en-009",
-            "kind": "paragraph",
-            "page": 42,
-            "text": "35.9%"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-en-010",
-            "kind": "paragraph",
-            "page": 42,
-            "text": "26.4%"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-en-011",
-            "kind": "paragraph",
-            "page": 42,
-            "text": "20.4%"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-en-012",
-            "kind": "paragraph",
-            "page": 42,
-            "text": "9.1%"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-en-013",
-            "kind": "paragraph",
-            "page": 42,
-            "text": "4.3% 2.8% 1.0%"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-en-014",
-            "kind": "heading",
-            "page": 42,
-            "text": "Duplicate claim Timely Filing No beneficiary"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-en-015",
-            "kind": "heading",
-            "page": 42,
-            "text": "Service not"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-en-016",
-            "kind": "paragraph",
-            "page": 43,
-            "text": "Date of service"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-en-017",
-            "kind": "paragraph",
-            "page": 43,
-            "text": "Claim lacks information"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-en-018",
-            "kind": "heading",
-            "page": 43,
-            "text": "Medical"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-en-019",
-            "kind": "paragraph",
-            "page": 43,
-            "text": "necessity"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-en-020",
-            "kind": "paragraph",
-            "page": 43,
-            "text": "found"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-en-021",
-            "kind": "paragraph",
-            "page": 43,
-            "text": "covered"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-en-022",
-            "kind": "paragraph",
-            "page": 43,
-            "text": "issue"
+            "width": 1263,
+            "height": 575
           },
           {
             "id": "ch05-s03-the-pareto-principle-en-023",
@@ -1550,99 +1507,57 @@
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-009",
-            "kind": "paragraph",
+            "kind": "table",
             "page": 42,
-            "text": "拒绝医疗索赔的原因 原因计数 重复索赔 18012 及时提交 13245 未找到受益人 10215 索赔缺乏信息 4548 服务不承保 2154 医疗必需品 1423 服务发出日期 526"
+            "rows": [
+              [
+                "Reasons for Denying Medical Claims",
+                "Reasons for Denying Medical Claims"
+              ],
+              [
+                "Reason",
+                "Count"
+              ],
+              [
+                "Duplicate claim",
+                "18,012"
+              ],
+              [
+                "Timely filing",
+                "13,245"
+              ],
+              [
+                "No beneficiary found",
+                "10,215"
+              ],
+              [
+                "Claim lacks information",
+                "4,548"
+              ],
+              [
+                "Service not covered",
+                "2,154"
+              ],
+              [
+                "Medical necessity",
+                "1,423"
+              ],
+              [
+                "Date of service issue",
+                "526"
+              ]
+            ],
+            "text": "Reasons for Denying Medical Claims Reasons for Denying Medical Claims Reason Count Duplicate claim 18,012 Timely filing 13,245 No beneficiary found 10,215 Claim lacks information 4,548 Service not covered 2,154 Medical necessity 1,423 Date of service issue 526",
+            "preserveOriginal": true
           },
           {
-            "id": "ch05-s03-the-pareto-principle-zh-010",
-            "kind": "paragraph",
+            "id": "source-chart-pareto-ch05-zh",
+            "kind": "image",
+            "assetId": "source-chart-pareto-ch05",
+            "src": "assets/figures/source-chart-pareto-ch05.png",
             "page": 42,
-            "text": "索赔被拒绝的原因"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-zh-011",
-            "kind": "paragraph",
-            "page": 42,
-            "text": "35.9%"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-zh-012",
-            "kind": "paragraph",
-            "page": 42,
-            "text": "26.4%"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-zh-013",
-            "kind": "paragraph",
-            "page": 42,
-            "text": "20.4%"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-zh-014",
-            "kind": "paragraph",
-            "page": 42,
-            "text": "9.1%"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-zh-015",
-            "kind": "paragraph",
-            "page": 42,
-            "text": "4.3% 2.8% 1.0%"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-zh-016",
-            "kind": "heading",
-            "page": 43,
-            "text": "重复索赔 及时提交 无受益人"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-zh-017",
-            "kind": "heading",
-            "page": 43,
-            "text": "服务不行"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-zh-018",
-            "kind": "paragraph",
-            "page": 43,
-            "text": "服务日期"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-zh-019",
-            "kind": "paragraph",
-            "page": 43,
-            "text": "索赔缺乏信息"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-zh-020",
-            "kind": "heading",
-            "page": 43,
-            "text": "医疗"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-zh-021",
-            "kind": "paragraph",
-            "page": 43,
-            "text": "必要性"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-zh-022",
-            "kind": "paragraph",
-            "page": 43,
-            "text": "发现"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-zh-023",
-            "kind": "paragraph",
-            "page": 43,
-            "text": "覆盖"
-          },
-          {
-            "id": "ch05-s03-the-pareto-principle-zh-024",
-            "kind": "paragraph",
-            "page": 43,
-            "text": "问题"
+            "width": 1263,
+            "height": 575
           },
           {
             "id": "ch05-s03-the-pareto-principle-zh-025",
@@ -2760,6 +2675,14 @@
       "page": 40,
       "width": 1155,
       "height": 318
+    },
+    {
+      "id": "source-chart-pareto-ch05",
+      "type": "table-image",
+      "path": "assets/figures/source-chart-pareto-ch05.png",
+      "page": 42,
+      "width": 1263,
+      "height": 575
     }
   ]
 }

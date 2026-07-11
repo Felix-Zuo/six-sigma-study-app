@@ -142,6 +142,16 @@
             "text": "如果缺少适当的测量和分析，组织内的决策过程可能会变成下面这样："
           },
           {
+            "id": "decision-without-six-sigma-zh-image-001",
+            "kind": "image",
+            "assetId": "fig-72a76dbe66a901d6",
+            "src": "assets/figures/fig-72a76dbe66a901d6.png",
+            "page": 6,
+            "width": 582,
+            "height": 538,
+            "alt": "缺少测量与分析时的决策流程图"
+          },
+          {
             "id": "decision-without-six-sigma-zh-002",
             "kind": "listItem",
             "page": 6,
@@ -316,51 +326,55 @@
           },
           {
             "id": "real-world-examples-en-006",
-            "kind": "paragraph",
+            "kind": "table",
             "page": 7,
-            "text": "Cost of Amazon Order Errors, 5σ"
-          },
-          {
-            "id": "real-world-examples-en-007",
-            "kind": "heading",
-            "page": 7,
-            "text": "Total Orders"
-          },
-          {
-            "id": "real-world-examples-en-008",
-            "kind": "heading",
-            "page": 7,
-            "text": "Errors Average Cost per Error Total Cost of Errors"
-          },
-          {
-            "id": "real-world-examples-en-009",
-            "kind": "paragraph",
-            "page": 7,
-            "text": "36.8 million 8574.4 $35 $300,104.00"
+            "rows": [
+              [
+                "Cost of Amazon Order Errors, 5σ",
+                "Cost of Amazon Order Errors, 5σ",
+                "Cost of Amazon Order Errors, 5σ",
+                "Cost of Amazon Order Errors, 5σ"
+              ],
+              [
+                "Total Orders",
+                "Errors",
+                "Average Cost per Error",
+                "Total Cost of Errors"
+              ],
+              [
+                "36.8 million",
+                "8,574.4",
+                "$35",
+                "$300,104.00"
+              ]
+            ],
+            "text": "Cost of Amazon Order Errors, 5σ Total Orders Errors Average Cost per Error Total Cost of Errors 36.8 million 8,574.4 $35 $300,104.00"
           },
           {
             "id": "real-world-examples-en-010",
-            "kind": "paragraph",
+            "kind": "table",
             "page": 7,
-            "text": "Cost of Amazon Order Errors, 6σ"
-          },
-          {
-            "id": "real-world-examples-en-011",
-            "kind": "heading",
-            "page": 7,
-            "text": "Total Orders"
-          },
-          {
-            "id": "real-world-examples-en-012",
-            "kind": "heading",
-            "page": 7,
-            "text": "Errors Average Cost per Error Total Cost of Errors"
-          },
-          {
-            "id": "real-world-examples-en-013",
-            "kind": "paragraph",
-            "page": 7,
-            "text": "36.8 million 125.12 $35 $4,379.20"
+            "rows": [
+              [
+                "Cost of Amazon Order Errors, 6σ",
+                "Cost of Amazon Order Errors, 6σ",
+                "Cost of Amazon Order Errors, 6σ",
+                "Cost of Amazon Order Errors, 6σ"
+              ],
+              [
+                "Total Orders",
+                "Errors",
+                "Average Cost per Error",
+                "Total Cost of Errors"
+              ],
+              [
+                "36.8 million",
+                "125.12",
+                "$35",
+                "$4,379.20"
+              ]
+            ],
+            "text": "Cost of Amazon Order Errors, 6σ Total Orders Errors Average Cost per Error Total Cost of Errors 36.8 million 125.12 $35 $4,379.20"
           },
           {
             "id": "real-world-examples-en-014",
@@ -376,75 +390,53 @@
           },
           {
             "id": "real-world-examples-en-016",
-            "kind": "heading",
+            "kind": "table",
             "page": 7,
-            "text": "Sigma Level"
-          },
-          {
-            "id": "real-world-examples-en-017",
-            "kind": "heading",
-            "page": 7,
-            "text": "Defects per Million Opportunities"
-          },
-          {
-            "id": "real-world-examples-en-018",
-            "kind": "heading",
-            "page": 7,
-            "text": "Estimated Cyber"
-          },
-          {
-            "id": "real-world-examples-en-019",
-            "kind": "heading",
-            "page": 7,
-            "text": "Monday Defects"
-          },
-          {
-            "id": "real-world-examples-en-020",
-            "kind": "paragraph",
-            "page": 7,
-            "text": "Total Cost (at $35"
-          },
-          {
-            "id": "real-world-examples-en-021",
-            "kind": "paragraph",
-            "page": 7,
-            "text": "estimate per error)"
-          },
-          {
-            "id": "real-world-examples-en-022",
-            "kind": "paragraph",
-            "page": 7,
-            "text": "One Sigma 690,000 25,392,000 $888,720,000"
-          },
-          {
-            "id": "real-world-examples-en-023",
-            "kind": "paragraph",
-            "page": 7,
-            "text": "Two Sigma 308,000 11,334,400 $396,704,000"
-          },
-          {
-            "id": "real-world-examples-en-024",
-            "kind": "paragraph",
-            "page": 7,
-            "text": "Three Sigma 66,800 2,458,240 $86,038,400"
-          },
-          {
-            "id": "real-world-examples-en-025",
-            "kind": "paragraph",
-            "page": 7,
-            "text": "Four Sigma 6,200 228,160 $7,985,600"
-          },
-          {
-            "id": "real-world-examples-en-026",
-            "kind": "paragraph",
-            "page": 7,
-            "text": "Five Sigma 233 8,574.4 $300,104"
-          },
-          {
-            "id": "real-world-examples-en-027",
-            "kind": "paragraph",
-            "page": 7,
-            "text": "Six Sigma 3.4 125.12 $4,379"
+            "rows": [
+              [
+                "Sigma Level",
+                "Defects per Million Opportunities",
+                "Estimated Cyber Monday Defects",
+                "Total Cost (at $35 estimate per error)"
+              ],
+              [
+                "One Sigma",
+                "690,000",
+                "25,392,000",
+                "$888,720,000"
+              ],
+              [
+                "Two Sigma",
+                "308,000",
+                "11,334,400",
+                "$396,704,000"
+              ],
+              [
+                "Three Sigma",
+                "66,800",
+                "2,458,240",
+                "$86,038,400"
+              ],
+              [
+                "Four Sigma",
+                "6,200",
+                "228,160",
+                "$7,985,600"
+              ],
+              [
+                "Five Sigma",
+                "233",
+                "8,574.4",
+                "$300,104"
+              ],
+              [
+                "Six Sigma",
+                "3.4",
+                "125.12",
+                "$4,379"
+              ]
+            ],
+            "text": "Sigma Level Defects per Million Opportunities Estimated Cyber Monday Defects Total Cost (at $35 estimate per error) One Sigma 690,000 25,392,000 $888,720,000 Two Sigma 308,000 11,334,400 $396,704,000 Three Sigma 66,800 2,458,240 $86,038,400 Four Sigma 6,200 228,160 $7,985,600 Five Sigma 233 8,574.4 $300,104 Six Sigma 3.4 125.12 $4,379"
           },
           {
             "id": "real-world-examples-en-028",
@@ -663,45 +655,41 @@
           },
           {
             "id": "calculating-sigma-level-en-008",
-            "kind": "heading",
+            "kind": "table",
             "page": 8,
-            "text": "Yield %"
-          },
-          {
-            "id": "calculating-sigma-level-en-009",
-            "kind": "heading",
-            "page": 8,
-            "text": "DPMO Sigma Level"
-          },
-          {
-            "id": "calculating-sigma-level-en-010",
-            "kind": "paragraph",
-            "page": 8,
-            "text": "99.7450 2,550 4.3"
-          },
-          {
-            "id": "calculating-sigma-level-en-011",
-            "kind": "paragraph",
-            "page": 8,
-            "text": "99.6540 3,460 4.2"
-          },
-          {
-            "id": "calculating-sigma-level-en-012",
-            "kind": "paragraph",
-            "page": 8,
-            "text": "99.5340 4,550 4.1"
-          },
-          {
-            "id": "calculating-sigma-level-en-013",
-            "kind": "paragraph",
-            "page": 8,
-            "text": "99.3790 6,210 4.0"
-          },
-          {
-            "id": "calculating-sigma-level-en-014",
-            "kind": "paragraph",
-            "page": 8,
-            "text": "99.1810 8,190 3.9"
+            "rows": [
+              [
+                "Yield %",
+                "DPMO",
+                "Sigma Level"
+              ],
+              [
+                "99.7450",
+                "2,550",
+                "4.3"
+              ],
+              [
+                "99.6540",
+                "3,460",
+                "4.2"
+              ],
+              [
+                "99.5340",
+                "4,550",
+                "4.1"
+              ],
+              [
+                "99.3790",
+                "6,210",
+                "4.0"
+              ],
+              [
+                "99.1810",
+                "8,190",
+                "3.9"
+              ]
+            ],
+            "text": "Yield % DPMO Sigma Level 99.7450 2,550 4.3 99.6540 3,460 4.2 99.5340 4,550 4.1 99.3790 6,210 4.0 99.1810 8,190 3.9"
           }
         ],
         "zh": [
@@ -710,6 +698,16 @@
             "kind": "paragraph",
             "page": 8,
             "text": "在西格玛水平非常低时，任何流程都不太可能盈利。西格玛水平越高，财务结果通常越好。组织和团队可以使用下面的公式计算产品或流程的西格玛水平："
+          },
+          {
+            "id": "calculating-sigma-level-zh-image-001",
+            "kind": "image",
+            "assetId": "fig-9f3da0ba12d44fb6",
+            "src": "assets/figures/fig-9f3da0ba12d44fb6.png",
+            "page": 8,
+            "width": 479,
+            "height": 113,
+            "alt": "西格玛良率计算公式"
           },
           {
             "id": "calculating-sigma-level-zh-002",
@@ -829,51 +827,31 @@
           },
           {
             "id": "sigma-level-not-final-en-004",
-            "kind": "heading",
+            "kind": "table",
             "page": 9,
-            "text": "Process"
-          },
-          {
-            "id": "sigma-level-not-final-en-005",
-            "kind": "heading",
-            "page": 9,
-            "text": "Performance Metric(s) Current Sigma Level"
-          },
-          {
-            "id": "sigma-level-not-final-en-006",
-            "kind": "paragraph",
-            "page": 9,
-            "text": "2.2"
-          },
-          {
-            "id": "sigma-level-not-final-en-007",
-            "kind": "paragraph",
-            "page": 9,
-            "text": "Attaching a decorative element to food item"
-          },
-          {
-            "id": "sigma-level-not-final-en-008",
-            "kind": "paragraph",
-            "page": 9,
-            "text": "Decorative touch is centered on food product and stable so it won’t fall off in transit"
-          },
-          {
-            "id": "sigma-level-not-final-en-009",
-            "kind": "paragraph",
-            "page": 9,
-            "text": "Packing product Product is sealed for freshness 3.1"
-          },
-          {
-            "id": "sigma-level-not-final-en-010",
-            "kind": "paragraph",
-            "page": 9,
-            "text": "4.3"
-          },
-          {
-            "id": "sigma-level-not-final-en-011",
-            "kind": "paragraph",
-            "page": 9,
-            "text": "Shipping of product Product reaches the right customer in a timely manner"
+            "rows": [
+              [
+                "Process",
+                "Performance Metric(s)",
+                "Current Sigma Level"
+              ],
+              [
+                "Attaching a decorative element to food item",
+                "Decorative touch is centered on food product and stable so it won't fall off in transit",
+                "2.2"
+              ],
+              [
+                "Packing product",
+                "Product is sealed for freshness",
+                "3.1"
+              ],
+              [
+                "Shipping of product",
+                "Product reaches the right customer in a timely manner",
+                "4.3"
+              ]
+            ],
+            "text": "Process Performance Metric(s) Current Sigma Level Attaching a decorative element to food item Decorative touch is centered on food product and stable so it won't fall off in transit 2.2 Packing product Product is sealed for freshness 3.1 Shipping of product Product reaches the right customer in a timely manner 4.3"
           },
           {
             "id": "sigma-level-not-final-en-012",
@@ -1849,25 +1827,25 @@
             "id": "chapter-sources-zh-001",
             "kind": "listItem",
             "page": 13,
-            "text": "National Oceanic and Atmospheric Administration, Science on a Sphere: http://sos.noaa.gov/Datasets/dataset.php?id=44"
+            "text": "美国国家海洋和大气管理局（NOAA），Science on a Sphere： http://sos.noaa.gov/Datasets/dataset.php?id=44"
           },
           {
             "id": "chapter-sources-zh-002",
             "kind": "listItem",
             "page": 13,
-            "text": "Centers for Disease Control and Prevention, FastStats: http://www.cdc.gov/nchs/fastats/inpatient-surgery.htm"
+            "text": "美国疾病控制与预防中心（CDC），FastStats： http://www.cdc.gov/nchs/fastats/inpatient-surgery.htm"
           },
           {
             "id": "chapter-sources-zh-003",
             "kind": "listItem",
             "page": 13,
-            "text": "Boy Genius Reports, Dec. 26, 2013: http://bgr.com/2013/12/26/amazon-holiday-season-sales-2013/"
+            "text": "Boy Genius Report，2013 年 12 月 26 日： http://bgr.com/2013/12/26/amazon-holiday-season-sales-2013/"
           },
           {
             "id": "chapter-sources-zh-004",
             "kind": "listItem",
             "page": 13,
-            "text": "Quality Digest, Six Sigma Success in Small Business: http://www.qualitydigest.com/april05/articles/02_article.shtml"
+            "text": "《质量文摘》（Quality Digest），《小型企业的六西格玛成功实践》： http://www.qualitydigest.com/april05/articles/02_article.shtml"
           }
         ]
       }

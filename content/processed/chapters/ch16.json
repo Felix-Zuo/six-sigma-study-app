@@ -297,39 +297,59 @@
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-023",
-            "kind": "heading",
+            "kind": "table",
             "page": 152,
-            "text": "Company: XYZ Sweets"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-en-024",
-            "kind": "heading",
-            "page": 152,
-            "text": "Control Plan Created by: Joe Black Belt"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-en-025",
-            "kind": "paragraph",
-            "page": 152,
-            "text": "Process: Sugar addition, raw goods mixture"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-en-026",
-            "kind": "paragraph",
-            "page": 152,
-            "text": "Control Plan Created on: Jan. 4, 2012"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-en-027",
-            "kind": "heading",
-            "page": 152,
-            "text": "Process Owner: Sue Processor"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-en-028",
-            "kind": "heading",
-            "page": 152,
-            "text": "Process Step"
+            "rows": [
+              [
+                "Company: XYZ Sweets",
+                "",
+                "Control Plan Created by: Joe Black Belt",
+                ""
+              ],
+              [
+                "Process: Sugar addition, raw goods mixture",
+                "",
+                "Control Plan Created on: Jan. 4, 2012",
+                ""
+              ],
+              [
+                "Process Owner: Sue Processor",
+                "",
+                "",
+                ""
+              ],
+              [
+                "",
+                "",
+                "",
+                ""
+              ],
+              [
+                "Process Step",
+                "Addition of sugar to batch",
+                "",
+                "Heating of batch"
+              ],
+              [
+                "CTQ/Metric",
+                "Total amount added to batch",
+                "",
+                "Mean temperature during mixing"
+              ],
+              [
+                "Limit specification",
+                "LSL: 4.90 cups USL: 5.10 cups",
+                "",
+                "LSL: 105 F USL: 110 F"
+              ],
+              [
+                "Unit of measurement",
+                "Cups",
+                "",
+                "Degrees F"
+              ]
+            ],
+            "text": "Company: XYZ Sweets  Control Plan Created by: Joe Black Belt  Process: Sugar addition, raw goods mixture  Control Plan Created on: Jan. 4, 2012  Process Owner: Sue Processor        Process Step Addition of sugar to batch  Heating of batch CTQ/Metric Total amount added to batch  Mean temperature during mixing Limit specification LSL: 4.90 cups USL: 5.10 cups  LSL: 105 F USL: 110 F Unit of measurement Cups  Degrees F"
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-029",
@@ -381,33 +401,41 @@
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-037",
-            "kind": "heading",
+            "kind": "table",
             "page": 153,
-            "text": "Sample Size"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-en-038",
-            "kind": "paragraph",
-            "page": 153,
-            "text": "One batch 3 reading, 2 minutes apart, during mixing"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-en-039",
-            "kind": "paragraph",
-            "page": 153,
-            "text": "Frequency Every 2 hours Every 2 hours"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-en-040",
-            "kind": "heading",
-            "page": 153,
-            "text": "Employee"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-en-041",
-            "kind": "heading",
-            "page": 153,
-            "text": "Mixer operator Mixer Operator"
+            "rows": [
+              [
+                "Method of measurement",
+                "6-cup sugar test bowl",
+                "Read integrated digital thermometer on mixing machine"
+              ],
+              [
+                "Sample Size",
+                "One batch",
+                "3 reading, 2 minutes apart, during mixing"
+              ],
+              [
+                "Frequency",
+                "Every 2 hours",
+                "Every 2 hours"
+              ],
+              [
+                "Employee",
+                "Mixer operator",
+                "Mixer Operator"
+              ],
+              [
+                "Record data in",
+                "Mix operation log spreadsheet",
+                "Mix operation log spreadsheet"
+              ],
+              [
+                "Corrective action",
+                "Manually measure correct amount for current batch to allow for processing, calibrate sugar disbursement machine following SOP 100.54, test sugar disbursement for first batch after calibration to ensure problem is resolved. Report issue to supervisor.",
+                "Turn off machine, waste inappropriately heated batch, and report temperature calibration issue to maintenance."
+              ]
+            ],
+            "text": "Method of measurement 6-cup sugar test bowl Read integrated digital thermometer on mixing machine Sample Size One batch 3 reading, 2 minutes apart, during mixing Frequency Every 2 hours Every 2 hours Employee Mixer operator Mixer Operator Record data in Mix operation log spreadsheet Mix operation log spreadsheet Corrective action Manually measure correct amount for current batch to allow for processing, calibrate sugar disbursement machine following SOP 100.54, test sugar disbursement for first batch after calibration to ensure problem is resolved. Report issue to supervisor. Turn off machine, waste inappropriately heated batch, and report temperature calibration issue to maintenance."
           },
           {
             "id": "ch16-s03-create-a-control-plan-en-042",
@@ -609,135 +637,99 @@
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-025",
-            "kind": "heading",
+            "kind": "table",
             "page": 152,
-            "text": "公司：XYZ糖果"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-zh-026",
-            "kind": "heading",
-            "page": 152,
-            "text": "控制计划创建者：Joe 黑带"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-zh-027",
-            "kind": "paragraph",
-            "page": 152,
-            "text": "工艺：加糖、原料混合"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-zh-028",
-            "kind": "heading",
-            "page": 152,
-            "text": "控制计划创建于：一月 2012年4月"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-zh-029",
-            "kind": "heading",
-            "page": 152,
-            "text": "进程所有者：Sue Processor"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-zh-030",
-            "kind": "heading",
-            "page": 152,
-            "text": "工艺步骤"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-zh-031",
-            "kind": "paragraph",
-            "page": 152,
-            "text": "向批次中添加糖 加热批次"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-zh-032",
-            "kind": "heading",
-            "page": 152,
-            "text": "CTQ/公制"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-zh-033",
-            "kind": "paragraph",
-            "page": 152,
-            "text": "添加到批次中的总量 混合期间的平均温度"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-zh-034",
-            "kind": "heading",
-            "page": 152,
-            "text": "极限规格 LSL：4.90 杯 USL：5.10 杯"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-zh-035",
-            "kind": "heading",
-            "page": 153,
-            "text": "LSL：105 华氏度"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-zh-036",
-            "kind": "heading",
-            "page": 153,
-            "text": "上层高度：110 华氏度"
+            "rows": [
+              [
+                "Company: XYZ Sweets",
+                "",
+                "Control Plan Created by: Joe Black Belt",
+                ""
+              ],
+              [
+                "Process: Sugar addition, raw goods mixture",
+                "",
+                "Control Plan Created on: Jan. 4, 2012",
+                ""
+              ],
+              [
+                "Process Owner: Sue Processor",
+                "",
+                "",
+                ""
+              ],
+              [
+                "",
+                "",
+                "",
+                ""
+              ],
+              [
+                "Process Step",
+                "Addition of sugar to batch",
+                "",
+                "Heating of batch"
+              ],
+              [
+                "CTQ/Metric",
+                "Total amount added to batch",
+                "",
+                "Mean temperature during mixing"
+              ],
+              [
+                "Limit specification",
+                "LSL: 4.90 cups USL: 5.10 cups",
+                "",
+                "LSL: 105 F USL: 110 F"
+              ],
+              [
+                "Unit of measurement",
+                "Cups",
+                "",
+                "Degrees F"
+              ]
+            ],
+            "text": "Company: XYZ Sweets  Control Plan Created by: Joe Black Belt  Process: Sugar addition, raw goods mixture  Control Plan Created on: Jan. 4, 2012  Process Owner: Sue Processor        Process Step Addition of sugar to batch  Heating of batch CTQ/Metric Total amount added to batch  Mean temperature during mixing Limit specification LSL: 4.90 cups USL: 5.10 cups  LSL: 105 F USL: 110 F Unit of measurement Cups  Degrees F",
+            "preserveOriginal": true
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-037",
-            "kind": "heading",
+            "kind": "table",
             "page": 153,
-            "text": "测量单位 杯 度 F"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-zh-038",
-            "kind": "paragraph",
-            "page": 153,
-            "text": "测量方法 6 杯糖测试碗 读取搅拌机上的集成数字温度计"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-zh-039",
-            "kind": "heading",
-            "page": 153,
-            "text": "样本量"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-zh-040",
-            "kind": "paragraph",
-            "page": 153,
-            "text": "一批 3 次读数，间隔 2 分钟，混合期间"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-zh-041",
-            "kind": "heading",
-            "page": 153,
-            "text": "频率 每 2 小时 每 2 小时"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-zh-042",
-            "kind": "heading",
-            "page": 153,
-            "text": "员工"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-zh-043",
-            "kind": "heading",
-            "page": 153,
-            "text": "混合器操作员 混合器操作员"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-zh-044",
-            "kind": "paragraph",
-            "page": 153,
-            "text": "在混合操作日志电子表格中记录数据 混合操作日志电子表格"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-zh-045",
-            "kind": "paragraph",
-            "page": 153,
-            "text": "纠正措施 手动测量当前批次的正确数量以进行加工，按照 SOP 100.54 校准糖分配机，在校准后测试第一批糖的分配，以确保问题得到解决。向主管报告问题。"
-          },
-          {
-            "id": "ch16-s03-create-a-control-plan-zh-046",
-            "kind": "paragraph",
-            "page": 153,
-            "text": "关闭机器，浪费加热不当的批次，并向维护人员报告温度校准问题。"
+            "rows": [
+              [
+                "Method of measurement",
+                "6-cup sugar test bowl",
+                "Read integrated digital thermometer on mixing machine"
+              ],
+              [
+                "Sample Size",
+                "One batch",
+                "3 reading, 2 minutes apart, during mixing"
+              ],
+              [
+                "Frequency",
+                "Every 2 hours",
+                "Every 2 hours"
+              ],
+              [
+                "Employee",
+                "Mixer operator",
+                "Mixer Operator"
+              ],
+              [
+                "Record data in",
+                "Mix operation log spreadsheet",
+                "Mix operation log spreadsheet"
+              ],
+              [
+                "Corrective action",
+                "Manually measure correct amount for current batch to allow for processing, calibrate sugar disbursement machine following SOP 100.54, test sugar disbursement for first batch after calibration to ensure problem is resolved. Report issue to supervisor.",
+                "Turn off machine, waste inappropriately heated batch, and report temperature calibration issue to maintenance."
+              ]
+            ],
+            "text": "Method of measurement 6-cup sugar test bowl Read integrated digital thermometer on mixing machine Sample Size One batch 3 reading, 2 minutes apart, during mixing Frequency Every 2 hours Every 2 hours Employee Mixer operator Mixer Operator Record data in Mix operation log spreadsheet Mix operation log spreadsheet Corrective action Manually measure correct amount for current batch to allow for processing, calibrate sugar disbursement machine following SOP 100.54, test sugar disbursement for first batch after calibration to ensure problem is resolved. Report issue to supervisor. Turn off machine, waste inappropriately heated batch, and report temperature calibration issue to maintenance.",
+            "preserveOriginal": true
           },
           {
             "id": "ch16-s03-create-a-control-plan-zh-047",
@@ -1023,16 +1015,13 @@
             "text": "For example, if a process has an USL of 5 and a LSL of 3, a standard deviation of .25 and a median of 4.2, then you would calculate from the USL, since the median is closer to the USL."
           },
           {
-            "id": "ch16-s05-spc-charts-en-033",
-            "kind": "paragraph",
+            "id": "source-formula-sigma-level-ch16",
+            "kind": "image",
+            "assetId": "source-formula-sigma-level-ch16",
+            "src": "assets/figures/source-formula-sigma-level-ch16.png",
             "page": 155,
-            "text": "5−4.2"
-          },
-          {
-            "id": "ch16-s05-spc-charts-en-034",
-            "kind": "paragraph",
-            "page": 155,
-            "text": ".25 = 3.2 = sigma level"
+            "width": 765,
+            "height": 330
           },
           {
             "id": "ch16-s05-spc-charts-en-035",
@@ -1305,16 +1294,13 @@
             "text": "术语说明 Standard Deviation（标准差）：衡量数据离散程度的统计量；标准差越大，波动越明显。"
           },
           {
-            "id": "ch16-s05-spc-charts-zh-038",
-            "kind": "paragraph",
+            "id": "ch16-s05-spc-charts-zh-source-formula",
+            "kind": "image",
+            "assetId": "source-formula-sigma-level-ch16",
+            "src": "assets/figures/source-formula-sigma-level-ch16.png",
             "page": 155,
-            "text": "5−4.2"
-          },
-          {
-            "id": "ch16-s05-spc-charts-zh-039",
-            "kind": "paragraph",
-            "page": 155,
-            "text": ".25 = 3.2 = 西格玛水平"
+            "width": 765,
+            "height": 330
           },
           {
             "id": "ch16-s05-spc-charts-zh-040",
@@ -1424,6 +1410,14 @@
       "page": 154,
       "width": 1189,
       "height": 439
+    },
+    {
+      "id": "source-formula-sigma-level-ch16",
+      "type": "table-image",
+      "path": "assets/figures/source-formula-sigma-level-ch16.png",
+      "page": 155,
+      "width": 765,
+      "height": 330
     }
   ]
 }

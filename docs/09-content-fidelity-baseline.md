@@ -27,6 +27,46 @@ python scripts/qa_content_fidelity.py --manual path/to/manual.json
 The script is read-only. It never modifies content, and it only writes a file
 when `--json` is passed explicitly.
 
+## Reviewed Repair Snapshot (2026-07-11)
+
+The initial baseline below is retained as historical evidence. The current
+reviewed package has now completed the high-confidence repair pass:
+
+| Metric | EN | ZH |
+| --- | ---: | ---: |
+| Total blocks | 4351 | 4643 |
+| Semantic tables | 31 | 31 |
+| Image blocks | 476 | 476 |
+
+- P0 candidates: **0**
+- P1 candidates: **0**
+- flattened-table candidates: **0** after source-PDF review
+- table-count divergence: **0**
+- image-count divergence: **0**
+- remaining P2 heuristic candidates: **31**, consisting of 22 number/symbol
+  formatting comparisons and 9 URL/formula/product-name residue warnings
+
+The three numeric sequences left by the heuristic were manually checked
+against the source and recorded in
+`content/overrides/content-fidelity-dispositions.json`: they are calculation
+steps or coordinate examples, not tables.
+
+Human-reviewed corrections are durable inputs under `content/overrides/`.
+Run `npm run apply:content-overrides` after extraction. The reviewed recovery
+includes semantic tables, original chart/report crops, bilingual image parity,
+source-reference translation fixes, and explicit `preserveOriginal` markers
+for source tables intentionally retained in English.
+
+Mobile visual evidence is produced by:
+
+```powershell
+node scripts/qa-content-fidelity-visual-cdp.mjs
+```
+
+The script verifies both languages for representative repaired content in
+Chapters 5, 16, 23, 29, and 30, checks decoded images/table structure and
+horizontal containment, and saves screenshots for human review.
+
 ## Exit-Code Policy
 
 - `0` — audit completed, even when candidate findings exist. The current

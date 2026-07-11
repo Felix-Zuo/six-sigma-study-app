@@ -255,70 +255,13 @@
             "text": "Click OK."
           },
           {
-            "id": "ch27-s02-basic-statistics-en-024",
-            "kind": "heading",
+            "id": "source-chart-fitted-line-ch27",
+            "kind": "image",
+            "assetId": "source-chart-fitted-line-ch27",
+            "src": "assets/figures/source-chart-fitted-line-ch27.png",
             "page": 362,
-            "text": "Fitted Line Plot"
-          },
-          {
-            "id": "ch27-s02-basic-statistics-en-025",
-            "kind": "paragraph",
-            "page": 362,
-            "text": "Temperature A = 27.56 + 3.350 Time"
-          },
-          {
-            "id": "ch27-s02-basic-statistics-en-026",
-            "kind": "paragraph",
-            "page": 362,
-            "text": "70"
-          },
-          {
-            "id": "ch27-s02-basic-statistics-en-027",
-            "kind": "paragraph",
-            "page": 362,
-            "text": "S 2.49367 R-Sq 96.3% R-Sq(adj) 95.9%"
-          },
-          {
-            "id": "ch27-s02-basic-statistics-en-028",
-            "kind": "paragraph",
-            "page": 362,
-            "text": "60"
-          },
-          {
-            "id": "ch27-s02-basic-statistics-en-029",
-            "kind": "heading",
-            "page": 362,
-            "text": "Temperature A"
-          },
-          {
-            "id": "ch27-s02-basic-statistics-en-030",
-            "kind": "paragraph",
-            "page": 362,
-            "text": "50"
-          },
-          {
-            "id": "ch27-s02-basic-statistics-en-031",
-            "kind": "paragraph",
-            "page": 362,
-            "text": "40"
-          },
-          {
-            "id": "ch27-s02-basic-statistics-en-032",
-            "kind": "paragraph",
-            "page": 362,
-            "text": "30"
-          },
-          {
-            "id": "ch27-s02-basic-statistics-en-033",
-            "kind": "paragraph",
-            "page": 362,
-            "text": "12 10 8 6 4 2 0"
-          },
-          {
-            "id": "ch27-s02-basic-statistics-en-034",
-            "kind": "heading",
-            "page": 362,
-            "text": "Time"
+            "width": 1050,
+            "height": 726
           },
           {
             "id": "ch27-s02-basic-statistics-en-035",
@@ -504,70 +447,13 @@
             "text": "单击“确定”。"
           },
           {
-            "id": "ch27-s02-basic-statistics-zh-026",
-            "kind": "heading",
+            "id": "ch27-s02-basic-statistics-zh-source-fitted-line",
+            "kind": "image",
+            "assetId": "source-chart-fitted-line-ch27",
+            "src": "assets/figures/source-chart-fitted-line-ch27.png",
             "page": 362,
-            "text": "拟合线图"
-          },
-          {
-            "id": "ch27-s02-basic-statistics-zh-027",
-            "kind": "paragraph",
-            "page": 362,
-            "text": "温度A = 27.56 + 3.350 时间"
-          },
-          {
-            "id": "ch27-s02-basic-statistics-zh-028",
-            "kind": "paragraph",
-            "page": 362,
-            "text": "70"
-          },
-          {
-            "id": "ch27-s02-basic-statistics-zh-029",
-            "kind": "paragraph",
-            "page": 362,
-            "text": "S 2.49367 R-Sq 96.3% R-Sq(调整) 95.9%"
-          },
-          {
-            "id": "ch27-s02-basic-statistics-zh-030",
-            "kind": "paragraph",
-            "page": 362,
-            "text": "60"
-          },
-          {
-            "id": "ch27-s02-basic-statistics-zh-031",
-            "kind": "heading",
-            "page": 362,
-            "text": "温度A"
-          },
-          {
-            "id": "ch27-s02-basic-statistics-zh-032",
-            "kind": "paragraph",
-            "page": 362,
-            "text": "50"
-          },
-          {
-            "id": "ch27-s02-basic-statistics-zh-033",
-            "kind": "paragraph",
-            "page": 362,
-            "text": "40"
-          },
-          {
-            "id": "ch27-s02-basic-statistics-zh-034",
-            "kind": "paragraph",
-            "page": 362,
-            "text": "30"
-          },
-          {
-            "id": "ch27-s02-basic-statistics-zh-035",
-            "kind": "paragraph",
-            "page": 362,
-            "text": "12 10 8 6 4 2 0"
-          },
-          {
-            "id": "ch27-s02-basic-statistics-zh-036",
-            "kind": "heading",
-            "page": 362,
-            "text": "时间"
+            "width": 1050,
+            "height": 726
           },
           {
             "id": "ch27-s02-basic-statistics-zh-037",
@@ -1547,6 +1433,14 @@
       "page": 361,
       "width": 635,
       "height": 674
+    },
+    {
+      "id": "source-chart-fitted-line-ch27",
+      "type": "table-image",
+      "path": "assets/figures/source-chart-fitted-line-ch27.png",
+      "page": 362,
+      "width": 1050,
+      "height": 726
     }
   ]
 }

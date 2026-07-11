@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewedAgainst": "sources/source_manual.pdf",
+  "acceptedTableCandidates": [
+    {
+      "sectionId": "ch09-s03-enterprise-level-selection-process",
+      "startBlockId": "ch09-s03-enterprise-level-selection-process-en-073",
+      "endBlockId": "ch09-s03-enterprise-level-selection-process-en-076",
+      "decision": "keep-as-authored",
+      "reason": "Weighted-score calculation steps, not tabular source content."
+    },
+    {
+      "sectionId": "ch19-s02-correlation",
+      "startBlockId": "ch19-s02-correlation-en-033",
+      "endBlockId": "ch19-s02-correlation-en-037",
+      "decision": "keep-as-authored",
+      "reason": "Coordinate-pair examples for correlation, not a table."
+    },
+    {
+      "sectionId": "ch19-s04-using-correlation-and-regression-in-six-sigma",
+      "startBlockId": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-025",
+      "endBlockId": "ch19-s04-using-correlation-and-regression-in-six-sigma-en-032",
+      "decision": "keep-as-authored",
+      "reason": "Sequential algebra steps solving a regression equation, not a table."
+    }
+  ]
+}

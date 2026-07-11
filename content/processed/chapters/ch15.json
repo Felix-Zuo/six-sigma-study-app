@@ -416,93 +416,109 @@
           },
           {
             "id": "ch15-s03-cost-benefit-analysis-en-015",
-            "kind": "heading",
+            "kind": "table",
             "page": 147,
-            "text": "This year First Year Second Year Third Year Total"
-          },
-          {
-            "id": "ch15-s03-cost-benefit-analysis-en-016",
-            "kind": "heading",
-            "page": 147,
-            "text": "Benefits"
-          },
-          {
-            "id": "ch15-s03-cost-benefit-analysis-en-017",
-            "kind": "paragraph",
-            "page": 147,
-            "text": "Increased revenue $10,000 $20,000 $30,000"
-          },
-          {
-            "id": "ch15-s03-cost-benefit-analysis-en-018",
-            "kind": "paragraph",
-            "page": 147,
-            "text": "Cost Savings $5,000 $10,000 $15,000"
-          },
-          {
-            "id": "ch15-s03-cost-benefit-analysis-en-019",
-            "kind": "heading",
-            "page": 147,
-            "text": "Costs"
-          },
-          {
-            "id": "ch15-s03-cost-benefit-analysis-en-020",
-            "kind": "paragraph",
-            "page": 147,
-            "text": "Capital -$20,000 -$20,000"
-          },
-          {
-            "id": "ch15-s03-cost-benefit-analysis-en-021",
-            "kind": "paragraph",
-            "page": 147,
-            "text": "Equipment -$15,000 -$15,000"
-          },
-          {
-            "id": "ch15-s03-cost-benefit-analysis-en-022",
-            "kind": "paragraph",
-            "page": 147,
-            "text": "Training -$5,000 -$5,000"
-          },
-          {
-            "id": "ch15-s03-cost-benefit-analysis-en-023",
-            "kind": "paragraph",
-            "page": 147,
-            "text": "Labor -$2,000 -$2,000 -$2,000"
-          },
-          {
-            "id": "ch15-s03-cost-benefit-analysis-en-024",
-            "kind": "paragraph",
-            "page": 147,
-            "text": "-$50,000 $13,000 $27,000 $3,000"
-          },
-          {
-            "id": "ch15-s03-cost-benefit-analysis-en-025",
-            "kind": "heading",
-            "page": 147,
-            "text": "Total Benefits –"
-          },
-          {
-            "id": "ch15-s03-cost-benefit-analysis-en-026",
-            "kind": "heading",
-            "page": 147,
-            "text": "Cost Annual"
-          },
-          {
-            "id": "ch15-s03-cost-benefit-analysis-en-027",
-            "kind": "paragraph",
-            "page": 147,
-            "text": "$12,350 $25,650 $2,850"
-          },
-          {
-            "id": "ch15-s03-cost-benefit-analysis-en-028",
-            "kind": "heading",
-            "page": 147,
-            "text": "NPV (Discounted"
-          },
-          {
-            "id": "ch15-s03-cost-benefit-analysis-en-029",
-            "kind": "paragraph",
-            "page": 147,
-            "text": "5 percent)"
+            "rows": [
+              [
+                "",
+                "This year",
+                "First Year",
+                "Second Year",
+                "Third Year Total"
+              ],
+              [
+                "Benefits",
+                "",
+                "",
+                "",
+                ""
+              ],
+              [
+                "Increased revenue",
+                "",
+                "$10,000",
+                "$20,000",
+                "$30,000"
+              ],
+              [
+                "Cost Savings",
+                "",
+                "$5,000",
+                "$10,000",
+                "$15,000"
+              ],
+              [
+                "",
+                "",
+                "",
+                "",
+                ""
+              ],
+              [
+                "Costs",
+                "",
+                "",
+                "",
+                ""
+              ],
+              [
+                "Capital",
+                "-$20,000",
+                "",
+                "",
+                "-$20,000"
+              ],
+              [
+                "Equipment",
+                "-$15,000",
+                "",
+                "",
+                "-$15,000"
+              ],
+              [
+                "Training",
+                "-$5,000",
+                "",
+                "",
+                "-$5,000"
+              ],
+              [
+                "Labor",
+                "",
+                "-$2,000",
+                "-$2,000",
+                "-$2,000"
+              ],
+              [
+                "",
+                "",
+                "",
+                "",
+                ""
+              ],
+              [
+                "Total Benefits – Cost Annual",
+                "-$50,000",
+                "$13,000",
+                "$27,000",
+                "$3,000"
+              ],
+              [
+                "",
+                "",
+                "",
+                "",
+                ""
+              ],
+              [
+                "NPV (Discounted 5 percent)",
+                "",
+                "$12,350",
+                "$25,650",
+                "$2,850"
+              ]
+            ],
+            "text": " This year First Year Second Year Third Year Total Benefits     Increased revenue  $10,000 $20,000 $30,000 Cost Savings  $5,000 $10,000 $15,000      Costs     Capital -$20,000   -$20,000 Equipment -$15,000   -$15,000 Training -$5,000   -$5,000 Labor  -$2,000 -$2,000 -$2,000      Total Benefits – Cost Annual -$50,000 $13,000 $27,000 $3,000      NPV (Discounted 5 percent)  $12,350 $25,650 $2,850"
           },
           {
             "id": "ch15-s03-cost-benefit-analysis-en-030",
@@ -598,39 +614,110 @@
           },
           {
             "id": "ch15-s03-cost-benefit-analysis-zh-015",
-            "kind": "heading",
+            "kind": "table",
             "page": 147,
-            "text": "今年 第一年 第二年 第三年 总计"
-          },
-          {
-            "id": "ch15-s03-cost-benefit-analysis-zh-016",
-            "kind": "heading",
-            "page": 147,
-            "text": "好处"
-          },
-          {
-            "id": "ch15-s03-cost-benefit-analysis-zh-017",
-            "kind": "heading",
-            "page": 147,
-            "text": "收入增加 $10,000 $20,000 $30,000"
-          },
-          {
-            "id": "ch15-s03-cost-benefit-analysis-zh-018",
-            "kind": "heading",
-            "page": 147,
-            "text": "节省成本 $5,000 $10,000 $15,000"
-          },
-          {
-            "id": "ch15-s03-cost-benefit-analysis-zh-019",
-            "kind": "heading",
-            "page": 147,
-            "text": "成本"
-          },
-          {
-            "id": "ch15-s03-cost-benefit-analysis-zh-020",
-            "kind": "heading",
-            "page": 147,
-            "text": "资本 -$20,000 -$20,000"
+            "rows": [
+              [
+                "",
+                "This year",
+                "First Year",
+                "Second Year",
+                "Third Year Total"
+              ],
+              [
+                "Benefits",
+                "",
+                "",
+                "",
+                ""
+              ],
+              [
+                "Increased revenue",
+                "",
+                "$10,000",
+                "$20,000",
+                "$30,000"
+              ],
+              [
+                "Cost Savings",
+                "",
+                "$5,000",
+                "$10,000",
+                "$15,000"
+              ],
+              [
+                "",
+                "",
+                "",
+                "",
+                ""
+              ],
+              [
+                "Costs",
+                "",
+                "",
+                "",
+                ""
+              ],
+              [
+                "Capital",
+                "-$20,000",
+                "",
+                "",
+                "-$20,000"
+              ],
+              [
+                "Equipment",
+                "-$15,000",
+                "",
+                "",
+                "-$15,000"
+              ],
+              [
+                "Training",
+                "-$5,000",
+                "",
+                "",
+                "-$5,000"
+              ],
+              [
+                "Labor",
+                "",
+                "-$2,000",
+                "-$2,000",
+                "-$2,000"
+              ],
+              [
+                "",
+                "",
+                "",
+                "",
+                ""
+              ],
+              [
+                "Total Benefits – Cost Annual",
+                "-$50,000",
+                "$13,000",
+                "$27,000",
+                "$3,000"
+              ],
+              [
+                "",
+                "",
+                "",
+                "",
+                ""
+              ],
+              [
+                "NPV (Discounted 5 percent)",
+                "",
+                "$12,350",
+                "$25,650",
+                "$2,850"
+              ]
+            ],
+            "text": " This year First Year Second Year Third Year Total Benefits     Increased revenue  $10,000 $20,000 $30,000 Cost Savings  $5,000 $10,000 $15,000      Costs     Capital -$20,000   -$20,000 Equipment -$15,000   -$15,000 Training -$5,000   -$5,000 Labor  -$2,000 -$2,000 -$2,000      Total Benefits – Cost Annual -$50,000 $13,000 $27,000 $3,000      NPV (Discounted 5 percent)  $12,350 $25,650 $2,850",
+            "preserveOriginal": true
           }
         ]
       }

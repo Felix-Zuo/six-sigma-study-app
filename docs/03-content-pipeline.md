@@ -41,6 +41,25 @@ Generated app package:
 8. Generate or update the book catalog with `bookId`, source notice, language pair, and runtime content path.
 9. Validate JSON against schema, catalog, and source coverage gates.
 10. Render spot-check pages in the app.
+11. Apply durable source-reviewed corrections from `content/overrides/*.json`.
+12. Run the content-fidelity audit and mobile visual recovery QA.
+
+## Durable Reviewed Overrides
+
+Generated content is not edited as the sole source of truth. Corrections that
+must survive a full extraction are stored under `content/overrides/` and
+applied with:
+
+```powershell
+npm run apply:content-overrides
+```
+
+`scripts/apply_content_overrides.py` supports repeatable range replacement,
+asset registration, obsolete generated-block cleanup, and same-ID content
+upgrades. `scripts/generate_reviewed_table_overrides.py` rebuilds the reviewed
+table/chart recovery specification from the local source PDF. The source PDF
+remains local-only; generated crops and the correction specification are the
+public runtime artifacts.
 
 ## Agent Import Path
 
@@ -73,9 +92,9 @@ Current generated content includes:
 
 - 33 chapters
 - 449 page manifest
-- 9542 generated content blocks with per-block page anchors
-- 470 deduplicated PNG figure assets, about 31.7 MB total
-- 940 image blocks across English and Chinese content streams
+- 8994 generated content blocks with per-block page anchors
+- 475 reviewed PNG figure assets, including five source-PDF recovery crops
+- 952 image blocks across English and Chinese content streams
 - 3952 offline dictionary entries: curated Six Sigma/course terms plus a manual-scoped ECDICT learner subset
 - `asset-manifest.json` for PWA figure pre-cache
 - `catalog.json` with `six-sigma-black-belt` as the first book and bilingual non-commercial source notice
@@ -106,9 +125,9 @@ The source PDF is copied locally to `D:\0A OpenClaw\projects\6sigma\sources\sour
 - chapter assets are referenced by image blocks and stay inside the chapter page range
 - dictionary lookup keys are normalized with the reader-style lookup shape and cannot collide across entries
 - production dictionary has at least 3000 entries and includes ECDICT-derived learner entries
-- APK/AAB package checks confirm all 470 figure assets are bundled
+- APK/AAB package checks confirm all 475 figure assets are bundled
 - curated term references resolve
-- source coverage QA confirms the 557-page source PDF, 142 source TOC sections, 127 matched source section anchors, 15 explicitly allowed normal-paragraph source headings, 470 app assets, and nonblank Poppler renders for sampled source pages 9, 73, 396, 544, and 555
+- source coverage QA confirms the 557-page source PDF, 142 source TOC sections, 127 matched source section anchors, 15 explicitly allowed normal-paragraph source headings, at least 470 baseline assets plus approved recovery crops, and nonblank Poppler renders for sampled source pages 9, 73, 396, 544, and 555
 - sample chapter opens on phone viewport without horizontal overflow
 - catalog validation confirms every book has `bookId`, bilingual title, language pair, source notice, and a resolvable runtime `contentPath`
 - Agent book validation confirms safe `content/books/<bookId>` runtime paths, continuous page ranges, block page anchors, unique book IDs, unique dictionary lookup keys, safe asset paths, and sample-book presence
@@ -120,5 +139,5 @@ The source PDF is copied locally to `D:\0A OpenClaw\projects\6sigma\sources\sour
 - DOCX paragraph order around images is extracted and source-page render sampling passes, but exhaustive 557-page pixel comparison is intentionally not part of the normal gate.
 - Some tables stay as images; some may become semantic tables in a later refinement pass.
 - Phrase detection needs a curated phrase list before generic NLP.
-- English table recovery needs special handling because some Word tables are represented as heading/paragraph fragments.
+- English table recovery is handled by reviewed semantic-table overrides and source-image crops; new extraction changes must keep the fidelity audit at P0=0 and P1=0.
 - Some chapters, such as Chapter 28, contain section-like titles as normal paragraphs rather than Word headings; the source coverage validator tracks the current 15 allowed unmatched source headings until curated manual mapping is added.

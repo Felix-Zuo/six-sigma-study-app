@@ -828,27 +828,75 @@
           },
           {
             "id": "ch14-s03-graphical-analysis-en-026",
-            "kind": "heading",
+            "kind": "table",
             "page": 140,
-            "text": "One"
-          },
-          {
-            "id": "ch14-s03-graphical-analysis-en-027",
-            "kind": "heading",
-            "page": 141,
-            "text": "Monitor"
-          },
-          {
-            "id": "ch14-s03-graphical-analysis-en-028",
-            "kind": "paragraph",
-            "page": 141,
-            "text": "Two Monitors 9 10 8 4 4 9 7 7 2 8 6 7 1 9 8 9 5 14 4 10 3 12 7 7 9 9 5 4 1 9"
-          },
-          {
-            "id": "ch14-s03-graphical-analysis-en-029",
-            "kind": "paragraph",
-            "page": 141,
-            "text": "5 7 6 8 7 14 4 13 2 10 9 12 5 12 4 8 8 6 2 10"
+            "rows": [
+              [
+                "One Monitor",
+                "Two Monitors"
+              ],
+              [
+                "9",
+                "10"
+              ],
+              [
+                "8",
+                "4"
+              ],
+              [
+                "4",
+                "9"
+              ],
+              [
+                "7",
+                "7"
+              ],
+              [
+                "2",
+                "8"
+              ],
+              [
+                "6",
+                "7"
+              ],
+              [
+                "1",
+                "9"
+              ],
+              [
+                "8",
+                "9"
+              ],
+              [
+                "5",
+                "14"
+              ],
+              [
+                "4",
+                "10"
+              ],
+              [
+                "3",
+                "12"
+              ],
+              [
+                "7",
+                "7"
+              ],
+              [
+                "9",
+                "9"
+              ],
+              [
+                "5",
+                "4"
+              ],
+              [
+                "1",
+                "9"
+              ]
+            ],
+            "text": "One Monitor Two Monitors 9 10 8 4 4 9 7 7 2 8 6 7 1 9 8 9 5 14 4 10 3 12 7 7 9 9 5 4 1 9"
           },
           {
             "id": "ch14-s03-graphical-analysis-en-030",
@@ -1145,27 +1193,76 @@
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-035",
-            "kind": "heading",
+            "kind": "table",
             "page": 141,
-            "text": "一"
-          },
-          {
-            "id": "ch14-s03-graphical-analysis-zh-036",
-            "kind": "heading",
-            "page": 141,
-            "text": "监视器"
-          },
-          {
-            "id": "ch14-s03-graphical-analysis-zh-037",
-            "kind": "heading",
-            "page": 141,
-            "text": "两台显示器 9 10 8 4 4 9 7 7 2 8 6 7 1 9 8 9 5 14 4 10 3 12 7 7 9 9 5 4 1 9"
-          },
-          {
-            "id": "ch14-s03-graphical-analysis-zh-038",
-            "kind": "paragraph",
-            "page": 141,
-            "text": "5 7 6 8 7 14 4 13 2 10 9 12 5 12 4 8 8 6 2 10"
+            "rows": [
+              [
+                "One Monitor",
+                "Two Monitors"
+              ],
+              [
+                "9",
+                "10"
+              ],
+              [
+                "8",
+                "4"
+              ],
+              [
+                "4",
+                "9"
+              ],
+              [
+                "7",
+                "7"
+              ],
+              [
+                "2",
+                "8"
+              ],
+              [
+                "6",
+                "7"
+              ],
+              [
+                "1",
+                "9"
+              ],
+              [
+                "8",
+                "9"
+              ],
+              [
+                "5",
+                "14"
+              ],
+              [
+                "4",
+                "10"
+              ],
+              [
+                "3",
+                "12"
+              ],
+              [
+                "7",
+                "7"
+              ],
+              [
+                "9",
+                "9"
+              ],
+              [
+                "5",
+                "4"
+              ],
+              [
+                "1",
+                "9"
+              ]
+            ],
+            "text": "One Monitor Two Monitors 9 10 8 4 4 9 7 7 2 8 6 7 1 9 8 9 5 14 4 10 3 12 7 7 9 9 5 4 1 9",
+            "preserveOriginal": true
           },
           {
             "id": "ch14-s03-graphical-analysis-zh-039",

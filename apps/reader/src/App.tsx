@@ -3218,11 +3218,15 @@ export function App() {
             <tbody>
               {(block.rows ?? []).map((row, rowIndex) => (
                 <tr key={`${block.id}-row-${rowIndex}`}>
-                  {row.map((cell, cellIndex) => (
-                    <td key={`${block.id}-cell-${rowIndex}-${cellIndex}`}>
-                      {renderText(cell, blockPage, section.id, block.id)}
-                    </td>
-                  ))}
+                  {row.length > 1 && row.every((cell) => cell === row[0]) ? (
+                    <td colSpan={row.length}>{renderText(row[0], blockPage, section.id, block.id)}</td>
+                  ) : (
+                    row.map((cell, cellIndex) => (
+                      <td key={`${block.id}-cell-${rowIndex}-${cellIndex}`}>
+                        {renderText(cell, blockPage, section.id, block.id)}
+                      </td>
+                    ))
+                  )}
                 </tr>
               ))}
             </tbody>

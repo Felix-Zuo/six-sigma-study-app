@@ -670,6 +670,9 @@ def main() -> None:
     parser.add_argument("--ecdict-csv", type=Path, default=DEFAULT_ECDICT_CSV)
     args = parser.parse_args()
     manual = build_manual(args.en_docx, args.zh_docx, args.repo_root)
+    from apply_content_overrides import apply_overrides, load_overrides
+
+    manual = apply_overrides(manual, load_overrides(args.repo_root))
     if args.ecdict_csv.exists():
         dictionary, stats = build_dictionary(manual, args.ecdict_csv)
         manual["dictionary"] = dictionary

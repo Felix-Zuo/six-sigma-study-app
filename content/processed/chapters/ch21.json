@@ -582,37 +582,25 @@
             "id": "ch21-s03-selecting-the-right-hypothesis-test-en-024",
             "kind": "listItem",
             "page": 250,
-            "text": "H0: There is no difference in the failure rate between the classes taught in the specific classroom and those taught elsewhere."
+            "text": "H0: There is no difference in failure rate between classes taught in the specific classroom and classes taught elsewhere."
           },
           {
             "id": "ch21-s03-selecting-the-right-hypothesis-test-en-025",
-            "kind": "heading",
+            "kind": "listItem",
             "page": 250,
-            "text": "o Pclassroom = Pelsewhere"
-          },
-          {
-            "id": "ch21-s03-selecting-the-right-hypothesis-test-en-026",
-            "kind": "paragraph",
-            "page": 250,
-            "text": "o Pclassroom = 0.2 o"
+            "text": "P(classroom) = P(elsewhere) = 0.20"
           },
           {
             "id": "ch21-s03-selecting-the-right-hypothesis-test-en-027",
             "kind": "listItem",
             "page": 250,
-            "text": "Ha: The rate of failure is greater for those classes taught in the specific classroom."
+            "text": "Ha: The failure rate is greater for classes taught in the specific classroom."
           },
           {
             "id": "ch21-s03-selecting-the-right-hypothesis-test-en-028",
-            "kind": "heading",
+            "kind": "listItem",
             "page": 250,
-            "text": "o Pclassroom > Pelsewhere"
-          },
-          {
-            "id": "ch21-s03-selecting-the-right-hypothesis-test-en-029",
-            "kind": "paragraph",
-            "page": 250,
-            "text": "o Pclassroom > 0.2 o"
+            "text": "P(classroom) > P(elsewhere) = 0.20"
           },
           {
             "id": "ch21-s03-selecting-the-right-hypothesis-test-en-030",
@@ -1412,37 +1400,25 @@
             "id": "ch21-s03-selecting-the-right-hypothesis-test-zh-024",
             "kind": "listItem",
             "page": 250,
-            "text": "H0：在特定教室教授的课程与在其他教室教授的课程之间的不及格率没有差异。"
+            "text": "H0（原假设）：指定教室与其他教室授课班级的不及格率没有差异。"
           },
           {
             "id": "ch21-s03-selecting-the-right-hypothesis-test-zh-025",
-            "kind": "heading",
+            "kind": "listItem",
             "page": 250,
-            "text": "o Pclassroom = Pelsewhere"
-          },
-          {
-            "id": "ch21-s03-selecting-the-right-hypothesis-test-zh-026",
-            "kind": "paragraph",
-            "page": 250,
-            "text": "o P 课堂 = 0.2 o"
+            "text": "P（指定教室）= P（其他教室）= 0.20"
           },
           {
             "id": "ch21-s03-selecting-the-right-hypothesis-test-zh-027",
             "kind": "listItem",
             "page": 250,
-            "text": "哈：在特定教室授课的课程失败率更高。"
+            "text": "Ha（备择假设）：指定教室授课班级的不及格率更高。"
           },
           {
             "id": "ch21-s03-selecting-the-right-hypothesis-test-zh-028",
-            "kind": "heading",
+            "kind": "listItem",
             "page": 250,
-            "text": "o Pclassroom > Pelsewhere"
-          },
-          {
-            "id": "ch21-s03-selecting-the-right-hypothesis-test-zh-029",
-            "kind": "paragraph",
-            "page": 250,
-            "text": "o P 课堂 > 0.2 o"
+            "text": "P（指定教室）> P（其他教室）= 0.20"
           },
           {
             "id": "ch21-s03-selecting-the-right-hypothesis-test-zh-030",
@@ -1632,7 +1608,7 @@
             "id": "ch21-s03-selecting-the-right-hypothesis-test-zh-059",
             "kind": "listItem",
             "page": 251,
-            "text": "Minitab 和 Excel 的 Analysis TakePak 中提供配对 T 检验"
+            "text": "Minitab 和 Excel 的 Analysis ToolPak（分析工具库）均提供配对 t 检验。"
           },
           {
             "id": "ch21-s03-selecting-the-right-hypothesis-test-zh-060",
@@ -2377,27 +2353,43 @@
           },
           {
             "id": "ch21-s05-running-hypothesis-tests-en-025",
-            "kind": "heading",
+            "kind": "table",
             "page": 256,
-            "text": "Test and CI for One Proportion"
-          },
-          {
-            "id": "ch21-s05-running-hypothesis-tests-en-026",
-            "kind": "paragraph",
-            "page": 256,
-            "text": "Test of p = 0.2 vs p > 0.2"
-          },
-          {
-            "id": "ch21-s05-running-hypothesis-tests-en-027",
-            "kind": "heading",
-            "page": 256,
-            "text": "Exact"
-          },
-          {
-            "id": "ch21-s05-running-hypothesis-tests-en-028",
-            "kind": "paragraph",
-            "page": 256,
-            "text": "Sample X N Sample p 95% Lower Bound P-Value 1 38 142 0.267606 0.207083 0.031"
+            "rows": [
+              [
+                "Test and CI for One Proportion",
+                "Test and CI for One Proportion",
+                "Test and CI for One Proportion",
+                "Test and CI for One Proportion",
+                "Test and CI for One Proportion",
+                "Test and CI for One Proportion"
+              ],
+              [
+                "Test of p = 0.2 vs p > 0.2",
+                "Test of p = 0.2 vs p > 0.2",
+                "Test of p = 0.2 vs p > 0.2",
+                "Test of p = 0.2 vs p > 0.2",
+                "Test of p = 0.2 vs p > 0.2",
+                "Test of p = 0.2 vs p > 0.2"
+              ],
+              [
+                "Sample",
+                "X",
+                "N",
+                "Sample p",
+                "95% Lower Bound",
+                "P-Value"
+              ],
+              [
+                "1",
+                "38",
+                "142",
+                "0.267606",
+                "0.207083",
+                "0.031"
+              ]
+            ],
+            "text": "Test and CI for One Proportion Test and CI for One Proportion Test and CI for One Proportion Test and CI for One Proportion Test and CI for One Proportion Test and CI for One Proportion Test of p = 0.2 vs p > 0.2 Test of p = 0.2 vs p > 0.2 Test of p = 0.2 vs p > 0.2 Test of p = 0.2 vs p > 0.2 Test of p = 0.2 vs p > 0.2 Test of p = 0.2 vs p > 0.2 Sample X N Sample p 95% Lower Bound P-Value 1 38 142 0.267606 0.207083 0.031"
           },
           {
             "id": "ch21-s05-running-hypothesis-tests-en-029",
@@ -2641,27 +2633,109 @@
           },
           {
             "id": "ch21-s05-running-hypothesis-tests-en-069",
-            "kind": "heading",
+            "kind": "table",
             "page": 259,
-            "text": "Number of Bedrooms"
+            "rows": [
+              [
+                "Number of Bedrooms",
+                "Number of Bedrooms",
+                "Number of Bedrooms",
+                "Number of Bedrooms"
+              ],
+              [
+                "4",
+                "5",
+                "6",
+                "4"
+              ],
+              [
+                "4",
+                "5",
+                "6",
+                "4"
+              ],
+              [
+                "4",
+                "3",
+                "6",
+                "3"
+              ],
+              [
+                "4",
+                "3",
+                "6",
+                "3"
+              ],
+              [
+                "4",
+                "3",
+                "6",
+                "3"
+              ],
+              [
+                "5",
+                "3",
+                "7",
+                "2"
+              ],
+              [
+                "5",
+                "3",
+                "7",
+                "2"
+              ]
+            ],
+            "text": "Number of Bedrooms Number of Bedrooms Number of Bedrooms Number of Bedrooms 4 5 6 4 4 5 6 4 4 3 6 3 4 3 6 3 4 3 6 3 5 3 7 2 5 3 7 2"
           },
           {
-            "id": "ch21-s05-running-hypothesis-tests-en-070",
-            "kind": "paragraph",
-            "page": 259,
-            "text": "4 4 4 4 4 5 5 5 5 5"
-          },
-          {
-            "id": "ch21-s05-running-hypothesis-tests-en-071",
-            "kind": "paragraph",
-            "page": 259,
-            "text": "5 5 5 5 5 3 3 3 3 3 3 3 3 3 6 6 6 6 6 6 6 6 7 7 5 5 5 5 4 4 4 4 3 3 3 2 2 2 2 1 1"
-          },
-          {
-            "id": "ch21-s05-running-hypothesis-tests-en-072",
-            "kind": "paragraph",
+            "id": "ch21-s05-running-hypothesis-tests-en-069-page-260",
+            "kind": "table",
             "page": 260,
-            "text": "1"
+            "rows": [
+              [
+                "Number of Bedrooms",
+                "Number of Bedrooms",
+                "Number of Bedrooms",
+                "Number of Bedrooms"
+              ],
+              [
+                "5",
+                "3",
+                "5",
+                "2"
+              ],
+              [
+                "5",
+                "3",
+                "5",
+                "2"
+              ],
+              [
+                "5",
+                "3",
+                "5",
+                "1"
+              ],
+              [
+                "5",
+                "6",
+                "5",
+                "1"
+              ],
+              [
+                "5",
+                "6",
+                "4",
+                "1"
+              ],
+              [
+                "5",
+                "6",
+                "4",
+                ""
+              ]
+            ],
+            "text": "Number of Bedrooms Number of Bedrooms Number of Bedrooms Number of Bedrooms 5 3 5 2 5 3 5 2 5 3 5 1 5 6 5 1 5 6 4 1 5 6 4 "
           },
           {
             "id": "ch21-s05-running-hypothesis-tests-en-073",
@@ -2979,27 +3053,44 @@
           },
           {
             "id": "ch21-s05-running-hypothesis-tests-zh-028",
-            "kind": "heading",
+            "kind": "table",
             "page": 256,
-            "text": "某一比例的测试和 CI"
-          },
-          {
-            "id": "ch21-s05-running-hypothesis-tests-zh-029",
-            "kind": "paragraph",
-            "page": 256,
-            "text": "测试 p = 0.2 与 p > 0.2"
-          },
-          {
-            "id": "ch21-s05-running-hypothesis-tests-zh-030",
-            "kind": "heading",
-            "page": 256,
-            "text": "准确"
-          },
-          {
-            "id": "ch21-s05-running-hypothesis-tests-zh-031",
-            "kind": "heading",
-            "page": 256,
-            "text": "样本 X N 样本 p 95% P 值下限 1 38 142 0.267606 0.207083 0.031"
+            "rows": [
+              [
+                "Test and CI for One Proportion",
+                "Test and CI for One Proportion",
+                "Test and CI for One Proportion",
+                "Test and CI for One Proportion",
+                "Test and CI for One Proportion",
+                "Test and CI for One Proportion"
+              ],
+              [
+                "Test of p = 0.2 vs p > 0.2",
+                "Test of p = 0.2 vs p > 0.2",
+                "Test of p = 0.2 vs p > 0.2",
+                "Test of p = 0.2 vs p > 0.2",
+                "Test of p = 0.2 vs p > 0.2",
+                "Test of p = 0.2 vs p > 0.2"
+              ],
+              [
+                "Sample",
+                "X",
+                "N",
+                "Sample p",
+                "95% Lower Bound",
+                "P-Value"
+              ],
+              [
+                "1",
+                "38",
+                "142",
+                "0.267606",
+                "0.207083",
+                "0.031"
+              ]
+            ],
+            "text": "Test and CI for One Proportion Test and CI for One Proportion Test and CI for One Proportion Test and CI for One Proportion Test and CI for One Proportion Test and CI for One Proportion Test of p = 0.2 vs p > 0.2 Test of p = 0.2 vs p > 0.2 Test of p = 0.2 vs p > 0.2 Test of p = 0.2 vs p > 0.2 Test of p = 0.2 vs p > 0.2 Test of p = 0.2 vs p > 0.2 Sample X N Sample p 95% Lower Bound P-Value 1 38 142 0.267606 0.207083 0.031",
+            "preserveOriginal": true
           },
           {
             "id": "ch21-s05-running-hypothesis-tests-zh-032",
@@ -3243,27 +3334,111 @@
           },
           {
             "id": "ch21-s05-running-hypothesis-tests-zh-072",
-            "kind": "heading",
+            "kind": "table",
             "page": 259,
-            "text": "卧室数量"
+            "rows": [
+              [
+                "Number of Bedrooms",
+                "Number of Bedrooms",
+                "Number of Bedrooms",
+                "Number of Bedrooms"
+              ],
+              [
+                "4",
+                "5",
+                "6",
+                "4"
+              ],
+              [
+                "4",
+                "5",
+                "6",
+                "4"
+              ],
+              [
+                "4",
+                "3",
+                "6",
+                "3"
+              ],
+              [
+                "4",
+                "3",
+                "6",
+                "3"
+              ],
+              [
+                "4",
+                "3",
+                "6",
+                "3"
+              ],
+              [
+                "5",
+                "3",
+                "7",
+                "2"
+              ],
+              [
+                "5",
+                "3",
+                "7",
+                "2"
+              ]
+            ],
+            "text": "Number of Bedrooms Number of Bedrooms Number of Bedrooms Number of Bedrooms 4 5 6 4 4 5 6 4 4 3 6 3 4 3 6 3 4 3 6 3 5 3 7 2 5 3 7 2",
+            "preserveOriginal": true
           },
           {
-            "id": "ch21-s05-running-hypothesis-tests-zh-073",
-            "kind": "paragraph",
-            "page": 259,
-            "text": "4 4 4 4 4 5 5 5 5 5"
-          },
-          {
-            "id": "ch21-s05-running-hypothesis-tests-zh-074",
-            "kind": "paragraph",
-            "page": 259,
-            "text": "5 5 5 5 5 3 3 3 3 3 3 3 3 3 6 6 6 6 6 6 6 6 7 7 5 5 5 5 4 4 4 4 3 3 3 2 2 2 2 1 1"
-          },
-          {
-            "id": "ch21-s05-running-hypothesis-tests-zh-075",
-            "kind": "paragraph",
-            "page": 259,
-            "text": "1"
+            "id": "ch21-s05-running-hypothesis-tests-zh-072-page-260",
+            "kind": "table",
+            "page": 260,
+            "rows": [
+              [
+                "Number of Bedrooms",
+                "Number of Bedrooms",
+                "Number of Bedrooms",
+                "Number of Bedrooms"
+              ],
+              [
+                "5",
+                "3",
+                "5",
+                "2"
+              ],
+              [
+                "5",
+                "3",
+                "5",
+                "2"
+              ],
+              [
+                "5",
+                "3",
+                "5",
+                "1"
+              ],
+              [
+                "5",
+                "6",
+                "5",
+                "1"
+              ],
+              [
+                "5",
+                "6",
+                "4",
+                "1"
+              ],
+              [
+                "5",
+                "6",
+                "4",
+                ""
+              ]
+            ],
+            "text": "Number of Bedrooms Number of Bedrooms Number of Bedrooms Number of Bedrooms 5 3 5 2 5 3 5 2 5 3 5 1 5 6 5 1 5 6 4 1 5 6 4 ",
+            "preserveOriginal": true
           },
           {
             "id": "ch21-s05-running-hypothesis-tests-zh-076",
