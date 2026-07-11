@@ -63,6 +63,10 @@ The final product must support full-manual offline reading, position-preserving 
     catalog/manual packages, and the ignored local private question-bank asset
   - APK signature: v2 verified, one signer; AAB JAR verification passed with
     the expected local self-signed certificate warning
+- Known release boundaries: the private UCOURSE bank has no reviewed Chinese
+  fields and therefore falls back to English on language switch; 31 P2
+  content-fidelity advisories remain for formatting/URL/formula-heavy text,
+  while all P0/P1 candidates are closed.
 
 ## 2026-06-26 Flashcards, Streaks, And Question Practice Update
 

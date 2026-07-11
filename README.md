@@ -225,6 +225,8 @@ The source files are not committed. Runtime JSON uses public-safe provenance fie
 ## Known Limits
 
 - Sentence-level semantic alignment is not separately modeled; current restoration is section/block-level.
+- The local UCOURSE 1000-question source is English. Question language switching falls back to English where the private bank has no reviewed Chinese field; the committed original samples are bilingual.
+- The reviewed content-fidelity gate is P0/P1 clean. Thirty-one P2 advisories remain for number/symbol formatting and URL/formula-heavy text; they are not confirmed content errors.
 - Full OCR/PDF layout reconstruction is not part of the Agent sample yet.
 - Physical long-press QA on a real phone remains separate from WebView/CDP checks.
 - The offline dictionary is scoped to this manual and curated terms, not a full arbitrary English dictionary.
