@@ -1,5 +1,20 @@
 import { type CSSProperties, type PointerEvent, type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { App as CapacitorApp } from "@capacitor/app";
+import {
+  ArrowLeft,
+  BookOpen,
+  ClipboardCheck,
+  Eye,
+  Home,
+  Languages,
+  ListChecks,
+  NotebookPen,
+  Play,
+  RotateCcw,
+  Target,
+  Timer,
+  UserRound
+} from "lucide-react";
 import { normalizeLookup, tokenizeEnglish } from "./lib/tokenize";
 import { resolveContextExplanation, type ContextExplanation } from "./lib/contextLookup";
 import {
@@ -783,6 +798,18 @@ export function App() {
       .filter((item) => item.total > 0 && item.wrong > 0)
       .sort((a, b) => b.wrong / b.total - a.wrong / a.total)
       .slice(0, 4);
+  }, [allQuestions, questionProgress]);
+  const questionSummary = useMemo(() => {
+    const records = allQuestions.map((question) => progressForQuestion(questionProgress, question.questionId));
+    const answered = records.filter((item) => item.correctCount + item.wrongCount + item.unknownCount > 0).length;
+    const correct = records.reduce((sum, item) => sum + item.correctCount, 0);
+    const attempts = records.reduce((sum, item) => sum + item.correctCount + item.wrongCount + item.unknownCount, 0);
+    return {
+      answered,
+      correct,
+      attempts,
+      accuracy: attempts > 0 ? Math.round((correct / attempts) * 100) : 0
+    };
   }, [allQuestions, questionProgress]);
   const currentQuestionList = questionMode === "wrong" ? wrongQuestions : filteredQuestions;
   const currentQuestion =
@@ -1702,13 +1729,12 @@ export function App() {
   }
 
   function renderMainNav() {
-    const items: { view: AppView; label: string; detail?: string }[] = [
-      { view: "home", label: "书库", detail: `${studyBooks.length}` },
-      { view: "vocab", label: "单词", detail: `${allDueTerms.length}` },
-      { view: "questions", label: "刷题", detail: `${allQuestions.length}` },
-      { view: "notes", label: "笔记", detail: `${savedNotes.length}` },
-      { view: "favorites", label: "收藏", detail: `${savedFavorites.length}` },
-      { view: "settings", label: "我的" }
+    const items: { view: AppView; label: string; detail?: string; icon: ReactNode }[] = [
+      { view: "home", label: "首页", detail: `${studyBooks.length}`, icon: <Home size={18} strokeWidth={2} /> },
+      { view: "vocab", label: "单词", detail: `${allDueTerms.length}`, icon: <BookOpen size={18} strokeWidth={2} /> },
+      { view: "questions", label: "刷题", detail: `${allQuestions.length}`, icon: <ClipboardCheck size={18} strokeWidth={2} /> },
+      { view: "notes", label: "笔记", detail: `${savedNotes.length}`, icon: <NotebookPen size={18} strokeWidth={2} /> },
+      { view: "settings", label: "我的", icon: <UserRound size={18} strokeWidth={2} /> }
     ];
     return (
       <nav className="mainNav" aria-label="primary navigation">
@@ -1718,6 +1744,7 @@ export function App() {
             className={view === item.view ? "mainNavItem active" : "mainNavItem"}
             onClick={() => setView(item.view)}
           >
+            {item.icon}
             <strong>{item.label}</strong>
             {item.detail && <span>{item.detail}</span>}
           </button>
@@ -2284,64 +2311,82 @@ export function App() {
       );
     }
 
-    return studyShell(
-      "刷题",
-      "看题、刷题、错题和模拟考试共用本地题库与进度。",
-      <>
-        <section className="questionHero">
-          <div>
-            <p className="eyebrow">question bank</p>
-            <h2>{allQuestions.length} 道题</h2>
-            <p>{userQuestionBank ? `已导入私有题库 ${userQuestionBank.questions.length} 道` : "当前使用公开样例题，可导入本机私有 JSON。"}</p>
-          </div>
-          <button className="modeButton" onClick={() => setQuestionLanguage(questionLanguage === "zh" ? "en" : "zh")}>
-            {questionLanguage === "zh" ? "EN" : "中文"}
+    if (questionMode === "home") {
+      return studyShell(
+        "题库训练",
+        "按进度练习、复盘错题和模拟考试",
+        <>
+          <section className="questionDashboardHero">
+            <div>
+              <p className="eyebrow">Question training</p>
+              <h2>{questionSummary.answered}/{allQuestions.length}</h2>
+              <p>已练题目 · 正确率 {questionSummary.accuracy}%</p>
+            </div>
+            <div className="questionProgressRing" style={{ "--progress": `${Math.round((questionSummary.answered / Math.max(1, allQuestions.length)) * 100)}%` } as CSSProperties}>
+              <Target size={24} />
+            </div>
+          </section>
+
+          <button className="primaryAction questionContinueButton" onClick={() => startPractice("practice")}>
+            <Play size={19} fill="currentColor" />
+            {questionSummary.answered > 0 ? "继续练习" : "开始练习"}
           </button>
-        </section>
 
-        <section className="questionModeGrid" aria-label="question modes">
-          <button className={questionMode === "browse" ? "active" : ""} onClick={() => startPractice("browse")}>看题</button>
-          <button className={questionMode === "practice" ? "active" : ""} onClick={() => startPractice("practice")}>刷题</button>
-          <button className={questionMode === "wrong" ? "active" : ""} onClick={() => startPractice("wrong")}>错题</button>
-          <button className={questionMode === "exam" ? "active" : ""} onClick={() => startPractice("exam")}>模拟考试</button>
-        </section>
+          <section className="questionModeCards" aria-label="question modes">
+            <button onClick={() => startPractice("browse")}>
+              <Eye size={22} /><span><strong>看题</strong><small>答案与精讲</small></span>
+            </button>
+            <button onClick={() => startPractice("practice")}>
+              <ListChecks size={22} /><span><strong>顺序练习</strong><small>{filteredQuestions.length} 道</small></span>
+            </button>
+            <button onClick={() => startPractice("wrong")}>
+              <RotateCcw size={22} /><span><strong>错题复习</strong><small>{wrongQuestions.length} 道</small></span>
+            </button>
+            <button onClick={() => startPractice("exam")}>
+              <Timer size={22} /><span><strong>模拟考试</strong><small>{examResults.length} 次记录</small></span>
+            </button>
+          </section>
 
-        <section className="questionImportPanel">
-          <label>
-            导入私有题库 JSON
-            <input
-              type="file"
-              accept="application/json,.json"
-              onChange={(event) => void importPrivateQuestionBank(event.currentTarget.files?.[0])}
-            />
-          </label>
-          {questionImportMessage && <small>{questionImportMessage}</small>}
-        </section>
+          <section className="questionSpecialPanel">
+            <div className="sectionHeaderRow"><h2>专项练习</h2><span>{filteredQuestions.length} 道</span></div>
+            {renderQuestionFilters()}
+          </section>
 
-        {renderQuestionFilters()}
+          <section className="weakPanel">
+            <h2>薄弱知识点</h2>
+            {weakDomains.length === 0 ? <p>完成练习后会显示需要加强的知识域。</p> : (
+              weakDomains.map((item) => <span key={item.domain}>{item.domain} · {item.wrong}/{item.total}</span>)
+            )}
+          </section>
 
-        {questionMode === "home" ? (
-          <>
-            <section className="questionStatsGrid">
-              <span><strong>{filteredQuestions.length}</strong>筛选题</span>
-              <span><strong>{wrongQuestions.length}</strong>错题</span>
-              <span><strong>{examResults.length}</strong>考试记录</span>
-            </section>
-            <section className="weakPanel">
-              <h2>薄弱知识点</h2>
-              {weakDomains.length === 0 ? (
-                <p>暂无明显薄弱项。</p>
-              ) : (
-                weakDomains.map((item) => <span key={item.domain}>{item.domain} · {item.wrong}/{item.total}</span>)
-              )}
-            </section>
-          </>
-        ) : questionMode === "exam" ? (
-          renderExamMode()
-        ) : (
-          renderQuestionRunner()
-        )}
-      </>
+          <details className="questionBankManager">
+            <summary>本机题库管理</summary>
+            <p>{userQuestionBank ? `已加载私有题库 ${userQuestionBank.questions.length} 道` : `当前可用 ${allQuestions.length} 道题`}</p>
+            <label>
+              导入本机 JSON
+              <input type="file" accept="application/json,.json" onChange={(event) => void importPrivateQuestionBank(event.currentTarget.files?.[0])} />
+            </label>
+            {questionImportMessage && <small>{questionImportMessage}</small>}
+          </details>
+        </>
+      );
+    }
+
+    const sessionTitle = questionMode === "browse" ? "看题" : questionMode === "wrong" ? "错题复习" : questionMode === "exam" ? "模拟考试" : "顺序练习";
+    return studyShell(
+      sessionTitle,
+      "",
+      <section className="questionSession">
+        <div className="questionSessionTopbar">
+          <button aria-label="back to question home" onClick={() => setQuestionMode("home")}><ArrowLeft size={21} /></button>
+          <strong>{sessionTitle}</strong>
+          <button aria-label="switch question language" onClick={() => setQuestionLanguage(questionLanguage === "zh" ? "en" : "zh")}>
+            <Languages size={20} /><span>{questionLanguage === "zh" ? "EN" : "中"}</span>
+          </button>
+        </div>
+        {questionMode === "exam" ? renderExamMode() : renderQuestionRunner()}
+      </section>,
+      { hideNav: true, session: true }
     );
   }
 

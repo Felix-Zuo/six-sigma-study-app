@@ -10,6 +10,8 @@ const sampleHasMultiple = sample.questions.some((question) => question.questionT
 const checks = [
   ["main nav questions", app.includes('{ view: "questions", label: "刷题"')],
   ["four modes", ["看题", "刷题", "错题", "模拟考试"].every((label) => app.includes(label))],
+  ["question dashboard", app.includes("questionDashboardHero") && app.includes("questionModeCards") && app.includes("专项练习")],
+  ["independent question session", app.includes("questionSessionTopbar") && app.includes("hideNav: true")],
   ["browse mode answer", app.includes('variant === "browse"') && app.includes("标记已看") && app.includes("确认答对")],
   ["correct auto next", app.includes("if (isCorrect)") && app.includes("moveToNextQuestion();")],
   ["unknown button", app.includes("markQuestionUnknown") && app.includes(">不会<")],

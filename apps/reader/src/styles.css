@@ -533,7 +533,7 @@ button {
   left: 10px;
   z-index: 12;
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 4px;
   max-width: 740px;
   margin: 0 auto;
@@ -558,6 +558,11 @@ button {
   color: var(--text-muted);
   background: transparent;
   font-size: 11px;
+}
+
+.mainNavItem svg {
+  width: 18px;
+  height: 18px;
 }
 
 .mainNavItem strong {
@@ -1942,6 +1947,138 @@ h1 {
   text-decoration: underline;
   text-decoration-style: dotted;
   text-underline-offset: 3px;
+}
+
+.questionDashboardHero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.questionDashboardHero h2,
+.questionDashboardHero p {
+  margin: 0;
+}
+
+.questionDashboardHero h2 {
+  font-size: 32px;
+}
+
+.questionProgressRing {
+  display: grid;
+  place-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  color: var(--accent-strong);
+  background: conic-gradient(var(--accent) var(--progress), var(--border) 0);
+  position: relative;
+}
+
+.questionProgressRing::after {
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  background: var(--surface);
+  content: "";
+}
+
+.questionProgressRing svg {
+  z-index: 1;
+}
+
+.questionContinueButton {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.questionModeCards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.questionModeCards > button {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  min-height: 78px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--accent-strong);
+  background: var(--surface);
+  text-align: left;
+}
+
+.questionModeCards span {
+  display: grid;
+  gap: 3px;
+}
+
+.questionModeCards small {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.questionSpecialPanel,
+.questionBankManager {
+  padding: 14px 0;
+  border-top: 1px solid var(--border);
+}
+
+.questionBankManager summary {
+  color: var(--accent-strong);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.questionBankManager label {
+  display: grid;
+  gap: 5px;
+  margin-top: 10px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.questionSession {
+  display: grid;
+  gap: 12px;
+}
+
+.questionSessionTopbar {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 0;
+  background: var(--page-bg);
+}
+
+.questionSessionTopbar > button {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--accent-strong);
+  background: var(--surface);
+}
+
+.questionSessionTopbar > strong {
+  text-align: center;
 }
 
 .examSetup {
