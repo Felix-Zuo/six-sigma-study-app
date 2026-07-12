@@ -12,6 +12,7 @@
 | Target 3 product UX | `npm run qa:target3-product`; `npm run qa:notes`; `npm run qa:image-fidelity`; `npm run qa:sheet-gestures` | automatic opening, bottom navigation, independent pages, draggable sheets, favorites, Chinese image fidelity pass | CDP gestures are not a full physical-device matrix |
 | Target 4 product audit | `npm run qa:target4-flow` | opening, home, second book, settings, TOC, immersive mode, lookup half/full, exact source return, Chinese image fidelity, notes, favorites, and vocabulary pass | real-device physical long-press QA remains separate |
 | Android key chapters | `npm run qa:android-key-chapters` | Chapters 1, 7, 26, and 33 render, lookup, align, and load images | WebView/CDP is not a full physical-device matrix |
+| Lexical learning | `npm run qa:lexical-learning`; `npm run qa:lexical-ui` | structured senses, phonetics, context meanings, bilingual examples, native TTS bridge, and mobile layout pass | final voice quality depends on the device TTS voice |
 | Release packaging | `npm run android:release-apk`; `npm run android:aab` | APK/AAB build with runtime packages and figure assets bundled | store upload-key policy is not finalized |
 
 ## Current Release Artifacts
@@ -22,7 +23,7 @@ This document records the current evidence that the Android study app is install
 
 - Repository: `https://github.com/Felix-Zuo/six-sigma-study-app`
 - Local path: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app`
-- Latest local release validation pass when this document was updated: 2026-06-25 17:09 Asia/Shanghai
+- Latest local release validation pass when this document was updated: 2026-07-12 Asia/Shanghai
 - Release APK: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
 
@@ -51,6 +52,8 @@ npm run qa:notes
 npm run qa:image-fidelity
 npm run qa:sheet-gestures
 npm run qa:target4-flow
+npm run qa:learning-modules
+npm run qa:lexical-ui
 npm run typecheck
 npm run build
 npm run android:release-apk
@@ -99,10 +102,11 @@ node scripts\qa-dictionary-cdp.mjs
 - 174 reader sections are generated across the manual.
 - 8994 generated content blocks carry page anchors; English and Chinese block coverage spans every page from 6 through 449.
 - 475 PNG figure/table/formula assets are bundled, including five reviewed source-PDF recovery crops.
-- 3954 offline dictionary entries are bundled: 94 curated course/term entries and 3860 ECDICT-derived learner entries.
+- 3981 public offline dictionary entries are bundled: 94 curated course/term entries and 3887 ECDICT-derived learner entries.
+- Local Android builds additionally stage a 3552-entry ECDICT supplement generated from the ignored private question bank; the supplement remains outside Git with the private bank.
 - Dictionary generation covers 5582 of 5673 single-word manual forms; the remaining uncovered forms are mostly proper names, URL fragments, OCR/formatting artifacts, and unusual compound tokens.
 - `manual.json`, `asset-manifest.json`, PWA shell files, hashed reader assets, and all figure PNGs are present in both APK and AAB.
-- Current APK/AAB checks found 925 APK entries and 933 AAB entries, including the full `manual.json`, 33 chapters, 449 pages, 3954 dictionary entries, 475 figure PNGs, and the ignored local private-question-bank runtime asset.
+- Current APK/AAB checks found 926 APK entries and 934 AAB entries, including the full `manual.json`, 33 chapters, 449 pages, 3981 public dictionary entries, 475 figure PNGs, and the ignored local private-question-bank plus supplemental-dictionary runtime assets.
 - Chapter 28 remains one section because its TOC-like headings are normal paragraphs, not reliable Word headings.
 
 ## PWA Browser Offline QA
@@ -127,6 +131,8 @@ Verified on local emulator `SixSigmaQA` / `emulator-5554`.
 - Extra-large dark-mode WebView QA: Chapters 1, 7, 26, and 33 had 0 horizontal overflow and 0 visible broken images across sampled scroll positions.
 - Table-of-contents search: local offline search matches English/Chinese chapter and section titles, chapter numbers, and page numbers; verified `Minitab`, `439`, and `价值流图` queries in Android WebView.
 - Native Android: service worker registration is skipped and CacheStorage is cleared to avoid stale APK upgrades.
+- Native pronunciation: Android WebView QA verified the custom Capacitor `TextToSpeech` bridge against the installed Google TTS service; `distinguish` playback was accepted without a UI error. Browser builds use Web Speech as a fallback.
+- Rich lexical regression: Android WebView QA verified `constant`, `equation`, and `distinguish` phonetics, full semicolon-separated senses, corrected sentence meanings, bilingual examples, and zero horizontal overflow.
 - Vocabulary: persisted in localStorage under `six-sigma-study:vocab:v1`; old vocabulary records migrate to include `reviewCount`, `correctStreak`, and `nextReviewAt`.
 - Vocabulary review: Android WebView QA verified adding a term from lookup, due-count display, due/all filters, `认识` scheduling, `再记` scheduling, and 0 horizontal overflow in the vocabulary panel.
 - Vocabulary export: Android WebView QA verified CSV export with header, review fields, source text, quote/comma escaping, clipboard fallback, and 0 horizontal overflow.
@@ -141,11 +147,11 @@ Verified on local emulator `SixSigmaQA` / `emulator-5554`.
 - Image fidelity QA: `npm run qa:image-fidelity` passed for Chapters 1, 7, 26, and 33. English/Chinese image counts matched the expected chapter counts (2, 14, 50, and 25 respectively), every checked image loaded without broken assets, lookup opened in each chapter, and horizontal overflow stayed 0.
 - Target 3 screenshots were captured under `qa/screenshots/target3-01-splash.png` through `target3-09-favorites.png`; public-safe copies are committed under `docs/assets/showcase/target3-*.png`.
 - Dictionary lookup: Android WebView QA verified a clicked word after EN/ZH round trip used a real dictionary entry (`to`) rather than the generic fallback explanation.
-- Dictionary coverage: browser CDP QA verified runtime `manual.json` contains ECDICT-derived learner entries, curated hits for `COPQ`, `DMADV`, `poka-yoke`, `5S`, and `Anderson-Darling`, and a real lookup sheet for `both` with phonetic text and 0 horizontal overflow. The current package inspection verified 3954 bundled dictionary entries.
+- Dictionary coverage: browser CDP QA verified runtime `manual.json` contains ECDICT-derived learner entries, curated hits for `COPQ`, `DMADV`, `poka-yoke`, `5S`, and `Anderson-Darling`, and rich lookup profiles for the reported regression terms. The current package inspection verified 3981 public entries plus the ignored 3552-entry private-question supplement.
 - Full-manual validator: `npm run lint:content` now checks 33 chapters, pageCount 449, continuous chapter page ranges, manifest chapter paths, global duplicate section/block IDs, block page anchors, complete EN/ZH page coverage, image asset metadata consistency, unsafe asset paths, asset page bounds, and reader-style dictionary lookup key uniqueness.
 - Source coverage validator: `npm run qa:source-coverage` passed with source PDF page count 557, manual page count 449, 8994 content blocks, 952 image blocks, 475 assets, 142 source TOC sections, 127 matched source section anchors, 15 explicitly allowed normal-paragraph source headings, and nonblank source-page renders for pages 9, 73, 396, 544, and 555.
-- Current release package sizes after this validation pass: APK 38,391,237 bytes; AAB 36,143,459 bytes.
-- Current release package inspection: APK 925 entries and AAB 933 entries; both include `content/catalog.json`, Six Sigma `manual.json`, Import Practice Workbook `content/books/agent-import-sample/manual.json`, 475 figure PNG assets, and the ignored local private question-bank runtime asset.
+- Current release package sizes after this validation pass: APK 38,885,997 bytes; AAB 36,638,342 bytes.
+- Current release package inspection: APK 926 entries and AAB 934 entries; both include `content/catalog.json`, Six Sigma `manual.json`, Import Practice Workbook `content/books/agent-import-sample/manual.json`, 475 figure PNG assets, and the ignored local private question-bank plus supplemental dictionary runtime assets.
 - Signature verification: `apksigner verify --verbose --print-certs android/app/build/outputs/apk/release/app-release.apk` returned exit code 0 with APK Signature Scheme v2 verified and one signer. `jarsigner -verify android/app/build/outputs/bundle/release/app-release.aab` returned exit code 0; the expected local self-signed certificate trust-chain warning remains because the release key is local.
 
 ## Known Remaining Gaps
@@ -156,5 +162,5 @@ Verified on local emulator `SixSigmaQA` / `emulator-5554`.
 - Some chapters need curated section mapping where headings are normal paragraphs; the source coverage validator now guards the current 15 allowed unmatched source headings.
 - Exhaustive 557-page pixel comparison for figures/tables is not part of the normal gate; source-page render sampling and app figure checks are covered.
 - Some table images are intentionally preserved as images; selected tables can be converted to semantic tables later.
-- The local dictionary is manual-scoped rather than a full arbitrary English dictionary; remaining fallback tokens should be reviewed as proper names, OCR artifacts, URL fragments, or course-specific compounds.
+- The public dictionary is scoped to the manual and public sample questions; local private-bank builds add question coverage, while arbitrary imported books still need their own dictionary build step. Remaining fallbacks are usually proper names, OCR artifacts, URL fragments, or unsupported compounds.
 - Saved notes currently render as a notes list; exact inline highlight rendering in the reading body is still pending.

@@ -1019,6 +1019,13 @@ h1 {
   line-height: 1.1;
 }
 
+.sheetHeaderActions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 4px;
+}
+
 .closeButton {
   flex: 0 0 auto;
   border: 0;
@@ -1056,23 +1063,105 @@ h1 {
 }
 
 .contextMeaningCard p,
-.dictionaryDetails p {
+.dictionaryCard p {
   margin: 0;
   line-height: 1.6;
 }
 
-.dictionaryDetails {
+.dictionaryCard {
+  display: grid;
+  gap: 10px;
   margin: 12px 0;
-  padding: 10px 12px;
+  padding: 12px;
   border: 1px solid var(--border);
   border-radius: 6px;
   background: var(--surface-muted);
 }
 
-.dictionaryDetails summary {
+.dictionaryTitleRow,
+.dictionaryMetaLine,
+.flashTermMeta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dictionaryTitleRow {
+  justify-content: space-between;
+}
+
+.dictionaryTitleRow > div {
+  min-width: 0;
+}
+
+.dictionaryTitleRow > div > span,
+.flashDictionarySummary > span {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.dictionaryMetaLine {
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+
+.dictionaryTranslation {
+  color: var(--heading);
+  font-size: 18px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.iconAction {
+  display: inline-grid;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  color: var(--accent-strong);
+  background: var(--surface);
+}
+
+.pronounceIconButton:active {
+  transform: scale(0.95);
+}
+
+.wordStructure {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 5px 10px;
+  margin: 0;
+  font-size: 13px;
+}
+
+.wordStructure dt {
+  color: var(--text-muted);
+  font-weight: 800;
+}
+
+.wordStructure dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.englishDefinition {
+  font-size: 13px;
+}
+
+.englishDefinition summary {
   color: var(--accent-strong);
   cursor: pointer;
   font-weight: 800;
+}
+
+.pronunciationMessage {
+  margin: 2px 0;
+  color: var(--text-muted);
+  font-size: 12px;
 }
 
 .phonetic {
@@ -1082,9 +1171,9 @@ h1 {
 }
 
 .partOfSpeech {
-  margin: 0 0 10px;
+  margin: 0;
   color: var(--text-muted);
-  font-style: italic;
+  font-size: 13px;
 }
 
 .termBadge {
@@ -1125,6 +1214,11 @@ h1 {
   word-break: break-word;
 }
 
+.translationUnavailable {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
 .saveButton {
   width: 100%;
   height: 46px;
@@ -1134,6 +1228,19 @@ h1 {
   color: var(--accent-text);
   background: var(--accent);
   font-weight: 850;
+}
+
+.saveButton.compact {
+  display: inline-grid;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  color: var(--accent-strong);
+  background: var(--surface);
 }
 
 .sourceButton {
@@ -1575,6 +1682,34 @@ h1 {
 .flashAnswer {
   display: grid;
   gap: 10px;
+}
+
+.flashTermMeta {
+  flex-wrap: wrap;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.flashTermMeta .pronounceIconButton {
+  margin-left: auto;
+}
+
+.flashDictionarySummary {
+  display: grid;
+  gap: 6px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.wordRootLine {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.contextMeaningCard.compact {
+  margin: 0;
 }
 
 .studySessionShell {

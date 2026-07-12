@@ -156,7 +156,7 @@ async function main() {
   await waitFor("flash answer", () => evaluate(`Boolean(document.querySelector(".flashAnswer .flashExample"))`));
   const flashAnswer = await evaluate(`(() => ({
     meaning: document.querySelector(".flashAnswer .translation")?.textContent?.trim(),
-    explanation: document.querySelector(".flashAnswer > p:not(.translation)")?.textContent?.trim(),
+    explanation: document.querySelector(".flashAnswer .contextMeaningCard p:not(.translation)")?.textContent?.trim(),
     examples: document.querySelectorAll(".flashExample p").length,
     source: document.querySelector(".flashAnswer .sourceLine")?.textContent?.trim(),
     scrollY: window.scrollY,

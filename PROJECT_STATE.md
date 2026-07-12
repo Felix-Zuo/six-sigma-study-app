@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-07-11 Asia/Shanghai
+Last updated: 2026-07-12 Asia/Shanghai
 
 ## Objective
 
@@ -27,7 +27,23 @@ The final product must support full-manual offline reading, position-preserving 
 - Latest pre-migration pushed GitHub Actions state: CI passed for `1d6ef7f` in run `28159917559`
 - Release APK after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 3954-entry offline learner dictionary with curated Six Sigma terms first, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service worker with verified offline app-shell/figure caching for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 3981-entry public offline learner dictionary plus an ignored 3552-entry local private-question supplement, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service worker with verified offline app-shell/figure caching for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+
+## 2026-07-12 Rich Vocabulary And Native Pronunciation Upgrade
+
+- Rebuilt lookup and flashcard answers around a stable information order: full dictionary senses, phonetics and part of speech first; lemma/word forms and English definition next; current-sentence meaning and bilingual example last.
+- Normalized ECDICT translations to semicolon-separated senses and added structured `wordRoot`, `wordForms`, and `englishDefinition` fields. Public runtime dictionary count is now 3981.
+- Added local private-question dictionary generation during `stage:private-question-bank`; the current 1000-question bank contributes 3552 ignored offline entries without committing the private questions or generated word list.
+- Corrected the reported regressions: `distinguish` is “区分；辨别”, adjectival `constant` is “持续不变的；恒定的”, and formula-context `equation` is “方程式；计算公式”.
+- Replaced same-page-first translation lookup with aligned block selection and context-aware Chinese sentence selection. Existing vocabulary records are enriched from the new dictionary/alignment while preserving review history.
+- Added a Capacitor Android native `TextToSpeech` bridge using the system English voice, with initialization/language errors surfaced in the UI and Web Speech retained as a browser fallback.
+- Added `qa:lexical-learning` and mobile `qa:lexical-ui` gates. Browser and Android WebView runs passed all three reported words, bilingual examples, pronunciation control, and zero horizontal overflow.
+- Android emulator `SixSigmaQA` exposed Google TTS, accepted the native `distinguish` playback request, and returned no pronunciation error.
+- Final release artifacts after this upgrade:
+  - APK: 38,885,997 bytes, SHA-256 `91ED3D3CA444FDACCDA093CAEFE4FC2F7D77175A55ED04B24676F858306C7A3A`
+  - AAB: 36,638,342 bytes, SHA-256 `E0C0A7FFA79950BF6FB8AC6FED7E58408D5B5CDC89914C6C83C90A89D91E7D72`
+  - package contents: 926 APK entries / 934 AAB entries; the ignored private question bank and private question dictionary are bundled only in local artifacts
+  - APK signature: v2 verified, one signer; AAB JAR verification passed
 
 ## 2026-07-11 Product And Content Upgrade
 
@@ -57,9 +73,9 @@ The final product must support full-manual offline reading, position-preserving 
 - Native content visual QA passed Chapters 5/16/23/29/30 in EN and ZH with
   valid semantic tables/decoded report images and zero body overflow.
 - Current release artifacts:
-  - APK: 38,391,237 bytes, SHA-256 `CA0418D87065C06A6E8F1C9388F3224F2FDE8576B78CD23C0A292D6C3511440C`
-  - AAB: 36,143,459 bytes, SHA-256 `486D98F2CF56B04E11DEA2AED734C708F1876F44AA22E4EC0FD88D1F83928CB8`
-  - package contents: 925 APK entries / 933 AAB entries, 475 figure PNGs,
+  - APK: 38,885,997 bytes, SHA-256 `91ED3D3CA444FDACCDA093CAEFE4FC2F7D77175A55ED04B24676F858306C7A3A`
+  - AAB: 36,638,342 bytes, SHA-256 `E0C0A7FFA79950BF6FB8AC6FED7E58408D5B5CDC89914C6C83C90A89D91E7D72`
+  - package contents: 926 APK entries / 934 AAB entries, 475 figure PNGs,
     catalog/manual packages, and the ignored local private question-bank asset
   - APK signature: v2 verified, one signer; AAB JAR verification passed with
     the expected local self-signed certificate warning

@@ -9,6 +9,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 WORKSPACE_ROOT = REPO_ROOT.parent
 PRIVATE_DIR = WORKSPACE_ROOT / "private-question-bank"
 STAGED_PATH = REPO_ROOT / "apps" / "reader" / "public" / "content" / "private" / "question-bank.private.json"
+STAGED_DICTIONARY_PATH = REPO_ROOT / "apps" / "reader" / "public" / "content" / "private" / "question-dictionary.private.json"
 
 
 def run_git(args: list[str]) -> str:
@@ -52,6 +53,7 @@ def main() -> None:
         "privateJsonExists": private_json.exists(),
         "reportExists": report.exists(),
         "stagedAssetExists": STAGED_PATH.exists(),
+        "stagedDictionaryExists": STAGED_DICTIONARY_PATH.exists(),
         "trackedLeakCount": 0,
     }
     print(json.dumps(result, ensure_ascii=False, indent=2))

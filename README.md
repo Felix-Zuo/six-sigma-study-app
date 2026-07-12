@@ -15,7 +15,7 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 | Runtime books | 2 catalog books: full Six Sigma manual + original import-practice workbook |
 | Six Sigma content | 33 chapters, 449 aligned study pages, 174 reader sections |
 | Preserved assets | 475 figure/table/formula PNG runtime assets; EN/ZH image counts 476/476 |
-| Dictionary | 3954 local entries, curated Six Sigma terms first |
+| Dictionary | 3981 public offline entries; local Android builds add a 3552-entry private-question supplement |
 | Practice | 1006 questions in local Android release; browse/practice/wrong/exam modes |
 | Platforms | Android APK/AAB via Capacitor, PWA runtime for browser QA |
 | Study data | `bookId`-scoped reading position, vocabulary, notes, source anchors, streaks, question progress |
@@ -39,9 +39,9 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 | --- | --- | --- |
 | ![Second book](docs/assets/showcase/target4-second-book.png) | ![Table of contents](docs/assets/showcase/target4-toc.png) | ![Settings and about](docs/assets/showcase/target4-settings.png) |
 
-| Vocabulary Plan | Question Training | Question Word Lookup |
+| Rich Vocabulary Answer | Question Training | Rich Question Word Lookup |
 | --- | --- | --- |
-| ![Context vocabulary plan](docs/assets/showcase/learning-vocab-plan.png) | ![Question training dashboard](docs/assets/showcase/learning-question-home.png) | ![Question word context lookup](docs/assets/showcase/learning-question-lookup.png) |
+| ![Vocabulary answer with phonetics, senses, context, and translation](docs/assets/showcase/learning-vocab-answer.png) | ![Question training dashboard](docs/assets/showcase/learning-question-home.png) | ![Question lookup with rich dictionary and context](docs/assets/showcase/learning-question-lookup-rich.png) |
 
 ## Study Workflow
 
@@ -62,7 +62,8 @@ When another book is selected, vocabulary, notes, and favorites are filtered to 
 - Deduplicated page rail, chapter progress, page search, and table-of-contents navigation.
 - Immersive reading mode with Android back-button handling.
 - Draggable bottom-sheet lookup with half, tall, and full-height states plus scroll containment.
-- Curated terms, learner dictionary entries, phrase lookup, sentence-specific meanings and examples, source return, and CSV export.
+- Rich offline word profiles with phonetics, pronunciation, part of speech, semicolon-separated senses, lemma/word forms, English definitions, sentence-specific meanings, bilingual examples, source return, and CSV export.
+- Android pronunciation uses the device's native English text-to-speech engine; browser builds retain a Web Speech fallback.
 - Flashcard vocabulary review with familiarity, lapse, interval, ease factor, and question-source metadata.
 - Daily local streak target with capped catch-up workload after missed days.
 - Independent vocabulary, notes, and favorites pages with book filters, search, sorting, and source return actions.
@@ -160,6 +161,7 @@ Public-readiness evidence: [PUBLIC_READINESS.md](PUBLIC_READINESS.md). Attributi
 | Target 4 product audit | `npm run qa:target4-flow` | opening, home, second book, settings, TOC, immersive, lookup half/full, source return, Chinese image fidelity, notes, favorites, vocabulary |
 | Learning modules | `npm run qa:learning-modules` | flashcards, streak, question schema, question modes, question word lookup, private-bank isolation |
 | Learning UI | `npm run qa:learning-ui` | recall-first word review, contextual answer, question lookup, unknown explanation, correct auto-next |
+| Lexical learning | `npm run qa:lexical-learning`, `npm run qa:lexical-ui` | rich senses, phonetics, context disambiguation, bilingual examples, native pronunciation bridge, mobile layout |
 | Android WebView | `npm run qa:android-key-chapters` | Chapters 1, 7, 26, 33, lookup, alignment, image checks |
 | Release package | `npm run android:release-apk` and `npm run android:aab` | local signed APK/AAB with runtime content bundled |
 

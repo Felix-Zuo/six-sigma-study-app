@@ -25,6 +25,23 @@ EXCHANGE_LABELS = {
     "r": "比较级",
     "t": "最高级",
 }
+POS_LABELS = {
+    "n": "n. 名词",
+    "v": "v. 动词",
+    "vt": "vt. 及物动词",
+    "vi": "vi. 不及物动词",
+    "a": "adj. 形容词",
+    "s": "adj. 形容词",
+    "adj": "adj. 形容词",
+    "r": "adv. 副词",
+    "adv": "adv. 副词",
+    "prep": "prep. 介词",
+    "conj": "conj. 连词",
+    "pron": "pron. 代词",
+    "num": "num. 数词",
+    "aux": "aux. 助动词",
+    "int": "int. 感叹词",
+}
 IRREGULAR_LEMMAS = {
     "am": ["be"],
     "are": ["be"],
@@ -144,16 +161,29 @@ def lemma_candidates(form: str) -> list[str]:
     return candidates
 
 
+def normalize_phonetic(value: str) -> str:
+    return value.strip().replace("ә", "ə").replace("є", "ɛ").replace("'", "ˈ")
+
+
 def clean_translation(value: str) -> str:
-    lines = []
+    senses: list[str] = []
     for line in value.replace("\\n", "\n").splitlines():
         text = " ".join(line.split())
         if not text or text.startswith("[网络]") or text.startswith("[例句]"):
             continue
-        lines.append(text)
-    joined = "；".join(lines)
-    joined = re.sub(r"\s*；\s*", "；", joined)
-    return joined[:260].rstrip("；,， ")
+        match = re.match(r"^((?:n|v|vt|vi|a|s|adj|r|adv|prep|conj|pron|num|aux|int)\.)\s*(.*)$", text, re.I)
+        prefix = match.group(1).lower() if match else ""
+        body = match.group(2) if match else text
+        pieces = [piece.strip() for piece in re.split(r"[;,，；]+", body) if piece.strip()]
+        if not pieces:
+            continue
+        if prefix:
+            normalized_prefix = {"a.": "adj.", "s.": "adj.", "r.": "adv."}.get(prefix, prefix)
+            pieces[0] = f"{normalized_prefix} {pieces[0]}"
+        for piece in pieces:
+            if piece not in senses:
+                senses.append(piece)
+    return "；".join(senses)[:420].rstrip("；,， ")
 
 
 def clean_definition(value: str) -> str:
@@ -180,6 +210,41 @@ def parse_exchange(exchange: str) -> dict[str, list[str]]:
             if normalized and not normalized.isdigit() and normalized not in parsed[code]:
                 parsed[code].append(normalized)
     return dict(parsed)
+
+
+def derive_part_of_speech(row: dict[str, str]) -> str:
+    raw = row.get("pos", "").strip()
+    codes: list[str] = []
+    for source in [raw, row.get("translation", ""), row.get("definition", "")]:
+        for code in re.findall(r"(?:^|\\n)(n|v|vt|vi|a|s|adj|r|adv|prep|conj|pron|num|aux|int)\.", source, re.I):
+            normalized = code.lower()
+            if normalized not in codes:
+                codes.append(normalized)
+    labels = [POS_LABELS[code] for code in codes if code in POS_LABELS]
+    return " / ".join(labels) or raw or "词"
+
+
+def exchange_notes(exchange: dict[str, list[str]]) -> list[str]:
+    notes: list[str] = []
+    for code, values in exchange.items():
+        shown = "、".join(values[:6])
+        if shown:
+            notes.append(f"{EXCHANGE_LABELS[code]}：{shown}")
+    return notes
+
+
+def merge_translations(primary: str, secondary: str) -> str:
+    merged: list[str] = []
+    for value in [primary, secondary]:
+        for sense in value.split("；"):
+            clean = sense.strip()
+            comparable = re.sub(r"^(?:n|v|vt|vi|adj|adv|prep|conj|pron|num|aux|int)\.\s*", "", clean, flags=re.I)
+            if clean and not any(
+                comparable == re.sub(r"^(?:n|v|vt|vi|adj|adv|prep|conj|pron|num|aux|int)\.\s*", "", item, flags=re.I)
+                for item in merged
+            ):
+                merged.append(clean)
+    return "；".join(merged)[:420]
 
 
 def load_ecdict_rows(path: Path) -> dict[str, dict[str, str]]:
@@ -230,32 +295,19 @@ def ecdict_entry(row: dict[str, str], forms: set[str], used_keys: set[str]) -> d
     if not lookup_keys:
         return None
 
-    explanation_parts: list[str] = []
-    phonetic = row.get("phonetic", "").strip()
-    if phonetic:
-        explanation_parts.append(f"音标：/{phonetic}/")
-    if row.get("pos", "").strip():
-        explanation_parts.append(f"词性：{row['pos'].strip()}")
-    exchange_notes = []
-    for code, values in exchange.items():
-        shown = "、".join(values[:4])
-        if shown:
-            exchange_notes.append(f"{EXCHANGE_LABELS[code]}：{shown}")
-    if exchange_notes:
-        explanation_parts.append("常见词形：" + "；".join(exchange_notes))
+    phonetic = normalize_phonetic(row.get("phonetic", ""))
+    form_notes = exchange_notes(exchange)
     definition = clean_definition(row.get("definition", ""))
-    if definition:
-        explanation_parts.append(f"英文释义：{definition}")
-    if not explanation_parts:
-        explanation_parts.append("通用英汉词典释义，结合当前句子理解；六西格玛专业词以术语词条为准。")
-
-    part_of_speech = row.get("pos", "").strip() or "word"
+    part_of_speech = derive_part_of_speech(row)
     entry: dict[str, Any] = {
         "term": row.get("word", "").strip() or term,
         "translation": translation,
         "partOfSpeech": part_of_speech,
         "lookupKeys": lookup_keys,
-        "explanation": "。".join(explanation_parts) + "。",
+        "wordRoot": term,
+        "wordForms": form_notes,
+        "englishDefinition": definition,
+        "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
         "source": "ECDICT",
     }
     if phonetic:
@@ -263,8 +315,78 @@ def ecdict_entry(row: dict[str, str], forms: set[str], used_keys: set[str]) -> d
     return entry
 
 
+def collect_question_forms(path: Path) -> set[str]:
+    if not path.exists():
+        return set()
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    forms: set[str] = set()
+    for question in payload.get("questions", []):
+        texts = [question.get("stem", {}).get("en", ""), question.get("explanation", {}).get("en", "")]
+        texts.extend(option.get("en", "") for option in question.get("options", []))
+        for text in texts:
+            for token in WORD_RE.findall(str(text)):
+                normalized = normalize_lookup_key(token)
+                if normalized:
+                    forms.add(normalized)
+    return forms
+
+
+def collect_public_question_ts_forms(path: Path) -> set[str]:
+    if not path.exists():
+        return set()
+    forms: set[str] = set()
+    source = path.read_text(encoding="utf-8")
+    for match in re.finditer(r'\ben:\s*"((?:[^"\\]|\\.)*)"', source):
+        try:
+            text = json.loads(f'"{match.group(1)}"')
+        except json.JSONDecodeError:
+            continue
+        for token in WORD_RE.findall(text):
+            normalized = normalize_lookup_key(token)
+            if normalized:
+                forms.add(normalized)
+    return forms
+
+
+def enrich_curated_entries(entries: list[dict[str, Any]], rows: dict[str, dict[str, str]]) -> None:
+    for entry in entries:
+        term = normalize_lookup_key(entry["term"])
+        row = rows.get(term)
+        entry.setdefault("wordRoot", term)
+        entry.setdefault("wordForms", [])
+        entry.setdefault("englishDefinition", "")
+        if not row:
+            continue
+        general_translation = clean_translation(row.get("translation", ""))
+        if general_translation:
+            entry["translation"] = merge_translations(str(entry["translation"]), general_translation)
+        phonetic = normalize_phonetic(row.get("phonetic", ""))
+        if phonetic:
+            entry.setdefault("phonetic", phonetic)
+        entry["wordForms"] = exchange_notes(parse_exchange(row.get("exchange", "")))
+        entry["englishDefinition"] = clean_definition(row.get("definition", ""))
+        if not entry.get("partOfSpeech") or entry.get("partOfSpeech") in {"word", "term"}:
+            entry["partOfSpeech"] = derive_part_of_speech(row)
+
+
+def release_generic_aliases(entries: list[dict[str, Any]], rows: dict[str, dict[str, str]]) -> None:
+    for entry in entries:
+        own_term = normalize_lookup_key(entry["term"])
+        entry["lookupKeys"] = [
+            key
+            for key in entry.get("lookupKeys", [])
+            if normalize_lookup_key(key) == own_term or normalize_lookup_key(key) not in rows
+        ]
+        if own_term not in {normalize_lookup_key(key) for key in entry["lookupKeys"]}:
+            entry["lookupKeys"].insert(0, own_term)
+
+
 def build_dictionary(manual: dict[str, Any], ecdict_csv: Path) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     manual_forms = collect_manual_forms(manual)
+    public_question_path = DEFAULT_REPO_ROOT / "samples" / "question-bank" / "public-sample.questions.json"
+    manual_forms.update(collect_question_forms(public_question_path))
+    public_question_ts_path = DEFAULT_REPO_ROOT / "apps" / "reader" / "src" / "data" / "publicQuestionBank.ts"
+    manual_forms.update(collect_public_question_ts_forms(public_question_ts_path))
     rows = load_ecdict_rows(ecdict_csv)
     selected_forms: dict[str, set[str]] = defaultdict(set)
 
@@ -275,6 +397,8 @@ def build_dictionary(manual: dict[str, Any], ecdict_csv: Path) -> tuple[list[dic
                 break
 
     entries = curated_entries()
+    enrich_curated_entries(entries, rows)
+    release_generic_aliases(entries, rows)
     used = used_lookup_keys(entries)
     added = 0
     skipped_for_duplicates = 0

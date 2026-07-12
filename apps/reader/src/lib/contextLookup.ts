@@ -73,7 +73,35 @@ const rules: Record<string, ContextRule[]> = {
   variation: [{ meaning: "变异；波动", explanation: "指流程输出或执行方式中的差异，是六西格玛重点减少和控制的对象。" }],
   process: [{ meaning: "流程", explanation: "指把输入转化为输出的一系列相互关联的活动。" }],
   defect: [{ meaning: "缺陷", explanation: "指未满足客户、规格或流程要求的输出。" }],
-  defects: [{ meaning: "缺陷", explanation: "指未满足客户、规格或流程要求的多个输出或问题。" }]
+  defects: [{ meaning: "缺陷", explanation: "指未满足客户、规格或流程要求的多个输出或问题。" }],
+  distinguish: [
+    {
+      meaning: "区分；辨别",
+      explanation: "这里作动词，表示根据特征识别两类不同原因或状态之间的差别。",
+      when: /control chart|common[- ]cause|special[- ]cause|difference|between/i
+    },
+    { meaning: "区分；辨别", explanation: "这里作动词，表示看出或说明两个对象之间的差别。" }
+  ],
+  constant: [
+    {
+      meaning: "持续不变的；恒定的",
+      explanation: "这里修饰 target，强调六西格玛是组织持续追求、长期保持的目标，不是数学中的“常数”。",
+      when: /constant\s+(target|goal|effort|pressure|change|improvement)/i
+    },
+    {
+      meaning: "常数；恒量",
+      explanation: "这里是数学或统计语境中的名词，表示取值保持不变的量。",
+      when: /equation|formula|value|coefficient|variable|calculate|mathemat/i
+    }
+  ],
+  equation: [
+    {
+      meaning: "方程式；计算公式",
+      explanation: "这里指用于计算西格玛水平的数学表达式，应理解为“方程式/计算公式”，不是抽象的“相等”。",
+      when: /calculate|using|below|formula|sigma|solve/i
+    },
+    { meaning: "等式；方程式", explanation: "这里指用等号连接数学表达式的等式或方程式。" }
+  ]
 };
 
 function normalize(value: string): string {
@@ -93,6 +121,33 @@ function clippedTranslation(value?: string): string | undefined {
   return clean.length <= 72 ? clean : `${clean.slice(0, 71)}…`;
 }
 
+function selectExampleTranslation(value: string | undefined, meaning: string): string | undefined {
+  const clean = value?.replace(/\s+/g, " ").trim();
+  if (!clean || !/[\u3400-\u9fff]/.test(clean)) {
+    return undefined;
+  }
+  const sentences = clean.match(/[^。！？!?；]+[。！？!?；]?/g)?.map((item) => item.trim()).filter(Boolean) ?? [clean];
+  if (sentences.length <= 1) {
+    return clean;
+  }
+  const keywords = meaning
+    .replace(/^(?:n|v|vt|vi|adj|adv|pron|prep|conj|art|num|aux|int)\.\s*/i, "")
+    .split(/[；;，,、/]/)
+    .map((item) => item.replace(/[的了地得]/g, "").trim())
+    .filter((item) => item.length >= 2);
+  const ranked = sentences.map((sentence, index) => ({
+    sentence,
+    index,
+    score: keywords.reduce((score, keyword) => {
+      if (sentence.includes(keyword)) {
+        return score + 20 + keyword.length;
+      }
+      return score + [...keyword].filter((character) => sentence.includes(character)).length;
+    }, 0)
+  })).sort((left, right) => right.score - left.score || left.index - right.index);
+  return ranked[0].score > 0 ? ranked[0].sentence : clean;
+}
+
 export function resolveContextExplanation(input: {
   query: string;
   dictionaryTranslation: string;
@@ -104,7 +159,8 @@ export function resolveContextExplanation(input: {
   const candidates = rules[key] ?? [];
   const rule = candidates.find((item) => !item.when || item.when.test(input.sourceText));
   const meaning = rule?.meaning ?? firstMeaning(input.dictionaryTranslation);
-  const translatedSentence = clippedTranslation(input.sourceTranslation);
+  const exampleTranslation = selectExampleTranslation(input.sourceTranslation, meaning);
+  const translatedSentence = clippedTranslation(exampleTranslation);
   const explanation =
     rule?.explanation ??
     (translatedSentence
@@ -117,6 +173,6 @@ export function resolveContextExplanation(input: {
     sourceText: input.sourceText,
     sourceTranslation: input.sourceTranslation,
     exampleText: input.sourceText,
-    exampleTranslation: input.sourceTranslation
+    exampleTranslation
   };
 }

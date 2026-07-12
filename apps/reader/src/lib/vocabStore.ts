@@ -7,6 +7,12 @@ export type SavedTerm = {
   contentVersion?: string;
   term: string;
   translation: string;
+  partOfSpeech?: string;
+  phonetic?: string;
+  wordRoot?: string;
+  wordForms?: string[];
+  englishDefinition?: string;
+  dictionaryExplanation?: string;
   chapter: number;
   chapterTitle: string;
   page: number;
@@ -112,6 +118,12 @@ function normalizeSavedTerm(item: Partial<SavedTerm>): SavedTerm {
     contentVersion: item.contentVersion,
     term,
     translation,
+    partOfSpeech: item.partOfSpeech,
+    phonetic: item.phonetic,
+    wordRoot: item.wordRoot,
+    wordForms: Array.isArray(item.wordForms) ? item.wordForms.filter((value): value is string => typeof value === "string") : undefined,
+    englishDefinition: item.englishDefinition,
+    dictionaryExplanation: item.dictionaryExplanation,
     chapter: item.chapter ?? 1,
     chapterTitle: item.chapterTitle ?? "Chapter 1: What is Six Sigma?",
     page: item.page ?? 1,
@@ -259,6 +271,12 @@ export function savedTermsToCsv(terms: SavedTerm[]): string {
     "bookTitle",
     "contentVersion",
     "translation",
+    "partOfSpeech",
+    "phonetic",
+    "wordRoot",
+    "wordForms",
+    "englishDefinition",
+    "dictionaryExplanation",
     "status",
     "familiarity",
     "reviewCount",
@@ -293,6 +311,12 @@ export function savedTermsToCsv(terms: SavedTerm[]): string {
     term.bookTitle,
     term.contentVersion,
     term.translation,
+    term.partOfSpeech,
+    term.phonetic,
+    term.wordRoot,
+    term.wordForms?.join("；"),
+    term.englishDefinition,
+    term.dictionaryExplanation,
     term.status,
     term.familiarity,
     term.reviewCount,

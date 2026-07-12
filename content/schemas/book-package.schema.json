@@ -130,6 +130,12 @@
         "translation": { "type": "string", "minLength": 1 },
         "partOfSpeech": { "type": "string" },
         "phonetic": { "type": "string" },
+        "wordRoot": { "type": "string" },
+        "wordForms": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "englishDefinition": { "type": "string" },
         "explanation": { "type": "string", "minLength": 1 },
         "contextMeanings": {
           "type": "array",

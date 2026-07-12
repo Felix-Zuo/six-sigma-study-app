@@ -2,6 +2,8 @@ import { type CSSProperties, type PointerEvent, type ReactNode, useEffect, useMe
 import { App as CapacitorApp } from "@capacitor/app";
 import {
   ArrowLeft,
+  BookmarkCheck,
+  BookmarkPlus,
   BookOpen,
   ClipboardCheck,
   Eye,
@@ -13,7 +15,8 @@ import {
   RotateCcw,
   Target,
   Timer,
-  UserRound
+  UserRound,
+  Volume2
 } from "lucide-react";
 import { normalizeLookup, tokenizeEnglish } from "./lib/tokenize";
 import { resolveContextExplanation, type ContextExplanation } from "./lib/contextLookup";
@@ -48,6 +51,7 @@ import {
   type QuestionProgress
 } from "./lib/questionBank";
 import { publicQuestionBank } from "./data/publicQuestionBank";
+import { speakEnglish } from "./lib/nativeTts";
 
 type Language = "en" | "zh";
 type ThemeMode = "light" | "dark";
@@ -101,6 +105,9 @@ type TermEntry = {
   translation: string;
   partOfSpeech?: string;
   phonetic?: string;
+  wordRoot?: string;
+  wordForms?: string[];
+  englishDefinition?: string;
   explanation: string;
   lookupKeys: string[];
   isSixSigmaTerm?: boolean;
@@ -216,6 +223,7 @@ const defaultBookTitle = "六西格玛黑带教材";
 const githubProfileUrl = "https://github.com/Felix-Zuo";
 const catalogPath = "content/catalog.json";
 const bundledQuestionBankPath = "content/private/question-bank.private.json";
+const bundledQuestionDictionaryPath = "content/private/question-dictionary.private.json";
 const noticeAcceptedKey = "six-sigma-study:notice-accepted:v1";
 const activeBookKey = "six-sigma-study:active-book:v1";
 const readerPreferencesKey = "six-sigma-study:reader-preferences:v1";
@@ -438,9 +446,17 @@ function buildTocSearchResults(manual: ManualData | null, queryText: string): To
 function buildTermIndex(entries: TermEntry[]) {
   const index = new Map<string, TermEntry>();
   for (const entry of entries) {
-    index.set(normalizeLookup(entry.term), entry);
+    const key = normalizeLookup(entry.term);
+    if (!index.has(key)) {
+      index.set(key, entry);
+    }
+  }
+  for (const entry of entries) {
     for (const key of entry.lookupKeys) {
-      index.set(normalizeLookup(key), entry);
+      const normalized = normalizeLookup(key);
+      if (!index.has(normalized)) {
+        index.set(normalized, entry);
+      }
     }
   }
   return index;
@@ -450,7 +466,10 @@ function lookupFallback(term: string): TermEntry {
   return {
     term,
     translation: "待完善",
-    partOfSpeech: "unknown",
+    partOfSpeech: "词典暂未收录",
+    wordRoot: normalizeLookup(term),
+    wordForms: [],
+    englishDefinition: "",
     lookupKeys: [term],
     explanation: "该词或短语还没有进入本地词库。后续会接入更完整的离线词典和六西格玛术语库。"
   };
@@ -474,6 +493,23 @@ function readableBlockText(block: ContentBlock | undefined): string {
     return block.text;
   }
   return block.rows?.flat().join(" ") ?? "";
+}
+
+function alignedBlockTranslation(section: LessonSection | undefined, blockId: string | undefined, page: number): string | undefined {
+  if (!section) {
+    return undefined;
+  }
+  const enBlocks = section.content.en.filter((block) => block.kind !== "image" && readableBlockText(block));
+  const zhBlocks = section.content.zh.filter((block) => block.kind !== "image" && readableBlockText(block));
+  if (zhBlocks.length === 0) {
+    return undefined;
+  }
+  const enIndex = Math.max(0, enBlocks.findIndex((block) => block.id === blockId));
+  const proportionalIndex = enBlocks.length > 1
+    ? Math.round((enIndex / Math.max(1, enBlocks.length - 1)) * Math.max(0, zhBlocks.length - 1))
+    : 0;
+  const samePage = zhBlocks.filter((block) => block.page === page);
+  return readableBlockText(zhBlocks[proportionalIndex] ?? samePage[0]) || undefined;
 }
 
 function InlineReaderText({
@@ -619,6 +655,7 @@ export function App() {
   const [savedFavorites, setSavedFavorites] = useState<SavedFavorite[]>(() => loadSavedFavorites());
   const [dailyStats, setDailyStats] = useState<DailyStudyStats>(() => loadDailyStats());
   const [bundledQuestionBank, setBundledQuestionBank] = useState<QuestionBankPayload | null>(null);
+  const [bundledQuestionDictionary, setBundledQuestionDictionary] = useState<TermEntry[]>([]);
   const [userQuestionBank, setUserQuestionBank] = useState<QuestionBankPayload | null>(() => loadUserQuestionBank());
   const [questionProgress, setQuestionProgress] = useState<Record<string, QuestionProgress>>(() => loadQuestionProgress());
   const [examResults, setExamResults] = useState<ExamResult[]>(() => loadExamResults());
@@ -642,6 +679,7 @@ export function App() {
   const [flashSessionIds, setFlashSessionIds] = useState<string[]>([]);
   const [flashSessionReviewed, setFlashSessionReviewed] = useState(0);
   const [flashQuizSelection, setFlashQuizSelection] = useState("");
+  const [pronunciationMessage, setPronunciationMessage] = useState("");
   const [questionMode, setQuestionMode] = useState<QuestionMode>("home");
   const [questionLanguage, setQuestionLanguage] = useState<Language>("zh");
   const [questionDomainFilter, setQuestionDomainFilter] = useState<QuestionFilter>("all");
@@ -680,7 +718,10 @@ export function App() {
   const currentBookTitleZh = getBookTitle(activeBook, "zh");
   const lesson = manual?.chapters.find((chapter) => chapter.id === activeChapterId) ?? manual?.chapters[0];
   const activeSection = lesson?.sections.find((section) => section.id === activeSectionId) ?? lesson?.sections[0];
-  const termIndex = useMemo(() => buildTermIndex(manual?.dictionary ?? []), [manual]);
+  const termIndex = useMemo(
+    () => buildTermIndex([...(manual?.dictionary ?? []), ...bundledQuestionDictionary]),
+    [bundledQuestionDictionary, manual]
+  );
   const tocResults = useMemo(() => buildTocSearchResults(manual, tocQuery), [manual, tocQuery]);
   const bookSavedTerms = useMemo(
     () => savedTerms.filter((item) => item.bookId === currentBookId),
@@ -829,6 +870,9 @@ export function App() {
   }, [filteredStudyTerms]);
   const currentFlashTermId = flashSessionIds[Math.min(flashReviewIndex, Math.max(0, flashSessionIds.length - 1))];
   const currentFlashTerm = savedTerms.find((item) => item.id === currentFlashTermId);
+  const currentFlashEntry = currentFlashTerm
+    ? lookupCandidates(currentFlashTerm.term).map((key) => termIndex.get(key)).find(Boolean)
+    : undefined;
   const flashQuizOptions = useMemo(() => {
     if (!currentFlashTerm) {
       return [];
@@ -899,10 +943,89 @@ export function App() {
           setBundledQuestionBank(null);
         }
       });
+    fetch(bundledQuestionDictionaryPath, { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`bundled question dictionary unavailable: ${response.status}`);
+        }
+        return response.json() as Promise<TermEntry[]>;
+      })
+      .then((entries) => {
+        if (!cancelled) {
+          setBundledQuestionDictionary(Array.isArray(entries) ? entries : []);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setBundledQuestionDictionary([]);
+        }
+      });
     return () => {
       cancelled = true;
     };
   }, []);
+
+  useEffect(() => {
+    if (!manual || termIndex.size === 0) {
+      return;
+    }
+    setSavedTerms((items) => {
+      let changed = false;
+      const next = items.map((item) => {
+        if (item.bookId !== currentBookId) {
+          return item;
+        }
+        const entry = lookupCandidates(item.term).map((key) => termIndex.get(key)).find(Boolean);
+        if (!entry || entry.translation === "待完善") {
+          return item;
+        }
+        const savedSection = item.sourceType === "manual"
+          ? manual.chapters.flatMap((chapter) => chapter.sections).find((section) => section.id === item.sectionId)
+          : undefined;
+        const alignedTranslation = alignedBlockTranslation(savedSection, item.blockId, item.page)
+          || item.exampleTranslation
+          || item.sourceTranslation;
+        const context = resolveContextExplanation({
+          query: item.term,
+          dictionaryTranslation: entry.translation,
+          partOfSpeech: entry.partOfSpeech,
+          sourceText: item.exampleText || item.sourceText,
+          sourceTranslation: alignedTranslation
+        });
+        const shouldReplaceTranslation = !item.translation
+          || item.translation === "待完善"
+          || item.translation === item.contextMeaning;
+        const shouldReplaceContext = !item.contextMeaning
+          || item.contextMeaning === "待完善"
+          || item.contextMeaning === item.translation;
+        const updated: SavedTerm = {
+          ...item,
+          translation: shouldReplaceTranslation ? entry.translation : item.translation,
+          partOfSpeech: entry.partOfSpeech || item.partOfSpeech,
+          phonetic: entry.phonetic || item.phonetic,
+          wordRoot: entry.wordRoot || item.wordRoot,
+          wordForms: entry.wordForms?.length ? entry.wordForms : item.wordForms,
+          englishDefinition: entry.englishDefinition || item.englishDefinition,
+          dictionaryExplanation: entry.explanation || item.dictionaryExplanation,
+          sourceTranslation: alignedTranslation || item.sourceTranslation,
+          contextMeaning: shouldReplaceContext ? context.meaning : item.contextMeaning,
+          contextExplanation: shouldReplaceContext ? context.explanation : item.contextExplanation || context.explanation,
+          exampleTranslation: context.exampleTranslation || item.exampleTranslation
+        };
+        const fields: (keyof SavedTerm)[] = [
+          "translation", "partOfSpeech", "phonetic", "wordRoot", "wordForms", "englishDefinition",
+          "dictionaryExplanation", "sourceTranslation", "contextMeaning", "contextExplanation", "exampleTranslation"
+        ];
+        const differs = fields.some((field) => JSON.stringify(updated[field]) !== JSON.stringify(item[field]));
+        if (differs) {
+          changed = true;
+          return updated;
+        }
+        return item;
+      });
+      return changed ? next : items;
+    });
+  }, [currentBookId, manual, termIndex]);
 
   useEffect(() => {
     if (!activeBook) {
@@ -1733,29 +1856,66 @@ export function App() {
             </p>
             <h2>{activeLookup.query}</h2>
           </div>
-          <button className="closeButton" onClick={closeOverlayFromControl}>关闭</button>
+          <div className="sheetHeaderActions">
+            <button
+              className="saveButton compact"
+              aria-label={savedSet.has(`${currentBookId}:${normalizeLookup(activeLookup.query)}`) ? "已加入词本" : "加入词本"}
+              title={savedSet.has(`${currentBookId}:${normalizeLookup(activeLookup.query)}`) ? "已加入词本" : "加入词本"}
+              onClick={saveActiveTerm}
+            >
+              {savedSet.has(`${currentBookId}:${normalizeLookup(activeLookup.query)}`)
+                ? <BookmarkCheck size={20} />
+                : <BookmarkPlus size={20} />}
+            </button>
+            <button className="closeButton" onClick={closeOverlayFromControl}>关闭</button>
+          </div>
         </div>
+        <section className="dictionaryCard" aria-label="dictionary definition">
+          <div className="dictionaryTitleRow">
+            <div>
+              <span>词典释义</span>
+              <div className="dictionaryMetaLine">
+                {activeLookup.entry.phonetic && <strong className="phonetic">/{activeLookup.entry.phonetic}/</strong>}
+                {activeLookup.entry.partOfSpeech && <span className="partOfSpeech">{activeLookup.entry.partOfSpeech}</span>}
+              </div>
+            </div>
+            <button
+              className="iconAction pronounceIconButton"
+              aria-label={`播放 ${activeLookup.query} 的英语发音`}
+              title="播放英语发音"
+              onClick={() => speakTerm(activeLookup.query)}
+            >
+              <Volume2 size={20} />
+            </button>
+          </div>
+          <p className="dictionaryTranslation">{activeLookup.entry.translation}</p>
+          {(activeLookup.entry.wordRoot || activeLookup.entry.wordForms?.length) && (
+            <dl className="wordStructure">
+              {activeLookup.entry.wordRoot && <><dt>原形 / 词根</dt><dd>{activeLookup.entry.wordRoot}</dd></>}
+              {activeLookup.entry.wordForms?.length ? <><dt>常见词形</dt><dd>{activeLookup.entry.wordForms.join("；")}</dd></> : null}
+            </dl>
+          )}
+          {activeLookup.entry.englishDefinition && (
+            <details className="englishDefinition">
+              <summary>查看英文释义</summary>
+              <p lang="en">{activeLookup.entry.englishDefinition}</p>
+            </details>
+          )}
+        </section>
+        {pronunciationMessage && <p className="pronunciationMessage" role="status">{pronunciationMessage}</p>}
         <section className="contextMeaningCard">
           <span>本句中的意思</span>
           <strong>{activeLookup.context.meaning}</strong>
           <p>{activeLookup.context.explanation}</p>
         </section>
-        {activeLookup.entry.phonetic && <p className="phonetic">/{activeLookup.entry.phonetic}/</p>}
-        {activeLookup.entry.partOfSpeech && <p className="partOfSpeech">{activeLookup.entry.partOfSpeech}</p>}
         {activeLookup.entry.isSixSigmaTerm && <span className="termBadge">{activeBook?.domainLabel ?? "教材术语"}</span>}
         {activeLookup.questionSource && <span className="termBadge">题目来源 · {activeLookup.questionSource.chapterId}</span>}
-        <button className="saveButton" onClick={saveActiveTerm}>
-          {savedSet.has(`${currentBookId}:${normalizeLookup(activeLookup.query)}`) ? "已加入词本" : "加入词本"}
-        </button>
-        <details className="dictionaryDetails">
-          <summary>查看词典释义</summary>
-          <p className="translation">{activeLookup.entry.translation}</p>
-          <p className="explanation">{activeLookup.entry.explanation}</p>
-        </details>
         <div className="exampleBox">
           <strong>{activeLookup.questionSource ? "题目例句" : "教材例句"}</strong>
           <p lang="en">{activeLookup.context.exampleText}</p>
-          {activeLookup.context.exampleTranslation && <p>{activeLookup.context.exampleTranslation}</p>}
+          <p className={activeLookup.context.exampleTranslation ? "" : "translationUnavailable"}>
+            {activeLookup.context.exampleTranslation || "该私有题源暂未附经审核的中文译文。"}
+          </p>
         </div>
         {activeLookup.questionSource ? (
           <button className="sourceButton" onClick={() => openQuestionAnchor(activeLookup.questionSource?.questionId)}>
@@ -1948,10 +2108,26 @@ export function App() {
                   {currentFlashTerm.sourceType === "question" ? "题目来源单词" : currentFlashTerm.bookTitle}
                 </p>
                 <h2>{currentFlashTerm.term}</h2>
+                <div className="flashTermMeta">
+                  {(currentFlashEntry?.phonetic || currentFlashTerm.phonetic) && (
+                    <span className="phonetic">/{currentFlashEntry?.phonetic || currentFlashTerm.phonetic}/</span>
+                  )}
+                  {(currentFlashEntry?.partOfSpeech || currentFlashTerm.partOfSpeech) && (
+                    <span>{currentFlashEntry?.partOfSpeech || currentFlashTerm.partOfSpeech}</span>
+                  )}
+                  <button
+                    className="iconAction pronounceIconButton"
+                    aria-label={`播放 ${currentFlashTerm.term} 的英语发音`}
+                    title="播放英语发音"
+                    onClick={() => speakTerm(currentFlashTerm.term)}
+                  >
+                    <Volume2 size={20} />
+                  </button>
+                </div>
+                {pronunciationMessage && <p className="pronunciationMessage" role="status">{pronunciationMessage}</p>}
                 {flashReviewStage === "prompt" && (
                   <div className="flashPromptActions">
                     <p className="flashHint">先回忆它在原文里的意思。</p>
-                    <button className="pronounceButton" onClick={() => speakTerm(currentFlashTerm.term)}>播放发音</button>
                     <button className="primaryAction" onClick={() => setFlashReviewStage("quiz")}>想起来了</button>
                     <button onClick={() => {
                       setFlashQuizSelection("__unknown__");
@@ -1982,13 +2158,27 @@ export function App() {
                 {flashReviewStage === "answer" && (
                   <div className="flashAnswer">
                     {flashQuizSelection !== "__unknown__" && <p className="answerFeedback">刚才的选择不符合原文语境</p>}
-                    <p className="translation">{currentFlashTerm.contextMeaning || currentFlashTerm.translation}</p>
-                    <p>{currentFlashTerm.contextExplanation || "结合下面的原句理解并重新记忆。"}</p>
-                    <div className="flashExample">
-                      <p lang="en">{currentFlashTerm.exampleText || currentFlashTerm.sourceText}</p>
-                      {(currentFlashTerm.exampleTranslation || currentFlashTerm.sourceTranslation) && (
-                        <p>{currentFlashTerm.exampleTranslation || currentFlashTerm.sourceTranslation}</p>
+                    <section className="flashDictionarySummary">
+                      <span>常用释义</span>
+                      <p className="dictionaryTranslation">{currentFlashEntry?.translation || currentFlashTerm.translation}</p>
+                      {(currentFlashEntry?.wordRoot || currentFlashTerm.wordRoot) && (
+                        <p className="wordRootLine">原形 / 词根：{currentFlashEntry?.wordRoot || currentFlashTerm.wordRoot}</p>
                       )}
+                      {(currentFlashEntry?.wordForms?.length || currentFlashTerm.wordForms?.length) ? (
+                        <p className="wordRootLine">词形：{(currentFlashEntry?.wordForms || currentFlashTerm.wordForms)?.join("；")}</p>
+                      ) : null}
+                    </section>
+                    <section className="contextMeaningCard compact">
+                      <span>本句中的意思</span>
+                      <p className="translation">{currentFlashTerm.contextMeaning || currentFlashTerm.translation}</p>
+                      <p>{currentFlashTerm.contextExplanation || "结合下面的原句理解并重新记忆。"}</p>
+                    </section>
+                    <div className="flashExample">
+                      <strong>例句</strong>
+                      <p lang="en">{currentFlashTerm.exampleText || currentFlashTerm.sourceText}</p>
+                      <p className={(currentFlashTerm.exampleTranslation || currentFlashTerm.sourceTranslation) ? "" : "translationUnavailable"}>
+                        {currentFlashTerm.exampleTranslation || currentFlashTerm.sourceTranslation || "该私有题源暂未附经审核的中文译文。"}
+                      </p>
                     </div>
                     <div className="sourceLine">
                       {currentFlashTerm.sourceType === "question" ? "题目" : currentFlashTerm.chapterTitle} · p. {currentFlashTerm.sourcePage ?? currentFlashTerm.page}
@@ -2892,14 +3082,7 @@ export function App() {
   function lookupText(text: string, page: number, sectionId: string, blockId: string | undefined, sourceText: string) {
     const entry = lookupCandidates(text).map((key) => termIndex.get(key)).find(Boolean) ?? lookupFallback(text);
     const section = lesson?.sections.find((item) => item.id === sectionId);
-    const enBlocks = section?.content.en ?? [];
-    const zhBlocks = (section?.content.zh ?? []).filter((block) => block.kind !== "image");
-    const enIndex = Math.max(0, enBlocks.findIndex((block) => block.id === blockId));
-    const samePageZh = zhBlocks.filter((block) => block.page === page && readableBlockText(block));
-    const proportionalIndex = enBlocks.length > 1
-      ? Math.round((enIndex / Math.max(1, enBlocks.length - 1)) * Math.max(0, zhBlocks.length - 1))
-      : 0;
-    const sourceTranslation = readableBlockText(samePageZh[0] ?? zhBlocks[proportionalIndex]);
+    const sourceTranslation = alignedBlockTranslation(section, blockId, page);
     ensureOverlayHistory();
     setShowToc(false);
     setShowVocab(false);
@@ -2981,7 +3164,13 @@ export function App() {
       bookTitle: currentBookTitleZh,
       contentVersion: manual?.version,
       term: activeLookup.query,
-      translation: activeLookup.context.meaning,
+      translation: activeLookup.entry.translation,
+      partOfSpeech: activeLookup.entry.partOfSpeech,
+      phonetic: activeLookup.entry.phonetic,
+      wordRoot: activeLookup.entry.wordRoot,
+      wordForms: activeLookup.entry.wordForms,
+      englishDefinition: activeLookup.entry.englishDefinition,
+      dictionaryExplanation: activeLookup.entry.explanation,
       chapter: question && Number.isFinite(questionChapter) ? questionChapter : lesson?.chapter ?? 1,
       chapterTitle: question ? `${question.domain} · ${question.chapterId}` : lesson?.title.en ?? currentBookTitleZh,
       page: activeLookup.page,
@@ -3037,15 +3226,14 @@ export function App() {
     setFlashReviewActive(true);
   }
 
-  function speakTerm(term: string) {
-    if (!("speechSynthesis" in window)) {
-      return;
+  async function speakTerm(term: string) {
+    setPronunciationMessage("正在播放英语发音…");
+    try {
+      await speakEnglish(term);
+      setPronunciationMessage("");
+    } catch (error) {
+      setPronunciationMessage(error instanceof Error ? error.message : "英语发音播放失败");
     }
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(term);
-    utterance.lang = "en-US";
-    utterance.rate = 0.86;
-    window.speechSynthesis.speak(utterance);
   }
 
   function updateSavedNote(id: string, noteText: string) {

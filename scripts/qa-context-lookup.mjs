@@ -11,10 +11,12 @@ const checks = [
   ["function word senses", ["which", "what", "why", "how", "the"].every((term) => context.includes(`${term}:`))],
   ["clean dictionary prefix", context.includes("replace(/^(?:n|v|vt|vi|adj|adv|pron")],
   ["translated sentence fallback", context.includes("clippedTranslation") && context.includes("结合整句译文")],
+  ["regression context senses", ["distinguish", "constant", "equation"].every((term) => context.includes(`${term}: [`))],
+  ["example translation selection", context.includes("selectExampleTranslation")],
   ["active lookup query", app.includes("query: string") && app.includes("activeLookup.query")],
   ["question bilingual context", app.includes("question.stem.zh") && app.includes("option.zh")],
   ["manual parallel context", app.includes("sourceTranslation") && app.includes("proportionalIndex")],
-  ["context card", app.includes("本句中的意思") && app.includes("dictionaryDetails")],
+  ["dictionary first context card", app.includes("词典释义") && app.includes("本句中的意思") && app.indexOf("词典释义") < app.indexOf("本句中的意思")],
   ["saved context fields", ["contextMeaning", "contextExplanation", "exampleTranslation"].every((field) => vocab.includes(field))]
 ];
 
