@@ -69529,16 +69529,18 @@
     },
     {
       "term": "metric",
-      "translation": "指标；adj. 公制的；米制的；公尺的；n. 度量标准",
+      "translation": "指标；adj. 公尺的；公制的；计量的；[医] 测量的；米制的",
       "partOfSpeech": "noun",
       "lookupKeys": [
         "metric"
       ],
       "explanation": "用来跟踪表现的量化标准，例如缺陷率、周期时间、成本或客户满意度。",
       "wordRoot": "metric",
-      "wordForms": [],
-      "englishDefinition": "",
-      "phonetic": "ˈmetrɪk"
+      "wordForms": [
+        "复数：metrics"
+      ],
+      "englishDefinition": "a. based on the meter as a standard of measurement",
+      "phonetic": "ˈmetrik"
     },
     {
       "term": "variable",
@@ -70491,32 +70493,35 @@
       "phonetic": "ˈeibi:ˈsi:"
     },
     {
-      "term": "-ability",
-      "translation": "suf. [用于构成名词；意义相当于-able]表示“能力”；“可能性”；“倾向性”；“适宜性”",
-      "partOfSpeech": "词",
+      "term": "ability",
+      "translation": "n. 能力；才干；[经] 能力；才能",
+      "partOfSpeech": "n. 名词",
       "lookupKeys": [
-        "ability"
+        "ability",
+        "abilities"
       ],
       "wordRoot": "ability",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "复数：abilities"
+      ],
+      "englishDefinition": "n. the quality of being able to perform; a quality that permits or facilitates achievement or accomplishment；n. possession of the qualities (especially mental qualities) required to do something or get something done",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
       "phonetic": "əˈbiliti"
     },
     {
-      "term": "-able",
-      "translation": "suf. [附在动词或名词后构成形容词] 表示：“能…的；会…的”：durable；“可以…的”：drinkable；“具有…特性的”：fashionable；“有助于…的”；“倾向于…的”：peaceable；“易于…的”：breakable",
-      "partOfSpeech": "词",
+      "term": "able",
+      "translation": "adj. 能干的；能够的",
+      "partOfSpeech": "adj. 形容词 / adj. 形容词",
       "lookupKeys": [
         "able"
       ],
       "wordRoot": "able",
       "wordForms": [],
-      "englishDefinition": "",
+      "englishDefinition": "a. (usually followed by `to') having the necessary means or skill or know-how or authority to do something；s. have the skills and qualifications to do things well；s. having inherent physical or mental ability or capacity",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "əbl"
+      "phonetic": "ˈeibl"
     },
     {
       "term": "abnormal",
@@ -71382,18 +71387,21 @@
       "phonetic": "ˈæktʃuəli"
     },
     {
-      "term": "-ad",
-      "translation": "[医]〔状语性后缀〕意为向…方；向…侧",
-      "partOfSpeech": "词",
+      "term": "ad",
+      "translation": "n. 广告；[计] 地址；模拟-数字",
+      "partOfSpeech": "n. 名词 / adv. 副词",
       "lookupKeys": [
-        "ad"
+        "ad",
+        "ads"
       ],
       "wordRoot": "ad",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "复数：ads"
+      ],
+      "englishDefinition": "n. a public promotion of some product or service；r. in the Christian era; used before dates after the supposed year Christ was born",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "ˈæd"
+      "phonetic": "æd"
     },
     {
       "term": "adage",
@@ -72065,18 +72073,27 @@
       "phonetic": "əˈgeinst"
     },
     {
-      "term": "-age",
-      "translation": "comb. 表示数量；表示动作；表示身份；表示地方",
-      "partOfSpeech": "词",
+      "term": "age",
+      "translation": "n. 年龄；老年；成年；寿命；时代；时期；v. 变老；成熟",
+      "partOfSpeech": "n. 名词 / v. 动词",
       "lookupKeys": [
-        "age"
+        "age",
+        "ages",
+        "aged",
+        "ageing"
       ],
       "wordRoot": "age",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "复数：ages",
+        "过去分词：aged",
+        "现在分词：ageing",
+        "第三人称单数：ages",
+        "过去式：aged"
+      ],
+      "englishDefinition": "n. how long something has existed；n. a time of life (usually defined in years) at which some particular qualification or power arises；v. begin to seem older; get older",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "idʒ"
+      "phonetic": "eidʒ"
     },
     {
       "term": "agency",
@@ -72471,18 +72488,27 @@
       "phonetic": "ˈælɒi. əˈlɒi"
     },
     {
-      "term": "-ally",
-      "translation": "以-al结尾的形容词加ly构成副词)",
-      "partOfSpeech": "词",
+      "term": "ally",
+      "translation": "n. 同盟者；同盟国；助手；vt. 使联盟；使联合；使有关系；vi. 结盟",
+      "partOfSpeech": "n. 名词 / vt. 及物动词 / vi. 不及物动词 / v. 动词",
       "lookupKeys": [
         "ally",
-        "allied"
+        "allied",
+        "allies",
+        "allying"
       ],
       "wordRoot": "ally",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "复数：allies",
+        "过去分词：allied",
+        "过去式：allied",
+        "现在分词：allying",
+        "第三人称单数：allies"
+      ],
+      "englishDefinition": "n. a friendly nation；n. an associate who provides cooperation or assistance；v. become an ally or associate, as by a treaty or marriage",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
-      "source": "ECDICT"
+      "source": "ECDICT",
+      "phonetic": "ˈælai. əˈlai"
     },
     {
       "term": "almost",
@@ -72816,15 +72842,15 @@
       "phonetic": "əˈmaunt"
     },
     {
-      "term": "-an",
-      "translation": "suf. 表示；“碳水化合物的酐类”：dextran；“不饱和的碳化物”：tolan；用于专有人、地名等后构成通常可兼作名词用的形容词表示“…时期的(人)”；“…地方的(人)”；“在…居住的(人)”；“在…出生的(人)”：American；Asian；Elizabethan；Victorian；用于表示体制、学科等的词后及宗教或其他流派创始人的人名后构成可兼作名词的形容词或单词性的形容词或名词表示“精通…的(人)”；“带有…特征的(人)”；“属于…的(人)”；“信奉…的(人)”；“追随…的(人)”",
+      "term": "an",
+      "translation": "art. 一",
       "partOfSpeech": "词",
       "lookupKeys": [
         "an"
       ],
       "wordRoot": "an",
       "wordForms": [],
-      "englishDefinition": "",
+      "englishDefinition": "n an associate degree in nursing",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
       "phonetic": "æn"
@@ -79643,17 +79669,18 @@
       "phonetic": "ˈsentrəl"
     },
     {
-      "term": "-centric",
-      "translation": "以…为中心；有…中心",
-      "partOfSpeech": "词",
+      "term": "centric",
+      "translation": "adj. 中心的；中央的；[医] 中心的；中枢的",
+      "partOfSpeech": "adj. 形容词 / adj. 形容词",
       "lookupKeys": [
         "centric"
       ],
       "wordRoot": "centric",
       "wordForms": [],
-      "englishDefinition": "",
+      "englishDefinition": "s. having or situated at or near a center",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
-      "source": "ECDICT"
+      "source": "ECDICT",
+      "phonetic": "ˈsentrik"
     },
     {
       "term": "century",
@@ -85421,25 +85448,12 @@
       "phonetic": "ˈsaibə"
     },
     {
-      "term": "cycl-",
-      "translation": "n. 轮子；圆圈；循环",
-      "partOfSpeech": "n. 名词",
-      "lookupKeys": [
-        "cycl",
-        "cycles"
-      ],
-      "wordRoot": "cycl",
-      "wordForms": [],
-      "englishDefinition": "",
-      "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
-      "source": "ECDICT"
-    },
-    {
       "term": "cycle",
       "translation": "n. 周期；循环；自行车；一段时间；整套；vi. 循环；轮转；骑自行车；vt. 使循环；使轮转；[计] 环路；周期",
       "partOfSpeech": "n. 名词 / vi. 不及物动词 / vt. 及物动词",
       "lookupKeys": [
         "cycle",
+        "cycles",
         "cycling",
         "cycled"
       ],
@@ -85457,17 +85471,18 @@
       "phonetic": "ˈsaikl"
     },
     {
-      "term": "-d",
-      "translation": "——见 -ed",
-      "partOfSpeech": "词",
+      "term": "D",
+      "translation": "[计] 数据；十进制；数位；位；文档；域；[医] 氘；重氢",
+      "partOfSpeech": "n. 名词",
       "lookupKeys": [
         "d"
       ],
       "wordRoot": "d",
       "wordForms": [],
-      "englishDefinition": "",
+      "englishDefinition": "n. the 4th letter of the Roman alphabet",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
-      "source": "ECDICT"
+      "source": "ECDICT",
+      "phonetic": "di:"
     },
     {
       "term": "daily",
@@ -87816,17 +87831,18 @@
       "phonetic": "daiˈmenʃən"
     },
     {
-      "term": "-dimensional",
-      "translation": "…维的",
-      "partOfSpeech": "词",
+      "term": "dimensional",
+      "translation": "adj. ...维的；[化] 量纲的；因次的",
+      "partOfSpeech": "adj. 形容词 / adj. 形容词",
       "lookupKeys": [
         "dimensional"
       ],
       "wordRoot": "dimensional",
       "wordForms": [],
-      "englishDefinition": "",
+      "englishDefinition": "a. of or relating to dimensions；s. having dimension--the quality or character or stature proper to a person; he is pasty, bland, faceless\"- Norman Cousins",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
-      "source": "ECDICT"
+      "source": "ECDICT",
+      "phonetic": "daiˈmenʃənəl"
     },
     {
       "term": "direct",
@@ -90063,18 +90079,22 @@
       "phonetic": "iˈkɒnəmi"
     },
     {
-      "term": "-ed",
-      "translation": "附在规则动词后构成过去式和过去分词；附在规则动词和名词后构成同义形容词",
+      "term": "ED",
+      "translation": "[计] 电子设备；密码设备；数据结束；工程设计；错误检测；外部设备",
       "partOfSpeech": "词",
       "lookupKeys": [
-        "ed"
+        "ed",
+        "eds",
+        "eder"
       ],
       "wordRoot": "ed",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "复数：eds",
+        "比较级：eder"
+      ],
+      "englishDefinition": "n impotence resulting from a man's inability to have or maintain an erection of his penis",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
-      "source": "ECDICT",
-      "phonetic": "əd"
+      "source": "ECDICT"
     },
     {
       "term": "edg",
@@ -90857,18 +90877,21 @@
       "phonetic": "ˈempti"
     },
     {
-      "term": "-en",
-      "translation": "suf. 加在形容词后构成动词使；使成为；变得：darken；weaken；加在名词后构成动词变得有；使有；具有：heighten；hearten；strengthen；加在物质名词后构成形容词表示由...制的；由...构成的；...一样的：wooden；woolen；构成某些不规则动词的过去分词：risen；written；用以构成某些名词的复数：children；brethren",
-      "partOfSpeech": "词",
+      "term": "en",
+      "translation": "n. 字母N；(铅字)半方；prep. 在...中；作为",
+      "partOfSpeech": "n. 名词 / prep. 介词",
       "lookupKeys": [
-        "en"
+        "en",
+        "ens"
       ],
       "wordRoot": "en",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "复数：ens"
+      ],
+      "englishDefinition": "n. half the width of an em",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "n"
+      "phonetic": "en"
     },
     {
       "term": "enable",
@@ -91743,15 +91766,18 @@
       "phonetic": "iˈsenʃəli"
     },
     {
-      "term": "-est",
-      "translation": "构成形容词和副词的最高级)",
+      "term": "EST",
+      "translation": "(美国)东部时间",
       "partOfSpeech": "词",
       "lookupKeys": [
-        "est"
+        "est",
+        "ester"
       ],
       "wordRoot": "est",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "比较级：ester"
+      ],
+      "englishDefinition": "n standard time in the 5th time zone west of Greenwich, reckoned at the 75th meridian; used in the eastern United States",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT"
     },
@@ -95232,9 +95258,9 @@
       "phonetic": "ˈfəukəs"
     },
     {
-      "term": "-fold",
-      "translation": "乘以；…倍；由…部分组成",
-      "partOfSpeech": "词",
+      "term": "fold",
+      "translation": "n. 折层；折；羊栏；折痕；信徒；vt. 折叠；包；合拢；交迭；vi. 折叠起来；彻底失败；[计] 折叠；合并",
+      "partOfSpeech": "n. 名词 / vt. 及物动词 / vi. 不及物动词",
       "lookupKeys": [
         "fold",
         "folded",
@@ -95242,10 +95268,17 @@
         "folds"
       ],
       "wordRoot": "fold",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "复数：folds",
+        "过去分词：folded",
+        "过去式：folded",
+        "现在分词：folding",
+        "第三人称单数：folds"
+      ],
+      "englishDefinition": "n. an angular or rounded shape made by folding；n. a geological process that causes a bend in a stratum of rock；n. a folded part (as in skin or muscle)",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
-      "source": "ECDICT"
+      "source": "ECDICT",
+      "phonetic": "fəuld"
     },
     {
       "term": "folder",
@@ -95525,20 +95558,27 @@
       "phonetic": "ˈfɔ:klift"
     },
     {
-      "term": "-form",
-      "translation": "表示：具有...形状：dentiform；有...种形式：triform",
-      "partOfSpeech": "词",
+      "term": "form",
+      "translation": "n. 形状；形体；类型；方式；表格；形式；v. 形成；排列；(使)组成；n. 表单；[计] 表单",
+      "partOfSpeech": "n. 名词 / v. 动词",
       "lookupKeys": [
         "form",
         "formed",
-        "forms"
+        "forms",
+        "forming"
       ],
       "wordRoot": "form",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "复数：forms",
+        "过去分词：formed",
+        "过去式：formed",
+        "现在分词：forming",
+        "第三人称单数：forms"
+      ],
+      "englishDefinition": "n. the phonological or orthographic sound or appearance of a word that can be used to describe or identify something；n. a perceptual structure；n. the visual appearance of something or someone",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "fɔ:m"
+      "phonetic": "fɒ:m"
     },
     {
       "term": "formal",
@@ -97601,9 +97641,9 @@
       "phonetic": "ˈgrænjulə"
     },
     {
-      "term": "-graph",
-      "translation": "表示：书写器；描绘器；记录器：telegraph；(以某种方法)书写(或描绘、记录)的结果(或东西)：monograph；lithograph",
-      "partOfSpeech": "词",
+      "term": "graph",
+      "translation": "n. 曲线图；图表；图形；[计] 图形",
+      "partOfSpeech": "n. 名词 / v. 动词",
       "lookupKeys": [
         "graph",
         "graphed",
@@ -97611,39 +97651,45 @@
         "graphs"
       ],
       "wordRoot": "graph",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "复数：graphs",
+        "现在分词：graphing",
+        "过去式：graphed",
+        "第三人称单数：graphs",
+        "过去分词：graphed"
+      ],
+      "englishDefinition": "n. a visual representation of the relations between certain quantities plotted with reference to a set of axes；v. represent by means of a graph；v. plot upon a graph",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "ɡræf"
+      "phonetic": "græf"
     },
     {
-      "term": "-graphic",
-      "translation": "adj. 形象的；图表的；绘画似的",
-      "partOfSpeech": "adj. 形容词",
+      "term": "graphic",
+      "translation": "adj. 生动的；轮廓分明的；绘画似的；图解的；[计] 图形的",
+      "partOfSpeech": "adj. 形容词 / n. 名词 / adj. 形容词",
       "lookupKeys": [
         "graphic"
       ],
       "wordRoot": "graphic",
       "wordForms": [],
-      "englishDefinition": "",
+      "englishDefinition": "n. an image that is generated by a computer；s. written or drawn or engraved；s. describing nudity or sexual activity in graphic detail",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "ˈgræfɪk"
+      "phonetic": "ˈgræfik"
     },
     {
-      "term": "-graphical",
-      "translation": "adj. 图解的；绘画的；生动的",
+      "term": "graphical",
+      "translation": "adj. 图的；记录的；图示的；图解的；书法的；绘画的；印刷的；雕刻的；详尽的；[机] 图解式的",
       "partOfSpeech": "adj. 形容词",
       "lookupKeys": [
         "graphical"
       ],
       "wordRoot": "graphical",
       "wordForms": [],
-      "englishDefinition": "",
+      "englishDefinition": "a relating to or presented by a graph；s written or drawn or engraved",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "ˈgræfɪk(ə)l"
+      "phonetic": "ˈ^ræfikəl"
     },
     {
       "term": "graphically",
@@ -98549,17 +98595,24 @@
       "source": "ECDICT"
     },
     {
-      "term": "-head",
-      "translation": "n. 头；头痛；上端；最前的部分；理解力；vt. 前进；用头顶；作为…的首领；站在…的前头；给…加标题；vi. 出发；成头状物；船驶往；adj. 头的；主要的；在顶端的；n. (Head)人名；(英)黑德",
+      "term": "head",
+      "translation": "n. 头；头脑；领袖；脑袋；最前的部分；vt. 为首；朝向；前进；用头顶；vi. 朝特定方向行进；(作物)结穗；adj. 头的；在顶端的；主要的；[计] 磁头；冲头",
       "partOfSpeech": "n. 名词 / vt. 及物动词 / vi. 不及物动词 / adj. 形容词",
       "lookupKeys": [
         "head",
         "headed",
-        "heads"
+        "heads",
+        "heading"
       ],
       "wordRoot": "head",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "复数：heads",
+        "现在分词：heading",
+        "过去分词：headed",
+        "过去式：headed",
+        "第三人称单数：heads"
+      ],
+      "englishDefinition": "n. the upper part of the human body or the front part of the body in animals; contains the face and brains；n. a single domestic animal；n. a person who is in charge",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
       "phonetic": "hed"
@@ -100095,18 +100148,23 @@
       "phonetic": "ˈaikɒn"
     },
     {
-      "term": "-id",
-      "translation": "[医][希 eidos form；shape]〔后缀〕意为形式；样子；类似",
-      "partOfSpeech": "词",
+      "term": "id",
+      "translation": "n. 遗传素质；本能冲动；[计] 识别；标识符；项目说明",
+      "partOfSpeech": "n. 名词",
       "lookupKeys": [
-        "id"
+        "id",
+        "ids",
+        "iding"
       ],
       "wordRoot": "id",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "复数：ids",
+        "现在分词：iding"
+      ],
+      "englishDefinition": "n. a card or badge used to identify the bearer；n. (psychoanalysis) primitive instincts and energies underlying all psychic activity",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "ˈɪd"
+      "phonetic": "id"
     },
     {
       "term": "idea",
@@ -100851,17 +100909,18 @@
       "phonetic": "imˈpru:vmənt"
     },
     {
-      "term": "-in",
-      "translation": "很多人参加的活动",
-      "partOfSpeech": "词",
+      "term": "in",
+      "translation": "prep. 在...期间；在...之内；处于...之中；从事于；按照；穿着；adv. 进入；朝里；在里面；在屋里；adj. 在里面的；在朝的；n. 执政者；交情",
+      "partOfSpeech": "prep. 介词 / adv. 副词 / adj. 形容词 / n. 名词 / adj. 形容词 / adv. 副词",
       "lookupKeys": [
         "in"
       ],
       "wordRoot": "in",
       "wordForms": [],
-      "englishDefinition": "",
+      "englishDefinition": "s. holding office；s. directed or bound inward；s. currently fashionable",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
-      "source": "ECDICT"
+      "source": "ECDICT",
+      "phonetic": "in"
     },
     {
       "term": "in control",
@@ -103597,18 +103656,18 @@
       "phonetic": ".itəˈreiʃən"
     },
     {
-      "term": "-its",
-      "translation": "pron. 它的；n. (Its)人名；(俄)伊茨",
-      "partOfSpeech": "pron. 代词 / n. 名词",
+      "term": "its",
+      "translation": "pron. 它的",
+      "partOfSpeech": "pron. 代词",
       "lookupKeys": [
         "its"
       ],
       "wordRoot": "its",
       "wordForms": [],
-      "englishDefinition": "",
+      "englishDefinition": "n the branch of engineering that deals with the use of computers and telecommunications to retrieve and store and transmit information",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "ɪts"
+      "phonetic": "its"
     },
     {
       "term": "itself",
@@ -105332,19 +105391,26 @@
       "phonetic": "ˈlesn"
     },
     {
-      "term": "-let",
-      "translation": "小的；不很重要的",
-      "partOfSpeech": "词",
+      "term": "let",
+      "translation": "vt. 让；假设；出租；排放；妨碍；vi. 出租；被承包；n. 出租屋；障碍",
+      "partOfSpeech": "vt. 及物动词 / vi. 不及物动词 / n. 名词 / v. 动词",
       "lookupKeys": [
         "let",
         "let s",
-        "lets"
+        "lets",
+        "letting"
       ],
       "wordRoot": "let",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "现在分词：letting",
+        "过去分词：let",
+        "过去式：let",
+        "第三人称单数：lets"
+      ],
+      "englishDefinition": "n. a serve that strikes the net before falling into the receiver's court; the ball must be served again；v. make it possible through a specific action or lack of action for something to happen；v. actively cause something to happen",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
-      "source": "ECDICT"
+      "source": "ECDICT",
+      "phonetic": "let"
     },
     {
       "term": "Lett",
@@ -105352,7 +105418,6 @@
       "partOfSpeech": "n. 名词",
       "lookupKeys": [
         "lett",
-        "letting",
         "letts"
       ],
       "wordRoot": "lett",
@@ -105585,17 +105650,26 @@
       "source": "ECDICT"
     },
     {
-      "term": "-like",
-      "translation": "类似…的；有…特征的",
-      "partOfSpeech": "词",
+      "term": "like",
+      "translation": "adj. 相似的；同样的；vt. 喜欢；愿意；想；vi. 喜欢；希望；n. 爱好；同样的人(或物)；prep. 象；如同；adv. 可能",
+      "partOfSpeech": "adj. 形容词 / vt. 及物动词 / vi. 不及物动词 / n. 名词 / prep. 介词 / adv. 副词 / v. 动词",
       "lookupKeys": [
-        "like"
+        "like",
+        "likes",
+        "liking"
       ],
       "wordRoot": "like",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "过去式：liked",
+        "第三人称单数：likes",
+        "过去分词：liked",
+        "复数：likes",
+        "现在分词：liking"
+      ],
+      "englishDefinition": "n. a similar kind；n. a kind of person；v. find enjoyable or agreeable",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
-      "source": "ECDICT"
+      "source": "ECDICT",
+      "phonetic": "laik"
     },
     {
       "term": "likelihood",
@@ -106094,32 +106168,44 @@
       "phonetic": "ləuˈkeiʃən"
     },
     {
-      "term": "-log",
-      "translation": "= -logue",
-      "partOfSpeech": "词",
+      "term": "log",
+      "translation": "n. 记录；圆木；日志；计程仪；vt. 伐木；切；航行；vi. 伐木；[计] 日志",
+      "partOfSpeech": "n. 名词 / vt. 及物动词 / vi. 不及物动词",
       "lookupKeys": [
         "log",
-        "logs"
+        "logs",
+        "logged",
+        "logging"
       ],
       "wordRoot": "log",
-      "wordForms": [],
-      "englishDefinition": "",
-      "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
-      "source": "ECDICT"
-    },
-    {
-      "term": "-logical",
-      "translation": "adj. 合逻辑的；合理的；逻辑学的",
-      "partOfSpeech": "adj. 形容词",
-      "lookupKeys": [
-        "logical"
+      "wordForms": [
+        "复数：logs",
+        "过去分词：logged",
+        "现在分词：logging",
+        "过去式：logged",
+        "第三人称单数：logs"
       ],
-      "wordRoot": "logical",
-      "wordForms": [],
-      "englishDefinition": "",
+      "englishDefinition": "n. a segment of the trunk of a tree when stripped of branches；n. a written record of messages sent or received；n. a written record of events on a voyage (of a ship or plane)",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "ˈlɒdʒɪk(ə)l"
+      "phonetic": "lɒg"
+    },
+    {
+      "term": "logical",
+      "translation": "adj. 合乎逻辑的；合理的；[法] 逻辑的；符合逻辑的",
+      "partOfSpeech": "adj. 形容词",
+      "lookupKeys": [
+        "logical",
+        "logicals"
+      ],
+      "wordRoot": "logical",
+      "wordForms": [
+        "复数：logicals"
+      ],
+      "englishDefinition": "a. capable of or reflecting the capability for correct and valid reasoning",
+      "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
+      "source": "ECDICT",
+      "phonetic": "ˈlɒdʒikəl"
     },
     {
       "term": "logically",
@@ -107390,8 +107476,8 @@
       "phonetic": "ˈmɑ:kit"
     },
     {
-      "term": "-mas",
-      "translation": "na. 后缀",
+      "term": "MAS",
+      "translation": "[化] 低碳混合醇",
       "partOfSpeech": "词",
       "lookupKeys": [
         "mas",
@@ -107399,9 +107485,10 @@
       ],
       "wordRoot": "mas",
       "wordForms": [],
-      "englishDefinition": "",
+      "englishDefinition": "n informal terms for a mother；n a master's degree in arts and sciences；n one thousandth of an ampere",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
-      "source": "ECDICT"
+      "source": "ECDICT",
+      "phonetic": "mɑ:"
     },
     {
       "term": "massive",
@@ -107663,19 +107750,21 @@
       "phonetic": "mi:"
     },
     {
-      "term": "-meal",
-      "translation": "n. 一餐；一顿饭；膳食；vi. 进餐",
+      "term": "meal",
+      "translation": "n. 一餐；膳食；粗粉；vi. 进餐",
       "partOfSpeech": "n. 名词 / vi. 不及物动词",
       "lookupKeys": [
         "meal",
         "meals"
       ],
       "wordRoot": "meal",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "复数：meals"
+      ],
+      "englishDefinition": "n. the food served and eaten at one time；n. any of the occasions for eating food that occur by custom or habit at more or less fixed times；n. coarsely ground foodstuff; especially seeds of various cereal grasses or pulse",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "miːl"
+      "phonetic": "mi:l"
     },
     {
       "term": "meaningful",
@@ -108017,18 +108106,23 @@
       "phonetic": "ˈmenju:"
     },
     {
-      "term": "-mere",
-      "translation": "[医]〔后缀〕意为指节；体节或部分",
-      "partOfSpeech": "词",
+      "term": "mere",
+      "translation": "n. 小湖；池塘；adj. 仅仅的；只不过的",
+      "partOfSpeech": "n. 名词 / adj. 形容词 / adj. 形容词",
       "lookupKeys": [
-        "mere"
+        "mere",
+        "merest",
+        "meres"
       ],
       "wordRoot": "mere",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "最高级：merest",
+        "复数：meres"
+      ],
+      "englishDefinition": "n. a small pond of standing water；s. being nothing more than specified",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "ˈmɪər"
+      "phonetic": "miə"
     },
     {
       "term": "merge",
@@ -108133,19 +108227,27 @@
       "phonetic": "ˈmetəfə"
     },
     {
-      "term": "-meter",
-      "translation": "[医]〔后缀〕意为：测量用的计、表、量器",
-      "partOfSpeech": "词",
+      "term": "meter",
+      "translation": "n. 米；公尺；仪表；计量器；vt. 以仪表计量",
+      "partOfSpeech": "n. 名词 / vt. 及物动词",
       "lookupKeys": [
         "meter",
-        "meters"
+        "meters",
+        "metered",
+        "metering"
       ],
       "wordRoot": "meter",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "复数：meters",
+        "过去分词：metered",
+        "第三人称单数：meters",
+        "现在分词：metering",
+        "过去式：metered"
+      ],
+      "englishDefinition": "n. the basic unit of length adopted under the Systeme International d'Unites (approximately 1.094 yards)；n. any of various measuring instruments for measuring a quantity；n. (prosody) the accent in a metrical foot of verse",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "ˈmi:tər"
+      "phonetic": "ˈmi:tə"
     },
     {
       "term": "method",
@@ -110012,18 +110114,18 @@
       "phonetic": "miθ"
     },
     {
-      "term": "-n",
-      "translation": "suf. 表示：[构成不规则动词的过去分词]：known",
-      "partOfSpeech": "词",
+      "term": "N",
+      "translation": "[计] 负的；数；编号；纳；[医] 氮(7号元素)；当量的；规度的(溶液)",
+      "partOfSpeech": "n. 名词",
       "lookupKeys": [
         "n"
       ],
       "wordRoot": "n",
       "wordForms": [],
-      "englishDefinition": "",
+      "englishDefinition": "n. the 14th letter of the Roman alphabet",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "n"
+      "phonetic": "en"
     },
     {
       "term": "N-1",
@@ -111476,15 +111578,15 @@
       "source": "ECDICT"
     },
     {
-      "term": "-o",
-      "translation": "suf. 用以构成名词或形容词；表示具有…性质(的)；与…有关的；用以构成感叹词",
-      "partOfSpeech": "词",
+      "term": "O",
+      "translation": "interj. 啊；唉；哎呀；哦；n. 零；[计] 操作；运算；输出",
+      "partOfSpeech": "n. 名词",
       "lookupKeys": [
         "o"
       ],
       "wordRoot": "o",
       "wordForms": [],
-      "englishDefinition": "",
+      "englishDefinition": "n. the 15th letter of the Roman alphabet；n. the blood group whose red cells carry neither the A nor B antigens",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
       "phonetic": "əu"
@@ -112087,18 +112189,18 @@
       "phonetic": "əuˈmit"
     },
     {
-      "term": "-on",
-      "translation": "suf. 表示“非酮(或氧基)化合物”：parathion；表示：[生物学]“…子(指基本遗传成分)”；[物理学]“…子(指基本粒子或量子)”；[化学]表示“惰性气体”：neon",
-      "partOfSpeech": "词",
+      "term": "on",
+      "translation": "prep. 在...之上；adv. ...上去；adj. 正起作用的；[计] 打开",
+      "partOfSpeech": "prep. 介词 / adv. 副词 / adj. 形容词 / adv. 副词",
       "lookupKeys": [
         "on"
       ],
       "wordRoot": "on",
       "wordForms": [],
-      "englishDefinition": "",
+      "englishDefinition": "a. in operation or operational；a. (of events) planned or scheduled；r. indicates continuity or persistence or concentration",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "ɔn"
+      "phonetic": "ɒn"
     },
     {
       "term": "once",
@@ -112115,19 +112217,21 @@
       "phonetic": "wʌns"
     },
     {
-      "term": "-one",
-      "translation": "[医]〔后缀〕意为酮；在化学中用以表示有两个烃基附在羰基上的一种化合物",
-      "partOfSpeech": "词",
+      "term": "one",
+      "translation": "n. 一(个)；pron. 一；任何人；num. 一；一个；adj. 一致的；完整的",
+      "partOfSpeech": "n. 名词 / pron. 代词 / num. 数词 / adj. 形容词 / adj. 形容词",
       "lookupKeys": [
         "one",
         "ones"
       ],
       "wordRoot": "one",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "复数：ones"
+      ],
+      "englishDefinition": "n. the smallest whole number or a numeral representing this number；n. a single person or thing；s. used of a single unit or thing; not two or more",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "ˈwʌn"
+      "phonetic": "wʌn"
     },
     {
       "term": "one-sample",
@@ -112484,17 +112588,18 @@
       "phonetic": "ˈɒpʃənl"
     },
     {
-      "term": "-or",
-      "translation": "…的人（或物）",
-      "partOfSpeech": "词",
+      "term": "or",
+      "translation": "conj. 或；或者；[计] 或",
+      "partOfSpeech": "conj. 连词",
       "lookupKeys": [
         "or"
       ],
       "wordRoot": "or",
       "wordForms": [],
-      "englishDefinition": "",
+      "englishDefinition": "n a state in northwestern United States on the Pacific；n a room in a hospital equipped for the performance of surgical operations",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
-      "source": "ECDICT"
+      "source": "ECDICT",
+      "phonetic": "ɒ:"
     },
     {
       "term": "orang",
@@ -114291,19 +114396,21 @@
       "phonetic": "peist"
     },
     {
-      "term": "-path",
-      "translation": "n. 道路；小路；轨道",
+      "term": "path",
+      "translation": "n. 路径；小路；道路；途径；路线；轨道；[计] 路径；DOS内部命令:设定DOS读取程序的路径",
       "partOfSpeech": "n. 名词",
       "lookupKeys": [
         "path",
         "paths"
       ],
       "wordRoot": "path",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "复数：paths"
+      ],
+      "englishDefinition": "n. a way especially designed for a particular use；n. an established line of travel or access；n. a line or route along which something travels or moves",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "pɑːθ"
+      "phonetic": "pɑ:θ"
     },
     {
       "term": "patient",
@@ -115130,18 +115237,26 @@
       "phonetic": "fɒn"
     },
     {
-      "term": "-phone",
-      "translation": "声音；使用某种语言的(人)；电话",
-      "partOfSpeech": "词",
+      "term": "phone",
+      "translation": "n. 电话；受话器；耳机；vt. 打电话给；vi. 打电话",
+      "partOfSpeech": "n. 名词 / vt. 及物动词 / vi. 不及物动词",
       "lookupKeys": [
-        "phone"
+        "phone",
+        "phoned",
+        "phoning"
       ],
       "wordRoot": "phone",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "过去式：phoned",
+        "复数：phones",
+        "现在分词：phoning",
+        "过去分词：phoned",
+        "第三人称单数：phones"
+      ],
+      "englishDefinition": "n. (phonetics) an individual sound unit of speech without concern as to whether or not it is a phoneme of some language",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "-fəun"
+      "phonetic": "fəun"
     },
     {
       "term": "photograph",
@@ -123749,17 +123864,18 @@
       "phonetic": "rʌt"
     },
     {
-      "term": "-s",
-      "translation": "suf. 附在规则名词之后构成复数；附在某些无单数形式名词之后构成复数glasses；socks；trousers；附在某些名词之后构成单数billiards；checkers；works；用以构成表示反复或一贯之动作或状态的副词always；Sundays；附在原形动词之后；构成第三人称单数一般现在时态的陈述语气: comes；goes；tries；walks",
-      "partOfSpeech": "词",
+      "term": "S",
+      "translation": "[计] 标量；服务员；符号；堆栈；状态；存储器；开关；同步；系统；[医] 硫[黄](16号元素)；半；骶骨的；标记；用法签；光滑；左的；上转",
+      "partOfSpeech": "n. 名词",
       "lookupKeys": [
         "s"
       ],
       "wordRoot": "s",
       "wordForms": [],
-      "englishDefinition": "",
+      "englishDefinition": "n. the 19th letter of the Roman alphabet",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
-      "source": "ECDICT"
+      "source": "ECDICT",
+      "phonetic": "es"
     },
     {
       "term": "safe",
@@ -124485,18 +124601,20 @@
       "phonetic": "skɔp, skəup"
     },
     {
-      "term": "-scope",
-      "translation": "[医]〔后缀〕意为检查或观察用的镜",
-      "partOfSpeech": "词",
+      "term": "scope",
+      "translation": "n. 范围；机会；广度；眼界；观察仪器；导弹射程；[计] 作用域",
+      "partOfSpeech": "n. 名词",
       "lookupKeys": [
         "scope"
       ],
       "wordRoot": "scope",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "复数：scopes"
+      ],
+      "englishDefinition": "n. an area in which something acts or operates or has power or control: \"the range of a supersonic jet\"",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "sˈkəʊp"
+      "phonetic": "skəup"
     },
     {
       "term": "scor",
@@ -125937,18 +126055,27 @@
       "phonetic": "ʃain"
     },
     {
-      "term": "-ship",
-      "translation": "状态；性质；品质",
-      "partOfSpeech": "词",
+      "term": "ship",
+      "translation": "n. 船；舰；vt. 以船运送；装船；运送；vi. 上船；乘船",
+      "partOfSpeech": "n. 名词 / vt. 及物动词 / vi. 不及物动词 / v. 动词",
       "lookupKeys": [
         "ship",
-        "ships"
+        "ships",
+        "shipped",
+        "shipping"
       ],
       "wordRoot": "ship",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "复数：ships",
+        "过去分词：shipped",
+        "现在分词：shipping",
+        "过去式：shipped",
+        "第三人称单数：ships"
+      ],
+      "englishDefinition": "n. a vessel that carries passengers or freight；v. hire for work on a ship；v. travel by ship",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
-      "source": "ECDICT"
+      "source": "ECDICT",
+      "phonetic": "ʃip"
     },
     {
       "term": "shipment",
@@ -125972,9 +126099,7 @@
       "translation": "[人名] [英格兰人姓氏] 希普 Shipman的变体",
       "partOfSpeech": "词",
       "lookupKeys": [
-        "shipp",
-        "shipped",
-        "shipping"
+        "shipp"
       ],
       "wordRoot": "shipp",
       "wordForms": [],
@@ -127498,17 +127623,18 @@
       "phonetic": "sɒlv"
     },
     {
-      "term": "-some",
-      "translation": "[医]〔后缀〕意为体；躯体",
-      "partOfSpeech": "词",
+      "term": "some",
+      "translation": "pron. 一些；一部分；若干；adv. 大约；adj. 一些的；少许的；某一的",
+      "partOfSpeech": "pron. 代词 / adv. 副词 / adj. 形容词 / adj. 形容词",
       "lookupKeys": [
         "some"
       ],
       "wordRoot": "some",
       "wordForms": [],
-      "englishDefinition": "",
+      "englishDefinition": "a. quantifier; used with either mass nouns or plural count nouns to indicate an unspecified number or quantity；s. relatively much but unspecified in amount or extent；s. relatively many but unspecified in number",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
-      "source": "ECDICT"
+      "source": "ECDICT",
+      "phonetic": "sʌm"
     },
     {
       "term": "somehow",
@@ -127898,20 +128024,27 @@
       "source": "ECDICT"
     },
     {
-      "term": "-speak",
-      "translation": "vi. 说话；演讲；表明；陈述；vt. 讲话；发言；讲演",
-      "partOfSpeech": "vi. 不及物动词 / vt. 及物动词",
+      "term": "speak",
+      "translation": "vi. 说；说话；演说；发言；vt. 说；讲；说出",
+      "partOfSpeech": "vi. 不及物动词 / vt. 及物动词 / v. 动词",
       "lookupKeys": [
         "speak",
         "speaking",
-        "speaks"
+        "speaks",
+        "spoke",
+        "spoken"
       ],
       "wordRoot": "speak",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "过去式：spoke",
+        "现在分词：speaking",
+        "过去分词：spoken",
+        "第三人称单数：speaks"
+      ],
+      "englishDefinition": "v. use language；v. make a characteristic or natural sound",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "spiːk"
+      "phonetic": "spi:k"
     },
     {
       "term": "special",
@@ -127970,19 +128103,21 @@
       "phonetic": "ˈspeʃəlaiz"
     },
     {
-      "term": "-specific",
-      "translation": "adj. 特殊的；特定的；明确的；详细的；[药] 具有特效的；n. 特性；细节；特效药",
-      "partOfSpeech": "adj. 形容词 / n. 名词",
+      "term": "specific",
+      "translation": "n. 特效药；特性；adj. 特殊的；明确的；具有特效的；特定地；具体地",
+      "partOfSpeech": "n. 名词 / adj. 形容词 / adj. 形容词",
       "lookupKeys": [
         "specific",
         "specifics"
       ],
       "wordRoot": "specific",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "复数：specifics"
+      ],
+      "englishDefinition": "n. a medicine that has a mitigating effect on a specific disease；a. (sometimes followed by `to') applying to or characterized by or distinguishing something particular or special or unique；s. stated explicitly or in detail",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "spəˈsɪfɪk"
+      "phonetic": "spiˈsifik"
     },
     {
       "term": "specifically",
@@ -128319,8 +128454,8 @@
       "phonetic": "skwɛə"
     },
     {
-      "term": "-st",
-      "translation": "suf. 用以构成第二人称单数陈述语气；序数词“第一”(first)的符号：the 1stday",
+      "term": "ST",
+      "translation": "[计] 段表；状态；系统测试；直端连接器；[化] 磺胺噻唑",
       "partOfSpeech": "词",
       "lookupKeys": [
         "st"
@@ -128329,8 +128464,7 @@
       "wordForms": [],
       "englishDefinition": "",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
-      "source": "ECDICT",
-      "phonetic": "st"
+      "source": "ECDICT"
     },
     {
       "term": "stability",
@@ -128777,21 +128911,25 @@
       "phonetic": "stɑ:t"
     },
     {
-      "term": "-stat",
-      "translation": "[医]〔词尾〕抑制剂（非杀灭剂）",
+      "term": "stat",
+      "translation": "[电] 静",
       "partOfSpeech": "词",
       "lookupKeys": [
         "stat",
         "stated",
         "states",
-        "stating"
+        "stating",
+        "stats"
       ],
       "wordRoot": "stat",
-      "wordForms": [],
+      "wordForms": [
+        "复数：stats",
+        "第三人称单数：stats"
+      ],
       "englishDefinition": "",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "sˈtæt"
+      "phonetic": "stæt"
     },
     {
       "term": "state",
@@ -129890,15 +130028,23 @@
       "source": "ECDICT"
     },
     {
-      "term": "-style",
-      "translation": "表示：“…式样的”：familystyle；“按…式样”；“有点儿…地”；表示“…柱式”；“…柱的”：distyle",
-      "partOfSpeech": "词",
+      "term": "style",
+      "translation": "n. 风格；时尚；文体；风度；字体；类型；vt. 称呼；(根据新款式)设计；使合潮流；样式；[计] 风格",
+      "partOfSpeech": "n. 名词 / vt. 及物动词",
       "lookupKeys": [
-        "style"
+        "style",
+        "styled",
+        "styling"
       ],
       "wordRoot": "style",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "复数：styles",
+        "过去分词：styled",
+        "过去式：styled",
+        "现在分词：styling",
+        "第三人称单数：styles"
+      ],
+      "englishDefinition": "n. a particular kind (as to appearance)；n. (botany) the narrow elongated part of the pistil between the ovary and the stigma；n. editorial directions to be followed in spelling and punctuation and capitalization and typographical display",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
       "phonetic": "stail"
@@ -131267,19 +131413,21 @@
       "phonetic": "ˈtæktfəlɪ"
     },
     {
-      "term": "-tactic",
-      "translation": "n. 策略；战略；adj. 按顺序的；依次排列的",
+      "term": "tactic",
+      "translation": "n. 一项战术；一条策略；adj. 战术的；顺序的；排列的",
       "partOfSpeech": "n. 名词 / adj. 形容词",
       "lookupKeys": [
         "tactic",
         "tactics"
       ],
       "wordRoot": "tactic",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "复数：tactics"
+      ],
+      "englishDefinition": "n. a plan for attaining a particular goal",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "ˈtæktɪk"
+      "phonetic": "ˈtæktik"
     },
     {
       "term": "tail",
@@ -132243,15 +132391,15 @@
       "phonetic": "ˈtekstʃə"
     },
     {
-      "term": "-th",
-      "translation": "（表示动作或过程）",
+      "term": "Th",
+      "translation": "[医] 钍(90号元素)",
       "partOfSpeech": "词",
       "lookupKeys": [
         "th"
       ],
       "wordRoot": "th",
       "wordForms": [],
-      "englishDefinition": "",
+      "englishDefinition": "n the fifth day of the week; the fourth working day；n a soft silvery-white tetravalent radioactive metallic element; isotope 232 is used as a power source in nuclear reactors; occurs in thorite and in monazite sands",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT"
     },
@@ -132350,18 +132498,21 @@
       "phonetic": "ðɛə"
     },
     {
-      "term": "-them",
-      "translation": "pron. 他们；它们；她们；n. (Them)人名；(老)探",
-      "partOfSpeech": "pron. 代词 / n. 名词",
+      "term": "them",
+      "translation": "pron. 他们；她们；它们",
+      "partOfSpeech": "pron. 代词",
       "lookupKeys": [
-        "them"
+        "them",
+        "thems"
       ],
       "wordRoot": "them",
-      "wordForms": [],
-      "englishDefinition": "",
+      "wordForms": [
+        "复数：thems"
+      ],
+      "englishDefinition": "pron. The objective case of they. See They.",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
       "source": "ECDICT",
-      "phonetic": "ðem; ðəm"
+      "phonetic": "ðem"
     },
     {
       "term": "themself",
@@ -139569,17 +139720,18 @@
       "source": "ECDICT"
     },
     {
-      "term": "-y",
-      "translation": "充满…的；有…特性的",
-      "partOfSpeech": "词",
+      "term": "Y",
+      "translation": "[计] 原型；[医] 钇(39号元素)",
+      "partOfSpeech": "n. 名词",
       "lookupKeys": [
         "y"
       ],
       "wordRoot": "y",
       "wordForms": [],
-      "englishDefinition": "",
+      "englishDefinition": "n. the 25th letter of the Roman alphabet",
       "explanation": "本地离线学习词典条目；多义词请结合下方的当前语境义理解。",
-      "source": "ECDICT"
+      "source": "ECDICT",
+      "phonetic": "wai"
     },
     {
       "term": "y axis",

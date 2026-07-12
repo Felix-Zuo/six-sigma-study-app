@@ -97,6 +97,7 @@ async function main() {
       nextReviewAt: now, intervalDays: 0, easeFactor: 2.1, sourceType: "manual", sourceBookId: "six-sigma-black-belt", sourcePage: 8
     }]));
     localStorage.removeItem("six-sigma-study:daily-streak:v1");
+    localStorage.removeItem("six-sigma-study:question-progress:v1");
     location.reload();
   })()`);
   await waitFor("main navigation", () => evaluate(`Boolean(document.querySelector(".mainNav"))`));

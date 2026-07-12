@@ -13,7 +13,14 @@ const checks = [
   ["source metadata on card", app.includes("sourceDomain") && app.includes("sourceExamId")],
   ["context snapshot", store.includes("contextMeaning") && store.includes("sourceTranslation") && store.includes("exampleText")],
   ["independent session", app.includes("studySessionShell") && app.includes("hideNav: true")],
-  ["no list self rating", !app.includes(">模糊</button>") && !app.includes(">认识</button>")]
+  [
+    "answer-stage memory rating",
+    app.includes('className="flashRatingActions"') &&
+      app.includes('reviewSavedTerm(currentFlashTerm.id, "again")') &&
+      app.includes('reviewSavedTerm(currentFlashTerm.id, "fuzzy")') &&
+      app.includes('reviewSavedTerm(currentFlashTerm.id, "remembered")')
+  ],
+  ["due-only daily queue", app.includes("filteredStudyTerms.filter((item) => isTermDue(item))") && app.includes("plannedFlashCount")]
 ];
 
 const failed = checks.filter(([, ok]) => !ok);

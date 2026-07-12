@@ -59,7 +59,7 @@ def main() -> None:
             "provider": "deepseek",
             "model": "deepseek-v4-flash",
             "promptVersion": "context-correction-v1",
-            "appVersion": "0.8.3-beta",
+            "appVersion": "0.8.4-beta",
             "generatedAt": "2026-07-12T00:00:00.000Z",
             "responseSha256": response_hash,
         },

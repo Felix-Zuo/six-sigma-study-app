@@ -164,7 +164,7 @@ async function main() {
     panelTop: Math.round(document.querySelector(".flashReviewPanel")?.getBoundingClientRect().top ?? -1)
   }))()`);
   const answerShot = await capture("03-flash-answer");
-  await evaluate(`document.querySelector(".flashAnswer .primaryAction")?.click()`);
+  await evaluate(`Array.from(document.querySelectorAll(".flashRatingActions button")).find((item) => item.textContent.trim() === "不认识")?.click()`);
   await waitFor("review completion", () => evaluate(`Boolean(document.querySelector(".flashCompleteState"))`));
   const reviewedTerm = await evaluate(`JSON.parse(localStorage.getItem("six-sigma-study:vocab:v1") ?? "[]")[0]`);
 
@@ -227,7 +227,7 @@ async function main() {
   const advancedShot = await capture("07-question-auto-next");
 
   const checks = {
-    vocabHome: vocabHome.recentTerm === "scope" && !vocabHome.answerLeaked && vocabHome.bodyOverflow <= 1,
+    vocabHome: vocabHome.dueText === "1 个待学" && vocabHome.recentTerm === "scope" && !vocabHome.answerLeaked && vocabHome.bodyOverflow <= 1,
     flashPrompt: flashPrompt.term === "scope" && flashPrompt.answerHidden && flashPrompt.navHidden && flashPrompt.scrollY === 0 && flashPrompt.panelTop < 220,
     flashAnswer: flashAnswer.meaning === "项目范围" && flashAnswer.explanation.length > 8 && flashAnswer.examples >= 2 && flashAnswer.scrollY === 0 && flashAnswer.panelTop < 220,
     reviewStored: reviewedTerm.reviewCount === 1 && reviewedTerm.lapseCount === 1 && reviewedTerm.status === "learning",

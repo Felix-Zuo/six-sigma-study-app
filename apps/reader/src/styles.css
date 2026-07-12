@@ -391,7 +391,7 @@ button {
 .studyItemActions button,
 .studyToolbar select,
 .studyToolbar input {
-  min-height: 42px;
+  min-height: 44px;
   border: 1px solid var(--border-strong);
   border-radius: 8px;
   color: var(--accent-strong);
@@ -562,7 +562,7 @@ button {
   justify-content: center;
   gap: 5px;
   min-width: 0;
-  min-height: 42px;
+  min-height: 44px;
   padding: 0 8px;
   border: 1px solid var(--border-strong);
   border-radius: 6px;
@@ -617,7 +617,6 @@ button {
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.92);
   box-shadow: 0 18px 42px var(--panel-shadow);
-  backdrop-filter: blur(18px);
 }
 
 .appShell[data-theme="dark"] .mainNav {
@@ -662,8 +661,7 @@ button {
   top: 0;
   z-index: 5;
   padding: 10px 0 10px;
-  background: var(--chrome-bg);
-  backdrop-filter: blur(12px);
+  background: var(--app-bg);
 }
 
 .topBar {
@@ -704,7 +702,8 @@ h1 {
 .tocButton,
 .readerControlButton {
   flex: 0 0 auto;
-  height: 38px;
+  min-width: 44px;
+  height: 44px;
   border-radius: 19px;
   font-size: 14px;
   font-weight: 850;
@@ -731,7 +730,7 @@ h1 {
 }
 
 .readerControlButton {
-  min-width: 38px;
+  min-width: 44px;
   padding: 0 9px;
 }
 
@@ -790,7 +789,7 @@ h1 {
 }
 
 .readerMenu button {
-  min-height: 38px;
+  min-height: 44px;
   border: 1px solid var(--border-strong);
   border-radius: 8px;
   color: var(--accent-strong);
@@ -812,8 +811,8 @@ h1 {
 
 .sectionPill {
   flex: 0 0 auto;
-  min-width: 38px;
-  height: 32px;
+  min-width: 44px;
+  height: 44px;
   border: 1px solid var(--border);
   border-radius: 16px;
   color: var(--text-muted);
@@ -1027,10 +1026,11 @@ h1 {
   left: 0;
   z-index: 10;
   max-height: 58vh;
+  max-height: min(58dvh, calc(100dvh - env(safe-area-inset-top)));
   overflow: auto;
   overscroll-behavior: contain;
   touch-action: pan-y;
-  padding: 10px 18px 22px;
+  padding: 10px calc(18px + env(safe-area-inset-right)) calc(22px + env(safe-area-inset-bottom)) calc(18px + env(safe-area-inset-left));
   border: 1px solid var(--border);
   border-bottom: 0;
   border-radius: 18px 18px 0 0;
@@ -1040,7 +1040,8 @@ h1 {
 }
 
 .draggableSheet {
-  height: min(var(--sheet-height, 58vh), calc(100vh - 22px));
+  height: min(var(--sheet-height, 58vh), calc(100vh - env(safe-area-inset-top) - 22px));
+  height: min(var(--sheet-height, 58dvh), calc(100dvh - env(safe-area-inset-top) - 22px));
   max-height: none;
   animation: sheetEnter 0.18s ease both;
 }
@@ -1055,10 +1056,12 @@ h1 {
 .vocabPanel,
 .notesPanel {
   max-height: 70vh;
+  max-height: min(70dvh, calc(100dvh - env(safe-area-inset-top)));
 }
 
 .tocPanel {
   max-height: 78vh;
+  max-height: min(78dvh, calc(100dvh - env(safe-area-inset-top)));
 }
 
 .sheetHandle {
@@ -1087,11 +1090,18 @@ h1 {
   gap: 12px;
 }
 
+.sheetHeader > :first-child {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
 .sheetHeader h2 {
+  min-width: 0;
   margin: 0;
   color: var(--heading);
   font-size: 28px;
   line-height: 1.1;
+  overflow-wrap: anywhere;
 }
 
 .sheetHeaderActions {
@@ -1103,6 +1113,9 @@ h1 {
 
 .closeButton {
   flex: 0 0 auto;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 10px;
   border: 0;
   color: var(--text-muted);
   background: transparent;
@@ -1216,7 +1229,7 @@ h1 {
 .aiCorrectionCard.error button,
 .similarCorrection button,
 .aiLookupAction button {
-  min-height: 40px;
+  min-height: 44px;
   padding: 0 12px;
   border: 1px solid var(--border-strong);
   border-radius: 6px;
@@ -1334,9 +1347,9 @@ h1 {
 
 .iconAction {
   display: inline-grid;
-  width: 40px;
-  height: 40px;
-  flex: 0 0 40px;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
   place-items: center;
   padding: 0;
   border: 1px solid var(--border-strong);
@@ -1451,8 +1464,8 @@ h1 {
 
 .saveButton.compact {
   display: inline-grid;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   margin: 0;
   place-items: center;
   padding: 0;
@@ -1464,7 +1477,7 @@ h1 {
 
 .sourceButton {
   width: 100%;
-  height: 42px;
+  height: 44px;
   margin-top: 12px;
   border: 1px solid var(--border-strong);
   border-radius: 8px;
@@ -1517,10 +1530,10 @@ h1 {
 
 .immersiveExit {
   position: fixed;
-  top: 10px;
-  right: 10px;
+  top: calc(10px + env(safe-area-inset-top));
+  right: calc(10px + env(safe-area-inset-right));
   z-index: 8;
-  min-height: 36px;
+  min-height: 44px;
   padding: 0 12px;
   border: 1px solid var(--border-strong);
   border-radius: 18px;
@@ -1590,7 +1603,7 @@ h1 {
 }
 
 .vocabTools button {
-  min-height: 38px;
+  min-height: 44px;
   border: 0;
   border-radius: 8px;
   padding: 0 14px;
@@ -1617,7 +1630,8 @@ h1 {
 }
 
 .vocabFilters button {
-  height: 38px;
+  min-width: 44px;
+  height: 44px;
   border: 1px solid var(--border-strong);
   border-radius: 8px;
   color: var(--accent-strong);
@@ -1651,7 +1665,7 @@ h1 {
 .tocSearch input {
   width: 100%;
   min-width: 0;
-  height: 40px;
+  height: 44px;
   padding: 0 12px;
   border: 1px solid var(--border-strong);
   border-radius: 8px;
@@ -1664,7 +1678,8 @@ h1 {
 }
 
 .tocSearch button {
-  height: 40px;
+  min-width: 44px;
+  height: 44px;
   padding: 0 10px;
   border: 1px solid var(--border-strong);
   border-radius: 8px;
@@ -1752,7 +1767,7 @@ h1 {
 .vocabItemActions button,
 .vocabItemActions select {
   width: 100%;
-  height: 36px;
+  height: 44px;
   border: 1px solid var(--border-strong);
   border-radius: 6px;
   color: var(--accent-strong);
@@ -1824,7 +1839,8 @@ h1 {
 }
 
 .noteActions button {
-  height: 34px;
+  min-width: 44px;
+  height: 44px;
   border: 1px solid var(--border-strong);
   border-radius: 6px;
   color: var(--accent-strong);
@@ -1969,6 +1985,29 @@ h1 {
   gap: 10px;
 }
 
+.flashRatingActions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.flashRatingActions button {
+  min-height: 48px;
+  padding: 10px 8px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--accent-strong);
+  background: var(--surface);
+  font: inherit;
+  font-weight: 800;
+}
+
+.flashRatingActions .primaryAction {
+  color: var(--accent-text);
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
 .flashPromptActions button,
 .flashQuiz button,
 .flashCompleteState button {
@@ -2016,7 +2055,7 @@ h1 {
 }
 
 .vocabModeTabs button {
-  min-height: 42px;
+  min-height: 44px;
   border: 0;
   border-radius: 6px;
   color: var(--text-muted);
@@ -2183,7 +2222,7 @@ h1 {
 .questionImportPanel input,
 .examSetup input,
 .examSetup button {
-  min-height: 42px;
+  min-height: 44px;
   border: 1px solid var(--border-strong);
   border-radius: 8px;
   color: var(--accent-strong);
@@ -2219,6 +2258,18 @@ h1 {
   background: var(--surface-muted);
   font-size: 12px;
   font-weight: 800;
+}
+
+.questionProgressLine .examCountdown {
+  min-width: 106px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.questionProgressLine .examCountdown.urgent {
+  color: var(--answer-wrong-text);
+  border: 1px solid var(--answer-wrong-border);
+  background: var(--answer-wrong-bg);
 }
 
 .questionOptions {
@@ -2273,13 +2324,29 @@ h1 {
 }
 
 .questionOption.correct {
-  border-color: #2f7d4f;
-  background: #e7f5ed;
+  color: var(--answer-correct-text);
+  border-color: var(--answer-correct-border);
+  background: var(--answer-correct-bg);
+  box-shadow: inset 0 0 0 1px var(--answer-correct-border);
 }
 
 .questionOption.wrong {
-  border-color: #b85c4f;
-  background: #faece9;
+  color: var(--answer-wrong-text);
+  border-color: var(--answer-wrong-border);
+  background: var(--answer-wrong-bg);
+  box-shadow: inset 0 0 0 1px var(--answer-wrong-border);
+}
+
+.questionOption.correct strong {
+  color: var(--answer-correct-text);
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--answer-correct-border);
+}
+
+.questionOption.wrong strong {
+  color: var(--answer-wrong-text);
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--answer-wrong-border);
 }
 
 .answerPanel {
@@ -2470,6 +2537,10 @@ h1 {
   font-size: 34px;
 }
 
+.scoreBlock small {
+  color: var(--text-muted);
+}
+
 .questionStack {
   display: grid;
   gap: 12px;
@@ -2608,7 +2679,7 @@ h1 {
   }
 }
 
-/* Beta 0.8.3 - Quiet Aperture */
+/* Beta 0.8.4 - Quiet Aperture maturity pass */
 :root {
   color: #202329;
   background: #eeece7;
@@ -2645,7 +2716,27 @@ body {
   --page-accent-strong: #263d74;
   --page-accent-soft: #dfe5f2;
   --page-note: #c97563;
+  --answer-correct-bg: #e6f3ea;
+  --answer-correct-border: #397b52;
+  --answer-correct-text: #19472d;
+  --answer-wrong-bg: #f8e7e4;
+  --answer-wrong-border: #ad5548;
+  --answer-wrong-text: #702d25;
+  --edge-stack-primary-bg: #3f5f9f;
+  --edge-stack-secondary-bg: #ead7d0;
+  --edge-stack-border: rgba(44, 47, 54, 0.1);
+  --edge-tab-bg: #e4e1db;
+  --edge-tab-border: #cbc7bf;
+  --edge-tab-text: #2a3345;
+  --edge-tab-question-bg: #e7d3cc;
+  --edge-tab-question-text: #593b35;
+  --edge-tab-favorite-bg: #d9dfec;
+  --edge-tab-favorite-text: #2d3e66;
+  --edge-tab-hover-bg: #dfe5f2;
+  --edge-tab-hover-text: #263d74;
+  --edge-tab-shadow: rgba(37, 37, 35, 0.05);
   width: 100%;
+  min-height: 100vh;
   min-height: 100dvh;
   padding: 0;
   background: var(--app-bg);
@@ -2723,6 +2814,25 @@ body {
   --term-bg: #382b27;
   --term-border: #d0806f;
   --term-text: #f2ded7;
+  --answer-correct-bg: #20372a;
+  --answer-correct-border: #6fbe8b;
+  --answer-correct-text: #d7f0df;
+  --answer-wrong-bg: #462925;
+  --answer-wrong-border: #e18477;
+  --answer-wrong-text: #ffd9d3;
+  --edge-stack-primary-bg: #37496f;
+  --edge-stack-secondary-bg: #49332f;
+  --edge-stack-border: rgba(238, 234, 229, 0.18);
+  --edge-tab-bg: #303236;
+  --edge-tab-border: #5a5b60;
+  --edge-tab-text: #f0eee9;
+  --edge-tab-question-bg: #47302d;
+  --edge-tab-question-text: #ffd9d2;
+  --edge-tab-favorite-bg: #2e3749;
+  --edge-tab-favorite-text: #dde6ff;
+  --edge-tab-hover-bg: #35415a;
+  --edge-tab-hover-text: #e3e9f8;
+  --edge-tab-shadow: rgba(0, 0, 0, 0.2);
 }
 
 html[data-reader-theme="dark"],
@@ -2735,9 +2845,10 @@ html[data-reader-theme="dark"] body {
   align-content: start;
   gap: 0;
   max-width: 860px;
+  min-height: 100vh;
   min-height: 100dvh;
   margin: 0 auto;
-  padding: 24px 18px calc(92px + env(safe-area-inset-bottom));
+  padding: calc(24px + env(safe-area-inset-top)) calc(18px + env(safe-area-inset-right)) calc(92px + env(safe-area-inset-bottom)) calc(18px + env(safe-area-inset-left));
 }
 
 .appPageHeader {
@@ -2793,6 +2904,11 @@ html[data-reader-theme="dark"] body {
   animation-delay: 105ms;
 }
 
+html[data-transition-kind] .appPageContent,
+html[data-transition-kind] .appPageContent > * {
+  animation: none;
+}
+
 .page-home .appPageHeader {
   display: none;
 }
@@ -2840,7 +2956,7 @@ html[data-reader-theme="dark"] body {
   gap: 8px;
 }
 
-.workspaceBrand h2 {
+.workspaceBrand h1 {
   margin: 0;
   color: var(--heading);
   font-size: 34px;
@@ -2972,7 +3088,7 @@ html[data-reader-theme="dark"] body {
   position: absolute;
   top: 8px;
   bottom: 8px;
-  border: 1px solid rgba(44, 47, 54, 0.1);
+  border: 1px solid var(--edge-stack-border);
   border-left: 0;
   border-radius: 0 7px 7px 0;
   content: "";
@@ -2982,7 +3098,7 @@ html[data-reader-theme="dark"] body {
   right: 11px;
   left: -7px;
   z-index: -1;
-  background: #3f5f9f;
+  background: var(--edge-stack-primary-bg);
   animation: apertureBackPageLand 980ms 80ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -2992,7 +3108,7 @@ html[data-reader-theme="dark"] body {
   bottom: 0;
   left: 20px;
   z-index: -2;
-  background: #ead7d0;
+  background: var(--edge-stack-secondary-bg);
   animation: apertureBackPageLand 1080ms 130ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -3001,14 +3117,15 @@ html[data-reader-theme="dark"] body {
   display: grid;
   place-items: center;
   gap: 5px;
-  min-width: 0;
+  min-width: 44px;
+  min-height: 44px;
   padding: 9px 4px;
-  border: 1px solid #cbc7bf;
+  border: 1px solid var(--edge-tab-border);
   border-left: 0;
   border-radius: 0 6px 6px 0;
-  color: var(--heading-soft);
-  background: #e4e1db;
-  box-shadow: 7px 8px 18px rgba(37, 37, 35, 0.05);
+  color: var(--edge-tab-text);
+  background: var(--edge-tab-bg);
+  box-shadow: 7px 8px 18px var(--edge-tab-shadow);
   animation: apertureTabSettle 780ms cubic-bezier(0.16, 1, 0.3, 1) both;
   transition: width 220ms cubic-bezier(0.16, 1, 0.3, 1), color 180ms ease, background 180ms ease;
 }
@@ -3020,8 +3137,8 @@ html[data-reader-theme="dark"] body {
 
 .workspaceEdgeNav button:nth-child(2) {
   width: 51px;
-  color: #593b35;
-  background: #e7d3cc;
+  color: var(--edge-tab-question-text);
+  background: var(--edge-tab-question-bg);
   animation-delay: 140ms;
 }
 
@@ -3032,16 +3149,16 @@ html[data-reader-theme="dark"] body {
 
 .workspaceEdgeNav button:nth-child(4) {
   width: 54px;
-  color: #2d3e66;
-  background: #d9dfec;
+  color: var(--edge-tab-favorite-text);
+  background: var(--edge-tab-favorite-bg);
   animation-delay: 240ms;
 }
 
 .workspaceEdgeNav button:hover,
 .workspaceEdgeNav button:focus-visible {
   width: 58px;
-  color: var(--page-accent-strong);
-  background: var(--page-accent-soft);
+  color: var(--edge-tab-hover-text);
+  background: var(--edge-tab-hover-bg);
   outline: none;
 }
 
@@ -3170,7 +3287,7 @@ html[data-reader-theme="dark"] body {
 
 .bookCardBody .primaryAction {
   justify-self: start;
-  min-height: 38px;
+  min-height: 44px;
   margin-top: 3px;
   padding: 0 14px;
   border-radius: 5px;
@@ -3188,7 +3305,8 @@ html[data-reader-theme="dark"] body {
 
 .sectionHeader button,
 .sectionHeaderRow button {
-  min-height: 34px;
+  min-width: 44px;
+  min-height: 44px;
   padding: 0;
   border: 0;
   border-radius: 0;
@@ -3217,18 +3335,17 @@ html[data-reader-theme="dark"] body {
   width: 100%;
   max-width: 860px;
   margin: 0 auto;
-  padding: 0 8px env(safe-area-inset-bottom);
+  padding: 0 calc(8px + env(safe-area-inset-right)) env(safe-area-inset-bottom) calc(8px + env(safe-area-inset-left));
   border: 0;
   border-top: 1px solid var(--border);
   border-radius: 0;
-  background: var(--chrome-bg);
+  background: var(--app-bg);
   box-shadow: none;
-  backdrop-filter: blur(16px);
   view-transition-name: app-main-nav;
 }
 
 .appShell[data-theme="dark"] .mainNav {
-  background: var(--chrome-bg);
+  background: var(--app-bg);
 }
 
 .mainNavItem {
@@ -3415,7 +3532,7 @@ summary:focus-visible {
 }
 
 .studyItemActions button {
-  min-height: 38px;
+  min-height: 44px;
   border-radius: 5px;
 }
 
@@ -3537,6 +3654,11 @@ summary:focus-visible {
   background: var(--surface);
 }
 
+.settingsRow .inlineActions button {
+  min-width: 44px;
+  min-height: 44px;
+}
+
 .splashShell {
   display: grid;
   place-items: center;
@@ -3569,16 +3691,17 @@ summary:focus-visible {
 
 .appShell.page-reader {
   max-width: 860px;
+  min-height: 100vh;
+  min-height: 100dvh;
   margin: 0 auto;
-  padding: 0 18px calc(92px + env(safe-area-inset-bottom));
+  padding: env(safe-area-inset-top) calc(18px + env(safe-area-inset-right)) calc(92px + env(safe-area-inset-bottom)) calc(18px + env(safe-area-inset-left));
 }
 
 .readerChrome {
-  margin: 0 -18px;
-  padding: 18px 18px 12px;
+  margin: calc(-1 * env(safe-area-inset-top)) calc(-18px - env(safe-area-inset-right)) 0 calc(-18px - env(safe-area-inset-left));
+  padding: calc(18px + env(safe-area-inset-top)) calc(18px + env(safe-area-inset-right)) 12px calc(18px + env(safe-area-inset-left));
   border-bottom: 1px solid var(--border);
   background: var(--chrome-bg);
-  backdrop-filter: blur(16px);
 }
 
 .topBar {
@@ -3598,7 +3721,8 @@ summary:focus-visible {
 .modeButton,
 .tocButton,
 .readerControlButton {
-  height: 38px;
+  min-width: 44px;
+  height: 44px;
   border-radius: 5px;
 }
 
@@ -3643,8 +3767,8 @@ summary:focus-visible {
 }
 
 .sectionPill {
-  min-width: 42px;
-  height: 36px;
+  min-width: 44px;
+  height: 44px;
   border: 0;
   border-bottom: 2px solid transparent;
   border-radius: 0;
@@ -3716,10 +3840,23 @@ summary:focus-visible {
 }
 
 .sheetHandle {
+  width: 48px;
+  height: 48px;
+  margin: -10px auto -2px;
+  border-radius: 0;
+  background: transparent;
+}
+
+.sheetHandle::after {
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 50%;
   width: 46px;
   height: 4px;
   border-radius: 2px;
   background: var(--border-strong);
+  transform: translate(-50%, -50%);
 }
 
 .bottomSheet[data-dragging="true"] {
@@ -3894,7 +4031,7 @@ html[data-transition-kind="language"]::view-transition-new(root) {
 
 @media (max-width: 520px) {
   .appFrame {
-    padding: 22px 14px calc(88px + env(safe-area-inset-bottom));
+    padding: calc(22px + env(safe-area-inset-top)) calc(14px + env(safe-area-inset-right)) calc(88px + env(safe-area-inset-bottom)) calc(14px + env(safe-area-inset-left));
   }
 
   .appPageHeader {
@@ -3915,7 +4052,7 @@ html[data-transition-kind="language"]::view-transition-new(root) {
     padding: 22px 20px 20px;
   }
 
-  .workspaceBrand h2 {
+  .workspaceBrand h1 {
     font-size: 31px;
   }
 
@@ -3924,7 +4061,7 @@ html[data-transition-kind="language"]::view-transition-new(root) {
   }
 
   .workspaceEdgeNav button:nth-child(1) {
-    width: 42px;
+    width: 44px;
   }
 
   .workspaceEdgeNav button:nth-child(2) {
@@ -3967,15 +4104,15 @@ html[data-transition-kind="language"]::view-transition-new(root) {
   }
 
   .appShell.page-reader {
-    padding-right: 14px;
-    padding-left: 14px;
+    padding-right: calc(14px + env(safe-area-inset-right));
+    padding-left: calc(14px + env(safe-area-inset-left));
   }
 
   .readerChrome {
-    margin-right: -14px;
-    margin-left: -14px;
-    padding-right: 14px;
-    padding-left: 14px;
+    margin-right: calc(-14px - env(safe-area-inset-right));
+    margin-left: calc(-14px - env(safe-area-inset-left));
+    padding-right: calc(14px + env(safe-area-inset-right));
+    padding-left: calc(14px + env(safe-area-inset-left));
   }
 
   .topBar {
@@ -4002,8 +4139,10 @@ html[data-transition-kind="language"]::view-transition-new(root) {
   .notesPanel,
   .vocabPanel,
   .tocPanel {
-    right: calc((100vw - 860px) / 2);
-    left: calc((100vw - 860px) / 2);
+    right: 0;
+    left: 0;
+    width: min(100%, 860px);
+    margin-inline: auto;
   }
 
   .workspacePageStack {

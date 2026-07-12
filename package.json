@@ -1,6 +1,6 @@
 {
   "name": "six-sigma-study-app",
-  "version": "0.8.3-beta.0",
+  "version": "0.8.4-beta.0",
   "private": true,
   "workspaces": [
     "apps/reader"
@@ -10,7 +10,8 @@
     "build": "npm --workspace apps/reader run build",
     "typecheck": "npm --workspace apps/reader run typecheck",
     "stage:private-question-bank": "python scripts/stage_private_question_bank.py",
-    "android:sync": "npm run stage:private-question-bank && npm run build && npx cap sync android",
+    "clean:private-question-bank": "python scripts/stage_private_question_bank.py clean",
+    "android:sync": "python scripts/sync_android.py",
     "android:apk": "npm run android:sync && cd android && gradlew.bat assembleDebug",
     "android:release-apk": "npm run android:sync && cd android && gradlew.bat assembleRelease",
     "android:aab": "npm run android:sync && cd android && gradlew.bat bundleRelease",
@@ -43,14 +44,17 @@
     "qa:context-lookup": "node scripts/qa-context-lookup.mjs",
     "qa:context-glosses": "python scripts/qa_context_glosses.py",
     "qa:lexical-learning": "node scripts/qa-lexical-learning.mjs",
+    "qa:dictionary-boundaries": "python scripts/qa_dictionary_lookup_boundaries.py",
     "qa:streak": "node scripts/qa-streak.mjs",
     "qa:question-schema": "python scripts/qa_question_schema.py",
     "qa:question-modes": "node scripts/qa-question-modes.mjs",
     "qa:learning-ui": "node scripts/qa-learning-ui-cdp.mjs",
     "qa:lexical-ui": "node scripts/qa-lexical-ui-cdp.mjs",
     "qa:motion-ui": "node scripts/qa-motion-ui-cdp.mjs",
+    "qa:maturity-regressions": "node scripts/qa-maturity-regressions-cdp.mjs",
     "qa:private-isolation": "python scripts/qa_private_question_bank_isolation.py",
-    "qa:learning-modules": "npm run qa:vocab-flashcards && npm run qa:context-lookup && npm run qa:context-glosses && npm run qa:lexical-learning && npm run qa:streak && npm run qa:question-schema && npm run qa:question-modes && npm run qa:private-isolation && npm run qa:context-corrections"
+    "qa:public-artifact": "python scripts/qa_public_artifact.py",
+    "qa:learning-modules": "npm run qa:vocab-flashcards && npm run qa:context-lookup && npm run qa:context-glosses && npm run qa:lexical-learning && npm run qa:dictionary-boundaries && npm run qa:streak && npm run qa:question-schema && npm run qa:question-modes && npm run qa:private-isolation && npm run qa:public-artifact && npm run qa:context-corrections"
   },
   "devDependencies": {
     "@capacitor/android": "^8.4.1",

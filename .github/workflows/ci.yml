@@ -30,6 +30,12 @@ jobs:
       - name: Build reader
         run: npm run build
 
+      - name: Type-check reader
+        run: npm run typecheck
+
+      - name: Verify public build artifact isolation
+        run: npm run qa:public-artifact
+
       - name: Validate sample content
         run: npm run lint:content
 
@@ -47,3 +53,97 @@ jobs:
 
       - name: Documentation link check
         run: npm run docs:links
+
+  browser-qa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Start reader and headless Chrome
+        shell: bash
+        run: |
+          nohup npm --workspace apps/reader run dev -- --host 127.0.0.1 --port 4183 > /tmp/six-sigma-vite.log 2>&1 &
+          for attempt in {1..60}; do
+            curl --fail --silent http://127.0.0.1:4183/ > /dev/null && break
+            sleep 1
+          done
+          CHROME="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)"
+          test -n "$CHROME"
+          nohup "$CHROME" --headless=new --no-sandbox --disable-gpu --remote-debugging-address=127.0.0.1 --remote-debugging-port=9338 --user-data-dir=/tmp/six-sigma-chrome about:blank > /tmp/six-sigma-chrome.log 2>&1 &
+          for attempt in {1..60}; do
+            curl --fail --silent http://127.0.0.1:9338/json > /dev/null && break
+            sleep 1
+          done
+          curl --fail http://127.0.0.1:4183/
+          curl --fail http://127.0.0.1:9338/json
+
+      - name: Motion and reduced-motion QA
+        env:
+          CDP_ENDPOINT: http://127.0.0.1:9338/json
+          QA_APP_URL: http://127.0.0.1:4183/
+        run: npm run qa:motion-ui
+
+      - name: Product maturity regression QA
+        env:
+          CDP_ENDPOINT: http://127.0.0.1:9338/json
+          QA_APP_URL: http://127.0.0.1:4183/
+        run: npm run qa:maturity-regressions
+
+  android-debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android platform
+        run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
+
+      - name: Setup Gradle cache
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync public Android assets
+        run: npm run android:sync
+
+      - name: Compile debug APK
+        run: |
+          chmod +x android/gradlew
+          ./android/gradlew -p android assembleDebug
+
+      - name: Upload debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: six-sigma-study-debug-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk

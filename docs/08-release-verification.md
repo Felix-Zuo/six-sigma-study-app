@@ -13,6 +13,8 @@
 | Target 4 product audit | `npm run qa:target4-flow` | opening, home, second book, settings, TOC, immersive mode, lookup half/full, exact source return, Chinese image fidelity, notes, favorites, and vocabulary pass | real-device physical long-press QA remains separate |
 | Android key chapters | `npm run qa:android-key-chapters` | Chapters 1, 7, 26, and 33 render, lookup, align, and load images | WebView/CDP is not a full physical-device matrix |
 | Lexical learning | `npm run qa:lexical-learning`; `npm run qa:lexical-ui` | structured senses, phonetics, context meanings, bilingual examples, native TTS bridge, and mobile layout pass | final voice quality depends on the device TTS voice |
+| Maturity regressions | `npm run qa:maturity-regressions`; `npm run qa:motion-ui` | per-book position isolation, due-only review, practice resume, safe reset, sheet boundaries/a11y, native/fallback motion paths | CDP gestures do not replace a broad physical-device matrix |
+| Public artifact isolation | `npm run qa:public-artifact`; `npm run qa:private-isolation` | normal web dist contains no private bank; Android sync cleans transient staging | local private source remains the user's responsibility |
 | Context glossary | `npm run qa:context-glosses` | 3875 blocks, 8591 sentences, 105048 meanings, page 8/9 regressions pass | 383 low-confidence sentences intentionally expose no asserted word meaning |
 | Release packaging | `npm run android:release-apk`; `npm run android:aab` | APK/AAB build with runtime packages and figure assets bundled | store upload-key policy is not finalized |
 
@@ -24,7 +26,7 @@ This document records the current evidence that the Android study app is install
 
 - Repository: `https://github.com/Felix-Zuo/six-sigma-study-app`
 - Local path: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app`
-- Latest local release validation pass when this document was updated: 2026-07-12 Asia/Shanghai
+- Latest local release validation pass when this document was updated: 2026-07-13 Asia/Shanghai
 - Release APK: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
 
@@ -56,6 +58,9 @@ npm run qa:target4-flow
 npm run qa:learning-modules
 npm run qa:lexical-ui
 npm run qa:motion-ui
+npm run qa:maturity-regressions
+npm run qa:public-artifact
+npm run qa:dictionary-boundaries
 npm run typecheck
 npm run build
 npm run android:release-apk
@@ -104,23 +109,34 @@ node scripts\qa-dictionary-cdp.mjs
 - 174 reader sections are generated across the manual.
 - 8994 generated content blocks carry page anchors; English and Chinese block coverage spans every page from 6 through 449.
 - 475 PNG figure/table/formula assets are bundled, including five reviewed source-PDF recovery crops.
-- 3981 public offline dictionary entries are bundled: 94 curated course/term entries and 3887 ECDICT-derived learner entries.
-- Local Android builds additionally stage a 3552-entry ECDICT supplement generated from the ignored private question bank; the supplement remains outside Git with the private bank.
-- Dictionary generation covers 5582 of 5673 single-word manual forms; the remaining uncovered forms are mostly proper names, URL fragments, OCR/formatting artifacts, and unusual compound tokens.
+- 3980 public offline dictionary entries are bundled: 94 curated course/term entries and 3886 ECDICT-derived learner entries.
+- Local Android builds additionally stage a 3550-entry ECDICT supplement generated from the ignored private question bank; the supplement remains outside Git with the private bank.
+- Dictionary generation covers 5592 of 5681 single-word manual/question forms; the remaining uncovered forms are mostly proper names, URL fragments, OCR/formatting artifacts, and unusual compound tokens.
 - `manual.json`, `asset-manifest.json`, PWA shell files, hashed reader assets, and all figure PNGs are present in both APK and AAB.
-- Current APK/AAB checks found 926 APK entries and 934 AAB entries, including the full `manual.json`, 33 chapters, 449 pages, 3981 public dictionary entries, 475 figure PNGs, and the ignored local private-question-bank plus supplemental-dictionary runtime assets.
+- Current APK/AAB checks include the full `manual.json`, 33 chapters, 449 pages, 3980 public dictionary entries, 475 figure PNGs, and the ignored local private-question-bank plus supplemental-dictionary runtime assets.
 - Chapter 28 remains one section because its TOC-like headings are normal paragraphs, not reliable Word headings.
 
 ## PWA Browser Offline QA
 
 - `node scripts\qa-pwa-offline-cdp.mjs`: passed against Vite preview on `127.0.0.1:4175` and clean headless Chrome CDP on `127.0.0.1:9333`.
-- Service worker cache: `six-sigma-study-v0.8.3`; content JSON uses network-first refresh with offline cache fallback.
+- Service worker cache: `six-sigma-study-v0.8.4`; content JSON uses network-first refresh with offline cache fallback.
 - Online cache state includes `/`, `/index.html`, hashed JS/CSS shell assets, `content/manual.json`, `manifest.webmanifest`, and all 475 figure assets.
 - Offline reload state: CDP network offline, cache-ignored reload rendered `Chapter 1: What is Six Sigma?`, 23 sections, service-worker controller present, and horizontal overflow 0.
 
 ## Android Runtime QA
 
 Verified on local emulator `SixSigmaQA` / `emulator-5554`.
+
+### Beta 0.8.4 Product Maturity And Regression Hardening
+
+- `npm run qa:maturity-regressions`: eight isolated CDP scenarios passed: p6/p4 cross-book restoration, due-only `1/1` vocabulary review, first-unanswered practice resume, one-second absolute exam timeout and automatic submission, persistent data reset, storage-failure resilience, keyboard sheet resizing, 759/760/800/859/860px sheet boundaries, accessible H1, and `aria-current` navigation.
+- `npm run qa:motion-ui`: native navigation called `startViewTransition` once and exposed 14 live transition animations; reduced-motion opening completed in about 204ms with 0.001ms active animation timing and fallback navigation.
+- `npm run qa:target4-flow`: all 13 key product views passed; notes and favorites screenshots have different SHA-256 hashes, fixing the previous false-positive evidence path.
+- Final Android WebView run asserted Capacitor platform `android`. Chapters 1/7/26/33 retained 2/14/50/25 images in both languages, with zero broken images and zero horizontal overflow.
+- `npm run qa:learning-ui` and `npm run qa:lexical-ui`: due count, answer-stage three-way memory grading, 1006-question local bank, question lookup, `scope` ordinary dictionary entry/context, bilingual examples, and native pronunciation passed.
+- Public artifact isolation: normal `dist` scanned 493 entries with zero private violations. Android sync copied 1000 questions and 3550 supplemental terms into native assets, then removed transient private staging.
+- Final APK: 40,722,541 bytes, SHA-256 `FA2AF476A967D4AFD10A88FE34EB3404B05ACBC840BF3384B55E0BFA43F52F53`; v2 signature verified with one signer; installed as code/name `804` / `0.8.4-beta`.
+- Final AAB: 38,474,876 bytes, SHA-256 `A9922942D0D274E2E2B1FA6E3BC72D3254053108E0A2E53AEFB494B4EAF2CF37`; JAR signature verified with expected local self-signed/no-timestamp warnings.
 
 ### Beta 0.8.3 Quiet Aperture Frontend
 
@@ -169,7 +185,7 @@ Verified on local emulator `SixSigmaQA` / `emulator-5554`.
 - Image fidelity QA: `npm run qa:image-fidelity` passed for Chapters 1, 7, 26, and 33. English/Chinese image counts matched the expected chapter counts (2, 14, 50, and 25 respectively), every checked image loaded without broken assets, lookup opened in each chapter, and horizontal overflow stayed 0.
 - Target 3 screenshots were captured under `qa/screenshots/target3-01-splash.png` through `target3-09-favorites.png`; public-safe copies are committed under `docs/assets/showcase/target3-*.png`.
 - Dictionary lookup: Android WebView QA verified a clicked word after EN/ZH round trip used a real dictionary entry (`to`) rather than the generic fallback explanation.
-- Dictionary coverage: browser CDP QA verified runtime `manual.json` contains ECDICT-derived learner entries, curated hits for `COPQ`, `DMADV`, `poka-yoke`, `5S`, and `Anderson-Darling`, and rich lookup profiles for the reported regression terms. The current package inspection verified 3981 public entries plus the ignored 3552-entry private-question supplement.
+- Dictionary coverage: browser CDP QA verified runtime `manual.json` contains ECDICT-derived learner entries, curated hits for `COPQ`, `DMADV`, `poka-yoke`, `5S`, and `Anderson-Darling`, and rich lookup profiles for the reported regression terms. The current package inspection verified 3980 public entries plus the ignored 3550-entry private-question supplement.
 - Full-manual validator: `npm run lint:content` now checks 33 chapters, pageCount 449, continuous chapter page ranges, manifest chapter paths, global duplicate section/block IDs, block page anchors, complete EN/ZH page coverage, image asset metadata consistency, unsafe asset paths, asset page bounds, and reader-style dictionary lookup key uniqueness.
 - Source coverage validator: `npm run qa:source-coverage` passed with source PDF page count 557, manual page count 449, 8994 content blocks, 952 image blocks, 475 assets, 142 source TOC sections, 127 matched source section anchors, 15 explicitly allowed normal-paragraph source headings, and nonblank source-page renders for pages 9, 73, 396, 544, and 555.
 - Current release package sizes after this validation pass: APK 38,885,997 bytes; AAB 36,638,342 bytes.

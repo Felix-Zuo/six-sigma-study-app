@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-07-12 Asia/Shanghai
+Last updated: 2026-07-13 Asia/Shanghai
 
 ## Objective
 
@@ -20,15 +20,29 @@ The final product must support full-manual offline reading, position-preserving 
 
 ## Current Evidence
 
-- Product version: `Beta 0.8.3` (`0.8.3-beta.0` in npm, Android `versionCode 803` / `versionName 0.8.3-beta`). During the current beta line, each user-facing update increments the patch version: `0.8.4`, `0.8.5`, and so on.
+- Product version: `Beta 0.8.4` (`0.8.4-beta.0` in npm, Android `versionCode 804` / `versionName 0.8.4-beta`). During the current beta line, each user-facing update increments the patch version: `0.8.5`, `0.8.6`, and so on.
 - Branch: `main`
 - Latest workspace migration validation pass: 2026-06-26 00:33 Asia/Shanghai
 - Local workspace root: `D:\0A OpenClaw\projects\6sigma`
-- Local worktree: Beta 0.8.3 frontend verification complete; release commit pending
-- Latest pre-migration pushed GitHub Actions state: CI passed for `1d6ef7f` in run `28159917559`
+- Local worktree: Beta 0.8.4 maturity hardening and local release verification complete
+- Latest confirmed baseline GitHub Actions state before this release: CI passed for `f3a19d5` in run `29201095349`
 - Release APK after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with the Quiet Aperture spatial shell, native View Transitions and reduced-motion fallback, source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, occurrence-level bilingual context glosses, tap-to-lookup bottom sheet, 3981-entry public offline learner dictionary plus an ignored 3552-entry local private-question supplement, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with the Quiet Aperture spatial shell, native View Transitions and reduced-motion fallback, source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, book-isolated persisted reading positions, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, occurrence-level bilingual context glosses, tap-to-lookup bottom sheet, 3980-entry public offline learner dictionary plus an ignored 3550-entry local private-question supplement, phrase-selection UI hook, due-only vocabulary review scheduling and CSV export, selected-text study notes, timed mock exams, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+
+## 2026-07-13 Product Maturity And Regression Hardening Beta 0.8.4
+
+- Corrected cross-book reader-position persistence and clamped restored pages to each book's valid page range.
+- Changed vocabulary planning to a due-only queue, capped the displayed plan by actual due items, and restored explicit `认识 / 模糊 / 不认识` scheduling after answer reveal.
+- Added first-unanswered practice resume and a background-safe absolute mock-exam countdown with timeout submission and actual elapsed time.
+- Removed affix aliases from ordinary dictionary lookup. The builder audited 1,991 affix rows and 1,016 affix/base collisions; `scope` now resolves to the ordinary word entry rather than `-scope`.
+- Isolated the private 1000-question bank from normal web artifacts. Android sync stages it only into the transient dist, copies it into native assets, and always cleans the web artifact afterward.
+- Fixed local-data reset ordering, concurrent View Transition ownership, 760-859px sheet clipping, touch target sizes, dark answer-state contrast, safe-area coverage, reduced-motion splash delay, keyboard sheet resizing, home heading structure, and navigation `aria-current`.
+- Added public-artifact, dictionary-boundary, motion-path, favorites screenshot, Android platform, and maturity regression gates. GitHub Actions now runs static/content gates, headless-browser interaction QA, and an Android debug compile as separate jobs.
+- Final release artifacts:
+  - APK: 40,722,541 bytes; SHA-256 `FA2AF476A967D4AFD10A88FE34EB3404B05ACBC840BF3384B55E0BFA43F52F53`; APK Signature Scheme v2 verified, one signer; installed and launched as `versionCode 804` / `versionName 0.8.4-beta`.
+  - AAB: 38,474,876 bytes; SHA-256 `A9922942D0D274E2E2B1FA6E3BC72D3254053108E0A2E53AEFB494B4EAF2CF37`; JAR signature verification passed with expected self-signed/no-timestamp warnings.
+  - APK/AAB contain 1000 local questions, 3550 private-question dictionary entries, 3980 public dictionary entries, and the full manual; ordinary web `dist` contains zero private paths.
 
 ## 2026-07-12 Quiet Aperture Frontend Beta 0.8.3
 

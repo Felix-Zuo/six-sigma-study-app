@@ -16,6 +16,7 @@ DEFAULT_REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_WORKSPACE_ROOT = DEFAULT_REPO_ROOT.parent
 DEFAULT_ECDICT_CSV = DEFAULT_WORKSPACE_ROOT / "sources" / "ecdict.csv"
 WORD_RE = re.compile(r"[A-Za-z][A-Za-z0-9'’.-]*")
+AFFIX_MARKERS = ("-", "\u2010", "\u2011", "\u2012", "\u2013", "\u2014", "\u2015")
 EXCHANGE_LABELS = {
     "p": "过去式",
     "d": "过去分词",
@@ -85,6 +86,15 @@ def normalize_lookup_key(value: object) -> str:
     return " ".join(
         "".join(char.lower() if char.isalnum() or char == "σ" else " " for char in str(value)).split()
     )
+
+
+def is_affix_notation(value: object) -> bool:
+    term = str(value).strip()
+    return bool(term) and (term.startswith(AFFIX_MARKERS) or term.endswith(AFFIX_MARKERS))
+
+
+def is_exact_lookup_surface(value: object, normalized_key: str) -> bool:
+    return str(value).strip().casefold() == normalized_key.casefold()
 
 
 def add_unique(items: list[str], value: str) -> None:
@@ -247,15 +257,52 @@ def merge_translations(primary: str, secondary: str) -> str:
     return "；".join(merged)[:420]
 
 
-def load_ecdict_rows(path: Path) -> dict[str, dict[str, str]]:
+def load_ecdict_rows_with_audit(path: Path) -> tuple[dict[str, dict[str, str]], dict[str, int]]:
     rows: dict[str, dict[str, str]] = {}
+    ordinary_keys: set[str] = set()
+    affix_keys: set[str] = set()
+    prefix_keys: set[str] = set()
+    suffix_keys: set[str] = set()
+    affix_rows_excluded = 0
+    exact_replacements = 0
     with path.open("r", encoding="utf-8", newline="") as handle:
         reader = csv.DictReader(handle)
         for row in reader:
-            key = normalize_lookup_key(row.get("word", ""))
-            if not key or key in rows or not clean_translation(row.get("translation", "")):
+            word = row.get("word", "").strip()
+            key = normalize_lookup_key(word)
+            if not key or not clean_translation(row.get("translation", "")):
                 continue
-            rows[key] = row
+            if is_affix_notation(word):
+                affix_rows_excluded += 1
+                affix_keys.add(key)
+                if word.endswith(AFFIX_MARKERS):
+                    prefix_keys.add(key)
+                if word.startswith(AFFIX_MARKERS):
+                    suffix_keys.add(key)
+                continue
+
+            ordinary_keys.add(key)
+            existing = rows.get(key)
+            if existing is None:
+                rows[key] = row
+            elif is_exact_lookup_surface(word, key) and not is_exact_lookup_surface(existing.get("word", ""), key):
+                rows[key] = row
+                exact_replacements += 1
+
+    audit = {
+        "ecdictAffixRowsExcluded": affix_rows_excluded,
+        "ecdictAffixKeysExcluded": len(affix_keys),
+        "ecdictPrefixKeysExcluded": len(prefix_keys),
+        "ecdictSuffixKeysExcluded": len(suffix_keys),
+        "ecdictAffixOrdinaryConflicts": len(affix_keys & ordinary_keys),
+        "ecdictAffixOnlyKeys": len(affix_keys - ordinary_keys),
+        "ecdictExactOrdinaryReplacements": exact_replacements,
+    }
+    return rows, audit
+
+
+def load_ecdict_rows(path: Path) -> dict[str, dict[str, str]]:
+    rows, _ = load_ecdict_rows_with_audit(path)
     return rows
 
 
@@ -273,6 +320,8 @@ def used_lookup_keys(entries: list[dict[str, Any]]) -> set[str]:
 
 
 def ecdict_entry(row: dict[str, str], forms: set[str], used_keys: set[str]) -> dict[str, Any] | None:
+    if is_affix_notation(row.get("word", "")):
+        return None
     term = normalize_lookup_key(row.get("word", ""))
     if not term or term in used_keys:
         return None
@@ -387,7 +436,7 @@ def build_dictionary(manual: dict[str, Any], ecdict_csv: Path) -> tuple[list[dic
     manual_forms.update(collect_question_forms(public_question_path))
     public_question_ts_path = DEFAULT_REPO_ROOT / "apps" / "reader" / "src" / "data" / "publicQuestionBank.ts"
     manual_forms.update(collect_public_question_ts_forms(public_question_ts_path))
-    rows = load_ecdict_rows(ecdict_csv)
+    rows, ecdict_audit = load_ecdict_rows_with_audit(ecdict_csv)
     selected_forms: dict[str, set[str]] = defaultdict(set)
 
     for form in sorted(manual_forms):
@@ -431,29 +480,38 @@ def build_dictionary(manual: dict[str, Any], ecdict_csv: Path) -> tuple[list[dic
         "totalEntries": len(entries),
         "skippedDuplicateRows": skipped_for_duplicates,
         "uncoveredSample": sorted(manual_forms - covered_forms)[:80],
+        **ecdict_audit,
     }
     return entries, stats
 
 
-def write_dictionary_outputs(repo_root: Path, dictionary: list[dict[str, Any]]) -> None:
+def write_dictionary_outputs(repo_root: Path, dictionary: list[dict[str, Any]], *, sync_manual: bool = True) -> None:
     processed_dir = repo_root / "content" / "processed"
     dictionary_path = processed_dir / "dictionary" / "six-sigma-terms.json"
     manual_path = processed_dir / "manual.json"
     public_manual_path = repo_root / "apps" / "reader" / "public" / "content" / "manual.json"
     generated_path = repo_root / "apps" / "reader" / "src" / "generated" / "six-sigma-terms.json"
 
+    write_json(dictionary_path, dictionary)
+    write_json(generated_path, dictionary)
+    if not sync_manual:
+        return
+
     manual = json.loads(manual_path.read_text(encoding="utf-8"))
     manual["dictionary"] = dictionary
-    write_json(dictionary_path, dictionary)
     write_json(manual_path, manual)
     shutil.copyfile(manual_path, public_manual_path)
-    shutil.copyfile(dictionary_path, generated_path)
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build the manual-scoped offline English-Chinese dictionary.")
     parser.add_argument("--repo-root", type=Path, default=DEFAULT_REPO_ROOT)
     parser.add_argument("--ecdict-csv", type=Path, default=DEFAULT_ECDICT_CSV)
+    parser.add_argument(
+        "--dictionary-only",
+        action="store_true",
+        help="Write only the standalone processed and generated dictionary files.",
+    )
     args = parser.parse_args()
 
     manual_path = args.repo_root / "content" / "processed" / "manual.json"
@@ -464,7 +522,7 @@ def main() -> None:
 
     manual = json.loads(manual_path.read_text(encoding="utf-8"))
     dictionary, stats = build_dictionary(manual, args.ecdict_csv)
-    write_dictionary_outputs(args.repo_root, dictionary)
+    write_dictionary_outputs(args.repo_root, dictionary, sync_manual=not args.dictionary_only)
     print(json.dumps(stats, ensure_ascii=False, indent=2))
 
 

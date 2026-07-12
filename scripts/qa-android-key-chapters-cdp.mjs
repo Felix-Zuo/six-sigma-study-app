@@ -1,13 +1,16 @@
 import fs from "node:fs";
+import path from "node:path";
+import { waitForVisualIdle } from "./cdp-visual-idle.mjs";
 
 const endpoint = process.env.CDP_ENDPOINT ?? "http://127.0.0.1:9222/json";
+const screenshotDir = process.env.QA_SCREENSHOT_DIR ?? "qa/screenshots";
+const requireNative = process.env.QA_NATIVE_WEBVIEW === "1" || process.env.QA_REQUIRE_NATIVE === "1";
 const manualPath = "apps/reader/public/content/manual.json";
 const readerPositionKey = "six-sigma-study:reader-position:v1";
 const noticeAcceptedKey = "six-sigma-study:notice-accepted:v1";
 const activeBookKey = "six-sigma-study:active-book:v1";
 const bookId = "six-sigma-black-belt";
 const targetChapterNumbers = [1, 7, 26, 33];
-const languageSettleMs = 900;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -140,6 +143,45 @@ async function main() {
     throw new Error(`Timed out waiting for ${description}`);
   }
 
+  async function waitForIdle(description, options = {}) {
+    return waitForVisualIdle((expression) => evalPage(expression, true), {
+      description,
+      ...options
+    });
+  }
+
+  await waitFor("application shell", () => evalPage(`Boolean(document.querySelector("[data-app-view]"))`));
+  const runtimePlatform = await evalPage(`(() => {
+    const capacitor = globalThis.Capacitor;
+    let platform = "unknown";
+    let isNativePlatform = false;
+    try {
+      platform = capacitor?.getPlatform?.() ?? "unknown";
+      isNativePlatform = Boolean(capacitor?.isNativePlatform?.());
+    } catch (error) {
+      return {
+        platform,
+        isNativePlatform,
+        hasCapacitor: Boolean(capacitor),
+        error: String(error),
+        userAgent: navigator.userAgent,
+        href: location.href
+      };
+    }
+    return {
+      platform,
+      isNativePlatform,
+      hasCapacitor: Boolean(capacitor),
+      androidUserAgent: /Android/i.test(navigator.userAgent),
+      userAgent: navigator.userAgent,
+      href: location.href
+    };
+  })()`);
+  if (requireNative && (!runtimePlatform.hasCapacitor || runtimePlatform.platform !== "android" || !runtimePlatform.isNativePlatform)) {
+    cdp.close();
+    throw new Error(`Native Android WebView required, received ${JSON.stringify(runtimePlatform)}`);
+  }
+
   async function loadChapter(sample, language) {
     await evalPage(`(() => {
       localStorage.setItem(${JSON.stringify(noticeAcceptedKey)}, "true");
@@ -167,12 +209,11 @@ async function main() {
     );
     if (currentLanguage !== language) {
       await evalPage(`document.querySelector(".modeButton")?.click()`);
-      await sleep(languageSettleMs);
     }
     await waitFor(`Chapter ${sample.chapter} ${language} mode`, () =>
       evalPage(`Boolean(document.querySelector(${JSON.stringify(`[data-section-id="${sample.textSectionId}"] .sectionBody${language === "zh" ? ".zhText" : ""}`)})) && ${language === "en" ? `!document.querySelector(${JSON.stringify(`[data-section-id="${sample.textSectionId}"] .sectionBody`)})?.classList.contains("zhText")` : "true"}`)
     );
-    await sleep(500);
+    await waitForIdle(`Chapter ${sample.chapter} ${language} visual idle`);
   }
 
   async function scrollToTextBlock(sample) {
@@ -261,10 +302,13 @@ async function main() {
         return text;
       })()`);
       if (!clickedWord) {
-        await sleep(550);
+        await waitForIdle("reader layout before lookup retry");
       }
     }
-    await sleep(450);
+    if (clickedWord) {
+      await waitFor("word explanation sheet", () => evalPage(`Boolean(document.querySelector(".bottomSheet[aria-label='word explanation']"))`));
+      await waitForIdle("word explanation visual idle");
+    }
     return evalPage(`(() => {
       const sheet = document.querySelector(".bottomSheet[aria-label='word explanation']");
       const translation = sheet?.querySelector(".translation")?.textContent?.trim() ?? null;
@@ -303,6 +347,8 @@ async function main() {
       );
     }
 
+    await waitForIdle(`Chapter ${sample.chapter} ${language} images visual idle`);
+
     return evalPage(`(() => {
       const images = Array.from(document.querySelectorAll(".figureBlock img"));
       const doc = document.documentElement;
@@ -329,25 +375,26 @@ async function main() {
   }
 
   async function capture(name) {
-    fs.mkdirSync("qa/screenshots", { recursive: true });
+    await waitForIdle(`${name} screenshot visual idle`);
+    fs.mkdirSync(screenshotDir, { recursive: true });
     const screenshot = await cdp.send("Page.captureScreenshot", { format: "png", fromSurface: true });
-    const path = `qa/screenshots/${name}.png`;
-    fs.writeFileSync(path, Buffer.from(screenshot.data, "base64"));
-    return path;
+    const filePath = path.join(screenshotDir, `${name}.png`);
+    fs.writeFileSync(filePath, Buffer.from(screenshot.data, "base64"));
+    return filePath.replaceAll("\\", "/");
   }
 
   const results = [];
   for (const sample of samples) {
     await loadChapter(sample, "en");
     const scrollTarget = await scrollToTextBlock(sample);
-    await sleep(500);
+    await waitForIdle(`Chapter ${sample.chapter} English scroll visual idle`);
     const before = await snapshot("before-en", sample);
 
     await evalPage(`document.querySelector(".modeButton")?.click()`);
     await waitFor(`Chapter ${sample.chapter} Chinese mode after toggle`, () =>
       evalPage(`Boolean(document.querySelector(${JSON.stringify(`[data-section-id="${sample.textSectionId}"] .sectionBody.zhText`)}))`)
     );
-    await sleep(languageSettleMs);
+    await waitForIdle(`Chapter ${sample.chapter} Chinese toggle visual idle`);
     const afterZh = await snapshot("after-zh", sample);
     const zhScreenshot = await capture(`android-key-ch${String(sample.chapter).padStart(2, "0")}-zh`);
 
@@ -355,7 +402,7 @@ async function main() {
     await waitFor(`Chapter ${sample.chapter} English mode after toggle`, () =>
       evalPage(`!document.querySelector(${JSON.stringify(`[data-section-id="${sample.textSectionId}"] .sectionBody`)})?.classList.contains("zhText")`)
     );
-    await sleep(languageSettleMs);
+    await waitForIdle(`Chapter ${sample.chapter} English restore visual idle`);
     const afterEn = await snapshot("after-en", sample);
     const lookup = await clickVisibleWord(sample.preferredLookupText);
     const enScreenshot = await capture(`android-key-ch${String(sample.chapter).padStart(2, "0")}-en-lookup`);
@@ -406,6 +453,7 @@ async function main() {
       {
         ok: failures.length === 0,
         endpoint,
+        platform: { requiredNative: requireNative, ...runtimePlatform },
         chapters: results.map((result) => ({
           chapter: result.sample.chapter,
           section: result.sample.textSectionId,

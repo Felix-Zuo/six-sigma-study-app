@@ -2,14 +2,17 @@ from __future__ import annotations
 
 import json
 import subprocess
+import sys
 from pathlib import Path
+from pathlib import PurePosixPath
+
+from qa_public_artifact import DIST_ROOT, scan_artifact
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 WORKSPACE_ROOT = REPO_ROOT.parent
 PRIVATE_DIR = WORKSPACE_ROOT / "private-question-bank"
-STAGED_PATH = REPO_ROOT / "apps" / "reader" / "public" / "content" / "private" / "question-bank.private.json"
-STAGED_DICTIONARY_PATH = REPO_ROOT / "apps" / "reader" / "public" / "content" / "private" / "question-dictionary.private.json"
+LEGACY_PUBLIC_STAGING_DIR = REPO_ROOT / "apps" / "reader" / "public" / "content" / "private"
 
 
 def run_git(args: list[str]) -> str:
@@ -24,39 +27,47 @@ def run_git(args: list[str]) -> str:
     return completed.stdout
 
 
-def main() -> None:
-    tracked = run_git(["ls-files"]).splitlines()
-    leaked = [
-        path for path in tracked
-        if "private-question-bank" in path or path.endswith(".private.json")
-    ]
-    if leaked:
-        raise AssertionError(f"private question bank files are tracked: {leaked}")
+def has_content_private_path(parts: tuple[str, ...]) -> bool:
+    return any(parts[index:index + 2] == ("content", "private") for index in range(len(parts) - 1))
 
-    repo_gitignore = (REPO_ROOT / ".gitignore").read_text(encoding="utf-8")
-    workspace_gitignore_path = WORKSPACE_ROOT / ".gitignore"
-    workspace_gitignore = workspace_gitignore_path.read_text(encoding="utf-8") if workspace_gitignore_path.exists() else ""
-    if (
-        "private-question-bank/" not in repo_gitignore
-        or "apps/reader/public/content/private/" not in repo_gitignore
-        or "*.private.json" not in repo_gitignore
-    ):
-        raise AssertionError("repo .gitignore does not protect private question bank files")
-    if workspace_gitignore_path.exists() and "private-question-bank/" not in workspace_gitignore:
-        raise AssertionError("workspace .gitignore does not protect private-question-bank")
+
+def is_private_git_path(path: str) -> bool:
+    parts = tuple(part.casefold() for part in PurePosixPath(path.replace("\\", "/")).parts)
+    return (
+        "private-question-bank" in parts
+        or has_content_private_path(parts)
+        or (bool(parts) and parts[-1].endswith(".private.json"))
+    )
+
+
+def main() -> None:
+    tracked = [path for path in run_git(["ls-files", "-z"]).split("\0") if path]
+    leaked = sorted(path for path in tracked if is_private_git_path(path))
+    legacy_public_staging_exists = LEGACY_PUBLIC_STAGING_DIR.exists() or LEGACY_PUBLIC_STAGING_DIR.is_symlink()
+    dist_scan = scan_artifact(DIST_ROOT)
 
     private_json = PRIVATE_DIR / "ucourse-cssbb-1000.private.json"
     report = PRIVATE_DIR / "IMPORT_REPORT.md"
+    checks = {
+        "gitTrackedPrivateFilesAbsent": not leaked,
+        "legacyPublicStagingAbsent": not legacy_public_staging_exists,
+        "ordinaryDistExists": dist_scan["artifactExists"] and dist_scan["artifactIsDirectory"],
+        "ordinaryDistPrivateContentAbsent": dist_scan["ok"],
+    }
     result = {
-        "ok": True,
+        "ok": all(checks.values()),
+        "checks": checks,
         "privateDir": str(PRIVATE_DIR),
         "privateJsonExists": private_json.exists(),
         "reportExists": report.exists(),
-        "stagedAssetExists": STAGED_PATH.exists(),
-        "stagedDictionaryExists": STAGED_DICTIONARY_PATH.exists(),
-        "trackedLeakCount": 0,
+        "trackedLeakCount": len(leaked),
+        "trackedLeaks": leaked,
+        "legacyPublicStaging": str(LEGACY_PUBLIC_STAGING_DIR),
+        "distScan": dist_scan,
     }
     print(json.dumps(result, ensure_ascii=False, indent=2))
+    if not result["ok"]:
+        sys.exit(1)
 
 
 if __name__ == "__main__":

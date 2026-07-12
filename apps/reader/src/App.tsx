@@ -1,4 +1,4 @@
-import { type CSSProperties, type PointerEvent, type ReactNode, useEffect, useMemo, useRef, useState } from "react";
+import { type CSSProperties, type KeyboardEvent, type PointerEvent, type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { flushSync } from "react-dom";
 import { App as CapacitorApp } from "@capacitor/app";
 import {
@@ -41,7 +41,7 @@ import {
 import { loadReaderPosition, loadReaderPositions, persistReaderPosition, type ReaderPositionMap } from "./lib/readerPositionStore";
 import { loadSavedNotes, persistSavedNotes, type SavedNote } from "./lib/noteStore";
 import { loadSavedFavorites, persistSavedFavorites, type SavedFavorite } from "./lib/favoriteStore";
-import { loadDailyStats, persistDailyStats, recordDailyReviewCompletion, type DailyStudyStats } from "./lib/streakStore";
+import { loadDailyStats, normalizeDailyStats, persistDailyStats, recordDailyReviewCompletion, type DailyStudyStats } from "./lib/streakStore";
 import {
   loadExamResults,
   loadQuestionProgress,
@@ -273,8 +273,8 @@ type ViewTransitionDocument = Document & {
 
 const defaultBookId = "six-sigma-black-belt";
 const defaultBookTitle = "六西格玛黑带教材";
-const productVersionLabel = "Beta 0.8.3";
-const productVersionId = "0.8.3-beta";
+const productVersionLabel = "Beta 0.8.4";
+const productVersionId = "0.8.4-beta";
 const githubProfileUrl = "https://github.com/Felix-Zuo";
 const catalogPath = "content/catalog.json";
 const bundledQuestionBankPath = "content/private/question-bank.private.json";
@@ -436,6 +436,20 @@ function sourceContextForTerm(text: string, term: string): string {
   const end = rightBoundary > index ? rightBoundary : Math.min(text.length, index + term.length + 160);
   const context = text.slice(start, end).trim();
   return context.length > 320 ? `${context.slice(0, 300).trim()}...` : context;
+}
+
+function formatExamCountdown(totalSeconds: number): string {
+  const safeSeconds = Math.max(0, Math.ceil(totalSeconds));
+  const minutes = Math.floor(safeSeconds / 60);
+  const seconds = safeSeconds % 60;
+  return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+}
+
+function formatExamElapsed(minutes: number): string {
+  if (minutes < 1) {
+    return "少于 1 分钟";
+  }
+  return `${Number.isInteger(minutes) ? minutes : minutes.toFixed(1)} 分钟`;
 }
 
 function formatNextReview(term: SavedTerm): string {
@@ -749,6 +763,7 @@ export function App() {
   const [examMinutes, setExamMinutes] = useState(30);
   const [examQuestionIds, setExamQuestionIds] = useState<string[]>([]);
   const [examStartedAt, setExamStartedAt] = useState("");
+  const [examRemainingSeconds, setExamRemainingSeconds] = useState(0);
   const [examAnswers, setExamAnswers] = useState<Record<string, string[]>>({});
   const [examFinishedResult, setExamFinishedResult] = useState<ExamResult | null>(null);
   const [isImmersive, setIsImmersive] = useState(false);
@@ -766,6 +781,8 @@ export function App() {
   const savedScrollLockRef = useRef(0);
   const sheetDragRef = useRef<{ startY: number; startHeight: number; currentHeight: number } | null>(null);
   const aiRequestRef = useRef(0);
+  const examSubmissionRef = useRef(false);
+  const transitionOwnerRef = useRef(0);
 
   const activeBook = useMemo(() => {
     const source = catalog ?? fallbackCatalog;
@@ -922,9 +939,10 @@ export function App() {
   const currentQuestion =
     currentQuestionList.length > 0 ? currentQuestionList[Math.min(questionIndex, currentQuestionList.length - 1)] : undefined;
   const flashReviewTerms = useMemo(() => {
-    const due = filteredStudyTerms.filter((item) => isTermDue(item));
-    return due.length > 0 ? due : filteredStudyTerms;
+    return filteredStudyTerms.filter((item) => isTermDue(item));
   }, [filteredStudyTerms]);
+  const remainingDailyGoal = Math.max(0, dailyStats.goal - dailyStats.completed);
+  const plannedFlashCount = Math.min(remainingDailyGoal, flashReviewTerms.length);
   const currentFlashTermId = flashSessionIds[Math.min(flashReviewIndex, Math.max(0, flashSessionIds.length - 1))];
   const currentFlashTerm = savedTerms.find((item) => item.id === currentFlashTermId);
   const currentFlashEntry = currentFlashTerm
@@ -1138,7 +1156,8 @@ export function App() {
         if (canRestore && savedPosition.language) {
           setLanguage(savedPosition.language);
         }
-        setCurrentPage(canRestore ? savedPosition.page ?? initialSection.page : initialSection.page);
+        const restoredPage = canRestore ? savedPosition.page ?? initialSection.page : initialSection.page;
+        setCurrentPage(Math.min(enriched.pageCount, Math.max(1, restoredPage)));
         setActiveBlockId(canRestore ? savedPosition.blockId ?? "" : "");
         setManualLoading(false);
         if (view === "reader") {
@@ -1235,6 +1254,7 @@ export function App() {
     } catch {
       hasSeenSplash = false;
     }
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const timer = window.setTimeout(() => {
       try {
         window.localStorage.setItem(noticeAcceptedKey, "true");
@@ -1242,7 +1262,7 @@ export function App() {
         // The opening can still finish when persistence is unavailable.
       }
       setView("home");
-    }, hasSeenSplash ? 1850 : 2800);
+    }, reduceMotion ? 80 : hasSeenSplash ? 1850 : 2800);
     return () => window.clearTimeout(timer);
   }, [view]);
 
@@ -1250,7 +1270,26 @@ export function App() {
     setQuestionIndex(0);
     setSelectedQuestionAnswers([]);
     setRevealedQuestionId(null);
-  }, [questionChapterFilter, questionDifficultyFilter, questionDomainFilter, questionMode]);
+  }, [questionChapterFilter, questionDifficultyFilter, questionDomainFilter]);
+
+  useEffect(() => {
+    if (questionMode !== "exam" || !examStartedAt || examFinishedResult || examQuestionIds.length === 0) {
+      return;
+    }
+
+    const deadline = Date.parse(examStartedAt) + examMinutes * 60_000;
+    function updateCountdown() {
+      const remaining = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+      setExamRemainingSeconds(remaining);
+      if (remaining === 0 && !examSubmissionRef.current) {
+        finishExam();
+      }
+    }
+
+    updateCountdown();
+    const timer = window.setInterval(updateCountdown, 1000);
+    return () => window.clearInterval(timer);
+  }, [allQuestions, examAnswers, examFinishedResult, examMinutes, examQuestionIds, examStartedAt, questionMode]);
 
   useEffect(() => {
     setFlashReviewIndex(0);
@@ -1269,7 +1308,7 @@ export function App() {
   }, [flashReviewActive, flashReviewIndex, flashReviewStage]);
 
   useEffect(() => {
-    if (!activeChapterId || !activeSectionId) {
+    if (!activeChapterId || !activeSectionId || manual?.bookId !== currentBookId) {
       return;
     }
     const nextPosition = {
@@ -1291,10 +1330,10 @@ export function App() {
         updatedAt: new Date().toISOString()
       }
     }));
-  }, [activeBlockId, activeChapterId, activeSectionId, currentBookId, currentPage, language]);
+  }, [activeBlockId, activeChapterId, activeSectionId, currentBookId, currentPage, language, manual?.bookId]);
 
   useEffect(() => {
-    if (!activeChapterId || !activeSectionId) {
+    if (!activeChapterId || !activeSectionId || manual?.bookId !== currentBookId) {
       return;
     }
     let timer: number | undefined;
@@ -1329,7 +1368,7 @@ export function App() {
       window.clearTimeout(timer);
       window.removeEventListener("scroll", saveScrollPosition);
     };
-  }, [activeBlockId, activeChapterId, activeSectionId, currentBookId, currentPage, language]);
+  }, [activeBlockId, activeChapterId, activeSectionId, currentBookId, currentPage, language, manual?.bookId]);
 
   useEffect(() => {
     overlayRef.current = activeLookup ? "lookup" : showToc ? "toc" : showVocab ? "vocab" : showNotes ? "notes" : null;
@@ -1635,27 +1674,32 @@ export function App() {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const transitionDocument = document as ViewTransitionDocument;
     const commit = () => flushSync(update);
+    const owner = transitionOwnerRef.current + 1;
+    transitionOwnerRef.current = owner;
+
+    function clearTransitionState() {
+      if (transitionOwnerRef.current !== owner) {
+        return;
+      }
+      delete root.dataset.transitionKind;
+      delete root.dataset.transitionDirection;
+    }
 
     root.dataset.transitionKind = kind;
     root.dataset.transitionDirection = direction;
 
     if (!transitionDocument.startViewTransition || prefersReducedMotion) {
       commit();
-      delete root.dataset.transitionKind;
-      delete root.dataset.transitionDirection;
+      clearTransitionState();
       return;
     }
 
     try {
       const transition = transitionDocument.startViewTransition(commit);
-      void transition.finished.finally(() => {
-        delete root.dataset.transitionKind;
-        delete root.dataset.transitionDirection;
-      });
+      void transition.finished.finally(clearTransitionState);
     } catch {
       commit();
-      delete root.dataset.transitionKind;
-      delete root.dataset.transitionDirection;
+      clearTransitionState();
     }
   }
 
@@ -2024,9 +2068,13 @@ export function App() {
     }
   }
 
-  function startPractice(mode: QuestionMode) {
+  function startPractice(mode: QuestionMode, resume = false) {
+    const list = mode === "wrong" ? wrongQuestions : filteredQuestions;
+    const resumeIndex = resume
+      ? list.findIndex((question) => !progressForQuestion(questionProgress, question.questionId).lastAnsweredAt)
+      : -1;
     setQuestionMode(mode);
-    setQuestionIndex(0);
+    setQuestionIndex(resumeIndex >= 0 ? resumeIndex : 0);
     setSelectedQuestionAnswers([]);
     setRevealedQuestionId(null);
   }
@@ -2060,13 +2108,19 @@ export function App() {
       .map((item) => item.question.questionId);
     setExamQuestionIds(shuffled);
     setExamStartedAt(new Date().toISOString());
+    setExamRemainingSeconds(examMinutes * 60);
     setExamAnswers({});
     setExamFinishedResult(null);
+    examSubmissionRef.current = false;
     setQuestionIndex(0);
     setQuestionMode("exam");
   }
 
   function finishExam() {
+    if (examSubmissionRef.current) {
+      return;
+    }
+    examSubmissionRef.current = true;
     const questions = examQuestionIds
       .map((questionId) => allQuestions.find((question) => question.questionId === questionId))
       .filter((question): question is QuestionItem => Boolean(question));
@@ -2092,20 +2146,62 @@ export function App() {
       domainMap.set(question.domain, current);
     }
     const finishedAt = new Date().toISOString();
+    const startedAt = examStartedAt || finishedAt;
+    const elapsedMinutes = Math.max(0, Math.round((Date.parse(finishedAt) - Date.parse(startedAt)) / 60) / 1000);
     const result: ExamResult = {
       id: `exam-${Date.now()}`,
-      startedAt: examStartedAt || finishedAt,
+      startedAt,
       finishedAt,
       total: questions.length,
       correct,
       accuracy: questions.length > 0 ? Math.round((correct / questions.length) * 100) : 0,
-      minutes: examMinutes,
+      minutes: elapsedMinutes,
       questionIds: questions.map((question) => question.questionId),
       wrongQuestionIds,
       weakDomains: [...domainMap.values()].filter((item) => item.wrong > 0).sort((a, b) => b.wrong - a.wrong)
     };
     setExamFinishedResult(result);
+    setExamRemainingSeconds(0);
     setExamResults((items) => [result, ...items].slice(0, 20));
+  }
+
+  function clearLocalLearningData() {
+    const storageKeys = [
+      "six-sigma-study:vocab:v1",
+      "six-sigma-study:notes:v1",
+      "six-sigma-study:favorites:v1",
+      "six-sigma-study:reader-position:v1",
+      "six-sigma-study:daily-streak:v1",
+      "six-sigma-study:question-bank:v1",
+      "six-sigma-study:question-progress:v1",
+      "six-sigma-study:exam-results:v1"
+    ];
+    for (const key of storageKeys) {
+      try {
+        window.localStorage.removeItem(key);
+      } catch {
+        // In-memory state is still reset when WebView storage is unavailable.
+      }
+    }
+    clearContextCorrectionBundle(currentBookId);
+    setSavedTerms([]);
+    setSavedNotes([]);
+    setSavedFavorites([]);
+    setReaderPositions({});
+    setQuestionProgress({});
+    setExamResults([]);
+    setUserQuestionBank(null);
+    setQuestionMode("home");
+    setExamQuestionIds([]);
+    setExamStartedAt("");
+    setExamRemainingSeconds(0);
+    setExamAnswers({});
+    setExamFinishedResult(null);
+    examSubmissionRef.current = false;
+    setFlashReviewActive(false);
+    setFlashSessionIds([]);
+    setDailyStats(normalizeDailyStats(undefined));
+    setContextCorrectionBundle(loadContextCorrectionBundle(currentBookId, manual?.version ?? "0.2.0"));
   }
 
   function renderBookFilter(value: BookFilter, onChange: (bookId: BookFilter) => void) {
@@ -2321,6 +2417,7 @@ export function App() {
             className={view === item.view ? "mainNavItem active" : "mainNavItem"}
             onClick={() => navigateTo(item.view)}
             aria-label={item.detail ? `${item.label}，${item.detail}` : item.label}
+            aria-current={view === item.view ? "page" : undefined}
           >
             {item.icon}
             <strong>{item.label}</strong>
@@ -2366,7 +2463,7 @@ export function App() {
             <article className="workspaceFocus">
               <div className="workspaceBrand">
                 <p className="eyebrow">Six Sigma Study</p>
-                <h2>学习工作台</h2>
+                <h1>学习工作台</h1>
                 <p>阅读、复习与整理，从同一处继续。</p>
               </div>
               <div className="workspaceFocusTop">
@@ -2592,7 +2689,11 @@ export function App() {
                     <div className="sourceLine">
                       {currentFlashTerm.sourceType === "question" ? "题目" : currentFlashTerm.chapterTitle} · p. {currentFlashTerm.sourcePage ?? currentFlashTerm.page}
                     </div>
-                    <button className="primaryAction" onClick={() => reviewSavedTerm(currentFlashTerm.id, "again")}>记住了，继续</button>
+                    <div className="flashRatingActions" aria-label="本次记忆程度">
+                      <button onClick={() => reviewSavedTerm(currentFlashTerm.id, "again")}>不认识</button>
+                      <button onClick={() => reviewSavedTerm(currentFlashTerm.id, "fuzzy")}>模糊</button>
+                      <button className="primaryAction" onClick={() => reviewSavedTerm(currentFlashTerm.id, "remembered")}>认识</button>
+                    </div>
                   </div>
                 )}
               </article>
@@ -2616,7 +2717,7 @@ export function App() {
             <section className="vocabPlanHero" aria-label="daily study status">
               <div>
                 <p className="eyebrow">Today</p>
-                <h2>{Math.max(0, dailyStats.goal - dailyStats.completed)} 个待学</h2>
+                <h2>{plannedFlashCount} 个待学</h2>
                 <p>{dailyStats.checkedInToday ? "今日已完成" : `连续学习 ${dailyStats.streak} 天`}</p>
                 {dailyStats.missedDays > 0 && <small>今日计划已包含补学内容，并设有数量上限。</small>}
               </div>
@@ -2624,8 +2725,8 @@ export function App() {
                 <strong>{dailyStats.completed}/{dailyStats.goal}</strong>
               </div>
             </section>
-            <button className="primaryAction vocabStartButton" onClick={startFlashReview} disabled={filteredStudyTerms.length === 0}>
-              {dailyStats.checkedInToday ? "继续巩固" : "开始今日学习"}
+            <button className="primaryAction vocabStartButton" onClick={startFlashReview} disabled={plannedFlashCount === 0}>
+              {plannedFlashCount === 0 ? "暂无到期复习" : dailyStats.checkedInToday ? "继续巩固" : "开始今日学习"}
             </button>
             <section className="vocabSourceSummary">
               <div><strong>{savedTerms.filter((item) => item.sourceType === "manual").length}</strong><span>教材词语</span></div>
@@ -2834,6 +2935,7 @@ export function App() {
             <div className="scoreBlock">
               <strong>{examFinishedResult.accuracy}%</strong>
               <span>{examFinishedResult.correct}/{examFinishedResult.total} 正确</span>
+              <small>用时 {formatExamElapsed(examFinishedResult.minutes)}</small>
             </div>
             <div className="weakDomainList">
               {examFinishedResult.weakDomains.length === 0 ? (
@@ -2887,7 +2989,9 @@ export function App() {
       return (
         <section className="examSession">
           <div className="questionProgressLine">
-            <span>模拟考试 · {examMinutes} 分钟</span>
+            <span className={examRemainingSeconds <= 60 ? "examCountdown urgent" : "examCountdown"} aria-live="polite">
+              剩余 {formatExamCountdown(examRemainingSeconds)}
+            </span>
             <span>{questionIndex + 1} / {examQuestions.length}</span>
           </div>
           <article className="questionCard" data-question-id={currentExamQuestion.questionId}>
@@ -2968,7 +3072,7 @@ export function App() {
             </div>
           </section>
 
-          <button className="primaryAction questionContinueButton" onClick={() => startPractice("practice")}>
+          <button className="primaryAction questionContinueButton" onClick={() => startPractice("practice", true)}>
             <Play size={19} fill="currentColor" />
             {questionSummary.answered > 0 ? "继续练习" : "开始练习"}
           </button>
@@ -3209,24 +3313,7 @@ export function App() {
               if (!window.confirm("清除本机词本、笔记、收藏和阅读位置？")) {
                 return;
               }
-              setSavedTerms([]);
-              setSavedNotes([]);
-              setSavedFavorites([]);
-              setReaderPositions({});
-              setQuestionProgress({});
-              setExamResults([]);
-              setUserQuestionBank(null);
-              setDailyStats(loadDailyStats());
-              clearContextCorrectionBundle(currentBookId);
-              setContextCorrectionBundle(loadContextCorrectionBundle(currentBookId, manual?.version ?? "0.2.0"));
-              window.localStorage.removeItem("six-sigma-study:vocab:v1");
-              window.localStorage.removeItem("six-sigma-study:notes:v1");
-              window.localStorage.removeItem("six-sigma-study:favorites:v1");
-              window.localStorage.removeItem("six-sigma-study:reader-position:v1");
-              window.localStorage.removeItem("six-sigma-study:daily-streak:v1");
-              window.localStorage.removeItem("six-sigma-study:question-bank:v1");
-              window.localStorage.removeItem("six-sigma-study:question-progress:v1");
-              window.localStorage.removeItem("six-sigma-study:exam-results:v1");
+              clearLocalLearningData();
             }}
           >
             清除本地学习数据
@@ -3318,16 +3405,42 @@ export function App() {
     snapSheetHeight(drag.currentHeight);
   }
 
+  function handleSheetHandleKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    const snapPoints = [46, 72, 92];
+    let nextHeight: number | undefined;
+    if (event.key === "Home") {
+      nextHeight = snapPoints[0];
+    } else if (event.key === "End") {
+      nextHeight = snapPoints[snapPoints.length - 1];
+    } else if (event.key === "ArrowUp") {
+      nextHeight = snapPoints.find((point) => point > sheetHeightVh) ?? snapPoints[snapPoints.length - 1];
+    } else if (event.key === "ArrowDown") {
+      nextHeight = [...snapPoints].reverse().find((point) => point < sheetHeightVh) ?? snapPoints[0];
+    }
+    if (nextHeight === undefined) {
+      return;
+    }
+    event.preventDefault();
+    setSheetHeightVh(nextHeight);
+  }
+
   function sheetHandle() {
     return (
       <div
         className="sheetHandle"
         role="separator"
-        aria-label="drag sheet"
+        tabIndex={0}
+        aria-label="调整面板高度"
+        aria-orientation="horizontal"
+        aria-valuemin={46}
+        aria-valuemax={92}
+        aria-valuenow={Math.round(sheetHeightVh)}
+        aria-valuetext={`面板高度 ${Math.round(sheetHeightVh)}%`}
         onPointerDown={beginSheetDrag}
         onPointerMove={moveSheetDrag}
         onPointerUp={endSheetDrag}
         onPointerCancel={endSheetDrag}
+        onKeyDown={handleSheetHandleKeyDown}
       />
     );
   }
@@ -3671,8 +3784,7 @@ export function App() {
   }
 
   function startFlashReview() {
-    const remainingGoal = Math.max(1, dailyStats.goal - dailyStats.completed);
-    const ids = flashReviewTerms.slice(0, remainingGoal).map((item) => item.id);
+    const ids = flashReviewTerms.slice(0, plannedFlashCount).map((item) => item.id);
     setFlashSessionIds(ids);
     setFlashReviewIndex(0);
     setFlashSessionReviewed(0);

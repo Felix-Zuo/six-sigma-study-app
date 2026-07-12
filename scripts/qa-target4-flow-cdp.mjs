@@ -1,5 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
+import { createHash } from "node:crypto";
+import { waitForVisualIdle } from "./cdp-visual-idle.mjs";
 
 const endpoint = process.env.CDP_ENDPOINT ?? "http://127.0.0.1:9222/json";
 const appUrl = process.env.QA_APP_URL ?? "http://127.0.0.1:4177/";
@@ -96,12 +98,18 @@ async function main() {
   }
 
   async function capture(name) {
-    await sleep(1250);
+    await waitForVisualIdle((expression) => evalPage(expression, true), {
+      description: `${name} visual idle`
+    });
     fs.mkdirSync(screenshotDir, { recursive: true });
     const screenshot = await cdp.send("Page.captureScreenshot", { format: "png", fromSurface: true });
     const filePath = path.join(screenshotDir, `${name}.png`);
     fs.writeFileSync(filePath, Buffer.from(screenshot.data, "base64"));
     return filePath.replaceAll("\\", "/");
+  }
+
+  function screenshotHash(filePath) {
+    return createHash("sha256").update(fs.readFileSync(filePath)).digest("hex");
   }
 
   async function click(selector) {
@@ -121,8 +129,28 @@ async function main() {
     })()`);
   }
 
+  async function clickNamedControl(containerSelector, accessibleName) {
+    const clicked = await evalPage(`(() => {
+      const normalize = (value) => (value ?? "").replace(/\\s+/g, " ").trim();
+      const container = document.querySelector(${JSON.stringify(containerSelector)});
+      const node = Array.from(container?.querySelectorAll("button, a, [role='button']") ?? [])
+        .find((item) => {
+          const visibleName = normalize(item.textContent);
+          const ariaName = normalize(item.getAttribute("aria-label"));
+          return visibleName === ${JSON.stringify(accessibleName)} ||
+            ariaName === ${JSON.stringify(accessibleName)} ||
+            ariaName.startsWith(${JSON.stringify(`${accessibleName}，`)});
+        });
+      node?.click();
+      return Boolean(node);
+    })()`);
+    if (!clicked) {
+      throw new Error(`Could not find ${accessibleName} in ${containerSelector}`);
+    }
+  }
+
   await cdp.send("Page.navigate", { url: appUrl });
-  await sleep(400);
+  await waitFor("application navigation", () => evalPage(`location.href.startsWith(${JSON.stringify(new URL(appUrl).origin)}) && Boolean(document.querySelector("[data-app-view]"))`));
   await evalPage(`(() => {
     for (const key of ${JSON.stringify(Object.values(keys))}) {
       localStorage.removeItem(key);
@@ -132,7 +160,17 @@ async function main() {
   })()`);
 
   await waitFor("opening animation", () => evalPage(`Boolean(document.querySelector(".splashPanel .appLogo.cinematic"))`));
-  await sleep(1700);
+  const openingAnimationCount = await evalPage(`(() => {
+    const panel = document.querySelector(".splashPanel");
+    const animations = panel?.getAnimations({ subtree: true }) ?? [];
+    for (const animation of animations) {
+      animation.pause();
+      const endTime = Number(animation.effect?.getComputedTiming?.().endTime);
+      if (Number.isFinite(endTime)) animation.currentTime = endTime * 0.72;
+    }
+    globalThis.__qaOpeningAnimations = animations;
+    return animations.length;
+  })()`);
   const opening = await evalPage(`(() => {
     const panel = document.querySelector(".splashPanel");
     const leads = Array.from(document.querySelectorAll(".splashLead")).map((item) => item.textContent.trim());
@@ -145,8 +183,14 @@ async function main() {
     };
   })()`);
   const openingShot = await capture("round1-01-opening");
+  await evalPage(`(() => {
+    for (const animation of globalThis.__qaOpeningAnimations ?? []) animation.play();
+    delete globalThis.__qaOpeningAnimations;
+    return true;
+  })()`);
 
   await waitFor("home workbench", () => evalPage(`Boolean(document.querySelector(".dashboardHero") && document.querySelector(".mainNav"))`));
+  await waitForVisualIdle((expression) => evalPage(expression, true), { description: "home workbench visual idle" });
   const home = await evalPage(`(() => ({
     navCount: document.querySelectorAll(".mainNavItem").length,
     bookCount: document.querySelectorAll(".bookCard").length,
@@ -157,7 +201,7 @@ async function main() {
 
   await evalPage(`document.querySelectorAll(".bookCard .primaryAction")[1]?.click()`);
   await waitFor("second book reader", () => evalPage(`Boolean(document.querySelector(".readerPanel") && localStorage.getItem(${JSON.stringify(keys.activeBook)}) === "agent-import-sample")`));
-  await sleep(500);
+  await waitForVisualIdle((expression) => evalPage(expression, true), { description: "second book reader visual idle" });
   const secondBook = await evalPage(`(() => ({
     activeBook: localStorage.getItem(${JSON.stringify(keys.activeBook)}),
     title: document.querySelector(".readerChrome h1")?.textContent?.trim() ?? "",
@@ -170,8 +214,9 @@ async function main() {
   await evalPage(`document.querySelector('[aria-label="back to library"]')?.click()`);
   await waitFor("home after second book", () => evalPage(`Boolean(document.querySelector(".dashboardHero"))`));
 
-  await evalPage(`document.querySelectorAll(".mainNavItem")[4]?.click()`);
-  await waitFor("settings page", () => evalPage(`document.querySelector(".appPageHeader h1") && document.querySelectorAll(".settingsPanel").length >= 3`));
+  await clickNamedControl('nav[aria-label="primary navigation"]', "我的");
+  await waitFor("settings page", () => evalPage(`document.querySelector('[data-app-view="settings"] .appPageHeader h1')?.textContent?.trim() === "我的" && document.querySelectorAll(".settingsPanel").length >= 3`));
+  await waitForVisualIdle((expression) => evalPage(expression, true), { description: "settings page visual idle" });
   const settingsBefore = await evalPage(`(() => ({
     panelCount: document.querySelectorAll(".settingsPanel").length,
     hasGithub: Boolean(document.querySelector('a[href*="github.com/Felix-Zuo"]')),
@@ -181,17 +226,19 @@ async function main() {
   }))()`);
   const settingsShot = await capture("round1-04-settings");
   await evalPage(`Array.from(document.querySelectorAll(".settingsPanel button")).find((item) => item.textContent.trim().length > 0)?.click()`);
-  await sleep(200);
+  await waitFor("theme preference update", () => evalPage(`document.querySelector(".appShell")?.dataset.theme !== ${JSON.stringify(settingsBefore.themeBefore)}`));
+  await waitForVisualIdle((expression) => evalPage(expression, true), { description: "theme preference visual idle" });
   const settingsAfterTheme = await evalPage(`document.querySelector(".appShell")?.dataset.theme ?? ""`);
   await evalPage(`Array.from(document.querySelectorAll(".settingsPanel button")).find((item) => item.textContent.trim() === "A+")?.click()`);
-  await sleep(200);
+  await waitFor("text scale preference update", () => evalPage(`document.querySelector(".appShell")?.dataset.textScale !== ${JSON.stringify(settingsBefore.scaleBefore)}`));
+  await waitForVisualIdle((expression) => evalPage(expression, true), { description: "text scale preference visual idle" });
   const settingsAfterScale = await evalPage(`document.querySelector(".appShell")?.dataset.textScale ?? ""`);
 
-  await evalPage(`document.querySelectorAll(".mainNavItem")[0]?.click()`);
+  await clickNamedControl('nav[aria-label="primary navigation"]', "首页");
   await waitFor("home after settings", () => evalPage(`Boolean(document.querySelector(".dashboardHero"))`));
   await evalPage(`document.querySelector(".bookCard .primaryAction")?.click()`);
   await waitFor("reader", () => evalPage(`Boolean(document.querySelector(".readerPanel"))`));
-  await sleep(600);
+  await waitForVisualIdle((expression) => evalPage(expression, true), { description: "reader visual idle" });
   const readerEn = await evalPage(`(() => ({
     title: document.querySelector(".readerChrome h1")?.textContent?.trim() ?? "",
     headerButtons: document.querySelectorAll(".headerActions button").length,
@@ -260,11 +307,12 @@ async function main() {
     handle.dispatchEvent(new PointerEvent("pointerup", { pointerId: 1, clientY: 80, bubbles: true }));
     return true;
   })()`);
-  await sleep(300);
+  await waitFor("expanded lookup sheet", () => evalPage(`document.querySelector(".bottomSheet")?.getBoundingClientRect().height / window.innerHeight > 0.84`));
+  await waitForVisualIdle((expression) => evalPage(expression, true), { description: "expanded lookup sheet visual idle" });
   const lookupFull = await evalPage(`document.querySelector(".bottomSheet").getBoundingClientRect().height / window.innerHeight`);
   const lookupFullShot = await capture("round1-09-lookup-full");
   await click(".saveButton");
-  await sleep(200);
+  await waitFor("saved vocabulary record", () => evalPage(`JSON.parse(localStorage.getItem(${JSON.stringify(keys.vocab)}) ?? "[]").length >= 1`));
   const savedTerm = await evalPage(`JSON.parse(localStorage.getItem(${JSON.stringify(keys.vocab)}) ?? "[]")[0] ?? null`);
   await click(".sourceButton");
   await waitFor("lookup source returned", () => evalPage(`!document.querySelector(".bottomSheet") && Boolean(document.querySelector(".sourceHighlight"))`));
@@ -278,7 +326,7 @@ async function main() {
   })()`);
 
   await click('[aria-label="favorite current source"]');
-  await sleep(200);
+  await waitFor("saved favorite record", () => evalPage(`JSON.parse(localStorage.getItem(${JSON.stringify(keys.favorites)}) ?? "[]").length >= 1`));
   const savedFavorite = await evalPage(`JSON.parse(localStorage.getItem(${JSON.stringify(keys.favorites)}) ?? "[]")[0] ?? null`);
 
   await click(".modeButton");
@@ -310,8 +358,11 @@ async function main() {
   })()`);
   await waitFor("note selection action", () => evalPage(`Boolean(document.querySelector(".selectionActions button"))`));
   await evalPage(`document.querySelector(".selectionActions button:last-child")?.click()`);
-  await waitFor("notes page", () => evalPage(`Boolean(document.querySelector(".studyItem textarea"))`));
+  await waitFor("notes page", () => evalPage(`document.querySelector('[data-app-view="notes"] .appPageHeader h1')?.textContent?.trim() === "笔记" && Boolean(document.querySelector(".studyItem textarea"))`));
+  await waitForVisualIdle((expression) => evalPage(expression, true), { description: "notes page visual idle" });
   const notes = await evalPage(`(() => ({
+    view: document.querySelector("[data-app-view]")?.getAttribute("data-app-view") ?? "",
+    title: document.querySelector(".appPageHeader h1")?.textContent?.trim() ?? "",
     selectedText: ${JSON.stringify(selectedText)},
     itemCount: document.querySelectorAll(".studyItem").length,
     hasTextarea: Boolean(document.querySelector(".studyItem textarea")),
@@ -320,16 +371,26 @@ async function main() {
   }))()`);
   const notesShot = await capture("round1-11-notes");
 
-  await evalPage(`document.querySelectorAll(".mainNavItem")[3]?.click()`);
-  await waitFor("favorites page", () => evalPage(`document.querySelectorAll(".studyItem").length >= 1`));
+  await clickNamedControl('nav[aria-label="primary navigation"]', "首页");
+  await waitFor("home before favorites", () => evalPage(`document.querySelector('[data-app-view="home"] .appPageHeader h1')?.textContent?.trim() === "学习工作台"`));
+  await clickNamedControl('nav[aria-label="study destinations"]', "收藏");
+  await waitFor("favorites page", () => evalPage(`document.querySelector('[data-app-view="favorites"] .appPageHeader h1')?.textContent?.trim() === "收藏" && document.querySelectorAll(".studyItem").length >= 1`));
+  await waitForVisualIdle((expression) => evalPage(expression, true), { description: "favorites page visual idle" });
   const favorites = await evalPage(`(() => ({
+    view: document.querySelector("[data-app-view]")?.getAttribute("data-app-view") ?? "",
+    title: document.querySelector(".appPageHeader h1")?.textContent?.trim() ?? "",
     itemCount: document.querySelectorAll(".studyItem").length,
     hasSourceButton: Boolean(document.querySelector(".studyItemActions button")),
     stored: JSON.parse(localStorage.getItem(${JSON.stringify(keys.favorites)}) ?? "[]")[0] ?? null
   }))()`);
   const favoritesShot = await capture("round1-12-favorites");
+  const studyPageScreenshotHashes = {
+    notes: screenshotHash(notesShot),
+    favorites: screenshotHash(favoritesShot)
+  };
+  studyPageScreenshotHashes.different = studyPageScreenshotHashes.notes !== studyPageScreenshotHashes.favorites;
 
-  await evalPage(`document.querySelectorAll(".mainNavItem")[1]?.click()`);
+  await clickNamedControl('nav[aria-label="primary navigation"]', "单词");
   await waitFor("vocab learning page", () => evalPage(`Boolean(document.querySelector(".vocabPlanHero") && document.querySelector(".vocabStartButton"))`));
   const vocabPlan = await evalPage(`(() => ({
     hasReviewEntry: Boolean(document.querySelector(".vocabStartButton")),
@@ -393,10 +454,15 @@ async function main() {
     readerZh.loadedImages >= 1 &&
     readerZh.overflow <= 1 &&
     notes.itemCount >= 1 &&
+    notes.view === "notes" &&
+    notes.title === "笔记" &&
     notes.hasTextarea &&
     notes.stored?.bookId === "six-sigma-black-belt" &&
     favorites.itemCount >= 1 &&
+    favorites.view === "favorites" &&
+    favorites.title === "收藏" &&
     favorites.stored?.bookId === "six-sigma-black-belt" &&
+    studyPageScreenshotHashes.different &&
     vocab.itemCount >= 1 &&
     vocab.hasPlanTabs &&
     vocabPlan.hasReviewEntry &&
@@ -405,7 +471,7 @@ async function main() {
 
   console.log(JSON.stringify({
     ok,
-    opening,
+    opening: { ...opening, animationCount: openingAnimationCount },
     home,
     secondBook,
     settings: { before: settingsBefore, afterTheme: settingsAfterTheme, afterScale: settingsAfterScale },
@@ -418,6 +484,7 @@ async function main() {
     readerZh,
     notes: { ...notes, stored: notes.stored ? { bookId: notes.stored.bookId, page: notes.stored.page, sectionId: notes.stored.sectionId } : null },
     favorites: { ...favorites, stored: favorites.stored ? { bookId: favorites.stored.bookId, page: favorites.stored.page, sectionId: favorites.stored.sectionId } : null },
+    studyPageScreenshotHashes,
     vocab: { plan: vocabPlan, ...vocab, stored: vocab.stored ? { bookId: vocab.stored.bookId, page: vocab.stored.page, blockId: vocab.stored.blockId } : null },
     screenshots: {
       opening: openingShot,

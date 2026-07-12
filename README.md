@@ -12,17 +12,17 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 
 | Metric | Current State |
 | --- | --- |
-| Release | `Beta 0.8.3` (`0.8.3-beta.0`, Android code `803`) |
+| Release | `Beta 0.8.4` (`0.8.4-beta.0`, Android code `804`) |
 | Runtime books | 2 catalog books: full Six Sigma manual + original import-practice workbook |
 | Six Sigma content | 33 chapters, 449 aligned study pages, 174 reader sections |
 | Preserved assets | 475 figure/table/formula PNG runtime assets; EN/ZH image counts 476/476 |
-| Dictionary | 3981 public offline entries; local Android builds add a 3552-entry private-question supplement |
+| Dictionary | 3980 public offline entries; local Android builds add a 3550-entry private-question supplement |
 | Context glossary | 3875 English text blocks, 8591 aligned sentences, 105048 occurrence-level meanings |
 | AI context review | Optional personal DeepSeek V4 Flash key, strict structured correction records, user-confirmed reuse/export |
 | Practice | 1006 questions in local Android release; browse/practice/wrong/exam modes |
 | Platforms | Android APK/AAB via Capacitor, PWA runtime for browser QA |
 | Study data | `bookId`-scoped reading position, vocabulary, notes, source anchors, streaks, question progress |
-| Public gates | content validation, Agent book contract validation, public-readiness audit, CI |
+| Public gates | content/schema audits, private-artifact isolation, browser interaction QA, Android debug compile |
 
 ## Screenshots
 
@@ -46,7 +46,7 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 | --- | --- | --- |
 | ![Vocabulary answer with phonetics, senses, context, and translation](docs/assets/showcase/learning-vocab-answer.png) | ![Question training dashboard](docs/assets/showcase/learning-question-home.png) | ![Question lookup with rich dictionary and context](docs/assets/showcase/learning-question-lookup-rich.png) |
 
-Beta 0.8.3 uses the selected Quiet Aperture direction: one calm foreground study page, functional page-edge destinations, restrained module colors, and layered transitions that settle independently. See [design-qa.md](design-qa.md) for the reference comparison and Android visual acceptance record.
+Beta 0.8.4 keeps the selected Quiet Aperture direction and hardens it for daily use: due-only vocabulary plans, resumable practice, timed mock exams, isolated per-book reading positions, safer local-data reset, accessible navigation and sheet controls, and private-bank-free public artifacts. See [design-qa.md](design-qa.md) for the visual direction and Android acceptance record.
 
 ## Study Workflow
 
