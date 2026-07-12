@@ -45,6 +45,10 @@ content/processed/*
 *.png
 *.jpg
 *.jpeg
+!android/app/src/main/res/drawable/splash.png
+!android/app/src/main/res/drawable-land-*/splash.png
+!android/app/src/main/res/drawable-port-*/splash.png
+!android/app/src/main/res/mipmap-*/ic_launcher*.png
 !apps/reader/public/content/assets/
 !apps/reader/public/content/assets/asset-manifest.json
 !apps/reader/public/content/assets/figures/
