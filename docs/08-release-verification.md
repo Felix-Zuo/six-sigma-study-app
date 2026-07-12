@@ -129,14 +129,14 @@ Verified on local emulator `SixSigmaQA` / `emulator-5554`.
 
 ### Beta 0.8.5 Five-Round Product Maturity Pass
 
-- `npm run qa:maturity-regressions`: 13 isolated scenarios passed, including cross-book position isolation, no navigation refetch, reload-stable wrong priority, reader focus/immersive continuity, one roving keyboard word-entry point with arrow-key lookup, reachable `1/1` daily completion, fixed question sessions and duplicate-submit lock, malformed-storage preservation/salvage, absolute exam timeout with saved answers, full correction reset, storage-failure survival, modal focus/keyboard/breakpoint behavior, accessible Chinese navigation labels, and page-scroll isolation.
+- `npm run qa:maturity-regressions`: 13 isolated scenarios passed in production preview and Vite development/StrictMode, including cross-book position isolation, settled-request navigation audit, reload-stable wrong priority, reader focus/immersive continuity, one roving keyboard word-entry point with arrow-key lookup, reachable `1/1` daily completion, fixed question sessions and duplicate-submit lock, malformed-storage preservation/salvage through snapshot-difference persistence, absolute exam timeout with saved answers, full correction reset, storage-failure survival, modal focus/keyboard/breakpoint behavior, accessible Chinese navigation labels, and page-scroll isolation.
 - `npm run qa:learning-ui`, `npm run qa:lexical-ui`, and `npm run qa:ai-context-ui`: answer reveal before explicit next, rich lexical data, correct contextual examples, question lookup return, and Beta 0.8.5 DeepSeek correction export all passed.
 - `npm run qa:motion-ui`: native View Transitions completed with no running animations after settlement; reduced-motion used the no-transition fallback with durations at or below 1 ms and zero horizontal overflow.
 - `npm run qa:image-fidelity`: Chapters 1/7/26/33 retained 2/14/50/25 EN and ZH images, with zero broken images and zero horizontal overflow.
 - Native Android checks passed: Keystore save/restart/clear/restart and `qa:android-back-stack` for question session, Reader tools, immersive mode, and lookup sheet priority.
 - Public artifact isolation passed after release build: normal `dist` contains no private bank or supplement; Android assets contain 1000 local questions plus 3550 private-question dictionary entries.
-- Final APK: 40,725,821 bytes, SHA-256 `B39A9AD6D13536F2DE31708191B79CB5A9BF2B328C5B2E2A6DF85BB0B04DD217`; v2 signature verified with one signer; release install/launch verified as code/name `805` / `0.8.5-beta`.
-- Final AAB: 38,478,141 bytes, SHA-256 `BEE4B1CDE3C0B37885BF1EB607B12BB2F1DBB86086150D8B3BBB5D8AA59F9D05`; JAR signature verified with expected self-signed/no-timestamp warnings.
+- Final APK: 40,725,849 bytes, SHA-256 `58B690342B0BABBD0751A16D5F29785BFC77B731DDDB95F6643CB1E98CADA5C9`; v2 signature verified with one signer; release install/launch verified as code/name `805` / `0.8.5-beta`.
+- Final AAB: 38,478,174 bytes, SHA-256 `E0F721314E7119CBBBCF3DF6DF5BBCB79FF32C168373CD10EB504A6C2042C487`; JAR signature verified with expected self-signed/no-timestamp warnings.
 
 ### Beta 0.8.4 Product Maturity And Regression Hardening
 

@@ -541,6 +541,8 @@ async function main() {
 
     await runCase("reader-state-isolation-and-navigation-load-stability", async () => {
       await installFixture();
+      await waitFor("initial manual request to settle", () => evaluate(`performance.getEntriesByType("resource")
+        .some((entry) => new URL(entry.name).pathname.endsWith("/manual.json") && entry.responseEnd > 0)`));
       await evaluate(`performance.clearResourceTimings()`);
       await clickPrimaryNav("单词");
       await waitFor("vocabulary view before manual-load audit", () => evaluate(`Boolean(document.querySelector('main[data-app-view="vocab"]'))`));

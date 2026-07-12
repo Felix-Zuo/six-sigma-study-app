@@ -52,6 +52,7 @@
 - Verified the release APK on `emulator-5554` at 1080 x 2148 device pixels, including the private 1006-question local build and spatial home stack.
 - Exercised Android back priority through question session, Reader tools, immersive reading, and lookup sheet; every temporary layer closed before its parent page.
 - Added one roving keyboard entry point per reading/question surface, arrow-key word traversal, focus restoration after lookup, and Chinese accessible names throughout the primary UI.
+- Replayed the maturity suite under Vite development/StrictMode and replaced mount-count persistence guards with state snapshots so initial local data is never rewritten merely because effects are replayed.
 - Re-ran content, data isolation, learning, AI context, motion, image, APK, AAB, signing, install, and launch gates after the final edit.
 
 ## Acceptance

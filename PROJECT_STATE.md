@@ -32,14 +32,14 @@ The final product must support full-manual offline reading, position-preserving 
 
 ## 2026-07-13 Five-Round Product Maturity Pass Beta 0.8.5
 
-- Round 1 hardened data and state integrity: malformed list items are salvaged, unreadable storage is not overwritten during hydration, reader-position recovery retains the last valid in-memory map, cross-book dictionary enrichment is guarded by `manual.bookId`, question priority is reload-idempotent, imported question-ID collisions are rejected, and local reset clears every book's context corrections.
+- Round 1 hardened data and state integrity: malformed list items are salvaged, snapshot-difference persistence keeps unreadable storage intact even under StrictMode hydration, reader-position recovery retains the last valid in-memory map, cross-book dictionary enrichment is guarded by `manual.bookId`, question priority is reload-idempotent, imported question-ID collisions are rejected, and local reset clears every book's context corrections.
 - Round 2 hardened the reader and bottom sheets: English words remain directly clickable while a roving Tab stop and arrow-key navigation avoid thousands of sequential stops; modal sheets now trap/restore focus, expose Chinese dialog semantics, keep the drag handle and close control visible, preserve reader position through immersive mode, reveal remote active page pills, and give Reader tools the first Android-back priority.
 - Round 3 rebuilt learning state machines: daily goals shrink to the available due queue and can still check in; quiz selection always reveals the answer before self-rating; practice, wrong, and favorite queues are fixed for the session; duplicate submission is locked; answer explanations remain until explicit navigation; mock results retain user answers and support restart; question lookups return to the active session.
 - Round 4 corrected product polish: page navigation resets predictably, dark per-module accents now meet the intended contrast hierarchy, collapsed question-bank controls have no hidden hit targets, file import is touch-sized, disabled controls read as disabled, repeated post-transition layer animation is removed, and subsequent startup is reduced to about 520 ms.
 - Round 5 independently re-audited logic and mobile UX, added 13 isolated maturity regressions plus a native Android back-stack test, and reran content, private-artifact, learning, motion, image-fidelity, AI-context, Keystore, APK, and AAB gates.
 - Final release artifacts:
-  - APK: 40,725,821 bytes; SHA-256 `B39A9AD6D13536F2DE31708191B79CB5A9BF2B328C5B2E2A6DF85BB0B04DD217`; APK Signature Scheme v2 verified with one signer; installed and launched as `versionCode 805` / `versionName 0.8.5-beta`.
-  - AAB: 38,478,141 bytes; SHA-256 `BEE4B1CDE3C0B37885BF1EB607B12BB2F1DBB86086150D8B3BBB5D8AA59F9D05`; JAR signature verification passed with expected local self-signed/no-timestamp warnings.
+  - APK: 40,725,849 bytes; SHA-256 `58B690342B0BABBD0751A16D5F29785BFC77B731DDDB95F6643CB1E98CADA5C9`; APK Signature Scheme v2 verified with one signer; installed and launched as `versionCode 805` / `versionName 0.8.5-beta`.
+  - AAB: 38,478,174 bytes; SHA-256 `E0F721314E7119CBBBCF3DF6DF5BBCB79FF32C168373CD10EB504A6C2042C487`; JAR signature verification passed with expected local self-signed/no-timestamp warnings.
   - APK/AAB contain 1000 local questions and the 3550-entry private-question dictionary supplement; normal web `dist` contains zero private paths.
 
 ## 2026-07-13 Product Maturity And Regression Hardening Beta 0.8.4

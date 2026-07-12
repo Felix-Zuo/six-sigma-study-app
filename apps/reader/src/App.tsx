@@ -854,15 +854,15 @@ export function App() {
   const overlayReturnFocusRef = useRef<HTMLElement | null>(null);
   const chapterRailRef = useRef<HTMLElement | null>(null);
   const skipNextCorrectionPersistenceRef = useRef(false);
-  const initialPersistenceRef = useRef({
-    terms: true,
-    notes: true,
-    favorites: true,
-    daily: true,
-    questionBank: true,
-    questionProgress: true,
-    examResults: true,
-    contextCorrections: true
+  const persistenceSnapshotsRef = useRef({
+    terms: JSON.stringify(savedTerms),
+    notes: JSON.stringify(savedNotes),
+    favorites: JSON.stringify(savedFavorites),
+    daily: JSON.stringify(dailyStats),
+    questionBank: JSON.stringify(userQuestionBank),
+    questionProgress: JSON.stringify(questionProgress),
+    examResults: JSON.stringify(examResults),
+    contextCorrections: JSON.stringify(contextCorrectionBundle)
   });
 
   const activeBook = useMemo(() => {
@@ -1328,10 +1328,11 @@ export function App() {
   }, [currentBookId, manual?.bookId, view]);
 
   useEffect(() => {
-    if (initialPersistenceRef.current.terms) {
-      initialPersistenceRef.current.terms = false;
+    const snapshot = JSON.stringify(savedTerms);
+    if (snapshot === persistenceSnapshotsRef.current.terms) {
       return;
     }
+    persistenceSnapshotsRef.current.terms = snapshot;
     persistSavedTerms(savedTerms);
   }, [savedTerms]);
 
@@ -1340,14 +1341,16 @@ export function App() {
   }, [currentBookId, manual?.version]);
 
   useEffect(() => {
-    if (initialPersistenceRef.current.contextCorrections) {
-      initialPersistenceRef.current.contextCorrections = false;
-      return;
-    }
+    const snapshot = JSON.stringify(contextCorrectionBundle);
     if (skipNextCorrectionPersistenceRef.current) {
       skipNextCorrectionPersistenceRef.current = false;
+      persistenceSnapshotsRef.current.contextCorrections = snapshot;
       return;
     }
+    if (snapshot === persistenceSnapshotsRef.current.contextCorrections) {
+      return;
+    }
+    persistenceSnapshotsRef.current.contextCorrections = snapshot;
     persistContextCorrectionBundle(contextCorrectionBundle);
   }, [contextCorrectionBundle]);
 
@@ -1365,50 +1368,56 @@ export function App() {
   }, [activeLookup]);
 
   useEffect(() => {
-    if (initialPersistenceRef.current.notes) {
-      initialPersistenceRef.current.notes = false;
+    const snapshot = JSON.stringify(savedNotes);
+    if (snapshot === persistenceSnapshotsRef.current.notes) {
       return;
     }
+    persistenceSnapshotsRef.current.notes = snapshot;
     persistSavedNotes(savedNotes);
   }, [savedNotes]);
 
   useEffect(() => {
-    if (initialPersistenceRef.current.favorites) {
-      initialPersistenceRef.current.favorites = false;
+    const snapshot = JSON.stringify(savedFavorites);
+    if (snapshot === persistenceSnapshotsRef.current.favorites) {
       return;
     }
+    persistenceSnapshotsRef.current.favorites = snapshot;
     persistSavedFavorites(savedFavorites);
   }, [savedFavorites]);
 
   useEffect(() => {
-    if (initialPersistenceRef.current.daily) {
-      initialPersistenceRef.current.daily = false;
+    const snapshot = JSON.stringify(dailyStats);
+    if (snapshot === persistenceSnapshotsRef.current.daily) {
       return;
     }
+    persistenceSnapshotsRef.current.daily = snapshot;
     persistDailyStats(dailyStats);
   }, [dailyStats]);
 
   useEffect(() => {
-    if (initialPersistenceRef.current.questionBank) {
-      initialPersistenceRef.current.questionBank = false;
+    const snapshot = JSON.stringify(userQuestionBank);
+    if (snapshot === persistenceSnapshotsRef.current.questionBank) {
       return;
     }
+    persistenceSnapshotsRef.current.questionBank = snapshot;
     persistUserQuestionBank(userQuestionBank);
   }, [userQuestionBank]);
 
   useEffect(() => {
-    if (initialPersistenceRef.current.questionProgress) {
-      initialPersistenceRef.current.questionProgress = false;
+    const snapshot = JSON.stringify(questionProgress);
+    if (snapshot === persistenceSnapshotsRef.current.questionProgress) {
       return;
     }
+    persistenceSnapshotsRef.current.questionProgress = snapshot;
     persistQuestionProgress(questionProgress);
   }, [questionProgress]);
 
   useEffect(() => {
-    if (initialPersistenceRef.current.examResults) {
-      initialPersistenceRef.current.examResults = false;
+    const snapshot = JSON.stringify(examResults);
+    if (snapshot === persistenceSnapshotsRef.current.examResults) {
       return;
     }
+    persistenceSnapshotsRef.current.examResults = snapshot;
     persistExamResults(examResults);
   }, [examResults]);
 
