@@ -167,7 +167,11 @@ export function loadSavedTerms(): SavedTerm[] {
     if (!Array.isArray(parsed)) {
       return [];
     }
-    return parsed.map((item) => normalizeSavedTerm(item));
+    return parsed.flatMap((item): SavedTerm[] =>
+      item && typeof item === "object" && !Array.isArray(item)
+        ? [normalizeSavedTerm(item as Partial<SavedTerm>)]
+        : []
+    );
   } catch {
     return [];
   }

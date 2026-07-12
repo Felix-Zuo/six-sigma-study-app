@@ -44,9 +44,13 @@ export function normalizeDailyStats(input: Partial<DailyStudyStats> | null | und
   const daysSinceCheckIn = dayDiff(lastCheckInDate, today);
   const missedDays = Math.max(0, daysSinceCheckIn - 1);
   const catchUpExtra = Math.min(maxCatchUpExtra, missedDays * 2);
-  const goal = baseGoal + catchUpExtra;
+  const calculatedGoal = baseGoal + catchUpExtra;
   const isToday = storedDay === today;
   const checkedInToday = lastCheckInDate === today;
+  const storedGoal = toSafeNumber(input?.goal, calculatedGoal);
+  const goal = isToday
+    ? Math.max(1, Math.min(calculatedGoal, storedGoal))
+    : calculatedGoal;
 
   return {
     day: today,
@@ -81,12 +85,21 @@ export function persistDailyStats(stats: DailyStudyStats): void {
   }
 }
 
-export function recordDailyReviewCompletion(stats: DailyStudyStats, count = 1, now = new Date()): DailyStudyStats {
+export function recordDailyReviewCompletion(
+  stats: DailyStudyStats,
+  count = 1,
+  now = new Date(),
+  sessionGoal?: number
+): DailyStudyStats {
   const current = normalizeDailyStats(stats, now);
-  const completed = Math.min(current.goal, current.completed + Math.max(1, count));
-  if (completed < current.goal || current.checkedInToday) {
+  const targetGoal = typeof sessionGoal === "number" && Number.isFinite(sessionGoal)
+    ? Math.max(1, Math.min(current.goal, Math.round(sessionGoal)))
+    : current.goal;
+  const completed = Math.min(targetGoal, current.completed + Math.max(1, count));
+  if (completed < targetGoal || current.checkedInToday) {
     return {
       ...current,
+      goal: targetGoal,
       completed,
       updatedAt: now.toISOString()
     };
@@ -96,6 +109,7 @@ export function recordDailyReviewCompletion(stats: DailyStudyStats, count = 1, n
   const continues = current.lastCheckInDate === yesterday;
   return {
     ...current,
+    goal: targetGoal,
     completed,
     checkedInToday: true,
     streak: continues ? current.streak + 1 : 1,

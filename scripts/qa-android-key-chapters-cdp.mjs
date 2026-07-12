@@ -306,11 +306,11 @@ async function main() {
       }
     }
     if (clickedWord) {
-      await waitFor("word explanation sheet", () => evalPage(`Boolean(document.querySelector(".bottomSheet[aria-label='word explanation']"))`));
+      await waitFor("word explanation sheet", () => evalPage(`Boolean(document.querySelector(".bottomSheet[aria-label='单词释义']"))`));
       await waitForIdle("word explanation visual idle");
     }
     return evalPage(`(() => {
-      const sheet = document.querySelector(".bottomSheet[aria-label='word explanation']");
+      const sheet = document.querySelector(".bottomSheet[aria-label='单词释义']");
       const translation = sheet?.querySelector(".translation")?.textContent?.trim() ?? null;
       const explanation = sheet?.querySelector(".explanation")?.textContent?.trim() ?? null;
       return {

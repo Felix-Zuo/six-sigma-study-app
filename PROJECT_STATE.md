@@ -20,15 +20,27 @@ The final product must support full-manual offline reading, position-preserving 
 
 ## Current Evidence
 
-- Product version: `Beta 0.8.4` (`0.8.4-beta.0` in npm, Android `versionCode 804` / `versionName 0.8.4-beta`). During the current beta line, each user-facing update increments the patch version: `0.8.5`, `0.8.6`, and so on.
+- Product version: `Beta 0.8.5` (`0.8.5-beta.0` in npm, Android `versionCode 805` / `versionName 0.8.5-beta`). During the current beta line, each user-facing update increments the patch version: `0.8.6`, `0.8.7`, and so on.
 - Branch: `main`
 - Latest workspace migration validation pass: 2026-06-26 00:33 Asia/Shanghai
 - Local workspace root: `D:\0A OpenClaw\projects\6sigma`
-- Local worktree: Beta 0.8.4 maturity hardening and local release verification complete
+- Local worktree: Beta 0.8.5 five-round maturity hardening and local release verification complete; repository delivery and CI confirmation are the remaining release steps
 - Latest confirmed baseline GitHub Actions state before this release: CI passed for `f3a19d5` in run `29201095349`
 - Release APK after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
 - Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with the Quiet Aperture spatial shell, native View Transitions and reduced-motion fallback, source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, book-isolated persisted reading positions, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, occurrence-level bilingual context glosses, tap-to-lookup bottom sheet, 3980-entry public offline learner dictionary plus an ignored 3550-entry local private-question supplement, phrase-selection UI hook, due-only vocabulary review scheduling and CSV export, selected-text study notes, timed mock exams, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+
+## 2026-07-13 Five-Round Product Maturity Pass Beta 0.8.5
+
+- Round 1 hardened data and state integrity: malformed list items are salvaged, unreadable storage is not overwritten during hydration, reader-position recovery retains the last valid in-memory map, cross-book dictionary enrichment is guarded by `manual.bookId`, question priority is reload-idempotent, imported question-ID collisions are rejected, and local reset clears every book's context corrections.
+- Round 2 hardened the reader and bottom sheets: English words remain directly clickable while a roving Tab stop and arrow-key navigation avoid thousands of sequential stops; modal sheets now trap/restore focus, expose Chinese dialog semantics, keep the drag handle and close control visible, preserve reader position through immersive mode, reveal remote active page pills, and give Reader tools the first Android-back priority.
+- Round 3 rebuilt learning state machines: daily goals shrink to the available due queue and can still check in; quiz selection always reveals the answer before self-rating; practice, wrong, and favorite queues are fixed for the session; duplicate submission is locked; answer explanations remain until explicit navigation; mock results retain user answers and support restart; question lookups return to the active session.
+- Round 4 corrected product polish: page navigation resets predictably, dark per-module accents now meet the intended contrast hierarchy, collapsed question-bank controls have no hidden hit targets, file import is touch-sized, disabled controls read as disabled, repeated post-transition layer animation is removed, and subsequent startup is reduced to about 520 ms.
+- Round 5 independently re-audited logic and mobile UX, added 13 isolated maturity regressions plus a native Android back-stack test, and reran content, private-artifact, learning, motion, image-fidelity, AI-context, Keystore, APK, and AAB gates.
+- Final release artifacts:
+  - APK: 40,725,821 bytes; SHA-256 `B39A9AD6D13536F2DE31708191B79CB5A9BF2B328C5B2E2A6DF85BB0B04DD217`; APK Signature Scheme v2 verified with one signer; installed and launched as `versionCode 805` / `versionName 0.8.5-beta`.
+  - AAB: 38,478,141 bytes; SHA-256 `BEE4B1CDE3C0B37885BF1EB607B12BB2F1DBB86086150D8B3BBB5D8AA59F9D05`; JAR signature verification passed with expected local self-signed/no-timestamp warnings.
+  - APK/AAB contain 1000 local questions and the 3550-entry private-question dictionary supplement; normal web `dist` contains zero private paths.
 
 ## 2026-07-13 Product Maturity And Regression Hardening Beta 0.8.4
 

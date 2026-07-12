@@ -74,6 +74,7 @@ export type ExamResult = {
   questionIds: string[];
   wrongQuestionIds: string[];
   weakDomains: { domain: string; wrong: number; total: number }[];
+  answers?: Record<string, string[]>;
 };
 
 const questionBankStorageKey = "six-sigma-study:question-bank:v1";
@@ -200,6 +201,10 @@ function normalizeProgress(item: Partial<QuestionProgress>, questionId: string):
   const wrongCount = safeNumber(item.wrongCount);
   const unknownCount = safeNumber(item.unknownCount);
   const correctStreak = safeNumber(item.correctStreak);
+  const fallbackWrongPriority = Math.max(0, wrongCount + unknownCount * 2 - correctStreak);
+  const wrongPriority = typeof item.wrongPriority === "number" && Number.isFinite(item.wrongPriority) && item.wrongPriority >= 0
+    ? item.wrongPriority
+    : fallbackWrongPriority;
   return {
     questionId,
     seen: Boolean(item.seen),
@@ -208,7 +213,7 @@ function normalizeProgress(item: Partial<QuestionProgress>, questionId: string):
     wrongCount,
     unknownCount,
     correctStreak,
-    wrongPriority: Math.max(0, safeNumber(item.wrongPriority, wrongCount + unknownCount * 2) - correctStreak),
+    wrongPriority,
     mastered: Boolean(item.mastered || correctStreak >= 3),
     lastSeenAt: item.lastSeenAt,
     lastAnsweredAt: item.lastAnsweredAt
@@ -223,7 +228,11 @@ export function loadQuestionProgress(): Record<string, QuestionProgress> {
       return {};
     }
     return Object.fromEntries(
-      Object.entries(parsed).map(([questionId, item]) => [questionId, normalizeProgress(item as Partial<QuestionProgress>, questionId)])
+      Object.entries(parsed).flatMap(([questionId, item]) =>
+        item && typeof item === "object" && !Array.isArray(item)
+          ? [[questionId, normalizeProgress(item as Partial<QuestionProgress>, questionId)] as const]
+          : []
+      )
     );
   } catch {
     return {};
@@ -288,7 +297,42 @@ export function loadExamResults(): ExamResult[] {
   try {
     const raw = window.localStorage.getItem(examResultsStorageKey);
     const parsed = raw ? JSON.parse(raw) : [];
-    return Array.isArray(parsed) ? parsed : [];
+    if (!Array.isArray(parsed)) {
+      return [];
+    }
+    return parsed.flatMap((item): ExamResult[] => {
+      if (!item || typeof item !== "object") {
+        return [];
+      }
+      const result = item as Partial<ExamResult>;
+      if (!result.id || !Array.isArray(result.questionIds) || !Array.isArray(result.wrongQuestionIds)) {
+        return [];
+      }
+      const answers = result.answers && typeof result.answers === "object" && !Array.isArray(result.answers)
+        ? Object.fromEntries(
+            Object.entries(result.answers).map(([questionId, answer]) => [questionId, normalizeAnswer(answer)])
+          )
+        : undefined;
+      return [{
+        id: result.id,
+        startedAt: result.startedAt || "",
+        finishedAt: result.finishedAt || "",
+        total: safeNumber(result.total),
+        correct: safeNumber(result.correct),
+        accuracy: safeNumber(result.accuracy),
+        minutes: safeNumber(result.minutes),
+        questionIds: result.questionIds.map(String),
+        wrongQuestionIds: result.wrongQuestionIds.map(String),
+        weakDomains: Array.isArray(result.weakDomains)
+          ? result.weakDomains.flatMap((domain): ExamResult["weakDomains"] =>
+              domain && typeof domain === "object" && typeof domain.domain === "string"
+                ? [{ domain: domain.domain, wrong: safeNumber(domain.wrong), total: safeNumber(domain.total) }]
+                : []
+            )
+          : [],
+        answers
+      }];
+    });
   } catch {
     return [];
   }

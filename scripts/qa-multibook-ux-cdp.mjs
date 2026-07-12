@@ -204,7 +204,7 @@ async function main() {
   await evalPage(`document.querySelector(".closeButton")?.click()`);
   await sleep(300);
 
-  await evalPage(`document.querySelector('[aria-label="back to library"]')?.click()`);
+  await evalPage(`document.querySelector('[aria-label="返回书库"]')?.click()`);
   await waitFor("home before vocab page", () => evalPage(`Boolean(document.querySelector(".dashboardHero") && document.querySelector(".mainNav"))`));
   await evalPage(`document.querySelectorAll(".mainNavItem")[1]?.click()`);
   await waitFor("vocab page", () => evalPage(`Boolean(document.querySelector(".appPageHeader h1")?.textContent?.includes("单词本") && document.querySelector(".vocabModeTabs"))`));
@@ -220,7 +220,7 @@ async function main() {
   await evalPage(`Array.from(document.querySelectorAll(".studyItemActions button")).find((item) => item.textContent.includes("原文"))?.click()`);
   await waitFor("reader from vocab source", () => evalPage(`Boolean(document.querySelector(".readerPanel"))`));
   await sleep(500);
-  await evalPage(`document.querySelector('[aria-label="favorite current source"]')?.click()`);
+  await evalPage(`document.querySelector('[aria-label="收藏当前内容"]')?.click()`);
   const savedFavorite = await evalPage(`JSON.parse(localStorage.getItem(${JSON.stringify(favoritesKey)}) ?? "[]")[0] ?? null`);
 
   await evalPage(`(() => {

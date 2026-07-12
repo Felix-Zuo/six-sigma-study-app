@@ -20,7 +20,7 @@ const checks = [
   ["context regression rules", context.includes('distinguish: [') && context.includes('constant: [') && context.includes('equation: [')],
   ["correct context meanings", context.includes('meaning: "区分；辨别"') && context.includes('meaning: "持续不变的；恒定的"') && context.includes('meaning: "方程式；计算公式"')],
   ["aligned example translation", app.includes("contextGlosses") && context.includes("selectAlignedSentence")],
-  ["dictionary before context", app.indexOf('aria-label="dictionary definition"') < app.indexOf('className="contextMeaningCard"')],
+  ["dictionary before context", app.indexOf('aria-label="词典释义"') < app.indexOf('className="contextMeaningCard"')],
   ["saved dictionary metadata", ["partOfSpeech", "phonetic", "wordRoot", "wordForms", "englishDefinition"].every((field) => app.includes(`${field}: activeLookup.entry.${field}`))],
   ["native Android TTS", nativeTts.includes("TextToSpeech") && nativeTts.includes("setLanguage") && nativeTts.includes("setSpeechRate")],
   ["Android TTS discovery", manifest.includes("android.intent.action.TTS_SERVICE")],

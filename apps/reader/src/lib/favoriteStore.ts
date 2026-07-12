@@ -49,7 +49,11 @@ export function loadSavedFavorites(): SavedFavorite[] {
     if (!Array.isArray(parsed)) {
       return [];
     }
-    return parsed.map((item) => normalizeFavorite(item));
+    return parsed.flatMap((item): SavedFavorite[] =>
+      item && typeof item === "object" && !Array.isArray(item)
+        ? [normalizeFavorite(item as Partial<SavedFavorite>)]
+        : []
+    );
   } catch {
     return [];
   }

@@ -211,10 +211,10 @@ async function main() {
   }))()`);
   const secondBookShot = await capture("round1-03-second-book");
 
-  await evalPage(`document.querySelector('[aria-label="back to library"]')?.click()`);
+  await evalPage(`document.querySelector('[aria-label="返回书库"]')?.click()`);
   await waitFor("home after second book", () => evalPage(`Boolean(document.querySelector(".dashboardHero"))`));
 
-  await clickNamedControl('nav[aria-label="primary navigation"]', "我的");
+  await clickNamedControl('nav[aria-label="主导航"]', "我的");
   await waitFor("settings page", () => evalPage(`document.querySelector('[data-app-view="settings"] .appPageHeader h1')?.textContent?.trim() === "我的" && document.querySelectorAll(".settingsPanel").length >= 3`));
   await waitForVisualIdle((expression) => evalPage(expression, true), { description: "settings page visual idle" });
   const settingsBefore = await evalPage(`(() => ({
@@ -234,7 +234,7 @@ async function main() {
   await waitForVisualIdle((expression) => evalPage(expression, true), { description: "text scale preference visual idle" });
   const settingsAfterScale = await evalPage(`document.querySelector(".appShell")?.dataset.textScale ?? ""`);
 
-  await clickNamedControl('nav[aria-label="primary navigation"]', "首页");
+  await clickNamedControl('nav[aria-label="主导航"]', "首页");
   await waitFor("home after settings", () => evalPage(`Boolean(document.querySelector(".dashboardHero"))`));
   await evalPage(`document.querySelector(".bookCard .primaryAction")?.click()`);
   await waitFor("reader", () => evalPage(`Boolean(document.querySelector(".readerPanel"))`));
@@ -246,7 +246,7 @@ async function main() {
   }))()`);
   const readerEnShot = await capture("round1-05-reader-en");
 
-  await click('[aria-label="open table of contents"]');
+  await click('[aria-label="打开目录"]');
   await waitFor("toc sheet", () => evalPage(`Boolean(document.querySelector(".tocPanel"))`));
   await evalPage(`(() => {
     const input = document.querySelector(".tocSearch input");
@@ -265,7 +265,7 @@ async function main() {
   await click(".tocPanel .closeButton");
   await waitFor("toc closed", () => evalPage(`!document.querySelector(".tocPanel")`));
 
-  await click('[aria-label="enter immersive reading"]');
+  await click('[aria-label="进入沉浸阅读"]');
   await waitFor("immersive mode", () => evalPage(`Boolean(document.querySelector(".immersiveMode") && document.querySelector(".immersiveExit"))`));
   const immersive = await evalPage(`(() => ({
     hasReader: Boolean(document.querySelector(".readerPanel")),
@@ -325,7 +325,7 @@ async function main() {
     };
   })()`);
 
-  await click('[aria-label="favorite current source"]');
+  await click('[aria-label="收藏当前内容"]');
   await waitFor("saved favorite record", () => evalPage(`JSON.parse(localStorage.getItem(${JSON.stringify(keys.favorites)}) ?? "[]").length >= 1`));
   const savedFavorite = await evalPage(`JSON.parse(localStorage.getItem(${JSON.stringify(keys.favorites)}) ?? "[]")[0] ?? null`);
 
@@ -371,9 +371,9 @@ async function main() {
   }))()`);
   const notesShot = await capture("round1-11-notes");
 
-  await clickNamedControl('nav[aria-label="primary navigation"]', "首页");
+  await clickNamedControl('nav[aria-label="主导航"]', "首页");
   await waitFor("home before favorites", () => evalPage(`document.querySelector('[data-app-view="home"] .appPageHeader h1')?.textContent?.trim() === "学习工作台"`));
-  await clickNamedControl('nav[aria-label="study destinations"]', "收藏");
+  await clickNamedControl('nav[aria-label="学习入口"]', "收藏");
   await waitFor("favorites page", () => evalPage(`document.querySelector('[data-app-view="favorites"] .appPageHeader h1')?.textContent?.trim() === "收藏" && document.querySelectorAll(".studyItem").length >= 1`));
   await waitForVisualIdle((expression) => evalPage(expression, true), { description: "favorites page visual idle" });
   const favorites = await evalPage(`(() => ({
@@ -390,7 +390,7 @@ async function main() {
   };
   studyPageScreenshotHashes.different = studyPageScreenshotHashes.notes !== studyPageScreenshotHashes.favorites;
 
-  await clickNamedControl('nav[aria-label="primary navigation"]', "单词");
+  await clickNamedControl('nav[aria-label="主导航"]', "单词");
   await waitFor("vocab learning page", () => evalPage(`Boolean(document.querySelector(".vocabPlanHero") && document.querySelector(".vocabStartButton"))`));
   const vocabPlan = await evalPage(`(() => ({
     hasReviewEntry: Boolean(document.querySelector(".vocabStartButton")),

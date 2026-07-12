@@ -38,6 +38,12 @@ button {
   -webkit-tap-highlight-color: transparent;
 }
 
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.52;
+  transform: none !important;
+}
+
 .appShell {
   --app-bg: #f4f6f5;
   --chrome-bg: rgba(244, 246, 245, 0.96);
@@ -917,6 +923,8 @@ h1 {
   color: inherit;
   background: transparent;
   line-height: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .wordToken:active,
@@ -2040,6 +2048,14 @@ h1 {
   font-weight: 800;
 }
 
+.answerFeedback.correct {
+  color: var(--answer-correct-text);
+}
+
+.answerFeedback.wrong {
+  color: var(--answer-wrong-text);
+}
+
 .sourceLine {
   color: var(--text-muted);
   font-size: 12px;
@@ -2444,6 +2460,10 @@ h1 {
   text-align: left;
 }
 
+.questionModeCards > button:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
 .questionModeCards span {
   display: grid;
   gap: 3px;
@@ -2473,6 +2493,41 @@ h1 {
   color: var(--text-muted);
   font-size: 12px;
   font-weight: 800;
+}
+
+.questionBankManager:not([open]) > :not(summary) {
+  display: none !important;
+}
+
+.questionBankManager input[type="file"] {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  color: var(--text);
+  background: var(--surface);
+}
+
+.examResultActions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.examResultActions button {
+  min-height: 46px;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  color: var(--page-accent-strong);
+  background: var(--surface);
+  font-weight: 800;
+}
+
+.examResultActions button.primary {
+  color: var(--accent-text);
+  border-color: var(--page-accent);
+  background: var(--page-accent);
 }
 
 .questionSession {
@@ -2679,7 +2734,7 @@ h1 {
   }
 }
 
-/* Beta 0.8.4 - Quiet Aperture maturity pass */
+/* Beta 0.8.5 - Quiet Aperture maturity pass */
 :root {
   color: #202329;
   background: #eeece7;
@@ -2833,6 +2888,54 @@ body {
   --edge-tab-hover-bg: #35415a;
   --edge-tab-hover-text: #e3e9f8;
   --edge-tab-shadow: rgba(0, 0, 0, 0.2);
+  --page-accent: #8ba5dc;
+  --page-accent-strong: #dbe4fa;
+  --page-accent-soft: #303a50;
+}
+
+.appShell.page-vocab[data-theme="dark"] {
+  --accent: #69b9a8;
+  --accent-strong: #b8e6dc;
+  --accent-soft: #223b36;
+  --page-accent: #69b9a8;
+  --page-accent-strong: #b8e6dc;
+  --page-accent-soft: #223b36;
+}
+
+.appShell.page-questions[data-theme="dark"] {
+  --accent: #df8a78;
+  --accent-strong: #ffd6cd;
+  --accent-soft: #432d29;
+  --page-accent: #df8a78;
+  --page-accent-strong: #ffd6cd;
+  --page-accent-soft: #432d29;
+}
+
+.appShell.page-notes[data-theme="dark"] {
+  --accent: #93a9dc;
+  --accent-strong: #dce5ff;
+  --accent-soft: #2d3447;
+  --page-accent: #93a9dc;
+  --page-accent-strong: #dce5ff;
+  --page-accent-soft: #2d3447;
+}
+
+.appShell.page-favorites[data-theme="dark"] {
+  --accent: #c5a16b;
+  --accent-strong: #f0d8af;
+  --accent-soft: #3d3528;
+  --page-accent: #c5a16b;
+  --page-accent-strong: #f0d8af;
+  --page-accent-soft: #3d3528;
+}
+
+.appShell.page-settings[data-theme="dark"] {
+  --accent: #aeb6c1;
+  --accent-strong: #edf0f4;
+  --accent-soft: #33363b;
+  --page-accent: #aeb6c1;
+  --page-accent-strong: #edf0f4;
+  --page-accent-soft: #33363b;
 }
 
 html[data-reader-theme="dark"],
@@ -2907,6 +3010,13 @@ html[data-reader-theme="dark"] body {
 html[data-transition-kind] .appPageContent,
 html[data-transition-kind] .appPageContent > * {
   animation: none;
+}
+
+@supports (view-transition-name: none) {
+  .appPageContent,
+  .appPageContent > * {
+    animation: none;
+  }
 }
 
 .page-home .appPageHeader {
@@ -3829,6 +3939,11 @@ summary:focus-visible {
   text-decoration-color: var(--page-accent);
 }
 
+.wordToken:focus-visible {
+  outline: 2px solid var(--page-accent);
+  outline-offset: 1px;
+}
+
 .bottomSheet,
 .notesPanel,
 .vocabPanel,
@@ -3845,6 +3960,9 @@ summary:focus-visible {
   margin: -10px auto -2px;
   border-radius: 0;
   background: transparent;
+  position: sticky;
+  top: -10px;
+  z-index: 4;
 }
 
 .sheetHandle::after {
@@ -3857,6 +3975,15 @@ summary:focus-visible {
   border-radius: 2px;
   background: var(--border-strong);
   transform: translate(-50%, -50%);
+}
+
+.draggableSheet > .sheetHeader {
+  position: sticky;
+  top: 36px;
+  z-index: 3;
+  margin: 0 -2px;
+  padding: 2px 2px 12px;
+  background: var(--surface);
 }
 
 .bottomSheet[data-dragging="true"] {
@@ -3890,7 +4017,14 @@ html[data-transition-kind="language"]::view-transition-old(root) {
 }
 
 html[data-transition-kind="language"]::view-transition-new(root) {
-  animation: apertureLanguageIn 460ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: apertureLanguageIn 400ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+html[data-transition-kind="language"]::view-transition-old(app-page-heading),
+html[data-transition-kind="language"]::view-transition-new(app-page-heading),
+html[data-transition-kind="language"]::view-transition-old(app-reading-progress),
+html[data-transition-kind="language"]::view-transition-new(app-reading-progress) {
+  animation-duration: 400ms;
 }
 
 ::view-transition-old(app-page-heading),

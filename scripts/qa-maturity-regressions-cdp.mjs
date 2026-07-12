@@ -411,7 +411,7 @@ async function main() {
     async function waitForHome() {
       await waitFor("home view and primary navigation", () => evaluate(`Boolean(
         document.querySelector('main[data-app-view="home"]') &&
-        document.querySelector('nav[aria-label="primary navigation"]')
+        document.querySelector('nav[aria-label="主导航"]')
       )`));
     }
 
@@ -426,7 +426,7 @@ async function main() {
     async function clickPrimaryNav(label) {
       const result = await evaluate(`(() => {
         const label = ${JSON.stringify(label)};
-        const nav = document.querySelector('nav[aria-label="primary navigation"]');
+        const nav = document.querySelector('nav[aria-label="主导航"]');
         const button = Array.from(nav?.querySelectorAll("button") ?? [])
           .find((item) => item.querySelector("strong")?.textContent?.trim() === label);
         if (!button) return { clicked: false, available: Array.from(nav?.querySelectorAll("strong") ?? []).map((item) => item.textContent?.trim()) };
@@ -439,7 +439,7 @@ async function main() {
     async function clickBook(title) {
       const result = await evaluate(`(() => {
         const title = ${JSON.stringify(title)};
-        const library = document.querySelector('section[aria-label="book library"]');
+        const library = document.querySelector('section[aria-label="教材库"]');
         const card = Array.from(library?.querySelectorAll("article") ?? [])
           .find((item) => item.querySelector("h2")?.textContent?.trim() === title);
         const button = card?.querySelector("button.primaryAction");
@@ -484,7 +484,7 @@ async function main() {
     }
 
     async function backToLibrary() {
-      await clickSelector('[aria-label="back to library"]', "back-to-library control");
+      await clickSelector('[aria-label="返回书库"]', "back-to-library control");
       await waitForHome();
     }
 
@@ -539,21 +539,207 @@ async function main() {
       };
     });
 
+    await runCase("reader-state-isolation-and-navigation-load-stability", async () => {
+      await installFixture();
+      await evaluate(`performance.clearResourceTimings()`);
+      await clickPrimaryNav("单词");
+      await waitFor("vocabulary view before manual-load audit", () => evaluate(`Boolean(document.querySelector('main[data-app-view="vocab"]'))`));
+      await clickPrimaryNav("刷题");
+      await waitFor("question view before manual-load audit", () => evaluate(`Boolean(document.querySelector('main[data-app-view="questions"]'))`));
+      await clickPrimaryNav("首页");
+      await waitForHome();
+      const navigationLoads = await evaluate(`performance.getEntriesByType("resource")
+        .filter((entry) => new URL(entry.name).pathname.endsWith("/manual.json"))
+        .map((entry) => entry.name)`);
+      assert(navigationLoads.length === 0, "Primary navigation reloaded the active manual", navigationLoads);
+
+      await clickBook("六西格玛黑带培训教材");
+      await waitForReader(mainBookId, 6, 449);
+      const readerScroll = await evaluate(`(() => {
+        const target = Array.from(document.querySelectorAll('.readerPanel [data-page="7"]'))
+          .find((item) => item.getBoundingClientRect().height > 0);
+        target?.scrollIntoView({ block: "start" });
+        return Boolean(target);
+      })()`);
+      assert(readerScroll, "No visible page-7 reader target was available");
+      await waitFor("reader observer to report page 7", async () => (await readerState()).page === 7);
+      await sleep(350);
+      const storedReaderPosition = await evaluate(`JSON.parse(localStorage.getItem(${JSON.stringify(storageKeys.readerPosition)}) ?? "{}").positions?.[${JSON.stringify(mainBookId)}] ?? null`);
+      assert(storedReaderPosition?.page === 7 && storedReaderPosition.scrollY > 0, "Reader scroll was not persisted at page 7", storedReaderPosition);
+
+      await backToLibrary();
+      await evaluate(`window.scrollTo({ top: document.documentElement.scrollHeight })`);
+      await sleep(350);
+      const afterHomeScroll = await evaluate(`JSON.parse(localStorage.getItem(${JSON.stringify(storageKeys.readerPosition)}) ?? "{}").positions?.[${JSON.stringify(mainBookId)}] ?? null`);
+      assert(
+        afterHomeScroll?.page === storedReaderPosition.page && afterHomeScroll?.scrollY === storedReaderPosition.scrollY,
+        "Non-reader scrolling overwrote the saved reader position",
+        { storedReaderPosition, afterHomeScroll }
+      );
+
+      await clickBook("六西格玛黑带培训教材");
+      await waitForReader(mainBookId, 7, 449);
+      const restored = await evaluate(`({
+        scrollY: Math.round(window.scrollY),
+        savedScrollY: Math.round(JSON.parse(localStorage.getItem(${JSON.stringify(storageKeys.readerPosition)}) ?? "{}").positions?.[${JSON.stringify(mainBookId)}]?.scrollY ?? 0)
+      })`);
+      assert(Math.abs(restored.scrollY - restored.savedScrollY) <= 2, "Reader did not restore the saved scroll position", restored);
+      return { navigationLoads, storedReaderPosition, afterHomeScroll, restored };
+    });
+
+    await runCase("question-priority-is-stable-across-reloads", async () => {
+      const priorityQuestionId = "qa-maturity-priority";
+      const priorityProgress = {
+        [priorityQuestionId]: {
+          questionId: priorityQuestionId,
+          seen: true,
+          favorite: false,
+          correctCount: 2,
+          wrongCount: 4,
+          unknownCount: 1,
+          correctStreak: 2,
+          wrongPriority: 5,
+          mastered: false,
+          lastAnsweredAt: new Date().toISOString()
+        }
+      };
+      await installFixture({ questionProgress: priorityProgress });
+      await waitFor("normalized question priority persistence", () => evaluate(`Boolean(localStorage.getItem(${JSON.stringify(storageKeys.questionProgress)}))`));
+      await sleep(100);
+      const firstLoad = await evaluate(`JSON.parse(localStorage.getItem(${JSON.stringify(storageKeys.questionProgress)}) ?? "{}")[${JSON.stringify(priorityQuestionId)}]`);
+      await cdp.send("Page.reload", { ignoreCache: true });
+      await waitForHome();
+      await sleep(100);
+      const secondLoad = await evaluate(`JSON.parse(localStorage.getItem(${JSON.stringify(storageKeys.questionProgress)}) ?? "{}")[${JSON.stringify(priorityQuestionId)}]`);
+      assert(firstLoad?.wrongPriority === 5, "Question priority changed during initial normalization", firstLoad);
+      assert(secondLoad?.wrongPriority === 5, "Question priority decayed merely from reloading", { firstLoad, secondLoad });
+      return { firstLoad, secondLoad };
+    });
+
+    await runCase("reader-interaction-continuity", async () => {
+      await installFixture();
+      await clickBook("六西格玛黑带培训教材");
+      await waitForReader(mainBookId, 6, 449);
+      const wordSemantics = await evaluate(`({
+        wordCount: document.querySelectorAll(".readerPanel .wordToken").length,
+        buttonCount: document.querySelectorAll(".readerPanel button.wordToken").length,
+        semanticButtonCount: document.querySelectorAll('.readerPanel .wordToken[role="button"]').length,
+        tabStopCount: document.querySelectorAll('.readerPanel .wordToken[tabindex="0"]').length
+      })`);
+      assert(wordSemantics.wordCount > 100 && wordSemantics.buttonCount === 0 && wordSemantics.semanticButtonCount === wordSemantics.wordCount && wordSemantics.tabStopCount === 1,
+        "Reader word lookup did not expose exactly one roving keyboard entry", wordSemantics);
+      const keyboardLookup = await evaluate(`(() => {
+        const entry = document.querySelector('.readerPanel .wordToken[tabindex="0"]');
+        entry?.focus();
+        entry?.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true }));
+        const moved = document.activeElement;
+        moved?.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", bubbles: true }));
+        return {
+          moved: moved?.classList.contains("wordToken") ?? false,
+          tabStopCount: document.querySelectorAll('.readerPanel .wordToken[tabindex="0"]').length
+        };
+      })()`);
+      await waitFor("keyboard word lookup", () => evaluate(`Boolean(document.querySelector('section[aria-label="单词释义"]'))`));
+      assert(keyboardLookup.moved && keyboardLookup.tabStopCount === 1, "Roving word keyboard navigation was not stable", keyboardLookup);
+      await evaluate(`document.querySelector('section[aria-label="单词释义"] .closeButton')?.click()`);
+      await waitFor("keyboard lookup close", () => evaluate(`!document.querySelector('section[aria-label="单词释义"]')`));
+
+      const positioned = await evaluate(`(() => {
+        const target = Array.from(document.querySelectorAll('.readerPanel [data-page="7"][data-block-id]'))
+          .find((item) => item.getBoundingClientRect().height > 40);
+        target?.scrollIntoView({ block: "start" });
+        return target?.getAttribute("data-block-id") ?? "";
+      })()`);
+      assert(positioned, "No stable page-7 block was available for immersive continuity");
+      await waitFor("page 7 before immersive mode", async () => (await readerState()).page === 7);
+      const beforeImmersive = await evaluate(`(() => {
+        const anchor = (document.querySelector(".readerChrome")?.getBoundingClientRect().height ?? 120) + 10;
+        const block = Array.from(document.querySelectorAll('.readerPanel [data-block-id]')).find((item) => {
+          const rect = item.getBoundingClientRect();
+          return rect.top <= anchor && rect.bottom >= anchor;
+        });
+        const rect = block?.getBoundingClientRect();
+        return {
+          blockId: block?.getAttribute("data-block-id") ?? "",
+          ratio: rect ? Math.max(0, Math.min(1, (anchor - rect.top) / Math.max(1, rect.height))) : null,
+          page: Number(block?.getAttribute("data-page"))
+        };
+      })()`);
+      assert(beforeImmersive.blockId && Number.isFinite(beforeImmersive.ratio), "Could not capture the pre-immersive reading anchor", beforeImmersive);
+      await clickSelector('[aria-label="进入沉浸阅读"]', "enter immersive reading control");
+      await waitFor("immersive reader", () => evaluate(`document.querySelector('main[data-app-view="reader"]')?.classList.contains("immersiveMode")`));
+      await sleep(800);
+      const duringImmersive = await evaluate(`(() => {
+        const anchor = (document.querySelector(".readerChrome")?.getBoundingClientRect().height ?? 0) + 10;
+        const block = document.querySelector('[data-block-id=${JSON.stringify(beforeImmersive.blockId)}]');
+        const rect = block?.getBoundingClientRect();
+        return {
+          ratio: rect ? Math.max(0, Math.min(1, (anchor - rect.top) / Math.max(1, rect.height))) : null,
+          pageLabel: document.querySelector(".immersiveExit")?.textContent?.trim() ?? ""
+        };
+      })()`);
+      assert(Number.isFinite(duringImmersive.ratio) && Math.abs(duringImmersive.ratio - beforeImmersive.ratio) <= 0.08, "Entering immersive mode lost the semantic reading anchor", { beforeImmersive, duringImmersive });
+      assert(duringImmersive.pageLabel.includes("p. 7"), "Immersive mode changed the active page", duringImmersive);
+      await clickSelector('[aria-label="退出沉浸阅读"]', "exit immersive reading control");
+      await waitFor("normal reader after immersive", () => evaluate(`!document.querySelector('main[data-app-view="reader"]')?.classList.contains("immersiveMode")`));
+      await sleep(800);
+
+      await clickSelector('[aria-label="打开阅读工具"]', "reader tools control");
+      await waitFor("reader tools menu", () => evaluate(`Boolean(document.querySelector('.readerMenu[aria-label="阅读工具"]'))`));
+      await evaluate(`document.querySelector('[aria-label="打开阅读工具"]')?.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }))`);
+      await waitFor("reader tools Escape close", () => evaluate(`!document.querySelector(".readerMenu")`));
+
+      await clickSelector('[aria-label="打开目录"]', "table-of-contents control");
+      await waitFor("table-of-contents dialog", () => evaluate(`Boolean(document.querySelector('section[role="dialog"][aria-label="目录"]'))`));
+      const pageSearch = await evaluate(`(() => {
+        const input = document.querySelector('.tocSearch input[type="search"]');
+        const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value")?.set;
+        if (!input || !setter) return false;
+        setter.call(input, "51");
+        input.dispatchEvent(new Event("input", { bubbles: true }));
+        return true;
+      })()`);
+      assert(pageSearch, "TOC page search could not be populated");
+      await waitFor("page 51 TOC result", () => evaluate(`Array.from(document.querySelectorAll(".tocItem span")).some((item) => item.textContent?.trim() === "p. 51")`));
+      const jumped = await evaluate(`(() => {
+        const item = Array.from(document.querySelectorAll(".tocItem"))
+          .find((button) => button.querySelector("span")?.textContent?.trim() === "p. 51");
+        item?.click();
+        return Boolean(item);
+      })()`);
+      assert(jumped, "Page 51 TOC result could not be activated");
+      await waitForReader(mainBookId, 51, 449);
+      await sleep(150);
+      const rail = await evaluate(`(() => {
+        const container = document.querySelector(".chapterRail");
+        const active = container?.querySelector(".sectionPill.active");
+        const containerRect = container?.getBoundingClientRect();
+        const activeRect = active?.getBoundingClientRect();
+        return {
+          activeText: active?.textContent?.trim() ?? "",
+          visible: Boolean(containerRect && activeRect && activeRect.left >= containerRect.left - 1 && activeRect.right <= containerRect.right + 1),
+          scrollLeft: container?.scrollLeft ?? 0
+        };
+      })()`);
+      assert(rail.activeText === "51" && rail.visible, "Active chapter page remained outside the visible rail", rail);
+      return { wordSemantics, beforeImmersive, duringImmersive, rail };
+    });
+
     await runCase("due-vocabulary-session", async () => {
       await installFixture();
       await clickPrimaryNav("单词");
-      await waitFor("vocabulary plan", () => evaluate(`Boolean(document.querySelector('section[aria-label="daily study status"]'))`));
+      await waitFor("vocabulary plan", () => evaluate(`Boolean(document.querySelector('section[aria-label="今日学习状态"]'))`));
       const plan = await evaluate(`(() => ({
-        dueText: document.querySelector('section[aria-label="daily study status"] h2')?.textContent?.trim() ?? "",
+        dueText: document.querySelector('section[aria-label="今日学习状态"] h2')?.textContent?.trim() ?? "",
         startText: document.querySelector(".vocabStartButton")?.textContent?.trim() ?? ""
       }))()`);
       assert(plan.dueText === "1 个待学", "Vocabulary plan did not show exactly one due term", plan);
       await clickSelector(".vocabStartButton", "start vocabulary review control");
-      await waitFor("due-only vocabulary session", () => evaluate(`Boolean(document.querySelector('section[aria-label="flash vocabulary review"] .flashCard'))`));
+      await waitFor("due-only vocabulary session", () => evaluate(`Boolean(document.querySelector('section[aria-label="单词复习"] .flashCard'))`));
       const session = await evaluate(`(() => ({
         term: document.querySelector(".flashCard h2")?.textContent?.trim() ?? "",
         counter: document.querySelector(".studySessionBar > strong")?.textContent?.trim() ?? "",
-        progressLabel: document.querySelector('[aria-label="review session progress"]')?.getAttribute("aria-label") ?? "",
+        progressLabel: document.querySelector('[aria-label="复习进度"]')?.getAttribute("aria-label") ?? "",
         futureVisible: document.querySelector(".flashCard")?.textContent?.includes("variation") ?? false
       }))()`);
       const terms = await evaluate(`JSON.parse(localStorage.getItem(${JSON.stringify(storageKeys.vocab)}) ?? "[]").map((item) => ({ id: item.id, term: item.term, nextReviewAt: item.nextReviewAt }))`);
@@ -561,7 +747,21 @@ async function main() {
       assert(session.counter === "1/1", "Review session included more than the one due term", session);
       assert(!session.futureVisible, "Future vocabulary leaked into the due review session", session);
       assert(terms.some((term) => term.id === `${fixturePrefix}future-term` && Date.parse(term.nextReviewAt) > Date.now()), "Future fixture term was not retained as future", terms);
-      return { plan, session, terms };
+      await clickSelector(".flashPromptActions button:last-child", "reveal due vocabulary answer");
+      await waitFor("vocabulary answer stage", () => evaluate(`Boolean(document.querySelector(".flashRatingActions"))`));
+      await clickSelector(".flashRatingActions button:first-child", "rate due vocabulary as unknown");
+      await waitFor("limited vocabulary session completion", () => evaluate(`Boolean(document.querySelector(".flashCompleteState"))`));
+      const completion = await evaluate(`(() => ({
+        streak: JSON.parse(localStorage.getItem(${JSON.stringify(storageKeys.streak)}) ?? "{}"),
+        reviewed: JSON.parse(localStorage.getItem(${JSON.stringify(storageKeys.vocab)}) ?? "[]")
+          .find((item) => item.id === ${JSON.stringify(`${fixturePrefix}due-term`)}) ?? null,
+        progressText: document.querySelector(".flashCompleteState p:last-of-type")?.textContent?.trim() ?? ""
+      }))()`);
+      assert(completion.streak.checkedInToday === true && completion.streak.completed === 1 && completion.streak.goal === 1,
+        "A due queue smaller than the base goal could not complete today's check-in", completion);
+      assert(completion.reviewed?.reviewCount === 1 && completion.reviewed?.lapseCount === 1,
+        "The limited due session did not persist its self-rating", completion);
+      return { plan, session, terms, completion };
     });
 
     await runCase("question-resume-first-unanswered", async () => {
@@ -581,7 +781,69 @@ async function main() {
         heading: document.querySelector(".questionCard h2")?.textContent?.trim() ?? ""
       }))()`);
       assert(resumed.questionId === secondQuestionId, "Continue practice did not resume at the second unanswered question", resumed);
-      return { dashboard, resumed, firstAnsweredQuestionId: firstQuestionId };
+      await clickSelector(".questionOption", "temporary answer before unknown rating");
+      const unknownClicked = await evaluate(`(() => {
+        const button = Array.from(document.querySelectorAll(".questionActions button"))
+          .find((item) => item.textContent?.trim() === "不会");
+        button?.click();
+        return Boolean(button);
+      })()`);
+      assert(unknownClicked, "Unknown-answer control was not available");
+      await waitFor("question explanation without navigation", () => evaluate(`Boolean(document.querySelector(".questionCard .answerPanel"))`));
+      await waitFor("question progress persistence", () => evaluate(`JSON.parse(localStorage.getItem(${JSON.stringify(storageKeys.questionProgress)}) ?? "{}")[${JSON.stringify(secondQuestionId)}]?.unknownCount === 1`));
+      const afterSubmit = await evaluate(`(() => ({
+        questionId: document.querySelector(".questionCard")?.getAttribute("data-question-id") ?? "",
+        unknownCount: JSON.parse(localStorage.getItem(${JSON.stringify(storageKeys.questionProgress)}) ?? "{}")[${JSON.stringify(secondQuestionId)}]?.unknownCount ?? 0,
+        userAnswer: document.querySelector(".answerPanel p:first-child")?.textContent?.replace(/\s+/g, " ").trim() ?? "",
+        inputsLocked: ["不会", "已提交"].every((label) =>
+          Array.from(document.querySelectorAll(".questionActions button"))
+            .some((button) => button.textContent?.trim() === label && button.disabled)
+        )
+      }))()`);
+      await evaluate(`Array.from(document.querySelectorAll(".questionActions button")).find((button) => button.textContent?.trim() === "不会")?.click()`);
+      await sleep(120);
+      const afterRepeat = await evaluate(`JSON.parse(localStorage.getItem(${JSON.stringify(storageKeys.questionProgress)}) ?? "{}")[${JSON.stringify(secondQuestionId)}]?.unknownCount ?? 0`);
+      assert(afterSubmit.questionId === secondQuestionId && afterSubmit.unknownCount === 1 && afterSubmit.userAnswer.includes("未作答") && afterSubmit.inputsLocked,
+        "Question submission did not stay on the current explanation or lock repeat input", afterSubmit);
+      assert(afterRepeat === 1, "Repeated submission counted the same question twice", { afterSubmit, afterRepeat });
+      await clickSelector(".questionPager button:last-child", "explicit next-question control");
+      await waitFor("explicit next question", () => evaluate(`document.querySelector(".questionCard")?.getAttribute("data-question-id") !== ${JSON.stringify(secondQuestionId)}`));
+      const nextQuestionId = await evaluate(`document.querySelector(".questionCard")?.getAttribute("data-question-id") ?? ""`);
+      return { dashboard, resumed, afterSubmit, afterRepeat, nextQuestionId, firstAnsweredQuestionId: firstQuestionId };
+    });
+
+    await runCase("malformed-local-data-is-preserved-or-salvaged", async () => {
+      await installFixture();
+      await goToStoragePage();
+      const invalidRaw = "{invalid-json";
+      await evaluate(`localStorage.setItem(${JSON.stringify(storageKeys.vocab)}, ${JSON.stringify(invalidRaw)})`);
+      await navigate(appUrl, "application with unreadable vocabulary storage");
+      await waitForHome();
+      await sleep(250);
+      const preservedRaw = await evaluate(`localStorage.getItem(${JSON.stringify(storageKeys.vocab)})`);
+      assert(preservedRaw === invalidRaw, "Unreadable vocabulary was overwritten during initial hydration", { preservedRaw });
+
+      await goToStoragePage();
+      const salvagedFixture = makeTerm({
+        id: `${fixturePrefix}salvaged-term`,
+        term: "capability",
+        translation: "能力",
+        contextMeaning: "过程能力",
+        nextReviewAt: new Date(Date.now() - 60_000).toISOString(),
+        savedAt: new Date().toISOString()
+      });
+      await evaluate(`localStorage.setItem(${JSON.stringify(storageKeys.vocab)}, JSON.stringify([${JSON.stringify(salvagedFixture)}, null, "broken-item"]))`);
+      await navigate(appUrl, "application with partially malformed vocabulary storage");
+      await waitForHome();
+      await clickPrimaryNav("单词");
+      await waitFor("salvaged vocabulary plan", () => evaluate(`document.querySelector(".vocabPlanHero h2")?.textContent?.trim() === "1 个待学"`));
+      const salvaged = await evaluate(`(() => ({
+        dueText: document.querySelector(".vocabPlanHero h2")?.textContent?.trim() ?? "",
+        runtimeErrors: Boolean(document.querySelector("vite-error-overlay"))
+      }))()`);
+      assert(salvaged.dueText === "1 个待学" && !salvaged.runtimeErrors,
+        "One malformed vocabulary item prevented valid items from loading", salvaged);
+      return { preservedRaw, salvaged };
     });
 
     await runCase("mock-exam-absolute-timeout", async () => {
@@ -632,6 +894,10 @@ async function main() {
 
     await runCase("clear-local-data-does-not-revive", async () => {
       await installFixture();
+      await evaluate(`(() => {
+        localStorage.setItem(${JSON.stringify(storageKeys.mainCorrections)}, JSON.stringify({ bookId: ${JSON.stringify(mainBookId)}, corrections: [] }));
+        localStorage.setItem(${JSON.stringify(storageKeys.sampleCorrections)}, JSON.stringify({ bookId: ${JSON.stringify(sampleBookId)}, corrections: [] }));
+      })()`);
       await clickPrimaryNav("我的");
       await waitFor("settings local-data panel", () => evaluate(`Boolean(document.querySelector(".settingsPanel .dangerButton"))`));
       await evaluate(`window.confirm = () => true`);
@@ -647,14 +913,15 @@ async function main() {
         view: document.querySelector("main")?.getAttribute("data-app-view") ?? "",
         vocab: JSON.parse(localStorage.getItem(${JSON.stringify(storageKeys.vocab)}) ?? "[]"),
         progress: JSON.parse(localStorage.getItem(${JSON.stringify(storageKeys.questionProgress)}) ?? "{}"),
-        streak: JSON.parse(localStorage.getItem(${JSON.stringify(storageKeys.streak)}) ?? "{}")
+        streak: JSON.parse(localStorage.getItem(${JSON.stringify(storageKeys.streak)}) ?? "{}"),
+        correctionKeys: Object.keys(localStorage).filter((key) => key.startsWith("six-sigma-study:context-corrections:v1:"))
       }))()`);
 
       await cdp.send("Page.reload", { ignoreCache: true });
       await waitForHome();
       const homeAfterReload = await evaluate(`(() => ({
         streakText: document.querySelector(".metricGrid button:first-child small")?.textContent?.trim() ?? "",
-        currentNav: document.querySelector('nav[aria-label="primary navigation"] [aria-current="page"] strong')?.textContent?.trim() ?? ""
+        currentNav: document.querySelector('nav[aria-label="主导航"] [aria-current="page"] strong')?.textContent?.trim() ?? ""
       }))()`);
       await clickPrimaryNav("单词");
       await waitFor("empty vocabulary plan after reload", () => evaluate(`Boolean(document.querySelector(".vocabPlanHero"))`));
@@ -674,6 +941,7 @@ async function main() {
       assert(immediatelyAfterClear.vocab.length === 0, "Vocabulary remained after normal clear", immediatelyAfterClear);
       assert(Object.keys(immediatelyAfterClear.progress).length === 0, "Question progress remained after normal clear", immediatelyAfterClear);
       assert(Number(immediatelyAfterClear.streak.streak ?? 0) === 0, "Old streak remained after normal clear", immediatelyAfterClear);
+      assert(immediatelyAfterClear.correctionKeys.length === 0, "Context corrections from another book remained after local-data clear", immediatelyAfterClear);
       assert(homeAfterReload.streakText === "连续天数 0", "Old streak revived after reload", homeAfterReload);
       assert(vocabAfterReload === "0 个待学", "Old vocabulary revived after reload", { vocabAfterReload, persistedAfterReload });
       assert(questionsAfterReload.summary.startsWith("0/") && questionsAfterReload.action.includes("开始练习"), "Old question progress revived after reload", questionsAfterReload);
@@ -710,7 +978,7 @@ async function main() {
           throwObserved: true,
           view: document.querySelector("main")?.getAttribute("data-app-view") ?? "",
           h1: document.querySelector(".appPageHeader h1")?.textContent?.trim() ?? "",
-          currentNavCount: document.querySelectorAll('nav[aria-label="primary navigation"] [aria-current="page"]').length,
+          currentNavCount: document.querySelectorAll('nav[aria-label="主导航"] [aria-current="page"]').length,
           rootChildren: document.querySelector("#root")?.childElementCount ?? 0,
           viteErrorOverlay: Boolean(document.querySelector("vite-error-overlay")),
           runtimeErrors: window.__qaMaturityErrors ?? []
@@ -748,10 +1016,16 @@ async function main() {
         return word.textContent?.trim() ?? "";
       })()`);
       assert(token.length >= 4, "No stable lookup token was available on p6", { token });
-      await waitFor("lookup sheet", () => evaluate(`Boolean(document.querySelector('section[aria-label="word explanation"]'))`));
+      await waitFor("lookup sheet", () => evaluate(`Boolean(document.querySelector('section[aria-label="单词释义"]'))`));
       const initial = await evaluate(`(() => {
-        const separator = document.querySelector('section[aria-label="word explanation"] [role="separator"]');
+        const sheet = document.querySelector('section[aria-label="单词释义"]');
+        const separator = document.querySelector('section[aria-label="单词释义"] [role="separator"]');
         return {
+          dialogRole: sheet?.getAttribute("role") ?? "",
+          ariaModal: sheet?.getAttribute("aria-modal") ?? "",
+          focusedLabel: document.activeElement?.textContent?.trim() ?? "",
+          backdropTag: document.querySelector(".overlayBackdrop")?.tagName ?? "",
+          backdropFocusable: document.querySelector(".overlayBackdrop")?.matches("button, a[href], [tabindex]:not([tabindex='-1'])") ?? false,
           role: separator?.getAttribute("role") ?? "",
           label: separator?.getAttribute("aria-label") ?? "",
           min: Number(separator?.getAttribute("aria-valuemin")),
@@ -760,11 +1034,14 @@ async function main() {
           text: separator?.getAttribute("aria-valuetext") ?? ""
         };
       })()`);
+      assert(initial.dialogRole === "dialog" && initial.ariaModal === "true", "Lookup sheet did not expose modal dialog semantics", initial);
+      assert(initial.focusedLabel === "关闭", "Lookup sheet did not receive a predictable initial focus", initial);
+      assert(initial.backdropTag === "DIV" && !initial.backdropFocusable, "Lookup backdrop remained an invisible keyboard control", initial);
       assert(initial.role === "separator" && initial.label.length > 0, "Lookup separator was not accessible", initial);
       assert(initial.min === 46 && initial.max === 92 && Number.isFinite(initial.now) && initial.text.length > 0, "Lookup separator aria values were incomplete", initial);
 
       await evaluate(`(() => {
-        const separator = document.querySelector('section[aria-label="word explanation"] [role="separator"]');
+        const separator = document.querySelector('section[aria-label="单词释义"] [role="separator"]');
         separator.focus();
         separator.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowUp", bubbles: true }));
         return true;
@@ -773,7 +1050,7 @@ async function main() {
       const afterArrowUp = await evaluate(`Number(document.querySelector('[role="separator"]')?.getAttribute("aria-valuenow"))`);
 
       await evaluate(`(() => {
-        const separator = document.querySelector('section[aria-label="word explanation"] [role="separator"]');
+        const separator = document.querySelector('section[aria-label="单词释义"] [role="separator"]');
         separator.dispatchEvent(new KeyboardEvent("keydown", { key: "End", bubbles: true }));
         return true;
       })()`);
@@ -781,11 +1058,25 @@ async function main() {
       const afterEnd = await evaluate(`Number(document.querySelector('[role="separator"]')?.getAttribute("aria-valuenow"))`);
       assert(afterArrowUp !== initial.now && afterEnd !== afterArrowUp, "ArrowUp and End did not change sheet height", { initial, afterArrowUp, afterEnd });
 
+      const stickyChrome = await evaluate(`(() => {
+        const sheet = document.querySelector('section[aria-label="单词释义"]');
+        sheet.scrollTop = Math.min(520, sheet.scrollHeight - sheet.clientHeight);
+        const sheetRect = sheet.getBoundingClientRect();
+        const closeRect = sheet.querySelector(".closeButton")?.getBoundingClientRect();
+        const handleRect = sheet.querySelector('[role="separator"]')?.getBoundingClientRect();
+        return {
+          scrollTop: sheet.scrollTop,
+          closeVisible: Boolean(closeRect && closeRect.top >= sheetRect.top - 1 && closeRect.bottom <= sheetRect.bottom + 1),
+          handleVisible: Boolean(handleRect && handleRect.top >= sheetRect.top - 12 && handleRect.bottom <= sheetRect.bottom + 1)
+        };
+      })()`);
+      assert(stickyChrome.scrollTop > 0 && stickyChrome.closeVisible && stickyChrome.handleVisible, "Lookup controls scrolled out of the sheet", stickyChrome);
+
       const layouts = [];
       for (const width of [759, 760, 800, 859, 860]) {
         await setViewport(width, 900);
         const layout = await evaluate(`(() => {
-          const sheet = document.querySelector('section[aria-label="word explanation"]');
+          const sheet = document.querySelector('section[aria-label="单词释义"]');
           const rect = sheet.getBoundingClientRect();
           return {
             requestedWidth: ${width},
@@ -800,7 +1091,24 @@ async function main() {
         layouts.push(layout);
         assert(layout.viewportWidth === width && layout.left >= -1 && layout.right <= width + 1, `Lookup sheet overflowed at ${width}px`, layout);
       }
-      return { token, initial, afterArrowUp, afterEnd, layouts };
+      await setViewport(390, 844);
+      const trapped = await evaluate(`(() => {
+        const sheet = document.querySelector('section[aria-label="单词释义"]');
+        const close = sheet?.querySelector(".closeButton");
+        close?.focus();
+        close?.dispatchEvent(new KeyboardEvent("keydown", { key: "Tab", shiftKey: true, bubbles: true }));
+        return Boolean(sheet?.contains(document.activeElement));
+      })()`);
+      assert(trapped, "Shift+Tab escaped behind the lookup sheet");
+      await evaluate(`document.activeElement?.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }))`);
+      await waitFor("Escape lookup close", () => evaluate(`!document.querySelector('section[aria-label="单词释义"]')`));
+      await evaluate(`new Promise((resolve) => requestAnimationFrame(resolve))`);
+      const restoredFocus = await evaluate(`({
+        isWord: document.activeElement?.classList.contains("wordToken") ?? false,
+        text: document.activeElement?.textContent?.trim() ?? ""
+      })`);
+      assert(restoredFocus.isWord && restoredFocus.text === token, "Closing the lookup sheet did not restore focus to its word", restoredFocus);
+      return { token, initial, afterArrowUp, afterEnd, stickyChrome, layouts, trapped, restoredFocus };
     });
 
     await runCase("home-accessible-heading-and-current-nav", async () => {
@@ -811,7 +1119,7 @@ async function main() {
         .filter((node) => node.properties?.some((property) => property.name === "level" && Number(property.value?.value) === 1))
         .map((node) => node.name?.value ?? "");
       const dom = await evaluate(`(() => {
-        const nav = document.querySelector('nav[aria-label="primary navigation"]');
+        const nav = document.querySelector('nav[aria-label="主导航"]');
         const current = Array.from(nav?.querySelectorAll('[aria-current="page"]') ?? []);
         const visibleH1 = Array.from(document.querySelectorAll("h1")).filter((item) => {
           const style = getComputedStyle(item);
@@ -820,7 +1128,7 @@ async function main() {
         });
         return {
           view: document.querySelector("main")?.getAttribute("data-app-view") ?? "",
-          primaryNavCount: document.querySelectorAll('nav[aria-label="primary navigation"]').length,
+          primaryNavCount: document.querySelectorAll('nav[aria-label="主导航"]').length,
           currentCount: current.length,
           currentLabels: current.map((item) => item.querySelector("strong")?.textContent?.trim() ?? item.textContent?.trim() ?? ""),
           visibleH1: visibleH1.map((item) => item.textContent?.trim() ?? "")
@@ -830,6 +1138,26 @@ async function main() {
       assert(accessibleH1.length === 1, "Home did not expose exactly one accessible H1", { accessibleH1, dom });
       assert(dom.primaryNavCount === 1 && dom.currentCount === 1 && dom.currentLabels[0] === "首页", "Primary navigation did not expose exactly one current page", dom);
       return { accessibleH1, ...dom };
+    });
+
+    await runCase("primary-navigation-scroll-isolation", async () => {
+      await installFixture();
+      await clickPrimaryNav("刷题");
+      await waitFor("question dashboard for scroll isolation", () => evaluate(`Boolean(document.querySelector(".questionDashboardHero"))`));
+      await evaluate(`window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "instant" })`);
+      const questionScroll = await evaluate(`window.scrollY`);
+      assert(questionScroll > 100, "Question page fixture did not become scrollable", { questionScroll });
+      await clickPrimaryNav("首页");
+      await waitForHome();
+      await waitFor("home scroll reset", () => evaluate(`window.scrollY === 0`));
+      const homeScroll = await evaluate(`window.scrollY`);
+      await evaluate(`window.scrollTo({ top: 320, behavior: "instant" })`);
+      const homeBeforeActive = await evaluate(`window.scrollY`);
+      assert(homeBeforeActive > 100, "Home fixture did not become scrollable for active-navigation testing", { homeBeforeActive });
+      await clickPrimaryNav("首页");
+      await waitFor("active navigation scroll-to-top", () => evaluate(`window.scrollY === 0`));
+      const activeNavScroll = await evaluate(`window.scrollY`);
+      return { questionScroll, homeScroll, homeBeforeActive, activeNavScroll };
     });
   } catch (error) {
     infrastructureError = errorDetails(error);

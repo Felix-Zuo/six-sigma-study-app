@@ -149,7 +149,7 @@ async function main() {
   async function clickPrimaryNavigation(accessibleName) {
     const result = await evaluate(`(() => {
       const normalize = (value) => (value ?? "").replace(/\\s+/g, " ").trim();
-      const nav = document.querySelector('nav[aria-label="primary navigation"]');
+      const nav = document.querySelector('nav[aria-label="主导航"]');
       const button = Array.from(nav?.querySelectorAll("button") ?? []).find((item) => {
         const text = normalize(item.textContent);
         const aria = normalize(item.getAttribute("aria-label"));

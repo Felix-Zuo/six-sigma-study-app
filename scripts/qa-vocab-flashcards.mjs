@@ -9,7 +9,7 @@ const checks = [
   ["tested review outcomes", app.includes("想起来了") && app.includes("暂时想不起来") && app.includes('"remembered"')],
   ["SM2 style fields", store.includes("familiarity") && store.includes("easeFactor") && store.includes("intervalDays")],
   ["question source vocabulary", store.includes("sourceQuestionId") && store.includes('sourceType: "manual" | "question"')],
-  ["daily completion hook", app.includes("recordDailyCompletion(1)")],
+  ["daily completion hook", app.includes("recordDailyCompletion(1, flashSessionGoal || undefined)")],
   ["source metadata on card", app.includes("sourceDomain") && app.includes("sourceExamId")],
   ["context snapshot", store.includes("contextMeaning") && store.includes("sourceTranslation") && store.includes("exampleText")],
   ["independent session", app.includes("studySessionShell") && app.includes("hideNav: true")],
@@ -20,7 +20,9 @@ const checks = [
       app.includes('reviewSavedTerm(currentFlashTerm.id, "fuzzy")') &&
       app.includes('reviewSavedTerm(currentFlashTerm.id, "remembered")')
   ],
-  ["due-only daily queue", app.includes("filteredStudyTerms.filter((item) => isTermDue(item))") && app.includes("plannedFlashCount")]
+  ["due-only daily queue", app.includes("studyScopeTerms") && app.includes("isTermDue(item, now)") && app.includes("plannedFlashCount")],
+  ["quiz reveal before scheduling", app.includes('setFlashReviewStage("answer")') && !app.includes('if (option === savedTermStudyMeaning(currentFlashTerm)) {\n                            reviewSavedTerm')],
+  ["reachable limited daily goal", app.includes("plannedDailyGoal") && app.includes("flashSessionGoal")]
 ];
 
 const failed = checks.filter(([, ok]) => !ok);

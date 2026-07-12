@@ -91,7 +91,7 @@ type ThemeMode = "light" | "dark";
 type TextScale = "standard" | "large" | "xlarge";
 type AppView = "splash" | "home" | "reader" | "vocab" | "questions" | "notes" | "favorites" | "settings";
 type LocalizedText = Record<Language, string>;
-type QuestionMode = "home" | "browse" | "practice" | "wrong" | "exam";
+type QuestionMode = "home" | "browse" | "practice" | "wrong" | "favorite" | "exam";
 type QuestionFilter = "all" | string;
 type DifficultyFilter = "all" | QuestionDifficulty;
 
@@ -273,8 +273,8 @@ type ViewTransitionDocument = Document & {
 
 const defaultBookId = "six-sigma-black-belt";
 const defaultBookTitle = "六西格玛黑带教材";
-const productVersionLabel = "Beta 0.8.4";
-const productVersionId = "0.8.4-beta";
+const productVersionLabel = "Beta 0.8.5";
+const productVersionId = "0.8.5-beta";
 const githubProfileUrl = "https://github.com/Felix-Zuo";
 const catalogPath = "content/catalog.json";
 const bundledQuestionBankPath = "content/private/question-bank.private.json";
@@ -613,12 +613,50 @@ function alignedBlockTranslation(
   return readableBlockText(zhBlocks[proportionalIndex] ?? samePage[0]) || undefined;
 }
 
+function focusWordToken(target: HTMLElement) {
+  const scope = target.closest(".questionCard, .readerPanel") ?? document;
+  scope.querySelectorAll<HTMLElement>('.wordToken[role="button"]').forEach((item) => {
+    item.tabIndex = item === target ? 0 : -1;
+  });
+  target.focus({ preventScroll: true });
+}
+
+function handleWordTokenKeyDown(event: KeyboardEvent<HTMLSpanElement>, activate: () => void) {
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    event.stopPropagation();
+    activate();
+    return;
+  }
+  if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
+    return;
+  }
+  event.preventDefault();
+  event.stopPropagation();
+  const scope = event.currentTarget.closest(".questionCard, .readerPanel") ?? document;
+  const words = Array.from(scope.querySelectorAll<HTMLElement>('.wordToken[role="button"]'));
+  const currentIndex = Math.max(0, words.indexOf(event.currentTarget));
+  const nextIndex = event.key === "Home"
+    ? 0
+    : event.key === "End"
+      ? words.length - 1
+      : event.key === "ArrowLeft"
+        ? Math.max(0, currentIndex - 1)
+        : Math.min(words.length - 1, currentIndex + 1);
+  const next = words[nextIndex];
+  if (next) {
+    focusWordToken(next);
+    next.scrollIntoView({ block: "nearest", inline: "nearest" });
+  }
+}
+
 function InlineReaderText({
   text,
   page,
   sectionId,
   blockId,
   language,
+  keyboardEntry = false,
   onLookup
 }: {
   text: string;
@@ -626,6 +664,7 @@ function InlineReaderText({
   sectionId: string;
   blockId?: string;
   language: Language;
+  keyboardEntry?: boolean;
   onLookup: LookupTextHandler;
 }) {
   const tokens = useMemo(() => {
@@ -639,17 +678,28 @@ function InlineReaderText({
     return <>{text}</>;
   }
 
+  const firstWordIndex = tokens.findIndex((token) => token.kind === "word");
+
   return (
     <span>
-      {tokens.map((token) =>
+      {tokens.map((token, index) =>
         token.kind === "word" ? (
-          <button
+          <span
             key={token.id}
             className="wordToken"
-            onClick={() => onLookup(token.text, page, sectionId, blockId, sourceContextForTerm(text, token.text))}
+            role="button"
+            tabIndex={keyboardEntry && index === firstWordIndex ? 0 : -1}
+            aria-label={`查询 ${token.text} 的释义`}
+            onClick={(event) => {
+              focusWordToken(event.currentTarget);
+              onLookup(token.text, page, sectionId, blockId, sourceContextForTerm(text, token.text));
+            }}
+            onKeyDown={(event) => handleWordTokenKeyDown(event, () =>
+              onLookup(token.text, page, sectionId, blockId, sourceContextForTerm(text, token.text))
+            )}
           >
             {token.text}
-          </button>
+          </span>
         ) : (
           <span key={token.id}>{token.text}</span>
         )
@@ -661,10 +711,12 @@ function InlineReaderText({
 function InlineQuestionText({
   text,
   language,
+  keyboardEntry = false,
   onLookup
 }: {
   text: string;
   language: Language;
+  keyboardEntry?: boolean;
   onLookup: (text: string, sourceText: string) => void;
 }) {
   const displayText = text || "";
@@ -674,20 +726,29 @@ function InlineQuestionText({
     return <>{displayText}</>;
   }
 
+  const firstWordIndex = tokens.findIndex((token) => token.kind === "word");
+
   return (
     <>
-      {tokens.map((token) =>
+      {tokens.map((token, index) =>
         token.kind === "word" ? (
-          <button
+          <span
             key={token.id}
             className="wordToken questionWordToken"
+            role="button"
+            tabIndex={keyboardEntry && index === firstWordIndex ? 0 : -1}
+            aria-label={`查询 ${token.text} 的释义`}
             onClick={(event) => {
               event.stopPropagation();
+              focusWordToken(event.currentTarget);
               onLookup(token.text, sourceContextForTerm(displayText, token.text));
             }}
+            onKeyDown={(event) => handleWordTokenKeyDown(event, () =>
+              onLookup(token.text, sourceContextForTerm(displayText, token.text))
+            )}
           >
             {token.text}
-          </button>
+          </span>
         ) : (
           <span key={token.id}>{token.text}</span>
         )
@@ -748,6 +809,7 @@ export function App() {
   const [flashReviewStage, setFlashReviewStage] = useState<FlashReviewStage>("prompt");
   const [flashSessionIds, setFlashSessionIds] = useState<string[]>([]);
   const [flashSessionReviewed, setFlashSessionReviewed] = useState(0);
+  const [flashSessionGoal, setFlashSessionGoal] = useState(0);
   const [flashQuizSelection, setFlashQuizSelection] = useState("");
   const [pronunciationMessage, setPronunciationMessage] = useState("");
   const [questionMode, setQuestionMode] = useState<QuestionMode>("home");
@@ -756,6 +818,9 @@ export function App() {
   const [questionChapterFilter, setQuestionChapterFilter] = useState<QuestionFilter>("all");
   const [questionDifficultyFilter, setQuestionDifficultyFilter] = useState<DifficultyFilter>("all");
   const [questionIndex, setQuestionIndex] = useState(0);
+  const [questionSessionIds, setQuestionSessionIds] = useState<string[]>([]);
+  const [questionSessionAnswers, setQuestionSessionAnswers] = useState<Record<string, string[]>>({});
+  const [submittedQuestionIds, setSubmittedQuestionIds] = useState<string[]>([]);
   const [selectedQuestionAnswers, setSelectedQuestionAnswers] = useState<string[]>([]);
   const [revealedQuestionId, setRevealedQuestionId] = useState<string | null>(null);
   const [questionImportMessage, setQuestionImportMessage] = useState("");
@@ -772,6 +837,7 @@ export function App() {
   const [currentPage, setCurrentPage] = useState(() => initialPositionRef.current.page ?? 1);
   const [activeBlockId, setActiveBlockId] = useState(initialPositionRef.current.blockId ?? "");
   const [highlightBlockId, setHighlightBlockId] = useState("");
+  const [reviewClock, setReviewClock] = useState(() => Date.now());
   const readerRef = useRef<HTMLElement | null>(null);
   const overlayRef = useRef<OverlayName | null>(null);
   const overlayHistoryRef = useRef(false);
@@ -783,6 +849,21 @@ export function App() {
   const aiRequestRef = useRef(0);
   const examSubmissionRef = useRef(false);
   const transitionOwnerRef = useRef(0);
+  const readerRestoreFrameRef = useRef(0);
+  const overlayPanelRef = useRef<HTMLElement | null>(null);
+  const overlayReturnFocusRef = useRef<HTMLElement | null>(null);
+  const chapterRailRef = useRef<HTMLElement | null>(null);
+  const skipNextCorrectionPersistenceRef = useRef(false);
+  const initialPersistenceRef = useRef({
+    terms: true,
+    notes: true,
+    favorites: true,
+    daily: true,
+    questionBank: true,
+    questionProgress: true,
+    examResults: true,
+    contextCorrections: true
+  });
 
   const activeBook = useMemo(() => {
     const source = catalog ?? fallbackCatalog;
@@ -809,19 +890,36 @@ export function App() {
     () => savedFavorites.filter((item) => item.bookId === currentBookId),
     [savedFavorites, currentBookId]
   );
-  const dueTerms = useMemo(() => bookSavedTerms.filter((item) => isTermDue(item)), [bookSavedTerms]);
-  const allDueTerms = useMemo(() => savedTerms.filter((item) => isTermDue(item)), [savedTerms]);
+  const dueTerms = useMemo(() => {
+    const now = new Date(reviewClock);
+    return bookSavedTerms.filter((item) => isTermDue(item, now));
+  }, [bookSavedTerms, reviewClock]);
+  const allDueTerms = useMemo(() => {
+    const now = new Date(reviewClock);
+    return savedTerms.filter((item) => isTermDue(item, now));
+  }, [reviewClock, savedTerms]);
   const visibleSavedTerms = useMemo(() => {
     const source = vocabFilter === "due" ? dueTerms : bookSavedTerms;
     return [...source].sort((a, b) => Date.parse(a.nextReviewAt) - Date.parse(b.nextReviewAt));
   }, [bookSavedTerms, dueTerms, vocabFilter]);
   const studyBooks = useMemo(() => (catalog ?? fallbackCatalog).books, [catalog]);
+  const studyScopeTerms = useMemo(
+    () => savedTerms.filter((item) => studyBookFilter === "all" || item.bookId === studyBookFilter),
+    [savedTerms, studyBookFilter]
+  );
+  const recentStudyTerms = useMemo(
+    () => [...studyScopeTerms].sort((a, b) => Date.parse(b.savedAt) - Date.parse(a.savedAt)),
+    [studyScopeTerms]
+  );
   const filteredStudyTerms = useMemo(() => {
     const query = normalizeLookup(vocabQuery);
-    const source = savedTerms.filter((item) => studyBookFilter === "all" || item.bookId === studyBookFilter);
+    const source = studyScopeTerms;
     const searched = query
       ? source.filter((item) =>
-          normalizeLookup(`${item.term} ${item.translation} ${item.sourceText} ${item.chapterTitle}`).includes(query)
+          normalizeLookup(
+            `${item.term} ${item.translation} ${item.contextMeaning ?? ""} ${item.contextExplanation ?? ""} ` +
+            `${item.sourceText} ${item.sourceTranslation ?? ""} ${item.chapterTitle} ${item.sourceDomain ?? ""}`
+          ).includes(query)
         )
       : source;
     return [...searched].sort((a, b) => {
@@ -833,7 +931,7 @@ export function App() {
       }
       return Date.parse(b.savedAt) - Date.parse(a.savedAt);
     });
-  }, [savedTerms, studyBookFilter, vocabQuery, vocabSort]);
+  }, [studyScopeTerms, vocabQuery, vocabSort]);
   const filteredStudyNotes = useMemo(() => {
     const query = normalizeLookup(notesQuery);
     const source = savedNotes.filter((item) => studyBookFilter === "all" || item.bookId === studyBookFilter);
@@ -877,7 +975,9 @@ export function App() {
       ...(bundledQuestionBank?.questions ?? []),
       ...(userQuestionBank?.questions ?? [])
     ]) {
-      byId.set(question.questionId, question);
+      if (!byId.has(question.questionId)) {
+        byId.set(question.questionId, question);
+      }
     }
     return [...byId.values()];
   }, [bundledQuestionBank, userQuestionBank]);
@@ -909,6 +1009,10 @@ export function App() {
           progressForQuestion(questionProgress, a.questionId).wrongPriority
       );
   }, [allQuestions, questionProgress]);
+  const favoriteQuestions = useMemo(
+    () => allQuestions.filter((question) => progressForQuestion(questionProgress, question.questionId).favorite),
+    [allQuestions, questionProgress]
+  );
   const weakDomains = useMemo(() => {
     const byDomain = new Map<string, { domain: string; wrong: number; total: number }>();
     for (const question of allQuestions) {
@@ -935,14 +1039,29 @@ export function App() {
       accuracy: attempts > 0 ? Math.round((correct / attempts) * 100) : 0
     };
   }, [allQuestions, questionProgress]);
-  const currentQuestionList = questionMode === "wrong" ? wrongQuestions : filteredQuestions;
+  const currentQuestionList = useMemo(() => {
+    if (questionMode === "home" || questionMode === "exam") {
+      return [];
+    }
+    return questionSessionIds
+      .map((questionId) => allQuestions.find((question) => question.questionId === questionId))
+      .filter((question): question is QuestionItem => Boolean(question));
+  }, [allQuestions, questionMode, questionSessionIds]);
   const currentQuestion =
     currentQuestionList.length > 0 ? currentQuestionList[Math.min(questionIndex, currentQuestionList.length - 1)] : undefined;
   const flashReviewTerms = useMemo(() => {
-    return filteredStudyTerms.filter((item) => isTermDue(item));
-  }, [filteredStudyTerms]);
+    const now = new Date(reviewClock);
+    return studyScopeTerms
+      .filter((item) => isTermDue(item, now))
+      .sort((a, b) => Date.parse(a.nextReviewAt) - Date.parse(b.nextReviewAt));
+  }, [reviewClock, studyScopeTerms]);
   const remainingDailyGoal = Math.max(0, dailyStats.goal - dailyStats.completed);
-  const plannedFlashCount = Math.min(remainingDailyGoal, flashReviewTerms.length);
+  const plannedFlashCount = dailyStats.checkedInToday
+    ? Math.min(dailyStats.baseGoal, flashReviewTerms.length)
+    : Math.min(remainingDailyGoal, flashReviewTerms.length);
+  const plannedDailyGoal = plannedFlashCount > 0
+    ? Math.min(dailyStats.goal, dailyStats.completed + plannedFlashCount)
+    : dailyStats.goal;
   const currentFlashTermId = flashSessionIds[Math.min(flashReviewIndex, Math.max(0, flashSessionIds.length - 1))];
   const currentFlashTerm = savedTerms.find((item) => item.id === currentFlashTermId);
   const currentFlashEntry = currentFlashTerm
@@ -968,6 +1087,18 @@ export function App() {
   }, [currentFlashTerm, savedTerms]);
   const textScaleIndex = textScaleOrder.indexOf(readerPreferences.textScale);
   const pageGroups = useMemo(() => buildPageGroups(lesson?.sections ?? []), [lesson]);
+  const keyboardLookupBlockId = useMemo(() => {
+    if (language !== "en" || !lesson) {
+      return "";
+    }
+    for (const section of lesson.sections) {
+      const block = section.content.en.find((item) => item.kind !== "image" && Boolean(readableBlockText(item)));
+      if (block) {
+        return block.id;
+      }
+    }
+    return "";
+  }, [language, lesson]);
   const chapterProgress = lesson
     ? Math.round(
         ((Math.max(lesson.pageStart, Math.min(currentPage, lesson.pageEnd)) - lesson.pageStart + 1) /
@@ -1041,7 +1172,7 @@ export function App() {
   }, []);
 
   useEffect(() => {
-    if (!manual || termIndex.size === 0) {
+    if (!manual || manual.bookId !== currentBookId || termIndex.size === 0) {
       return;
     }
     setSavedTerms((items) => {
@@ -1160,19 +1291,6 @@ export function App() {
         setCurrentPage(Math.min(enriched.pageCount, Math.max(1, restoredPage)));
         setActiveBlockId(canRestore ? savedPosition.blockId ?? "" : "");
         setManualLoading(false);
-        if (view === "reader") {
-          window.requestAnimationFrame(() => {
-            if (
-              canRestore &&
-              typeof savedPosition.scrollY === "number" &&
-              savedPosition.chapterId === initialChapter.id
-            ) {
-              window.scrollTo({ top: savedPosition.scrollY });
-              return;
-            }
-            document.querySelector(`[data-section-id="${initialSection.id}"]`)?.scrollIntoView({ block: "start" });
-          });
-        }
       })
       .catch((error: unknown) => {
         if (cancelled) {
@@ -1185,9 +1303,35 @@ export function App() {
     return () => {
       cancelled = true;
     };
-  }, [activeBook, view]);
+  }, [activeBook]);
 
   useEffect(() => {
+    if (view !== "reader" || !manual || manual.bookId !== currentBookId) {
+      return;
+    }
+    const savedPosition = loadReaderPosition(currentBookId);
+    const targetSectionId = savedPosition.sectionId || activeSectionId;
+    const firstFrame = window.requestAnimationFrame(() => {
+      const secondFrame = window.requestAnimationFrame(() => {
+        if (typeof savedPosition.scrollY === "number" && savedPosition.chapterId === activeChapterId) {
+          window.scrollTo({ top: Math.max(0, savedPosition.scrollY) });
+          return;
+        }
+        document.querySelector(`[data-section-id="${targetSectionId}"]`)?.scrollIntoView({ block: "start" });
+      });
+      readerRestoreFrameRef.current = secondFrame;
+    });
+    readerRestoreFrameRef.current = firstFrame;
+    return () => {
+      window.cancelAnimationFrame(readerRestoreFrameRef.current);
+    };
+  }, [currentBookId, manual?.bookId, view]);
+
+  useEffect(() => {
+    if (initialPersistenceRef.current.terms) {
+      initialPersistenceRef.current.terms = false;
+      return;
+    }
     persistSavedTerms(savedTerms);
   }, [savedTerms]);
 
@@ -1196,6 +1340,14 @@ export function App() {
   }, [currentBookId, manual?.version]);
 
   useEffect(() => {
+    if (initialPersistenceRef.current.contextCorrections) {
+      initialPersistenceRef.current.contextCorrections = false;
+      return;
+    }
+    if (skipNextCorrectionPersistenceRef.current) {
+      skipNextCorrectionPersistenceRef.current = false;
+      return;
+    }
     persistContextCorrectionBundle(contextCorrectionBundle);
   }, [contextCorrectionBundle]);
 
@@ -1213,26 +1365,50 @@ export function App() {
   }, [activeLookup]);
 
   useEffect(() => {
+    if (initialPersistenceRef.current.notes) {
+      initialPersistenceRef.current.notes = false;
+      return;
+    }
     persistSavedNotes(savedNotes);
   }, [savedNotes]);
 
   useEffect(() => {
+    if (initialPersistenceRef.current.favorites) {
+      initialPersistenceRef.current.favorites = false;
+      return;
+    }
     persistSavedFavorites(savedFavorites);
   }, [savedFavorites]);
 
   useEffect(() => {
+    if (initialPersistenceRef.current.daily) {
+      initialPersistenceRef.current.daily = false;
+      return;
+    }
     persistDailyStats(dailyStats);
   }, [dailyStats]);
 
   useEffect(() => {
+    if (initialPersistenceRef.current.questionBank) {
+      initialPersistenceRef.current.questionBank = false;
+      return;
+    }
     persistUserQuestionBank(userQuestionBank);
   }, [userQuestionBank]);
 
   useEffect(() => {
+    if (initialPersistenceRef.current.questionProgress) {
+      initialPersistenceRef.current.questionProgress = false;
+      return;
+    }
     persistQuestionProgress(questionProgress);
   }, [questionProgress]);
 
   useEffect(() => {
+    if (initialPersistenceRef.current.examResults) {
+      initialPersistenceRef.current.examResults = false;
+      return;
+    }
     persistExamResults(examResults);
   }, [examResults]);
 
@@ -1262,9 +1438,28 @@ export function App() {
         // The opening can still finish when persistence is unavailable.
       }
       setView("home");
-    }, reduceMotion ? 80 : hasSeenSplash ? 1850 : 2800);
+    }, reduceMotion ? 80 : hasSeenSplash ? 520 : 2500);
     return () => window.clearTimeout(timer);
   }, [view]);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setReviewClock(Date.now()), 60_000);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    setDailyStats((stats) => {
+      const next = normalizeDailyStats(stats, new Date(reviewClock));
+      return next.day === stats.day &&
+        next.goal === stats.goal &&
+        next.completed === stats.completed &&
+        next.checkedInToday === stats.checkedInToday &&
+        next.streak === stats.streak &&
+        next.missedDays === stats.missedDays
+        ? stats
+        : next;
+    });
+  }, [reviewClock]);
 
   useEffect(() => {
     setQuestionIndex(0);
@@ -1296,8 +1491,9 @@ export function App() {
     setFlashReviewStage("prompt");
     setFlashSessionIds([]);
     setFlashSessionReviewed(0);
+    setFlashSessionGoal(0);
     setFlashQuizSelection("");
-  }, [studyBookFilter, vocabQuery, vocabSort]);
+  }, [studyBookFilter]);
 
   useEffect(() => {
     if (!flashReviewActive) {
@@ -1308,7 +1504,7 @@ export function App() {
   }, [flashReviewActive, flashReviewIndex, flashReviewStage]);
 
   useEffect(() => {
-    if (!activeChapterId || !activeSectionId || manual?.bookId !== currentBookId) {
+    if (view !== "reader" || !activeChapterId || !activeSectionId || manual?.bookId !== currentBookId) {
       return;
     }
     const nextPosition = {
@@ -1333,7 +1529,7 @@ export function App() {
   }, [activeBlockId, activeChapterId, activeSectionId, currentBookId, currentPage, language, manual?.bookId]);
 
   useEffect(() => {
-    if (!activeChapterId || !activeSectionId || manual?.bookId !== currentBookId) {
+    if (view !== "reader" || !activeChapterId || !activeSectionId || manual?.bookId !== currentBookId) {
       return;
     }
     let timer: number | undefined;
@@ -1368,11 +1564,76 @@ export function App() {
       window.clearTimeout(timer);
       window.removeEventListener("scroll", saveScrollPosition);
     };
-  }, [activeBlockId, activeChapterId, activeSectionId, currentBookId, currentPage, language, manual?.bookId]);
+  }, [activeBlockId, activeChapterId, activeSectionId, currentBookId, currentPage, language, manual?.bookId, view]);
 
   useEffect(() => {
     overlayRef.current = activeLookup ? "lookup" : showToc ? "toc" : showVocab ? "vocab" : showNotes ? "notes" : null;
   }, [activeLookup, showToc, showVocab, showNotes]);
+
+  useEffect(() => {
+    if (!isOverlayOpen) {
+      return;
+    }
+    const panel = overlayPanelRef.current;
+    if (!panel) {
+      return;
+    }
+    const activePanel = panel;
+    overlayReturnFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const focusableSelector = [
+      "button:not([disabled])",
+      "a[href]",
+      "input:not([disabled])",
+      "textarea:not([disabled])",
+      "select:not([disabled])",
+      '[tabindex]:not([tabindex="-1"])'
+    ].join(",");
+    const focusableItems = () => Array.from(activePanel.querySelectorAll<HTMLElement>(focusableSelector))
+      .filter((item) => item.getClientRects().length > 0 && item.getAttribute("aria-hidden") !== "true");
+    const focusFrame = window.requestAnimationFrame(() => {
+      const closeButton = activePanel.querySelector<HTMLElement>(".closeButton");
+      (closeButton ?? focusableItems()[0] ?? activePanel).focus({ preventScroll: true });
+    });
+
+    function handleOverlayKeyDown(event: globalThis.KeyboardEvent) {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        event.stopPropagation();
+        closeOverlayFromControl();
+        return;
+      }
+      if (event.key !== "Tab") {
+        return;
+      }
+      const items = focusableItems();
+      if (items.length === 0) {
+        event.preventDefault();
+        activePanel.focus({ preventScroll: true });
+        return;
+      }
+      const first = items[0];
+      const last = items[items.length - 1];
+      const active = document.activeElement;
+      if (event.shiftKey && (active === first || !activePanel.contains(active))) {
+        event.preventDefault();
+        last.focus({ preventScroll: true });
+      } else if (!event.shiftKey && (active === last || !activePanel.contains(active))) {
+        event.preventDefault();
+        first.focus({ preventScroll: true });
+      }
+    }
+
+    document.addEventListener("keydown", handleOverlayKeyDown, true);
+    return () => {
+      window.cancelAnimationFrame(focusFrame);
+      document.removeEventListener("keydown", handleOverlayKeyDown, true);
+      const returnTarget = overlayReturnFocusRef.current;
+      overlayReturnFocusRef.current = null;
+      if (returnTarget?.isConnected) {
+        window.requestAnimationFrame(() => returnTarget.focus({ preventScroll: true }));
+      }
+    };
+  }, [isOverlayOpen]);
 
   useEffect(() => {
     if (!isOverlayOpen) {
@@ -1428,13 +1689,28 @@ export function App() {
     let listener: { remove: () => Promise<void> } | undefined;
 
     CapacitorApp.addListener("backButton", ({ canGoBack }) => {
+      if (readerMenuOpen) {
+        setReaderMenuOpen(false);
+        return;
+      }
+
       if (overlayRef.current) {
         closeOverlayFromNativeBack();
         return;
       }
 
       if (isImmersive) {
-        setIsImmersive(false);
+        setImmersiveMode(false);
+        return;
+      }
+
+      if (view === "vocab" && flashReviewActive) {
+        setFlashReviewActive(false);
+        return;
+      }
+
+      if (view === "questions" && questionMode !== "home") {
+        returnToQuestionHome();
         return;
       }
 
@@ -1461,11 +1737,26 @@ export function App() {
       removed = true;
       void listener?.remove();
     };
-  }, [isImmersive, view]);
+  }, [examFinishedResult, examQuestionIds.length, examStartedAt, flashReviewActive, isImmersive, questionMode, readerMenuOpen, view]);
+
+  useEffect(() => {
+    if (!readerMenuOpen) {
+      return;
+    }
+    function closeReaderMenuWithEscape(event: globalThis.KeyboardEvent) {
+      if (event.key !== "Escape") {
+        return;
+      }
+      event.preventDefault();
+      setReaderMenuOpen(false);
+    }
+    document.addEventListener("keydown", closeReaderMenuWithEscape, true);
+    return () => document.removeEventListener("keydown", closeReaderMenuWithEscape, true);
+  }, [readerMenuOpen]);
 
   useEffect(() => {
     const root = readerRef.current;
-    if (!root || !lesson) {
+    if (view !== "reader" || !root || !lesson) {
       return;
     }
     const observer = new IntersectionObserver(
@@ -1482,11 +1773,11 @@ export function App() {
     );
     root.querySelectorAll("[data-section-id]").forEach((node) => observer.observe(node));
     return () => observer.disconnect();
-  }, [lesson]);
+  }, [lesson, view]);
 
   useEffect(() => {
     const root = readerRef.current;
-    if (!root || !lesson) {
+    if (view !== "reader" || !root || !lesson) {
       return;
     }
     const observer = new IntersectionObserver(
@@ -1519,7 +1810,7 @@ export function App() {
     );
     root.querySelectorAll("[data-block-id]").forEach((node) => observer.observe(node));
     return () => observer.disconnect();
-  }, [lesson, language]);
+  }, [language, lesson, view]);
 
   useEffect(() => {
     const pending = pendingLanguageScrollRef.current;
@@ -1595,7 +1886,18 @@ export function App() {
       window.cancelAnimationFrame(frame);
       timers.forEach((timer) => window.clearTimeout(timer));
     };
-  }, [language]);
+  }, [isImmersive, language]);
+
+  useEffect(() => {
+    if (view !== "reader") {
+      return;
+    }
+    const frame = window.requestAnimationFrame(() => {
+      const activePage = chapterRailRef.current?.querySelector<HTMLElement>(".sectionPill.active");
+      activePage?.scrollIntoView({ block: "nearest", inline: "center", behavior: "auto" });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [currentPage, lesson?.id, view]);
 
   useEffect(() => {
     const sectionId = pendingScrollSectionRef.current;
@@ -1704,12 +2006,17 @@ export function App() {
   }
 
   function navigateTo(nextView: AppView) {
+    setReaderMenuOpen(false);
     if (nextView === view) {
+      window.scrollTo({ top: 0, left: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
       return;
     }
     const currentIndex = appViewOrder[view] ?? 0;
     const nextIndex = appViewOrder[nextView] ?? currentIndex;
-    runSpatialTransition("navigation", () => setView(nextView), nextIndex >= currentIndex ? "forward" : "backward");
+    runSpatialTransition("navigation", () => {
+      setView(nextView);
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }, nextIndex >= currentIndex ? "forward" : "backward");
   }
 
   function openBook(bookId: string) {
@@ -1757,8 +2064,8 @@ export function App() {
     };
   }
 
-  function recordDailyCompletion(count = 1) {
-    setDailyStats((stats) => recordDailyReviewCompletion(stats, count));
+  function recordDailyCompletion(count = 1, sessionGoal?: number) {
+    setDailyStats((stats) => recordDailyReviewCompletion(stats, count, new Date(), sessionGoal));
   }
 
   function questionText(value: LocalizedText | { en: string; zh: string }): string {
@@ -1789,44 +2096,63 @@ export function App() {
   }
 
   function selectQuestionOption(question: QuestionItem, optionId: string) {
-    setSelectedQuestionAnswers((answers) => {
-      if (question.questionType === "multiple") {
-        return answers.includes(optionId) ? answers.filter((item) => item !== optionId) : [...answers, optionId];
-      }
-      return [optionId];
-    });
+    if (submittedQuestionIds.includes(question.questionId)) {
+      return;
+    }
+    const next = question.questionType === "multiple"
+        ? selectedQuestionAnswers.includes(optionId)
+          ? selectedQuestionAnswers.filter((item) => item !== optionId)
+          : [...selectedQuestionAnswers, optionId]
+        : [optionId];
+    setQuestionSessionAnswers((items) => ({ ...items, [question.questionId]: next }));
+    setSelectedQuestionAnswers(next);
+  }
+
+  function moveToQuestion(targetIndex: number, list = currentQuestionList) {
+    if (list.length === 0) {
+      setQuestionIndex(0);
+      setSelectedQuestionAnswers([]);
+      setRevealedQuestionId(null);
+      return;
+    }
+    const nextIndex = Math.max(0, Math.min(targetIndex, list.length - 1));
+    const nextQuestion = list[nextIndex];
+    setQuestionIndex(nextIndex);
+    setSelectedQuestionAnswers(questionSessionAnswers[nextQuestion.questionId] ?? []);
+    setRevealedQuestionId(submittedQuestionIds.includes(nextQuestion.questionId) ? nextQuestion.questionId : null);
   }
 
   function moveToNextQuestion(list = currentQuestionList) {
-    setSelectedQuestionAnswers([]);
-    setRevealedQuestionId(null);
-    if (list.length === 0) {
-      setQuestionIndex(0);
-      return;
-    }
-    setQuestionIndex((index) => Math.min(index + 1, Math.max(0, list.length - 1)));
+    moveToQuestion(questionIndex + 1, list);
   }
 
   function submitQuestionAnswer(question: QuestionItem) {
-    if (selectedQuestionAnswers.length === 0) {
+    if (selectedQuestionAnswers.length === 0 || submittedQuestionIds.includes(question.questionId)) {
       return;
     }
     const isCorrect = isQuestionAnswerCorrect(question, selectedQuestionAnswers);
     updateQuestionProgress(question.questionId, (progress) => recordQuestionAnswer(progress, isCorrect ? "correct" : "wrong"));
-    if (isCorrect) {
-      moveToNextQuestion();
-      return;
-    }
+    setSubmittedQuestionIds((items) => [...items, question.questionId]);
     setRevealedQuestionId(question.questionId);
   }
 
   function markQuestionUnknown(question: QuestionItem) {
+    if (submittedQuestionIds.includes(question.questionId)) {
+      return;
+    }
     updateQuestionProgress(question.questionId, (progress) => recordQuestionAnswer(progress, "unknown"));
+    setQuestionSessionAnswers((items) => ({ ...items, [question.questionId]: [] }));
+    setSelectedQuestionAnswers([]);
+    setSubmittedQuestionIds((items) => [...items, question.questionId]);
     setRevealedQuestionId(question.questionId);
   }
 
   function markQuestionCorrectFromBrowse(question: QuestionItem) {
+    if (submittedQuestionIds.includes(question.questionId)) {
+      return;
+    }
     updateQuestionProgress(question.questionId, (progress) => recordQuestionAnswer(progress, "correct"));
+    setSubmittedQuestionIds((items) => [...items, question.questionId]);
   }
 
   function activeLookupId(lookup: Pick<ActiveLookup, "query" | "blockId" | "sourceText" | "questionSource">): string {
@@ -2041,11 +2367,12 @@ export function App() {
     });
   }
 
-  function renderQuestionText(text: string, question: QuestionItem, sourceTranslation?: string) {
+  function renderQuestionText(text: string, question: QuestionItem, sourceTranslation?: string, keyboardEntry = false) {
     return (
       <InlineQuestionText
         text={text}
         language={questionLanguage}
+        keyboardEntry={keyboardEntry}
         onLookup={(token, sourceText) => lookupQuestionText(token, question, sourceText, sourceTranslation)}
       />
     );
@@ -2061,6 +2388,21 @@ export function App() {
       if (bank.questions.length === 0) {
         throw new Error("没有读到题目");
       }
+      const reservedIds = new Set([
+        ...publicQuestionBank.questions.map((question) => question.questionId),
+        ...(bundledQuestionBank?.questions ?? []).map((question) => question.questionId)
+      ]);
+      const importedIds = new Set<string>();
+      const conflicts: string[] = [];
+      for (const question of bank.questions) {
+        if (reservedIds.has(question.questionId) || importedIds.has(question.questionId)) {
+          conflicts.push(question.questionId);
+        }
+        importedIds.add(question.questionId);
+      }
+      if (conflicts.length > 0) {
+        throw new Error(`题目 ID 冲突：${[...new Set(conflicts)].slice(0, 3).join("、")}`);
+      }
       setUserQuestionBank(bank);
       setQuestionImportMessage(`已导入 ${bank.questions.length} 道私有题。`);
     } catch (error) {
@@ -2069,14 +2411,36 @@ export function App() {
   }
 
   function startPractice(mode: QuestionMode, resume = false) {
-    const list = mode === "wrong" ? wrongQuestions : filteredQuestions;
+    if (mode === "exam") {
+      setExamQuestionIds([]);
+      setExamStartedAt("");
+      setExamRemainingSeconds(0);
+      setExamAnswers({});
+      setExamFinishedResult(null);
+      examSubmissionRef.current = false;
+      setQuestionIndex(0);
+      setQuestionMode("exam");
+      return;
+    }
+    const list = mode === "wrong" ? wrongQuestions : mode === "favorite" ? favoriteQuestions : filteredQuestions;
     const resumeIndex = resume
       ? list.findIndex((question) => !progressForQuestion(questionProgress, question.questionId).lastAnsweredAt)
       : -1;
+    setQuestionSessionIds(list.map((question) => question.questionId));
+    setQuestionSessionAnswers({});
+    setSubmittedQuestionIds([]);
     setQuestionMode(mode);
     setQuestionIndex(resumeIndex >= 0 ? resumeIndex : 0);
     setSelectedQuestionAnswers([]);
     setRevealedQuestionId(null);
+  }
+
+  function returnToQuestionHome() {
+    const runningExam = questionMode === "exam" && examQuestionIds.length > 0 && Boolean(examStartedAt) && !examFinishedResult;
+    if (runningExam && !window.confirm("模拟考试仍在进行，确定退出本次考试吗？")) {
+      return;
+    }
+    setQuestionMode("home");
   }
 
   function openQuestionAnchor(questionId?: string) {
@@ -2092,6 +2456,9 @@ export function App() {
     setQuestionDomainFilter("all");
     setQuestionChapterFilter("all");
     setQuestionDifficultyFilter("all");
+    setQuestionSessionIds(allQuestions.map((question) => question.questionId));
+    setQuestionSessionAnswers({});
+    setSubmittedQuestionIds([]);
     setQuestionMode("browse");
     setQuestionIndex(index >= 0 ? index : 0);
     setRevealedQuestionId(questionId);
@@ -2158,7 +2525,8 @@ export function App() {
       minutes: elapsedMinutes,
       questionIds: questions.map((question) => question.questionId),
       wrongQuestionIds,
-      weakDomains: [...domainMap.values()].filter((item) => item.wrong > 0).sort((a, b) => b.wrong - a.wrong)
+      weakDomains: [...domainMap.values()].filter((item) => item.wrong > 0).sort((a, b) => b.wrong - a.wrong),
+      answers: Object.fromEntries(questions.map((question) => [question.questionId, [...(examAnswers[question.questionId] ?? [])]]))
     };
     setExamFinishedResult(result);
     setExamRemainingSeconds(0);
@@ -2183,7 +2551,13 @@ export function App() {
         // In-memory state is still reset when WebView storage is unavailable.
       }
     }
-    clearContextCorrectionBundle(currentBookId);
+    try {
+      const correctionKeys = Array.from({ length: window.localStorage.length }, (_, index) => window.localStorage.key(index))
+        .filter((key): key is string => Boolean(key?.startsWith("six-sigma-study:context-corrections:v1:")));
+      correctionKeys.forEach((key) => window.localStorage.removeItem(key));
+    } catch {
+      clearContextCorrectionBundle(currentBookId);
+    }
     setSavedTerms([]);
     setSavedNotes([]);
     setSavedFavorites([]);
@@ -2192,6 +2566,9 @@ export function App() {
     setExamResults([]);
     setUserQuestionBank(null);
     setQuestionMode("home");
+    setQuestionSessionIds([]);
+    setQuestionSessionAnswers({});
+    setSubmittedQuestionIds([]);
     setExamQuestionIds([]);
     setExamStartedAt("");
     setExamRemainingSeconds(0);
@@ -2200,13 +2577,15 @@ export function App() {
     examSubmissionRef.current = false;
     setFlashReviewActive(false);
     setFlashSessionIds([]);
+    setFlashSessionGoal(0);
     setDailyStats(normalizeDailyStats(undefined));
+    skipNextCorrectionPersistenceRef.current = true;
     setContextCorrectionBundle(loadContextCorrectionBundle(currentBookId, manual?.version ?? "0.2.0"));
   }
 
   function renderBookFilter(value: BookFilter, onChange: (bookId: BookFilter) => void) {
     return (
-      <select value={value} onChange={(event) => onChange(event.target.value)} aria-label="filter by book">
+      <select value={value} onChange={(event) => onChange(event.target.value)} aria-label="按教材筛选">
         <option value="all">全部教材</option>
         {studyBooks.map((book) => (
           <option key={book.bookId} value={book.bookId}>
@@ -2240,7 +2619,7 @@ export function App() {
         </header>
         <div className="appPageContent">{body}</div>
         {!activeLookup && !options.hideNav && renderMainNav()}
-        {activeLookup && <button className="overlayBackdrop" aria-label="close word explanation" onClick={closeOverlayFromControl} />}
+        {activeLookup && <div className="overlayBackdrop" aria-hidden="true" onClick={closeOverlayFromControl} />}
         {renderLookupSheet()}
       </main>
     );
@@ -2255,7 +2634,15 @@ export function App() {
       : { lookupId: activeLookupId(activeLookup), status: "idle" as const };
     const style = { "--sheet-height": `${sheetHeightVh}vh` } as CSSProperties;
     return (
-      <section className="bottomSheet draggableSheet" style={style} aria-label="word explanation">
+      <section
+        ref={overlayPanelRef}
+        className="bottomSheet draggableSheet"
+        style={style}
+        role="dialog"
+        aria-modal="true"
+        aria-label="单词释义"
+        tabIndex={-1}
+      >
         {sheetHandle()}
         <div className="sheetHeader">
           <div>
@@ -2278,7 +2665,7 @@ export function App() {
             <button className="closeButton" onClick={closeOverlayFromControl}>关闭</button>
           </div>
         </div>
-        <section className="dictionaryCard" aria-label="dictionary definition">
+        <section className="dictionaryCard" aria-label="词典释义">
           <div className="dictionaryTitleRow">
             <div>
               <span>词典释义</span>
@@ -2317,7 +2704,7 @@ export function App() {
           <p>{activeLookup.context.explanation}</p>
         </section>
         {lookupState.status === "accepted" && lookupState.correction && (
-          <section className="aiCorrectionCard accepted" aria-label="accepted context correction">
+          <section className="aiCorrectionCard accepted" aria-label="已采用的语境修订">
             <div className="aiCorrectionHeading">
               <span><ShieldCheck size={17} /> 已确认修订</span>
               <button onClick={revokeAcceptedCorrection}><RotateCcw size={16} />撤销</button>
@@ -2333,7 +2720,7 @@ export function App() {
           </section>
         )}
         {lookupState.status === "ready" && lookupState.correction && (
-          <section className="aiCorrectionCard" aria-label="AI context correction proposal">
+          <section className="aiCorrectionCard" aria-label="AI 语境修订建议">
             <div className="aiCorrectionHeading">
               <span><Sparkles size={17} /> AI 核验建议</span>
               <small>{lookupState.correction.provenance.model}</small>
@@ -2389,7 +2776,12 @@ export function App() {
           </p>
         </div>
         {activeLookup.questionSource ? (
-          <button className="sourceButton" onClick={() => openQuestionAnchor(activeLookup.questionSource?.questionId)}>
+          <button
+            className="sourceButton"
+            onClick={() => view === "questions" && questionMode !== "home"
+              ? closeOverlayFromControl()
+              : openQuestionAnchor(activeLookup.questionSource?.questionId)}
+          >
             回到题目
           </button>
         ) : (
@@ -2410,7 +2802,7 @@ export function App() {
       { view: "settings", label: "我的", icon: <UserRound size={18} strokeWidth={2} /> }
     ];
     return (
-      <nav className="mainNav" aria-label="primary navigation">
+      <nav className="mainNav" aria-label="主导航">
         {items.map((item) => (
           <button
             key={item.view}
@@ -2435,7 +2827,7 @@ export function App() {
         data-theme={readerPreferences.theme}
         data-text-scale={readerPreferences.textScale}
       >
-        <section className="splashPanel" aria-label="opening animation">
+        <section className="splashPanel" aria-label="启动画面">
           <div className="appLogo cinematic" aria-hidden="true">6σ</div>
           <div className="splashCopy">
             <p className="eyebrow">Study edition</p>
@@ -2458,7 +2850,7 @@ export function App() {
       "学习工作台",
       "从上次停下的位置继续。",
       <>
-        <section className="dashboardHero spatialWorkspace" aria-label="continue learning">
+        <section className="dashboardHero spatialWorkspace" aria-label="继续学习">
           <div className="workspacePageStack">
             <article className="workspaceFocus">
               <div className="workspaceBrand">
@@ -2483,7 +2875,7 @@ export function App() {
                 <span>{recentProgress.page ? "继续阅读" : "开始阅读"}</span>
                 <ArrowRight size={22} strokeWidth={1.8} />
               </button>
-              <section className="metricGrid" aria-label="study summary">
+            <section className="metricGrid" aria-label="学习概览">
                 <button onClick={() => navigateTo("vocab")}>
                   <strong>{dailyStats.completed}/{dailyStats.goal}</strong>
                   <span>今日目标</span>
@@ -2499,7 +2891,7 @@ export function App() {
                 </button>
               </section>
             </article>
-            <nav className="workspaceEdgeNav" aria-label="study destinations">
+          <nav className="workspaceEdgeNav" aria-label="学习入口">
               <button onClick={() => navigateTo("vocab")}>
                 <span>单词</span>
                 <BookOpen size={19} strokeWidth={1.8} />
@@ -2523,7 +2915,7 @@ export function App() {
           <h2>教材</h2>
           <span>{books.length} 本</span>
         </div>
-        <section className="bookGrid libraryShelf" aria-label="book library">
+        <section className="bookGrid libraryShelf" aria-label="教材库">
           {books.map((book) => {
             const bookTerms = savedTerms.filter((item) => item.bookId === book.bookId);
             const bookNotes = savedNotes.filter((item) => item.bookId === book.bookId);
@@ -2554,7 +2946,7 @@ export function App() {
             );
           })}
         </section>
-        <section className="recentPanel" aria-label="recent notes">
+        <section className="recentPanel" aria-label="最近笔记">
           <div className="sectionHeader">
             <h2>最近笔记</h2>
             <button onClick={() => navigateTo("notes")}>全部</button>
@@ -2585,7 +2977,7 @@ export function App() {
       return studyShell(
         "单词学习",
         "根据回忆与语境选择自动安排复习。",
-        <section className="flashReviewPanel" aria-label="flash vocabulary review">
+        <section className="flashReviewPanel" aria-label="单词复习">
           {flashReviewStage === "complete" ? (
             <section className="flashCompleteState">
               <p className="eyebrow">Session complete</p>
@@ -2604,7 +2996,7 @@ export function App() {
             <>
               <div className="studySessionBar">
                 <button className="closeButton" onClick={() => setFlashReviewActive(false)}>退出</button>
-                <div className="sessionProgressTrack" aria-label="review session progress">
+                <div className="sessionProgressTrack" aria-label="复习进度">
                   <span style={{ width: `${Math.round((flashSessionReviewed / Math.max(1, flashSessionIds.length)) * 100)}%` }} />
                 </div>
                 <strong>{flashSessionReviewed + 1}/{flashSessionIds.length}</strong>
@@ -2649,11 +3041,7 @@ export function App() {
                         key={option}
                         onClick={() => {
                           setFlashQuizSelection(option);
-                          if (option === savedTermStudyMeaning(currentFlashTerm)) {
-                            reviewSavedTerm(currentFlashTerm.id, "remembered");
-                          } else {
-                            setFlashReviewStage("answer");
-                          }
+                          setFlashReviewStage("answer");
                         }}
                       >
                         {option}
@@ -2663,7 +3051,13 @@ export function App() {
                 )}
                 {flashReviewStage === "answer" && (
                   <div className="flashAnswer">
-                    {flashQuizSelection !== "__unknown__" && <p className="answerFeedback">刚才的选择不符合原文语境</p>}
+                    {flashQuizSelection !== "__unknown__" && (
+                      <p className={flashQuizSelection === savedTermStudyMeaning(currentFlashTerm) ? "answerFeedback correct" : "answerFeedback wrong"}>
+                        {flashQuizSelection === savedTermStudyMeaning(currentFlashTerm)
+                          ? "选择正确。请按真实记忆程度安排下次复习。"
+                          : "选择不符。看完语境后再评估本次记忆。"}
+                      </p>
+                    )}
                     <section className="flashDictionarySummary">
                       <span>常用释义</span>
                       <p className="dictionaryTranslation">{currentFlashEntry?.translation || currentFlashTerm.translation}</p>
@@ -2708,21 +3102,21 @@ export function App() {
       "单词本",
       "今日计划与语境词库",
       <>
-        <div className="vocabModeTabs" role="tablist" aria-label="vocabulary views">
+        <div className="vocabModeTabs" role="tablist" aria-label="单词页面">
           <button className={vocabPageMode === "plan" ? "active" : ""} onClick={() => setVocabPageMode("plan")}>学习</button>
           <button className={vocabPageMode === "library" ? "active" : ""} onClick={() => setVocabPageMode("library")}>词库</button>
         </div>
         {vocabPageMode === "plan" ? (
           <>
-            <section className="vocabPlanHero" aria-label="daily study status">
+            <section className="vocabPlanHero" aria-label="今日学习状态">
               <div>
                 <p className="eyebrow">Today</p>
                 <h2>{plannedFlashCount} 个待学</h2>
                 <p>{dailyStats.checkedInToday ? "今日已完成" : `连续学习 ${dailyStats.streak} 天`}</p>
                 {dailyStats.missedDays > 0 && <small>今日计划已包含补学内容，并设有数量上限。</small>}
               </div>
-              <div className="planProgressRing" style={{ "--progress": `${Math.min(100, Math.round((dailyStats.completed / Math.max(1, dailyStats.goal)) * 100))}%` } as CSSProperties}>
-                <strong>{dailyStats.completed}/{dailyStats.goal}</strong>
+              <div className="planProgressRing" style={{ "--progress": `${Math.min(100, Math.round((dailyStats.completed / Math.max(1, plannedDailyGoal)) * 100))}%` } as CSSProperties}>
+                <strong>{dailyStats.completed}/{plannedDailyGoal}</strong>
               </div>
             </section>
             <button className="primaryAction vocabStartButton" onClick={startFlashReview} disabled={plannedFlashCount === 0}>
@@ -2735,12 +3129,16 @@ export function App() {
             </section>
             <section className="recentTerms">
               <div className="sectionHeaderRow"><h2>最近加入</h2><button onClick={() => setVocabPageMode("library")}>查看全部</button></div>
-              {filteredStudyTerms.slice(0, 4).map((item) => (
-                <article key={item.id}>
-                  <div><strong>{item.term}</strong><span>{savedTermStudyMeaning(item)}</span></div>
-                  <small>{item.sourceType === "question" ? "题目" : item.chapterTitle}</small>
-                </article>
-              ))}
+              {recentStudyTerms.length === 0 ? (
+                <p className="emptyState compact">还没有加入单词。</p>
+              ) : (
+                recentStudyTerms.slice(0, 4).map((item) => (
+                  <article key={item.id}>
+                    <div><strong>{item.term}</strong><span>{savedTermStudyMeaning(item)}</span></div>
+                    <small>{item.sourceType === "question" ? "题目" : item.chapterTitle}</small>
+                  </article>
+                ))
+              )}
             </section>
           </>
         ) : (
@@ -2802,7 +3200,7 @@ export function App() {
 
     function renderQuestionFilters() {
       return (
-        <section className="questionFilters" aria-label="question filters">
+        <section className="questionFilters" aria-label="题目筛选">
           <select value={questionDomainFilter} onChange={(event) => setQuestionDomainFilter(event.target.value)}>
             <option value="all">全部知识域</option>
             {questionDomains.map((domain) => (
@@ -2825,8 +3223,13 @@ export function App() {
       );
     }
 
-    function renderQuestionCard(question: QuestionItem, variant: "browse" | "practice" | "exam-result") {
+    function renderQuestionCard(
+      question: QuestionItem,
+      variant: "browse" | "practice" | "exam-result",
+      answerSelection = selectedQuestionAnswers
+    ) {
       const progress = progressForQuestion(questionProgress, question.questionId);
+      const submitted = submittedQuestionIds.includes(question.questionId);
       const showAnswer = variant === "browse" || variant === "exam-result" || revealedQuestionId === question.questionId;
       return (
         <article className="questionCard" data-question-id={question.questionId}>
@@ -2836,10 +3239,10 @@ export function App() {
             <span>{question.difficulty}</span>
             <span>{question.sourceType === "user-private" ? "私有" : "样例"}</span>
           </div>
-          <h2>{renderQuestionText(questionText(question.stem), question, question.stem.zh)}</h2>
+          <h2>{renderQuestionText(questionText(question.stem), question, question.stem.zh, true)}</h2>
           <div className="questionOptions">
             {question.options.map((option) => {
-              const selected = selectedQuestionAnswers.includes(option.id);
+              const selected = answerSelection.includes(option.id);
               const correct = question.correctAnswer.includes(option.id);
               const className = [
                 "questionOption",
@@ -2852,15 +3255,15 @@ export function App() {
                   key={option.id}
                   className={className}
                   role="button"
-                  tabIndex={variant === "browse" || variant === "exam-result" ? -1 : 0}
-                  aria-disabled={variant === "browse" || variant === "exam-result"}
+                  tabIndex={variant === "browse" || variant === "exam-result" || submitted ? -1 : 0}
+                  aria-disabled={variant === "browse" || variant === "exam-result" || submitted}
                   onClick={() => {
-                    if (variant !== "browse" && variant !== "exam-result") {
+                    if (variant !== "browse" && variant !== "exam-result" && !submitted) {
                       selectQuestionOption(question, option.id);
                     }
                   }}
                   onKeyDown={(event) => {
-                    if (variant !== "browse" && variant !== "exam-result" && (event.key === "Enter" || event.key === " ")) {
+                    if (variant !== "browse" && variant !== "exam-result" && !submitted && (event.key === "Enter" || event.key === " ")) {
                       event.preventDefault();
                       selectQuestionOption(question, option.id);
                     }
@@ -2880,13 +3283,15 @@ export function App() {
               {variant === "browse" ? (
                 <>
                   <button onClick={() => markCurrentQuestionSeen(question)}>标记已看</button>
-                  <button className="primary" onClick={() => markQuestionCorrectFromBrowse(question)}>确认答对</button>
+                  <button className="primary" disabled={submitted} onClick={() => markQuestionCorrectFromBrowse(question)}>
+                    {submitted ? "已记录" : "确认答对"}
+                  </button>
                 </>
               ) : (
                 <>
-                  <button onClick={() => markQuestionUnknown(question)}>不会</button>
-                  <button className="primary" disabled={selectedQuestionAnswers.length === 0} onClick={() => submitQuestionAnswer(question)}>
-                    提交
+                  <button disabled={submitted} onClick={() => markQuestionUnknown(question)}>不会</button>
+                  <button className="primary" disabled={answerSelection.length === 0 || submitted} onClick={() => submitQuestionAnswer(question)}>
+                    {submitted ? "已提交" : "提交"}
                   </button>
                 </>
               )}
@@ -2894,6 +3299,9 @@ export function App() {
           )}
           {showAnswer && (
             <section className="answerPanel">
+              {variant !== "browse" && (
+                <p><strong>你的答案：</strong>{answerSelection.join(", ") || "未作答"}</p>
+              )}
               <p><strong>答案：</strong>{question.correctAnswer.join(", ") || "待复核"}</p>
               <p>{renderQuestionText(questionText(question.explanation) || "待补充精讲", question, question.explanation.zh)}</p>
               <small>{question.sourceRef}</small>
@@ -2904,7 +3312,11 @@ export function App() {
     }
 
     function renderQuestionRunner() {
-      const listLabel = questionMode === "wrong" ? `${wrongQuestions.length} 道错题` : `${filteredQuestions.length} 道题`;
+      const listLabel = questionMode === "wrong"
+        ? `${currentQuestionList.length} 道错题`
+        : questionMode === "favorite"
+          ? `${currentQuestionList.length} 道收藏题`
+          : `${currentQuestionList.length} 道题`;
       if (!renderedQuestion) {
         return (
           <div className="emptyState">
@@ -2921,8 +3333,12 @@ export function App() {
           </div>
           {renderQuestionCard(renderedQuestion, questionMode === "browse" ? "browse" : "practice")}
           <div className="questionPager">
-            <button onClick={() => setQuestionIndex((index) => Math.max(0, index - 1))} disabled={questionIndex <= 0}>上一题</button>
-            <button onClick={() => moveToNextQuestion()} disabled={questionIndex >= currentQuestionList.length - 1}>下一题</button>
+            <button onClick={() => moveToQuestion(questionIndex - 1)} disabled={questionIndex <= 0}>上一题</button>
+            {questionIndex >= currentQuestionList.length - 1 ? (
+              <button className="primary" onClick={() => setQuestionMode("home")}>完成本轮</button>
+            ) : (
+              <button onClick={() => moveToNextQuestion()}>下一题</button>
+            )}
           </div>
         </>
       );
@@ -2947,7 +3363,13 @@ export function App() {
               )}
             </div>
             <div className="questionStack">
-              {examQuestions.map((question) => renderQuestionCard(question, "exam-result"))}
+              {examQuestions.map((question) =>
+                renderQuestionCard(question, "exam-result", examFinishedResult.answers?.[question.questionId] ?? [])
+              )}
+            </div>
+            <div className="examResultActions">
+              <button className="primary" onClick={() => startPractice("exam")}>再考一次</button>
+              <button onClick={() => setQuestionMode("home")}>返回题库</button>
             </div>
           </section>
         );
@@ -3000,7 +3422,7 @@ export function App() {
               <span>{currentExamQuestion.difficulty}</span>
               <span>{questionLanguage === "zh" ? "中文" : "EN"}</span>
             </div>
-            <h2>{renderQuestionText(questionText(currentExamQuestion.stem), currentExamQuestion, currentExamQuestion.stem.zh)}</h2>
+            <h2>{renderQuestionText(questionText(currentExamQuestion.stem), currentExamQuestion, currentExamQuestion.stem.zh, true)}</h2>
             <div className="questionOptions">
               {currentExamQuestion.options.map((option) => {
                 const selected = currentAnswer.includes(option.id);
@@ -3077,7 +3499,7 @@ export function App() {
             {questionSummary.answered > 0 ? "继续练习" : "开始练习"}
           </button>
 
-          <section className="questionModeCards" aria-label="question modes">
+          <section className="questionModeCards" aria-label="刷题模式">
             <button onClick={() => startPractice("browse")}>
               <Eye size={22} /><span><strong>看题</strong><small>答案与精讲</small></span>
             </button>
@@ -3086,6 +3508,9 @@ export function App() {
             </button>
             <button onClick={() => startPractice("wrong")}>
               <RotateCcw size={22} /><span><strong>错题复习</strong><small>{wrongQuestions.length} 道</small></span>
+            </button>
+            <button onClick={() => startPractice("favorite")}>
+              <BookmarkCheck size={22} /><span><strong>收藏题</strong><small>{favoriteQuestions.length} 道</small></span>
             </button>
             <button onClick={() => startPractice("exam")}>
               <Timer size={22} /><span><strong>模拟考试</strong><small>{examResults.length} 次记录</small></span>
@@ -3123,16 +3548,24 @@ export function App() {
       );
     }
 
-    const sessionTitle = questionMode === "browse" ? "看题" : questionMode === "wrong" ? "错题复习" : questionMode === "exam" ? "模拟考试" : "顺序练习";
+    const sessionTitle = questionMode === "browse"
+      ? "看题"
+      : questionMode === "wrong"
+        ? "错题复习"
+        : questionMode === "favorite"
+          ? "收藏题"
+          : questionMode === "exam"
+            ? "模拟考试"
+            : "顺序练习";
     return studyShell(
       sessionTitle,
       "",
       <section className="questionSession">
         <div className="questionSessionTopbar">
-          <button aria-label="back to question home" onClick={() => setQuestionMode("home")}><ArrowLeft size={21} /></button>
+          <button aria-label="返回题库主页" onClick={returnToQuestionHome}><ArrowLeft size={21} /></button>
           <strong>{sessionTitle}</strong>
           <button
-            aria-label="switch question language"
+            aria-label="切换题目语言"
             onClick={() => runSpatialTransition("language", () => setQuestionLanguage(questionLanguage === "zh" ? "en" : "zh"))}
           >
             <Languages size={20} /><span>{questionLanguage === "zh" ? "EN" : "中"}</span>
@@ -3485,6 +3918,7 @@ export function App() {
   }
 
   function openToc() {
+    setReaderMenuOpen(false);
     ensureOverlayHistory();
     setActiveLookup(null);
     setShowVocab(false);
@@ -3494,6 +3928,7 @@ export function App() {
   }
 
   function openVocab() {
+    setReaderMenuOpen(false);
     ensureOverlayHistory();
     setActiveLookup(null);
     setShowToc(false);
@@ -3503,6 +3938,7 @@ export function App() {
   }
 
   function openNotes() {
+    setReaderMenuOpen(false);
     ensureOverlayHistory();
     setActiveLookup(null);
     setShowToc(false);
@@ -3643,6 +4079,15 @@ export function App() {
     runSpatialTransition("language", () => setLanguage(language === "en" ? "zh" : "en"));
   }
 
+  function setImmersiveMode(next: boolean) {
+    if (next === isImmersive) {
+      return;
+    }
+    pendingLanguageScrollRef.current = captureLanguageScrollPosition();
+    setReaderMenuOpen(false);
+    setIsImmersive(next);
+  }
+
   function lookupText(text: string, page: number, sectionId: string, blockId: string | undefined, sourceText: string) {
     const entry = lookupCandidates(text).map((key) => termIndex.get(key)).find(Boolean) ?? lookupFallback(text);
     const section = lesson?.sections.find((item) => item.id === sectionId);
@@ -3771,7 +4216,7 @@ export function App() {
 
   function reviewSavedTerm(id: string, outcome: "again" | "fuzzy" | "remembered") {
     setSavedTerms((items) => items.map((item) => (item.id === id ? scheduleTermReview(item, outcome) : item)));
-    recordDailyCompletion(1);
+    recordDailyCompletion(1, flashSessionGoal || undefined);
     const reviewed = flashSessionReviewed + 1;
     setFlashSessionReviewed(reviewed);
     setFlashQuizSelection("");
@@ -3785,7 +4230,9 @@ export function App() {
 
   function startFlashReview() {
     const ids = flashReviewTerms.slice(0, plannedFlashCount).map((item) => item.id);
+    const sessionGoal = Math.min(dailyStats.goal, dailyStats.completed + ids.length);
     setFlashSessionIds(ids);
+    setFlashSessionGoal(sessionGoal);
     setFlashReviewIndex(0);
     setFlashSessionReviewed(0);
     setFlashQuizSelection("");
@@ -3958,7 +4405,7 @@ export function App() {
     }
   }
 
-  function renderText(text: string, page: number, sectionId: string, blockId?: string) {
+  function renderText(text: string, page: number, sectionId: string, blockId?: string, keyboardEntry = false) {
     return (
       <InlineReaderText
         text={text}
@@ -3966,6 +4413,7 @@ export function App() {
         sectionId={sectionId}
         blockId={blockId}
         language={language}
+        keyboardEntry={keyboardEntry}
         onLookup={lookupText}
       />
     );
@@ -4043,11 +4491,11 @@ export function App() {
               {(block.rows ?? []).map((row, rowIndex) => (
                 <tr key={`${block.id}-row-${rowIndex}`}>
                   {row.length > 1 && row.every((cell) => cell === row[0]) ? (
-                    <td colSpan={row.length}>{renderText(row[0], blockPage, section.id, block.id)}</td>
+                    <td colSpan={row.length}>{renderText(row[0], blockPage, section.id, block.id, block.id === keyboardLookupBlockId && rowIndex === 0)}</td>
                   ) : (
                     row.map((cell, cellIndex) => (
                       <td key={`${block.id}-cell-${rowIndex}-${cellIndex}`}>
-                        {renderText(cell, blockPage, section.id, block.id)}
+                        {renderText(cell, blockPage, section.id, block.id, block.id === keyboardLookupBlockId && rowIndex === 0 && cellIndex === 0)}
                       </td>
                     ))
                   )}
@@ -4067,7 +4515,7 @@ export function App() {
           data-block-id={block.id}
           data-page={blockPage}
         >
-          {renderText(block.text ?? "", blockPage, section.id, block.id)}
+          {renderText(block.text ?? "", blockPage, section.id, block.id, block.id === keyboardLookupBlockId)}
         </aside>
       );
     }
@@ -4080,7 +4528,7 @@ export function App() {
           data-block-id={block.id}
           data-page={blockPage}
         >
-          {renderText(block.text ?? "", blockPage, section.id, block.id)}
+          {renderText(block.text ?? "", blockPage, section.id, block.id, block.id === keyboardLookupBlockId)}
         </h3>
       );
     }
@@ -4093,7 +4541,7 @@ export function App() {
         data-block-id={block.id}
         data-page={blockPage}
       >
-        {renderText(block.text ?? "", blockPage, section.id, block.id)}
+        {renderText(block.text ?? "", blockPage, section.id, block.id, block.id === keyboardLookupBlockId)}
       </p>
     );
   }
@@ -4121,29 +4569,29 @@ export function App() {
             <h1>{currentLesson.title[language]}</h1>
           </div>
           <div className="headerActions">
-            <button className="readerControlButton" onClick={() => navigateTo("home")} aria-label="back to library">书库</button>
-            <button className="tocButton" onClick={openToc} aria-label="open table of contents">
+            <button className="readerControlButton" onClick={() => navigateTo("home")} aria-label="返回书库">书库</button>
+            <button className="tocButton" onClick={openToc} aria-label="打开目录">
               目录
             </button>
             <button
               className="modeButton"
               onClick={switchReadingLanguage}
-              aria-label="switch reading language"
+              aria-label="切换阅读语言"
             >
               {language === "en" ? "中文" : "EN"}
             </button>
             <button
               className="readerControlButton"
               onClick={toggleCurrentFavorite}
-              aria-label="favorite current source"
+              aria-label="收藏当前内容"
               title="收藏当前位置"
             >
               {currentFavoriteId() ? "已藏" : "收藏"}
             </button>
             <button
               className="readerControlButton"
-              onClick={() => setIsImmersive(true)}
-              aria-label="enter immersive reading"
+              onClick={() => setImmersiveMode(true)}
+              aria-label="进入沉浸阅读"
               title="沉浸阅读"
             >
               沉浸
@@ -4151,12 +4599,12 @@ export function App() {
             <button
               className="readerControlButton"
               onClick={() => setReaderMenuOpen((open) => !open)}
-              aria-label="open reader tools"
+              aria-label="打开阅读工具"
             >
               更多
             </button>
             {readerMenuOpen && (
-              <div className="readerMenu" role="menu">
+              <div className="readerMenu" role="group" aria-label="阅读工具">
                 <button onClick={() => updateTextScale(-1)} disabled={textScaleIndex === 0}>A-</button>
                 <button onClick={() => updateTextScale(1)} disabled={textScaleIndex === textScaleOrder.length - 1}>A+</button>
                 <button onClick={toggleTheme}>{readerPreferences.theme === "dark" ? "亮色" : "深色"}</button>
@@ -4177,7 +4625,7 @@ export function App() {
           </div>
         </header>
 
-        <div className="progressSummary" aria-label="reading progress">
+        <div className="progressSummary" aria-label="阅读进度">
           <div>
             <strong>p. {currentPage}</strong>
             <span>本章 {currentLesson.pageStart}-{currentLesson.pageEnd} 页 · 章节 {chapterProgress}%</span>
@@ -4187,7 +4635,7 @@ export function App() {
           </div>
         </div>
 
-        <nav className="chapterRail" aria-label="chapter sections">
+        <nav ref={chapterRailRef} className="chapterRail" aria-label="章节页码">
           {pageGroups.map((group) => (
             <button
               key={`${group.sectionId}-${group.page}`}
@@ -4202,12 +4650,12 @@ export function App() {
       </div>
 
       {isImmersive && (
-        <button className="immersiveExit" onClick={() => setIsImmersive(false)} aria-label="exit immersive reading">
+        <button className="immersiveExit" onClick={() => setImmersiveMode(false)} aria-label="退出沉浸阅读">
           退出沉浸 · p. {currentPage}
         </button>
       )}
 
-      <section ref={readerRef} className="readerPanel" aria-label="manual reader">
+      <section ref={readerRef} className="readerPanel" aria-label="教材阅读器">
         {currentLesson.sections.map((section) => (
           <article
             key={section.id}
@@ -4240,7 +4688,15 @@ export function App() {
       )}
 
       {showToc && (
-        <section className="tocPanel draggableSheet" style={sheetStyle} aria-label="table of contents">
+        <section
+          ref={overlayPanelRef}
+          className="tocPanel draggableSheet"
+          style={sheetStyle}
+          role="dialog"
+          aria-modal="true"
+          aria-label="目录"
+          tabIndex={-1}
+        >
           {sheetHandle()}
           <div className="sheetHeader">
             <div>
@@ -4256,7 +4712,7 @@ export function App() {
                 value={tocQuery}
                 onChange={(event) => setTocQuery(event.target.value)}
                 placeholder="搜索章节、标题、页码"
-                aria-label="search chapters and pages"
+                aria-label="搜索章节和页码"
               />
               {tocQuery && (
                 <button type="button" onClick={() => setTocQuery("")}>
@@ -4326,7 +4782,15 @@ export function App() {
       {isOverlayOpen && <div className="overlayBackdrop" aria-hidden="true" onClick={closeOverlayFromControl} />}
 
       {showVocab && (
-        <section className="vocabPanel draggableSheet" style={sheetStyle} aria-label="vocabulary book">
+        <section
+          ref={overlayPanelRef}
+          className="vocabPanel draggableSheet"
+          style={sheetStyle}
+          role="dialog"
+          aria-modal="true"
+          aria-label="单词本"
+          tabIndex={-1}
+        >
           {sheetHandle()}
           <div className="sheetHeader">
             <div>
@@ -4347,7 +4811,7 @@ export function App() {
             </button>
             {vocabExportMessage && <small>{vocabExportMessage}</small>}
           </div>
-          <div className="vocabFilters" role="tablist" aria-label="vocabulary filters">
+            <div className="vocabFilters" role="tablist" aria-label="单词筛选">
             <button
               className={vocabFilter === "due" ? "active" : ""}
               onClick={() => setVocabFilter("due")}
@@ -4393,7 +4857,15 @@ export function App() {
       )}
 
       {showNotes && (
-        <section className="notesPanel draggableSheet" style={sheetStyle} aria-label="study notes">
+        <section
+          ref={overlayPanelRef}
+          className="notesPanel draggableSheet"
+          style={sheetStyle}
+          role="dialog"
+          aria-modal="true"
+          aria-label="学习笔记"
+          tabIndex={-1}
+        >
           {sheetHandle()}
           <div className="sheetHeader">
             <div>

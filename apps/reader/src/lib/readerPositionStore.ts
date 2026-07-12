@@ -14,6 +14,7 @@ const storageKey = "six-sigma-study:reader-position:v1";
 const defaultBookId = "six-sigma-black-belt";
 
 export type ReaderPositionMap = Record<string, ReaderPosition>;
+let lastKnownPositions: ReaderPositionMap = {};
 
 function normalizePosition(position: ReaderPosition, fallbackBookId = defaultBookId): ReaderPosition {
   return {
@@ -33,6 +34,7 @@ export function loadReaderPositions(): ReaderPositionMap {
   try {
     const raw = window.localStorage.getItem(storageKey);
     if (!raw) {
+      lastKnownPositions = {};
       return {};
     }
     const parsed = JSON.parse(raw) as ReaderPosition & {
@@ -40,17 +42,19 @@ export function loadReaderPositions(): ReaderPositionMap {
       positions?: Record<string, ReaderPosition>;
     };
     if (parsed.positions && typeof parsed.positions === "object") {
-      return Object.fromEntries(
+      lastKnownPositions = Object.fromEntries(
         Object.entries(parsed.positions).map(([bookId, position]) => [
           bookId,
           normalizePosition(position, bookId)
         ])
       );
+      return lastKnownPositions;
     }
     const legacy = normalizePosition(parsed, parsed.bookId ?? defaultBookId);
-    return legacy.bookId ? { [legacy.bookId]: legacy } : {};
+    lastKnownPositions = legacy.bookId ? { [legacy.bookId]: legacy } : {};
+    return lastKnownPositions;
   } catch {
-    return {};
+    return lastKnownPositions;
   }
 }
 
@@ -87,6 +91,10 @@ export function persistReaderPosition(position: ReaderPosition): void {
         updatedAt: new Date().toISOString()
       })
     );
+    lastKnownPositions = {
+      ...positions,
+      [bookId]: nextPosition
+    };
   } catch {
     // Position persistence should not block core reading.
   }

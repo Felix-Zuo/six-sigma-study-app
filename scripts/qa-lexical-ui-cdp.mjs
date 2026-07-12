@@ -78,6 +78,7 @@ async function main() {
     const now = new Date().toISOString();
     localStorage.setItem("six-sigma-study:notice-accepted:v1", "true");
     localStorage.setItem("six-sigma-study:active-book:v1", "six-sigma-black-belt");
+    localStorage.removeItem("six-sigma-study:reader-position:v1");
     localStorage.setItem("six-sigma-study:vocab:v1", JSON.stringify([{
       id: "qa-old-constant", bookId: "six-sigma-black-belt", bookTitle: "六西格玛黑带培训教材",
       term: "constant", translation: "常数", contextMeaning: "常数", contextExplanation: "旧错误语境义",
@@ -140,7 +141,7 @@ async function main() {
     await evaluate(`Array.from(document.querySelectorAll(".questionPager button")).find((item) => item.textContent.includes("下一题"))?.click()`);
     await waitFor("next public question", () => evaluate(`document.querySelector(".questionCard")?.dataset.questionId !== ${JSON.stringify(before)}`));
   }
-  await evaluate(`document.querySelector('[aria-label="switch question language"]')?.click()`);
+  await evaluate(`document.querySelector('[aria-label="切换题目语言"]')?.click()`);
   await waitFor("English distinguish token", () => evaluate(`Array.from(document.querySelectorAll(".questionWordToken")).some((item) => item.textContent.trim().toLowerCase() === "distinguish")`));
   await evaluate(`Array.from(document.querySelectorAll(".questionWordToken")).find((item) => item.textContent.trim().toLowerCase() === "distinguish")?.click()`);
   await waitFor("distinguish lookup", () => evaluate(`document.querySelector(".bottomSheet h2")?.textContent?.trim().toLowerCase() === "distinguish"`));

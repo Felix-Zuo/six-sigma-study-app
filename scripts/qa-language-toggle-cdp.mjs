@@ -185,7 +185,7 @@ async function main() {
   })()`);
   await sleep(500);
   const lookupState = await evalPage(`(() => {
-    const sheet = document.querySelector(".bottomSheet[aria-label='word explanation']");
+    const sheet = document.querySelector(".bottomSheet[aria-label='单词释义']");
     const translation = sheet?.querySelector(".translation")?.textContent?.trim() ?? null;
     const explanation = sheet?.querySelector(".explanation")?.textContent?.trim() ?? null;
     return {

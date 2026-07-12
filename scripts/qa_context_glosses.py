@@ -86,7 +86,13 @@ def main() -> None:
         fail("unverified dictionary-first context fallback is still present")
     if "暂无可靠语境义" not in context or "contextGloss" not in context:
         fail("safe unavailable state or occurrence gloss lookup is missing")
-    if '{renderText(block.text ?? "", blockPage, section.id, block.id)}' not in app:
+    term_note_renderer = re.search(
+        r'if \(block\.kind === "termNote"\)[\s\S]{0,700}?'
+        r'\{renderText\(block\.text \?\? "", blockPage, section\.id, block\.id'
+        r'(?:,\s*block\.id === keyboardLookupBlockId)?\)\}',
+        app,
+    )
+    if not term_note_renderer:
         fail("term-note text does not use the same clickable renderer")
 
     print(json.dumps({

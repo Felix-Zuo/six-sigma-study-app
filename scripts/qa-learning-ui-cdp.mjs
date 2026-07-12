@@ -182,7 +182,7 @@ async function main() {
 
   await evaluate(`document.querySelector(".questionContinueButton")?.click()`);
   await waitFor("question session", () => evaluate(`Boolean(document.querySelector(".questionSession .questionCard"))`));
-  await evaluate(`document.querySelector('[aria-label="switch question language"]')?.click()`);
+  await evaluate(`document.querySelector('[aria-label="切换题目语言"]')?.click()`);
   await waitFor("English question tokens", () => evaluate(`document.querySelectorAll(".questionCard .wordToken").length > 0`));
   const initialQuestionId = await evaluate(`document.querySelector(".questionCard")?.dataset.questionId`);
   const lookupWord = await evaluate(`(() => {
@@ -208,33 +208,29 @@ async function main() {
   await waitFor("question explanation", () => evaluate(`Boolean(document.querySelector(".questionCard .answerPanel"))`));
   const unknownState = await evaluate(`(() => ({
     answer: document.querySelector(".answerPanel strong")?.parentElement?.textContent?.trim(),
-    explanation: document.querySelectorAll(".answerPanel p")[1]?.textContent?.trim(),
+    explanation: document.querySelectorAll(".answerPanel p")[2]?.textContent?.trim(),
     stored: JSON.parse(localStorage.getItem("six-sigma-study:question-progress:v1") ?? "{}")[${JSON.stringify(initialQuestionId)}] ?? null
   }))()`);
   const unknownShot = await capture("06-question-unknown-explanation");
 
-  const correctAnswers = await evaluate(`document.querySelector(".answerPanel strong")?.parentElement?.textContent?.replace("答案：", "").split(",").map((item) => item.trim()).filter(Boolean) ?? []`);
-  await evaluate(`(() => {
-    const answers = ${JSON.stringify(correctAnswers)};
-    const options = Array.from(document.querySelectorAll(".questionOption"))
-      .filter((item) => answers.includes(item.querySelector("strong")?.textContent?.trim()));
-    options.forEach((option) => option.click());
-    return options.length === answers.length;
-  })()`);
-  await evaluate(`Array.from(document.querySelectorAll(".questionActions button")).find((item) => item.textContent.trim() === "提交")?.click()`);
-  await waitFor("correct auto advance", () => evaluate(`document.querySelector(".questionCard")?.dataset.questionId !== ${JSON.stringify(initialQuestionId)}`));
+  await evaluate(`Array.from(document.querySelectorAll(".questionPager button")).find((item) => item.textContent.trim() === "下一题")?.click()`);
+  await waitFor("explicit next after explanation", () => evaluate(`document.querySelector(".questionCard")?.dataset.questionId !== ${JSON.stringify(initialQuestionId)}`));
   const nextQuestionId = await evaluate(`document.querySelector(".questionCard")?.dataset.questionId`);
-  const advancedShot = await capture("07-question-auto-next");
+  await evaluate(`document.querySelector(".questionOption")?.click()`);
+  await evaluate(`Array.from(document.querySelectorAll(".questionActions button")).find((item) => item.textContent.trim() === "提交")?.click()`);
+  await waitFor("answer revealed without auto advance", () => evaluate(`Boolean(document.querySelector(".questionCard .answerPanel"))`));
+  const afterSubmitQuestionId = await evaluate(`document.querySelector(".questionCard")?.dataset.questionId`);
+  const advancedShot = await capture("07-question-explicit-next");
 
   const checks = {
     vocabHome: vocabHome.dueText === "1 个待学" && vocabHome.recentTerm === "scope" && !vocabHome.answerLeaked && vocabHome.bodyOverflow <= 1,
     flashPrompt: flashPrompt.term === "scope" && flashPrompt.answerHidden && flashPrompt.navHidden && flashPrompt.scrollY === 0 && flashPrompt.panelTop < 220,
     flashAnswer: flashAnswer.meaning === "项目范围" && flashAnswer.explanation.length > 8 && flashAnswer.examples >= 2 && flashAnswer.scrollY === 0 && flashAnswer.panelTop < 220,
     reviewStored: reviewedTerm.reviewCount === 1 && reviewedTerm.lapseCount === 1 && reviewedTerm.status === "learning",
-    questionHome: questionHome.modeCount === 4 && questionHome.totalText?.includes("1006") && questionHome.bodyOverflow <= 1,
+    questionHome: questionHome.modeCount === 5 && /^\d+\/[1-9]\d*$/.test(questionHome.totalText ?? "") && questionHome.bodyOverflow <= 1,
     questionLookup: lookupWord.length >= 4 && questionLookup.word?.toLowerCase() === lookupWord.toLowerCase() && questionLookup.contextMeaning && questionLookup.contextExplanation && questionLookup.hasSave && questionLookup.bodyFixed,
     unknownExplanation: unknownState.answer?.includes("答案") && unknownState.explanation?.length > 8 && unknownState.stored?.unknownCount >= 1,
-    correctAutoAdvance: Boolean(initialQuestionId && nextQuestionId && initialQuestionId !== nextQuestionId)
+    explicitNextAndStableSubmit: Boolean(initialQuestionId && nextQuestionId && initialQuestionId !== nextQuestionId && afterSubmitQuestionId === nextQuestionId)
   };
 
   cdp.close();
@@ -251,6 +247,7 @@ async function main() {
     unknownState,
     initialQuestionId,
     nextQuestionId,
+    afterSubmitQuestionId,
     screenshots: { vocabHomeShot, promptShot, answerShot, questionHomeShot, lookupShot, unknownShot, advancedShot }
   }, null, 2));
   if (!ok) process.exit(2);

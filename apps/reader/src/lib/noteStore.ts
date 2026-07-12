@@ -51,7 +51,11 @@ export function loadSavedNotes(): SavedNote[] {
     if (!Array.isArray(parsed)) {
       return [];
     }
-    return parsed.map((item) => normalizeSavedNote(item));
+    return parsed.flatMap((item): SavedNote[] =>
+      item && typeof item === "object" && !Array.isArray(item)
+        ? [normalizeSavedNote(item as Partial<SavedNote>)]
+        : []
+    );
   } catch {
     return [];
   }

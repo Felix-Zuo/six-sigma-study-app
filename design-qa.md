@@ -1,4 +1,4 @@
-# Beta 0.8.3 Design QA
+# Beta 0.8.5 Design QA
 
 ## Target
 
@@ -39,6 +39,21 @@
 - Re-ran the home, reader EN/ZH, lookup half/full, vocabulary, flashcard, question dashboard, and question lookup captures.
 - Confirmed zero horizontal overflow in every checked flow.
 
+### Round 4: Interaction, Theme, And Motion Repair
+
+- Rechecked home, vocabulary, question training, settings, and Reader at 390 x 844, plus breakpoint automation from 759 through 860 pixels.
+- Fixed dark page-accent contrast and removed the conflicting generic blue primary action from dark module pages.
+- Removed the second layer-settle animation that could start after a native View Transition completed.
+- Added predictable page-top navigation, reachable empty states, true disabled styling, fixed question-session navigation, and touch-sized question-bank import.
+
+### Round 5: Independent Reverse Audit And Release
+
+- Ran separate logic and mobile UX reviews against the complete diff, then converted reproducible findings into permanent regression checks.
+- Verified the release APK on `emulator-5554` at 1080 x 2148 device pixels, including the private 1006-question local build and spatial home stack.
+- Exercised Android back priority through question session, Reader tools, immersive reading, and lookup sheet; every temporary layer closed before its parent page.
+- Added one roving keyboard entry point per reading/question surface, arrow-key word traversal, focus restoration after lookup, and Chinese accessible names throughout the primary UI.
+- Re-ran content, data isolation, learning, AI context, motion, image, APK, AAB, signing, install, and launch gates after the final edit.
+
 ## Acceptance
 
 | Area | Result | Evidence |
@@ -47,7 +62,7 @@
 | Home hierarchy | Passed | Brand, continue action, progress, and three study metrics fit in one first-viewport page |
 | Reader EN/ZH | Passed | Same anchored reader structure, stable chrome, images retained in both languages |
 | Bottom sheet | Passed | About 52% half state, about 92% full state, body lock and `overscroll: contain` |
-| Learning modules | Passed | Vocabulary recall, contextual answer, question lookup, unknown explanation, correct auto-advance |
+| Learning modules | Passed | Vocabulary recall, contextual answer, question lookup, unknown explanation, answer review before explicit next |
 | Accessibility | Passed | Keyboard focus states, semantic buttons, reduced-motion fallback, no clipped text or horizontal overflow |
 | Screenshot stability | Passed | QA captures wait for the layered transition to finish before recording evidence |
 

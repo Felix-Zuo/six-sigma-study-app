@@ -12,7 +12,7 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 
 | Metric | Current State |
 | --- | --- |
-| Release | `Beta 0.8.4` (`0.8.4-beta.0`, Android code `804`) |
+| Release | `Beta 0.8.5` (`0.8.5-beta.0`, Android code `805`) |
 | Runtime books | 2 catalog books: full Six Sigma manual + original import-practice workbook |
 | Six Sigma content | 33 chapters, 449 aligned study pages, 174 reader sections |
 | Preserved assets | 475 figure/table/formula PNG runtime assets; EN/ZH image counts 476/476 |
@@ -28,7 +28,7 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 
 | Study Home | Chinese Reader With Figure | Lookup Half Sheet |
 | --- | --- | --- |
-| ![Study workbench](docs/assets/showcase/target4-home.png) | ![Chinese reader with preserved figure](docs/assets/showcase/target4-reader-zh-image.png) | ![Draggable lookup sheet](docs/assets/showcase/target4-lookup-half.png) |
+| ![Study workbench](docs/assets/showcase/beta-0.8.5-release-home.png) | ![Chinese reader with preserved figure](docs/assets/showcase/target4-reader-zh-image.png) | ![Draggable lookup sheet](docs/assets/showcase/target4-lookup-half.png) |
 
 | Opening | Lookup Full Sheet | Vocabulary |
 | --- | --- | --- |
@@ -46,7 +46,7 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 | --- | --- | --- |
 | ![Vocabulary answer with phonetics, senses, context, and translation](docs/assets/showcase/learning-vocab-answer.png) | ![Question training dashboard](docs/assets/showcase/learning-question-home.png) | ![Question lookup with rich dictionary and context](docs/assets/showcase/learning-question-lookup-rich.png) |
 
-Beta 0.8.4 keeps the selected Quiet Aperture direction and hardens it for daily use: due-only vocabulary plans, resumable practice, timed mock exams, isolated per-book reading positions, safer local-data reset, accessible navigation and sheet controls, and private-bank-free public artifacts. See [design-qa.md](design-qa.md) for the visual direction and Android acceptance record.
+Beta 0.8.5 completes a five-round maturity pass over the selected Quiet Aperture direction. It adds reachable daily review goals, self-rating before scheduling, stable practice/wrong/favorite sessions, explicit answer review before navigation, restartable mock exams with saved answers, resilient local-data hydration, predictable Android back behavior, dark-theme contrast repairs, and bounded motion without a second post-transition animation. See [design-qa.md](design-qa.md) for the review record.
 
 ## Study Workflow
 
@@ -77,7 +77,7 @@ When another book is selected, vocabulary, notes, and favorites are filtered to 
 - Flashcard vocabulary review with familiarity, lapse, interval, ease factor, and question-source metadata.
 - Daily local streak target with capped catch-up workload after missed days.
 - Independent vocabulary, notes, and favorites pages with book filters, search, sorting, and source return actions.
-- Question practice workspace with Browse, Practice, Wrong Questions, and Mock Exam modes.
+- Question practice workspace with Browse, Practice, Wrong Questions, Favorites, and Mock Exam modes; submitted questions stay on their explanation until the learner explicitly continues.
 - Private question-bank JSON import for local user-provided study material; full private banks stay outside Git.
 - Chinese mode preserves figure, table, and formula images rather than falling back to text-only reading.
 - Offline Android packaging with generated figures bundled in APK/AAB.

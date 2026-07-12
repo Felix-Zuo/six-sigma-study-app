@@ -147,26 +147,26 @@ async function main() {
   await waitFor("revert lookup", () => evaluate(`document.querySelector(".bottomSheet h2")?.textContent?.trim().toLowerCase() === "revert"`));
   const offlineMeaning = await evaluate(`document.querySelector(".contextMeaningCard strong")?.textContent?.trim()`);
   await evaluate(`Array.from(document.querySelectorAll(".aiLookupAction button")).find((item) => item.textContent.includes("AI 核验"))?.click()`);
-  await waitFor("AI proposal", () => evaluate(`Boolean(document.querySelector('[aria-label="AI context correction proposal"]'))`));
+  await waitFor("AI proposal", () => evaluate(`Boolean(document.querySelector('[aria-label="AI 语境修订建议"]'))`));
   const proposal = await evaluate(`(() => ({
     phrase: document.querySelector(".aiPhrase")?.textContent?.trim(),
-    meaning: document.querySelector('[aria-label="AI context correction proposal"] > strong')?.textContent?.trim(),
-    sentence: document.querySelector('[aria-label="AI context correction proposal"] > p:not(.aiPhrase)')?.textContent?.trim(),
+    meaning: document.querySelector('[aria-label="AI 语境修订建议"] > strong')?.textContent?.trim(),
+    sentence: document.querySelector('[aria-label="AI 语境修订建议"] > p:not(.aiPhrase)')?.textContent?.trim(),
     overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
   }))()`);
   await evaluate(`(() => {
     const sheet = document.querySelector(".bottomSheet");
-    const card = document.querySelector('[aria-label="AI context correction proposal"]');
+    const card = document.querySelector('[aria-label="AI 语境修订建议"]');
     if (sheet && card) sheet.scrollTop = Math.max(0, card.offsetTop - 84);
   })()`);
   await sleep(520);
   const proposalShot = await capture("01-revert-ai-proposal");
   await evaluate(`Array.from(document.querySelectorAll(".aiCorrectionActions button")).find((item) => item.textContent.includes("采用本次修订"))?.click()`);
-  await waitFor("accepted correction", () => evaluate(`Boolean(document.querySelector('[aria-label="accepted context correction"]'))`));
+  await waitFor("accepted correction", () => evaluate(`Boolean(document.querySelector('[aria-label="已采用的语境修订"]'))`));
   const acceptedMeaning = await evaluate(`document.querySelector(".contextMeaningCard strong")?.textContent?.trim()`);
   await evaluate(`(() => {
     const sheet = document.querySelector(".bottomSheet");
-    const card = document.querySelector('[aria-label="accepted context correction"]');
+    const card = document.querySelector('[aria-label="已采用的语境修订"]');
     if (sheet && card) sheet.scrollTop = Math.max(0, card.offsetTop - 84);
   })()`);
   await sleep(520);
@@ -176,7 +176,7 @@ async function main() {
   await evaluate(`document.querySelector(".closeButton")?.click()`);
   await waitFor("closed lookup", () => evaluate(`!document.querySelector(".bottomSheet")`));
   await evaluate(`Array.from(document.querySelectorAll(".wordToken")).find((item) => item.textContent.trim().toLowerCase() === "revert")?.click()`);
-  await waitFor("accepted correction reused", () => evaluate(`Boolean(document.querySelector('[aria-label="accepted context correction"]'))`));
+  await waitFor("accepted correction reused", () => evaluate(`Boolean(document.querySelector('[aria-label="已采用的语境修订"]'))`));
   const reused = await evaluate(`(() => ({
     meaning: document.querySelector(".contextMeaningCard strong")?.textContent?.trim(),
     calls: window.__qaDeepSeekCalls,
@@ -219,7 +219,7 @@ async function main() {
     strictProvenance: record?.provenance?.model === "deepseek-v4-flash" && record?.provenance?.promptVersion === "context-correction-v1",
     noSecretInBundle: !JSON.stringify(storedBundle).toLowerCase().includes("api_key") && !JSON.stringify(storedBundle).includes(fakeSessionKey),
     exportedAcceptedOnly: exportedBundle.corrections?.length === 1 && exportedBundle.corrections[0].status === "accepted",
-    settingsVersion: settings.version === "版本 Beta 0.8.4",
+    settingsVersion: settings.version === "版本 Beta 0.8.5",
     settingsConfigured: settings.status === "已配置" && settings.count === "已确认修订 1",
     settingsLayout: settings.overflow <= 1
   };
