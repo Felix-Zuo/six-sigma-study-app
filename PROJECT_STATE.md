@@ -20,15 +20,28 @@ The final product must support full-manual offline reading, position-preserving 
 
 ## Current Evidence
 
-- Product version: `Beta 0.8.2` (`0.8.2-beta.0` in npm, Android `versionCode 802` / `versionName 0.8.2-beta`). During the current beta line, each user-facing update increments the patch version: `0.8.3`, `0.8.4`, and so on.
+- Product version: `Beta 0.8.3` (`0.8.3-beta.0` in npm, Android `versionCode 803` / `versionName 0.8.3-beta`). During the current beta line, each user-facing update increments the patch version: `0.8.4`, `0.8.5`, and so on.
 - Branch: `main`
 - Latest workspace migration validation pass: 2026-06-26 00:33 Asia/Shanghai
 - Local workspace root: `D:\0A OpenClaw\projects\6sigma`
-- Local worktree: path migration and documentation updates pending commit after verification
+- Local worktree: Beta 0.8.3 frontend verification complete; release commit pending
 - Latest pre-migration pushed GitHub Actions state: CI passed for `1d6ef7f` in run `28159917559`
 - Release APK after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, occurrence-level bilingual context glosses, tap-to-lookup bottom sheet, 3981-entry public offline learner dictionary plus an ignored 3552-entry local private-question supplement, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with the Quiet Aperture spatial shell, native View Transitions and reduced-motion fallback, source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, occurrence-level bilingual context glosses, tap-to-lookup bottom sheet, 3981-entry public offline learner dictionary plus an ignored 3552-entry local private-question supplement, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+
+## 2026-07-12 Quiet Aperture Frontend Beta 0.8.3
+
+- Rebuilt the frontend from the selected first design direction: warm neutral matte pages, deep ink type, muted ultramarine and coral accents, a full-height home work page, and functional page-edge destinations for vocabulary, practice, notes, and favorites.
+- Replaced the floating capsule navigation and card-heavy dashboard with a stable bottom band, flat information sections, compact repeated-item cards, restrained per-module accents, and quieter reader chrome.
+- Added native View Transition routing for main navigation and language switching. Foreground pages, rear layers, headings, progress, and navigation settle on independent easing curves; `prefers-reduced-motion` collapses all transition durations.
+- Preserved the full product contract: multi-book library, reader position, EN/ZH block alignment, Chinese images, draggable half/full lookup, immersive mode, vocabulary review, streaks, notes, favorites, questions, DeepSeek review, and Android Keystore storage.
+- Updated screenshot QA to wait 1250 ms for the bounded layered transition before capture. Three visual review rounds covered home, reader EN/ZH, lookup half/full, vocabulary, flashcard, question dashboard, and question lookup at 390 x 844.
+- Android WebView gates passed: Target 3, Target 4, sheet gestures, notes, learning UI, lexical UI, AI context correction, Android Keystore, and key-chapter image fidelity. Desktop CDP motion QA confirmed native View Transitions, 920 ms normal layered motion, 0.001 ms reduced-motion timing, and zero horizontal overflow. Chapters 1/7/26/33 retained 2/14/50/25 images in both languages with zero broken images and zero horizontal overflow.
+- Design evidence: `design-qa.md`, `docs/assets/showcase/beta-0.8.3-selected-reference.png`, and `docs/assets/showcase/beta-0.8.3-reference-vs-implementation.png`.
+- Final release artifacts:
+  - APK: 40,716,973 bytes; SHA-256 `DC5945FB7045898304869E4E244D660BA78363C5DB35A8C21DAC2B394DD9D830`; APK Signature Scheme v2 verified, one signer; installed and launched as `versionCode 803` / `versionName 0.8.3-beta`.
+  - AAB: 38,469,282 bytes; SHA-256 `C736593D129235C448A184CB3EEAC8BE5012EAD4F7E1924CAFAD2AD56E503051`; JAR signature verification passed.
 
 ## 2026-07-12 DeepSeek Context Correction Beta 0.8.2
 

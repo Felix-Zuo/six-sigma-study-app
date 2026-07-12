@@ -1,7 +1,9 @@
 import { type CSSProperties, type PointerEvent, type ReactNode, useEffect, useMemo, useRef, useState } from "react";
+import { flushSync } from "react-dom";
 import { App as CapacitorApp } from "@capacitor/app";
 import {
   ArrowLeft,
+  ArrowRight,
   BookmarkCheck,
   BookmarkPlus,
   BookOpen,
@@ -261,10 +263,18 @@ type PageGroup = {
   count: number;
 };
 
+type ViewTransitionHandle = {
+  finished: Promise<void>;
+};
+
+type ViewTransitionDocument = Document & {
+  startViewTransition?: (update: () => void | Promise<void>) => ViewTransitionHandle;
+};
+
 const defaultBookId = "six-sigma-black-belt";
 const defaultBookTitle = "六西格玛黑带教材";
-const productVersionLabel = "Beta 0.8.2";
-const productVersionId = "0.8.2-beta";
+const productVersionLabel = "Beta 0.8.3";
+const productVersionId = "0.8.3-beta";
 const githubProfileUrl = "https://github.com/Felix-Zuo";
 const catalogPath = "content/catalog.json";
 const bundledQuestionBankPath = "content/private/question-bank.private.json";
@@ -273,6 +283,23 @@ const noticeAcceptedKey = "six-sigma-study:notice-accepted:v1";
 const activeBookKey = "six-sigma-study:active-book:v1";
 const readerPreferencesKey = "six-sigma-study:reader-preferences:v1";
 const textScaleOrder: TextScale[] = ["standard", "large", "xlarge"];
+const appViewOrder: Partial<Record<AppView, number>> = {
+  home: 0,
+  reader: 1,
+  vocab: 2,
+  questions: 3,
+  notes: 4,
+  favorites: 5,
+  settings: 6
+};
+const appViewKickers: Partial<Record<AppView, string>> = {
+  home: "学习空间",
+  vocab: "词汇",
+  questions: "训练",
+  notes: "摘录",
+  favorites: "收藏",
+  settings: "设置"
+};
 
 const fallbackCatalog: CatalogData = {
   version: "0.2.0",
@@ -1599,9 +1626,53 @@ export function App() {
     return () => document.removeEventListener("selectionchange", handleSelectionChange);
   }, [language, lesson]);
 
+  function runSpatialTransition(
+    kind: "navigation" | "language",
+    update: () => void,
+    direction: "forward" | "backward" = "forward"
+  ) {
+    const root = document.documentElement;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const transitionDocument = document as ViewTransitionDocument;
+    const commit = () => flushSync(update);
+
+    root.dataset.transitionKind = kind;
+    root.dataset.transitionDirection = direction;
+
+    if (!transitionDocument.startViewTransition || prefersReducedMotion) {
+      commit();
+      delete root.dataset.transitionKind;
+      delete root.dataset.transitionDirection;
+      return;
+    }
+
+    try {
+      const transition = transitionDocument.startViewTransition(commit);
+      void transition.finished.finally(() => {
+        delete root.dataset.transitionKind;
+        delete root.dataset.transitionDirection;
+      });
+    } catch {
+      commit();
+      delete root.dataset.transitionKind;
+      delete root.dataset.transitionDirection;
+    }
+  }
+
+  function navigateTo(nextView: AppView) {
+    if (nextView === view) {
+      return;
+    }
+    const currentIndex = appViewOrder[view] ?? 0;
+    const nextIndex = appViewOrder[nextView] ?? currentIndex;
+    runSpatialTransition("navigation", () => setView(nextView), nextIndex >= currentIndex ? "forward" : "backward");
+  }
+
   function openBook(bookId: string) {
-    setActiveBookId(bookId);
-    setView("reader");
+    runSpatialTransition("navigation", () => {
+      setActiveBookId(bookId);
+      setView("reader");
+    });
     setReaderMenuOpen(false);
   }
 
@@ -1617,8 +1688,10 @@ export function App() {
       scrollY: 0
     });
     setReaderPositions(loadReaderPositions());
-    setActiveBookId(anchor.bookId);
-    setView("reader");
+    runSpatialTransition("navigation", () => {
+      setActiveBookId(anchor.bookId);
+      setView("reader");
+    });
     setReaderMenuOpen(false);
     pendingScrollSectionRef.current = anchor.sectionId;
     pendingScrollBlockRef.current = anchor.blockId ?? null;
@@ -1964,7 +2037,7 @@ export function App() {
     }
     if (!questionId) {
       setQuestionMode("home");
-      setView("questions");
+      navigateTo("questions");
       return;
     }
     const index = allQuestions.findIndex((question) => question.questionId === questionId);
@@ -1974,7 +2047,7 @@ export function App() {
     setQuestionMode("browse");
     setQuestionIndex(index >= 0 ? index : 0);
     setRevealedQuestionId(questionId);
-    setView("questions");
+    navigateTo("questions");
     window.setTimeout(() => setQuestionIndex(index >= 0 ? index : 0), 0);
   }
 
@@ -2056,18 +2129,20 @@ export function App() {
   ) {
     return (
       <main
-        className={`appShell appFrame${activeLookup ? " panelOpen" : ""}${options.session ? " studySessionShell" : ""}`}
+        className={`appShell appFrame spatialStage page-${view}${activeLookup ? " panelOpen" : ""}${options.session ? " studySessionShell" : ""}`}
+        data-app-view={view}
+        data-book-id={currentBookId}
         data-theme={readerPreferences.theme}
         data-text-scale={readerPreferences.textScale}
       >
         <header className="appPageHeader">
           <div>
-            <p className="eyebrow">Six Sigma Study</p>
+            <p className="eyebrow">{appViewKickers[view] ?? "学习"}</p>
             <h1>{title}</h1>
             <p>{subtitle}</p>
           </div>
         </header>
-        {body}
+        <div className="appPageContent">{body}</div>
         {!activeLookup && !options.hideNav && renderMainNav()}
         {activeLookup && <button className="overlayBackdrop" aria-label="close word explanation" onClick={closeOverlayFromControl} />}
         {renderLookupSheet()}
@@ -2244,11 +2319,11 @@ export function App() {
           <button
             key={item.view}
             className={view === item.view ? "mainNavItem active" : "mainNavItem"}
-            onClick={() => setView(item.view)}
+            onClick={() => navigateTo(item.view)}
+            aria-label={item.detail ? `${item.label}，${item.detail}` : item.label}
           >
             {item.icon}
             <strong>{item.label}</strong>
-            {item.detail && <span>{item.detail}</span>}
           </button>
         ))}
       </nav>
@@ -2258,7 +2333,8 @@ export function App() {
   if (view === "splash") {
     return (
       <main
-        className="appShell splashShell"
+        className="appShell splashShell spatialStage"
+        data-app-view="splash"
         data-theme={readerPreferences.theme}
         data-text-scale={readerPreferences.textScale}
       >
@@ -2283,41 +2359,74 @@ export function App() {
     const recentNotes = savedNotes.slice(0, 2);
     return studyShell(
       "学习工作台",
-      "继续阅读、复习单词、整理笔记和收藏，都从这里开始。",
+      "从上次停下的位置继续。",
       <>
-        <section className="dashboardHero">
-          <div>
-            <p className="eyebrow">continue</p>
-            <h2>{recentBook?.title.zh ?? "六西格玛黑带培训教材"}</h2>
-            <p>{recentProgress.label}</p>
+        <section className="dashboardHero spatialWorkspace" aria-label="continue learning">
+          <div className="workspacePageStack">
+            <article className="workspaceFocus">
+              <div className="workspaceBrand">
+                <p className="eyebrow">Six Sigma Study</p>
+                <h2>学习工作台</h2>
+                <p>阅读、复习与整理，从同一处继续。</p>
+              </div>
+              <div className="workspaceFocusTop">
+                <p className="eyebrow">继续学习</p>
+                <h3>{recentBook?.title.zh ?? "六西格玛黑带培训教材"}</h3>
+                <p>{recentBook?.subtitle?.zh ?? "中英对照学习版"}</p>
+              </div>
+              <div className="workspaceProgressCopy">
+                <strong>{recentProgress.label}</strong>
+                <span>{recentBook?.chapterCount ?? 0} 章</span>
+              </div>
+              <div className="workspaceProgressPath" aria-label={`教材进度 ${recentProgress.percent}%`}>
+                <span style={{ width: `${recentProgress.percent}%` }} />
+                <i style={{ left: `${Math.min(96, Math.max(2, recentProgress.percent))}%` }} />
+              </div>
+              <button className="primaryAction workspaceContinue" onClick={() => openBook(recentBook?.bookId ?? defaultBookId)}>
+                <span>{recentProgress.page ? "继续阅读" : "开始阅读"}</span>
+                <ArrowRight size={22} strokeWidth={1.8} />
+              </button>
+              <section className="metricGrid" aria-label="study summary">
+                <button onClick={() => navigateTo("vocab")}>
+                  <strong>{dailyStats.completed}/{dailyStats.goal}</strong>
+                  <span>今日目标</span>
+                  <small>连续天数 {dailyStats.streak}</small>
+                </button>
+                <button onClick={() => navigateTo("questions")}>
+                  <strong>{allQuestions.length}</strong>
+                  <span>题库</span>
+                </button>
+                <button onClick={() => navigateTo("notes")}>
+                  <strong>{savedNotes.length + savedFavorites.length}</strong>
+                  <span>学习记录</span>
+                </button>
+              </section>
+            </article>
+            <nav className="workspaceEdgeNav" aria-label="study destinations">
+              <button onClick={() => navigateTo("vocab")}>
+                <span>单词</span>
+                <BookOpen size={19} strokeWidth={1.8} />
+              </button>
+              <button onClick={() => navigateTo("questions")}>
+                <span>刷题</span>
+                <ClipboardCheck size={19} strokeWidth={1.8} />
+              </button>
+              <button onClick={() => navigateTo("notes")}>
+                <span>笔记</span>
+                <NotebookPen size={19} strokeWidth={1.8} />
+              </button>
+              <button onClick={() => navigateTo("favorites")}>
+                <span>收藏</span>
+                <BookmarkCheck size={19} strokeWidth={1.8} />
+              </button>
+            </nav>
           </div>
-          <button className="primaryAction" onClick={() => openBook(recentBook?.bookId ?? defaultBookId)}>
-            继续学习
-          </button>
         </section>
-        <section className="metricGrid" aria-label="study summary">
-          <button onClick={() => setView("vocab")}>
-            <strong>{dailyStats.completed}/{dailyStats.goal}</strong>
-            <span>今日目标</span>
-          </button>
-          <button onClick={() => setView("vocab")}>
-            <strong>{dailyStats.streak}</strong>
-            <span>连续天数</span>
-          </button>
-          <button onClick={() => setView("questions")}>
-            <strong>{allQuestions.length}</strong>
-            <span>题库</span>
-          </button>
-          <button onClick={() => setView("notes")}>
-            <strong>{savedNotes.length}</strong>
-            <span>笔记</span>
-          </button>
-          <button onClick={() => setView("favorites")}>
-            <strong>{savedFavorites.length}</strong>
-            <span>收藏</span>
-          </button>
-        </section>
-        <section className="bookGrid" aria-label="book library">
+        <div className="sectionHeader libraryHeader">
+          <h2>教材</h2>
+          <span>{books.length} 本</span>
+        </div>
+        <section className="bookGrid libraryShelf" aria-label="book library">
           {books.map((book) => {
             const bookTerms = savedTerms.filter((item) => item.bookId === book.bookId);
             const bookNotes = savedNotes.filter((item) => item.bookId === book.bookId);
@@ -2351,7 +2460,7 @@ export function App() {
         <section className="recentPanel" aria-label="recent notes">
           <div className="sectionHeader">
             <h2>最近笔记</h2>
-            <button onClick={() => setView("notes")}>全部</button>
+            <button onClick={() => navigateTo("notes")}>全部</button>
           </div>
           {recentNotes.length === 0 ? (
             <p className="emptyState compact">还没有笔记。阅读时选中文本即可摘录。</p>
@@ -2918,7 +3027,10 @@ export function App() {
         <div className="questionSessionTopbar">
           <button aria-label="back to question home" onClick={() => setQuestionMode("home")}><ArrowLeft size={21} /></button>
           <strong>{sessionTitle}</strong>
-          <button aria-label="switch question language" onClick={() => setQuestionLanguage(questionLanguage === "zh" ? "en" : "zh")}>
+          <button
+            aria-label="switch question language"
+            onClick={() => runSpatialTransition("language", () => setQuestionLanguage(questionLanguage === "zh" ? "en" : "zh"))}
+          >
             <Languages size={20} /><span>{questionLanguage === "zh" ? "EN" : "中"}</span>
           </button>
         </div>
@@ -3415,7 +3527,7 @@ export function App() {
 
   function switchReadingLanguage() {
     pendingLanguageScrollRef.current = captureLanguageScrollPosition();
-    setLanguage(language === "en" ? "zh" : "en");
+    runSpatialTransition("language", () => setLanguage(language === "en" ? "zh" : "en"));
   }
 
   function lookupText(text: string, page: number, sectionId: string, blockId: string | undefined, sourceText: string) {
@@ -3488,7 +3600,7 @@ export function App() {
     setSelectedPhrase(null);
     window.getSelection()?.removeAllRanges();
     setStudyBookFilter(currentBookId);
-    setView("notes");
+    navigateTo("notes");
   }
 
   function saveActiveTerm() {
@@ -3878,9 +3990,13 @@ export function App() {
     <main
       className={[
         "appShell",
+        "spatialStage",
+        "page-reader",
         isImmersive ? "immersiveMode" : "",
         showToc || showVocab || showNotes || activeLookup ? "panelOpen" : ""
       ].filter(Boolean).join(" ")}
+      data-app-view="reader"
+      data-book-id={currentBookId}
       data-theme={readerPreferences.theme}
       data-text-scale={readerPreferences.textScale}
     >
@@ -3893,7 +4009,7 @@ export function App() {
             <h1>{currentLesson.title[language]}</h1>
           </div>
           <div className="headerActions">
-            <button className="readerControlButton" onClick={() => setView("home")} aria-label="back to library">书库</button>
+            <button className="readerControlButton" onClick={() => navigateTo("home")} aria-label="back to library">书库</button>
             <button className="tocButton" onClick={openToc} aria-label="open table of contents">
               目录
             </button>
@@ -3934,15 +4050,15 @@ export function App() {
                 <button onClick={toggleTheme}>{readerPreferences.theme === "dark" ? "亮色" : "深色"}</button>
                 <button onClick={() => {
                   setStudyBookFilter(currentBookId);
-                  setView("vocab");
+                  navigateTo("vocab");
                 }}>单词本</button>
                 <button onClick={() => {
                   setStudyBookFilter(currentBookId);
-                  setView("notes");
+                  navigateTo("notes");
                 }}>笔记</button>
                 <button onClick={() => {
                   setStudyBookFilter(currentBookId);
-                  setView("favorites");
+                  navigateTo("favorites");
                 }}>收藏页</button>
               </div>
             )}
@@ -4154,7 +4270,7 @@ export function App() {
                     <button className="primary" onClick={() => {
                       closeOverlayForJump();
                       setVocabPageMode("plan");
-                      setView("vocab");
+                      navigateTo("vocab");
                     }}>去学习</button>
                   </div>
                 </article>

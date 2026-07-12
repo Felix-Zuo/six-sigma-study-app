@@ -12,6 +12,7 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 
 | Metric | Current State |
 | --- | --- |
+| Release | `Beta 0.8.3` (`0.8.3-beta.0`, Android code `803`) |
 | Runtime books | 2 catalog books: full Six Sigma manual + original import-practice workbook |
 | Six Sigma content | 33 chapters, 449 aligned study pages, 174 reader sections |
 | Preserved assets | 475 figure/table/formula PNG runtime assets; EN/ZH image counts 476/476 |
@@ -45,6 +46,8 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 | --- | --- | --- |
 | ![Vocabulary answer with phonetics, senses, context, and translation](docs/assets/showcase/learning-vocab-answer.png) | ![Question training dashboard](docs/assets/showcase/learning-question-home.png) | ![Question lookup with rich dictionary and context](docs/assets/showcase/learning-question-lookup-rich.png) |
 
+Beta 0.8.3 uses the selected Quiet Aperture direction: one calm foreground study page, functional page-edge destinations, restrained module colors, and layered transitions that settle independently. See [design-qa.md](design-qa.md) for the reference comparison and Android visual acceptance record.
+
 ## Study Workflow
 
 1. Open the Android app; the logo opening runs automatically and then enters the study home.
@@ -58,7 +61,8 @@ When another book is selected, vocabulary, notes, and favorites are filtered to 
 
 ## Core Features
 
-- Multi-book study workbench with bottom navigation for Library, Vocabulary, Notes, Favorites, and Settings.
+- Multi-book study workbench with bottom navigation for Home, Vocabulary, Practice, Notes, and Settings; Favorites remains available from the home page stack and reader tools.
+- Quiet Aperture visual system with matte page layers, native View Transitions, independent easing, and a reduced-motion fallback.
 - Automatic opening logo animation with the full rights/non-commercial notice moved to Settings/About.
 - English/Chinese reading mode with block-aware position restoration.
 - Deduplicated page rail, chapter progress, page search, and table-of-contents navigation.

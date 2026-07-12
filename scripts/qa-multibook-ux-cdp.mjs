@@ -90,6 +90,7 @@ async function main() {
   }
 
   async function capture(name) {
+    await sleep(1250);
     fs.mkdirSync("qa/screenshots", { recursive: true });
     const screenshot = await cdp.send("Page.captureScreenshot", { format: "png", fromSurface: true });
     const path = `qa/screenshots/${name}.png`;
@@ -206,7 +207,9 @@ async function main() {
   await evalPage(`document.querySelector('[aria-label="back to library"]')?.click()`);
   await waitFor("home before vocab page", () => evalPage(`Boolean(document.querySelector(".dashboardHero") && document.querySelector(".mainNav"))`));
   await evalPage(`document.querySelectorAll(".mainNavItem")[1]?.click()`);
-  await waitFor("vocab page", () => evalPage(`Boolean(document.querySelector(".appPageHeader h1")?.textContent?.includes("单词本") && document.querySelector(".studyItem"))`));
+  await waitFor("vocab page", () => evalPage(`Boolean(document.querySelector(".appPageHeader h1")?.textContent?.includes("单词本") && document.querySelector(".vocabModeTabs"))`));
+  await evalPage(`Array.from(document.querySelectorAll(".vocabModeTabs button")).find((item) => item.textContent?.includes("词库"))?.click()`);
+  await waitFor("vocab library", () => evalPage(`Boolean(document.querySelector(".studyItem"))`));
   const vocabPage = await evalPage(`(() => ({
     itemCount: document.querySelectorAll(".studyItem").length,
     hasReader: Boolean(document.querySelector(".readerPanel")),
@@ -246,7 +249,9 @@ async function main() {
   }))()`);
   const notesShot = await capture("target3-08-notes");
 
-  await evalPage(`Array.from(document.querySelectorAll(".mainNavItem")).find((item) => item.innerText.includes("收藏"))?.click()`);
+  await evalPage(`Array.from(document.querySelectorAll(".mainNavItem")).find((item) => item.innerText.includes("首页"))?.click()`);
+  await waitFor("home before favorites page", () => evalPage(`Boolean(document.querySelector(".workspaceEdgeNav"))`));
+  await evalPage(`Array.from(document.querySelectorAll(".workspaceEdgeNav button")).find((item) => item.innerText.includes("收藏"))?.click()`);
   await waitFor("favorites page", () => evalPage(`Boolean(document.querySelector(".appPageHeader h1")?.textContent?.includes("收藏") && document.querySelector(".studyItem"))`));
   const favoritesPage = await evalPage(`(() => ({
     itemCount: document.querySelectorAll(".studyItem").length,
@@ -260,7 +265,7 @@ async function main() {
     splash.hasShortEnglish &&
     !splash.hasOldButton &&
     !splash.hasLongNotice &&
-    home.navItems.join("|") === "书库|单词|笔记|收藏|我的" &&
+    home.navItems.join("|") === "首页|单词|刷题|笔记|我的" &&
     home.bookCount >= 2 &&
     home.hasDashboard &&
     home.hasMetrics &&

@@ -31,5 +31,7 @@ These PNG files are copied from local QA screenshots after passing reader checks
 | `target4-notes.png` | `qa/target4-audit/screenshots/round1-11-notes.png` | Current notes page |
 | `target4-favorites.png` | `qa/target4-audit/screenshots/round1-12-favorites.png` | Current favorites page |
 | `target4-vocab.png` | `qa/target4-audit/screenshots/round1-13-vocab.png` | Current vocabulary page |
+| `beta-0.8.3-selected-reference.png` | Selected Product Design exploration | Quiet Aperture visual target |
+| `beta-0.8.3-reference-vs-implementation.png` | Local design QA composite | Selected reference beside the final Android implementation |
 
-Regenerate the underlying screenshots with the QA scripts documented in `docs/08-release-verification.md`, then copy only selected public-safe screenshots into this folder.
+The `target4-*` and `learning-*` files were refreshed from the Beta 0.8.3 Android WebView run after the screenshot helpers were updated to wait for visual settling. Regenerate the underlying screenshots with the QA scripts documented in `docs/08-release-verification.md`, then copy only selected public-safe screenshots into this folder.

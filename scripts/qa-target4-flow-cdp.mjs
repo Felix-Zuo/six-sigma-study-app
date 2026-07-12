@@ -96,6 +96,7 @@ async function main() {
   }
 
   async function capture(name) {
+    await sleep(1250);
     fs.mkdirSync(screenshotDir, { recursive: true });
     const screenshot = await cdp.send("Page.captureScreenshot", { format: "png", fromSurface: true });
     const filePath = path.join(screenshotDir, `${name}.png`);
@@ -353,7 +354,7 @@ async function main() {
     !opening.hasLongNotice &&
     home.navCount === 5 &&
     home.bookCount >= 2 &&
-    home.metricCount >= 5 &&
+    home.metricCount === 3 &&
     home.overflow <= 1 &&
     secondBook.activeBook === "agent-import-sample" &&
     secondBook.title.length > 0 &&

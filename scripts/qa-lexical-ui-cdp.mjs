@@ -62,6 +62,7 @@ async function main() {
   }
 
   async function capture(name) {
+    await sleep(1250);
     fs.mkdirSync(screenshotDir, { recursive: true });
     const shot = await cdp.send("Page.captureScreenshot", { format: "png", fromSurface: true, captureBeyondViewport: false });
     const file = path.join(screenshotDir, `${name}.png`);

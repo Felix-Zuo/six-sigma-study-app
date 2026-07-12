@@ -55,6 +55,7 @@ npm run qa:sheet-gestures
 npm run qa:target4-flow
 npm run qa:learning-modules
 npm run qa:lexical-ui
+npm run qa:motion-ui
 npm run typecheck
 npm run build
 npm run android:release-apk
@@ -113,13 +114,24 @@ node scripts\qa-dictionary-cdp.mjs
 ## PWA Browser Offline QA
 
 - `node scripts\qa-pwa-offline-cdp.mjs`: passed against Vite preview on `127.0.0.1:4175` and clean headless Chrome CDP on `127.0.0.1:9333`.
-- Service worker cache: `six-sigma-study-v0.8.2`; content JSON uses network-first refresh with offline cache fallback.
+- Service worker cache: `six-sigma-study-v0.8.3`; content JSON uses network-first refresh with offline cache fallback.
 - Online cache state includes `/`, `/index.html`, hashed JS/CSS shell assets, `content/manual.json`, `manifest.webmanifest`, and all 475 figure assets.
 - Offline reload state: CDP network offline, cache-ignored reload rendered `Chapter 1: What is Six Sigma?`, 23 sections, service-worker controller present, and horizontal overflow 0.
 
 ## Android Runtime QA
 
 Verified on local emulator `SixSigmaQA` / `emulator-5554`.
+
+### Beta 0.8.3 Quiet Aperture Frontend
+
+- `npm run qa:target3-product` and `npm run qa:target4-flow`: passed with the new Home, Vocabulary, Practice, Notes, and Settings bottom navigation, two-book runtime, the layered home work page, EN/ZH reader, preserved Chinese figures, TOC, immersive mode, independent study pages, and zero horizontal overflow.
+- `npm run qa:sheet-gestures`: passed at about 52% and 92% sheet heights with body lock and `overscroll: contain`.
+- `npm run qa:learning-ui`, `npm run qa:lexical-ui`, and `npm run qa:ai-context-ui`: passed vocabulary recall, contextual examples, question lookup, answer flow, pronunciation metadata, accepted DeepSeek correction reuse/export, Beta 0.8.3 settings state, and secret exclusion.
+- `npm run qa:image-fidelity`: passed Chapters 1, 7, 26, and 33 with matched EN/ZH counts 2, 14, 50, and 25, zero broken images, successful lookup, and zero horizontal overflow.
+- Screenshot helpers wait 1250 ms before capture so the evidence records the settled layered state rather than an intentional transition frame.
+- `npm run qa:motion-ui`: passed with native View Transition support, normal layered motion above 500 ms, reduced-motion animation durations at or below 1 ms, and zero horizontal overflow in both modes.
+- Final APK: 40,716,973 bytes, SHA-256 `DC5945FB7045898304869E4E244D660BA78363C5DB35A8C21DAC2B394DD9D830`; v2 signature verified; version code/name `803` / `0.8.3-beta`; release install and launch passed on `SixSigmaQA`.
+- Final AAB: 38,469,282 bytes, SHA-256 `C736593D129235C448A184CB3EEAC8BE5012EAD4F7E1924CAFAD2AD56E503051`; JAR signature verification passed.
 
 ### Beta 0.8.2 AI Context Correction
 
@@ -148,7 +160,7 @@ Verified on local emulator `SixSigmaQA` / `emulator-5554`.
 - Vocabulary export: Android WebView QA verified CSV export with header, review fields, source text, quote/comma escaping, clipboard fallback, and 0 horizontal overflow.
 - Study notes: Android WebView QA verified selected Chinese text can be saved with language/page/section metadata, edited in the notes panel, and rendered with 0 horizontal overflow.
 - Key chapter release APK QA: `npm run qa:android-key-chapters` passed on Chapters 1, 7, 26, and 33. It verified EN -> ZH -> EN position restoration, tap-to-lookup, no generic lookup fallback, no horizontal overflow, and all target chapter figure images loading without broken images. Chapter 33 specifically verified `left-to-right` opens the curated `left-to-right` phrase entry.
-- Target 3 product QA: `npm run qa:target3-product` passed with automatic no-click opening, short bilingual opening copy, bottom navigation entries (`书库`, `单词`, `笔记`, `收藏`, `我的`), two-book home, dashboard metrics, English reader, Chinese reader with 2 preserved Chapter 1 images, draggable lookup sheet at about 52% and 92% height, body scroll lock, source return buttons, saved term/favorite `bookId`, and independent vocabulary/notes/favorites pages.
+- Target 3 product QA: `npm run qa:target3-product` passed with automatic no-click opening, short bilingual opening copy, bottom navigation entries (`首页`, `单词`, `刷题`, `笔记`, `我的`), two-book home, three dashboard metrics, English reader, Chinese reader with 2 preserved Chapter 1 images, draggable lookup sheet at about 52% and 92% height, body scroll lock, source return buttons, saved term/favorite `bookId`, and independent vocabulary/notes/favorites pages.
 - Target 4 product audit: `npm run qa:target4-flow` passed against a clean mobile CDP run. It verified automatic opening, 5-item bottom navigation, two-book home, Import Practice Workbook rendering, Settings/About panels with GitHub link and data controls, English reader, TOC search sheet, immersive mode, lookup half/full states, exact source-return highlight for `ch01-overview-en-001`, Chinese reader with loaded image, notes/favorites/vocabulary pages, and `bookId: six-sigma-black-belt` persistence for created study data.
 - Target 4 screenshots were captured under `qa/target4-audit/screenshots/round1-01-opening.png` through `round1-13-vocab.png`; public-safe copies are committed under `docs/assets/showcase/target4-*.png`.
 - Target 4 product fixes: visible sample-book wording now uses Import Practice Workbook copy; reader floating study docks were removed after screenshot audit showed they could occlude Chinese text; source-return anchors now preserve block-level pending scroll and highlighting; localStorage writes fail softly in restricted contexts; stale manual fetches are ignored when switching books.
