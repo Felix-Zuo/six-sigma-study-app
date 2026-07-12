@@ -102,6 +102,7 @@ async function main() {
       translation: "范围",
       contextMeaning: "项目范围",
       contextExplanation: "本句中的 scope 指六西格玛项目明确包含与排除的工作边界。",
+      contextCorrectionId: "qa-user-confirmed-scope",
       exampleText: "The project scope should be defined before the team begins measurement.",
       exampleTranslation: "团队开始测量之前，应先明确项目范围。",
       chapter: 9,

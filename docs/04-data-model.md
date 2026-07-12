@@ -75,6 +75,58 @@ type ContextBlockGloss = {
 
 The model environment and Hugging Face cache live outside Git. Only the generated glossary inside `manual.json` is shipped to the app. CI validates the committed output with `npm run qa:context-glosses` and does not download or execute the models.
 
+### Context Correction Bundle
+
+AI output is never persisted as an arbitrary model response. The App validates the strict tool result, adds trusted local anchors and hashes, and stores one canonical `ContextCorrectionBundle` per `bookId` under `six-sigma-study:context-corrections:v1:<bookId>`.
+
+```ts
+type ContextCorrectionRecord = {
+  id: `ctxcorr-${string}`; // SHA-256 identity
+  status: "proposed" | "accepted" | "rejected" | "revoked" | "superseded";
+  source: {
+    sourceType: "manual" | "question";
+    chapterId: string | null;
+    sectionId: string;
+    blockId: string | null;
+    page: number;
+    sentenceIndex: number | null;
+    sourceText: string;
+    sourceTextSha256: string;
+  };
+  lexical: {
+    surface: string;
+    lemma: string;
+    partOfSpeech: string;
+    phrase: string;
+    phrasePattern: string;
+  };
+  before: { contextMeaningZh: string | null; sentenceTranslationZh: string | null };
+  after: {
+    contextMeaningZh: string;
+    sentenceTranslationZh: string;
+    explanationZh: string;
+    alternativesZh: string[];
+  };
+  matching: {
+    exactSignature: string;
+    autoApplyExact: true;
+    similarMode: "suggestion-only";
+    similarityThreshold: number;
+  };
+  review: { acceptedBy: string | null; acceptedAt: string | null };
+  provenance: {
+    provider: "deepseek" | "human";
+    model: string;
+    promptVersion: string;
+    appVersion: string;
+    generatedAt: string;
+    responseSha256: string;
+  };
+};
+```
+
+Formal schema: `content/schemas/context-correction-bundle.schema.json`. Only `accepted` records are exported by default. The API key and raw model response are not valid fields. Exact anchors or exact phrase structures may auto-apply; similarity matches only display a suggestion. The public repository importer accepts manual-source records only and reports/skips question-source records because a local question bank may be private.
+
 ## Agent Import Request
 
 ```ts
@@ -209,6 +261,7 @@ type SavedTerm = {
   sourceTranslation?: string;
   contextMeaning?: string;
   contextExplanation?: string;
+  contextCorrectionId?: string;
   exampleText?: string;
   exampleTranslation?: string;
   savedAt: string;

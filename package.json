@@ -1,6 +1,6 @@
 {
   "name": "six-sigma-study-app",
-  "version": "0.1.0",
+  "version": "0.8.2-beta.0",
   "private": true,
   "workspaces": [
     "apps/reader"
@@ -17,6 +17,11 @@
     "extract:ch01": "python scripts/extract_chapter_content.py",
     "extract:manual": "python scripts/extract_manual_content.py",
     "apply:content-overrides": "python scripts/apply_content_overrides.py",
+    "apply:context-corrections": "python scripts/apply_context_corrections.py",
+    "validate:context-corrections": "python scripts/qa_context_corrections.py",
+    "qa:context-corrections": "python scripts/qa_context_corrections.py",
+    "qa:ai-context-ui": "node scripts/qa-ai-context-ui-cdp.mjs",
+    "qa:android-keystore": "node scripts/qa-android-deepseek-keystore-cdp.mjs",
     "build:dictionary": "python scripts/build_manual_dictionary.py",
     "build:context-glosses": "python scripts/build_context_glosses.py",
     "lint:content": "python scripts/validate_content.py content/processed",
@@ -44,7 +49,7 @@
     "qa:learning-ui": "node scripts/qa-learning-ui-cdp.mjs",
     "qa:lexical-ui": "node scripts/qa-lexical-ui-cdp.mjs",
     "qa:private-isolation": "python scripts/qa_private_question_bank_isolation.py",
-    "qa:learning-modules": "npm run qa:vocab-flashcards && npm run qa:context-lookup && npm run qa:context-glosses && npm run qa:lexical-learning && npm run qa:streak && npm run qa:question-schema && npm run qa:question-modes && npm run qa:private-isolation"
+    "qa:learning-modules": "npm run qa:vocab-flashcards && npm run qa:context-lookup && npm run qa:context-glosses && npm run qa:lexical-learning && npm run qa:streak && npm run qa:question-schema && npm run qa:question-modes && npm run qa:private-isolation && npm run qa:context-corrections"
   },
   "devDependencies": {
     "@capacitor/android": "^8.4.1",

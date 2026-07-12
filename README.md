@@ -17,6 +17,7 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 | Preserved assets | 475 figure/table/formula PNG runtime assets; EN/ZH image counts 476/476 |
 | Dictionary | 3981 public offline entries; local Android builds add a 3552-entry private-question supplement |
 | Context glossary | 3875 English text blocks, 8591 aligned sentences, 105048 occurrence-level meanings |
+| AI context review | Optional personal DeepSeek V4 Flash key, strict structured correction records, user-confirmed reuse/export |
 | Practice | 1006 questions in local Android release; browse/practice/wrong/exam modes |
 | Platforms | Android APK/AAB via Capacitor, PWA runtime for browser QA |
 | Study data | `bookId`-scoped reading position, vocabulary, notes, source anchors, streaks, question progress |
@@ -65,6 +66,9 @@ When another book is selected, vocabulary, notes, and favorites are filtered to 
 - Draggable bottom-sheet lookup with half, tall, and full-height states plus scroll containment.
 - Rich offline word profiles with phonetics, pronunciation, part of speech, semicolon-separated senses, lemma/word forms, English definitions, occurrence-level meanings derived from the aligned bilingual sentence, bilingual examples, source return, and CSV export.
 - Context lookup never promotes the first broad dictionary sense to a sentence meaning. Low-confidence or unavailable alignments are labeled honestly, while six cross-block/page-break sentences are restored before lookup.
+- Optional DeepSeek V4 Flash context review sends only the current sentence, one adjacent sentence on each side, aligned Chinese, and dictionary candidates. Offline lookup remains the first response and accepted corrections can be revoked.
+- Android stores the user's DeepSeek API key with AES-GCM backed by Android Keystore. Browser/PWA testing keeps a key in memory for the current session only; keys never enter localStorage, correction exports, logs, or Git.
+- Every generated proposal is normalized into `Context Correction Bundle v1`; exact phrase structures can reuse an accepted correction automatically, while merely similar contexts remain suggestions requiring confirmation.
 - Android pronunciation uses the device's native English text-to-speech engine; browser builds retain a Web Speech fallback.
 - Flashcard vocabulary review with familiarity, lapse, interval, ease factor, and question-source metadata.
 - Daily local streak target with capped catch-up workload after missed days.
@@ -89,6 +93,29 @@ flowchart LR
 ```
 
 More system diagrams: [docs/09-showcase-systems.md](docs/09-showcase-systems.md).
+
+## AI Context Corrections
+
+The AI feature is a bounded context verifier inside the existing word sheet, not a general chat surface. Configure a personal key under **My > AI Context Review**, then use **AI Review Current Context** when the offline result needs verification. Low-confidence offline alignments can trigger the same check automatically.
+
+| Contract Piece | Path |
+| --- | --- |
+| Persistent/export schema | `content/schemas/context-correction-bundle.schema.json` |
+| Accepted repository records | `content/corrections/accepted-context-corrections.json` |
+| App store and exact/similar matching | `apps/reader/src/lib/contextCorrectionStore.ts` |
+| Strict DeepSeek request adapter | `apps/reader/src/lib/deepSeekAssistant.ts` |
+| Android Keystore/network bridge | `android/app/src/main/java/com/findjob/sixsigmastudy/NativeDeepSeekAssistantPlugin.java` |
+| Import and runtime merge | `scripts/import_context_corrections.py`, `scripts/apply_context_corrections.py` |
+
+Import an App-exported, user-confirmed bundle and apply it to runtime context glosses:
+
+```powershell
+python scripts\import_context_corrections.py path\to\context-corrections.json
+npm run apply:context-corrections
+npm run qa:context-corrections
+```
+
+Import validates the schema, exact field set, source sentence SHA-256, phrase presence, user confirmation, block/sentence anchor, and book ID against the current manual before writing. Question-source corrections stay local and are skipped by the public repository importer so private question text cannot leak into Git.
 
 ## Content Pipeline
 
@@ -164,6 +191,7 @@ Public-readiness evidence: [PUBLIC_READINESS.md](PUBLIC_READINESS.md). Attributi
 | Learning modules | `npm run qa:learning-modules` | flashcards, occurrence-level context glossary, streak, question schema, question modes, question word lookup, private-bank isolation |
 | Learning UI | `npm run qa:learning-ui` | recall-first word review, contextual answer, question lookup, unknown explanation, correct auto-next |
 | Lexical learning | `npm run qa:lexical-learning`, `npm run qa:lexical-ui` | rich senses, phonetics, context disambiguation, bilingual examples, native pronunciation bridge, mobile layout |
+| AI context corrections | `npm run qa:context-corrections`, `npm run qa:ai-context-ui` | strict output, hashes, accepted-only export, revert regression, mobile proposal/accept/reuse flow |
 | Android WebView | `npm run qa:android-key-chapters` | Chapters 1, 7, 26, 33, lookup, alignment, image checks |
 | Release package | `npm run android:release-apk` and `npm run android:aab` | local signed APK/AAB with runtime content bundled |
 

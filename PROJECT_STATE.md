@@ -20,6 +20,7 @@ The final product must support full-manual offline reading, position-preserving 
 
 ## Current Evidence
 
+- Product version: `Beta 0.8.2` (`0.8.2-beta.0` in npm, Android `versionCode 802` / `versionName 0.8.2-beta`). During the current beta line, each user-facing update increments the patch version: `0.8.3`, `0.8.4`, and so on.
 - Branch: `main`
 - Latest workspace migration validation pass: 2026-06-26 00:33 Asia/Shanghai
 - Local workspace root: `D:\0A OpenClaw\projects\6sigma`
@@ -28,6 +29,21 @@ The final product must support full-manual offline reading, position-preserving 
 - Release APK after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
 - Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, occurrence-level bilingual context glosses, tap-to-lookup bottom sheet, 3981-entry public offline learner dictionary plus an ignored 3552-entry local private-question supplement, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+
+## 2026-07-12 DeepSeek Context Correction Beta 0.8.2
+
+- Added an optional, user-owned `deepseek-v4-flash` context verifier inside the existing lookup sheet. Offline dictionary/context results render first; medium/unavailable evidence can auto-check only when a key is configured, and every result can also be requested manually.
+- DeepSeek receives only the clicked surface, dictionary candidates, current sentence, one adjacent sentence on each side, aligned Chinese, and the current domain. Thinking is disabled for this bounded task.
+- The request uses the official Beta strict tool-calling endpoint with all fields required and `additionalProperties: false`. App validation additionally requires the detected phrase to exist verbatim in the source sentence and requires Chinese meaning, sentence translation, and explanation.
+- Added `Context Correction Bundle v1`, exact field validation, deterministic SHA-256 IDs/source hashes, proposed/accepted/rejected/revoked states, exact-only automatic reuse, suggestion-only similar matching, accepted-only export, and a reversible vocabulary snapshot link via `contextCorrectionId`.
+- Added Android AES-GCM API-key encryption backed by Android Keystore. The key never enters WebView storage, correction JSON, logs, or source control; browser/PWA mode retains a key in memory only for the current session.
+- Added repository import/apply scripts. Accepted records are checked against `bookId`, source hash, phrase, block, and sentence before merging into runtime `contextGlosses`; generated `manual.json` is never edited directly by the model.
+- Fixed the reported offline regression `revert to old ways`: `revert` now means returning to a previous state or practice, not “进行”.
+- Verification completed: TypeScript, production build, all learning modules, content/book validation, reviewed content fidelity, source coverage, public audit, documentation links, existing lexical/learning UI, strict correction QA, and the 390x844 mocked DeepSeek proposal/accept/reopen/export flow passed. Android emulator Keystore save/restart/clear/restart checks passed; SharedPreferences contained ciphertext and IV with no test-key plaintext.
+- Final `Beta 0.8.2` release artifacts:
+  - APK: 40,712,065 bytes; SHA-256 `BC41B21A46D211BCE4BC4AAB32D8F421B4163E9DD4D1F11AEACF0E9A2D261A26`; `versionCode 802`, `versionName 0.8.2-beta`; APK Signature Scheme v2 verified, one signer.
+  - AAB: 38,464,391 bytes; SHA-256 `4ECB1E4D6A2C3F2F23FC307B959897CFA54B6E2EA3FD6F2EBB50B3BC080C1DCD`; JAR signature verified with the expected local self-signed/no-timestamp warnings.
+  - APK DEX contains `NativeDeepSeekAssistantPlugin`; APK/AAB contain the full runtime manual, local private question bank, and final web assets. The Release APK installed and launched on `SixSigmaQA`, reporting version `0.8.2-beta` / code `802`.
 
 ## 2026-07-12 Occurrence-Level Context And Page 9 Click Repair
 
@@ -38,7 +54,7 @@ The final product must support full-manual offline reading, position-preserving 
 - Repaired six cross-block sentences whose English source was split at a page boundary. Chapter 1 page 9 now restores the complete sentence ending `organization should improve first.`; `provide = 让` and the continuation `should = 应该` both open correctly.
 - Stopped treating sentence-final punctuation as part of the lookup word, so the query, pronunciation request, and example extraction use `prospects` instead of `prospects.`.
 - Existing manual vocabulary records are re-enriched from the new occurrence glossary while their scheduling history is preserved. Unavailable context does not replace the broad dictionary answer used by flash review.
-- Bumped the PWA cache to `six-sigma-study-v0.8.0` and made `/content/*.json` network-first with offline cache fallback, preventing an installed PWA from retaining an old erroneous `manual.json` after an update.
+- Bumped the PWA cache to `six-sigma-study-v0.8.2` and made `/content/*.json` network-first with offline cache fallback, preventing an installed PWA from retaining an old erroneous `manual.json` after an update.
 - Three bounded validation rounds completed:
   - content/runtime gates: lint, source coverage, typecheck, production build, and all learning-module QA passed;
   - 412x915 mobile interaction: page 8 `prospects`, page 9 first block, and page 9 continuation were clicked and returned the expected meanings and bilingual sentences;

@@ -113,13 +113,22 @@ node scripts\qa-dictionary-cdp.mjs
 ## PWA Browser Offline QA
 
 - `node scripts\qa-pwa-offline-cdp.mjs`: passed against Vite preview on `127.0.0.1:4175` and clean headless Chrome CDP on `127.0.0.1:9333`.
-- Service worker cache: `six-sigma-study-v0.8.0`; content JSON uses network-first refresh with offline cache fallback.
+- Service worker cache: `six-sigma-study-v0.8.2`; content JSON uses network-first refresh with offline cache fallback.
 - Online cache state includes `/`, `/index.html`, hashed JS/CSS shell assets, `content/manual.json`, `manifest.webmanifest`, and all 475 figure assets.
 - Offline reload state: CDP network offline, cache-ignored reload rendered `Chapter 1: What is Six Sigma?`, 23 sections, service-worker controller present, and horizontal overflow 0.
 
 ## Android Runtime QA
 
 Verified on local emulator `SixSigmaQA` / `emulator-5554`.
+
+### Beta 0.8.2 AI Context Correction
+
+- `npm run qa:context-corrections`: passed strict format, source hash, accepted merge, provenance, API-key exclusion, and offline `revert` regression checks.
+- `npm run qa:ai-context-ui`: passed at 390x844 with a mocked strict DeepSeek response: proposal phrase/meaning/sentence, user acceptance, exact reuse without a second request, accepted-only JSON export, Beta 0.8.2 settings state, and zero horizontal overflow.
+- Android emulator Keystore cycle passed: save fake key, verify only ciphertext/IV in app-private preferences, restart and read configured state, clear, restart and read unconfigured state.
+- DeepSeek live billing/API execution was intentionally not run because no user key is stored in the repository or test environment. The request contract was checked against the official V4 model, Thinking Mode, Tool Calls strict-mode, and Chat Completion documentation on 2026-07-12.
+- Final APK: 40,712,065 bytes, SHA-256 `BC41B21A46D211BCE4BC4AAB32D8F421B4163E9DD4D1F11AEACF0E9A2D261A26`; v2 signature verified; version code/name `802` / `0.8.2-beta`; Release install and launch passed on `SixSigmaQA`.
+- Final AAB: 38,464,391 bytes, SHA-256 `4ECB1E4D6A2C3F2F23FC307B959897CFA54B6E2EA3FD6F2EBB50B3BC080C1DCD`; JAR signature verified with expected local self-signed certificate warnings.
 
 - Chapter 1: first-screen render, tap-to-lookup, curated Six Sigma term lookup, save-to-vocabulary.
 - Chapter 7: section anchors, phrase selection lookup, phrase save with `page: 61` and `sectionId: ch07-s02-major-process-components`.

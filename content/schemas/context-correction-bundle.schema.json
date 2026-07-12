@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Felix-Zuo/six-sigma-study-app/content/schemas/context-correction-bundle.schema.json",
+  "title": "Six Sigma Context Correction Bundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "format", "bookId", "contentVersion", "exportedAt", "corrections"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "format": { "const": "six-sigma-context-corrections" },
+    "bookId": { "type": "string", "minLength": 1 },
+    "contentVersion": { "type": "string", "minLength": 1 },
+    "exportedAt": { "type": "string", "format": "date-time" },
+    "corrections": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/correction" }
+    }
+  },
+  "$defs": {
+    "nullableString": { "type": ["string", "null"] },
+    "correction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "status", "source", "lexical", "before", "after", "matching", "review", "provenance"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^ctxcorr-[a-f0-9]{64}$" },
+        "status": { "enum": ["proposed", "accepted", "rejected", "revoked", "superseded"] },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["sourceType", "chapterId", "sectionId", "blockId", "page", "sentenceIndex", "sourceText", "sourceTextSha256"],
+          "properties": {
+            "sourceType": { "enum": ["manual", "question"] },
+            "chapterId": { "$ref": "#/$defs/nullableString" },
+            "sectionId": { "type": "string", "minLength": 1 },
+            "blockId": { "$ref": "#/$defs/nullableString" },
+            "page": { "type": "integer", "minimum": 1 },
+            "sentenceIndex": { "type": ["integer", "null"], "minimum": 0 },
+            "sourceText": { "type": "string", "minLength": 1 },
+            "sourceTextSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+          }
+        },
+        "lexical": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["surface", "lemma", "partOfSpeech", "phrase", "phrasePattern"],
+          "properties": {
+            "surface": { "type": "string", "minLength": 1 },
+            "lemma": { "type": "string", "minLength": 1 },
+            "partOfSpeech": { "type": "string", "minLength": 1 },
+            "phrase": { "type": "string", "minLength": 1 },
+            "phrasePattern": { "type": "string", "minLength": 1 }
+          }
+        },
+        "before": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["contextMeaningZh", "sentenceTranslationZh"],
+          "properties": {
+            "contextMeaningZh": { "$ref": "#/$defs/nullableString" },
+            "sentenceTranslationZh": { "$ref": "#/$defs/nullableString" }
+          }
+        },
+        "after": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["contextMeaningZh", "sentenceTranslationZh", "explanationZh", "alternativesZh"],
+          "properties": {
+            "contextMeaningZh": { "type": "string", "minLength": 1 },
+            "sentenceTranslationZh": { "type": "string", "minLength": 1 },
+            "explanationZh": { "type": "string", "minLength": 1 },
+            "alternativesZh": {
+              "type": "array",
+              "maxItems": 5,
+              "items": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "matching": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["exactSignature", "autoApplyExact", "similarMode", "similarityThreshold"],
+          "properties": {
+            "exactSignature": { "type": "string", "minLength": 1 },
+            "autoApplyExact": { "const": true },
+            "similarMode": { "const": "suggestion-only" },
+            "similarityThreshold": { "type": "number", "minimum": 0, "maximum": 1 }
+          }
+        },
+        "review": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["acceptedBy", "acceptedAt"],
+          "properties": {
+            "acceptedBy": { "type": ["string", "null"] },
+            "acceptedAt": { "type": ["string", "null"], "format": "date-time" }
+          }
+        },
+        "provenance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["provider", "model", "promptVersion", "appVersion", "generatedAt", "responseSha256"],
+          "properties": {
+            "provider": { "enum": ["deepseek", "human"] },
+            "model": { "type": "string", "minLength": 1 },
+            "promptVersion": { "type": "string", "minLength": 1 },
+            "appVersion": { "type": "string", "minLength": 1 },
+            "generatedAt": { "type": "string", "format": "date-time" },
+            "responseSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+          }
+        }
+      }
+    }
+  }
+}

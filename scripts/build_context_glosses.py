@@ -384,6 +384,11 @@ def main() -> None:
     report["repairedCrossBlockSentences"] = repaired_cross_block
     manual["contextGlossesVersion"] = "1.1.0"
     manual["contextGlosses"] = new_glosses
+    from context_corrections import apply_context_corrections_to_manual, load_canonical_bundle
+
+    report["acceptedContextCorrections"] = apply_context_corrections_to_manual(
+        manual, load_canonical_bundle(REPO_ROOT)
+    )
     args.manual.write_text(json.dumps(manual, ensure_ascii=False, indent=2), encoding="utf-8")
     args.public_manual.parent.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(args.manual, args.public_manual)

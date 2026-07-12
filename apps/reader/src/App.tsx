@@ -6,13 +6,17 @@ import {
   BookmarkPlus,
   BookOpen,
   ClipboardCheck,
+  Download,
   Eye,
   Home,
+  KeyRound,
   Languages,
   ListChecks,
   NotebookPen,
   Play,
   RotateCcw,
+  ShieldCheck,
+  Sparkles,
   Target,
   Timer,
   UserRound,
@@ -56,6 +60,29 @@ import {
 } from "./lib/questionBank";
 import { publicQuestionBank } from "./data/publicQuestionBank";
 import { speakEnglish } from "./lib/nativeTts";
+import {
+  acceptedCorrectionExport,
+  clearContextCorrectionBundle,
+  contextFromCorrection,
+  createProposedCorrection,
+  findAcceptedCorrection,
+  findSimilarCorrection,
+  loadContextCorrectionBundle,
+  persistContextCorrectionBundle,
+  setCorrectionStatus,
+  upsertCorrection,
+  type ContextCorrectionBundle,
+  type ContextCorrectionRecord
+} from "./lib/contextCorrectionStore";
+import {
+  analyzeContextWithDeepSeek,
+  clearDeepSeekApiKey,
+  deepSeekPromptVersion,
+  getDeepSeekKeyStatus,
+  saveDeepSeekApiKey,
+  testDeepSeekConnection,
+  type DeepSeekKeyStatus
+} from "./lib/deepSeekAssistant";
 
 type Language = "en" | "zh";
 type ThemeMode = "light" | "dark";
@@ -163,6 +190,7 @@ type ActiveLookup = {
   sourceText: string;
   sourceTranslation?: string;
   context: ContextExplanation;
+  baseContext: ContextExplanation;
   questionSource?: {
     questionId: string;
     examId: string;
@@ -171,6 +199,15 @@ type ActiveLookup = {
     page: number;
     sourceRef: string;
   };
+};
+
+type AiLookupState = {
+  lookupId: string;
+  status: "idle" | "checking" | "ready" | "accepted" | "error";
+  correction?: ContextCorrectionRecord;
+  similar?: { correction: ContextCorrectionRecord; similarity: number };
+  message?: string;
+  usage?: { promptTokens: number; completionTokens: number };
 };
 
 type SelectedPhrase = {
@@ -226,6 +263,8 @@ type PageGroup = {
 
 const defaultBookId = "six-sigma-black-belt";
 const defaultBookTitle = "六西格玛黑带教材";
+const productVersionLabel = "Beta 0.8.2";
+const productVersionId = "0.8.2-beta";
 const githubProfileUrl = "https://github.com/Felix-Zuo";
 const catalogPath = "content/catalog.json";
 const bundledQuestionBankPath = "content/private/question-bank.private.json";
@@ -632,6 +671,13 @@ export function App() {
   const [activeChapterId, setActiveChapterId] = useState("");
   const [activeSectionId, setActiveSectionId] = useState("");
   const [activeLookup, setActiveLookup] = useState<ActiveLookup | null>(null);
+  const [aiLookupState, setAiLookupState] = useState<AiLookupState>({ lookupId: "", status: "idle" });
+  const [deepSeekKeyStatus, setDeepSeekKeyStatus] = useState<DeepSeekKeyStatus>({ configured: false, storage: "session-only" });
+  const [deepSeekKeyDraft, setDeepSeekKeyDraft] = useState("");
+  const [aiSettingsMessage, setAiSettingsMessage] = useState("");
+  const [contextCorrectionBundle, setContextCorrectionBundle] = useState<ContextCorrectionBundle>(() =>
+    loadContextCorrectionBundle(defaultBookId, "0.2.0")
+  );
   const [selectedPhrase, setSelectedPhrase] = useState<SelectedPhrase | null>(null);
   const [savedTerms, setSavedTerms] = useState<SavedTerm[]>(() => loadSavedTerms());
   const [savedNotes, setSavedNotes] = useState<SavedNote[]>(() => loadSavedNotes());
@@ -692,6 +738,7 @@ export function App() {
   const pendingLanguageScrollRef = useRef<PendingLanguageScroll | null>(null);
   const savedScrollLockRef = useRef(0);
   const sheetDragRef = useRef<{ startY: number; startHeight: number; currentHeight: number } | null>(null);
+  const aiRequestRef = useRef(0);
 
   const activeBook = useMemo(() => {
     const source = catalog ?? fallbackCatalog;
@@ -979,10 +1026,12 @@ export function App() {
         const shouldReplaceTranslation = !item.translation
           || item.translation === "待完善"
           || item.translation === item.contextMeaning;
-        const shouldReplaceContext = item.sourceType === "manual"
+        const shouldReplaceContext = !item.contextCorrectionId && (
+          item.sourceType === "manual"
           || !item.contextMeaning
           || item.contextMeaning === "待完善"
-          || item.contextMeaning === item.translation;
+          || item.contextMeaning === item.translation
+        );
         const updated: SavedTerm = {
           ...item,
           translation: shouldReplaceTranslation ? entry.translation : item.translation,
@@ -992,10 +1041,10 @@ export function App() {
           wordForms: entry.wordForms?.length ? entry.wordForms : item.wordForms,
           englishDefinition: entry.englishDefinition || item.englishDefinition,
           dictionaryExplanation: entry.explanation || item.dictionaryExplanation,
-          sourceTranslation: alignedTranslation || item.sourceTranslation,
+          sourceTranslation: item.contextCorrectionId ? item.sourceTranslation : alignedTranslation || item.sourceTranslation,
           contextMeaning: shouldReplaceContext ? context.meaning : item.contextMeaning,
           contextExplanation: shouldReplaceContext ? context.explanation : item.contextExplanation || context.explanation,
-          exampleTranslation: context.exampleTranslation || item.exampleTranslation
+          exampleTranslation: item.contextCorrectionId ? item.exampleTranslation : context.exampleTranslation || item.exampleTranslation
         };
         const fields: (keyof SavedTerm)[] = [
           "translation", "partOfSpeech", "phonetic", "wordRoot", "wordForms", "englishDefinition",
@@ -1095,6 +1144,27 @@ export function App() {
   useEffect(() => {
     persistSavedTerms(savedTerms);
   }, [savedTerms]);
+
+  useEffect(() => {
+    setContextCorrectionBundle(loadContextCorrectionBundle(currentBookId, manual?.version ?? "0.2.0"));
+  }, [currentBookId, manual?.version]);
+
+  useEffect(() => {
+    persistContextCorrectionBundle(contextCorrectionBundle);
+  }, [contextCorrectionBundle]);
+
+  useEffect(() => {
+    getDeepSeekKeyStatus()
+      .then(setDeepSeekKeyStatus)
+      .catch(() => setDeepSeekKeyStatus({ configured: false, storage: "session-only" }));
+  }, []);
+
+  useEffect(() => {
+    if (!activeLookup) {
+      aiRequestRef.current += 1;
+      setAiLookupState({ lookupId: "", status: "idle" });
+    }
+  }, [activeLookup]);
 
   useEffect(() => {
     persistSavedNotes(savedNotes);
@@ -1642,6 +1712,184 @@ export function App() {
     updateQuestionProgress(question.questionId, (progress) => recordQuestionAnswer(progress, "correct"));
   }
 
+  function activeLookupId(lookup: Pick<ActiveLookup, "query" | "blockId" | "sourceText" | "questionSource">): string {
+    return [lookup.questionSource ? "question" : "manual", lookup.blockId ?? "", normalizeLookup(lookup.query), lookup.sourceText].join("|");
+  }
+
+  function openLookup(base: Omit<ActiveLookup, "baseContext">) {
+    aiRequestRef.current += 1;
+    const sourceType = base.questionSource ? "question" : "manual";
+    const correctionInput = {
+      bookId: currentBookId,
+      sourceType,
+      blockId: base.blockId,
+      surface: base.query,
+      partOfSpeech: base.entry.partOfSpeech,
+      sourceText: base.context.exampleText
+    } as const;
+    const accepted = findAcceptedCorrection(contextCorrectionBundle, correctionInput);
+    const lookup: ActiveLookup = {
+      ...base,
+      baseContext: base.context,
+      context: accepted ? contextFromCorrection(base.context, accepted) : base.context
+    };
+    const lookupId = activeLookupId(lookup);
+    setActiveLookup(lookup);
+    if (accepted) {
+      setAiLookupState({ lookupId, status: "accepted", correction: accepted });
+      return;
+    }
+    const similar = findSimilarCorrection(contextCorrectionBundle, correctionInput);
+    setAiLookupState({ lookupId, status: "idle", similar });
+    if (base.context.needsVerification && deepSeekKeyStatus.configured) {
+      window.setTimeout(() => void verifyLookupWithAi(lookup, true), 0);
+    }
+  }
+
+  function deepSeekContextForLookup(lookup: ActiveLookup) {
+    const gloss = lookup.blockId ? manual?.contextGlosses?.[lookup.blockId] : undefined;
+    const sentences = gloss?.sentences ?? [];
+    const sentenceIndex = sentences.findIndex((item) => item.source === lookup.baseContext.exampleText);
+    const previous = sentenceIndex > 0 ? sentences[sentenceIndex - 1] : undefined;
+    const next = sentenceIndex >= 0 && sentenceIndex + 1 < sentences.length ? sentences[sentenceIndex + 1] : undefined;
+    return {
+      sentenceIndex: sentenceIndex >= 0 ? sentenceIndex : undefined,
+      input: {
+        surface: lookup.query,
+        dictionarySensesZh: lookup.entry.translation,
+        dictionaryPartOfSpeech: lookup.entry.partOfSpeech || "unknown",
+        domain: lookup.questionSource?.domain || activeBook?.domainLabel || "Six Sigma",
+        currentSentenceEn: lookup.baseContext.exampleText,
+        currentSentenceZh: lookup.baseContext.exampleTranslation || lookup.sourceTranslation || "",
+        previousSentenceEn: previous?.source || "",
+        previousSentenceZh: previous?.translation || "",
+        nextSentenceEn: next?.source || "",
+        nextSentenceZh: next?.translation || ""
+      }
+    };
+  }
+
+  async function verifyLookupWithAi(lookup: ActiveLookup, automatic = false) {
+    const lookupId = activeLookupId(lookup);
+    if (!deepSeekKeyStatus.configured) {
+      if (!automatic) {
+        setAiLookupState({ lookupId, status: "error", message: "请先在“我的”中配置 DeepSeek API Key。" });
+      }
+      return;
+    }
+    const requestId = ++aiRequestRef.current;
+    const currentWindow = deepSeekContextForLookup(lookup);
+    setAiLookupState((state) => ({ ...state, lookupId, status: "checking", message: undefined }));
+    try {
+      const analysis = await analyzeContextWithDeepSeek(currentWindow.input);
+      const proposed = await createProposedCorrection({
+        bookId: currentBookId,
+        contentVersion: manual?.version ?? "0.2.0",
+        sourceType: lookup.questionSource ? "question" : "manual",
+        chapterId: lookup.questionSource?.chapterId || lesson?.id,
+        sectionId: lookup.sectionId,
+        blockId: lookup.blockId,
+        page: lookup.page,
+        sentenceIndex: currentWindow.sentenceIndex,
+        sourceText: lookup.baseContext.exampleText,
+        surface: lookup.query,
+        partOfSpeech: lookup.entry.partOfSpeech,
+        currentMeaning: lookup.baseContext.meaning,
+        currentTranslation: lookup.baseContext.exampleTranslation || lookup.sourceTranslation
+      }, analysis.result, {
+        provider: "deepseek",
+        model: analysis.model,
+        promptVersion: deepSeekPromptVersion,
+        appVersion: productVersionId,
+        responseSha256: analysis.responseSha256
+      });
+      if (requestId !== aiRequestRef.current) {
+        return;
+      }
+      const similar = findSimilarCorrection(contextCorrectionBundle, {
+        bookId: currentBookId,
+        sourceType: lookup.questionSource ? "question" : "manual",
+        blockId: lookup.blockId,
+        surface: proposed.lexical.lemma,
+        partOfSpeech: proposed.lexical.partOfSpeech,
+        sourceText: proposed.source.sourceText
+      }, proposed.id);
+      setContextCorrectionBundle((bundle) => upsertCorrection(bundle, proposed));
+      setAiLookupState({
+        lookupId,
+        status: "ready",
+        correction: proposed,
+        similar,
+        usage: analysis.usage
+      });
+    } catch (error) {
+      if (requestId !== aiRequestRef.current) {
+        return;
+      }
+      setAiLookupState({
+        lookupId,
+        status: "error",
+        message: error instanceof Error ? error.message : "DeepSeek 核验失败"
+      });
+    }
+  }
+
+  function acceptAiCorrection(useSimilar = false) {
+    if (!activeLookup || !aiLookupState.correction) {
+      return;
+    }
+    const now = new Date().toISOString();
+    const source = aiLookupState.correction;
+    const accepted: ContextCorrectionRecord = {
+      ...source,
+      status: "accepted",
+      after: useSimilar && aiLookupState.similar ? aiLookupState.similar.correction.after : source.after,
+      review: { acceptedBy: "user", acceptedAt: now },
+      provenance: useSimilar && aiLookupState.similar ? {
+        ...source.provenance,
+        provider: "human",
+        model: "accepted-similar-correction",
+        responseSha256: aiLookupState.similar.correction.provenance.responseSha256
+      } : source.provenance
+    };
+    setContextCorrectionBundle((bundle) => upsertCorrection(bundle, accepted));
+    setActiveLookup((lookup) => lookup && activeLookupId(lookup) === aiLookupState.lookupId
+      ? { ...lookup, context: contextFromCorrection(lookup.baseContext, accepted) }
+      : lookup);
+    setSavedTerms((items) => items.map((item) => {
+      const sameTerm = normalizeLookup(item.term) === normalizeLookup(activeLookup.query);
+      const sameSource = item.exampleText
+        ? item.exampleText === activeLookup.baseContext.exampleText
+        : item.blockId === activeLookup.blockId;
+      return item.bookId === currentBookId && sameTerm && sameSource ? {
+        ...item,
+        contextMeaning: accepted.after.contextMeaningZh,
+        contextExplanation: accepted.after.explanationZh,
+        sourceTranslation: accepted.after.sentenceTranslationZh,
+        exampleTranslation: accepted.after.sentenceTranslationZh,
+        contextCorrectionId: accepted.id
+      } : item;
+    }));
+    setAiLookupState({ lookupId: aiLookupState.lookupId, status: "accepted", correction: accepted });
+  }
+
+  function rejectAiCorrection() {
+    if (!aiLookupState.correction) {
+      return;
+    }
+    setContextCorrectionBundle((bundle) => setCorrectionStatus(bundle, aiLookupState.correction?.id ?? "", "rejected"));
+    setAiLookupState({ lookupId: aiLookupState.lookupId, status: "idle", message: "已保留原释义。" });
+  }
+
+  function revokeAcceptedCorrection() {
+    if (!activeLookup || !aiLookupState.correction) {
+      return;
+    }
+    setContextCorrectionBundle((bundle) => setCorrectionStatus(bundle, aiLookupState.correction?.id ?? "", "revoked"));
+    setActiveLookup({ ...activeLookup, context: activeLookup.baseContext });
+    setAiLookupState({ lookupId: aiLookupState.lookupId, status: "idle", message: "已撤销本处修订。" });
+  }
+
   function lookupQuestionText(text: string, question: QuestionItem, sourceText: string, sourceTranslation?: string) {
     const entry = lookupCandidates(text).map((key) => termIndex.get(key)).find(Boolean) ?? lookupFallback(text);
     ensureOverlayHistory();
@@ -1649,7 +1897,14 @@ export function App() {
     setShowVocab(false);
     setShowNotes(false);
     setSheetHeightVh(52);
-    setActiveLookup({
+    const context = resolveContextExplanation({
+      query: text,
+      dictionaryTranslation: entry.translation,
+      partOfSpeech: entry.partOfSpeech,
+      sourceText,
+      sourceTranslation
+    });
+    openLookup({
       query: text,
       entry,
       page: question.page,
@@ -1657,13 +1912,7 @@ export function App() {
       blockId: question.questionId,
       sourceText,
       sourceTranslation,
-      context: resolveContextExplanation({
-        query: text,
-        dictionaryTranslation: entry.translation,
-        partOfSpeech: entry.partOfSpeech,
-        sourceText,
-        sourceTranslation
-      }),
+      context,
       questionSource: {
         questionId: question.questionId,
         examId: question.examId,
@@ -1830,6 +2079,9 @@ export function App() {
     if (!activeLookup) {
       return null;
     }
+    const lookupState = aiLookupState.lookupId === activeLookupId(activeLookup)
+      ? aiLookupState
+      : { lookupId: activeLookupId(activeLookup), status: "idle" as const };
     const style = { "--sheet-height": `${sheetHeightVh}vh` } as CSSProperties;
     return (
       <section className="bottomSheet draggableSheet" style={style} aria-label="word explanation">
@@ -1893,6 +2145,69 @@ export function App() {
           <strong>{activeLookup.context.meaning}</strong>
           <p>{activeLookup.context.explanation}</p>
         </section>
+        {lookupState.status === "accepted" && lookupState.correction && (
+          <section className="aiCorrectionCard accepted" aria-label="accepted context correction">
+            <div className="aiCorrectionHeading">
+              <span><ShieldCheck size={17} /> 已确认修订</span>
+              <button onClick={revokeAcceptedCorrection}><RotateCcw size={16} />撤销</button>
+            </div>
+            <strong>{lookupState.correction.lexical.phrase}</strong>
+            <p>{lookupState.correction.after.sentenceTranslationZh}</p>
+          </section>
+        )}
+        {lookupState.status === "checking" && (
+          <section className="aiCorrectionCard checking" role="status">
+            <div className="aiCorrectionHeading"><span><Sparkles size={17} /> DeepSeek 正在核验语境</span></div>
+            <p>只分析当前句及前后各一句，原有离线释义保持可用。</p>
+          </section>
+        )}
+        {lookupState.status === "ready" && lookupState.correction && (
+          <section className="aiCorrectionCard" aria-label="AI context correction proposal">
+            <div className="aiCorrectionHeading">
+              <span><Sparkles size={17} /> AI 核验建议</span>
+              <small>{lookupState.correction.provenance.model}</small>
+            </div>
+            <p className="aiPhrase" lang="en">{lookupState.correction.lexical.phrase}</p>
+            <strong>{lookupState.correction.after.contextMeaningZh}</strong>
+            <p>{lookupState.correction.after.sentenceTranslationZh}</p>
+            <details>
+              <summary>为什么这样理解</summary>
+              <p>{lookupState.correction.after.explanationZh}</p>
+              {lookupState.correction.after.alternativesZh.length > 0 && (
+                <p className="aiAlternatives">备选：{lookupState.correction.after.alternativesZh.join("；")}</p>
+              )}
+            </details>
+            {lookupState.similar && (
+              <div className="similarCorrection">
+                <span>相似已确认语境 · {Math.round(lookupState.similar.similarity * 100)}%</span>
+                <strong>{lookupState.similar.correction.after.contextMeaningZh}</strong>
+                <button onClick={() => acceptAiCorrection(true)}>采用已有译法</button>
+              </div>
+            )}
+            <div className="aiCorrectionActions">
+              <button className="primary" onClick={() => acceptAiCorrection(false)}>采用本次修订</button>
+              <button onClick={rejectAiCorrection}>保留原释义</button>
+            </div>
+            {lookupState.usage && (
+              <small className="aiUsage">本次 {lookupState.usage.promptTokens + lookupState.usage.completionTokens} tokens</small>
+            )}
+          </section>
+        )}
+        {lookupState.status === "error" && (
+          <section className="aiCorrectionCard error" role="alert">
+            <p>{lookupState.message}</p>
+            <button onClick={() => void verifyLookupWithAi(activeLookup)}>重试核验</button>
+          </section>
+        )}
+        {lookupState.status === "idle" && (
+          <div className="aiLookupAction">
+            {lookupState.message && <span>{lookupState.message}</span>}
+            <button onClick={() => void verifyLookupWithAi(activeLookup)}>
+              <Sparkles size={17} />
+              {deepSeekKeyStatus.configured ? "AI 核验当前语境" : "配置 DeepSeek 后核验"}
+            </button>
+          </div>
+        )}
         {activeLookup.entry.isSixSigmaTerm && <span className="termBadge">{activeBook?.domainLabel ?? "教材术语"}</span>}
         {activeLookup.questionSource && <span className="termBadge">题目来源 · {activeLookup.questionSource.chapterId}</span>}
         <div className="exampleBox">
@@ -2730,8 +3045,45 @@ export function App() {
             </div>
           </div>
         </section>
+        <section className="settingsPanel aiSettingsPanel">
+          <div className="settingsTitleRow">
+            <div>
+              <h2>AI 语境核验</h2>
+              <span>{deepSeekKeyStatus.configured ? "已配置" : "未配置"}</span>
+            </div>
+            <KeyRound size={20} />
+          </div>
+          <label className="apiKeyField">
+            <span>DeepSeek API Key</span>
+            <input
+              type="password"
+              value={deepSeekKeyDraft}
+              onChange={(event) => setDeepSeekKeyDraft(event.target.value)}
+              placeholder={deepSeekKeyStatus.configured ? "输入新 Key 可替换" : "sk-…"}
+              autoComplete="off"
+              spellCheck={false}
+            />
+          </label>
+          <div className="inlineActions aiSettingsActions">
+            <button onClick={() => void saveDeepSeekKeyFromSettings()} disabled={!deepSeekKeyDraft.trim()}>安全保存</button>
+            <button onClick={() => void testDeepSeekFromSettings()} disabled={!deepSeekKeyStatus.configured}>测试连接</button>
+            <button onClick={() => void clearDeepSeekFromSettings()} disabled={!deepSeekKeyStatus.configured}>清除</button>
+          </div>
+          <p className="securityNote">
+            <ShieldCheck size={15} />
+            {deepSeekKeyStatus.storage === "android-keystore" ? "Android Keystore 加密存储" : "浏览器仅保留本次会话"}
+          </p>
+          <div className="settingsRow correctionExportRow">
+            <span>已确认修订 {contextCorrectionBundle.corrections.filter((item) => item.status === "accepted").length}</span>
+            <button onClick={() => void exportAcceptedCorrections()}>
+              <Download size={16} />导出 JSON
+            </button>
+          </div>
+          {aiSettingsMessage && <p className="settingsMessage" role="status">{aiSettingsMessage}</p>}
+        </section>
         <section className="settingsPanel">
           <h2>来源与边界</h2>
+          <p>版本 {productVersionLabel}</p>
           <p>{activeBook?.licenseNotice.zh ?? fallbackCatalog.books[0].licenseNotice.zh}</p>
           <p lang="en">{activeBook?.licenseNotice.en ?? fallbackCatalog.books[0].licenseNotice.en}</p>
           <a href={githubProfileUrl} target="_blank" rel="noreferrer">GitHub: Felix-Zuo</a>
@@ -2753,6 +3105,8 @@ export function App() {
               setExamResults([]);
               setUserQuestionBank(null);
               setDailyStats(loadDailyStats());
+              clearContextCorrectionBundle(currentBookId);
+              setContextCorrectionBundle(loadContextCorrectionBundle(currentBookId, manual?.version ?? "0.2.0"));
               window.localStorage.removeItem("six-sigma-study:vocab:v1");
               window.localStorage.removeItem("six-sigma-study:notes:v1");
               window.localStorage.removeItem("six-sigma-study:favorites:v1");
@@ -3074,7 +3428,15 @@ export function App() {
     setShowVocab(false);
     setShowNotes(false);
     setSheetHeightVh(52);
-    setActiveLookup({
+    const context = resolveContextExplanation({
+      query: text,
+      dictionaryTranslation: entry.translation,
+      partOfSpeech: entry.partOfSpeech,
+      sourceText,
+      sourceTranslation,
+      contextGloss
+    });
+    openLookup({
       query: text,
       entry,
       page,
@@ -3082,14 +3444,7 @@ export function App() {
       blockId,
       sourceText,
       sourceTranslation,
-      context: resolveContextExplanation({
-        query: text,
-        dictionaryTranslation: entry.translation,
-        partOfSpeech: entry.partOfSpeech,
-        sourceText,
-        sourceTranslation,
-        contextGloss
-      })
+      context
     });
   }
 
@@ -3167,6 +3522,7 @@ export function App() {
       sourceTranslation: activeLookup.sourceTranslation,
       contextMeaning: activeLookup.context.meaning,
       contextExplanation: activeLookup.context.explanation,
+      contextCorrectionId: aiLookupState.status === "accepted" ? aiLookupState.correction?.id : undefined,
       exampleText: activeLookup.context.exampleText,
       exampleTranslation: activeLookup.context.exampleTranslation,
       savedAt: now.toISOString(),
@@ -3276,6 +3632,67 @@ export function App() {
 
   function deleteFavorite(id: string) {
     setSavedFavorites((items) => items.filter((item) => item.id !== id));
+  }
+
+  async function saveDeepSeekKeyFromSettings() {
+    setAiSettingsMessage("正在安全保存…");
+    try {
+      const status = await saveDeepSeekApiKey(deepSeekKeyDraft);
+      setDeepSeekKeyStatus(status);
+      setDeepSeekKeyDraft("");
+      setAiSettingsMessage(status.storage === "android-keystore"
+        ? "API Key 已加密保存到 Android Keystore。"
+        : "API Key 仅在本次浏览器会话中使用，关闭页面后失效。");
+    } catch (error) {
+      setAiSettingsMessage(error instanceof Error ? error.message : "API Key 保存失败");
+    }
+  }
+
+  async function testDeepSeekFromSettings() {
+    setAiSettingsMessage("正在测试 DeepSeek 连接…");
+    try {
+      await testDeepSeekConnection();
+      setAiSettingsMessage("连接正常，可以进行语境核验。");
+    } catch (error) {
+      setAiSettingsMessage(error instanceof Error ? error.message : "连接测试失败");
+    }
+  }
+
+  async function clearDeepSeekFromSettings() {
+    try {
+      const status = await clearDeepSeekApiKey();
+      setDeepSeekKeyStatus(status);
+      setDeepSeekKeyDraft("");
+      setAiSettingsMessage("API Key 已清除。");
+    } catch (error) {
+      setAiSettingsMessage(error instanceof Error ? error.message : "API Key 清除失败");
+    }
+  }
+
+  async function exportAcceptedCorrections() {
+    const bundle = acceptedCorrectionExport(contextCorrectionBundle);
+    if (bundle.corrections.length === 0) {
+      setAiSettingsMessage("还没有已确认的修订可导出。");
+      return;
+    }
+    const fileName = `${currentBookId}-context-corrections-${new Date().toISOString().slice(0, 10)}.json`;
+    const file = new File([`${JSON.stringify(bundle, null, 2)}\n`], fileName, { type: "application/json;charset=utf-8" });
+    try {
+      if (navigator.canShare?.({ files: [file] }) && navigator.share) {
+        await navigator.share({ files: [file], title: "语境修订包" });
+        setAiSettingsMessage("已打开修订包分享/保存菜单。");
+        return;
+      }
+      const blobUrl = window.URL.createObjectURL(file);
+      const link = document.createElement("a");
+      link.href = blobUrl;
+      link.download = fileName;
+      link.click();
+      window.URL.revokeObjectURL(blobUrl);
+      setAiSettingsMessage("已导出统一格式的修订包。");
+    } catch {
+      setAiSettingsMessage("修订包导出未完成，请稍后重试。");
+    }
   }
 
   async function exportSavedTermsCsv() {

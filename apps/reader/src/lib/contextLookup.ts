@@ -2,6 +2,8 @@ export type ContextExplanation = {
   meaning: string;
   explanation: string;
   confidence: "aligned" | "curated" | "unavailable";
+  evidence: "curated" | "high" | "medium" | "unavailable" | "accepted-correction";
+  needsVerification: boolean;
   sourceText: string;
   sourceTranslation?: string;
   exampleText: string;
@@ -131,6 +133,17 @@ const rules: Record<string, ContextRule[]> = {
       when: /calculate|using|below|formula|sigma|solve/i
     },
     { meaning: "等式；方程式", explanation: "这里指用等号连接数学表达式的等式或方程式。" }
+  ],
+  revert: [
+    {
+      meaning: "回到；恢复到（先前状态或做法）",
+      explanation: "这里的 revert to old ways 表示退回原来的做法或状态，不是“进行”。",
+      when: /revert\s+to|old\s+ways|previous\s+(?:state|practice|method|way)/i
+    },
+    {
+      meaning: "恢复；复归；回到",
+      explanation: "revert 作动词时表示恢复到先前状态，具体译法由其后的对象决定。"
+    }
   ]
 };
 
@@ -219,6 +232,7 @@ export function resolveContextExplanation(input: {
   const key = normalize(input.query);
   const alignedSentence = selectAlignedSentence(input.contextGloss, input.sourceText, input.query);
   const alignedMeaning = alignedSentence?.meanings?.[key]?.trim();
+  const alignedEvidence = alignedSentence?.evidence?.[key];
   const candidates = rules[key] ?? [];
   const rule = candidates.find((item) => !item.when || item.when.test(input.sourceText));
   const meaning = rule?.meaning || alignedMeaning || "暂无可靠语境义";
@@ -231,6 +245,11 @@ export function resolveContextExplanation(input: {
     : alignedMeaning
       ? "aligned"
       : "unavailable";
+  const evidence: ContextExplanation["evidence"] = rule
+    ? "curated"
+    : alignedMeaning
+      ? alignedEvidence ?? "medium"
+      : "unavailable";
   const explanation = rule?.explanation
     ?? (alignedMeaning && translatedSentence
       ? `依据教材中英对照，“${input.query}”在“${translatedSentence}”中对应“${meaning}”。`
@@ -240,6 +259,8 @@ export function resolveContextExplanation(input: {
     meaning,
     explanation,
     confidence,
+    evidence,
+    needsVerification: evidence === "medium" || evidence === "unavailable",
     sourceText: input.sourceText,
     sourceTranslation: alignedTranslation || input.sourceTranslation,
     exampleText: alignedSentence?.source || input.sourceText,

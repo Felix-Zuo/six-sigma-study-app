@@ -22,6 +22,7 @@ export type SavedTerm = {
   sourceTranslation?: string;
   contextMeaning?: string;
   contextExplanation?: string;
+  contextCorrectionId?: string;
   exampleText?: string;
   exampleTranslation?: string;
   savedAt: string;
@@ -133,6 +134,7 @@ function normalizeSavedTerm(item: Partial<SavedTerm>): SavedTerm {
     sourceTranslation: item.sourceTranslation,
     contextMeaning,
     contextExplanation: item.contextExplanation || context.explanation,
+    contextCorrectionId: item.contextCorrectionId,
     exampleText: item.exampleText || sourceText,
     exampleTranslation: item.exampleTranslation || item.sourceTranslation,
     savedAt,
@@ -302,6 +304,7 @@ export function savedTermsToCsv(terms: SavedTerm[]): string {
     "sourceTranslation",
     "contextMeaning",
     "contextExplanation",
+    "contextCorrectionId",
     "exampleText",
     "exampleTranslation"
   ];
@@ -342,6 +345,7 @@ export function savedTermsToCsv(terms: SavedTerm[]): string {
     term.sourceTranslation,
     term.contextMeaning,
     term.contextExplanation,
+    term.contextCorrectionId,
     term.exampleText,
     term.exampleTranslation
   ]);
