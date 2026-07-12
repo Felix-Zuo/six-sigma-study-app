@@ -40,7 +40,7 @@ Goal: convert all 449 aligned pages into app content.
 - [x] build table of contents inside app
 - [x] preserve figures/tables as optimized assets where semantic extraction is not enough
 - [x] refine section/page anchors for Chapters 2-33 where reliable Word headings exist
-- [x] add viewport-bound lazy tokenization for long chapters
+- [x] keep all rendered English text immediately clickable and guard page 9 against lazy-tokenization regressions
 - [ ] add curated manual section mapping for chapters whose section titles are normal paragraphs
 
 ## Phase 3: Learning System

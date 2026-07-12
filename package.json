@@ -18,6 +18,7 @@
     "extract:manual": "python scripts/extract_manual_content.py",
     "apply:content-overrides": "python scripts/apply_content_overrides.py",
     "build:dictionary": "python scripts/build_manual_dictionary.py",
+    "build:context-glosses": "python scripts/build_context_glosses.py",
     "lint:content": "python scripts/validate_content.py content/processed",
     "lint:books": "python scripts/import_book_agent_contract.py validate --require-sample",
     "qa:book-import": "python scripts/import_book_agent_contract.py sample",
@@ -35,6 +36,7 @@
     "qa:android-key-chapters": "node scripts/qa-android-key-chapters-cdp.mjs",
     "qa:vocab-flashcards": "node scripts/qa-vocab-flashcards.mjs",
     "qa:context-lookup": "node scripts/qa-context-lookup.mjs",
+    "qa:context-glosses": "python scripts/qa_context_glosses.py",
     "qa:lexical-learning": "node scripts/qa-lexical-learning.mjs",
     "qa:streak": "node scripts/qa-streak.mjs",
     "qa:question-schema": "python scripts/qa_question_schema.py",
@@ -42,7 +44,7 @@
     "qa:learning-ui": "node scripts/qa-learning-ui-cdp.mjs",
     "qa:lexical-ui": "node scripts/qa-lexical-ui-cdp.mjs",
     "qa:private-isolation": "python scripts/qa_private_question_bank_isolation.py",
-    "qa:learning-modules": "npm run qa:vocab-flashcards && npm run qa:context-lookup && npm run qa:lexical-learning && npm run qa:streak && npm run qa:question-schema && npm run qa:question-modes && npm run qa:private-isolation"
+    "qa:learning-modules": "npm run qa:vocab-flashcards && npm run qa:context-lookup && npm run qa:context-glosses && npm run qa:lexical-learning && npm run qa:streak && npm run qa:question-schema && npm run qa:question-modes && npm run qa:private-isolation"
   },
   "devDependencies": {
     "@capacitor/android": "^8.4.1",

@@ -1,10 +1,27 @@
 export type ContextExplanation = {
   meaning: string;
   explanation: string;
+  confidence: "aligned" | "curated" | "unavailable";
   sourceText: string;
   sourceTranslation?: string;
   exampleText: string;
   exampleTranslation?: string;
+};
+
+export type ContextSentenceGloss = {
+  source: string;
+  translation: string;
+  confidence: "high" | "medium" | "low";
+  similarity: number;
+  meanings: Record<string, string>;
+  evidence?: Record<string, "high" | "medium">;
+};
+
+export type ContextBlockGloss = {
+  targetBlockId: string;
+  translation: string;
+  similarity: number;
+  sentences: ContextSentenceGloss[];
 };
 
 type ContextRule = {
@@ -37,7 +54,14 @@ const rules: Record<string, ContextRule[]> = {
   measure: [{ meaning: "测量", explanation: "在六西格玛语境中，指用一致的方法收集数据并量化流程现状。" }],
   measurement: [{ meaning: "测量", explanation: "指按照规定方法取得数据，是后续分析可信的基础。" }],
   analyze: [{ meaning: "分析", explanation: "在 DMAIC 语境中，指用数据寻找差异、模式和根本原因。" }],
-  control: [{ meaning: "控制", explanation: "在 DMAIC 语境中，指通过标准、监控和响应计划维持改进结果。" }],
+  control: [
+    {
+      meaning: "空中交通管制",
+      explanation: "这里是固定搭配 air traffic control，指对航空器运行进行协调和管制。",
+      when: /air\s+traffic\s+control/i
+    },
+    { meaning: "控制", explanation: "在 DMAIC 语境中，指通过标准、监控和响应计划维持改进结果。" }
+  ],
   statement: [{ meaning: "陈述；说明", explanation: "这里指正式写出的项目问题或目标说明，不是普通的随口表达。" }],
   opportunity: [
     {
@@ -53,7 +77,13 @@ const rules: Record<string, ContextRule[]> = {
       when: /defect|error|dpmo|sigma/i
     }
   ],
-  yield: [{ meaning: "良率", explanation: "在质量管理语境中，指符合要求的输出占全部输出的比例。" }],
+  yield: [
+    {
+      meaning: "良率",
+      explanation: "在质量管理语境中，指符合要求的输出占全部输出的比例。",
+      when: /sigma|dpmo|defect|opportunit|quality|yield\s+of|abridged\s+sigma\s+table/i
+    }
+  ],
   mean: [
     { meaning: "均值；平均数", explanation: "在统计数据语境中，指所有观测值之和除以观测数量。", when: /data|average|sample|population|standard deviation|distribution/i },
     { meaning: "意味着；表示", explanation: "这里作动词，表示某个结果所代表的含义。" }
@@ -108,17 +138,47 @@ function normalize(value: string): string {
   return value.toLocaleLowerCase().replace(/^[^a-z]+|[^a-z]+$/g, "");
 }
 
-function firstMeaning(translation: string): string {
-  const first = translation.split(/[；;，,]/)[0]?.trim() || translation.trim() || "待完善";
-  return first.replace(/^(?:n|v|vt|vi|adj|adv|pron|prep|conj|art|num|aux|int)\.\s*/i, "").trim() || first;
-}
-
 function clippedTranslation(value?: string): string | undefined {
   const clean = value?.replace(/\s+/g, " ").trim();
   if (!clean || !/[\u3400-\u9fff]/.test(clean)) {
     return undefined;
   }
   return clean.length <= 72 ? clean : `${clean.slice(0, 71)}…`;
+}
+
+function sentenceMatchScore(sentence: ContextSentenceGloss, sourceText: string, query: string): number {
+  const source = sourceText.toLocaleLowerCase();
+  const candidate = sentence.source.toLocaleLowerCase();
+  const queryKey = normalize(query);
+  if (source === candidate) {
+    return 1000;
+  }
+  let score = 0;
+  if (source.includes(candidate) || candidate.includes(source)) {
+    score += 300;
+  }
+  const sourceWords = new Set(source.match(/[a-z]+(?:[-'][a-z]+)*/g) ?? []);
+  const candidateWords = candidate.match(/[a-z]+(?:[-'][a-z]+)*/g) ?? [];
+  score += candidateWords.filter((word) => sourceWords.has(word)).length * 4;
+  if (queryKey && sentence.meanings[queryKey]) {
+    score += 120;
+  }
+  return score;
+}
+
+function selectAlignedSentence(
+  gloss: ContextBlockGloss | undefined,
+  sourceText: string,
+  query: string
+): ContextSentenceGloss | undefined {
+  if (!gloss?.sentences?.length) {
+    return undefined;
+  }
+  const ranked = gloss.sentences
+    .filter((sentence) => sentence.confidence !== "low")
+    .map((sentence) => ({ sentence, score: sentenceMatchScore(sentence, sourceText, query) }))
+    .sort((left, right) => right.score - left.score);
+  return ranked[0]?.score > 0 ? ranked[0].sentence : undefined;
 }
 
 function selectExampleTranslation(value: string | undefined, meaning: string): string | undefined {
@@ -154,25 +214,35 @@ export function resolveContextExplanation(input: {
   partOfSpeech?: string;
   sourceText: string;
   sourceTranslation?: string;
+  contextGloss?: ContextBlockGloss;
 }): ContextExplanation {
   const key = normalize(input.query);
+  const alignedSentence = selectAlignedSentence(input.contextGloss, input.sourceText, input.query);
+  const alignedMeaning = alignedSentence?.meanings?.[key]?.trim();
   const candidates = rules[key] ?? [];
   const rule = candidates.find((item) => !item.when || item.when.test(input.sourceText));
-  const meaning = rule?.meaning ?? firstMeaning(input.dictionaryTranslation);
-  const exampleTranslation = selectExampleTranslation(input.sourceTranslation, meaning);
+  const meaning = rule?.meaning || alignedMeaning || "暂无可靠语境义";
+  const alignedTranslation = alignedSentence?.translation?.trim();
+  const exampleTranslation = alignedTranslation
+    || (rule ? selectExampleTranslation(input.sourceTranslation, meaning) : undefined);
   const translatedSentence = clippedTranslation(exampleTranslation);
-  const explanation =
-    rule?.explanation ??
-    (translatedSentence
-      ? `结合整句译文“${translatedSentence}”，这里的“${input.query}”应理解为“${meaning}”。`
-      : `在当前句子的具体语境中，“${input.query}”表示“${meaning}”。`);
+  const confidence: ContextExplanation["confidence"] = rule
+    ? "curated"
+    : alignedMeaning
+      ? "aligned"
+      : "unavailable";
+  const explanation = rule?.explanation
+    ?? (alignedMeaning && translatedSentence
+      ? `依据教材中英对照，“${input.query}”在“${translatedSentence}”中对应“${meaning}”。`
+      : "当前句子没有足够可靠的中英对齐证据，暂不把词典中的某一条释义硬套为语境义。");
 
   return {
     meaning,
     explanation,
+    confidence,
     sourceText: input.sourceText,
-    sourceTranslation: input.sourceTranslation,
-    exampleText: input.sourceText,
+    sourceTranslation: alignedTranslation || input.sourceTranslation,
+    exampleText: alignedSentence?.source || input.sourceText,
     exampleTranslation
   };
 }

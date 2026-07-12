@@ -46,10 +46,34 @@ type ManualPackage = {
   licenseNotice?: { en: string; zh: string };
   chapters: Lesson[];
   dictionary: TermEntry[];
+  contextGlossesVersion?: string;
+  contextGlosses?: Record<string, ContextBlockGloss>;
 };
 ```
 
 Generic Agent-imported books use the same package shape. The formal runtime package schema is `content/schemas/book-package.schema.json`.
+
+### Occurrence-Level Context Glosses
+
+```ts
+type ContextBlockGloss = {
+  targetBlockId: string;
+  translation: string;
+  similarity: number;
+  sentences: {
+    source: string;
+    translation: string;
+    confidence: "high" | "medium" | "low";
+    similarity: number;
+    meanings: Record<string, string>;
+    evidence?: Record<string, "high" | "medium">;
+  }[];
+};
+```
+
+`scripts/build_context_glosses.py` aligns the existing English and Chinese manual offline at block, sentence, and word level. The runtime resolves a clicked surface form inside its exact `blockId` and sentence; it does not infer the current meaning from the first dictionary sense. Low-confidence sentences keep their bilingual example but expose no asserted word meaning. Adjacent source blocks that split one sentence at a page boundary are repaired when both map to the same Chinese block.
+
+The model environment and Hugging Face cache live outside Git. Only the generated glossary inside `manual.json` is shipped to the app. CI validates the committed output with `npm run qa:context-glosses` and does not download or execute the models.
 
 ## Agent Import Request
 
@@ -209,7 +233,7 @@ type SavedTerm = {
 
 Legacy vocabulary records without `bookId` are normalized to `six-sigma-black-belt` at load time.
 
-Lookup stores the full dictionary profile separately from the context snapshot. The dictionary profile keeps broad senses, phonetics, part of speech, lemma/word forms, and an English definition; the context snapshot keeps the meaning in the current manual/question sentence, a concise usage explanation, and a bilingual example. Older records are enriched from the current offline dictionary and aligned manual block without deleting review history.
+Lookup stores the full dictionary profile separately from the context snapshot. The dictionary profile keeps broad senses, phonetics, part of speech, lemma/word forms, and an English definition; the context snapshot keeps the occurrence-level meaning in the current manual/question sentence, a concise usage explanation, and a bilingual example. Older manual records are re-enriched from the current offline dictionary and occurrence glossary without deleting review history, replacing context text produced by the retired dictionary-first fallback.
 
 Vocabulary review now uses a lightweight local spaced-repetition model inspired by SM-2, Anki, and FSRS. Review outcomes are `remembered`, `fuzzy`, and `again`; the scheduler updates `familiarity`, `lapseCount`, `correctStreak`, `intervalDays`, `easeFactor`, `lastReviewedAt`, and `nextReviewAt`. Question-sourced terms keep `sourceType = "question"` plus `sourceQuestionId`, `sourceExamId`, and `sourceDomain`.
 

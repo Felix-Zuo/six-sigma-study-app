@@ -2,6 +2,8 @@ import fs from "node:fs";
 
 const endpoint = process.env.CHROME_CDP_ENDPOINT ?? "http://127.0.0.1:9333/json";
 const appUrl = process.env.PWA_URL ?? "http://127.0.0.1:4175/";
+const assetManifest = JSON.parse(fs.readFileSync("apps/reader/public/content/assets/asset-manifest.json", "utf8"));
+const expectedFigureCount = Array.isArray(assetManifest.assets) ? assetManifest.assets.length : 0;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -80,15 +82,20 @@ async function main() {
     throw new Error(`Timed out waiting for ${description}`);
   }
 
+  async function openReader() {
+    await waitFor("study home", () => evalPage(`Array.from(document.querySelectorAll("button.primaryAction")).some((button) => button.textContent.includes("继续学习"))`));
+    await evalPage(`Array.from(document.querySelectorAll("button.primaryAction")).find((button) => button.textContent.includes("继续学习"))?.click()`);
+    await waitFor("reader render", () => evalPage(`Boolean(document.querySelector(".readerPanel"))`));
+  }
+
   await cdp.send("Page.navigate", { url: appUrl });
-  await waitFor("reader render", () => evalPage(`Boolean(document.querySelector(".readerPanel"))`));
+  await openReader();
   await waitFor("service worker ready", () => evalPage(`navigator.serviceWorker.ready.then(() => true)`, true));
   const controlledBeforeReload = await evalPage(`Boolean(navigator.serviceWorker.controller)`);
   if (!controlledBeforeReload) {
     await cdp.send("Page.reload", { ignoreCache: true });
-    await waitFor("controlled reader render", () =>
-      evalPage(`Boolean(navigator.serviceWorker.controller) && Boolean(document.querySelector(".readerPanel"))`)
-    );
+    await openReader();
+    await waitFor("controlled reader render", () => evalPage(`Boolean(navigator.serviceWorker.controller)`));
   }
 
   const onlineCache = await evalPage(`(async () => {
@@ -118,7 +125,7 @@ async function main() {
     uploadThroughput: 0
   });
   await cdp.send("Page.reload", { ignoreCache: true });
-  await waitFor("offline reader render", () => evalPage(`Boolean(document.querySelector(".readerPanel"))`));
+  await openReader();
   const offlineState = await evalPage(`(() => {
     const doc = document.documentElement;
     return {
@@ -147,7 +154,7 @@ async function main() {
     onlineCache.hasCss &&
     onlineCache.hasManual &&
     onlineCache.hasManifest &&
-    onlineCache.figureCount === 470 &&
+    onlineCache.figureCount === expectedFigureCount &&
     offlineState.controller &&
     offlineState.sections > 0 &&
     offlineState.horizontalOverflow <= 1;
@@ -157,6 +164,7 @@ async function main() {
       {
         ok,
         onlineCache,
+        expectedFigureCount,
         offlineState,
         screenshot: "qa/screenshots/pwa-offline-qa.png"
       },

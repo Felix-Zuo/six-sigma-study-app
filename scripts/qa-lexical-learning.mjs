@@ -19,7 +19,7 @@ const checks = [
   ["structured lexical fields", [distinguish, constant, equation].every((entry) => entry?.partOfSpeech && entry?.wordRoot && Array.isArray(entry?.wordForms) && entry?.englishDefinition)],
   ["context regression rules", context.includes('distinguish: [') && context.includes('constant: [') && context.includes('equation: [')],
   ["correct context meanings", context.includes('meaning: "区分；辨别"') && context.includes('meaning: "持续不变的；恒定的"') && context.includes('meaning: "方程式；计算公式"')],
-  ["aligned example translation", app.includes("alignedBlockTranslation") && context.includes("selectExampleTranslation")],
+  ["aligned example translation", app.includes("contextGlosses") && context.includes("selectAlignedSentence")],
   ["dictionary before context", app.indexOf('aria-label="dictionary definition"') < app.indexOf('className="contextMeaningCard"')],
   ["saved dictionary metadata", ["partOfSpeech", "phonetic", "wordRoot", "wordForms", "englishDefinition"].every((field) => app.includes(`${field}: activeLookup.entry.${field}`))],
   ["native Android TTS", nativeTts.includes("TextToSpeech") && nativeTts.includes("setLanguage") && nativeTts.includes("setSpeechRate")],

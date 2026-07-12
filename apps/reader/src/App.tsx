@@ -19,7 +19,11 @@ import {
   Volume2
 } from "lucide-react";
 import { normalizeLookup, tokenizeEnglish } from "./lib/tokenize";
-import { resolveContextExplanation, type ContextExplanation } from "./lib/contextLookup";
+import {
+  resolveContextExplanation,
+  type ContextBlockGloss,
+  type ContextExplanation
+} from "./lib/contextLookup";
 import {
   isTermDue,
   loadSavedTerms,
@@ -146,6 +150,8 @@ type ManualData = {
   pageCount: number;
   chapters: Lesson[];
   dictionary: TermEntry[];
+  contextGlossesVersion?: string;
+  contextGlosses?: Record<string, ContextBlockGloss>;
 };
 
 type ActiveLookup = {
@@ -374,6 +380,12 @@ function formatNextReview(term: SavedTerm): string {
   return `下次 ${date.getMonth() + 1}/${date.getDate()}`;
 }
 
+function savedTermStudyMeaning(term: SavedTerm): string {
+  return term.contextMeaning && term.contextMeaning !== "暂无可靠语境义"
+    ? term.contextMeaning
+    : term.translation;
+}
+
 function clamp(value: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, value));
 }
@@ -495,7 +507,16 @@ function readableBlockText(block: ContentBlock | undefined): string {
   return block.rows?.flat().join(" ") ?? "";
 }
 
-function alignedBlockTranslation(section: LessonSection | undefined, blockId: string | undefined, page: number): string | undefined {
+function alignedBlockTranslation(
+  section: LessonSection | undefined,
+  blockId: string | undefined,
+  page: number,
+  contextGlosses?: Record<string, ContextBlockGloss>
+): string | undefined {
+  const verifiedTranslation = blockId ? contextGlosses?.[blockId]?.translation?.trim() : undefined;
+  if (verifiedTranslation) {
+    return verifiedTranslation;
+  }
   if (!section) {
     return undefined;
   }
@@ -527,57 +548,19 @@ function InlineReaderText({
   language: Language;
   onLookup: LookupTextHandler;
 }) {
-  const markerRef = useRef<HTMLSpanElement | null>(null);
-  const shouldLazyTokenize = language === "en" && text.trim().length > 0;
-  const [isNearViewport, setIsNearViewport] = useState(!shouldLazyTokenize);
-
-  useEffect(() => {
-    if (language !== "en") {
-      setIsNearViewport(false);
-      return;
-    }
-    if (!shouldLazyTokenize || typeof IntersectionObserver === "undefined") {
-      setIsNearViewport(true);
-      return;
-    }
-
-    setIsNearViewport(false);
-    const marker = markerRef.current;
-    if (!marker) {
-      setIsNearViewport(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        if (entry) {
-          setIsNearViewport(entry.isIntersecting);
-        }
-      },
-      { rootMargin: "900px 0px" }
-    );
-    observer.observe(marker);
-    return () => observer.disconnect();
-  }, [language, shouldLazyTokenize, text]);
-
   const tokens = useMemo(() => {
-    if (language !== "en" || !isNearViewport) {
+    if (language !== "en") {
       return [];
     }
     return tokenizeEnglish(text);
-  }, [language, text, isNearViewport]);
+  }, [language, text]);
 
   if (language !== "en") {
     return <>{text}</>;
   }
 
-  if (!isNearViewport) {
-    return <span ref={markerRef}>{text}</span>;
-  }
-
   return (
-    <span ref={markerRef}>
+    <span>
       {tokens.map((token) =>
         token.kind === "word" ? (
           <button
@@ -877,10 +860,10 @@ export function App() {
     if (!currentFlashTerm) {
       return [];
     }
-    const answer = currentFlashTerm.contextMeaning || currentFlashTerm.translation;
+    const answer = savedTermStudyMeaning(currentFlashTerm);
     const pool = [
       answer,
-      ...savedTerms.map((item) => item.contextMeaning || item.translation),
+      ...savedTerms.map(savedTermStudyMeaning),
       "流程能力",
       "样本数量",
       "控制要求",
@@ -982,7 +965,7 @@ export function App() {
         const savedSection = item.sourceType === "manual"
           ? manual.chapters.flatMap((chapter) => chapter.sections).find((section) => section.id === item.sectionId)
           : undefined;
-        const alignedTranslation = alignedBlockTranslation(savedSection, item.blockId, item.page)
+        const alignedTranslation = alignedBlockTranslation(savedSection, item.blockId, item.page, manual.contextGlosses)
           || item.exampleTranslation
           || item.sourceTranslation;
         const context = resolveContextExplanation({
@@ -990,12 +973,14 @@ export function App() {
           dictionaryTranslation: entry.translation,
           partOfSpeech: entry.partOfSpeech,
           sourceText: item.exampleText || item.sourceText,
-          sourceTranslation: alignedTranslation
+          sourceTranslation: alignedTranslation,
+          contextGloss: item.blockId ? manual.contextGlosses?.[item.blockId] : undefined
         });
         const shouldReplaceTranslation = !item.translation
           || item.translation === "待完善"
           || item.translation === item.contextMeaning;
-        const shouldReplaceContext = !item.contextMeaning
+        const shouldReplaceContext = item.sourceType === "manual"
+          || !item.contextMeaning
           || item.contextMeaning === "待完善"
           || item.contextMeaning === item.translation;
         const updated: SavedTerm = {
@@ -2143,7 +2128,7 @@ export function App() {
                         key={option}
                         onClick={() => {
                           setFlashQuizSelection(option);
-                          if (option === (currentFlashTerm.contextMeaning || currentFlashTerm.translation)) {
+                          if (option === savedTermStudyMeaning(currentFlashTerm)) {
                             reviewSavedTerm(currentFlashTerm.id, "remembered");
                           } else {
                             setFlashReviewStage("answer");
@@ -2170,7 +2155,7 @@ export function App() {
                     </section>
                     <section className="contextMeaningCard compact">
                       <span>本句中的意思</span>
-                      <p className="translation">{currentFlashTerm.contextMeaning || currentFlashTerm.translation}</p>
+                      <p className="translation">{savedTermStudyMeaning(currentFlashTerm)}</p>
                       <p>{currentFlashTerm.contextExplanation || "结合下面的原句理解并重新记忆。"}</p>
                     </section>
                     <div className="flashExample">
@@ -2227,7 +2212,7 @@ export function App() {
               <div className="sectionHeaderRow"><h2>最近加入</h2><button onClick={() => setVocabPageMode("library")}>查看全部</button></div>
               {filteredStudyTerms.slice(0, 4).map((item) => (
                 <article key={item.id}>
-                  <div><strong>{item.term}</strong><span>{item.contextMeaning || item.translation}</span></div>
+                  <div><strong>{item.term}</strong><span>{savedTermStudyMeaning(item)}</span></div>
                   <small>{item.sourceType === "question" ? "题目" : item.chapterTitle}</small>
                 </article>
               ))}
@@ -2261,7 +2246,7 @@ export function App() {
                   <div>
                     <p className="eyebrow">{item.sourceType === "question" ? `题目 · ${item.sourceDomain ?? "综合"}` : `${item.bookTitle} · p. ${item.page}`}</p>
                     <h2>{item.term}</h2>
-                    <p>{item.contextMeaning || item.translation}</p>
+                    <p>{savedTermStudyMeaning(item)}</p>
                     <details>
                       <summary>查看语境</summary>
                       <p>{item.contextExplanation}</p>
@@ -3082,7 +3067,8 @@ export function App() {
   function lookupText(text: string, page: number, sectionId: string, blockId: string | undefined, sourceText: string) {
     const entry = lookupCandidates(text).map((key) => termIndex.get(key)).find(Boolean) ?? lookupFallback(text);
     const section = lesson?.sections.find((item) => item.id === sectionId);
-    const sourceTranslation = alignedBlockTranslation(section, blockId, page);
+    const contextGloss = blockId ? manual?.contextGlosses?.[blockId] : undefined;
+    const sourceTranslation = alignedBlockTranslation(section, blockId, page, manual?.contextGlosses);
     ensureOverlayHistory();
     setShowToc(false);
     setShowVocab(false);
@@ -3101,7 +3087,8 @@ export function App() {
         dictionaryTranslation: entry.translation,
         partOfSpeech: entry.partOfSpeech,
         sourceText,
-        sourceTranslation
+        sourceTranslation,
+        contextGloss
       })
     });
   }
@@ -3439,7 +3426,7 @@ export function App() {
           data-block-id={block.id}
           data-page={blockPage}
         >
-          {block.text}
+          {renderText(block.text ?? "", blockPage, section.id, block.id)}
         </aside>
       );
     }

@@ -1,4 +1,4 @@
-const CACHE_NAME = "six-sigma-study-v0.7.0";
+const CACHE_NAME = "six-sigma-study-v0.8.0";
 const CORE_ASSETS = [
   "/manifest.webmanifest",
   "/icons/icon.svg",
@@ -109,6 +109,22 @@ self.addEventListener("fetch", (event) => {
           const contentType = response.headers.get("content-type") || "";
           if (!response.ok || !contentType.includes("application/json")) {
             throw new Error(`private bank response rejected: ${response.status} ${contentType}`);
+          }
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+          return response;
+        })
+        .catch(() => caches.match(request).then((cached) => cached || Response.error()))
+    );
+    return;
+  }
+
+  if (requestUrl.pathname.startsWith("/content/") && requestUrl.pathname.endsWith(".json")) {
+    event.respondWith(
+      fetch(request, { cache: "no-store" })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`content response rejected: ${response.status}`);
           }
           const copy = response.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));

@@ -16,6 +16,7 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 | Six Sigma content | 33 chapters, 449 aligned study pages, 174 reader sections |
 | Preserved assets | 475 figure/table/formula PNG runtime assets; EN/ZH image counts 476/476 |
 | Dictionary | 3981 public offline entries; local Android builds add a 3552-entry private-question supplement |
+| Context glossary | 3875 English text blocks, 8591 aligned sentences, 105048 occurrence-level meanings |
 | Practice | 1006 questions in local Android release; browse/practice/wrong/exam modes |
 | Platforms | Android APK/AAB via Capacitor, PWA runtime for browser QA |
 | Study data | `bookId`-scoped reading position, vocabulary, notes, source anchors, streaks, question progress |
@@ -62,7 +63,8 @@ When another book is selected, vocabulary, notes, and favorites are filtered to 
 - Deduplicated page rail, chapter progress, page search, and table-of-contents navigation.
 - Immersive reading mode with Android back-button handling.
 - Draggable bottom-sheet lookup with half, tall, and full-height states plus scroll containment.
-- Rich offline word profiles with phonetics, pronunciation, part of speech, semicolon-separated senses, lemma/word forms, English definitions, sentence-specific meanings, bilingual examples, source return, and CSV export.
+- Rich offline word profiles with phonetics, pronunciation, part of speech, semicolon-separated senses, lemma/word forms, English definitions, occurrence-level meanings derived from the aligned bilingual sentence, bilingual examples, source return, and CSV export.
+- Context lookup never promotes the first broad dictionary sense to a sentence meaning. Low-confidence or unavailable alignments are labeled honestly, while six cross-block/page-break sentences are restored before lookup.
 - Android pronunciation uses the device's native English text-to-speech engine; browser builds retain a Web Speech fallback.
 - Flashcard vocabulary review with familiarity, lapse, interval, ease factor, and question-source metadata.
 - Daily local streak target with capped catch-up workload after missed days.
@@ -159,7 +161,7 @@ Public-readiness evidence: [PUBLIC_READINESS.md](PUBLIC_READINESS.md). Attributi
 | Reader UX | `npm run qa:multibook-ux` | notice, home, page search, book-scoped vocab, scroll lock, immersive mode |
 | Target 3 product UX | `npm run qa:target3-product`, `npm run qa:notes`, `npm run qa:image-fidelity` | auto opening, bottom navigation, independent study pages, draggable sheets, Chinese image fidelity |
 | Target 4 product audit | `npm run qa:target4-flow` | opening, home, second book, settings, TOC, immersive, lookup half/full, source return, Chinese image fidelity, notes, favorites, vocabulary |
-| Learning modules | `npm run qa:learning-modules` | flashcards, streak, question schema, question modes, question word lookup, private-bank isolation |
+| Learning modules | `npm run qa:learning-modules` | flashcards, occurrence-level context glossary, streak, question schema, question modes, question word lookup, private-bank isolation |
 | Learning UI | `npm run qa:learning-ui` | recall-first word review, contextual answer, question lookup, unknown explanation, correct auto-next |
 | Lexical learning | `npm run qa:lexical-learning`, `npm run qa:lexical-ui` | rich senses, phonetics, context disambiguation, bilingual examples, native pronunciation bridge, mobile layout |
 | Android WebView | `npm run qa:android-key-chapters` | Chapters 1, 7, 26, 33, lookup, alignment, image checks |

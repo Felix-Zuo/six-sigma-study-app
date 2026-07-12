@@ -27,7 +27,26 @@ The final product must support full-manual offline reading, position-preserving 
 - Latest pre-migration pushed GitHub Actions state: CI passed for `1d6ef7f` in run `28159917559`
 - Release APK after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, viewport-bound English word tokenization, tap-to-lookup bottom sheet, 3981-entry public offline learner dictionary plus an ignored 3552-entry local private-question supplement, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service worker with verified offline app-shell/figure caching for browser installs, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, persisted reading position across app restart, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, occurrence-level bilingual context glosses, tap-to-lookup bottom sheet, 3981-entry public offline learner dictionary plus an ignored 3552-entry local private-question supplement, phrase-selection UI hook, persistent local vocabulary book with due-based review scheduling and CSV export, selected-text study notes, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+
+## 2026-07-12 Occurrence-Level Context And Page 9 Click Repair
+
+- Removed the dictionary-first context fallback that produced confident errors such as `prospects = 景色`. A missing or low-confidence alignment now displays `暂无可靠语境义` instead of inventing a sentence meaning.
+- Added an offline multilingual alignment build at `scripts/build_context_glosses.py`. The shipped glossary covers 3875 English text blocks, 8591 sentences, and 105048 occurrence-level meanings; 383 low-confidence sentences retain bilingual examples but do not assert a word meaning.
+- Verified the reported Chapter 1 page 8 regression: `prospects` maps to `潜在客户`, and its example is the marketing sentence about letters to customers or prospects rather than the unrelated Yield term note.
+- Removed lazy viewport-dependent word tokenization. Every rendered English paragraph, heading, list item, semantic-table cell, and term note uses the clickable word renderer immediately.
+- Repaired six cross-block sentences whose English source was split at a page boundary. Chapter 1 page 9 now restores the complete sentence ending `organization should improve first.`; `provide = 让` and the continuation `should = 应该` both open correctly.
+- Stopped treating sentence-final punctuation as part of the lookup word, so the query, pronunciation request, and example extraction use `prospects` instead of `prospects.`.
+- Existing manual vocabulary records are re-enriched from the new occurrence glossary while their scheduling history is preserved. Unavailable context does not replace the broad dictionary answer used by flash review.
+- Bumped the PWA cache to `six-sigma-study-v0.8.0` and made `/content/*.json` network-first with offline cache fallback, preventing an installed PWA from retaining an old erroneous `manual.json` after an update.
+- Three bounded validation rounds completed:
+  - content/runtime gates: lint, source coverage, typecheck, production build, and all learning-module QA passed;
+  - 412x915 mobile interaction: page 8 `prospects`, page 9 first block, and page 9 continuation were clicked and returned the expected meanings and bilingual sentences;
+  - Android release packaging: APK/AAB built, signed package checks passed, and APK inspection confirmed glossary version 1.1.0 plus the two reported regression values.
+- Release artifacts:
+  - APK: 40,700,409 bytes; SHA-256 `679CFB4548DA13C77711F1135E7E37235058BED2D742EB3390FE7687EB985B97`
+  - AAB: 38,452,752 bytes; SHA-256 `52F31EAEE9DAD4E9BB2BF9B594C9FC4D5F22B2A524ECBFD031611AB2DE06FB4F`
+- Physical-device installation was not run in this pass because `adb devices -l` returned no connected device. Mobile browser interaction and release-package inspection passed.
 
 ## 2026-07-12 Rich Vocabulary And Native Pronunciation Upgrade
 
@@ -250,7 +269,7 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
 - Added reader image rendering with responsive width and lazy loading.
 - Added PWA figure pre-cache from `asset-manifest.json`.
 - Disabled service-worker registration in native Android and added native CacheStorage cleanup so upgraded APKs do not keep stale PWA caches.
-- Added viewport-bound English tokenization: English text renders as plain text outside the reading viewport and becomes clickable word buttons only near the current scroll position, preventing long chapters from accumulating thousands of mounted button elements.
+- Added viewport-bound English tokenization in the earlier performance pass. This was superseded on 2026-07-12 after it caused visible page 9 text to remain non-clickable; current chapters render every English word button immediately.
 - Added `scripts/extract_source_toc.py` to derive source table-of-contents section metadata from the local source PDF.
 - Added `content/source/source_toc_sections.json` with 33 source chapters and 142 source TOC sections.
 - Updated full-manual extraction so Chapters 2-33 use source-TOC-guided section anchors where matching Word headings exist.
@@ -802,11 +821,11 @@ Target four is a bounded three-round product验收 loop for the current multi-bo
 
 - The release signing key is a local self-signed key for this project; store upload key policy and distribution channel are not finalized.
 - Chapters 2-33 now use source-TOC-guided section anchors where reliable Word headings exist; the source coverage validator tracks 15 allowed unmatched source headings whose titles are normal paragraphs and need curated manual mapping before further splitting.
-- Language position preservation is block-aware, Android WebView verified on a long Chapter 26 section, and browser-sweep verified across all 33 chapters; exact sentence-level semantic pairing is not separately modeled.
+- Language position preservation remains block-aware and has Android WebView/browser-sweep coverage; clicked-word meanings and lookup examples now use a separate sentence/occurrence alignment index.
 - Phrase lookup works through WebView text selection and stores the selected phrase's source section/page; physical long-press QA on a real phone is still pending.
 - English tables in Chapter 1 are partly represented as Word paragraph fragments; Chinese tables render as semantic tables.
-- Long chapters now use viewport-bound English tokenization and reader comfort controls; deeper low-end-device profiling is still pending.
-- Detailed sentence-level anchors can be added later if the content model gains sentence IDs; current accepted behavior is section/block-level restoration.
+- Long chapters now keep all visible English text immediately clickable and retain reader comfort controls; deeper low-end-device profiling is still pending.
+- Detailed sentence-level scroll anchors can still be added later; current accepted language-switch behavior is section/block-level restoration, independent from the sentence-level lookup glossary.
 - Figure assets now preserve DOCX-embedded originals, and source coverage QA samples nonblank Poppler renders from the source PDF; exhaustive 557-page pixel comparison is intentionally not part of the normal gate.
 - Some extracted table images are intentionally rendered as images; later passes can convert selected tables to semantic tables where fidelity allows.
 - The offline dictionary is manual-scoped, not a full arbitrary English dictionary; remaining fallback tokens are mostly proper names, OCR/formatting artifacts, URLs, and unusual compounds.

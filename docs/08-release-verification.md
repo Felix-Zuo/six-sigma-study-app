@@ -13,6 +13,7 @@
 | Target 4 product audit | `npm run qa:target4-flow` | opening, home, second book, settings, TOC, immersive mode, lookup half/full, exact source return, Chinese image fidelity, notes, favorites, and vocabulary pass | real-device physical long-press QA remains separate |
 | Android key chapters | `npm run qa:android-key-chapters` | Chapters 1, 7, 26, and 33 render, lookup, align, and load images | WebView/CDP is not a full physical-device matrix |
 | Lexical learning | `npm run qa:lexical-learning`; `npm run qa:lexical-ui` | structured senses, phonetics, context meanings, bilingual examples, native TTS bridge, and mobile layout pass | final voice quality depends on the device TTS voice |
+| Context glossary | `npm run qa:context-glosses` | 3875 blocks, 8591 sentences, 105048 meanings, page 8/9 regressions pass | 383 low-confidence sentences intentionally expose no asserted word meaning |
 | Release packaging | `npm run android:release-apk`; `npm run android:aab` | APK/AAB build with runtime packages and figure assets bundled | store upload-key policy is not finalized |
 
 ## Current Release Artifacts
@@ -112,7 +113,7 @@ node scripts\qa-dictionary-cdp.mjs
 ## PWA Browser Offline QA
 
 - `node scripts\qa-pwa-offline-cdp.mjs`: passed against Vite preview on `127.0.0.1:4175` and clean headless Chrome CDP on `127.0.0.1:9333`.
-- Service worker cache: `six-sigma-study-v0.7.0`.
+- Service worker cache: `six-sigma-study-v0.8.0`; content JSON uses network-first refresh with offline cache fallback.
 - Online cache state includes `/`, `/index.html`, hashed JS/CSS shell assets, `content/manual.json`, `manifest.webmanifest`, and all 475 figure assets.
 - Offline reload state: CDP network offline, cache-ignored reload rendered `Chapter 1: What is Six Sigma?`, 23 sections, service-worker controller present, and horizontal overflow 0.
 
@@ -153,6 +154,17 @@ Verified on local emulator `SixSigmaQA` / `emulator-5554`.
 - Current release package sizes after this validation pass: APK 38,885,997 bytes; AAB 36,638,342 bytes.
 - Current release package inspection: APK 926 entries and AAB 934 entries; both include `content/catalog.json`, Six Sigma `manual.json`, Import Practice Workbook `content/books/agent-import-sample/manual.json`, 475 figure PNG assets, and the ignored local private question-bank plus supplemental dictionary runtime assets.
 - Signature verification: `apksigner verify --verbose --print-certs android/app/build/outputs/apk/release/app-release.apk` returned exit code 0 with APK Signature Scheme v2 verified and one signer. `jarsigner -verify android/app/build/outputs/bundle/release/app-release.aab` returned exit code 0; the expected local self-signed certificate trust-chain warning remains because the release key is local.
+
+## 2026-07-12 Context Lookup Regression Pass
+
+- Content and runtime gates passed: `lint:content`, `lint:books`, `typecheck`, `build`, `qa:source-coverage`, and `qa:learning-modules`.
+- Mobile interaction at 412x915 verified Chapter 1 page 8 `prospects = 潜在客户`, the matching bilingual marketing sentence, and Chapter 1 page 9 word buttons in both source blocks.
+- The page 9 cross-block sentence is restored through `organization should improve first.` and the continuation lookup returns `should = 应该`.
+- Unverified dictionary-first inference has been removed. Low-confidence occurrence alignment returns an explicit unavailable state while flash review falls back to the broad dictionary senses.
+- APK/AAB release builds passed. APK inspection found `contextGlossesVersion = 1.1.0` and the expected page 8/9 regression entries.
+- APK: 40,700,409 bytes, SHA-256 `679CFB4548DA13C77711F1135E7E37235058BED2D742EB3390FE7687EB985B97`, v2 signature verified, one signer.
+- AAB: 38,452,752 bytes, SHA-256 `52F31EAEE9DAD4E9BB2BF9B594C9FC4D5F22B2A524ECBFD031611AB2DE06FB4F`, JAR verification passed with the expected local self-signed trust warning.
+- No physical Android device was connected during this pass; `adb devices -l` returned an empty device list.
 
 ## Known Remaining Gaps
 

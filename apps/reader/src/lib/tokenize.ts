@@ -4,10 +4,10 @@ export type Token = {
   kind: "word" | "space" | "punctuation";
 };
 
-const wordPattern = /^[A-Za-z][A-Za-z0-9'’.-]*$/;
+const wordPattern = /^[A-Za-z](?:[A-Za-z0-9'’.-]*[A-Za-z0-9])?$/;
 
 export function tokenizeEnglish(text: string): Token[] {
-  const parts = text.match(/[A-Za-z][A-Za-z0-9'’.-]*|\s+|./g) ?? [];
+  const parts = text.match(/[A-Za-z](?:[A-Za-z0-9'’.-]*[A-Za-z0-9])?|\s+|./g) ?? [];
   return parts.map((part, index) => ({
     id: `${index}-${part}`,
     text: part,
