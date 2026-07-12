@@ -9,9 +9,6 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
-from extract_chapter_content import CURATED_TERMS, write_json
-
-
 DEFAULT_REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_WORKSPACE_ROOT = DEFAULT_REPO_ROOT.parent
 DEFAULT_ECDICT_CSV = DEFAULT_WORKSPACE_ROOT / "sources" / "ecdict.csv"
@@ -307,7 +304,16 @@ def load_ecdict_rows(path: Path) -> dict[str, dict[str, str]]:
 
 
 def curated_entries() -> list[dict[str, Any]]:
+    # Extraction depends on python-docx, but ordinary runtime/CI QA only needs
+    # the lightweight dictionary helpers in this module.
+    from extract_chapter_content import CURATED_TERMS
+
     return [dict(entry) for entry in CURATED_TERMS]
+
+
+def write_json(path: Path, payload: object) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 def used_lookup_keys(entries: list[dict[str, Any]]) -> set[str]:
@@ -446,6 +452,7 @@ def build_dictionary(manual: dict[str, Any], ecdict_csv: Path) -> tuple[list[dic
                 break
 
     entries = curated_entries()
+    curated_count = len(entries)
     enrich_curated_entries(entries, rows)
     release_generic_aliases(entries, rows)
     used = used_lookup_keys(entries)
@@ -475,7 +482,7 @@ def build_dictionary(manual: dict[str, Any], ecdict_csv: Path) -> tuple[list[dic
         "singleWordForms": len(single_forms),
         "coveredSingleWordForms": len(covered_single_forms),
         "uncoveredSingleWordForms": len(single_forms - covered_single_forms),
-        "curatedEntries": len(CURATED_TERMS),
+        "curatedEntries": curated_count,
         "ecdictEntries": added,
         "totalEntries": len(entries),
         "skippedDuplicateRows": skipped_for_duplicates,
