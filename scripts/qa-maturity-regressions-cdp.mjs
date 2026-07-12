@@ -541,18 +541,28 @@ async function main() {
 
     await runCase("reader-state-isolation-and-navigation-load-stability", async () => {
       await installFixture();
-      await waitFor("initial manual request to settle", () => evaluate(`performance.getEntriesByType("resource")
-        .some((entry) => new URL(entry.name).pathname.endsWith("/manual.json") && entry.responseEnd > 0)`));
-      await evaluate(`performance.clearResourceTimings()`);
+      await clickBook("六西格玛黑带培训教材");
+      await waitForReader(mainBookId, 6, 449);
+      await backToLibrary();
+      await evaluate(`(() => {
+        const originalFetch = window.fetch.bind(window);
+        window.__qaManualNavigationLoads = [];
+        window.fetch = (input, init) => {
+          const source = typeof input === "string" ? input : input instanceof URL ? input.href : input.url;
+          const url = new URL(source, window.location.href);
+          if (url.pathname.endsWith("/manual.json")) {
+            window.__qaManualNavigationLoads.push(url.href);
+          }
+          return originalFetch(input, init);
+        };
+      })()`);
       await clickPrimaryNav("单词");
       await waitFor("vocabulary view before manual-load audit", () => evaluate(`Boolean(document.querySelector('main[data-app-view="vocab"]'))`));
       await clickPrimaryNav("刷题");
       await waitFor("question view before manual-load audit", () => evaluate(`Boolean(document.querySelector('main[data-app-view="questions"]'))`));
       await clickPrimaryNav("首页");
       await waitForHome();
-      const navigationLoads = await evaluate(`performance.getEntriesByType("resource")
-        .filter((entry) => new URL(entry.name).pathname.endsWith("/manual.json"))
-        .map((entry) => entry.name)`);
+      const navigationLoads = await evaluate(`window.__qaManualNavigationLoads ?? []`);
       assert(navigationLoads.length === 0, "Primary navigation reloaded the active manual", navigationLoads);
 
       await clickBook("六西格玛黑带培训教材");
