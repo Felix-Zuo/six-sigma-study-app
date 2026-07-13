@@ -12,7 +12,7 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 
 | Metric | Current State |
 | --- | --- |
-| Release | `Beta 0.8.5` (`0.8.5-beta.0`, Android code `805`) |
+| Release | `Beta 0.8.6` (`0.8.6-beta.0`, Android code `806`) |
 | Runtime books | 2 catalog books: full Six Sigma manual + original import-practice workbook |
 | Six Sigma content | 33 chapters, 449 aligned study pages, 174 reader sections |
 | Preserved assets | 475 figure/table/formula PNG runtime assets; EN/ZH image counts 476/476 |
@@ -28,7 +28,7 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 
 | Study Home | Chinese Reader With Figure | Lookup Half Sheet |
 | --- | --- | --- |
-| ![Study workbench](docs/assets/showcase/beta-0.8.5-release-home.png) | ![Chinese reader with preserved figure](docs/assets/showcase/target4-reader-zh-image.png) | ![Draggable lookup sheet](docs/assets/showcase/target4-lookup-half.png) |
+| ![Study workbench](docs/assets/showcase/beta-0.8.6-release-home.png) | ![Chinese reader with preserved figure](docs/assets/showcase/target4-reader-zh-image.png) | ![Draggable lookup sheet](docs/assets/showcase/target4-lookup-half.png) |
 
 | Opening | Lookup Full Sheet | Vocabulary |
 | --- | --- | --- |
@@ -46,7 +46,7 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 | --- | --- | --- |
 | ![Vocabulary answer with phonetics, senses, context, and translation](docs/assets/showcase/learning-vocab-answer.png) | ![Question training dashboard](docs/assets/showcase/learning-question-home.png) | ![Question lookup with rich dictionary and context](docs/assets/showcase/learning-question-lookup-rich.png) |
 
-Beta 0.8.5 completes a five-round maturity pass over the selected Quiet Aperture direction. It adds reachable daily review goals, self-rating before scheduling, stable practice/wrong/favorite sessions, explicit answer review before navigation, restartable mock exams with saved answers, resilient local-data hydration, predictable Android back behavior, dark-theme contrast repairs, and bounded motion without a second post-transition animation. See [design-qa.md](design-qa.md) for the review record.
+Beta 0.8.6 turns the home page stack into a spatial navigation system. Folder-edge destinations extract content from the touched tab, module changes turn as layered pages, Reader entry opens like a book, and return paths close back into the home folder. Compact metric cards now center their values and labels consistently. Every cinematic path has a reduced-motion fallback and an automated settlement check; the Beta 0.8.5 maturity fixes remain intact. See [design-qa.md](design-qa.md) for the review record.
 
 ## Study Workflow
 
@@ -62,7 +62,7 @@ When another book is selected, vocabulary, notes, and favorites are filtered to 
 ## Core Features
 
 - Multi-book study workbench with bottom navigation for Home, Vocabulary, Practice, Notes, and Settings; Favorites remains available from the home page stack and reader tools.
-- Quiet Aperture visual system with matte page layers, native View Transitions, independent easing, and a reduced-motion fallback.
+- Quiet Aperture visual system with a functional home folder, source-aware 3D View Transitions, independently eased cover/tab/page layers, and a reduced-motion fallback.
 - Automatic opening logo animation with the full rights/non-commercial notice moved to Settings/About.
 - English/Chinese reading mode with block-aware position restoration.
 - Deduplicated page rail, chapter progress, page search, and table-of-contents navigation.

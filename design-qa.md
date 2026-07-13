@@ -1,4 +1,4 @@
-# Beta 0.8.5 Design QA
+# Beta 0.8.6 Design QA
 
 ## Target
 
@@ -55,12 +55,22 @@
 - Replayed the maturity suite under Vite development/StrictMode and replaced mount-count persistence guards with state snapshots so initial local data is never rewritten merely because effects are replayed.
 - Re-ran content, data isolation, learning, AI context, motion, image, APK, AAB, signing, install, and launch gates after the final edit.
 
+### Round 6: Cinematic Folder Navigation And Alignment
+
+- Audited every compact framed value at 390 x 844 and corrected centering in home metrics, vocabulary source summaries, question statistics, daily status, and CTA controls. Long-form cards intentionally remain left aligned.
+- Assigned stable View Transition names to the folder cover, edge tabs, module surface, Reader page, Reader chrome, page heading, progress, and navigation so each layer can move on its own curve.
+- Replaced the generic route fade with five spatial paths: folder extract, folder close, forward/back page turn, book open, and book close. The clicked control supplies the camera origin and travel direction.
+- Staged old and new text on non-overlapping intervals after an intermediate-frame review caught both surfaces being readable at once.
+- Extended motion QA to traverse all five routes and assert named-layer evidence, source origin, transition settlement, zero overflow, and reduced-motion fallback.
+- Captured and inspected the signed Android Release home at 1080 x 2148; folder tabs, metric labels, bottom navigation, and foreground-page bounds remained aligned.
+
 ## Acceptance
 
 | Area | Result | Evidence |
 | --- | --- | --- |
 | Reference fidelity | Passed | Same page-stack composition, matte palette, strong foreground page, exposed destination layers, restrained bottom navigation |
 | Home hierarchy | Passed | Brand, continue action, progress, and three study metrics fit in one first-viewport page |
+| Spatial navigation | Passed | Folder extract/close, module page turn, and Reader book open/close use distinct source-aware transitions with independently eased layers |
 | Reader EN/ZH | Passed | Same anchored reader structure, stable chrome, images retained in both languages |
 | Bottom sheet | Passed | About 52% half state, about 92% full state, body lock and `overscroll: contain` |
 | Learning modules | Passed | Vocabulary recall, contextual answer, question lookup, unknown explanation, answer review before explicit next |

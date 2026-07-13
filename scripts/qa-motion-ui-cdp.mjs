@@ -164,11 +164,50 @@ async function main() {
     return result;
   }
 
+  async function clickWorkspaceEntry(accessibleName) {
+    const result = await evaluate(`(() => {
+      const normalize = (value) => (value ?? "").replace(/\\s+/g, " ").trim();
+      const nav = document.querySelector('nav[aria-label="学习入口"]');
+      const button = Array.from(nav?.querySelectorAll("button") ?? [])
+        .find((item) => normalize(item.textContent) === ${JSON.stringify(accessibleName)});
+      const beforeView = document.querySelector("[data-app-view]")?.getAttribute("data-app-view") ?? null;
+      button?.click();
+      return { clicked: Boolean(button), beforeView };
+    })()`);
+    if (!result.clicked) throw new Error(`Could not find workspace entry: ${accessibleName}`);
+    return result;
+  }
+
+  async function clickWorkspaceContinue() {
+    const result = await evaluate(`(() => {
+      const button = document.querySelector(".workspaceContinue");
+      const beforeView = document.querySelector("[data-app-view]")?.getAttribute("data-app-view") ?? null;
+      button?.click();
+      return { clicked: Boolean(button), beforeView };
+    })()`);
+    if (!result.clicked) throw new Error("Could not find workspace continue control");
+    return result;
+  }
+
+  async function clickReaderLibrary() {
+    const result = await evaluate(`(() => {
+      const button = document.querySelector('[aria-label="返回书库"]');
+      const beforeView = document.querySelector("[data-app-view]")?.getAttribute("data-app-view") ?? null;
+      button?.click();
+      return { clicked: Boolean(button), beforeView };
+    })()`);
+    if (!result.clicked) throw new Error("Could not find Reader library control");
+    return result;
+  }
+
   async function installTransitionProbe(label) {
     return evaluate(`(() => {
-      const nativeStart = typeof document.startViewTransition === "function"
-        ? document.startViewTransition.bind(document)
-        : null;
+      const nativeStart = globalThis.__qaNativeStartViewTransition ?? (
+        typeof document.startViewTransition === "function"
+          ? document.startViewTransition.bind(document)
+          : null
+      );
+      if (nativeStart) globalThis.__qaNativeStartViewTransition = nativeStart;
       const state = {
         label: ${JSON.stringify(label)},
         supported: Boolean(nativeStart),
@@ -177,11 +216,14 @@ async function main() {
         updateCalls: 0,
         kindAtCall: null,
         directionAtCall: null,
+        styleAtCall: null,
+        originAtCall: null,
         ready: false,
         finished: false,
         animationCountAtReady: 0,
         runningAnimationsAtReady: 0,
         maxAnimationEndMsAtReady: 0,
+        pseudoElementsAtReady: [],
         error: null
       };
       globalThis.__qaTransitionProbe = state;
@@ -191,6 +233,11 @@ async function main() {
           state.path = "native";
           state.kindAtCall = document.documentElement.dataset.transitionKind ?? null;
           state.directionAtCall = document.documentElement.dataset.transitionDirection ?? null;
+          state.styleAtCall = document.documentElement.dataset.transitionStyle ?? null;
+          state.originAtCall = {
+            x: document.documentElement.style.getPropertyValue("--transition-origin-x"),
+            y: document.documentElement.style.getPropertyValue("--transition-origin-y")
+          };
           const transition = nativeStart(() => {
             state.updateCalls += 1;
             return update();
@@ -200,6 +247,9 @@ async function main() {
             state.ready = true;
             state.animationCountAtReady = animations.length;
             state.runningAnimationsAtReady = animations.filter((animation) => animation.playState === "running").length;
+            state.pseudoElementsAtReady = animations
+              .map((animation) => animation.effect?.pseudoElement ?? null)
+              .filter(Boolean);
             state.maxAnimationEndMsAtReady = animations.reduce((max, animation) => {
               const endTime = Number(animation.effect?.getComputedTiming?.().endTime);
               return Number.isFinite(endTime) ? Math.max(max, endTime) : max;
@@ -238,9 +288,36 @@ async function main() {
         }, 0),
         transitionKind: document.documentElement.dataset.transitionKind ?? null,
         transitionDirection: document.documentElement.dataset.transitionDirection ?? null,
+        transitionStyle: document.documentElement.dataset.transitionStyle ?? null,
         horizontalOverflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
       };
     })()`);
+  }
+
+  async function captureTransition({ label, click, destination }) {
+    const probeSetup = await installTransitionProbe(label);
+    const clickResult = await click();
+    const immediatelyAfterClick = await motionSnapshot();
+    await waitFor(`${label} destination`, () =>
+      evaluate(`document.querySelector("[data-app-view]")?.getAttribute("data-app-view") === ${JSON.stringify(destination)}`)
+    );
+    if (probeSetup.supported) {
+      await waitFor(`${label} native transition completion`, () =>
+        evaluate(`globalThis.__qaTransitionProbe?.finished === true`)
+      );
+    }
+    await waitForVisualIdle(evaluate, { description: `${label} visual idle` });
+    const transition = await evaluate(`(() => ({
+      ...globalThis.__qaTransitionProbe,
+      destination: document.querySelector("[data-app-view]")?.getAttribute("data-app-view") ?? null,
+      destinationTitle: document.querySelector(".appPageHeader h1, .readerHeading h1")?.textContent?.trim() ?? null,
+      transitionKindAfterSettle: document.documentElement.dataset.transitionKind ?? null,
+      transitionDirectionAfterSettle: document.documentElement.dataset.transitionDirection ?? null,
+      transitionStyleAfterSettle: document.documentElement.dataset.transitionStyle ?? null,
+      runningAnimationsAfterSettle: document.getAnimations().filter((animation) => animation.playState === "running").length,
+      horizontalOverflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
+    }))()`);
+    return { probeSetup, clickResult, immediatelyAfterClick, transition };
   }
 
   await cdp.send("Emulation.setEmulatedMedia", {
@@ -256,23 +333,36 @@ async function main() {
   await waitFor("normal-motion home", () => evaluate(`document.querySelector("[data-app-view]")?.getAttribute("data-app-view") === "home"`));
   await waitForVisualIdle(evaluate, { description: "normal-motion home visual idle" });
 
-  const normalProbeSetup = await installTransitionProbe("normal-navigation");
-  const normalClick = await clickPrimaryNavigation("单词");
-  const normalImmediatelyAfterClick = await motionSnapshot();
-  await waitFor("normal navigation destination", () => evaluate(`document.querySelector("[data-app-view]")?.getAttribute("data-app-view") === "vocab"`));
-  if (normalProbeSetup.supported) {
-    await waitFor("native view transition completion", () => evaluate(`globalThis.__qaTransitionProbe?.finished === true`));
-  }
-  await waitForVisualIdle(evaluate, { description: "normal navigation visual idle" });
-  const normalTransition = await evaluate(`(() => ({
-    ...globalThis.__qaTransitionProbe,
-    destination: document.querySelector("[data-app-view]")?.getAttribute("data-app-view") ?? null,
-    destinationTitle: document.querySelector(".appPageHeader h1")?.textContent?.trim() ?? null,
-    transitionKindAfterSettle: document.documentElement.dataset.transitionKind ?? null,
-    transitionDirectionAfterSettle: document.documentElement.dataset.transitionDirection ?? null,
-    runningAnimationsAfterSettle: document.getAnimations().filter((animation) => animation.playState === "running").length,
-    horizontalOverflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
-  }))()`);
+  const folderExtract = await captureTransition({
+    label: "folder-extract",
+    click: () => clickWorkspaceEntry("单词"),
+    destination: "vocab"
+  });
+  const pageTurn = await captureTransition({
+    label: "module-page-turn",
+    click: () => clickPrimaryNavigation("刷题"),
+    destination: "questions"
+  });
+  const folderClose = await captureTransition({
+    label: "folder-close",
+    click: () => clickPrimaryNavigation("首页"),
+    destination: "home"
+  });
+  const bookOpen = await captureTransition({
+    label: "book-open",
+    click: () => clickWorkspaceContinue(),
+    destination: "reader"
+  });
+  const bookClose = await captureTransition({
+    label: "book-close",
+    click: () => clickReaderLibrary(),
+    destination: "home"
+  });
+
+  const normalProbeSetup = folderExtract.probeSetup;
+  const normalClick = folderExtract.clickResult;
+  const normalImmediatelyAfterClick = folderExtract.immediatelyAfterClick;
+  const normalTransition = folderExtract.transition;
 
   await cdp.send("Emulation.setEmulatedMedia", {
     features: [{ name: "prefers-reduced-motion", value: "reduce" }]
@@ -307,29 +397,65 @@ async function main() {
     reduced: matchMedia("(prefers-reduced-motion: reduce)").matches,
     transitionKindAfterSettle: document.documentElement.dataset.transitionKind ?? null,
     transitionDirectionAfterSettle: document.documentElement.dataset.transitionDirection ?? null,
+    transitionStyleAfterSettle: document.documentElement.dataset.transitionStyle ?? null,
     runningAnimationsAfterSettle: document.getAnimations().filter((animation) => animation.playState === "running").length,
     horizontalOverflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
   }))()`);
 
-  const normalPathVerified = normalTransition.supported
-    ? normalTransition.path === "native" &&
-      normalTransition.calls === 1 &&
-      normalTransition.updateCalls === 1 &&
-      normalTransition.kindAtCall === "navigation" &&
-      normalTransition.directionAtCall === "forward" &&
-      normalTransition.ready &&
-      normalTransition.finished &&
-      normalTransition.animationCountAtReady > 0 &&
-      normalTransition.maxAnimationEndMsAtReady >= 100
-    : normalTransition.path === "fallback" && normalTransition.calls === 0;
+  const nativeTransitionVerified = (capture, expectedStyle, expectedDirection) => {
+    const transition = capture.transition;
+    return transition.supported
+      ? transition.path === "native" &&
+        transition.calls === 1 &&
+        transition.updateCalls === 1 &&
+        transition.kindAtCall === "navigation" &&
+        transition.directionAtCall === expectedDirection &&
+        transition.styleAtCall === expectedStyle &&
+        transition.ready &&
+        transition.finished &&
+        transition.animationCountAtReady > 0 &&
+        transition.maxAnimationEndMsAtReady >= 600 &&
+        transition.transitionKindAfterSettle === null &&
+        transition.transitionDirectionAfterSettle === null &&
+        transition.transitionStyleAfterSettle === null &&
+        transition.runningAnimationsAfterSettle === 0 &&
+        transition.horizontalOverflow <= 1
+      : transition.path === "fallback" && transition.calls === 0;
+  };
+
+  const originX = Number.parseFloat(normalTransition.originAtCall?.x ?? "");
+  const folderLayerEvidence = !normalTransition.supported ||
+    normalTransition.pseudoElementsAtReady.some((value) => value.includes("app-folder-cover")) &&
+    normalTransition.pseudoElementsAtReady.some((value) => value.includes("app-folder-tabs")) &&
+    normalTransition.pseudoElementsAtReady.some((value) => value.includes("app-module-surface"));
 
   const checks = {
     normalTransitionTriggered:
       normalClick.beforeView === "home" && normalTransition.destination === "vocab" && normalTransition.destinationTitle === "单词本",
-    normalTransitionPathVerified: normalPathVerified,
+    folderExtractVerified: nativeTransitionVerified(folderExtract, "folder-extract", "forward"),
+    folderExtractUsesSourceOrigin:
+      !normalTransition.supported || Number.isFinite(originX) && originX > 280 && originX <= 390,
+    folderLayersAnimateIndependently: folderLayerEvidence,
+    modulePageTurnVerified:
+      pageTurn.clickResult.beforeView === "vocab" &&
+      pageTurn.transition.destination === "questions" &&
+      nativeTransitionVerified(pageTurn, "page-turn", "forward"),
+    folderCloseVerified:
+      folderClose.clickResult.beforeView === "questions" &&
+      folderClose.transition.destination === "home" &&
+      nativeTransitionVerified(folderClose, "folder-close", "backward"),
+    bookOpenVerified:
+      bookOpen.clickResult.beforeView === "home" &&
+      bookOpen.transition.destination === "reader" &&
+      nativeTransitionVerified(bookOpen, "book-open", "forward"),
+    bookCloseVerified:
+      bookClose.clickResult.beforeView === "reader" &&
+      bookClose.transition.destination === "home" &&
+      nativeTransitionVerified(bookClose, "book-close", "backward"),
     normalTransitionSettled:
       normalTransition.transitionKindAfterSettle === null &&
       normalTransition.transitionDirectionAfterSettle === null &&
+      normalTransition.transitionStyleAfterSettle === null &&
       normalTransition.runningAnimationsAfterSettle === 0,
     reducedOpeningFast:
       reducedOpening.reduced &&
@@ -349,13 +475,16 @@ async function main() {
       reducedTransition.destination === "vocab" &&
       reducedTransition.destinationTitle === "单词本" &&
       reducedTransition.transitionKindAfterSettle === null &&
-      reducedTransition.transitionDirectionAfterSettle === null,
+      reducedTransition.transitionDirectionAfterSettle === null &&
+      reducedTransition.transitionStyleAfterSettle === null,
     reducedTransitionAnimationsDisabled:
       reducedImmediatelyAfterClick.reduced &&
       reducedImmediatelyAfterClick.maxAnimationActiveMs <= 1 &&
       reducedTransition.runningAnimationsAfterSettle === 0,
     noHorizontalOverflow:
-      normalTransition.horizontalOverflow <= 1 && reducedTransition.horizontalOverflow <= 1
+      [folderExtract, pageTurn, folderClose, bookOpen, bookClose]
+        .every((capture) => capture.transition.horizontalOverflow <= 1) &&
+      reducedTransition.horizontalOverflow <= 1
   };
 
   if (probeRegistration.identifier) {
@@ -370,9 +499,11 @@ async function main() {
     ok: Object.values(checks).every(Boolean),
     checks,
     normal: {
-      probeSetup: normalProbeSetup,
-      immediatelyAfterClick: normalImmediatelyAfterClick,
-      transition: normalTransition
+      folderExtract,
+      pageTurn,
+      folderClose,
+      bookOpen,
+      bookClose
     },
     reduced: {
       opening: reducedOpening,

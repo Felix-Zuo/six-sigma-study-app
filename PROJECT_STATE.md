@@ -20,15 +20,28 @@ The final product must support full-manual offline reading, position-preserving 
 
 ## Current Evidence
 
-- Product version: `Beta 0.8.5` (`0.8.5-beta.0` in npm, Android `versionCode 805` / `versionName 0.8.5-beta`). During the current beta line, each user-facing update increments the patch version: `0.8.6`, `0.8.7`, and so on.
+- Product version: `Beta 0.8.6` (`0.8.6-beta.0` in npm, Android `versionCode 806` / `versionName 0.8.6-beta`). During the current beta line, each user-facing update increments the patch version: `0.8.7`, `0.8.8`, and so on.
 - Branch: `main`
 - Latest workspace migration validation pass: 2026-06-26 00:33 Asia/Shanghai
 - Local workspace root: `D:\0A OpenClaw\projects\6sigma`
-- Local worktree: Beta 0.8.5 five-round maturity hardening, release verification, and repository delivery complete; implementation head `72e11d9`
-- Latest confirmed GitHub Actions state: CI passed for `72e11d9` in run `29208394857`, including build, browser maturity regression, and Android Debug jobs
+- Local worktree: Beta 0.8.6 cinematic folder motion, compact-card alignment, release verification, and repository delivery in progress
+- Latest confirmed GitHub Actions state before this release: CI passed for `86aafe6` in run `29208484946`, including build, browser maturity regression, and Android Debug jobs
 - Release APK after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with the Quiet Aperture spatial shell, native View Transitions and reduced-motion fallback, source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, book-isolated persisted reading positions, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, occurrence-level bilingual context glosses, tap-to-lookup bottom sheet, 3980-entry public offline learner dictionary plus an ignored 3550-entry local private-question supplement, phrase-selection UI hook, due-only vocabulary review scheduling and CSV export, selected-text study notes, timed mock exams, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with the Quiet Aperture spatial shell, source-aware cinematic folder/page/book transitions and reduced-motion fallback, source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, book-isolated persisted reading positions, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, occurrence-level bilingual context glosses, tap-to-lookup bottom sheet, 3980-entry public offline learner dictionary plus an ignored 3550-entry local private-question supplement, phrase-selection UI hook, due-only vocabulary review scheduling and CSV export, selected-text study notes, timed mock exams, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+
+## 2026-07-13 Cinematic Folder Motion Beta 0.8.6
+
+- Promoted the home page stack from a visual metaphor to a navigation model: tapping a folder-edge destination now uses the touched tab as the camera origin, releases the cover and tabs on separate easing curves, and extracts the selected module after the cover clears.
+- Added dedicated spatial transitions for module-to-module page turns, returning content into the home folder, opening Reader content like a book, and closing Reader back into the workspace. Old and new text are temporally staged so they never overlap during the transition.
+- Centered values and labels in compact home metrics, vocabulary source summaries, question statistics, daily status, and tightly framed action controls while preserving left alignment for readable content cards.
+- Extended `qa:motion-ui` into a five-route motion contract. It verifies transition style/direction, source coordinates, named independent layers, 600+ ms bounded cinematic motion, final state cleanup, zero overflow, and the no-animation reduced-motion fallback.
+- Re-ran all 13 maturity regressions, Target 4 flow, learning/lexical/AI UI, key chapter image fidelity, content/import/source coverage, learning modules, public audit, and documentation links. All passed.
+- Android `0.8.6-beta` was installed and launched on `emulator-5554`; the release home was visually inspected at 1080 x 2148 device pixels with centered metrics and intact folder tabs.
+- Final release artifacts:
+  - APK: 40,727,537 bytes; SHA-256 `6932FBB9A92497C334FBDB4ABEB78754D1CD0CDC3203E568841289A15FB63E0D`; APK Signature Scheme v2 verified with one signer; installed and launched as `versionCode 806` / `versionName 0.8.6-beta`.
+  - AAB: 38,479,855 bytes; SHA-256 `BD26F1586E1CB3A127B73576685CFE16F66C67037CAA3202C617055B7DE1E47F`; JAR signature verification passed with expected local self-signed/no-timestamp warnings.
+  - APK/AAB retain the local 1000-question bank and 3550-entry private-question dictionary supplement; the ordinary web `dist` remains free of private paths and content.
 
 ## 2026-07-13 Five-Round Product Maturity Pass Beta 0.8.5
 

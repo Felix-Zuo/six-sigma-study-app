@@ -119,13 +119,25 @@ node scripts\qa-dictionary-cdp.mjs
 ## PWA Browser Offline QA
 
 - `node scripts\qa-pwa-offline-cdp.mjs`: passed against Vite preview on `127.0.0.1:4175` and clean headless Chrome CDP on `127.0.0.1:9333`.
-- Service worker cache: `six-sigma-study-v0.8.5`; content JSON uses network-first refresh with offline cache fallback.
+- Service worker cache: `six-sigma-study-v0.8.6`; content JSON uses network-first refresh with offline cache fallback.
 - Online cache state includes `/`, `/index.html`, hashed JS/CSS shell assets, `content/manual.json`, `manifest.webmanifest`, and all 475 figure assets.
 - Offline reload state: CDP network offline, cache-ignored reload rendered `Chapter 1: What is Six Sigma?`, 23 sections, service-worker controller present, and horizontal overflow 0.
 
 ## Android Runtime QA
 
 Verified on local emulator `SixSigmaQA` / `emulator-5554`.
+
+### Beta 0.8.6 Cinematic Folder Motion
+
+- `npm run qa:motion-ui`: all five source-aware paths passed: folder extract, module page turn, folder close, Reader book open, and Reader book close. The folder path exposed independent cover/tab/module pseudo-elements, used the touched side tab at `351px, 122px` as its origin, settled with zero running animations, and had zero horizontal overflow.
+- Reduced-motion verification passed: opening animation timing stayed at or below 1 ms and route navigation used the direct fallback without View Transition animation.
+- `npm run qa:maturity-regressions`: all 13 logic, persistence, accessibility, Reader, question, vocabulary, sheet, and navigation isolation scenarios passed after the animation changes.
+- `npm run qa:target4-flow`, `npm run qa:learning-ui`, `npm run qa:lexical-ui`, and `npm run qa:ai-context-ui`: all product flows passed with centered compact metrics, working lookups, stable question sessions, and the expected `Beta 0.8.6` settings version.
+- `npm run qa:image-fidelity`: Chapters 1/7/26/33 retained 2/14/50/25 images in both English and Chinese, with no broken images or horizontal overflow.
+- Signed Android Release installed and launched on `emulator-5554` as `versionCode 806` / `versionName 0.8.6-beta`; the 1080 x 2148 home capture retained the complete folder composition and centered metrics.
+- Final APK: 40,727,537 bytes, SHA-256 `6932FBB9A92497C334FBDB4ABEB78754D1CD0CDC3203E568841289A15FB63E0D`; APK Signature Scheme v2 verified with one signer.
+- Final AAB: 38,479,855 bytes, SHA-256 `BD26F1586E1CB3A127B73576685CFE16F66C67037CAA3202C617055B7DE1E47F`; JAR signature verified with expected self-signed/no-timestamp warnings.
+- Final public-artifact isolation passed after both release builds; ordinary web `dist` contained no private question-bank or supplemental-dictionary data.
 
 ### Beta 0.8.5 Five-Round Product Maturity Pass
 

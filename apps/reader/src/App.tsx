@@ -90,6 +90,7 @@ type Language = "en" | "zh";
 type ThemeMode = "light" | "dark";
 type TextScale = "standard" | "large" | "xlarge";
 type AppView = "splash" | "home" | "reader" | "vocab" | "questions" | "notes" | "favorites" | "settings";
+type SpatialTransitionStyle = "folder-extract" | "folder-close" | "page-turn" | "book-open" | "book-close";
 type LocalizedText = Record<Language, string>;
 type QuestionMode = "home" | "browse" | "practice" | "wrong" | "favorite" | "exam";
 type QuestionFilter = "all" | string;
@@ -273,8 +274,8 @@ type ViewTransitionDocument = Document & {
 
 const defaultBookId = "six-sigma-black-belt";
 const defaultBookTitle = "六西格玛黑带教材";
-const productVersionLabel = "Beta 0.8.5";
-const productVersionId = "0.8.5-beta";
+const productVersionLabel = "Beta 0.8.6";
+const productVersionId = "0.8.6-beta";
 const githubProfileUrl = "https://github.com/Felix-Zuo";
 const catalogPath = "content/catalog.json";
 const bundledQuestionBankPath = "content/private/question-bank.private.json";
@@ -1979,7 +1980,8 @@ export function App() {
   function runSpatialTransition(
     kind: "navigation" | "language",
     update: () => void,
-    direction: "forward" | "backward" = "forward"
+    direction: "forward" | "backward" = "forward",
+    options: { style?: SpatialTransitionStyle; source?: HTMLElement | null } = {}
   ) {
     const root = document.documentElement;
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -1994,10 +1996,27 @@ export function App() {
       }
       delete root.dataset.transitionKind;
       delete root.dataset.transitionDirection;
+      delete root.dataset.transitionStyle;
+      root.style.removeProperty("--transition-origin-x");
+      root.style.removeProperty("--transition-origin-y");
+      root.style.removeProperty("--transition-travel-x");
+      root.style.removeProperty("--transition-travel-y");
     }
 
     root.dataset.transitionKind = kind;
     root.dataset.transitionDirection = direction;
+    if (options.style) {
+      root.dataset.transitionStyle = options.style;
+    }
+    const sourceRect = options.source?.getBoundingClientRect();
+    const originX = sourceRect ? sourceRect.left + sourceRect.width / 2 : window.innerWidth / 2;
+    const originY = sourceRect ? sourceRect.top + sourceRect.height / 2 : window.innerHeight / 2;
+    const travelX = Math.max(-150, Math.min(150, originX - window.innerWidth / 2));
+    const travelY = Math.max(-190, Math.min(190, originY - window.innerHeight / 2));
+    root.style.setProperty("--transition-origin-x", `${Math.round(originX)}px`);
+    root.style.setProperty("--transition-origin-y", `${Math.round(originY)}px`);
+    root.style.setProperty("--transition-travel-x", `${Math.round(travelX)}px`);
+    root.style.setProperty("--transition-travel-y", `${Math.round(travelY)}px`);
 
     if (!transitionDocument.startViewTransition || prefersReducedMotion) {
       commit();
@@ -2014,7 +2033,7 @@ export function App() {
     }
   }
 
-  function navigateTo(nextView: AppView) {
+  function navigateTo(nextView: AppView, source?: HTMLElement | null) {
     setReaderMenuOpen(false);
     if (nextView === view) {
       window.scrollTo({ top: 0, left: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
@@ -2022,17 +2041,24 @@ export function App() {
     }
     const currentIndex = appViewOrder[view] ?? 0;
     const nextIndex = appViewOrder[nextView] ?? currentIndex;
+    const style: SpatialTransitionStyle = view === "reader" && nextView === "home"
+      ? "book-close"
+      : view === "home"
+        ? "folder-extract"
+        : nextView === "home"
+          ? "folder-close"
+          : "page-turn";
     runSpatialTransition("navigation", () => {
       setView(nextView);
       window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-    }, nextIndex >= currentIndex ? "forward" : "backward");
+    }, nextIndex >= currentIndex ? "forward" : "backward", { style, source });
   }
 
-  function openBook(bookId: string) {
+  function openBook(bookId: string, source?: HTMLElement | null) {
     runSpatialTransition("navigation", () => {
       setActiveBookId(bookId);
       setView("reader");
-    });
+    }, "forward", { style: "book-open", source });
     setReaderMenuOpen(false);
   }
 
@@ -2816,7 +2842,7 @@ export function App() {
           <button
             key={item.view}
             className={view === item.view ? "mainNavItem active" : "mainNavItem"}
-            onClick={() => navigateTo(item.view)}
+            onClick={(event) => navigateTo(item.view, event.currentTarget)}
             aria-label={item.detail ? `${item.label}，${item.detail}` : item.label}
             aria-current={view === item.view ? "page" : undefined}
           >
@@ -2880,40 +2906,40 @@ export function App() {
                 <span style={{ width: `${recentProgress.percent}%` }} />
                 <i style={{ left: `${Math.min(96, Math.max(2, recentProgress.percent))}%` }} />
               </div>
-              <button className="primaryAction workspaceContinue" onClick={() => openBook(recentBook?.bookId ?? defaultBookId)}>
+              <button className="primaryAction workspaceContinue" onClick={(event) => openBook(recentBook?.bookId ?? defaultBookId, event.currentTarget)}>
                 <span>{recentProgress.page ? "继续阅读" : "开始阅读"}</span>
                 <ArrowRight size={22} strokeWidth={1.8} />
               </button>
             <section className="metricGrid" aria-label="学习概览">
-                <button onClick={() => navigateTo("vocab")}>
+                <button onClick={(event) => navigateTo("vocab", event.currentTarget)}>
                   <strong>{dailyStats.completed}/{dailyStats.goal}</strong>
                   <span>今日目标</span>
                   <small>连续天数 {dailyStats.streak}</small>
                 </button>
-                <button onClick={() => navigateTo("questions")}>
+                <button onClick={(event) => navigateTo("questions", event.currentTarget)}>
                   <strong>{allQuestions.length}</strong>
                   <span>题库</span>
                 </button>
-                <button onClick={() => navigateTo("notes")}>
+                <button onClick={(event) => navigateTo("notes", event.currentTarget)}>
                   <strong>{savedNotes.length + savedFavorites.length}</strong>
                   <span>学习记录</span>
                 </button>
               </section>
             </article>
           <nav className="workspaceEdgeNav" aria-label="学习入口">
-              <button onClick={() => navigateTo("vocab")}>
+              <button onClick={(event) => navigateTo("vocab", event.currentTarget)}>
                 <span>单词</span>
                 <BookOpen size={19} strokeWidth={1.8} />
               </button>
-              <button onClick={() => navigateTo("questions")}>
+              <button onClick={(event) => navigateTo("questions", event.currentTarget)}>
                 <span>刷题</span>
                 <ClipboardCheck size={19} strokeWidth={1.8} />
               </button>
-              <button onClick={() => navigateTo("notes")}>
+              <button onClick={(event) => navigateTo("notes", event.currentTarget)}>
                 <span>笔记</span>
                 <NotebookPen size={19} strokeWidth={1.8} />
               </button>
-              <button onClick={() => navigateTo("favorites")}>
+              <button onClick={(event) => navigateTo("favorites", event.currentTarget)}>
                 <span>收藏</span>
                 <BookmarkCheck size={19} strokeWidth={1.8} />
               </button>
@@ -2947,7 +2973,7 @@ export function App() {
                     <span>{bookNotes.length} 笔记</span>
                     <span>{bookFavorites.length} 收藏</span>
                   </div>
-                  <button className="primaryAction" onClick={() => openBook(book.bookId)}>
+                  <button className="primaryAction" onClick={(event) => openBook(book.bookId, event.currentTarget)}>
                     {progress.page ? "继续阅读" : "开始学习"}
                   </button>
                 </div>
@@ -2958,7 +2984,7 @@ export function App() {
         <section className="recentPanel" aria-label="最近笔记">
           <div className="sectionHeader">
             <h2>最近笔记</h2>
-            <button onClick={() => navigateTo("notes")}>全部</button>
+            <button onClick={(event) => navigateTo("notes", event.currentTarget)}>全部</button>
           </div>
           {recentNotes.length === 0 ? (
             <p className="emptyState compact">还没有笔记。阅读时选中文本即可摘录。</p>
@@ -4578,7 +4604,7 @@ export function App() {
             <h1>{currentLesson.title[language]}</h1>
           </div>
           <div className="headerActions">
-            <button className="readerControlButton" onClick={() => navigateTo("home")} aria-label="返回书库">书库</button>
+            <button className="readerControlButton" onClick={(event) => navigateTo("home", event.currentTarget)} aria-label="返回书库">书库</button>
             <button className="tocButton" onClick={openToc} aria-label="打开目录">
               目录
             </button>

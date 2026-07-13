@@ -2734,7 +2734,7 @@ h1 {
   }
 }
 
-/* Beta 0.8.5 - Quiet Aperture maturity pass */
+/* Beta 0.8.6 - Quiet Aperture cinematic folder motion */
 :root {
   color: #202329;
   background: #eeece7;
@@ -2991,6 +2991,18 @@ html[data-reader-theme="dark"] body {
   animation: apertureContentSettle 680ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+.appShell:not(.page-home):not(.page-reader) .appPageContent {
+  view-transition-name: app-module-surface;
+}
+
+.readerChrome {
+  view-transition-name: app-reader-chrome;
+}
+
+.readerPanel {
+  view-transition-name: app-reader-page;
+}
+
 .appPageContent > * {
   animation: apertureLayerSettle 720ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
@@ -3054,6 +3066,8 @@ html[data-transition-kind] .appPageContent > * {
   box-shadow: 0 20px 42px rgba(35, 35, 33, 0.1);
   transform-origin: 90% 50%;
   animation: aperturePageLand 920ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 420ms ease;
+  view-transition-name: app-folder-cover;
 }
 
 .appShell[data-theme="dark"] .workspaceFocus {
@@ -3191,6 +3205,7 @@ html[data-transition-kind] .appPageContent > * {
   gap: 7px;
   padding: 16px 0 16px 6px;
   transform-style: preserve-3d;
+  view-transition-name: app-folder-tabs;
 }
 
 .workspaceEdgeNav::before,
@@ -3237,7 +3252,8 @@ html[data-transition-kind] .appPageContent > * {
   background: var(--edge-tab-bg);
   box-shadow: 7px 8px 18px var(--edge-tab-shadow);
   animation: apertureTabSettle 780ms cubic-bezier(0.16, 1, 0.3, 1) both;
-  transition: width 220ms cubic-bezier(0.16, 1, 0.3, 1), color 180ms ease, background 180ms ease;
+  transform-origin: left center;
+  transition: width 260ms cubic-bezier(0.16, 1, 0.3, 1), color 180ms ease, background 180ms ease, transform 320ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 320ms ease;
 }
 
 .workspaceEdgeNav button:nth-child(1) {
@@ -3269,7 +3285,15 @@ html[data-transition-kind] .appPageContent > * {
   width: 58px;
   color: var(--edge-tab-hover-text);
   background: var(--edge-tab-hover-bg);
+  box-shadow: 11px 12px 24px var(--edge-tab-shadow);
   outline: none;
+  transform: translate3d(4px, 0, 16px) rotateY(-2deg);
+}
+
+.workspacePageStack:has(.workspaceEdgeNav button:hover) .workspaceFocus,
+.workspacePageStack:has(.workspaceEdgeNav button:focus-visible) .workspaceFocus {
+  box-shadow: 0 24px 48px rgba(35, 35, 33, 0.13);
+  transform: translate3d(-2px, 0, 8px) rotateY(-1deg);
 }
 
 .workspaceEdgeNav span {
@@ -3293,6 +3317,8 @@ html[data-transition-kind] .appPageContent > * {
 
 .metricGrid button {
   display: grid;
+  place-content: center;
+  justify-items: center;
   gap: 4px;
   min-height: 76px;
   padding: 14px 12px;
@@ -3301,7 +3327,7 @@ html[data-transition-kind] .appPageContent > * {
   border-radius: 0;
   color: var(--text);
   background: transparent;
-  text-align: left;
+  text-align: center;
   transition: background 180ms ease, transform 180ms ease;
 }
 
@@ -3327,6 +3353,7 @@ html[data-transition-kind] .appPageContent > * {
 }
 
 .metricGrid small {
+  max-width: 12ch;
   color: var(--text-muted);
   font-size: 10px;
   line-height: 1.3;
@@ -3602,6 +3629,9 @@ summary:focus-visible {
 
 .vocabStartButton,
 .questionContinueButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 52px;
   border-radius: 6px;
 }
@@ -3615,8 +3645,11 @@ summary:focus-visible {
 }
 
 .vocabSourceSummary div {
+  place-content: center;
+  justify-items: center;
   border-right: 1px solid var(--border);
   background: transparent;
+  text-align: center;
 }
 
 .vocabSourceSummary div:last-child {
@@ -3665,6 +3698,7 @@ summary:focus-visible {
 }
 
 .questionModeCards > button {
+  align-content: center;
   min-height: 82px;
   border-color: var(--border);
   border-radius: 7px;
@@ -3689,10 +3723,22 @@ summary:focus-visible {
 
 .questionStatsGrid span,
 .weakDomainList span {
+  display: grid;
+  place-content: center;
+  min-height: 58px;
   border: 0;
   border-right: 1px solid var(--border);
   border-radius: 0;
   background: transparent;
+  text-align: center;
+}
+
+.dailyStatusCard span,
+.sourceMetaGrid span {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  text-align: center;
 }
 
 .questionCard,
@@ -4045,6 +4091,100 @@ html[data-transition-kind="language"]::view-transition-new(app-reading-progress)
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+::view-transition-group(app-folder-cover),
+::view-transition-group(app-folder-tabs),
+::view-transition-group(app-module-surface),
+::view-transition-group(app-reader-page),
+::view-transition-group(app-reader-chrome) {
+  animation-duration: 940ms;
+  transform-style: preserve-3d;
+}
+
+html[data-transition-style="folder-extract"]::view-transition-old(root),
+html[data-transition-style="book-open"]::view-transition-old(root) {
+  animation: apertureCameraVeilOut 560ms cubic-bezier(0.22, 0.8, 0.2, 1) both;
+  transform-origin: var(--transition-origin-x, 50%) var(--transition-origin-y, 50%);
+}
+
+html[data-transition-style="folder-extract"]::view-transition-new(root),
+html[data-transition-style="book-open"]::view-transition-new(root) {
+  animation: apertureCameraVeilIn 880ms 90ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+html[data-transition-style="folder-extract"]::view-transition-old(app-folder-cover),
+html[data-transition-style="book-open"]::view-transition-old(app-folder-cover) {
+  animation: apertureFolderCoverOpen 620ms cubic-bezier(0.32, 0.72, 0.2, 1) both;
+  transform-origin: left center;
+}
+
+html[data-transition-style="folder-extract"]::view-transition-old(app-folder-tabs),
+html[data-transition-style="book-open"]::view-transition-old(app-folder-tabs) {
+  animation: apertureFolderTabsRelease 560ms 35ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+html[data-transition-style="folder-extract"]::view-transition-new(app-module-surface) {
+  animation: apertureFolderExtractIn 820ms 150ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: var(--transition-origin-x, 88%) var(--transition-origin-y, 50%);
+}
+
+html[data-transition-style="folder-extract"]::view-transition-new(app-page-heading) {
+  animation: apertureCaptionFloatIn 640ms 230ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+html[data-transition-style="folder-close"]::view-transition-old(app-module-surface),
+html[data-transition-style="book-close"]::view-transition-old(app-reader-page) {
+  animation: apertureFolderReturnOut 620ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  transform-origin: right center;
+}
+
+html[data-transition-style="folder-close"]::view-transition-new(app-folder-cover),
+html[data-transition-style="book-close"]::view-transition-new(app-folder-cover) {
+  animation: apertureFolderCoverClose 860ms 110ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: left center;
+}
+
+html[data-transition-style="folder-close"]::view-transition-new(app-folder-tabs),
+html[data-transition-style="book-close"]::view-transition-new(app-folder-tabs) {
+  animation: apertureFolderTabsReturn 720ms 180ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+html[data-transition-style="page-turn"][data-transition-direction="forward"]::view-transition-old(app-module-surface),
+html[data-transition-style="page-turn"][data-transition-direction="forward"]::view-transition-old(app-reader-page) {
+  animation: aperturePageTurnOut 640ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  transform-origin: left center;
+}
+
+html[data-transition-style="page-turn"][data-transition-direction="forward"]::view-transition-new(app-module-surface),
+html[data-transition-style="page-turn"][data-transition-direction="forward"]::view-transition-new(app-reader-page) {
+  animation: aperturePageTurnIn 820ms 100ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: right center;
+}
+
+html[data-transition-style="page-turn"][data-transition-direction="backward"]::view-transition-old(app-module-surface),
+html[data-transition-style="page-turn"][data-transition-direction="backward"]::view-transition-old(app-reader-page) {
+  animation: aperturePageTurnBackOut 620ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  transform-origin: right center;
+}
+
+html[data-transition-style="page-turn"][data-transition-direction="backward"]::view-transition-new(app-module-surface),
+html[data-transition-style="page-turn"][data-transition-direction="backward"]::view-transition-new(app-reader-page) {
+  animation: aperturePageTurnBackIn 800ms 100ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: left center;
+}
+
+html[data-transition-style="book-open"]::view-transition-new(app-reader-page) {
+  animation: apertureBookOpenIn 900ms 140ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: left center;
+}
+
+html[data-transition-style="book-open"]::view-transition-new(app-reader-chrome) {
+  animation: apertureCaptionFloatIn 620ms 240ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+html[data-transition-style="book-close"]::view-transition-old(app-reader-chrome) {
+  animation: apertureCaptionFloatOut 520ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
 @keyframes aperturePageLand {
   from {
     opacity: 0;
@@ -4160,6 +4300,223 @@ html[data-transition-kind="language"]::view-transition-new(app-reading-progress)
   from {
     opacity: 0;
     transform: translateY(10px) scale(0.995);
+  }
+}
+
+@keyframes apertureCameraVeilOut {
+  0% {
+    opacity: 1;
+    transform: perspective(1500px) translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    opacity: 0.28;
+    transform: perspective(1500px) translate3d(-2%, 0, -110px) scale(0.975);
+  }
+}
+
+@keyframes apertureCameraVeilIn {
+  0% {
+    opacity: 0;
+    transform: perspective(1500px) translate3d(2%, 0, -150px) scale(0.955);
+  }
+  30% {
+    opacity: 0;
+    transform: perspective(1500px) translate3d(1.4%, 0, -110px) scale(0.968);
+  }
+  72% {
+    opacity: 1;
+    transform: perspective(1500px) translate3d(-0.4%, 0, 10px) scale(1.004);
+  }
+  88% {
+    transform: perspective(1500px) translate3d(0.12%, 0, -3px) scale(0.999);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1500px) translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes apertureFolderCoverOpen {
+  0% {
+    opacity: 1;
+    transform: perspective(1500px) translate3d(0, 0, 0) rotateY(0) scale(1);
+  }
+  58% {
+    opacity: 0.9;
+    transform: perspective(1500px) translate3d(-4%, 0, 24px) rotateY(-11deg) scale(0.99);
+  }
+  100% {
+    opacity: 0;
+    transform: perspective(1500px) translate3d(-12%, 0, -90px) rotateY(-18deg) scale(0.96);
+  }
+}
+
+@keyframes apertureFolderTabsRelease {
+  0% {
+    opacity: 1;
+    transform: perspective(1200px) translate3d(0, 0, 0) rotateY(0);
+  }
+  46% {
+    opacity: 1;
+    transform: perspective(1200px) translate3d(18px, 0, 34px) rotateY(-4deg);
+  }
+  100% {
+    opacity: 0;
+    transform: perspective(1200px) translate3d(82px, 0, -70px) rotateY(10deg);
+  }
+}
+
+@keyframes apertureFolderExtractIn {
+  0% {
+    opacity: 0;
+    clip-path: inset(5% 3% 5% 10% round 10px);
+    transform: perspective(1600px) translate3d(var(--transition-travel-x, 90px), var(--transition-travel-y, 0), -280px) rotateX(3deg) rotateY(-13deg) scale(0.79);
+  }
+  20% {
+    opacity: 0;
+  }
+  68% {
+    opacity: 1;
+    clip-path: inset(0 round 2px);
+    transform: perspective(1600px) translate3d(-4px, 0, 18px) rotateX(-0.2deg) rotateY(0.8deg) scale(1.007);
+  }
+  86% {
+    transform: perspective(1600px) translate3d(1px, 0, -4px) rotateX(0) rotateY(-0.18deg) scale(0.998);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 round 0);
+    transform: perspective(1600px) translate3d(0, 0, 0) rotateX(0) rotateY(0) scale(1);
+  }
+}
+
+@keyframes apertureFolderReturnOut {
+  0% {
+    opacity: 1;
+    transform: perspective(1500px) translate3d(0, 0, 0) rotateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: perspective(1500px) translate3d(12%, 0, -220px) rotateY(13deg) scale(0.84);
+  }
+}
+
+@keyframes apertureFolderCoverClose {
+  0% {
+    opacity: 0.16;
+    transform: perspective(1500px) translate3d(-10%, 0, -210px) rotateY(-17deg) scale(0.91);
+  }
+  70% {
+    opacity: 1;
+    transform: perspective(1500px) translate3d(2px, 0, 14px) rotateY(0.8deg) scale(1.004);
+  }
+  88% {
+    transform: perspective(1500px) translate3d(-1px, 0, -3px) rotateY(-0.16deg) scale(0.999);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1500px) translate3d(0, 0, 0) rotateY(0) scale(1);
+  }
+}
+
+@keyframes apertureFolderTabsReturn {
+  0% {
+    opacity: 0;
+    transform: perspective(1200px) translate3d(70px, 0, -90px) rotateY(9deg);
+  }
+  72% {
+    opacity: 1;
+    transform: perspective(1200px) translate3d(-3px, 0, 10px) rotateY(-1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1200px) translate3d(0, 0, 0) rotateY(0);
+  }
+}
+
+@keyframes aperturePageTurnOut {
+  to {
+    opacity: 0;
+    transform: perspective(1600px) translate3d(-9%, 0, -150px) rotateY(-16deg) scale(0.97);
+  }
+}
+
+@keyframes aperturePageTurnIn {
+  0% {
+    opacity: 0.12;
+    transform: perspective(1600px) translate3d(10%, 0, -190px) rotateY(15deg) scale(0.92);
+  }
+  72% {
+    opacity: 1;
+    transform: perspective(1600px) translate3d(-3px, 0, 14px) rotateY(-0.7deg) scale(1.005);
+  }
+  88% {
+    transform: perspective(1600px) translate3d(1px, 0, -3px) rotateY(0.15deg) scale(0.999);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1600px) translate3d(0, 0, 0) rotateY(0) scale(1);
+  }
+}
+
+@keyframes aperturePageTurnBackOut {
+  to {
+    opacity: 0;
+    transform: perspective(1600px) translate3d(9%, 0, -140px) rotateY(15deg) scale(0.97);
+  }
+}
+
+@keyframes aperturePageTurnBackIn {
+  0% {
+    opacity: 0.12;
+    transform: perspective(1600px) translate3d(-10%, 0, -180px) rotateY(-14deg) scale(0.92);
+  }
+  72% {
+    opacity: 1;
+    transform: perspective(1600px) translate3d(3px, 0, 14px) rotateY(0.7deg) scale(1.005);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1600px) translate3d(0, 0, 0) rotateY(0) scale(1);
+  }
+}
+
+@keyframes apertureBookOpenIn {
+  0% {
+    opacity: 0;
+    transform: perspective(1700px) translate3d(9%, 0, -260px) rotateY(19deg) scale(0.88);
+  }
+  18% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 1;
+    transform: perspective(1700px) translate3d(-3px, 0, 20px) rotateY(-0.8deg) scale(1.006);
+  }
+  86% {
+    transform: perspective(1700px) translate3d(1px, 0, -4px) rotateY(0.16deg) scale(0.999);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1700px) translate3d(0, 0, 0) rotateY(0) scale(1);
+  }
+}
+
+@keyframes apertureCaptionFloatIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 16px, -30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes apertureCaptionFloatOut {
+  to {
+    opacity: 0;
+    transform: translate3d(0, -12px, -30px);
   }
 }
 
@@ -4297,7 +4654,17 @@ html[data-transition-kind="language"]::view-transition-new(app-reading-progress)
   ::view-transition-old(app-main-nav),
   ::view-transition-new(app-main-nav),
   ::view-transition-old(app-reading-progress),
-  ::view-transition-new(app-reading-progress) {
+  ::view-transition-new(app-reading-progress),
+  ::view-transition-old(app-folder-cover),
+  ::view-transition-new(app-folder-cover),
+  ::view-transition-old(app-folder-tabs),
+  ::view-transition-new(app-folder-tabs),
+  ::view-transition-old(app-module-surface),
+  ::view-transition-new(app-module-surface),
+  ::view-transition-old(app-reader-page),
+  ::view-transition-new(app-reader-page),
+  ::view-transition-old(app-reader-chrome),
+  ::view-transition-new(app-reader-chrome) {
     animation-duration: 0.001ms !important;
   }
 }
