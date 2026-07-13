@@ -721,7 +721,14 @@ async function main() {
       })()`);
       assert(jumped, "Page 51 TOC result could not be activated");
       await waitForReader(mainBookId, 51, 449);
-      await sleep(150);
+      await waitFor("active page in visible chapter rail", () => evaluate(`(() => {
+        const container = document.querySelector(".chapterRail");
+        const active = container?.querySelector(".sectionPill.active");
+        const containerRect = container?.getBoundingClientRect();
+        const activeRect = active?.getBoundingClientRect();
+        return Boolean(containerRect && activeRect && active?.textContent?.trim() === "51" &&
+          activeRect.left >= containerRect.left - 1 && activeRect.right <= containerRect.right + 1);
+      })()`));
       const rail = await evaluate(`(() => {
         const container = document.querySelector(".chapterRail");
         const active = container?.querySelector(".sectionPill.active");
@@ -741,6 +748,7 @@ async function main() {
       await installFixture();
       await clickPrimaryNav("单词");
       await waitFor("vocabulary plan", () => evaluate(`Boolean(document.querySelector('section[aria-label="今日学习状态"]'))`));
+      await waitFor("active vocabulary dictionary", () => evaluate(`document.querySelector(".vocabStartButton")?.disabled === false`));
       const plan = await evaluate(`(() => ({
         dueText: document.querySelector('section[aria-label="今日学习状态"] h2')?.textContent?.trim() ?? "",
         startText: document.querySelector(".vocabStartButton")?.textContent?.trim() ?? ""
