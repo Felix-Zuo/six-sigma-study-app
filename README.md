@@ -12,7 +12,7 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 
 | Metric | Current State |
 | --- | --- |
-| Release | `Beta 0.8.7` (`0.8.7-beta.0`, Android code `807`) |
+| Release | `Beta 0.8.8` (`0.8.8-beta.0`, Android code `808`) |
 | Runtime books | 2 catalog books: full Six Sigma manual + original import-practice workbook |
 | Six Sigma content | 33 chapters, 449 aligned study pages, 174 reader sections |
 | Preserved assets | 475 figure/table/formula PNG runtime assets; EN/ZH image counts 476/476 |
@@ -46,7 +46,7 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 | --- | --- | --- |
 | ![Vocabulary answer with phonetics, senses, context, and translation](docs/assets/showcase/learning-vocab-answer.png) | ![Question training dashboard](docs/assets/showcase/learning-question-home.png) | ![Question lookup with rich dictionary and context](docs/assets/showcase/learning-question-lookup-rich.png) |
 
-Beta 0.8.7 makes that spatial navigation continuous from the user's actual touch point. A book opened from a scrolled library card now becomes a stable reader paper surface, restores the saved paragraph before the transition snapshot, and reveals title, chrome, and body in a deliberate hierarchy. Folder extraction, module page turns, Reader open/close, and reduced-motion paths share the same bounded camera grammar without overlapping old and new text. A dedicated intermediate-frame QA gate now protects the scrolled-card journey in CI. See [design-qa.md](design-qa.md) for the review record.
+Beta 0.8.8 replaces whole-page DOM transforms with a reusable real-time Three.js stage. Folder extraction, module page turns, and Reader open/close animate only text-free paper, edge, tab, and shadow geometry; live headings and body copy remain native DOM at their final dimensions. Source content fades before the route commit, the destination is prepared behind an opaque stage, and it appears only after the camera settles. Frame-time clamping prevents Android WebView stalls from turning into camera jumps. Mobile, desktop, scrolled-card, reduced-motion, and native Android frame gates now protect the handoff. See [design-qa.md](design-qa.md) for the review record.
 
 ## Study Workflow
 
@@ -62,7 +62,7 @@ When another book is selected, vocabulary, notes, and favorites are filtered to 
 ## Core Features
 
 - Multi-book study workbench with bottom navigation for Home, Vocabulary, Practice, Notes, and Settings; Favorites remains available from the home page stack and reader tools.
-- Quiet Aperture visual system with a functional home folder, source-aware 3D View Transitions, independently eased cover/tab/page layers, and a reduced-motion fallback.
+- Quiet Aperture visual system with a functional home folder and a geometry-only Three.js transition stage; native text is never scaled, stretched, or duplicated, and reduced-motion keeps a direct fade fallback.
 - Automatic opening logo animation with the full rights/non-commercial notice moved to Settings/About.
 - English/Chinese reading mode with block-aware position restoration.
 - Deduplicated page rail, chapter progress, page search, and table-of-contents navigation.

@@ -120,13 +120,25 @@ node scripts\qa-dictionary-cdp.mjs
 ## PWA Browser Offline QA
 
 - `node scripts\qa-pwa-offline-cdp.mjs`: passed against Vite preview on `127.0.0.1:4175` and clean headless Chrome CDP on `127.0.0.1:9333`.
-- Service worker cache: `six-sigma-study-v0.8.7`; content JSON uses network-first refresh with offline cache fallback.
+- Service worker cache: `six-sigma-study-v0.8.8`; content JSON uses network-first refresh with offline cache fallback.
 - Online cache state includes `/`, `/index.html`, hashed JS/CSS shell assets, `content/manual.json`, `manifest.webmanifest`, and all 475 figure assets.
 - Offline reload state: CDP network offline, cache-ignored reload rendered `Chapter 1: What is Six Sigma?`, 23 sections, service-worker controller present, and horizontal overflow 0.
 
 ## Android Runtime QA
 
 Verified on local emulator `SixSigmaQA` / `emulator-5554`.
+
+### Beta 0.8.8 Geometry-Only Real-Time 3D Motion
+
+- `npm run qa:motion-ui`: all five routes passed at mobile 390 x 844 and desktop 1366 x 900. The transition stage contains one canvas and no text, exactly one live `.appShell` exists, shell transforms remain `none`, heading geometry remains stable, intermediate frames contain visible nonblack pixels, and every route settles without overflow.
+- `npm run qa:motion-continuity`: the library was scrolled about 502 CSS pixels before opening the book. Source geometry was captured, the Reader was prepared behind the opaque stage, saved location remained stable, and no source/destination text was simultaneously readable.
+- Installed release `808` / `0.8.8-beta` on `emulator-5554`, forwarded the live WebView at `https://localhost/`, and replayed all five routes plus reduced motion. Every native frame check passed with a zero black-frame ratio and unchanged text geometry.
+- The Android timing audit found that WebView can pause the UI thread during route commit or screenshot readback. The production animation now integrates bounded frame deltas with a wall-clock completion cap, preserving continuous motion instead of jumping after a long frame without allowing a throttled transition to remain active indefinitely. Native QA captures the WebGL canvas in the same animation frame.
+- `npm run qa:cinematic-resilience`: interrupted transition ownership, WebGL context loss/restoration, one-stage cleanup, and native language fades passed in both regular Chrome and SwiftShader.
+- `npm run qa:android-back-stack`: active transition cancellation, question session, Reader tools, immersive mode, and lookup sheet close in the correct order before leaving their parent view. The Capacitor listener remains registered for the component lifetime and reads current UI state through a live ref.
+- Native Chapters 1/7/26/33 checks passed with English/Chinese image counts 2/14/50/25, zero broken images, working word lookup, and zero horizontal overflow.
+- Final APK: 40,862,369 bytes, SHA-256 `176F534339BE2EFB53C663825060C2A516275BA075F2C79C83621A3238FB48B4`; APK Signature Scheme v2 verified with one signer; package metadata `808` / `0.8.8-beta`.
+- Final AAB: 38,614,679 bytes, SHA-256 `E52B1927399BF2EDFF7DA01B7585AAFEE75669B0E1761DD2893A44A7230F3D20`; JAR signature verification passed with expected self-signed/no-timestamp warnings.
 
 ### Beta 0.8.7 Source-Aware Motion Continuity
 

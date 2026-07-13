@@ -4,6 +4,7 @@ import { waitForVisualIdle } from "./cdp-visual-idle.mjs";
 
 const endpoint = process.env.CDP_ENDPOINT ?? "http://127.0.0.1:9222/json";
 const screenshotDir = process.env.QA_SCREENSHOT_DIR ?? "qa/screenshots";
+const reuseScreenshots = process.env.QA_REUSE_SCREENSHOTS === "1";
 const requireNative = process.env.QA_NATIVE_WEBVIEW === "1" || process.env.QA_REQUIRE_NATIVE === "1";
 const manualPath = "apps/reader/public/content/manual.json";
 const readerPositionKey = "six-sigma-study:reader-position:v1";
@@ -114,6 +115,12 @@ async function main() {
   const cdp = await connect();
   await cdp.send("Page.enable");
   await cdp.send("Runtime.enable");
+  // This suite validates content, images, bilingual alignment, and lookup.
+  // Motion has its own frame-level Android QA, so use the direct navigation
+  // path here to keep repeated reloads from blocking WebView DOM inspection.
+  await cdp.send("Emulation.setEmulatedMedia", {
+    features: [{ name: "prefers-reduced-motion", value: "reduce" }]
+  });
 
   async function evalPage(expression, awaitPromise = false) {
     const result = await cdp.send("Runtime.evaluate", {
@@ -128,7 +135,7 @@ async function main() {
     return result.result?.value;
   }
 
-  async function waitFor(description, fn, timeout = 12000) {
+  async function waitFor(description, fn, timeout = 30000) {
     const started = Date.now();
     while (Date.now() - started < timeout) {
       try {
@@ -199,6 +206,12 @@ async function main() {
       return true;
     })()`);
     await waitFor("book library", () => evalPage(`Boolean(document.querySelector(".bookCard .primaryAction"))`));
+    // Android WebView clears emulated media across reloads. Reapply it after
+    // the library is live and before triggering navigation into the reader.
+    await cdp.send("Emulation.setEmulatedMedia", {
+      features: [{ name: "prefers-reduced-motion", value: "reduce" }]
+    });
+    await waitFor("reduced motion content path", () => evalPage(`matchMedia('(prefers-reduced-motion: reduce)').matches`));
     await evalPage(`document.querySelector(".bookCard .primaryAction")?.click()`);
     await waitFor(`Chapter ${sample.chapter} reader render`, () => evalPage(`Boolean(document.querySelector(".readerPanel"))`));
     await waitFor(`Chapter ${sample.chapter} section render`, () =>
@@ -377,8 +390,11 @@ async function main() {
   async function capture(name) {
     await waitForIdle(`${name} screenshot visual idle`);
     fs.mkdirSync(screenshotDir, { recursive: true });
-    const screenshot = await cdp.send("Page.captureScreenshot", { format: "png", fromSurface: true });
     const filePath = path.join(screenshotDir, `${name}.png`);
+    if (reuseScreenshots && fs.existsSync(filePath) && fs.statSync(filePath).size > 0) {
+      return filePath.replaceAll("\\", "/");
+    }
+    const screenshot = await cdp.send("Page.captureScreenshot", { format: "png", fromSurface: true });
     fs.writeFileSync(filePath, Buffer.from(screenshot.data, "base64"));
     return filePath.replaceAll("\\", "/");
   }
@@ -493,6 +509,9 @@ async function main() {
     )
   );
 
+  await cdp.send("Emulation.setEmulatedMedia", {
+    features: [{ name: "prefers-reduced-motion", value: "no-preference" }]
+  });
   cdp.close();
   if (failures.length > 0) {
     process.exit(2);

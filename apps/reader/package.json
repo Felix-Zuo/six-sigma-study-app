@@ -1,6 +1,6 @@
 {
   "name": "@six-sigma-study/reader",
-  "version": "0.8.7-beta.0",
+  "version": "0.8.8-beta.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -14,11 +14,13 @@
     "lucide-react": "^1.24.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "three": "^0.185.1",
     "typescript": "^5.7.3",
     "vite": "^6.0.7"
   },
   "devDependencies": {
     "@types/react": "^19.0.2",
-    "@types/react-dom": "^19.0.2"
+    "@types/react-dom": "^19.0.2",
+    "@types/three": "^0.185.1"
   }
 }

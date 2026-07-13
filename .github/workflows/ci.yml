@@ -79,7 +79,7 @@ jobs:
           done
           CHROME="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)"
           test -n "$CHROME"
-          nohup "$CHROME" --headless=new --no-sandbox --disable-gpu --remote-debugging-address=127.0.0.1 --remote-debugging-port=9338 --user-data-dir=/tmp/six-sigma-chrome about:blank > /tmp/six-sigma-chrome.log 2>&1 &
+          nohup "$CHROME" --headless=new --no-sandbox --enable-unsafe-swiftshader --use-angle=swiftshader --remote-debugging-address=127.0.0.1 --remote-debugging-port=9338 --user-data-dir=/tmp/six-sigma-chrome about:blank > /tmp/six-sigma-chrome.log 2>&1 &
           for attempt in {1..60}; do
             curl --fail --silent http://127.0.0.1:9338/json > /dev/null && break
             sleep 1
@@ -98,6 +98,12 @@ jobs:
           CDP_ENDPOINT: http://127.0.0.1:9338/json
           QA_APP_URL: http://127.0.0.1:4183/
         run: npm run qa:motion-continuity
+
+      - name: Cinematic interruption and recovery QA
+        env:
+          CDP_ENDPOINT: http://127.0.0.1:9338/json
+          QA_APP_URL: http://127.0.0.1:4183/
+        run: npm run qa:cinematic-resilience
 
       - name: Product maturity regression QA
         env:

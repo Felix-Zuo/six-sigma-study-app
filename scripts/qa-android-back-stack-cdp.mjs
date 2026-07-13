@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 
 const endpoint = process.env.CDP_ENDPOINT ?? "http://127.0.0.1:9340/json";
 const adbPath = process.env.QA_ADB_PATH ?? "adb";
+const appUrl = process.env.QA_APP_URL ?? "https://localhost/";
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function connect() {
@@ -75,13 +76,38 @@ async function main() {
   }
 
   await waitFor("native app shell", () => evaluate(`Boolean(document.querySelector(".appShell"))`));
-  await evaluate(`localStorage.setItem("six-sigma-study:notice-accepted:v1", "true")`);
+  await evaluate(`(() => {
+    localStorage.setItem("six-sigma-study:notice-accepted:v1", "true");
+    location.href = ${JSON.stringify(`${appUrl}?qa-android-back=1`)};
+    return true;
+  })()`);
+  await waitFor("reloaded native app shell", () => evaluate(`Boolean(document.querySelector(".appShell"))`));
   await waitFor("native primary navigation", () => evaluate(`Boolean(document.querySelector(".mainNav"))`));
   await clickByText(".mainNavItem", "首页");
   await waitFor("home", () => evaluate(`document.querySelector("main")?.dataset.appView === "home"`));
 
+  await evaluate(`globalThis.__qaCinematicDurationScale = 4; true`);
+  await clickByText(".mainNavItem", "单词");
+  await waitFor("active native transition", () => evaluate(`
+    document.documentElement.dataset.cinematicActive === "true" &&
+    document.querySelector('[data-cinematic-stage]')?.dataset.phase === "depart"
+  `));
+  pressBack();
+  await waitFor("native transition cancelled by back", () => evaluate(`
+    !document.documentElement.dataset.cinematicActive && !document.documentElement.dataset.transitionKind
+  `));
+  const transitionBack = await evaluate(`({
+    view: document.querySelector("main")?.dataset.appView,
+    stageHidden: document.querySelector('[data-cinematic-stage]')?.hidden ?? true,
+    stageCount: document.querySelectorAll('[data-cinematic-stage]').length,
+    shellOpacity: Number.parseFloat(getComputedStyle(document.querySelector('.appShell')).opacity),
+    shellTransform: getComputedStyle(document.querySelector('.appShell')).transform
+  })`);
+  await evaluate(`delete globalThis.__qaCinematicDurationScale; true`);
+
   await clickByText(".mainNavItem", "刷题");
   await waitFor("question dashboard", () => evaluate(`Boolean(document.querySelector(".questionContinueButton"))`));
+  await waitFor("question transition settled", () => evaluate(`!document.documentElement.dataset.cinematicActive`));
   await evaluate(`document.querySelector(".questionContinueButton")?.click()`);
   await waitFor("question session", () => evaluate(`Boolean(document.querySelector(".questionSession .questionCard"))`));
   pressBack();
@@ -92,6 +118,7 @@ async function main() {
 
   await evaluate(`document.querySelector('section[aria-label="教材库"] article .primaryAction')?.click()`);
   await waitFor("reader", () => evaluate(`document.querySelector("main")?.dataset.appView === "reader"`));
+  await waitFor("reader transition settled", () => evaluate(`!document.documentElement.dataset.cinematicActive`));
   await clickByText(".readerControlButton", "更多");
   await waitFor("reader tools", () => evaluate(`Boolean(document.querySelector(".readerMenu"))`));
   pressBack();
@@ -115,10 +142,12 @@ async function main() {
   await waitFor("lookup sheet closed", () => evaluate(`!document.querySelector('section[aria-label="单词释义"]')`));
   const lookupBack = await evaluate(`({ view: document.querySelector("main")?.dataset.appView, bodyPosition: document.body.style.position })`);
 
-  const ok = questionBack === "questions" && menuBack === "reader" && immersiveBack === "reader" &&
+  const ok = transitionBack.view === "home" && transitionBack.stageHidden && transitionBack.stageCount === 1 &&
+    transitionBack.shellOpacity === 1 && transitionBack.shellTransform === "none" &&
+    questionBack === "questions" && menuBack === "reader" && immersiveBack === "reader" &&
     lookupBack.view === "reader" && lookupBack.bodyPosition === "";
   cdp.close();
-  console.log(JSON.stringify({ ok, questionBack, menuBack, immersiveBack, lookupBack }, null, 2));
+  console.log(JSON.stringify({ ok, transitionBack, questionBack, menuBack, immersiveBack, lookupBack }, null, 2));
   if (!ok) process.exit(2);
 }
 

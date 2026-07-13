@@ -85,12 +85,17 @@ import {
   testDeepSeekConnection,
   type DeepSeekKeyStatus
 } from "./lib/deepSeekAssistant";
+import {
+  playCinematicTransition,
+  prewarmCinematicTransition,
+  type CinematicTransitionStyle
+} from "./lib/cinematicTransition";
 
 type Language = "en" | "zh";
 type ThemeMode = "light" | "dark";
 type TextScale = "standard" | "large" | "xlarge";
 type AppView = "splash" | "home" | "reader" | "vocab" | "questions" | "notes" | "favorites" | "settings";
-type SpatialTransitionStyle = "folder-extract" | "folder-close" | "page-turn" | "book-open" | "book-close";
+type SpatialTransitionStyle = CinematicTransitionStyle;
 type LocalizedText = Record<Language, string>;
 type QuestionMode = "home" | "browse" | "practice" | "wrong" | "favorite" | "exam";
 type QuestionFilter = "all" | string;
@@ -264,18 +269,10 @@ type PageGroup = {
   count: number;
 };
 
-type ViewTransitionHandle = {
-  finished: Promise<void>;
-};
-
-type ViewTransitionDocument = Document & {
-  startViewTransition?: (update: () => void | Promise<void>) => ViewTransitionHandle;
-};
-
 const defaultBookId = "six-sigma-black-belt";
 const defaultBookTitle = "六西格玛黑带教材";
-const productVersionLabel = "Beta 0.8.7";
-const productVersionId = "0.8.7-beta";
+const productVersionLabel = "Beta 0.8.8";
+const productVersionId = "0.8.8-beta";
 const githubProfileUrl = "https://github.com/Felix-Zuo";
 const catalogPath = "content/catalog.json";
 const bundledQuestionBankPath = "content/private/question-bank.private.json";
@@ -851,6 +848,7 @@ export function App() {
   const examSubmissionRef = useRef(false);
   const transitionOwnerRef = useRef(0);
   const transitionCleanupRef = useRef<(() => void) | null>(null);
+  const nativeBackHandlerRef = useRef<(canGoBack: boolean) => void>(() => undefined);
   const readerRestoreFrameRef = useRef(0);
   const overlayPanelRef = useRef<HTMLElement | null>(null);
   const overlayReturnFocusRef = useRef<HTMLElement | null>(null);
@@ -1130,6 +1128,12 @@ export function App() {
     : 0;
   const bookProgress = manual ? Math.round((Math.max(1, currentPage) / Math.max(1, manual.pageCount)) * 100) : 0;
   const isOverlayOpen = Boolean(activeLookup || showToc || showVocab || showNotes);
+
+  useEffect(() => {
+    if (view !== "home" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = window.setTimeout(prewarmCinematicTransition, 180);
+    return () => window.clearTimeout(timer);
+  }, [view]);
 
   useEffect(() => {
     fetch(catalogPath)
@@ -1715,47 +1719,56 @@ export function App() {
     return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
+  nativeBackHandlerRef.current = (canGoBack) => {
+    if (document.documentElement.dataset.transitionKind) {
+      transitionCleanupRef.current?.();
+      return;
+    }
+
+    if (readerMenuOpen) {
+      setReaderMenuOpen(false);
+      return;
+    }
+
+    if (overlayRef.current) {
+      closeOverlayFromNativeBack();
+      return;
+    }
+
+    if (isImmersive) {
+      setImmersiveMode(false);
+      return;
+    }
+
+    if (view === "vocab" && flashReviewActive) {
+      setFlashReviewActive(false);
+      return;
+    }
+
+    if (view === "questions" && questionMode !== "home") {
+      returnToQuestionHome();
+      return;
+    }
+
+    if (view !== "home" && view !== "splash") {
+      setView("home");
+      return;
+    }
+
+    if (canGoBack) {
+      window.history.back();
+      return;
+    }
+
+    void CapacitorApp.exitApp();
+  };
+
   useEffect(() => {
     let removed = false;
     let listener: { remove: () => Promise<void> } | undefined;
 
     CapacitorApp.addListener("backButton", ({ canGoBack }) => {
-      if (readerMenuOpen) {
-        setReaderMenuOpen(false);
-        return;
-      }
-
-      if (overlayRef.current) {
-        closeOverlayFromNativeBack();
-        return;
-      }
-
-      if (isImmersive) {
-        setImmersiveMode(false);
-        return;
-      }
-
-      if (view === "vocab" && flashReviewActive) {
-        setFlashReviewActive(false);
-        return;
-      }
-
-      if (view === "questions" && questionMode !== "home") {
-        returnToQuestionHome();
-        return;
-      }
-
-      if (view !== "home" && view !== "splash") {
-        setView("home");
-        return;
-      }
-
-      if (canGoBack) {
-        window.history.back();
-        return;
-      }
-
-      void CapacitorApp.exitApp();
+      nativeBackHandlerRef.current(canGoBack);
     }).then((handle) => {
       if (removed) {
         void handle.remove();
@@ -1768,7 +1781,7 @@ export function App() {
       removed = true;
       void listener?.remove();
     };
-  }, [examFinishedResult, examQuestionIds.length, examStartedAt, flashReviewActive, isImmersive, questionMode, readerMenuOpen, view]);
+  }, []);
 
   useEffect(() => {
     if (!readerMenuOpen) {
@@ -2014,12 +2027,13 @@ export function App() {
       suppressElements?: Array<HTMLElement | null | undefined>;
       suppressTargetSelectors?: string[];
       prepareDestination?: () => void | Promise<void>;
+      stageSource?: HTMLElement | null;
+      stageTargetSelector?: string;
     } = {}
   ) {
     transitionCleanupRef.current?.();
     const root = document.documentElement;
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const transitionDocument = document as ViewTransitionDocument;
     const owner = transitionOwnerRef.current + 1;
     transitionOwnerRef.current = owner;
     const alteredElements = new Map<HTMLElement, { value: string; priority: string }>();
@@ -2036,11 +2050,17 @@ export function App() {
       element.style.setProperty("view-transition-name", name);
     }
 
-    for (const element of options.suppressElements ?? []) {
-      setTransitionName(element, "none");
-    }
-    for (const sharedElement of options.sharedElements ?? []) {
-      setTransitionName(sharedElement.source, sharedElement.name);
+    // Navigation uses the geometry-only WebGL stage. Language changes use a
+    // native DOM fade below, so text is never captured into a transformed
+    // browser snapshot.
+    const usesSnapshotLayers = false;
+    if (usesSnapshotLayers) {
+      for (const element of options.suppressElements ?? []) {
+        setTransitionName(element, "none");
+      }
+      for (const sharedElement of options.sharedElements ?? []) {
+        setTransitionName(sharedElement.source, sharedElement.name);
+      }
     }
 
     const commit = async () => {
@@ -2050,18 +2070,20 @@ export function App() {
       } catch {
         // Navigation must still complete if a destination takes too long to prepare.
       }
-      for (const selector of options.suppressTargetSelectors ?? []) {
-        for (const element of document.querySelectorAll<HTMLElement>(selector)) {
-          setTransitionName(element, "none");
-        }
-      }
-      for (const sharedElement of options.sharedElements ?? []) {
-        if (sharedElement.targetSelector) {
-          const target = document.querySelector<HTMLElement>(sharedElement.targetSelector);
-          if (sharedElement.source?.isConnected && sharedElement.source !== target) {
-            setTransitionName(sharedElement.source, "none");
+      if (usesSnapshotLayers) {
+        for (const selector of options.suppressTargetSelectors ?? []) {
+          for (const element of document.querySelectorAll<HTMLElement>(selector)) {
+            setTransitionName(element, "none");
           }
-          setTransitionName(target, sharedElement.name);
+        }
+        for (const sharedElement of options.sharedElements ?? []) {
+          if (sharedElement.targetSelector) {
+            const target = document.querySelector<HTMLElement>(sharedElement.targetSelector);
+            if (sharedElement.source?.isConnected && sharedElement.source !== target) {
+              setTransitionName(sharedElement.source, "none");
+            }
+            setTransitionName(target, sharedElement.name);
+          }
         }
       }
     };
@@ -2110,17 +2132,92 @@ export function App() {
     root.style.setProperty("--transition-travel-x", `${Math.round(travelX)}px`);
     root.style.setProperty("--transition-travel-y", `${Math.round(travelY)}px`);
 
-    if (!transitionDocument.startViewTransition || prefersReducedMotion) {
+    if (prefersReducedMotion) {
       void commit().finally(clearTransitionState);
       return;
     }
 
-    try {
-      const transition = transitionDocument.startViewTransition(commit);
-      void transition.finished.finally(clearTransitionState);
-    } catch {
-      void commit().finally(clearTransitionState);
+    if (kind === "language") {
+      let languageCancelled = false;
+      let fadeOut: Animation | undefined;
+      let fadeIn: Animation | undefined;
+      let sourceSurface = document.querySelector<HTMLElement>(".readerTransitionSurface, .readerPanel");
+      let targetSurface: HTMLElement | null = null;
+      const cleanupLanguage = () => {
+        if (languageCancelled) return;
+        languageCancelled = true;
+        fadeOut?.cancel();
+        fadeIn?.cancel();
+        if (transitionOwnerRef.current === owner) {
+          sourceSurface?.style.removeProperty("opacity");
+          targetSurface?.style.removeProperty("opacity");
+        }
+        if (transitionCleanupRef.current === cleanupLanguage) {
+          transitionCleanupRef.current = null;
+        }
+        clearTransitionState();
+      };
+      transitionCleanupRef.current = cleanupLanguage;
+      void (async () => {
+        fadeOut = sourceSurface?.animate(
+          [{ opacity: 1 }, { opacity: 0 }],
+          { duration: 120, easing: "cubic-bezier(0.4, 0, 1, 1)", fill: "forwards" }
+        );
+        if (fadeOut) {
+          await fadeOut.finished.catch(() => undefined);
+        } else {
+          await nextTransitionTask(120);
+        }
+        if (languageCancelled || transitionOwnerRef.current !== owner) return;
+        await commit();
+        targetSurface = document.querySelector<HTMLElement>(".readerTransitionSurface, .readerPanel");
+        if (targetSurface) targetSurface.style.opacity = "0";
+        fadeOut?.cancel();
+        if (languageCancelled || transitionOwnerRef.current !== owner) return;
+        await nextTransitionTask();
+        fadeIn = targetSurface?.animate(
+          [{ opacity: 0 }, { opacity: 1 }],
+          { duration: 220, easing: "cubic-bezier(0.16, 1, 0.3, 1)", fill: "forwards" }
+        );
+        if (fadeIn) await fadeIn.finished.catch(() => undefined);
+        if (!languageCancelled && transitionOwnerRef.current === owner) {
+          targetSurface?.style.removeProperty("opacity");
+        }
+      })().catch(() => undefined).finally(cleanupLanguage);
+      return;
     }
+
+    if (kind === "navigation") {
+      const stageSource = options.stageSource ?? options.source;
+      const stageHandle = playCinematicTransition({
+        style: options.style ?? "page-turn",
+        direction,
+        sourceRect: stageSource?.getBoundingClientRect(),
+        sourceElement: stageSource,
+        commit,
+        resolveTargetRect: () => {
+          const selector = options.stageTargetSelector ?? ".appPageContent, .readerPanel, .workspaceFocus, .appShell";
+          return document.querySelector<HTMLElement>(selector)?.getBoundingClientRect();
+        }
+      });
+      const cleanupStage = () => {
+        if (transitionCleanupRef.current === cleanupStage) {
+          transitionCleanupRef.current = null;
+        }
+        stageHandle.cancel();
+        clearTransitionState();
+      };
+      transitionCleanupRef.current = cleanupStage;
+      void stageHandle.finished.finally(() => {
+        if (transitionCleanupRef.current === cleanupStage) {
+          transitionCleanupRef.current = null;
+        }
+        clearTransitionState();
+      });
+      return;
+    }
+
+    void commit().finally(clearTransitionState);
   }
 
   function isVisibleTransitionSource(element: HTMLElement | null): element is HTMLElement {
@@ -2238,7 +2335,15 @@ export function App() {
           : undefined,
       suppressTargetSelectors: style === "folder-close" || style === "book-close"
         ? [".workspaceProgressPath"]
-        : undefined
+        : undefined,
+      stageSource: style === "folder-extract"
+        ? homeSurface
+        : style === "folder-close" || style === "page-turn"
+          ? document.querySelector<HTMLElement>(".appPageContent")
+          : readerPanel,
+      stageTargetSelector: style === "folder-close" || style === "book-close"
+        ? ".workspaceFocus"
+        : ".appPageContent"
     });
   }
 
@@ -2264,7 +2369,9 @@ export function App() {
       ],
       suppressElements: sourceIsWorkspace ? [workspaceProgress] : [workspaceSurface, workspaceTabs, workspaceProgress],
       suppressTargetSelectors: [".readerPanel", ".readerChrome", ".topBar", ".progressSummary"],
-      prepareDestination: () => prepareReaderDestination(bookId)
+      prepareDestination: () => prepareReaderDestination(bookId),
+      stageSource: sourceSurface,
+      stageTargetSelector: ".readerPanel"
     });
     setReaderMenuOpen(false);
   }
@@ -2284,6 +2391,11 @@ export function App() {
     runSpatialTransition("navigation", () => {
       setActiveBookId(anchor.bookId);
       setView("reader");
+    }, "forward", {
+      style: "book-open",
+      stageSource: document.querySelector<HTMLElement>(".appPageContent"),
+      stageTargetSelector: ".readerPanel",
+      prepareDestination: () => prepareReaderDestination(anchor.bookId)
     });
     setReaderMenuOpen(false);
     pendingScrollSectionRef.current = anchor.sectionId;

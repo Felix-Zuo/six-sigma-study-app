@@ -1,4 +1,4 @@
-# Beta 0.8.7 Design QA
+# Beta 0.8.8 Design QA
 
 ## Target
 
@@ -73,17 +73,26 @@
 - Inspected 90, 240, 430, 680, and 900 ms frames plus the settled state at 390 x 844. Added the same scenario as `qa:motion-continuity` so CI validates the camera layer, named elements, restored scroll position, cleanup, and overflow.
 - Installed the signed release on `emulator-5554`, inspected the settled 1080 x 2148 home, and repeated the continuity probe against the live Android WebView rather than relying only on desktop Chrome.
 
+### Round 8: Geometry-Only Real-Time 3D Stage
+
+- Compared the user's failed transition captures with new intermediate frames and confirmed the actual defect: two text-bearing route trees were simultaneously visible while snapshot surfaces were scaled and rotated.
+- Removed text-bearing DOM from spatial transforms. A reusable Three.js stage now renders only paper, stacked sheets, edge color, folder tab, and shadow geometry while the live route shell stays at `transform: none`.
+- Used an opaque canvas and double-sided materials to eliminate Android transparent-surface black flashes. Source, geometry, and destination are mutually staged instead of layered as readable copies.
+- Replaced wall-clock animation jumps with bounded frame integration so WebView stalls produce a slower continuous camera move rather than a sudden teleport.
+- Captured departure, arrival, and settled frames for five routes on mobile, desktop, and the installed Android release. Pixel analysis found zero black-frame ratio, and DOM assertions found one live page shell, no stage text, stable heading dimensions, and no horizontal overflow.
+- Re-ran the scrolled library-card path, Android back-stack priority, and key-chapter image/lookup checks after the motion rewrite.
+
 ## Acceptance
 
 | Area | Result | Evidence |
 | --- | --- | --- |
 | Reference fidelity | Passed | Same page-stack composition, matte palette, strong foreground page, exposed destination layers, restrained bottom navigation |
 | Home hierarchy | Passed | Brand, continue action, progress, and three study metrics fit in one first-viewport page |
-| Spatial navigation | Passed | Folder extract/close, module page turn, Reader book open/close, and scrolled-card entry use source-aware shared surfaces with independently eased layers |
+| Spatial navigation | Passed | Folder extract/close, module page turn, Reader book open/close, and scrolled-card entry use a geometry-only real-time 3D stage; live text is never transformed |
 | Reader EN/ZH | Passed | Same anchored reader structure, stable chrome, images retained in both languages |
 | Bottom sheet | Passed | About 52% half state, about 92% full state, body lock and `overscroll: contain` |
 | Learning modules | Passed | Vocabulary recall, contextual answer, question lookup, unknown explanation, answer review before explicit next |
 | Accessibility | Passed | Keyboard focus states, semantic buttons, reduced-motion fallback, no clipped text or horizontal overflow |
-| Screenshot stability | Passed | QA captures wait for the layered transition to finish before recording evidence |
+| Screenshot stability | Passed | QA captures intermediate and settled frames, verifies canvas pixels, and asserts stable native-text geometry |
 
 Final result: **passed**.

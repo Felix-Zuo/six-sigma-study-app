@@ -20,15 +20,30 @@ The final product must support full-manual offline reading, position-preserving 
 
 ## Current Evidence
 
-- Product version: `Beta 0.8.7` (`0.8.7-beta.0` in npm, Android `versionCode 807` / `versionName 0.8.7-beta`). During the current beta line, each user-facing update increments the patch version: `0.8.8`, `0.8.9`, and so on.
+- Product version: `Beta 0.8.8` (`0.8.8-beta.0` in npm, Android `versionCode 808` / `versionName 0.8.8-beta`). During the current beta line, each user-facing update increments the patch version: `0.8.9`, `0.8.10`, and so on.
 - Branch: `main`
 - Latest workspace migration validation pass: 2026-06-26 00:33 Asia/Shanghai
 - Local workspace root: `D:\0A OpenClaw\projects\6sigma`
-- Local worktree: Beta 0.8.7 source-aware motion continuity delivered; implementation `231402a`, asynchronous QA hardening `60a073d`
-- Latest confirmed GitHub Actions state: CI passed for `60a073d` in run `29228751503`, including build, five-route motion QA, scrolled-card continuity QA, all 13 maturity regressions, and Android Debug
+- Local worktree: Beta 0.8.8 geometry-only real-time 3D transition stage implemented and locally release-validated
+- Latest confirmed GitHub Actions state before Beta 0.8.8: CI passed for `60a073d` in run `29228751503`; the new run is recorded after push
 - Release APK after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with the Quiet Aperture spatial shell, source-aware cinematic folder/page/book transitions, scrolled-card-to-reader continuity, and reduced-motion fallback, source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, book-isolated persisted reading positions, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, occurrence-level bilingual context glosses, tap-to-lookup bottom sheet, 3980-entry public offline learner dictionary plus an ignored 3550-entry local private-question supplement, phrase-selection UI hook, due-only vocabulary review scheduling and CSV export, selected-text study notes, timed mock exams, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with the Quiet Aperture spatial shell, a reusable geometry-only Three.js transition stage, native-text-safe folder/page/book handoffs, scrolled-card-to-reader continuity, and reduced-motion fallback, source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, book-isolated persisted reading positions, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, occurrence-level bilingual context glosses, tap-to-lookup bottom sheet, 3980-entry public offline learner dictionary plus an ignored 3550-entry local private-question supplement, phrase-selection UI hook, due-only vocabulary review scheduling and CSV export, selected-text study notes, timed mock exams, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+
+## 2026-07-13 Geometry-Only Real-Time 3D Motion Beta 0.8.8
+
+- Reproduced the reported transition frames with duplicated navigation, compressed headings, stretched body text, and competing old/new hierarchy. The root cause was whole DOM snapshots being geometrically transformed while both route trees remained visible.
+- Replaced route-level View Transition geometry with one reusable Three.js stage containing only text-free paper, back-page, accent-edge, folder-tab, and shadow meshes. Source and target text remain native DOM with `transform: none` for the entire handoff.
+- Made the WebGL stage opaque and double-sided, then cross-faded the source before route commit and withheld the target until the geometry settled. This prevents transparent-compositor black flashes and old/new text overlap.
+- Changed animation timing from absolute wall-clock progress to bounded frame integration with a wall-clock completion cap. Android UI-thread stalls now extend the motion smoothly instead of teleporting the camera to a later frame, while backgrounded or throttled transitions cannot remain active indefinitely.
+- Rebuilt `qa:motion-ui` and `qa:motion-continuity` around intermediate PNG analysis and DOM geometry invariants. Five routes pass at 390 x 844 and 1366 x 900, including folder extract/close, module page turn, Reader open/close, and reduced-motion fallback. Native WebView checks capture the WebGL canvas in the same animation frame, avoiding delayed external screenshot sampling.
+- Installed the signed release on `emulator-5554` and ran the same five-route contract against native `https://localhost/`. Every route retained one live shell, empty stage text, unchanged heading geometry, `transform: none`, zero horizontal overflow, zero black-frame ratio, and clean settlement.
+- Added interruption and WebGL-context-loss resilience checks. A newer transition retains ownership when an older transition finishes, context loss falls back to direct navigation, context restoration recreates exactly one stage, and language switching uses a native opacity fade with zero View Transition snapshots.
+- Native scrolled-card continuity, Android back-stack priority, and Chapters 1/7/26/33 image/lookup checks passed. The Android back listener is registered once and delegates through a live state ref, eliminating the state-update window in which a hardware-back event could be missed. English/Chinese image counts remained 2/14/50/25 with zero broken images.
+- Full regression passed: typecheck, build, content/book validation, source coverage, public/private isolation, 13 maturity scenarios, Target 4, learning UI, lexical UI, AI context UI, and release packaging.
+- Final local release artifacts:
+  - APK: 40,862,369 bytes; SHA-256 `176F534339BE2EFB53C663825060C2A516275BA075F2C79C83621A3238FB48B4`; APK Signature Scheme v2 verified with one signer; installed and launched as `versionCode 808` / `versionName 0.8.8-beta`.
+  - AAB: 38,614,679 bytes; SHA-256 `E52B1927399BF2EDFF7DA01B7585AAFEE75669B0E1761DD2893A44A7230F3D20`; JAR signature verified with expected self-signed/no-timestamp warnings.
 
 ## 2026-07-13 Source-Aware Motion Continuity Beta 0.8.7
 

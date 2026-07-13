@@ -2734,7 +2734,7 @@ h1 {
   }
 }
 
-/* Beta 0.8.7 - source-aware cinematic continuity */
+/* Beta 0.8.8 - geometry-only cinematic transitions */
 :root {
   color: #202329;
   background: #eeece7;
@@ -4052,6 +4052,52 @@ summary:focus-visible {
 
 .bottomSheet[data-dragging="true"] {
   transition: none;
+}
+
+.cinematicStage {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  overflow: clip;
+  contain: strict;
+  isolation: isolate;
+  pointer-events: none;
+  view-transition-name: none;
+}
+
+.cinematicStage[hidden] {
+  display: none;
+}
+
+.cinematicStageBackdrop,
+.cinematicStageCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cinematicStageBackdrop {
+  z-index: 0;
+  will-change: opacity;
+}
+
+.cinematicStageCanvas {
+  z-index: 1;
+  display: block;
+  touch-action: none;
+}
+
+html[data-cinematic-active="true"] {
+  overscroll-behavior: none;
+}
+
+html[data-cinematic-active="true"] .appShell {
+  pointer-events: none;
+}
+
+html[data-cinematic-phase="hold"] .appShell {
+  opacity: 0 !important;
 }
 
 ::view-transition-old(root),
