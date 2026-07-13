@@ -274,8 +274,8 @@ type ViewTransitionDocument = Document & {
 
 const defaultBookId = "six-sigma-black-belt";
 const defaultBookTitle = "六西格玛黑带教材";
-const productVersionLabel = "Beta 0.8.6";
-const productVersionId = "0.8.6-beta";
+const productVersionLabel = "Beta 0.8.7";
+const productVersionId = "0.8.7-beta";
 const githubProfileUrl = "https://github.com/Felix-Zuo";
 const catalogPath = "content/catalog.json";
 const bundledQuestionBankPath = "content/private/question-bank.private.json";
@@ -850,6 +850,7 @@ export function App() {
   const aiRequestRef = useRef(0);
   const examSubmissionRef = useRef(false);
   const transitionOwnerRef = useRef(0);
+  const transitionCleanupRef = useRef<(() => void) | null>(null);
   const readerRestoreFrameRef = useRef(0);
   const overlayPanelRef = useRef<HTMLElement | null>(null);
   const overlayReturnFocusRef = useRef<HTMLElement | null>(null);
@@ -1068,6 +1069,26 @@ export function App() {
   const currentFlashEntry = currentFlashTerm
     ? lookupCandidates(currentFlashTerm.term).map((key) => termIndex.get(key)).find(Boolean)
     : undefined;
+  const flashDictionaryReady = Boolean(
+    !manualLoading && manual?.bookId === currentBookId && termIndex.size > 0
+  );
+  const currentFlashExampleTranslation = useMemo(() => {
+    if (!currentFlashTerm || !manual || manual.bookId !== currentFlashTerm.bookId) {
+      return currentFlashTerm?.exampleTranslation || currentFlashTerm?.sourceTranslation;
+    }
+    if (currentFlashTerm.contextCorrectionId) {
+      return currentFlashTerm.exampleTranslation || currentFlashTerm.sourceTranslation;
+    }
+    const section = currentFlashTerm.sourceType === "manual"
+      ? manual.chapters.flatMap((chapter) => chapter.sections).find((item) => item.id === currentFlashTerm.sectionId)
+      : undefined;
+    return alignedBlockTranslation(
+      section,
+      currentFlashTerm.blockId,
+      currentFlashTerm.page,
+      manual.contextGlosses
+    ) || currentFlashTerm.exampleTranslation || currentFlashTerm.sourceTranslation;
+  }, [currentFlashTerm, manual]);
   const flashQuizOptions = useMemo(() => {
     if (!currentFlashTerm) {
       return [];
@@ -1981,32 +2002,103 @@ export function App() {
     kind: "navigation" | "language",
     update: () => void,
     direction: "forward" | "backward" = "forward",
-    options: { style?: SpatialTransitionStyle; source?: HTMLElement | null } = {}
+    options: {
+      style?: SpatialTransitionStyle;
+      source?: HTMLElement | null;
+      sourceRole?: "book-card" | "workspace";
+      sharedElements?: Array<{
+        name: string;
+        source?: HTMLElement | null;
+        targetSelector?: string;
+      }>;
+      suppressElements?: Array<HTMLElement | null | undefined>;
+      suppressTargetSelectors?: string[];
+      prepareDestination?: () => void | Promise<void>;
+    } = {}
   ) {
+    transitionCleanupRef.current?.();
     const root = document.documentElement;
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const transitionDocument = document as ViewTransitionDocument;
-    const commit = () => flushSync(update);
     const owner = transitionOwnerRef.current + 1;
     transitionOwnerRef.current = owner;
+    const alteredElements = new Map<HTMLElement, { value: string; priority: string }>();
+    let cleaned = false;
+
+    function setTransitionName(element: HTMLElement | null | undefined, name: string) {
+      if (!element) return;
+      if (!alteredElements.has(element)) {
+        alteredElements.set(element, {
+          value: element.style.getPropertyValue("view-transition-name"),
+          priority: element.style.getPropertyPriority("view-transition-name")
+        });
+      }
+      element.style.setProperty("view-transition-name", name);
+    }
+
+    for (const element of options.suppressElements ?? []) {
+      setTransitionName(element, "none");
+    }
+    for (const sharedElement of options.sharedElements ?? []) {
+      setTransitionName(sharedElement.source, sharedElement.name);
+    }
+
+    const commit = async () => {
+      flushSync(update);
+      try {
+        await options.prepareDestination?.();
+      } catch {
+        // Navigation must still complete if a destination takes too long to prepare.
+      }
+      for (const selector of options.suppressTargetSelectors ?? []) {
+        for (const element of document.querySelectorAll<HTMLElement>(selector)) {
+          setTransitionName(element, "none");
+        }
+      }
+      for (const sharedElement of options.sharedElements ?? []) {
+        if (sharedElement.targetSelector) {
+          const target = document.querySelector<HTMLElement>(sharedElement.targetSelector);
+          if (sharedElement.source?.isConnected && sharedElement.source !== target) {
+            setTransitionName(sharedElement.source, "none");
+          }
+          setTransitionName(target, sharedElement.name);
+        }
+      }
+    };
 
     function clearTransitionState() {
-      if (transitionOwnerRef.current !== owner) {
-        return;
+      if (cleaned) return;
+      cleaned = true;
+      for (const [element, previous] of alteredElements) {
+        if (previous.value) {
+          element.style.setProperty("view-transition-name", previous.value, previous.priority);
+        } else {
+          element.style.removeProperty("view-transition-name");
+        }
       }
-      delete root.dataset.transitionKind;
-      delete root.dataset.transitionDirection;
-      delete root.dataset.transitionStyle;
-      root.style.removeProperty("--transition-origin-x");
-      root.style.removeProperty("--transition-origin-y");
-      root.style.removeProperty("--transition-travel-x");
-      root.style.removeProperty("--transition-travel-y");
+      if (transitionOwnerRef.current === owner) {
+        delete root.dataset.transitionKind;
+        delete root.dataset.transitionDirection;
+        delete root.dataset.transitionStyle;
+        delete root.dataset.transitionSource;
+        root.style.removeProperty("--transition-origin-x");
+        root.style.removeProperty("--transition-origin-y");
+        root.style.removeProperty("--transition-travel-x");
+        root.style.removeProperty("--transition-travel-y");
+      }
+      if (transitionCleanupRef.current === clearTransitionState) {
+        transitionCleanupRef.current = null;
+      }
     }
+    transitionCleanupRef.current = clearTransitionState;
 
     root.dataset.transitionKind = kind;
     root.dataset.transitionDirection = direction;
     if (options.style) {
       root.dataset.transitionStyle = options.style;
+    }
+    if (options.sourceRole) {
+      root.dataset.transitionSource = options.sourceRole;
     }
     const sourceRect = options.source?.getBoundingClientRect();
     const originX = sourceRect ? sourceRect.left + sourceRect.width / 2 : window.innerWidth / 2;
@@ -2019,8 +2111,7 @@ export function App() {
     root.style.setProperty("--transition-travel-y", `${Math.round(travelY)}px`);
 
     if (!transitionDocument.startViewTransition || prefersReducedMotion) {
-      commit();
-      clearTransitionState();
+      void commit().finally(clearTransitionState);
       return;
     }
 
@@ -2028,9 +2119,45 @@ export function App() {
       const transition = transitionDocument.startViewTransition(commit);
       void transition.finished.finally(clearTransitionState);
     } catch {
-      commit();
-      clearTransitionState();
+      void commit().finally(clearTransitionState);
     }
+  }
+
+  function isVisibleTransitionSource(element: HTMLElement | null): element is HTMLElement {
+    if (!element) return false;
+    const rect = element.getBoundingClientRect();
+    return rect.width > 0 && rect.height > 0 && rect.bottom > 0 && rect.top < window.innerHeight;
+  }
+
+  function nextTransitionTask(delay = 0): Promise<void> {
+    return new Promise((resolve) => window.setTimeout(resolve, delay));
+  }
+
+  async function prepareReaderDestination(bookId: string) {
+    const deadline = performance.now() + 2000;
+    let shell: HTMLElement | null = null;
+    while (performance.now() < deadline) {
+      shell = document.querySelector<HTMLElement>('[data-app-view="reader"]');
+      if (shell?.dataset.bookId === bookId && shell.querySelector(".readerPanel")) {
+        break;
+      }
+      await nextTransitionTask(16);
+    }
+
+    // View Transition update callbacks suspend animation frames. A task boundary
+    // lets React effects settle without deadlocking the destination snapshot.
+    await nextTransitionTask();
+    void shell?.offsetHeight;
+    const savedPosition = loadReaderPosition(bookId);
+    if (typeof savedPosition.scrollY === "number") {
+      window.scrollTo({ top: Math.max(0, savedPosition.scrollY), left: 0, behavior: "instant" });
+    } else if (savedPosition.sectionId) {
+      document.querySelector(`[data-section-id="${savedPosition.sectionId}"]`)?.scrollIntoView({ block: "start" });
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }
+    void document.documentElement.offsetHeight;
+    await nextTransitionTask();
   }
 
   function navigateTo(nextView: AppView, source?: HTMLElement | null) {
@@ -2048,17 +2175,97 @@ export function App() {
         : nextView === "home"
           ? "folder-close"
           : "page-turn";
+    const homeSurface = document.querySelector<HTMLElement>(".workspaceFocus");
+    const homeHeading = document.querySelector<HTMLElement>(".workspaceBrand");
+    const readerPanel = document.querySelector<HTMLElement>(".readerPanel");
+    const readerTransitionSurface = document.querySelector<HTMLElement>(".readerTransitionSurface");
+    const readerChrome = document.querySelector<HTMLElement>(".readerChrome");
+    const readerHeading = document.querySelector<HTMLElement>(".topBar");
+    const readerProgress = document.querySelector<HTMLElement>(".progressSummary");
+    const homeProgress = document.querySelector<HTMLElement>(".workspaceProgressPath");
+    const sourceTab = source?.closest(".workspaceEdgeNav button") as HTMLElement | null;
+    const sharedElements = style === "folder-extract"
+      ? [
+          {
+            name: "app-module-surface",
+            source: isVisibleTransitionSource(homeSurface) ? homeSurface : null,
+            targetSelector: ".appPageContent"
+          },
+          {
+            name: "app-page-heading",
+            source: isVisibleTransitionSource(sourceTab) ? sourceTab : isVisibleTransitionSource(homeHeading) ? homeHeading : null,
+            targetSelector: ".appPageHeader"
+          }
+        ]
+      : style === "folder-close"
+        ? [
+            {
+              name: "app-module-surface",
+              source: document.querySelector<HTMLElement>(".appPageContent"),
+              targetSelector: ".workspaceFocus"
+            },
+            {
+              name: "app-page-heading",
+              source: document.querySelector<HTMLElement>(".appPageHeader"),
+              targetSelector: ".workspaceBrand"
+            }
+          ]
+        : style === "book-close"
+          ? [
+              {
+                name: "app-reader-page",
+                source: readerTransitionSurface,
+                targetSelector: ".workspaceFocus"
+              },
+              {
+                name: "app-reader-title",
+                source: document.querySelector<HTMLElement>(".topBar h1"),
+                targetSelector: ".workspaceFocusTop h3"
+              }
+            ]
+          : undefined;
     runSpatialTransition("navigation", () => {
       setView(nextView);
       window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-    }, nextIndex >= currentIndex ? "forward" : "backward", { style, source });
+    }, nextIndex >= currentIndex ? "forward" : "backward", {
+      style,
+      source,
+      sharedElements,
+      suppressElements: style === "book-close"
+        ? [readerPanel, readerChrome, readerHeading, readerProgress]
+        : style === "folder-extract"
+          ? [homeProgress]
+          : undefined,
+      suppressTargetSelectors: style === "folder-close" || style === "book-close"
+        ? [".workspaceProgressPath"]
+        : undefined
+    });
   }
 
   function openBook(bookId: string, source?: HTMLElement | null) {
+    const sourceSurface = source?.closest(".studyBookCard, .workspaceFocus, .emptyState, .appPageContent") as HTMLElement | null;
+    const workspaceSurface = document.querySelector<HTMLElement>(".workspaceFocus");
+    const workspaceTabs = document.querySelector<HTMLElement>(".workspaceEdgeNav");
+    const workspaceProgress = document.querySelector<HTMLElement>(".workspaceProgressPath");
+    const sourceIsWorkspace = sourceSurface?.classList.contains("workspaceFocus") ?? false;
+    const sourceTitle = sourceIsWorkspace
+      ? null
+      : sourceSurface?.querySelector<HTMLElement>(".bookCardBody h2, .workspaceFocusTop h3, h2") ?? null;
     runSpatialTransition("navigation", () => {
       setActiveBookId(bookId);
       setView("reader");
-    }, "forward", { style: "book-open", source });
+    }, "forward", {
+      style: "book-open",
+      source,
+      sourceRole: sourceIsWorkspace ? "workspace" : "book-card",
+      sharedElements: [
+        { name: "app-reader-page", source: sourceSurface, targetSelector: ".readerTransitionSurface" },
+        { name: "app-reader-title", source: sourceTitle, targetSelector: ".topBar h1" }
+      ],
+      suppressElements: sourceIsWorkspace ? [workspaceProgress] : [workspaceSurface, workspaceTabs, workspaceProgress],
+      suppressTargetSelectors: [".readerPanel", ".readerChrome", ".topBar", ".progressSummary"],
+      prepareDestination: () => prepareReaderDestination(bookId)
+    });
     setReaderMenuOpen(false);
   }
 
@@ -3112,7 +3319,7 @@ export function App() {
                       <strong>例句</strong>
                       <p lang="en">{currentFlashTerm.exampleText || currentFlashTerm.sourceText}</p>
                       <p className={(currentFlashTerm.exampleTranslation || currentFlashTerm.sourceTranslation) ? "" : "translationUnavailable"}>
-                        {currentFlashTerm.exampleTranslation || currentFlashTerm.sourceTranslation || "该私有题源暂未附经审核的中文译文。"}
+                        {currentFlashExampleTranslation || "该私有题源暂未附经审核的中文译文。"}
                       </p>
                     </div>
                     <div className="sourceLine">
@@ -3154,8 +3361,19 @@ export function App() {
                 <strong>{dailyStats.completed}/{plannedDailyGoal}</strong>
               </div>
             </section>
-            <button className="primaryAction vocabStartButton" onClick={startFlashReview} disabled={plannedFlashCount === 0}>
-              {plannedFlashCount === 0 ? "暂无到期复习" : dailyStats.checkedInToday ? "继续巩固" : "开始今日学习"}
+            <button
+              className="primaryAction vocabStartButton"
+              onClick={startFlashReview}
+              disabled={plannedFlashCount === 0 || !flashDictionaryReady}
+              aria-busy={!flashDictionaryReady && plannedFlashCount > 0}
+            >
+              {plannedFlashCount === 0
+                ? "暂无到期复习"
+                : !flashDictionaryReady
+                  ? "正在准备词典"
+                  : dailyStats.checkedInToday
+                    ? "继续巩固"
+                    : "开始今日学习"}
             </button>
             <section className="vocabSourceSummary">
               <div><strong>{savedTerms.filter((item) => item.sourceType === "manual").length}</strong><span>教材词语</span></div>
@@ -4264,6 +4482,9 @@ export function App() {
   }
 
   function startFlashReview() {
+    if (!flashDictionaryReady) {
+      return;
+    }
     const ids = flashReviewTerms.slice(0, plannedFlashCount).map((item) => item.id);
     const sessionGoal = Math.min(dailyStats.goal, dailyStats.completed + ids.length);
     setFlashSessionIds(ids);
@@ -4595,6 +4816,7 @@ export function App() {
       data-theme={readerPreferences.theme}
       data-text-scale={readerPreferences.textScale}
     >
+      <div className="readerTransitionSurface" aria-hidden="true" />
       <div className="readerChrome">
         <header className="topBar">
           <div>

@@ -1,6 +1,6 @@
 {
   "name": "six-sigma-study-app",
-  "version": "0.8.6-beta.0",
+  "version": "0.8.7-beta.0",
   "private": true,
   "workspaces": [
     "apps/reader"
@@ -52,6 +52,7 @@
     "qa:learning-ui": "node scripts/qa-learning-ui-cdp.mjs",
     "qa:lexical-ui": "node scripts/qa-lexical-ui-cdp.mjs",
     "qa:motion-ui": "node scripts/qa-motion-ui-cdp.mjs",
+    "qa:motion-continuity": "node scripts/qa-motion-continuity-cdp.mjs",
     "qa:maturity-regressions": "node scripts/qa-maturity-regressions-cdp.mjs",
     "qa:private-isolation": "python scripts/qa_private_question_bank_isolation.py",
     "qa:public-artifact": "python scripts/qa_public_artifact.py",

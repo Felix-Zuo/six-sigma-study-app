@@ -103,7 +103,7 @@ async function main() {
   })()`);
   await waitFor("main navigation", () => evaluate(`Boolean(document.querySelector(".mainNav"))`));
   await evaluate(`Array.from(document.querySelectorAll(".mainNavItem")).find((item) => item.textContent.includes("单词"))?.click()`);
-  await waitFor("vocab plan", () => evaluate(`Boolean(document.querySelector(".vocabStartButton"))`));
+  await waitFor("vocab plan", () => evaluate(`Boolean(document.querySelector(".vocabStartButton:not(:disabled)"))`));
   await evaluate(`document.querySelector(".vocabStartButton")?.click()`);
   await waitFor("constant prompt", () => evaluate(`document.querySelector(".flashCard h2")?.textContent?.trim() === "constant"`));
   await evaluate(`Array.from(document.querySelectorAll(".flashPromptActions button")).find((item) => item.textContent.includes("暂时想不起来"))?.click()`);

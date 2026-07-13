@@ -13,7 +13,7 @@
 | Target 4 product audit | `npm run qa:target4-flow` | opening, home, second book, settings, TOC, immersive mode, lookup half/full, exact source return, Chinese image fidelity, notes, favorites, and vocabulary pass | real-device physical long-press QA remains separate |
 | Android key chapters | `npm run qa:android-key-chapters` | Chapters 1, 7, 26, and 33 render, lookup, align, and load images | WebView/CDP is not a full physical-device matrix |
 | Lexical learning | `npm run qa:lexical-learning`; `npm run qa:lexical-ui` | structured senses, phonetics, context meanings, bilingual examples, native TTS bridge, and mobile layout pass | final voice quality depends on the device TTS voice |
-| Maturity regressions | `npm run qa:maturity-regressions`; `npm run qa:motion-ui` | per-book position isolation, due-only review, practice resume, safe reset, sheet boundaries/a11y, native/fallback motion paths | CDP gestures do not replace a broad physical-device matrix |
+| Maturity regressions | `npm run qa:maturity-regressions`; `npm run qa:motion-ui`; `npm run qa:motion-continuity` | per-book position isolation, due-only review, practice resume, safe reset, sheet boundaries/a11y, native/fallback motion paths, scrolled-card Reader continuity | CDP gestures do not replace a broad physical-device matrix |
 | Public artifact isolation | `npm run qa:public-artifact`; `npm run qa:private-isolation` | normal web dist contains no private bank; Android sync cleans transient staging | local private source remains the user's responsibility |
 | Context glossary | `npm run qa:context-glosses` | 3875 blocks, 8591 sentences, 105048 meanings, page 8/9 regressions pass | 383 low-confidence sentences intentionally expose no asserted word meaning |
 | Release packaging | `npm run android:release-apk`; `npm run android:aab` | APK/AAB build with runtime packages and figure assets bundled | store upload-key policy is not finalized |
@@ -58,6 +58,7 @@ npm run qa:target4-flow
 npm run qa:learning-modules
 npm run qa:lexical-ui
 npm run qa:motion-ui
+npm run qa:motion-continuity
 npm run qa:maturity-regressions
 npm run qa:public-artifact
 npm run qa:dictionary-boundaries
@@ -119,13 +120,23 @@ node scripts\qa-dictionary-cdp.mjs
 ## PWA Browser Offline QA
 
 - `node scripts\qa-pwa-offline-cdp.mjs`: passed against Vite preview on `127.0.0.1:4175` and clean headless Chrome CDP on `127.0.0.1:9333`.
-- Service worker cache: `six-sigma-study-v0.8.6`; content JSON uses network-first refresh with offline cache fallback.
+- Service worker cache: `six-sigma-study-v0.8.7`; content JSON uses network-first refresh with offline cache fallback.
 - Online cache state includes `/`, `/index.html`, hashed JS/CSS shell assets, `content/manual.json`, `manifest.webmanifest`, and all 475 figure assets.
 - Offline reload state: CDP network offline, cache-ignored reload rendered `Chapter 1: What is Six Sigma?`, 23 sections, service-worker controller present, and horizontal overflow 0.
 
 ## Android Runtime QA
 
 Verified on local emulator `SixSigmaQA` / `emulator-5554`.
+
+### Beta 0.8.7 Source-Aware Motion Continuity
+
+- `npm run qa:motion-continuity`: a 390 x 844 library view was scrolled 502 CSS pixels before opening a compact book card. Shared paper/title elements remained continuous, the target Reader was prepared at its saved scroll anchor before snapshot, all nested Reader layers were collapsed into one camera plane, settlement retained the exact scroll position, and horizontal overflow remained zero.
+- Intermediate frames at 90/240/430/680/900 ms were captured and inspected. The compact card recedes before the Reader hierarchy appears; the shared title remains the orientation cue; no unrelated folder layers, duplicate body text, black capture region, or post-transition jump is visible.
+- `npm run qa:motion-ui`: folder extract, module page turn, folder close, Reader open, Reader close, and reduced-motion fallback remain covered after the source-specific choreography changes.
+- The signed APK was installed and launched on `emulator-5554`. The live Android WebView was exposed through CDP; the scrolled-card continuity contract and all five spatial routes plus reduced-motion fallback passed against native `https://localhost/`, including transition names, destination preparation, settlement, cleanup, and zero overflow.
+- The full regression pass exposed and fixed a vocabulary fast-entry race: the review entry now waits for the active dictionary and uses the aligned block translation before revealing the answer.
+- Final APK: 40,729,625 bytes, SHA-256 `5D3DBF691734B7AEBA719B98650C6810C68BDE9F40DA47B3A02DB0BDAC4AA453`; APK Signature Scheme v2 verified with one signer; package metadata `807` / `0.8.7-beta`.
+- Final AAB: 38,481,937 bytes, SHA-256 `166BB31968F0A7560E112DA57ADC38ABA2F64F1C9E10DA78D9C1867440F82C14`; JAR signature verification passed with expected self-signed/no-timestamp warnings.
 
 ### Beta 0.8.6 Cinematic Folder Motion
 

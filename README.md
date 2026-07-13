@@ -12,7 +12,7 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 
 | Metric | Current State |
 | --- | --- |
-| Release | `Beta 0.8.6` (`0.8.6-beta.0`, Android code `806`) |
+| Release | `Beta 0.8.7` (`0.8.7-beta.0`, Android code `807`) |
 | Runtime books | 2 catalog books: full Six Sigma manual + original import-practice workbook |
 | Six Sigma content | 33 chapters, 449 aligned study pages, 174 reader sections |
 | Preserved assets | 475 figure/table/formula PNG runtime assets; EN/ZH image counts 476/476 |
@@ -46,7 +46,7 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 | --- | --- | --- |
 | ![Vocabulary answer with phonetics, senses, context, and translation](docs/assets/showcase/learning-vocab-answer.png) | ![Question training dashboard](docs/assets/showcase/learning-question-home.png) | ![Question lookup with rich dictionary and context](docs/assets/showcase/learning-question-lookup-rich.png) |
 
-Beta 0.8.6 turns the home page stack into a spatial navigation system. Folder-edge destinations extract content from the touched tab, module changes turn as layered pages, Reader entry opens like a book, and return paths close back into the home folder. Compact metric cards now center their values and labels consistently. Every cinematic path has a reduced-motion fallback and an automated settlement check; the Beta 0.8.5 maturity fixes remain intact. See [design-qa.md](design-qa.md) for the review record.
+Beta 0.8.7 makes that spatial navigation continuous from the user's actual touch point. A book opened from a scrolled library card now becomes a stable reader paper surface, restores the saved paragraph before the transition snapshot, and reveals title, chrome, and body in a deliberate hierarchy. Folder extraction, module page turns, Reader open/close, and reduced-motion paths share the same bounded camera grammar without overlapping old and new text. A dedicated intermediate-frame QA gate now protects the scrolled-card journey in CI. See [design-qa.md](design-qa.md) for the review record.
 
 ## Study Workflow
 

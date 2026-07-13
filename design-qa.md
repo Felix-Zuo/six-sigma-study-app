@@ -1,4 +1,4 @@
-# Beta 0.8.6 Design QA
+# Beta 0.8.7 Design QA
 
 ## Target
 
@@ -64,13 +64,22 @@
 - Extended motion QA to traverse all five routes and assert named-layer evidence, source origin, transition settlement, zero overflow, and reduced-motion fallback.
 - Captured and inspected the signed Android Release home at 1080 x 2148; folder tabs, metric labels, bottom navigation, and foreground-page bounds remained aligned.
 
+### Round 7: Source-Aware Continuity And Intermediate Frames
+
+- Reproduced the reported path after scrolling the library by 502 CSS pixels and opening its compact book card rather than validating only the first viewport.
+- Replaced the oversized Reader-document capture with a viewport-bound paper proxy and restored the destination paragraph before the new snapshot, preventing black capture regions and the late body jump.
+- Split compact-card and full-workspace entry choreography. The compact card preserves its title as the visual anchor while card metadata recedes; workspace entry keeps the whole study page as the source plane.
+- Tightened old/new content handoff windows in folder extraction and module turns so headings and body copy are never simultaneously readable on competing planes.
+- Inspected 90, 240, 430, 680, and 900 ms frames plus the settled state at 390 x 844. Added the same scenario as `qa:motion-continuity` so CI validates the camera layer, named elements, restored scroll position, cleanup, and overflow.
+- Installed the signed release on `emulator-5554`, inspected the settled 1080 x 2148 home, and repeated the continuity probe against the live Android WebView rather than relying only on desktop Chrome.
+
 ## Acceptance
 
 | Area | Result | Evidence |
 | --- | --- | --- |
 | Reference fidelity | Passed | Same page-stack composition, matte palette, strong foreground page, exposed destination layers, restrained bottom navigation |
 | Home hierarchy | Passed | Brand, continue action, progress, and three study metrics fit in one first-viewport page |
-| Spatial navigation | Passed | Folder extract/close, module page turn, and Reader book open/close use distinct source-aware transitions with independently eased layers |
+| Spatial navigation | Passed | Folder extract/close, module page turn, Reader book open/close, and scrolled-card entry use source-aware shared surfaces with independently eased layers |
 | Reader EN/ZH | Passed | Same anchored reader structure, stable chrome, images retained in both languages |
 | Bottom sheet | Passed | About 52% half state, about 92% full state, body lock and `overscroll: contain` |
 | Learning modules | Passed | Vocabulary recall, contextual answer, question lookup, unknown explanation, answer review before explicit next |

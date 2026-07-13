@@ -1,7 +1,10 @@
+import fs from "node:fs";
+import path from "node:path";
 import { waitForVisualIdle } from "./cdp-visual-idle.mjs";
 
 const endpoint = process.env.CDP_ENDPOINT ?? "http://127.0.0.1:9338/json";
 const appUrl = process.env.QA_APP_URL ?? "http://127.0.0.1:4183/";
+const screenshotDir = process.env.QA_MOTION_SCREENSHOT_DIR ?? "qa/motion-ui/screenshots";
 const noticeAcceptedKey = "six-sigma-study:notice-accepted:v1";
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -146,6 +149,14 @@ async function main() {
     throw new Error(`Timed out waiting for ${description}`);
   }
 
+  async function capture(name) {
+    fs.mkdirSync(screenshotDir, { recursive: true });
+    const screenshot = await cdp.send("Page.captureScreenshot", { format: "png", fromSurface: true });
+    const filePath = path.resolve(screenshotDir, `${name}.png`);
+    fs.writeFileSync(filePath, Buffer.from(screenshot.data, "base64"));
+    return filePath.replaceAll("\\", "/");
+  }
+
   async function clickPrimaryNavigation(accessibleName) {
     const result = await evaluate(`(() => {
       const normalize = (value) => (value ?? "").replace(/\\s+/g, " ").trim();
@@ -224,8 +235,17 @@ async function main() {
         runningAnimationsAtReady: 0,
         maxAnimationEndMsAtReady: 0,
         pseudoElementsAtReady: [],
+        namedElementsAtCall: [],
+        namedElementsAfterUpdate: [],
         error: null
       };
+      const collectNamedElements = () => Array.from(document.querySelectorAll("*"))
+        .map((element) => ({
+          name: getComputedStyle(element).viewTransitionName,
+          tag: element.tagName.toLowerCase(),
+          className: typeof element.className === "string" ? element.className : ""
+        }))
+        .filter((item) => item.name && item.name !== "none");
       globalThis.__qaTransitionProbe = state;
       if (nativeStart) {
         document.startViewTransition = (update) => {
@@ -238,12 +258,15 @@ async function main() {
             x: document.documentElement.style.getPropertyValue("--transition-origin-x"),
             y: document.documentElement.style.getPropertyValue("--transition-origin-y")
           };
-          const transition = nativeStart(() => {
+          state.namedElementsAtCall = collectNamedElements();
+          const transition = nativeStart(async () => {
             state.updateCalls += 1;
-            return update();
+            await update();
+            state.namedElementsAfterUpdate = collectNamedElements();
           });
           transition.ready.then(() => {
             const animations = document.getAnimations();
+            globalThis.__qaTransitionAnimations = animations;
             state.ready = true;
             state.animationCountAtReady = animations.length;
             state.runningAnimationsAtReady = animations.filter((animation) => animation.playState === "running").length;
@@ -294,7 +317,7 @@ async function main() {
     })()`);
   }
 
-  async function captureTransition({ label, click, destination }) {
+  async function captureTransition({ label, click, destination, frameTime = 480 }) {
     const probeSetup = await installTransitionProbe(label);
     const clickResult = await click();
     const immediatelyAfterClick = await motionSnapshot();
@@ -302,9 +325,24 @@ async function main() {
       evaluate(`document.querySelector("[data-app-view]")?.getAttribute("data-app-view") === ${JSON.stringify(destination)}`)
     );
     if (probeSetup.supported) {
+      await waitFor(`${label} native transition ready`, () => evaluate(`globalThis.__qaTransitionProbe?.ready === true`));
+      await evaluate(`(() => {
+        for (const animation of globalThis.__qaTransitionAnimations ?? []) {
+          animation.pause();
+          const endTime = Number(animation.effect?.getComputedTiming?.().endTime) || ${frameTime};
+          animation.currentTime = Math.min(${frameTime}, Math.max(0, endTime - 0.01));
+        }
+        return true;
+      })()`);
+      const frameShot = await capture(`${label}-${String(frameTime).padStart(3, "0")}ms`);
+      await evaluate(`(() => {
+        for (const animation of globalThis.__qaTransitionAnimations ?? []) animation.play();
+        return true;
+      })()`);
       await waitFor(`${label} native transition completion`, () =>
         evaluate(`globalThis.__qaTransitionProbe?.finished === true`)
       );
+      globalThis.__qaLastTransitionFrame = frameShot;
     }
     await waitForVisualIdle(evaluate, { description: `${label} visual idle` });
     const transition = await evaluate(`(() => ({
@@ -317,7 +355,13 @@ async function main() {
       runningAnimationsAfterSettle: document.getAnimations().filter((animation) => animation.playState === "running").length,
       horizontalOverflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
     }))()`);
-    return { probeSetup, clickResult, immediatelyAfterClick, transition };
+    return {
+      probeSetup,
+      clickResult,
+      immediatelyAfterClick,
+      transition,
+      frameShot: probeSetup.supported ? globalThis.__qaLastTransitionFrame ?? null : null
+    };
   }
 
   await cdp.send("Emulation.setEmulatedMedia", {
@@ -425,9 +469,12 @@ async function main() {
 
   const originX = Number.parseFloat(normalTransition.originAtCall?.x ?? "");
   const folderLayerEvidence = !normalTransition.supported ||
-    normalTransition.pseudoElementsAtReady.some((value) => value.includes("app-folder-cover")) &&
     normalTransition.pseudoElementsAtReady.some((value) => value.includes("app-folder-tabs")) &&
-    normalTransition.pseudoElementsAtReady.some((value) => value.includes("app-module-surface"));
+    normalTransition.pseudoElementsAtReady.includes("::view-transition-old(app-module-surface)") &&
+    normalTransition.pseudoElementsAtReady.includes("::view-transition-new(app-module-surface)") &&
+    normalTransition.pseudoElementsAtReady.includes("::view-transition-old(app-page-heading)") &&
+    normalTransition.pseudoElementsAtReady.includes("::view-transition-new(app-page-heading)") &&
+    !normalTransition.pseudoElementsAtReady.some((value) => value.includes("app-folder-cover"));
 
   const checks = {
     normalTransitionTriggered:

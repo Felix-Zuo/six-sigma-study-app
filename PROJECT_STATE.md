@@ -20,15 +20,29 @@ The final product must support full-manual offline reading, position-preserving 
 
 ## Current Evidence
 
-- Product version: `Beta 0.8.6` (`0.8.6-beta.0` in npm, Android `versionCode 806` / `versionName 0.8.6-beta`). During the current beta line, each user-facing update increments the patch version: `0.8.7`, `0.8.8`, and so on.
+- Product version: `Beta 0.8.7` (`0.8.7-beta.0` in npm, Android `versionCode 807` / `versionName 0.8.7-beta`). During the current beta line, each user-facing update increments the patch version: `0.8.8`, `0.8.9`, and so on.
 - Branch: `main`
 - Latest workspace migration validation pass: 2026-06-26 00:33 Asia/Shanghai
 - Local workspace root: `D:\0A OpenClaw\projects\6sigma`
-- Local worktree: Beta 0.8.6 cinematic folder motion, compact-card alignment, release verification, and repository delivery complete; implementation head `d11e1ef`
-- Latest confirmed GitHub Actions state: CI passed for `d11e1ef` in run `29220305942`, including build, five-route motion QA, browser maturity regression, and Android Debug jobs
+- Local worktree: Beta 0.8.7 source-aware motion continuity implementation and local release verification complete on top of `4228aa3`; push/CI confirmation pending
+- Latest confirmed GitHub Actions state: CI passed for the Beta 0.8.6 release line; Beta 0.8.7 CI will be recorded after push
 - Release APK after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with the Quiet Aperture spatial shell, source-aware cinematic folder/page/book transitions and reduced-motion fallback, source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, book-isolated persisted reading positions, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, occurrence-level bilingual context glosses, tap-to-lookup bottom sheet, 3980-entry public offline learner dictionary plus an ignored 3550-entry local private-question supplement, phrase-selection UI hook, due-only vocabulary review scheduling and CSV export, selected-text study notes, timed mock exams, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with the Quiet Aperture spatial shell, source-aware cinematic folder/page/book transitions, scrolled-card-to-reader continuity, and reduced-motion fallback, source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, book-isolated persisted reading positions, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, occurrence-level bilingual context glosses, tap-to-lookup bottom sheet, 3980-entry public offline learner dictionary plus an ignored 3550-entry local private-question supplement, phrase-selection UI hook, due-only vocabulary review scheduling and CSV export, selected-text study notes, timed mock exams, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+
+## 2026-07-13 Source-Aware Motion Continuity Beta 0.8.7
+
+- Reproduced the reported failure from a library page scrolled 502 CSS pixels: the compact book card, destination title, Reader chrome, and restored body had previously entered on unrelated timelines and produced visible hierarchy conflicts.
+- Reworked route transitions around shared source/destination elements. Folder extraction and close now pair their workspace surface and heading; module turns use one coherent content layer; Reader open/close uses a fixed viewport paper proxy instead of capturing the multi-thousand-pixel Reader document.
+- Prepared the destination Reader before the new View Transition snapshot and restored its saved scroll anchor atomically, eliminating the post-transition page jump. Reused DOM nodes are explicitly released before the matching destination transition name is assigned.
+- Staged the small-card path separately from the full-workspace path: the card details recede first, the shared title survives as the orientation cue, and Reader chrome/body reveal only after the paper surface has established itself.
+- Added `qa:motion-continuity`, which captures 90/240/430/680/900 ms frames at 390 x 844 and asserts scrolled-source visibility, shared paper/title continuity, destination preparation, nested-layer suppression, final scroll stability, cleanup, and zero horizontal overflow.
+- Replayed the five-route motion contract and visually inspected intermediate screenshots for folder extract, module page turn, folder close, Reader open, Reader close, and the scrolled-card Reader path.
+- Installed the signed APK on `emulator-5554`, launched the native app, inspected the settled 1080 x 2148 home, then forwarded the live Android WebView CDP endpoint. The scrolled-card continuity contract and all five spatial routes plus reduced-motion fallback passed against native `https://localhost/`, with zero running animations after settlement and zero horizontal overflow.
+- Prevented a fast-entry vocabulary race found during full regression: review now waits for the active book dictionary, and legacy example translations resolve from the aligned block before the answer appears.
+- Final local release artifacts:
+  - APK: 40,729,625 bytes; SHA-256 `5D3DBF691734B7AEBA719B98650C6810C68BDE9F40DA47B3A02DB0BDAC4AA453`; APK Signature Scheme v2 verified with one signer; installed and launched as `versionCode 807` / `versionName 0.8.7-beta`.
+  - AAB: 38,481,937 bytes; SHA-256 `166BB31968F0A7560E112DA57ADC38ABA2F64F1C9E10DA78D9C1867440F82C14`; JAR signature verified with expected self-signed/no-timestamp warnings.
 
 ## 2026-07-13 Cinematic Folder Motion Beta 0.8.6
 

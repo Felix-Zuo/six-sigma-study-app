@@ -93,6 +93,12 @@ jobs:
           QA_APP_URL: http://127.0.0.1:4183/
         run: npm run qa:motion-ui
 
+      - name: Scrolled Reader continuity QA
+        env:
+          CDP_ENDPOINT: http://127.0.0.1:9338/json
+          QA_APP_URL: http://127.0.0.1:4183/
+        run: npm run qa:motion-continuity
+
       - name: Product maturity regression QA
         env:
           CDP_ENDPOINT: http://127.0.0.1:9338/json
