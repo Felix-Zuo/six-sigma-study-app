@@ -85,17 +85,10 @@ import {
   testDeepSeekConnection,
   type DeepSeekKeyStatus
 } from "./lib/deepSeekAssistant";
-import {
-  playCinematicTransition,
-  prewarmCinematicTransition,
-  type CinematicTransitionStyle
-} from "./lib/cinematicTransition";
-
 type Language = "en" | "zh";
 type ThemeMode = "light" | "dark";
 type TextScale = "standard" | "large" | "xlarge";
 type AppView = "splash" | "home" | "reader" | "vocab" | "questions" | "notes" | "favorites" | "settings";
-type SpatialTransitionStyle = CinematicTransitionStyle;
 type LocalizedText = Record<Language, string>;
 type QuestionMode = "home" | "browse" | "practice" | "wrong" | "favorite" | "exam";
 type QuestionFilter = "all" | string;
@@ -158,6 +151,7 @@ type BookManifest = {
   subtitle?: LocalizedText;
   languagePair: Language[];
   cover?: string;
+  coverImage?: string;
   domainLabel?: string;
   contentPath: string;
   pageCount: number;
@@ -271,8 +265,8 @@ type PageGroup = {
 
 const defaultBookId = "six-sigma-black-belt";
 const defaultBookTitle = "六西格玛黑带教材";
-const productVersionLabel = "Beta 0.8.8";
-const productVersionId = "0.8.8-beta";
+const productVersionLabel = "Beta 0.8.9";
+const productVersionId = "0.8.9-beta";
 const githubProfileUrl = "https://github.com/Felix-Zuo";
 const catalogPath = "content/catalog.json";
 const bundledQuestionBankPath = "content/private/question-bank.private.json";
@@ -281,15 +275,6 @@ const noticeAcceptedKey = "six-sigma-study:notice-accepted:v1";
 const activeBookKey = "six-sigma-study:active-book:v1";
 const readerPreferencesKey = "six-sigma-study:reader-preferences:v1";
 const textScaleOrder: TextScale[] = ["standard", "large", "xlarge"];
-const appViewOrder: Partial<Record<AppView, number>> = {
-  home: 0,
-  reader: 1,
-  vocab: 2,
-  questions: 3,
-  notes: 4,
-  favorites: 5,
-  settings: 6
-};
 const appViewKickers: Partial<Record<AppView, string>> = {
   home: "学习空间",
   vocab: "词汇",
@@ -848,6 +833,7 @@ export function App() {
   const examSubmissionRef = useRef(false);
   const transitionOwnerRef = useRef(0);
   const transitionCleanupRef = useRef<(() => void) | null>(null);
+  const transitionOriginViewRef = useRef<AppView | null>(null);
   const nativeBackHandlerRef = useRef<(canGoBack: boolean) => void>(() => undefined);
   const readerRestoreFrameRef = useRef(0);
   const overlayPanelRef = useRef<HTMLElement | null>(null);
@@ -1128,12 +1114,6 @@ export function App() {
     : 0;
   const bookProgress = manual ? Math.round((Math.max(1, currentPage) / Math.max(1, manual.pageCount)) * 100) : 0;
   const isOverlayOpen = Boolean(activeLookup || showToc || showVocab || showNotes);
-
-  useEffect(() => {
-    if (view !== "home" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const timer = window.setTimeout(prewarmCinematicTransition, 180);
-    return () => window.clearTimeout(timer);
-  }, [view]);
 
   useEffect(() => {
     fetch(catalogPath)
@@ -1720,8 +1700,13 @@ export function App() {
   }, []);
 
   nativeBackHandlerRef.current = (canGoBack) => {
-    if (document.documentElement.dataset.transitionKind) {
+    const transitionKind = document.documentElement.dataset.transitionKind;
+    if (transitionKind) {
+      const originView = transitionOriginViewRef.current;
       transitionCleanupRef.current?.();
+      if (transitionKind === "navigation" && originView && originView !== view) {
+        setView(originView);
+      }
       return;
     }
 
@@ -2014,21 +1999,8 @@ export function App() {
   function runSpatialTransition(
     kind: "navigation" | "language",
     update: () => void,
-    direction: "forward" | "backward" = "forward",
     options: {
-      style?: SpatialTransitionStyle;
-      source?: HTMLElement | null;
-      sourceRole?: "book-card" | "workspace";
-      sharedElements?: Array<{
-        name: string;
-        source?: HTMLElement | null;
-        targetSelector?: string;
-      }>;
-      suppressElements?: Array<HTMLElement | null | undefined>;
-      suppressTargetSelectors?: string[];
       prepareDestination?: () => void | Promise<void>;
-      stageSource?: HTMLElement | null;
-      stageTargetSelector?: string;
     } = {}
   ) {
     transitionCleanupRef.current?.();
@@ -2036,77 +2008,27 @@ export function App() {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const owner = transitionOwnerRef.current + 1;
     transitionOwnerRef.current = owner;
-    const alteredElements = new Map<HTMLElement, { value: string; priority: string }>();
+    transitionOriginViewRef.current = kind === "navigation" ? view : null;
     let cleaned = false;
 
-    function setTransitionName(element: HTMLElement | null | undefined, name: string) {
-      if (!element) return;
-      if (!alteredElements.has(element)) {
-        alteredElements.set(element, {
-          value: element.style.getPropertyValue("view-transition-name"),
-          priority: element.style.getPropertyPriority("view-transition-name")
-        });
-      }
-      element.style.setProperty("view-transition-name", name);
-    }
-
-    // Navigation uses the geometry-only WebGL stage. Language changes use a
-    // native DOM fade below, so text is never captured into a transformed
-    // browser snapshot.
-    const usesSnapshotLayers = false;
-    if (usesSnapshotLayers) {
-      for (const element of options.suppressElements ?? []) {
-        setTransitionName(element, "none");
-      }
-      for (const sharedElement of options.sharedElements ?? []) {
-        setTransitionName(sharedElement.source, sharedElement.name);
-      }
-    }
-
-    const commit = async () => {
+    const commit = () => {
       flushSync(update);
+    };
+
+    const prepareDestination = async () => {
       try {
         await options.prepareDestination?.();
       } catch {
         // Navigation must still complete if a destination takes too long to prepare.
-      }
-      if (usesSnapshotLayers) {
-        for (const selector of options.suppressTargetSelectors ?? []) {
-          for (const element of document.querySelectorAll<HTMLElement>(selector)) {
-            setTransitionName(element, "none");
-          }
-        }
-        for (const sharedElement of options.sharedElements ?? []) {
-          if (sharedElement.targetSelector) {
-            const target = document.querySelector<HTMLElement>(sharedElement.targetSelector);
-            if (sharedElement.source?.isConnected && sharedElement.source !== target) {
-              setTransitionName(sharedElement.source, "none");
-            }
-            setTransitionName(target, sharedElement.name);
-          }
-        }
       }
     };
 
     function clearTransitionState() {
       if (cleaned) return;
       cleaned = true;
-      for (const [element, previous] of alteredElements) {
-        if (previous.value) {
-          element.style.setProperty("view-transition-name", previous.value, previous.priority);
-        } else {
-          element.style.removeProperty("view-transition-name");
-        }
-      }
       if (transitionOwnerRef.current === owner) {
         delete root.dataset.transitionKind;
-        delete root.dataset.transitionDirection;
-        delete root.dataset.transitionStyle;
-        delete root.dataset.transitionSource;
-        root.style.removeProperty("--transition-origin-x");
-        root.style.removeProperty("--transition-origin-y");
-        root.style.removeProperty("--transition-travel-x");
-        root.style.removeProperty("--transition-travel-y");
+        transitionOriginViewRef.current = null;
       }
       if (transitionCleanupRef.current === clearTransitionState) {
         transitionCleanupRef.current = null;
@@ -2115,25 +2037,10 @@ export function App() {
     transitionCleanupRef.current = clearTransitionState;
 
     root.dataset.transitionKind = kind;
-    root.dataset.transitionDirection = direction;
-    if (options.style) {
-      root.dataset.transitionStyle = options.style;
-    }
-    if (options.sourceRole) {
-      root.dataset.transitionSource = options.sourceRole;
-    }
-    const sourceRect = options.source?.getBoundingClientRect();
-    const originX = sourceRect ? sourceRect.left + sourceRect.width / 2 : window.innerWidth / 2;
-    const originY = sourceRect ? sourceRect.top + sourceRect.height / 2 : window.innerHeight / 2;
-    const travelX = Math.max(-150, Math.min(150, originX - window.innerWidth / 2));
-    const travelY = Math.max(-190, Math.min(190, originY - window.innerHeight / 2));
-    root.style.setProperty("--transition-origin-x", `${Math.round(originX)}px`);
-    root.style.setProperty("--transition-origin-y", `${Math.round(originY)}px`);
-    root.style.setProperty("--transition-travel-x", `${Math.round(travelX)}px`);
-    root.style.setProperty("--transition-travel-y", `${Math.round(travelY)}px`);
 
     if (prefersReducedMotion) {
-      void commit().finally(clearTransitionState);
+      commit();
+      void prepareDestination().finally(clearTransitionState);
       return;
     }
 
@@ -2141,7 +2048,7 @@ export function App() {
       let languageCancelled = false;
       let fadeOut: Animation | undefined;
       let fadeIn: Animation | undefined;
-      let sourceSurface = document.querySelector<HTMLElement>(".readerTransitionSurface, .readerPanel");
+      let sourceSurface = document.querySelector<HTMLElement>(".readerPanel");
       let targetSurface: HTMLElement | null = null;
       const cleanupLanguage = () => {
         if (languageCancelled) return;
@@ -2169,8 +2076,9 @@ export function App() {
           await nextTransitionTask(120);
         }
         if (languageCancelled || transitionOwnerRef.current !== owner) return;
-        await commit();
-        targetSurface = document.querySelector<HTMLElement>(".readerTransitionSurface, .readerPanel");
+        commit();
+        await prepareDestination();
+        targetSurface = document.querySelector<HTMLElement>(".readerPanel");
         if (targetSurface) targetSurface.style.opacity = "0";
         fadeOut?.cancel();
         if (languageCancelled || transitionOwnerRef.current !== owner) return;
@@ -2188,42 +2096,59 @@ export function App() {
     }
 
     if (kind === "navigation") {
-      const stageSource = options.stageSource ?? options.source;
-      const stageHandle = playCinematicTransition({
-        style: options.style ?? "page-turn",
-        direction,
-        sourceRect: stageSource?.getBoundingClientRect(),
-        sourceElement: stageSource,
-        commit,
-        resolveTargetRect: () => {
-          const selector = options.stageTargetSelector ?? ".appPageContent, .readerPanel, .workspaceFocus, .appShell";
-          return document.querySelector<HTMLElement>(selector)?.getBoundingClientRect();
+      let cancelled = false;
+      let sourceFade: Animation | undefined;
+      let targetFade: Animation | undefined;
+      let sourceShell = document.querySelector<HTMLElement>(".appShell");
+      let targetShell: HTMLElement | null = null;
+      const cleanupNavigation = () => {
+        if (cancelled) return;
+        cancelled = true;
+        sourceFade?.cancel();
+        targetFade?.cancel();
+        if (transitionOwnerRef.current === owner) {
+          sourceShell?.style.removeProperty("opacity");
+          sourceShell?.style.removeProperty("transform");
+          targetShell?.style.removeProperty("opacity");
+          targetShell?.style.removeProperty("transform");
         }
-      });
-      const cleanupStage = () => {
-        if (transitionCleanupRef.current === cleanupStage) {
+        if (transitionCleanupRef.current === cleanupNavigation) {
           transitionCleanupRef.current = null;
         }
-        stageHandle.cancel();
         clearTransitionState();
       };
-      transitionCleanupRef.current = cleanupStage;
-      void stageHandle.finished.finally(() => {
-        if (transitionCleanupRef.current === cleanupStage) {
-          transitionCleanupRef.current = null;
+      transitionCleanupRef.current = cleanupNavigation;
+      void (async () => {
+        sourceFade = sourceShell?.animate(
+          [{ opacity: 1 }, { opacity: 0 }],
+          { duration: 90, easing: "ease-out", fill: "forwards" }
+        );
+        if (sourceFade) await sourceFade.finished.catch(() => undefined);
+        if (cancelled || transitionOwnerRef.current !== owner) return;
+        commit();
+        targetShell = document.querySelector<HTMLElement>(".appShell");
+        if (targetShell) {
+          targetShell.style.opacity = "0";
         }
-        clearTransitionState();
-      });
+        await prepareDestination();
+        sourceFade?.cancel();
+        await nextTransitionTask();
+        if (cancelled || transitionOwnerRef.current !== owner) return;
+        targetFade = targetShell?.animate(
+          [{ opacity: 0 }, { opacity: 1 }],
+          { duration: 170, easing: "cubic-bezier(0.2, 0.8, 0.2, 1)", fill: "forwards" }
+        );
+        if (targetFade) await targetFade.finished.catch(() => undefined);
+        if (!cancelled && transitionOwnerRef.current === owner) {
+          targetShell?.style.removeProperty("opacity");
+          targetShell?.style.removeProperty("transform");
+        }
+      })().catch(() => undefined).finally(cleanupNavigation);
       return;
     }
 
-    void commit().finally(clearTransitionState);
-  }
-
-  function isVisibleTransitionSource(element: HTMLElement | null): element is HTMLElement {
-    if (!element) return false;
-    const rect = element.getBoundingClientRect();
-    return rect.width > 0 && rect.height > 0 && rect.bottom > 0 && rect.top < window.innerHeight;
+    commit();
+    void prepareDestination().finally(clearTransitionState);
   }
 
   function nextTransitionTask(delay = 0): Promise<void> {
@@ -2241,8 +2166,7 @@ export function App() {
       await nextTransitionTask(16);
     }
 
-    // View Transition update callbacks suspend animation frames. A task boundary
-    // lets React effects settle without deadlocking the destination snapshot.
+    // Let React effects settle before restoring the saved reading position.
     await nextTransitionTask();
     void shell?.offsetHeight;
     const savedPosition = loadReaderPosition(bookId);
@@ -2257,121 +2181,24 @@ export function App() {
     await nextTransitionTask();
   }
 
-  function navigateTo(nextView: AppView, source?: HTMLElement | null) {
+  function navigateTo(nextView: AppView, _source?: HTMLElement | null) {
     setReaderMenuOpen(false);
     if (nextView === view) {
       window.scrollTo({ top: 0, left: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
       return;
     }
-    const currentIndex = appViewOrder[view] ?? 0;
-    const nextIndex = appViewOrder[nextView] ?? currentIndex;
-    const style: SpatialTransitionStyle = view === "reader" && nextView === "home"
-      ? "book-close"
-      : view === "home"
-        ? "folder-extract"
-        : nextView === "home"
-          ? "folder-close"
-          : "page-turn";
-    const homeSurface = document.querySelector<HTMLElement>(".workspaceFocus");
-    const homeHeading = document.querySelector<HTMLElement>(".workspaceBrand");
-    const readerPanel = document.querySelector<HTMLElement>(".readerPanel");
-    const readerTransitionSurface = document.querySelector<HTMLElement>(".readerTransitionSurface");
-    const readerChrome = document.querySelector<HTMLElement>(".readerChrome");
-    const readerHeading = document.querySelector<HTMLElement>(".topBar");
-    const readerProgress = document.querySelector<HTMLElement>(".progressSummary");
-    const homeProgress = document.querySelector<HTMLElement>(".workspaceProgressPath");
-    const sourceTab = source?.closest(".workspaceEdgeNav button") as HTMLElement | null;
-    const sharedElements = style === "folder-extract"
-      ? [
-          {
-            name: "app-module-surface",
-            source: isVisibleTransitionSource(homeSurface) ? homeSurface : null,
-            targetSelector: ".appPageContent"
-          },
-          {
-            name: "app-page-heading",
-            source: isVisibleTransitionSource(sourceTab) ? sourceTab : isVisibleTransitionSource(homeHeading) ? homeHeading : null,
-            targetSelector: ".appPageHeader"
-          }
-        ]
-      : style === "folder-close"
-        ? [
-            {
-              name: "app-module-surface",
-              source: document.querySelector<HTMLElement>(".appPageContent"),
-              targetSelector: ".workspaceFocus"
-            },
-            {
-              name: "app-page-heading",
-              source: document.querySelector<HTMLElement>(".appPageHeader"),
-              targetSelector: ".workspaceBrand"
-            }
-          ]
-        : style === "book-close"
-          ? [
-              {
-                name: "app-reader-page",
-                source: readerTransitionSurface,
-                targetSelector: ".workspaceFocus"
-              },
-              {
-                name: "app-reader-title",
-                source: document.querySelector<HTMLElement>(".topBar h1"),
-                targetSelector: ".workspaceFocusTop h3"
-              }
-            ]
-          : undefined;
     runSpatialTransition("navigation", () => {
       setView(nextView);
       window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-    }, nextIndex >= currentIndex ? "forward" : "backward", {
-      style,
-      source,
-      sharedElements,
-      suppressElements: style === "book-close"
-        ? [readerPanel, readerChrome, readerHeading, readerProgress]
-        : style === "folder-extract"
-          ? [homeProgress]
-          : undefined,
-      suppressTargetSelectors: style === "folder-close" || style === "book-close"
-        ? [".workspaceProgressPath"]
-        : undefined,
-      stageSource: style === "folder-extract"
-        ? homeSurface
-        : style === "folder-close" || style === "page-turn"
-          ? document.querySelector<HTMLElement>(".appPageContent")
-          : readerPanel,
-      stageTargetSelector: style === "folder-close" || style === "book-close"
-        ? ".workspaceFocus"
-        : ".appPageContent"
     });
   }
 
-  function openBook(bookId: string, source?: HTMLElement | null) {
-    const sourceSurface = source?.closest(".studyBookCard, .workspaceFocus, .emptyState, .appPageContent") as HTMLElement | null;
-    const workspaceSurface = document.querySelector<HTMLElement>(".workspaceFocus");
-    const workspaceTabs = document.querySelector<HTMLElement>(".workspaceEdgeNav");
-    const workspaceProgress = document.querySelector<HTMLElement>(".workspaceProgressPath");
-    const sourceIsWorkspace = sourceSurface?.classList.contains("workspaceFocus") ?? false;
-    const sourceTitle = sourceIsWorkspace
-      ? null
-      : sourceSurface?.querySelector<HTMLElement>(".bookCardBody h2, .workspaceFocusTop h3, h2") ?? null;
+  function openBook(bookId: string, _source?: HTMLElement | null) {
     runSpatialTransition("navigation", () => {
       setActiveBookId(bookId);
       setView("reader");
-    }, "forward", {
-      style: "book-open",
-      source,
-      sourceRole: sourceIsWorkspace ? "workspace" : "book-card",
-      sharedElements: [
-        { name: "app-reader-page", source: sourceSurface, targetSelector: ".readerTransitionSurface" },
-        { name: "app-reader-title", source: sourceTitle, targetSelector: ".topBar h1" }
-      ],
-      suppressElements: sourceIsWorkspace ? [workspaceProgress] : [workspaceSurface, workspaceTabs, workspaceProgress],
-      suppressTargetSelectors: [".readerPanel", ".readerChrome", ".topBar", ".progressSummary"],
-      prepareDestination: () => prepareReaderDestination(bookId),
-      stageSource: sourceSurface,
-      stageTargetSelector: ".readerPanel"
+    }, {
+      prepareDestination: () => prepareReaderDestination(bookId)
     });
     setReaderMenuOpen(false);
   }
@@ -2391,10 +2218,7 @@ export function App() {
     runSpatialTransition("navigation", () => {
       setActiveBookId(anchor.bookId);
       setView("reader");
-    }, "forward", {
-      style: "book-open",
-      stageSource: document.querySelector<HTMLElement>(".appPageContent"),
-      stageTargetSelector: ".readerPanel",
+    }, {
       prepareDestination: () => prepareReaderDestination(anchor.bookId)
     });
     setReaderMenuOpen(false);
@@ -3204,66 +3028,75 @@ export function App() {
       "学习工作台",
       "从上次停下的位置继续。",
       <>
-        <section className="dashboardHero spatialWorkspace" aria-label="继续学习">
+        <section className="dashboardHero spatialWorkspace" aria-label="现在阅读">
+          <header className="workspaceBrand">
+            <p className="eyebrow">Six Sigma Study</p>
+            <h1>现在阅读</h1>
+          </header>
           <div className="workspacePageStack">
             <article className="workspaceFocus">
-              <div className="workspaceBrand">
-                <p className="eyebrow">Six Sigma Study</p>
-                <h1>学习工作台</h1>
-                <p>阅读、复习与整理，从同一处继续。</p>
+              <div className={`bookCover continueCover${recentBook?.coverImage ? " hasImage" : ""}`} aria-hidden="true">
+                {recentBook?.coverImage
+                  ? <img src={recentBook.coverImage} alt="" />
+                  : <span>{recentBook?.cover ?? "6σ"}</span>}
               </div>
-              <div className="workspaceFocusTop">
-                <p className="eyebrow">继续学习</p>
-                <h3>{recentBook?.title.zh ?? "六西格玛黑带培训教材"}</h3>
-                <p>{recentBook?.subtitle?.zh ?? "中英对照学习版"}</p>
-              </div>
-              <div className="workspaceProgressCopy">
-                <strong>{recentProgress.label}</strong>
-                <span>{recentBook?.chapterCount ?? 0} 章</span>
-              </div>
-              <div className="workspaceProgressPath" aria-label={`教材进度 ${recentProgress.percent}%`}>
-                <span style={{ width: `${recentProgress.percent}%` }} />
-                <i style={{ left: `${Math.min(96, Math.max(2, recentProgress.percent))}%` }} />
-              </div>
-              <button className="primaryAction workspaceContinue" onClick={(event) => openBook(recentBook?.bookId ?? defaultBookId, event.currentTarget)}>
-                <span>{recentProgress.page ? "继续阅读" : "开始阅读"}</span>
-                <ArrowRight size={22} strokeWidth={1.8} />
-              </button>
-            <section className="metricGrid" aria-label="学习概览">
-                <button onClick={(event) => navigateTo("vocab", event.currentTarget)}>
-                  <strong>{dailyStats.completed}/{dailyStats.goal}</strong>
-                  <span>今日目标</span>
-                  <small>连续天数 {dailyStats.streak}</small>
+              <div className="continueReadingBody">
+                <div className="workspaceFocusTop">
+                  <p className="eyebrow">继续阅读</p>
+                  <h3>{recentBook?.title.zh ?? "六西格玛黑带培训教材"}</h3>
+                  <p>{recentBook?.subtitle?.zh ?? "中英对照学习版"}</p>
+                </div>
+                <div className="workspaceProgressCopy">
+                  <strong>{recentProgress.label}</strong>
+                  <span>{recentBook?.chapterCount ?? 0} 章</span>
+                </div>
+                <div className="workspaceProgressPath" aria-label={`教材进度 ${recentProgress.percent}%`}>
+                  <span style={{ width: `${recentProgress.percent}%` }} />
+                </div>
+                <button className="primaryAction workspaceContinue" onClick={(event) => openBook(recentBook?.bookId ?? defaultBookId, event.currentTarget)}>
+                  <span>{recentProgress.page ? "继续阅读" : "开始阅读"}</span>
+                  <ArrowRight size={20} strokeWidth={1.8} />
                 </button>
-                <button onClick={(event) => navigateTo("questions", event.currentTarget)}>
-                  <strong>{allQuestions.length}</strong>
-                  <span>题库</span>
-                </button>
-                <button onClick={(event) => navigateTo("notes", event.currentTarget)}>
-                  <strong>{savedNotes.length + savedFavorites.length}</strong>
-                  <span>学习记录</span>
-                </button>
-              </section>
+              </div>
             </article>
-          <nav className="workspaceEdgeNav" aria-label="学习入口">
-              <button onClick={(event) => navigateTo("vocab", event.currentTarget)}>
-                <span>单词</span>
-                <BookOpen size={19} strokeWidth={1.8} />
-              </button>
-              <button onClick={(event) => navigateTo("questions", event.currentTarget)}>
-                <span>刷题</span>
-                <ClipboardCheck size={19} strokeWidth={1.8} />
-              </button>
-              <button onClick={(event) => navigateTo("notes", event.currentTarget)}>
-                <span>笔记</span>
-                <NotebookPen size={19} strokeWidth={1.8} />
-              </button>
-              <button onClick={(event) => navigateTo("favorites", event.currentTarget)}>
-                <span>收藏</span>
-                <BookmarkCheck size={19} strokeWidth={1.8} />
-              </button>
-            </nav>
           </div>
+        </section>
+        <section className="homeLearningSection" aria-labelledby="today-learning-title">
+          <div className="sectionHeader">
+            <h2 id="today-learning-title">今日学习</h2>
+          </div>
+          <section className="metricGrid" aria-label="学习概览">
+            <button onClick={(event) => navigateTo("vocab", event.currentTarget)}>
+              <strong>{dailyStats.completed}/{dailyStats.goal}</strong>
+              <span>今日目标</span>
+            </button>
+            <button onClick={(event) => navigateTo("questions", event.currentTarget)}>
+              <strong>{allQuestions.length}</strong>
+              <span>题库</span>
+            </button>
+            <button onClick={(event) => navigateTo("notes", event.currentTarget)}>
+              <strong>{dailyStats.streak}</strong>
+              <span>连续天数</span>
+            </button>
+          </section>
+          <nav className="workspaceEdgeNav" aria-label="学习入口">
+            <button onClick={(event) => navigateTo("vocab", event.currentTarget)}>
+              <BookOpen size={20} strokeWidth={1.8} />
+              <span>单词</span>
+            </button>
+            <button onClick={(event) => navigateTo("questions", event.currentTarget)}>
+              <ClipboardCheck size={20} strokeWidth={1.8} />
+              <span>刷题</span>
+            </button>
+            <button onClick={(event) => navigateTo("notes", event.currentTarget)}>
+              <NotebookPen size={20} strokeWidth={1.8} />
+              <span>笔记</span>
+            </button>
+            <button onClick={(event) => navigateTo("favorites", event.currentTarget)}>
+              <BookmarkCheck size={20} strokeWidth={1.8} />
+              <span>收藏</span>
+            </button>
+          </nav>
         </section>
         <div className="sectionHeader libraryHeader">
           <h2>教材</h2>
@@ -3277,7 +3110,9 @@ export function App() {
             const progress = progressForBook(book);
             return (
               <article key={book.bookId} className="bookCard studyBookCard">
-                <div className="bookCover" aria-hidden="true">{book.cover ?? "6σ"}</div>
+                <div className={`bookCover${book.coverImage ? " hasImage" : ""}`} aria-hidden="true">
+                  {book.coverImage ? <img src={book.coverImage} alt="" /> : <span>{book.cover ?? "6σ"}</span>}
+                </div>
                 <div className="bookCardBody">
                   <p className="eyebrow">{book.bookId === "agent-import-sample" ? "练习样例" : book.subtitle?.zh ?? "中英对照学习版"}</p>
                   <h2>{book.title.zh}</h2>
@@ -4928,7 +4763,6 @@ export function App() {
       data-theme={readerPreferences.theme}
       data-text-scale={readerPreferences.textScale}
     >
-      <div className="readerTransitionSurface" aria-hidden="true" />
       <div className="readerChrome">
         <header className="topBar">
           <div>

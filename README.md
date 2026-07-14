@@ -12,7 +12,7 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 
 | Metric | Current State |
 | --- | --- |
-| Release | `Beta 0.8.8` (`0.8.8-beta.0`, Android code `808`) |
+| Release | `Beta 0.8.9` (`0.8.9-beta.0`, Android code `809`) |
 | Runtime books | 2 catalog books: full Six Sigma manual + original import-practice workbook |
 | Six Sigma content | 33 chapters, 449 aligned study pages, 174 reader sections |
 | Preserved assets | 475 figure/table/formula PNG runtime assets; EN/ZH image counts 476/476 |
@@ -28,11 +28,11 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 
 | Study Home | Chinese Reader With Figure | Lookup Half Sheet |
 | --- | --- | --- |
-| ![Study workbench](docs/assets/showcase/beta-0.8.6-release-home.png) | ![Chinese reader with preserved figure](docs/assets/showcase/target4-reader-zh-image.png) | ![Draggable lookup sheet](docs/assets/showcase/target4-lookup-half.png) |
+| ![Study home](docs/assets/showcase/beta-0.8.9-release-home.png) | ![Chinese reader with preserved figure](docs/assets/showcase/target4-reader-zh-image.png) | ![Draggable lookup sheet](docs/assets/showcase/target4-lookup-half.png) |
 
 | Opening | Lookup Full Sheet | Vocabulary |
 | --- | --- | --- |
-| ![Opening animation](docs/assets/showcase/target4-opening.png) | ![Full-height lookup sheet](docs/assets/showcase/target4-lookup-full.png) | ![Vocabulary page](docs/assets/showcase/target4-vocab.png) |
+| ![Opening animation](docs/assets/showcase/target4-opening.png) | ![Full-height lookup sheet](docs/assets/showcase/target4-lookup-full.png) | ![Vocabulary page](docs/assets/showcase/beta-0.8.9-vocabulary.png) |
 
 | Notes | Favorites | English Reader |
 | --- | --- | --- |
@@ -44,9 +44,9 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 
 | Rich Vocabulary Answer | Question Training | Rich Question Word Lookup |
 | --- | --- | --- |
-| ![Vocabulary answer with phonetics, senses, context, and translation](docs/assets/showcase/learning-vocab-answer.png) | ![Question training dashboard](docs/assets/showcase/learning-question-home.png) | ![Question lookup with rich dictionary and context](docs/assets/showcase/learning-question-lookup-rich.png) |
+| ![Vocabulary answer with phonetics, senses, context, and translation](docs/assets/showcase/learning-vocab-answer.png) | ![Question training dashboard](docs/assets/showcase/beta-0.8.9-question-training.png) | ![Question lookup with rich dictionary and context](docs/assets/showcase/learning-question-lookup-rich.png) |
 
-Beta 0.8.8 replaces whole-page DOM transforms with a reusable real-time Three.js stage. Folder extraction, module page turns, and Reader open/close animate only text-free paper, edge, tab, and shadow geometry; live headings and body copy remain native DOM at their final dimensions. Source content fades before the route commit, the destination is prepared behind an opaque stage, and it appears only after the camera settles. Frame-time clamping prevents Android WebView stalls from turning into camera jumps. Mobile, desktop, scrolled-card, reduced-motion, and native Android frame gates now protect the handoff. See [design-qa.md](design-qa.md) for the review record.
+Beta 0.8.9 removes the folder metaphor and real-time 3D transition stage. The home screen now follows a familiar reading-product hierarchy: Now Reading, Today's Study, Library, and Recent Notes. Navigation uses one live route shell and short opacity fades, so headings and body text are never stretched, duplicated, or moved between layers. A real source cover, neutral surfaces, one restrained accent, and a stable five-item navigation bar keep attention on study content. See [design-qa.md](design-qa.md) for the review record.
 
 ## Study Workflow
 
@@ -61,8 +61,8 @@ When another book is selected, vocabulary, notes, and favorites are filtered to 
 
 ## Core Features
 
-- Multi-book study workbench with bottom navigation for Home, Vocabulary, Practice, Notes, and Settings; Favorites remains available from the home page stack and reader tools.
-- Quiet Aperture visual system with a functional home folder and a geometry-only Three.js transition stage; native text is never scaled, stretched, or duplicated, and reduced-motion keeps a direct fade fallback.
+- Multi-book reading home with bottom navigation for Home, Vocabulary, Practice, Notes, and Settings; Favorites remains available from home and reader tools.
+- Quiet, content-first interface with a real book cover, flat study summaries, familiar reading hierarchy, and short opacity-only route transitions. Native text is never scaled, stretched, or duplicated.
 - Automatic opening logo animation with the full rights/non-commercial notice moved to Settings/About.
 - English/Chinese reading mode with block-aware position restoration.
 - Deduplicated page rail, chapter progress, page search, and table-of-contents navigation.

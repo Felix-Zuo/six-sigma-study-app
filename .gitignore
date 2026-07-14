@@ -53,6 +53,8 @@ content/processed/*
 !apps/reader/public/content/assets/asset-manifest.json
 !apps/reader/public/content/assets/figures/
 !apps/reader/public/content/assets/figures/*.png
+!apps/reader/public/content/assets/covers/
+!apps/reader/public/content/assets/covers/six-sigma-black-belt.png
 !docs/assets/
 !docs/assets/showcase/
 !docs/assets/showcase/*.png

@@ -940,7 +940,8 @@ async function main() {
       await cdp.send("Page.reload", { ignoreCache: true });
       await waitForHome();
       const homeAfterReload = await evaluate(`(() => ({
-        streakText: document.querySelector(".metricGrid button:first-child small")?.textContent?.trim() ?? "",
+        streakValue: document.querySelector(".metricGrid button:nth-child(3) strong")?.textContent?.trim() ?? "",
+        streakLabel: document.querySelector(".metricGrid button:nth-child(3) span")?.textContent?.trim() ?? "",
         currentNav: document.querySelector('nav[aria-label="主导航"] [aria-current="page"] strong')?.textContent?.trim() ?? ""
       }))()`);
       await clickPrimaryNav("单词");
@@ -962,7 +963,7 @@ async function main() {
       assert(Object.keys(immediatelyAfterClear.progress).length === 0, "Question progress remained after normal clear", immediatelyAfterClear);
       assert(Number(immediatelyAfterClear.streak.streak ?? 0) === 0, "Old streak remained after normal clear", immediatelyAfterClear);
       assert(immediatelyAfterClear.correctionKeys.length === 0, "Context corrections from another book remained after local-data clear", immediatelyAfterClear);
-      assert(homeAfterReload.streakText === "连续天数 0", "Old streak revived after reload", homeAfterReload);
+      assert(homeAfterReload.streakValue === "0" && homeAfterReload.streakLabel === "连续天数", "Old streak revived after reload", homeAfterReload);
       assert(vocabAfterReload === "0 个待学", "Old vocabulary revived after reload", { vocabAfterReload, persistedAfterReload });
       assert(questionsAfterReload.summary.startsWith("0/") && questionsAfterReload.action.includes("开始练习"), "Old question progress revived after reload", questionsAfterReload);
       assert(!persistedAfterReload.vocab.some((item) => String(item.id).startsWith(fixturePrefix)), "Fixture vocabulary was persisted again", persistedAfterReload);

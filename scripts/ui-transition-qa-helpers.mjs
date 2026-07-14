@@ -1,6 +1,5 @@
 import fs from "node:fs";
 import path from "node:path";
-import { PNG } from "pngjs";
 
 export const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -32,9 +31,8 @@ export async function connectCdp(endpoint) {
   };
 }
 
-export async function createCinematicHarness({
+export async function createUiHarness({
   endpoint,
-  appUrl,
   screenshotDir,
   width = 390,
   height = 844,
@@ -82,78 +80,22 @@ export async function createCinematicHarness({
     return filePath.replaceAll("\\", "/");
   }
 
-  async function captureCinematicCanvas(name) {
-    fs.mkdirSync(screenshotDir, { recursive: true });
-    const dataUrl = await evaluate(`globalThis.__qaCaptureCinematicFrame?.() ?? document.querySelector('[data-cinematic-canvas]')?.toDataURL('image/png') ?? null`);
-    if (!dataUrl?.startsWith("data:image/png;base64,")) return capture(name);
-    return saveDataUrl(name, dataUrl);
-  }
-
-  function saveDataUrl(name, dataUrl) {
-    if (!dataUrl?.startsWith("data:image/png;base64,")) {
-      throw new Error(`${name}: cinematic frame was not captured`);
-    }
-    fs.mkdirSync(screenshotDir, { recursive: true });
-    const filePath = path.resolve(screenshotDir, `${name}.png`);
-    fs.writeFileSync(filePath, Buffer.from(dataUrl.slice(dataUrl.indexOf(",") + 1), "base64"));
-    return filePath.replaceAll("\\", "/");
-  }
-
-  return { cdp, evaluate, waitFor, capture, captureCinematicCanvas, saveDataUrl, appUrl, width, height };
+  return { cdp, evaluate, waitFor, capture };
 }
 
-export function analyzePng(filePath) {
-  const png = PNG.sync.read(fs.readFileSync(filePath));
-  let samples = 0;
-  let black = 0;
-  let chromatic = 0;
-  let luminanceSum = 0;
-  let luminanceSquared = 0;
-  const bins = new Set();
-  for (let y = 0; y < png.height; y += 4) {
-    for (let x = 0; x < png.width; x += 4) {
-      const offset = (png.width * y + x) * 4;
-      const red = png.data[offset];
-      const green = png.data[offset + 1];
-      const blue = png.data[offset + 2];
-      const alpha = png.data[offset + 3];
-      if (alpha < 16) continue;
-      const luminance = 0.2126 * red + 0.7152 * green + 0.0722 * blue;
-      samples += 1;
-      luminanceSum += luminance;
-      luminanceSquared += luminance * luminance;
-      if (red < 10 && green < 10 && blue < 10) black += 1;
-      if (Math.max(red, green, blue) - Math.min(red, green, blue) > 24) chromatic += 1;
-      bins.add(`${red >> 4}-${green >> 4}-${blue >> 4}`);
-    }
-  }
-  const mean = samples ? luminanceSum / samples : 0;
-  const variance = samples ? Math.max(0, luminanceSquared / samples - mean * mean) : 0;
-  return {
-    width: png.width,
-    height: png.height,
-    samples,
-    blackRatio: samples ? black / samples : 1,
-    chromaticRatio: samples ? chromatic / samples : 0,
-    luminanceMean: mean,
-    luminanceStdDev: Math.sqrt(variance),
-    quantizedColorBins: bins.size
-  };
-}
-
-export function stageSnapshotExpression() {
+export function uiSnapshotExpression() {
   return `(() => {
     const root = document.documentElement;
-    const stage = document.querySelector('[data-cinematic-stage]');
     const shell = document.querySelector('.appShell');
-    const heading = document.querySelector('.appPageHeader h1, .topBar h1');
+    const readerPanel = document.querySelector('.readerPanel');
+    const heading = document.querySelector('.workspaceBrand h1, .appPageHeader h1, .topBar h1');
     const headingRect = heading?.getBoundingClientRect();
-    const visibleTextElements = Array.from(shell?.querySelectorAll('h1, h2, h3, p, button, a, label, li') ?? []).filter((element) => {
+    const visibleText = Array.from(shell?.querySelectorAll('h1, h2, h3, p, button, a, label, li') ?? []).filter((element) => {
       const style = getComputedStyle(element);
       const rect = element.getBoundingClientRect();
       return (element.textContent ?? '').trim() && style.display !== 'none' && style.visibility !== 'hidden' && rect.width > 0 && rect.height > 0;
     });
-    const textScaleViolations = visibleTextElements.filter((element) => {
+    const textScaleViolations = visibleText.filter((element) => {
       const transform = getComputedStyle(element).transform;
       if (!transform || transform === 'none') return false;
       try {
@@ -166,26 +108,17 @@ export function stageSnapshotExpression() {
       }
     }).length;
     return {
-      view: document.querySelector('[data-app-view]')?.getAttribute('data-app-view') ?? null,
-      active: root.dataset.cinematicActive ?? null,
-      phase: stage?.dataset.phase ?? null,
-      progress: Number(stage?.dataset.progress ?? 0),
-      style: stage?.dataset.style ?? null,
-      contentMode: stage?.dataset.contentMode ?? null,
-      stageText: (stage?.textContent ?? '').trim(),
-      stageHidden: stage?.hidden ?? true,
-      stageCount: document.querySelectorAll('[data-cinematic-stage]').length,
-      stageOpacity: stage ? Number.parseFloat(getComputedStyle(stage).opacity) : 0,
-      canvasCount: stage?.querySelectorAll('canvas').length ?? 0,
-      canvasWidth: stage?.querySelector('canvas')?.width ?? 0,
-      canvasHeight: stage?.querySelector('canvas')?.height ?? 0,
+      view: shell?.dataset.appView ?? null,
+      transitionKind: root.dataset.transitionKind ?? null,
       shellCount: document.querySelectorAll('.appShell').length,
       shellOpacity: shell ? Number.parseFloat(getComputedStyle(shell).opacity) : null,
       shellTransform: shell ? getComputedStyle(shell).transform : null,
-      visibleTextCount: visibleTextElements.length,
-      textScaleViolations,
+      readerPanelOpacity: readerPanel ? Number.parseFloat(getComputedStyle(readerPanel).opacity) : null,
       headingText: heading?.textContent?.trim() ?? null,
       headingRect: headingRect ? { width: headingRect.width, height: headingRect.height, top: headingRect.top, left: headingRect.left } : null,
+      textScaleViolations,
+      cinematicStageCount: document.querySelectorAll('[data-cinematic-stage], .cinematicStage').length,
+      canvasCount: document.querySelectorAll('.cinematicStage canvas').length,
       horizontalOverflow: root.scrollWidth - root.clientWidth
     };
   })()`;

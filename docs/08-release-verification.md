@@ -13,7 +13,7 @@
 | Target 4 product audit | `npm run qa:target4-flow` | opening, home, second book, settings, TOC, immersive mode, lookup half/full, exact source return, Chinese image fidelity, notes, favorites, and vocabulary pass | real-device physical long-press QA remains separate |
 | Android key chapters | `npm run qa:android-key-chapters` | Chapters 1, 7, 26, and 33 render, lookup, align, and load images | WebView/CDP is not a full physical-device matrix |
 | Lexical learning | `npm run qa:lexical-learning`; `npm run qa:lexical-ui` | structured senses, phonetics, context meanings, bilingual examples, native TTS bridge, and mobile layout pass | final voice quality depends on the device TTS voice |
-| Maturity regressions | `npm run qa:maturity-regressions`; `npm run qa:motion-ui`; `npm run qa:motion-continuity` | per-book position isolation, due-only review, practice resume, safe reset, sheet boundaries/a11y, native/fallback motion paths, scrolled-card Reader continuity | CDP gestures do not replace a broad physical-device matrix |
+| Maturity regressions | `npm run qa:maturity-regressions`; `npm run qa:motion-ui`; `npm run qa:motion-continuity`; `npm run qa:transition-resilience` | per-book position isolation, due-only review, practice resume, safe reset, sheet boundaries/a11y, one-shell opacity navigation, Reader language fades | CDP gestures do not replace a broad physical-device matrix |
 | Public artifact isolation | `npm run qa:public-artifact`; `npm run qa:private-isolation` | normal web dist contains no private bank; Android sync cleans transient staging | local private source remains the user's responsibility |
 | Context glossary | `npm run qa:context-glosses` | 3875 blocks, 8591 sentences, 105048 meanings, page 8/9 regressions pass | 383 low-confidence sentences intentionally expose no asserted word meaning |
 | Release packaging | `npm run android:release-apk`; `npm run android:aab` | APK/AAB build with runtime packages and figure assets bundled | store upload-key policy is not finalized |
@@ -26,7 +26,7 @@ This document records the current evidence that the Android study app is install
 
 - Repository: `https://github.com/Felix-Zuo/six-sigma-study-app`
 - Local path: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app`
-- Latest local release validation pass when this document was updated: 2026-07-13 Asia/Shanghai
+- Latest local release validation pass when this document was updated: 2026-07-14 Asia/Shanghai
 - Release APK: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
 
@@ -59,6 +59,7 @@ npm run qa:learning-modules
 npm run qa:lexical-ui
 npm run qa:motion-ui
 npm run qa:motion-continuity
+npm run qa:transition-resilience
 npm run qa:maturity-regressions
 npm run qa:public-artifact
 npm run qa:dictionary-boundaries
@@ -120,13 +121,25 @@ node scripts\qa-dictionary-cdp.mjs
 ## PWA Browser Offline QA
 
 - `node scripts\qa-pwa-offline-cdp.mjs`: passed against Vite preview on `127.0.0.1:4175` and clean headless Chrome CDP on `127.0.0.1:9333`.
-- Service worker cache: `six-sigma-study-v0.8.8`; content JSON uses network-first refresh with offline cache fallback.
+- Service worker cache: `six-sigma-study-v0.8.9`; content JSON uses network-first refresh with offline cache fallback.
 - Online cache state includes `/`, `/index.html`, hashed JS/CSS shell assets, `content/manual.json`, `manifest.webmanifest`, and all 475 figure assets.
 - Offline reload state: CDP network offline, cache-ignored reload rendered `Chapter 1: What is Six Sigma?`, 23 sections, service-worker controller present, and horizontal overflow 0.
 
 ## Android Runtime QA
 
 Verified on local emulator `SixSigmaQA` / `emulator-5554`.
+
+### Beta 0.8.9 Quiet Reading Hierarchy
+
+- Removed the folder stack, exposed side tabs, Three.js/WebGL transition stage, camera choreography, and text-bearing shared-element motion from the current runtime.
+- Rebuilt Home in the fixed order Now Reading, Today's Study, Library, and Recent Notes. The actual Six Sigma manual cover is bundled as a runtime asset, and the same single-column priority is retained at mobile and desktop widths.
+- Route navigation now keeps exactly one live `.appShell` and uses only a short opacity handoff. Reader language switching fades the real `.readerPanel`; reduced-motion commits directly. No readable text is scaled, rotated, stretched, or duplicated.
+- `npm run qa:motion-ui`, `npm run qa:motion-continuity`, and `npm run qa:transition-resilience` cover all five primary routes, an interrupted handoff, stable heading geometry, Reader language fades, direct reduced-motion navigation, cleanup, and zero horizontal overflow.
+- Mobile 390 x 844 and desktop 1366 x 900 captures were visually reviewed. A combined old/new comparison confirms that folder overlap, compressed labels, competing route copy, and translucent side layers are absent.
+- Release QA exposed and fixed one native edge case: Back during an active navigation fade now restores the source view instead of merely cancelling the opacity animation. `npm run qa:android-back-stack` passed active navigation, question session, Reader tools, immersive mode, and lookup-sheet priority on the installed APK.
+- Updated the chapter QA fixture to write the current `bookId`-partitioned reader-position envelope. The installed Android release then passed Chapters 1/7/26/33 with EN/ZH image counts 2/14/50/25, zero broken images, working lookup, and zero horizontal overflow.
+- Final APK: 41,253,039 bytes, SHA-256 `A9A3CDB2110261DDEEE4E128D3635F3FF5834E8FF01BF98CFF90981E96C83FD2`; APK Signature Scheme v2 verified with one signer; package metadata `809` / `0.8.9-beta`.
+- Final AAB: 39,004,222 bytes, SHA-256 `90A6524FB85D24C6E81FAA94156EF9741EDC4327D25814EC6F61816117825BFE`; JAR signature verification passed with expected self-signed/no-timestamp warnings.
 
 ### Beta 0.8.8 Geometry-Only Real-Time 3D Motion
 

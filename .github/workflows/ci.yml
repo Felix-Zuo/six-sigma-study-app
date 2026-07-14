@@ -99,11 +99,11 @@ jobs:
           QA_APP_URL: http://127.0.0.1:4183/
         run: npm run qa:motion-continuity
 
-      - name: Cinematic interruption and recovery QA
+      - name: Lightweight transition interruption and recovery QA
         env:
           CDP_ENDPOINT: http://127.0.0.1:9338/json
           QA_APP_URL: http://127.0.0.1:4183/
-        run: npm run qa:cinematic-resilience
+        run: npm run qa:transition-resilience
 
       - name: Product maturity regression QA
         env:

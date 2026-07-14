@@ -1,6 +1,6 @@
 {
   "name": "six-sigma-study-app",
-  "version": "0.8.8-beta.0",
+  "version": "0.8.9-beta.0",
   "private": true,
   "workspaces": [
     "apps/reader"
@@ -53,7 +53,7 @@
     "qa:lexical-ui": "node scripts/qa-lexical-ui-cdp.mjs",
     "qa:motion-ui": "node scripts/qa-motion-ui-cdp.mjs",
     "qa:motion-continuity": "node scripts/qa-motion-continuity-cdp.mjs",
-    "qa:cinematic-resilience": "node scripts/qa-cinematic-resilience-cdp.mjs",
+    "qa:transition-resilience": "node scripts/qa-transition-resilience-cdp.mjs",
     "qa:maturity-regressions": "node scripts/qa-maturity-regressions-cdp.mjs",
     "qa:private-isolation": "python scripts/qa_private_question_bank_isolation.py",
     "qa:public-artifact": "python scripts/qa_public_artifact.py",
@@ -62,8 +62,7 @@
   "devDependencies": {
     "@capacitor/android": "^8.4.1",
     "@capacitor/cli": "^8.4.1",
-    "@capacitor/core": "^8.4.1",
-    "pngjs": "^7.0.0"
+    "@capacitor/core": "^8.4.1"
   },
   "dependencies": {
     "@capacitor/app": "^8.1.0"

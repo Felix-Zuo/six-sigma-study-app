@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-07-13 Asia/Shanghai
+Last updated: 2026-07-14 Asia/Shanghai
 
 ## Objective
 
@@ -20,15 +20,28 @@ The final product must support full-manual offline reading, position-preserving 
 
 ## Current Evidence
 
-- Product version: `Beta 0.8.8` (`0.8.8-beta.0` in npm, Android `versionCode 808` / `versionName 0.8.8-beta`). During the current beta line, each user-facing update increments the patch version: `0.8.9`, `0.8.10`, and so on.
+- Product version: `Beta 0.8.9` (`0.8.9-beta.0` in npm, Android `versionCode 809` / `versionName 0.8.9-beta`). During the current beta line, each user-facing update increments the patch version.
 - Branch: `main`
 - Latest workspace migration validation pass: 2026-06-26 00:33 Asia/Shanghai
 - Local workspace root: `D:\0A OpenClaw\projects\6sigma`
-- Local worktree: Beta 0.8.8 geometry-only real-time 3D transition stage implemented and locally release-validated
-- Latest confirmed GitHub Actions state before Beta 0.8.8: CI passed for `60a073d` in run `29228751503`; the new run is recorded after push
+- Local worktree: Beta 0.8.9 quiet reading hierarchy implemented and under final release validation
+- Latest confirmed GitHub Actions state before Beta 0.8.9: CI passed for Beta 0.8.8 commit `2ab14b9`; the Beta 0.8.9 run is recorded after push
 - Release APK after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with the Quiet Aperture spatial shell, a reusable geometry-only Three.js transition stage, native-text-safe folder/page/book handoffs, scrolled-card-to-reader continuity, and reduced-motion fallback, source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, book-isolated persisted reading positions, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, occurrence-level bilingual context glosses, tap-to-lookup bottom sheet, 3980-entry public offline learner dictionary plus an ignored 3550-entry local private-question supplement, phrase-selection UI hook, due-only vocabulary review scheduling and CSV export, selected-text study notes, timed mock exams, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with a simple Now Reading / Today's Study / Library / Recent Notes home hierarchy, a real source cover, one live route shell, opacity-only navigation, reduced-motion fallback, source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, book-isolated persisted reading positions, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, occurrence-level bilingual context glosses, tap-to-lookup bottom sheet, 3980-entry public offline learner dictionary plus an ignored 3550-entry local private-question supplement, phrase-selection UI hook, due-only vocabulary review scheduling and CSV export, selected-text study notes, timed mock exams, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+
+## 2026-07-14 Quiet Reading Hierarchy Beta 0.8.9
+
+- Removed the folder stack, page-edge tabs, Three.js dependency, WebGL canvas, and camera choreography from the runtime. Route transitions now keep exactly one live shell and use a short opacity handoff; text geometry remains unchanged throughout.
+- Rebuilt Home around a familiar reading-product order: Now Reading, Today's Study, Library, and Recent Notes. Vocabulary, Practice, Notes, Settings, and the Reader retain their existing routes and data contracts.
+- Added the actual Six Sigma manual cover as a dedicated runtime asset and kept the home layout single-column at mobile and desktop widths so study priority does not change across breakpoints.
+- Replaced cinematic resilience checks with transition resilience checks against the real route shell and Reader language panel. Mobile and desktop visual QA confirms no side-folder overlap, stretched copy, duplicate headings, black frame, or horizontal overflow.
+- Preserved all learning behavior, book-scoped local data, private-question isolation, Android back priority, reader image fidelity, lookup sheets, and reduced-motion support.
+- Repaired the native back-button edge case discovered during release QA: pressing Back while a navigation fade is active now cancels the handoff and restores its source view. The Android back-stack suite passed for active navigation, question sessions, Reader tools, immersive mode, and lookup sheets.
+- Updated Android chapter QA to seed the current `bookId`-partitioned reader-position envelope. The installed release passed native Chapters 1/7/26/33 checks with EN/ZH image counts 2/14/50/25, zero broken images, working lookup, and zero horizontal overflow.
+- Final local release artifacts:
+  - APK: 41,253,039 bytes; SHA-256 `A9A3CDB2110261DDEEE4E128D3635F3FF5834E8FF01BF98CFF90981E96C83FD2`; APK Signature Scheme v2 verified with one signer; installed and launched as `versionCode 809` / `versionName 0.8.9-beta`.
+  - AAB: 39,004,222 bytes; SHA-256 `90A6524FB85D24C6E81FAA94156EF9741EDC4327D25814EC6F61816117825BFE`; JAR signature verification passed with expected local self-signed/no-timestamp warnings.
 
 ## 2026-07-13 Geometry-Only Real-Time 3D Motion Beta 0.8.8
 

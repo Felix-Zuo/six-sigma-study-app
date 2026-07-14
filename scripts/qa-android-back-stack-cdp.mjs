@@ -86,28 +86,24 @@ async function main() {
   await clickByText(".mainNavItem", "首页");
   await waitFor("home", () => evaluate(`document.querySelector("main")?.dataset.appView === "home"`));
 
-  await evaluate(`globalThis.__qaCinematicDurationScale = 4; true`);
   await clickByText(".mainNavItem", "单词");
   await waitFor("active native transition", () => evaluate(`
-    document.documentElement.dataset.cinematicActive === "true" &&
-    document.querySelector('[data-cinematic-stage]')?.dataset.phase === "depart"
+    document.documentElement.dataset.transitionKind === "navigation"
   `));
   pressBack();
   await waitFor("native transition cancelled by back", () => evaluate(`
-    !document.documentElement.dataset.cinematicActive && !document.documentElement.dataset.transitionKind
+    !document.documentElement.dataset.transitionKind
   `));
   const transitionBack = await evaluate(`({
     view: document.querySelector("main")?.dataset.appView,
-    stageHidden: document.querySelector('[data-cinematic-stage]')?.hidden ?? true,
     stageCount: document.querySelectorAll('[data-cinematic-stage]').length,
     shellOpacity: Number.parseFloat(getComputedStyle(document.querySelector('.appShell')).opacity),
     shellTransform: getComputedStyle(document.querySelector('.appShell')).transform
   })`);
-  await evaluate(`delete globalThis.__qaCinematicDurationScale; true`);
 
   await clickByText(".mainNavItem", "刷题");
   await waitFor("question dashboard", () => evaluate(`Boolean(document.querySelector(".questionContinueButton"))`));
-  await waitFor("question transition settled", () => evaluate(`!document.documentElement.dataset.cinematicActive`));
+  await waitFor("question transition settled", () => evaluate(`!document.documentElement.dataset.transitionKind`));
   await evaluate(`document.querySelector(".questionContinueButton")?.click()`);
   await waitFor("question session", () => evaluate(`Boolean(document.querySelector(".questionSession .questionCard"))`));
   pressBack();
@@ -118,7 +114,7 @@ async function main() {
 
   await evaluate(`document.querySelector('section[aria-label="教材库"] article .primaryAction')?.click()`);
   await waitFor("reader", () => evaluate(`document.querySelector("main")?.dataset.appView === "reader"`));
-  await waitFor("reader transition settled", () => evaluate(`!document.documentElement.dataset.cinematicActive`));
+  await waitFor("reader transition settled", () => evaluate(`!document.documentElement.dataset.transitionKind`));
   await clickByText(".readerControlButton", "更多");
   await waitFor("reader tools", () => evaluate(`Boolean(document.querySelector(".readerMenu"))`));
   pressBack();
@@ -142,7 +138,7 @@ async function main() {
   await waitFor("lookup sheet closed", () => evaluate(`!document.querySelector('section[aria-label="单词释义"]')`));
   const lookupBack = await evaluate(`({ view: document.querySelector("main")?.dataset.appView, bodyPosition: document.body.style.position })`);
 
-  const ok = transitionBack.view === "home" && transitionBack.stageHidden && transitionBack.stageCount === 1 &&
+  const ok = transitionBack.view === "home" && transitionBack.stageCount === 0 &&
     transitionBack.shellOpacity === 1 && transitionBack.shellTransform === "none" &&
     questionBack === "questions" && menuBack === "reader" && immersiveBack === "reader" &&
     lookupBack.view === "reader" && lookupBack.bodyPosition === "";

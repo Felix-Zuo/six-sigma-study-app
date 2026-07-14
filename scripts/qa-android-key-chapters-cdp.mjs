@@ -193,7 +193,7 @@ async function main() {
     await evalPage(`(() => {
       localStorage.setItem(${JSON.stringify(noticeAcceptedKey)}, "true");
       localStorage.setItem(${JSON.stringify(activeBookKey)}, ${JSON.stringify(bookId)});
-      localStorage.setItem(${JSON.stringify(readerPositionKey)}, JSON.stringify({
+      const position = {
         bookId: ${JSON.stringify(bookId)},
         chapterId: ${JSON.stringify(sample.chapterId)},
         sectionId: ${JSON.stringify(sample.textSectionId)},
@@ -201,6 +201,11 @@ async function main() {
         language: ${JSON.stringify(language)},
         scrollY: 0,
         updatedAt: new Date().toISOString()
+      };
+      localStorage.setItem(${JSON.stringify(readerPositionKey)}, JSON.stringify({
+        activeBookId: ${JSON.stringify(bookId)},
+        positions: { [${JSON.stringify(bookId)}]: position },
+        updatedAt: position.updatedAt
       }));
       location.reload();
       return true;
