@@ -1,4 +1,4 @@
-const CACHE_NAME = "six-sigma-study-v0.8.9";
+const CACHE_NAME = "six-sigma-study-v0.8.10";
 const CORE_ASSETS = [
   "/manifest.webmanifest",
   "/icons/icon.svg",

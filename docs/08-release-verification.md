@@ -121,13 +121,24 @@ node scripts\qa-dictionary-cdp.mjs
 ## PWA Browser Offline QA
 
 - `node scripts\qa-pwa-offline-cdp.mjs`: passed against Vite preview on `127.0.0.1:4175` and clean headless Chrome CDP on `127.0.0.1:9333`.
-- Service worker cache: `six-sigma-study-v0.8.9`; content JSON uses network-first refresh with offline cache fallback.
+- Service worker cache: `six-sigma-study-v0.8.10`; content JSON uses network-first refresh with offline cache fallback.
 - Online cache state includes `/`, `/index.html`, hashed JS/CSS shell assets, `content/manual.json`, `manifest.webmanifest`, and all 475 figure assets.
 - Offline reload state: CDP network offline, cache-ignored reload rendered `Chapter 1: What is Six Sigma?`, 23 sections, service-worker controller present, and horizontal overflow 0.
 
 ## Android Runtime QA
 
 Verified on local emulator `SixSigmaQA` / `emulator-5554`.
+
+### Beta 0.8.10 Fixed Sheets and AI Study Assistance
+
+- Refactored every draggable sheet to fixed chrome plus one contained scroll body. `npm run qa:maturity-regressions`, `npm run qa:ai-context-ui`, and the installed-APK `npm run qa:native-study-assist` all confirm that the outer sheet remains at scroll position zero, the inner body scrolls, header geometry does not move, content starts below the header, Android Back closes the sheet first, and horizontal overflow stays zero.
+- Added chapter completion and next-chapter navigation. Browser and native checks mark Chapter 1 complete, verify the `bookId`/`chapterId` local record, and continue to Chapter 2. The same footer is generated for every chapter.
+- Added strict selected-text reading explanations and question coaching. Browser QA validates the structured sections, option count, no-secret cache, deterministic cache reuse with no second request, explicit regeneration, and both no-key boundaries. Native QA confirms both entry points and Back-button dismissal in the installed APK.
+- `npm run qa:target4-flow`, `npm run qa:learning-ui`, `npm run qa:lexical-ui`, and all 13 maturity regression scenarios passed. The browser Chapters 1/7/26/33 audit retained EN/ZH image counts 2/14/50/25, zero broken images, working word lookup, and zero overflow.
+- Android `versionCode 810` / `versionName 0.8.10-beta` installed and launched. The native back-stack suite passed navigation cancellation, question session, Reader menu, immersive mode, and lookup priority. Keystore save/status/clear passed and left the fake QA key removed.
+- The legacy native key-chapter harness stalled during repeated emulator WebView reload/screenshot calls on three bounded attempts. A 30-second CDP call guard now prevents an unbounded individual request. This is recorded as a QA-infrastructure limit; the equivalent browser visual audit and dedicated installed-APK interaction audit passed, with no App crash or ANR in Android logs.
+- Final APK: 41,258,735 bytes, SHA-256 `C67D4AAC71FA93682A947F11C94FA2EB12F3D4779A3C7154893028A40C48AFF9`; APK Signature Scheme v2 verified with one signer; package metadata `810` / `0.8.10-beta`.
+- Final AAB: 39,009,939 bytes, SHA-256 `C8116B550F282B7B64E41F22BAB915EE0F22CAD4751AA063B0FCC9E7B4317130`; JAR signature verification passed with expected self-signed/no-timestamp warnings.
 
 ### Beta 0.8.9 Quiet Reading Hierarchy
 

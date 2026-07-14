@@ -92,8 +92,9 @@ async function connect() {
     if (!payload.id || !pending.has(payload.id)) {
       return;
     }
-    const { resolve, reject } = pending.get(payload.id);
+    const { resolve, reject, timer } = pending.get(payload.id);
     pending.delete(payload.id);
+    clearTimeout(timer);
     if (payload.error) {
       reject(new Error(JSON.stringify(payload.error)));
       return;
@@ -101,10 +102,24 @@ async function connect() {
     resolve(payload.result);
   });
 
-  function send(method, params = {}) {
+  ws.addEventListener("close", () => {
+    for (const { reject, timer } of pending.values()) {
+      clearTimeout(timer);
+      reject(new Error("Android WebView CDP connection closed"));
+    }
+    pending.clear();
+  });
+
+  function send(method, params = {}, timeout = 30000) {
     const callId = ++id;
     ws.send(JSON.stringify({ id: callId, method, params }));
-    return new Promise((resolve, reject) => pending.set(callId, { resolve, reject }));
+    return new Promise((resolve, reject) => {
+      const timer = setTimeout(() => {
+        pending.delete(callId);
+        reject(new Error(`CDP ${method} timed out after ${timeout} ms`));
+      }, timeout);
+      pending.set(callId, { resolve, reject, timer });
+    });
   }
 
   return { send, close: () => ws.close() };

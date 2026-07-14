@@ -20,15 +20,31 @@ The final product must support full-manual offline reading, position-preserving 
 
 ## Current Evidence
 
-- Product version: `Beta 0.8.9` (`0.8.9-beta.0` in npm, Android `versionCode 809` / `versionName 0.8.9-beta`). During the current beta line, each user-facing update increments the patch version.
+- Product version: `Beta 0.8.10` (`0.8.10-beta.0` in npm, Android `versionCode 810` / `versionName 0.8.10-beta`). During the current beta line, each user-facing update increments the patch version.
 - Branch: `main`
 - Latest workspace migration validation pass: 2026-06-26 00:33 Asia/Shanghai
 - Local workspace root: `D:\0A OpenClaw\projects\6sigma`
-- Local worktree: Beta 0.8.9 quiet reading hierarchy implemented and under final release validation
-- Latest confirmed GitHub Actions state before Beta 0.8.9: CI passed for Beta 0.8.8 commit `2ab14b9`; the Beta 0.8.9 run is recorded after push
+- Local worktree: Beta 0.8.10 study assistance and chapter-flow release locally verified; release commit and CI pending
+- Latest confirmed GitHub Actions state before Beta 0.8.10: CI run `29305493571` passed for Beta 0.8.9 commit `ba6d94d`
 - Release APK after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with a simple Now Reading / Today's Study / Library / Recent Notes home hierarchy, a real source cover, one live route shell, opacity-only navigation, reduced-motion fallback, source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, book-isolated persisted reading positions, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, occurrence-level bilingual context glosses, tap-to-lookup bottom sheet, 3980-entry public offline learner dictionary plus an ignored 3550-entry local private-question supplement, phrase-selection UI hook, due-only vocabulary review scheduling and CSV export, selected-text study notes, timed mock exams, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with a simple Now Reading / Today's Study / Library / Recent Notes home hierarchy, a real source cover, one live route shell, opacity-only navigation, reduced-motion fallback, source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, book-isolated persisted reading positions and chapter-completion state, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, occurrence-level bilingual context glosses, fixed-chrome draggable lookup sheets, 3980-entry public offline learner dictionary plus an ignored 3550-entry local private-question supplement, bounded DeepSeek selected-text explanations and question coaching, local AI result reuse, due-only vocabulary review scheduling and CSV export, selected-text study notes, timed mock exams, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+
+## 2026-07-14 Fixed Sheets, Chapter Completion, and AI Study Assistance Beta 0.8.10
+
+- Split every bottom sheet into a non-scrolling `.sheetChrome` and an independently scrolling `.sheetScrollBody`. The lookup title, word, save control, and close action remain fixed while dictionary content scrolls; the outer sheet stays at `scrollTop = 0`, preserves drag resizing, and retains overscroll containment.
+- Added explicit per-book/per-chapter completion under `six-sigma-study:chapter-progress:v1`. Every chapter ends with a read/unread toggle, completed chapter count, and direct next-chapter action; the final chapter returns to the library.
+- Added bounded reading assistance for an explicitly selected English word, phrase, sentence, or paragraph. Strict validated output contains concise Chinese translation, Chinese explanation, plain-English restatement, relevant terms, and one grammar cue.
+- Added bounded question coaching from Browse, Practice, Wrong Questions, and Favorites. The response identifies the answer and concept, explains every option, calls out the likely trap, and supplies one review cue without requesting hidden reasoning.
+- Kept the original offline dictionary and authored question explanations as the default source of truth. AI is user-triggered, sends only the current bounded learning fragment, and uses the existing personal `deepseek-v4-flash` connection.
+- Added a deterministic local AI result cache (`six-sigma-study:ai-study-cache:v1`, maximum 80 records). Reopening the same selection reuses the result without another request; records contain validated output, model, time, and token counts but no API key or raw request payload.
+- Renamed Settings to `AI 学习助教`, documented the three actions and explicit-send boundary, and included chapter progress plus AI cache in local-data clearing.
+- Browser/mobile QA passed typecheck, production build, strict DeepSeek contracts, the 13-case maturity suite, Target 4, learning UI, lexical UI, private isolation, source coverage, reviewed content fidelity, and Chapters 1/7/26/33 with EN/ZH image counts 2/14/50/25 and zero broken images.
+- The installed Android release passed `versionCode 810` / `versionName 0.8.10-beta`, Android back-stack priority, Keystore save/reload/clear, and the dedicated native study-assistance smoke test. Native evidence includes fixed lookup chrome after a 260 px body scroll, a 561-character reading selection, chapter completion plus Chapter 2 navigation, both AI entry points, and zero horizontal overflow.
+- Known QA infrastructure limit: the legacy native multi-chapter harness can stall while repeatedly reloading and capturing the emulator WebView. Three bounded attempts were stopped; a 30-second CDP call guard was added. The equivalent browser visual suite and the dedicated installed-APK interaction suite passed, and Android logs contained no App crash or ANR.
+- Final local release artifacts:
+  - APK: 41,258,735 bytes; SHA-256 `C67D4AAC71FA93682A947F11C94FA2EB12F3D4779A3C7154893028A40C48AFF9`; APK Signature Scheme v2 verified with one signer.
+  - AAB: 39,009,939 bytes; SHA-256 `C8116B550F282B7B64E41F22BAB915EE0F22CAD4751AA063B0FCC9E7B4317130`; JAR signature verification passed with expected local self-signed/no-timestamp warnings.
 
 ## 2026-07-14 Quiet Reading Hierarchy Beta 0.8.9
 

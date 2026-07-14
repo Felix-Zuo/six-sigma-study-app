@@ -2734,6 +2734,333 @@ h1 {
   }
 }
 
+/* Beta 0.8.10: fixed sheet chrome, chapter completion, and bounded AI study help. */
+.bottomSheet,
+.notesPanel,
+.vocabPanel,
+.tocPanel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  overscroll-behavior: contain;
+  padding: 0;
+}
+
+.sheetChrome {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 auto;
+  padding: 10px calc(18px + env(safe-area-inset-right)) 0 calc(18px + env(safe-area-inset-left));
+  border-radius: 8px 8px 0 0;
+  background: var(--surface);
+}
+
+.sheetChrome .sheetHandle {
+  position: relative;
+  top: auto;
+  z-index: auto;
+  margin: -10px auto -2px;
+}
+
+.draggableSheet > .sheetChrome > .sheetHeader {
+  position: static;
+  margin: 0;
+  padding: 2px 0 12px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.sheetScrollBody {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  padding: 0 calc(18px + env(safe-area-inset-right)) calc(22px + env(safe-area-inset-bottom)) calc(18px + env(safe-area-inset-left));
+  background: var(--surface);
+}
+
+.sheetScrollBody.tocList {
+  margin: 0;
+  padding-top: 12px;
+}
+
+.selectionActions button,
+.questionActions .aiHelpButton,
+.chapterCompletion button,
+.aiPrivacyNote,
+.aiAssistStatus button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.questionActions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.questionActions .aiHelpButton {
+  color: var(--accent-strong);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.chapterCompletion {
+  display: grid;
+  gap: 20px;
+  margin: 42px 0 6px;
+  padding: 26px 0 4px;
+  border-top: 1px solid var(--border-strong);
+}
+
+.chapterCompletion h2,
+.chapterCompletion p {
+  margin: 0;
+}
+
+.chapterCompletion h2 {
+  color: var(--heading);
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.chapterCompletion > div:first-child > p:last-child {
+  margin-top: 7px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.chapterCompletionActions {
+  display: grid;
+  grid-template-columns: minmax(130px, 0.7fr) minmax(0, 1.3fr);
+  gap: 10px;
+}
+
+.chapterCompletionActions button {
+  min-height: 56px;
+  padding: 10px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 7px;
+  color: var(--accent-strong);
+  background: var(--surface);
+  font: inherit;
+  font-weight: 800;
+}
+
+.chapterReadButton.completed {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.chapterCompletionActions .nextChapterButton {
+  justify-content: space-between;
+  color: var(--accent-text);
+  border-color: var(--accent);
+  background: var(--accent);
+  text-align: left;
+}
+
+.nextChapterButton span {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.nextChapterButton small,
+.nextChapterButton strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nextChapterButton small {
+  opacity: 0.78;
+  font-size: 11px;
+}
+
+.nextChapterButton strong {
+  font-size: 14px;
+}
+
+.aiAssistBody {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  padding-top: 14px;
+}
+
+.aiSourceExcerpt {
+  margin: 0;
+  padding: 12px 14px;
+  border-left: 3px solid var(--accent);
+  color: var(--heading-soft);
+  background: var(--surface-muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.aiPrivacyNote {
+  justify-content: flex-start;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.aiPrivacyNote svg {
+  flex: 0 0 auto;
+  color: var(--accent-strong);
+}
+
+.aiAssistStatus {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  padding: 18px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.aiAssistStatus > svg {
+  color: var(--accent-strong);
+}
+
+.aiAssistStatus span {
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.aiAssistStatus button,
+.aiAssistFooter button {
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  color: var(--accent-strong);
+  background: var(--surface);
+  font-weight: 800;
+}
+
+.aiAssistStatus button.primary {
+  color: var(--accent-text);
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.aiAssistResult {
+  display: grid;
+  gap: 18px;
+}
+
+.aiAssistResult section {
+  display: grid;
+  gap: 8px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.aiAssistResult section:last-child {
+  border-bottom: 0;
+}
+
+.aiAssistResult h3,
+.aiAssistResult p {
+  margin: 0;
+}
+
+.aiAssistResult h3 {
+  color: var(--heading);
+  font-size: 15px;
+}
+
+.aiAssistResult p {
+  line-height: 1.65;
+}
+
+.aiAnswerLead {
+  padding: 14px !important;
+  border-bottom: 0 !important;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+}
+
+.aiAnswerLead > span {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.aiAnswerLead > strong {
+  color: var(--accent-strong);
+  font-size: 20px;
+  line-height: 1.45;
+}
+
+.aiTermList,
+.aiOptionNotes {
+  display: grid;
+}
+
+.aiTermList article,
+.aiOptionNotes article {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 3px 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.aiTermList article:last-child,
+.aiOptionNotes article:last-child {
+  border-bottom: 0;
+}
+
+.aiTermList article p,
+.aiOptionNotes article p {
+  grid-column: 1 / -1;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.aiTermList article > span,
+.aiOptionNotes article > span {
+  color: var(--accent-strong);
+  font-weight: 750;
+}
+
+.aiStudyTips strong {
+  display: inline-block;
+  min-width: 72px;
+  color: var(--heading);
+}
+
+.aiAssistFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 2px;
+}
+
+.aiAssistFooter span {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+@media (max-width: 520px) {
+  .chapterCompletionActions {
+    grid-template-columns: 1fr;
+  }
+
+  .chapterCompletionActions .nextChapterButton {
+    min-height: 64px;
+  }
+}
+
 /* Beta 0.8.8 retained component foundation */
 :root {
   color: #202329;

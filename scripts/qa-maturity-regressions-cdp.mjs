@@ -1081,17 +1081,23 @@ async function main() {
 
       const stickyChrome = await evaluate(`(() => {
         const sheet = document.querySelector('section[aria-label="单词释义"]');
-        sheet.scrollTop = Math.min(520, sheet.scrollHeight - sheet.clientHeight);
+        const scrollBody = sheet?.querySelector('[data-sheet-scroll-body]');
+        scrollBody.scrollTop = Math.min(520, scrollBody.scrollHeight - scrollBody.clientHeight);
         const sheetRect = sheet.getBoundingClientRect();
         const closeRect = sheet.querySelector(".closeButton")?.getBoundingClientRect();
         const handleRect = sheet.querySelector('[role="separator"]')?.getBoundingClientRect();
         return {
-          scrollTop: sheet.scrollTop,
+          scrollTop: scrollBody?.scrollTop ?? 0,
+          sheetScrollTop: sheet.scrollTop,
           closeVisible: Boolean(closeRect && closeRect.top >= sheetRect.top - 1 && closeRect.bottom <= sheetRect.bottom + 1),
           handleVisible: Boolean(handleRect && handleRect.top >= sheetRect.top - 12 && handleRect.bottom <= sheetRect.bottom + 1)
         };
       })()`);
-      assert(stickyChrome.scrollTop > 0 && stickyChrome.closeVisible && stickyChrome.handleVisible, "Lookup controls scrolled out of the sheet", stickyChrome);
+      assert(
+        stickyChrome.scrollTop > 0 && stickyChrome.sheetScrollTop === 0 && stickyChrome.closeVisible && stickyChrome.handleVisible,
+        "Lookup fixed chrome or isolated scroll body failed",
+        stickyChrome
+      );
 
       const layouts = [];
       for (const width of [759, 760, 800, 859, 860]) {

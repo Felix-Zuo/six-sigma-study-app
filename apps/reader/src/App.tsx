@@ -80,11 +80,32 @@ import {
   analyzeContextWithDeepSeek,
   clearDeepSeekApiKey,
   deepSeekPromptVersion,
+  explainQuestionWithDeepSeek,
+  explainReadingWithDeepSeek,
   getDeepSeekKeyStatus,
   saveDeepSeekApiKey,
   testDeepSeekConnection,
-  type DeepSeekKeyStatus
+  type DeepSeekKeyStatus,
+  type DeepSeekQuestionInput,
+  type DeepSeekReadingInput,
+  type QuestionAssistResult,
+  type ReadingAssistResult
 } from "./lib/deepSeekAssistant";
+import {
+  chapterProgressStorageKey,
+  isChapterCompleted,
+  loadChapterProgress,
+  persistChapterProgress,
+  setChapterCompleted,
+  type ChapterProgressMap
+} from "./lib/chapterProgressStore";
+import {
+  aiStudyCacheStorageKey,
+  clearAiStudyCache,
+  createAiStudyCacheId,
+  findAiStudyCache,
+  persistAiStudyCache
+} from "./lib/aiStudyCache";
 type Language = "en" | "zh";
 type ThemeMode = "light" | "dark";
 type TextScale = "standard" | "large" | "xlarge";
@@ -212,6 +233,34 @@ type AiLookupState = {
   usage?: { promptTokens: number; completionTokens: number };
 };
 
+type AiAssistBase = {
+  cacheId: string;
+  sourceLabel: string;
+  status: "needs-key" | "loading" | "ready" | "error";
+  message?: string;
+  model?: string;
+  fromCache?: boolean;
+  usage?: { promptTokens: number; completionTokens: number };
+};
+
+type ActiveAiAssist =
+  | (AiAssistBase & {
+      kind: "reading";
+      input: DeepSeekReadingInput;
+      excerpt: string;
+      result?: ReadingAssistResult;
+    })
+  | (AiAssistBase & {
+      kind: "question";
+      input: DeepSeekQuestionInput;
+      questionId: string;
+      correctAnswer: string[];
+      result?: QuestionAssistResult;
+    });
+
+type ReadingAiAssist = Extract<ActiveAiAssist, { kind: "reading" }>;
+type QuestionAiAssist = Extract<ActiveAiAssist, { kind: "question" }>;
+
 type SelectedPhrase = {
   text: string;
   page: number;
@@ -220,7 +269,7 @@ type SelectedPhrase = {
   canLookup: boolean;
 };
 
-type OverlayName = "lookup" | "toc" | "vocab" | "notes";
+type OverlayName = "lookup" | "ai" | "toc" | "vocab" | "notes";
 type VocabFilter = "due" | "all";
 type BookFilter = "all" | string;
 type VocabSort = "recent" | "due" | "page";
@@ -265,8 +314,8 @@ type PageGroup = {
 
 const defaultBookId = "six-sigma-black-belt";
 const defaultBookTitle = "六西格玛黑带教材";
-const productVersionLabel = "Beta 0.8.9";
-const productVersionId = "0.8.9-beta";
+const productVersionLabel = "Beta 0.8.10";
+const productVersionId = "0.8.10-beta";
 const githubProfileUrl = "https://github.com/Felix-Zuo";
 const catalogPath = "content/catalog.json";
 const bundledQuestionBankPath = "content/private/question-bank.private.json";
@@ -451,6 +500,11 @@ function savedTermStudyMeaning(term: SavedTerm): string {
 
 function clamp(value: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, value));
+}
+
+function boundedAiText(value: string, maxLength: number): string {
+  const text = value.trim();
+  return text.length > maxLength ? `${text.slice(0, maxLength).trim()}...` : text;
 }
 
 function readerAnchorOffset(): number {
@@ -757,6 +811,7 @@ export function App() {
   const [activeSectionId, setActiveSectionId] = useState("");
   const [activeLookup, setActiveLookup] = useState<ActiveLookup | null>(null);
   const [aiLookupState, setAiLookupState] = useState<AiLookupState>({ lookupId: "", status: "idle" });
+  const [activeAiAssist, setActiveAiAssist] = useState<ActiveAiAssist | null>(null);
   const [deepSeekKeyStatus, setDeepSeekKeyStatus] = useState<DeepSeekKeyStatus>({ configured: false, storage: "session-only" });
   const [deepSeekKeyDraft, setDeepSeekKeyDraft] = useState("");
   const [aiSettingsMessage, setAiSettingsMessage] = useState("");
@@ -767,6 +822,7 @@ export function App() {
   const [savedTerms, setSavedTerms] = useState<SavedTerm[]>(() => loadSavedTerms());
   const [savedNotes, setSavedNotes] = useState<SavedNote[]>(() => loadSavedNotes());
   const [savedFavorites, setSavedFavorites] = useState<SavedFavorite[]>(() => loadSavedFavorites());
+  const [chapterProgressMap, setChapterProgressMap] = useState<ChapterProgressMap>(() => loadChapterProgress());
   const [dailyStats, setDailyStats] = useState<DailyStudyStats>(() => loadDailyStats());
   const [bundledQuestionBank, setBundledQuestionBank] = useState<QuestionBankPayload | null>(null);
   const [bundledQuestionDictionary, setBundledQuestionDictionary] = useState<TermEntry[]>([]);
@@ -830,6 +886,7 @@ export function App() {
   const savedScrollLockRef = useRef(0);
   const sheetDragRef = useRef<{ startY: number; startHeight: number; currentHeight: number } | null>(null);
   const aiRequestRef = useRef(0);
+  const aiStudyRequestRef = useRef(0);
   const examSubmissionRef = useRef(false);
   const transitionOwnerRef = useRef(0);
   const transitionCleanupRef = useRef<(() => void) | null>(null);
@@ -848,7 +905,8 @@ export function App() {
     questionBank: JSON.stringify(userQuestionBank),
     questionProgress: JSON.stringify(questionProgress),
     examResults: JSON.stringify(examResults),
-    contextCorrections: JSON.stringify(contextCorrectionBundle)
+    contextCorrections: JSON.stringify(contextCorrectionBundle),
+    chapterProgress: JSON.stringify(chapterProgressMap)
   });
 
   const activeBook = useMemo(() => {
@@ -1113,7 +1171,13 @@ export function App() {
       )
     : 0;
   const bookProgress = manual ? Math.round((Math.max(1, currentPage) / Math.max(1, manual.pageCount)) * 100) : 0;
-  const isOverlayOpen = Boolean(activeLookup || showToc || showVocab || showNotes);
+  const currentLessonIndex = lesson && manual ? manual.chapters.findIndex((chapter) => chapter.id === lesson.id) : -1;
+  const nextLesson = manual && currentLessonIndex >= 0 ? manual.chapters[currentLessonIndex + 1] : undefined;
+  const currentChapterCompleted = lesson ? isChapterCompleted(chapterProgressMap, currentBookId, lesson.id) : false;
+  const completedChapterCount = manual
+    ? manual.chapters.filter((chapter) => isChapterCompleted(chapterProgressMap, currentBookId, chapter.id)).length
+    : 0;
+  const isOverlayOpen = Boolean(activeLookup || activeAiAssist || showToc || showVocab || showNotes);
 
   useEffect(() => {
     fetch(catalogPath)
@@ -1374,6 +1438,12 @@ export function App() {
   }, [activeLookup]);
 
   useEffect(() => {
+    if (!activeAiAssist) {
+      aiStudyRequestRef.current += 1;
+    }
+  }, [activeAiAssist]);
+
+  useEffect(() => {
     const snapshot = JSON.stringify(savedNotes);
     if (snapshot === persistenceSnapshotsRef.current.notes) {
       return;
@@ -1390,6 +1460,15 @@ export function App() {
     persistenceSnapshotsRef.current.favorites = snapshot;
     persistSavedFavorites(savedFavorites);
   }, [savedFavorites]);
+
+  useEffect(() => {
+    const snapshot = JSON.stringify(chapterProgressMap);
+    if (snapshot === persistenceSnapshotsRef.current.chapterProgress) {
+      return;
+    }
+    persistenceSnapshotsRef.current.chapterProgress = snapshot;
+    persistChapterProgress(chapterProgressMap);
+  }, [chapterProgressMap]);
 
   useEffect(() => {
     const snapshot = JSON.stringify(dailyStats);
@@ -1582,8 +1661,18 @@ export function App() {
   }, [activeBlockId, activeChapterId, activeSectionId, currentBookId, currentPage, language, manual?.bookId, view]);
 
   useEffect(() => {
-    overlayRef.current = activeLookup ? "lookup" : showToc ? "toc" : showVocab ? "vocab" : showNotes ? "notes" : null;
-  }, [activeLookup, showToc, showVocab, showNotes]);
+    overlayRef.current = activeLookup
+      ? "lookup"
+      : activeAiAssist
+        ? "ai"
+        : showToc
+          ? "toc"
+          : showVocab
+            ? "vocab"
+            : showNotes
+              ? "notes"
+              : null;
+  }, [activeAiAssist, activeLookup, showToc, showVocab, showNotes]);
 
   useEffect(() => {
     if (!isOverlayOpen) {
@@ -2333,6 +2422,176 @@ export function App() {
     setSubmittedQuestionIds((items) => [...items, question.questionId]);
   }
 
+  function showAiAssist(state: ActiveAiAssist) {
+    ensureOverlayHistory();
+    setReaderMenuOpen(false);
+    setActiveLookup(null);
+    setShowToc(false);
+    setShowVocab(false);
+    setShowNotes(false);
+    setSheetHeightVh(78);
+    setActiveAiAssist(state);
+  }
+
+  async function requestReadingAiAssist(state: ReadingAiAssist) {
+    if (!deepSeekKeyStatus.configured) {
+      setActiveAiAssist((current) => current?.cacheId === state.cacheId
+        ? { ...state, status: "needs-key", message: "配置个人 DeepSeek API Key 后即可使用。" }
+        : current);
+      return;
+    }
+    const requestId = ++aiStudyRequestRef.current;
+    setActiveAiAssist((current) => current?.cacheId === state.cacheId
+      ? { ...state, status: "loading", message: undefined }
+      : current);
+    try {
+      const analysis = await explainReadingWithDeepSeek(state.input);
+      if (requestId !== aiStudyRequestRef.current) return;
+      persistAiStudyCache({
+        id: state.cacheId,
+        kind: "reading",
+        model: analysis.model,
+        generatedAt: new Date().toISOString(),
+        result: analysis.result,
+        usage: analysis.usage
+      });
+      setActiveAiAssist((current) => current?.cacheId === state.cacheId
+        ? { ...state, status: "ready", result: analysis.result, model: analysis.model, usage: analysis.usage, fromCache: false }
+        : current);
+    } catch (error) {
+      if (requestId !== aiStudyRequestRef.current) return;
+      setActiveAiAssist((current) => current?.cacheId === state.cacheId
+        ? { ...state, status: "error", message: error instanceof Error ? error.message : "AI 阅读解释暂时不可用" }
+        : current);
+    }
+  }
+
+  async function requestQuestionAiAssist(state: QuestionAiAssist) {
+    if (!deepSeekKeyStatus.configured) {
+      setActiveAiAssist((current) => current?.cacheId === state.cacheId
+        ? { ...state, status: "needs-key", message: "配置个人 DeepSeek API Key 后即可使用。" }
+        : current);
+      return;
+    }
+    const requestId = ++aiStudyRequestRef.current;
+    setActiveAiAssist((current) => current?.cacheId === state.cacheId
+      ? { ...state, status: "loading", message: undefined }
+      : current);
+    try {
+      const analysis = await explainQuestionWithDeepSeek(state.input);
+      if (requestId !== aiStudyRequestRef.current) return;
+      persistAiStudyCache({
+        id: state.cacheId,
+        kind: "question",
+        model: analysis.model,
+        generatedAt: new Date().toISOString(),
+        result: analysis.result,
+        usage: analysis.usage
+      });
+      setActiveAiAssist((current) => current?.cacheId === state.cacheId
+        ? { ...state, status: "ready", result: analysis.result, model: analysis.model, usage: analysis.usage, fromCache: false }
+        : current);
+    } catch (error) {
+      if (requestId !== aiStudyRequestRef.current) return;
+      setActiveAiAssist((current) => current?.cacheId === state.cacheId
+        ? { ...state, status: "error", message: error instanceof Error ? error.message : "AI 题目精讲暂时不可用" }
+        : current);
+    }
+  }
+
+  function askAiAboutSelection() {
+    if (!selectedPhrase || language !== "en" || !lesson) return;
+    const section = lesson.sections.find((item) => item.id === selectedPhrase.sectionId);
+    const block = section?.content.en.find((item) => item.id === selectedPhrase.blockId);
+    const contextEn = boundedAiText(readableBlockText(block) || selectedPhrase.text, 2400);
+    const contextZh = boundedAiText(
+      alignedBlockTranslation(section, selectedPhrase.blockId, selectedPhrase.page, manual?.contextGlosses) || "",
+      2400
+    );
+    const input: DeepSeekReadingInput = {
+      domain: activeBook?.domainLabel || "Six Sigma",
+      bookTitle: currentBookTitleZh,
+      chapterTitle: lesson.title.en,
+      page: selectedPhrase.page,
+      selectionEn: boundedAiText(selectedPhrase.text, 1600),
+      contextEn,
+      contextZh
+    };
+    const cacheId = createAiStudyCacheId(
+      "reading",
+      `${currentBookId}:${lesson.id}:${selectedPhrase.blockId || selectedPhrase.sectionId}`,
+      JSON.stringify(input)
+    );
+    const cached = findAiStudyCache(cacheId, "reading");
+    const state: ReadingAiAssist = {
+      kind: "reading",
+      cacheId,
+      sourceLabel: `第 ${lesson.chapter} 章 · p. ${selectedPhrase.page}`,
+      excerpt: input.selectionEn,
+      input,
+      status: cached ? "ready" : deepSeekKeyStatus.configured ? "loading" : "needs-key",
+      result: cached?.result,
+      model: cached?.model,
+      usage: cached?.usage,
+      fromCache: Boolean(cached),
+      message: !cached && !deepSeekKeyStatus.configured ? "配置个人 DeepSeek API Key 后即可使用。" : undefined
+    };
+    showAiAssist(state);
+    setSelectedPhrase(null);
+    window.getSelection()?.removeAllRanges();
+    if (!cached && deepSeekKeyStatus.configured) {
+      void requestReadingAiAssist(state);
+    }
+  }
+
+  function askAiAboutQuestion(question: QuestionItem, answerSelection: string[]) {
+    const input: DeepSeekQuestionInput = {
+      questionId: question.questionId,
+      domain: question.domain,
+      chapterId: question.chapterId,
+      stemEn: boundedAiText(question.stem.en, 1800),
+      stemZh: boundedAiText(question.stem.zh, 1800),
+      options: question.options.map((option) => ({
+        id: option.id,
+        en: boundedAiText(option.en, 700),
+        zh: boundedAiText(option.zh, 700)
+      })),
+      correctAnswer: [...question.correctAnswer],
+      userAnswer: [...answerSelection],
+      existingExplanationEn: boundedAiText(question.explanation.en, 1400),
+      existingExplanationZh: boundedAiText(question.explanation.zh, 1400)
+    };
+    const cacheId = createAiStudyCacheId("question", question.questionId, JSON.stringify(input));
+    const cached = findAiStudyCache(cacheId, "question");
+    const state: QuestionAiAssist = {
+      kind: "question",
+      cacheId,
+      sourceLabel: `${question.domain} · ${question.chapterId}`,
+      questionId: question.questionId,
+      correctAnswer: [...question.correctAnswer],
+      input,
+      status: cached ? "ready" : deepSeekKeyStatus.configured ? "loading" : "needs-key",
+      result: cached?.result,
+      model: cached?.model,
+      usage: cached?.usage,
+      fromCache: Boolean(cached),
+      message: !cached && !deepSeekKeyStatus.configured ? "配置个人 DeepSeek API Key 后即可使用。" : undefined
+    };
+    showAiAssist(state);
+    if (!cached && deepSeekKeyStatus.configured) {
+      void requestQuestionAiAssist(state);
+    }
+  }
+
+  function retryAiAssist() {
+    if (!activeAiAssist) return;
+    if (activeAiAssist.kind === "reading") {
+      void requestReadingAiAssist(activeAiAssist);
+    } else {
+      void requestQuestionAiAssist(activeAiAssist);
+    }
+  }
+
   function activeLookupId(lookup: Pick<ActiveLookup, "query" | "blockId" | "sourceText" | "questionSource">): string {
     return [lookup.questionSource ? "question" : "manual", lookup.blockId ?? "", normalizeLookup(lookup.query), lookup.sourceText].join("|");
   }
@@ -2622,7 +2881,7 @@ export function App() {
   }
 
   function openQuestionAnchor(questionId?: string) {
-    if (activeLookup) {
+    if (activeLookup || activeAiAssist) {
       closeOverlayForJump();
     }
     if (!questionId) {
@@ -2720,7 +2979,9 @@ export function App() {
       "six-sigma-study:daily-streak:v1",
       "six-sigma-study:question-bank:v1",
       "six-sigma-study:question-progress:v1",
-      "six-sigma-study:exam-results:v1"
+      "six-sigma-study:exam-results:v1",
+      chapterProgressStorageKey,
+      aiStudyCacheStorageKey
     ];
     for (const key of storageKeys) {
       try {
@@ -2739,6 +3000,7 @@ export function App() {
     setSavedTerms([]);
     setSavedNotes([]);
     setSavedFavorites([]);
+    setChapterProgressMap({});
     setReaderPositions({});
     setQuestionProgress({});
     setExamResults([]);
@@ -2757,6 +3019,8 @@ export function App() {
     setFlashSessionIds([]);
     setFlashSessionGoal(0);
     setDailyStats(normalizeDailyStats(undefined));
+    setActiveAiAssist(null);
+    clearAiStudyCache();
     skipNextCorrectionPersistenceRef.current = true;
     setContextCorrectionBundle(loadContextCorrectionBundle(currentBookId, manual?.version ?? "0.2.0"));
   }
@@ -2782,7 +3046,7 @@ export function App() {
   ) {
     return (
       <main
-        className={`appShell appFrame spatialStage page-${view}${activeLookup ? " panelOpen" : ""}${options.session ? " studySessionShell" : ""}`}
+        className={`appShell appFrame spatialStage page-${view}${activeLookup || activeAiAssist ? " panelOpen" : ""}${options.session ? " studySessionShell" : ""}`}
         data-app-view={view}
         data-book-id={currentBookId}
         data-theme={readerPreferences.theme}
@@ -2796,9 +3060,10 @@ export function App() {
           </div>
         </header>
         <div className="appPageContent">{body}</div>
-        {!activeLookup && !options.hideNav && renderMainNav()}
-        {activeLookup && <div className="overlayBackdrop" aria-hidden="true" onClick={closeOverlayFromControl} />}
+        {!activeLookup && !activeAiAssist && !options.hideNav && renderMainNav()}
+        {(activeLookup || activeAiAssist) && <div className="overlayBackdrop" aria-hidden="true" onClick={closeOverlayFromControl} />}
         {renderLookupSheet()}
+        {renderAiAssistSheet()}
       </main>
     );
   }
@@ -2821,29 +3086,32 @@ export function App() {
         aria-label="单词释义"
         tabIndex={-1}
       >
-        {sheetHandle()}
-        <div className="sheetHeader">
-          <div>
-            <p className="eyebrow">
-              {activeLookup.questionSource ? `Question · ${activeLookup.questionSource.domain}` : `Page ${activeLookup.page}`}
-            </p>
-            <h2>{activeLookup.query}</h2>
-          </div>
-          <div className="sheetHeaderActions">
-            <button
-              className="saveButton compact"
-              aria-label={savedSet.has(`${currentBookId}:${normalizeLookup(activeLookup.query)}`) ? "已加入词本" : "加入词本"}
-              title={savedSet.has(`${currentBookId}:${normalizeLookup(activeLookup.query)}`) ? "已加入词本" : "加入词本"}
-              onClick={saveActiveTerm}
-            >
-              {savedSet.has(`${currentBookId}:${normalizeLookup(activeLookup.query)}`)
-                ? <BookmarkCheck size={20} />
-                : <BookmarkPlus size={20} />}
-            </button>
-            <button className="closeButton" onClick={closeOverlayFromControl}>关闭</button>
+        <div className="sheetChrome">
+          {sheetHandle()}
+          <div className="sheetHeader">
+            <div>
+              <p className="eyebrow">
+                {activeLookup.questionSource ? `Question · ${activeLookup.questionSource.domain}` : `Page ${activeLookup.page}`}
+              </p>
+              <h2>{activeLookup.query}</h2>
+            </div>
+            <div className="sheetHeaderActions">
+              <button
+                className="saveButton compact"
+                aria-label={savedSet.has(`${currentBookId}:${normalizeLookup(activeLookup.query)}`) ? "已加入词本" : "加入词本"}
+                title={savedSet.has(`${currentBookId}:${normalizeLookup(activeLookup.query)}`) ? "已加入词本" : "加入词本"}
+                onClick={saveActiveTerm}
+              >
+                {savedSet.has(`${currentBookId}:${normalizeLookup(activeLookup.query)}`)
+                  ? <BookmarkCheck size={20} />
+                  : <BookmarkPlus size={20} />}
+              </button>
+              <button className="closeButton" onClick={closeOverlayFromControl}>关闭</button>
+            </div>
           </div>
         </div>
-        <section className="dictionaryCard" aria-label="词典释义">
+        <div className="sheetScrollBody" data-sheet-scroll-body>
+          <section className="dictionaryCard" aria-label="词典释义">
           <div className="dictionaryTitleRow">
             <div>
               <span>词典释义</span>
@@ -2875,7 +3143,7 @@ export function App() {
             </details>
           )}
         </section>
-        {pronunciationMessage && <p className="pronunciationMessage" role="status">{pronunciationMessage}</p>}
+          {pronunciationMessage && <p className="pronunciationMessage" role="status">{pronunciationMessage}</p>}
         <section className="contextMeaningCard">
           <span>本句中的意思</span>
           <strong>{activeLookup.context.meaning}</strong>
@@ -2953,7 +3221,7 @@ export function App() {
             {activeLookup.context.exampleTranslation || "该私有题源暂未附经审核的中文译文。"}
           </p>
         </div>
-        {activeLookup.questionSource ? (
+          {activeLookup.questionSource ? (
           <button
             className="sourceButton"
             onClick={() => view === "questions" && questionMode !== "home"
@@ -2966,7 +3234,138 @@ export function App() {
           <button className="sourceButton" onClick={() => selectSource(activeLookup.sectionId, activeLookup.blockId, activeLookup.page)}>
             回到原文位置
           </button>
-        )}
+          )}
+        </div>
+      </section>
+    );
+  }
+
+  function renderAiAssistSheet() {
+    if (!activeAiAssist) return null;
+    const style = { "--sheet-height": `${sheetHeightVh}vh` } as CSSProperties;
+    const title = activeAiAssist.kind === "reading" ? "AI 阅读简释" : "AI 题目精讲";
+    return (
+      <section
+        ref={overlayPanelRef}
+        className="bottomSheet draggableSheet aiAssistSheet"
+        style={style}
+        role="dialog"
+        aria-modal="true"
+        aria-label={title}
+        tabIndex={-1}
+      >
+        <div className="sheetChrome">
+          {sheetHandle()}
+          <div className="sheetHeader">
+            <div>
+              <p className="eyebrow">{activeAiAssist.sourceLabel}</p>
+              <h2>{title}</h2>
+            </div>
+            <button className="closeButton" onClick={closeOverlayFromControl}>关闭</button>
+          </div>
+        </div>
+        <div className="sheetScrollBody aiAssistBody" data-sheet-scroll-body>
+          {activeAiAssist.kind === "reading" && (
+            <blockquote className="aiSourceExcerpt" lang="en">{activeAiAssist.excerpt}</blockquote>
+          )}
+          <p className="aiPrivacyNote">
+            <ShieldCheck size={16} /> 仅在你主动请求时发送当前选文或当前题目；结果只缓存在本机。
+          </p>
+          {activeAiAssist.status === "loading" && (
+            <section className="aiAssistStatus" role="status">
+              <Sparkles size={22} />
+              <strong>{activeAiAssist.kind === "reading" ? "正在梳理语境与术语" : "正在整理考点与选项"}</strong>
+              <span>原文和题库内容保持不变。</span>
+            </section>
+          )}
+          {activeAiAssist.status === "needs-key" && (
+            <section className="aiAssistStatus" role="status">
+              <KeyRound size={22} />
+              <strong>需要个人 DeepSeek API Key</strong>
+              <span>{activeAiAssist.message}</span>
+              <button className="primary" onClick={() => {
+                closeOverlayForJump();
+                navigateTo("settings");
+              }}>前往“我的”配置</button>
+            </section>
+          )}
+          {activeAiAssist.status === "error" && (
+            <section className="aiAssistStatus error" role="alert">
+              <strong>本次解释未完成</strong>
+              <span>{activeAiAssist.message}</span>
+              <button onClick={retryAiAssist}>重试</button>
+            </section>
+          )}
+          {activeAiAssist.status === "ready" && activeAiAssist.kind === "reading" && activeAiAssist.result && (
+            <div className="aiAssistResult">
+              <section className="aiAnswerLead">
+                <span>语境翻译</span>
+                <strong>{activeAiAssist.result.translationZh}</strong>
+                <p>{activeAiAssist.result.explanationZh}</p>
+              </section>
+              <section>
+                <h3>Simple English</h3>
+                <p lang="en">{activeAiAssist.result.plainEnglish}</p>
+              </section>
+              {activeAiAssist.result.terms.length > 0 && (
+                <section>
+                  <h3>关键术语</h3>
+                  <div className="aiTermList">
+                    {activeAiAssist.result.terms.map((term) => (
+                      <article key={`${term.term}-${term.meaningZh}`}>
+                        <strong lang="en">{term.term}</strong>
+                        <span>{term.meaningZh}</span>
+                        <p>{term.noteZh}</p>
+                      </article>
+                    ))}
+                  </div>
+                </section>
+              )}
+              {activeAiAssist.result.grammarZh !== "无" && (
+                <section>
+                  <h3>句法提示</h3>
+                  <p>{activeAiAssist.result.grammarZh}</p>
+                </section>
+              )}
+            </div>
+          )}
+          {activeAiAssist.status === "ready" && activeAiAssist.kind === "question" && activeAiAssist.result && (
+            <div className="aiAssistResult questionAiResult">
+              <section className="aiAnswerLead">
+                <span>题库答案</span>
+                <strong>{activeAiAssist.correctAnswer.join(", ") || "待复核"}</strong>
+                <p><b>{activeAiAssist.result.conceptZh}</b>：{activeAiAssist.result.explanationZh}</p>
+              </section>
+              <section>
+                <h3>选项辨析</h3>
+                <div className="aiOptionNotes">
+                  {activeAiAssist.result.optionNotes.map((note) => (
+                    <article key={`${note.optionId}-${note.verdict}`} data-verdict={note.verdict}>
+                      <strong>{note.optionId}</strong>
+                      <span>{note.verdict === "correct" ? "正确" : note.verdict === "partial" ? "不完整" : "错误"}</span>
+                      <p>{note.noteZh}</p>
+                    </article>
+                  ))}
+                </div>
+              </section>
+              <section className="aiStudyTips">
+                <p><strong>易错点</strong>{activeAiAssist.result.pitfallZh}</p>
+                <p><strong>复习提示</strong>{activeAiAssist.result.reviewTipZh}</p>
+              </section>
+            </div>
+          )}
+          {activeAiAssist.status === "ready" && (
+            <div className="aiAssistFooter">
+              <span>
+                {activeAiAssist.fromCache ? "本机缓存" : activeAiAssist.model || "DeepSeek"}
+                {activeAiAssist.usage
+                  ? ` · ${activeAiAssist.usage.promptTokens + activeAiAssist.usage.completionTokens} tokens`
+                  : ""}
+              </span>
+              <button onClick={retryAiAssist} disabled={!deepSeekKeyStatus.configured}>重新生成</button>
+            </div>
+          )}
+        </div>
       </section>
     );
   }
@@ -3480,6 +3879,9 @@ export function App() {
               <button onClick={() => toggleCurrentQuestionFavorite(question)}>
                 {progress.favorite ? "已收藏" : "收藏"}
               </button>
+              <button className="aiHelpButton" onClick={() => askAiAboutQuestion(question, answerSelection)}>
+                <Sparkles size={17} /> AI 精讲
+              </button>
               {variant === "browse" ? (
                 <>
                   <button onClick={() => markCurrentQuestionSeen(question)}>标记已看</button>
@@ -3897,11 +4299,12 @@ export function App() {
         <section className="settingsPanel aiSettingsPanel">
           <div className="settingsTitleRow">
             <div>
-              <h2>AI 语境核验</h2>
+              <h2>AI 学习助教</h2>
               <span>{deepSeekKeyStatus.configured ? "已配置" : "未配置"}</span>
             </div>
             <KeyRound size={20} />
           </div>
+          <p>用于查词核验、选文简释和题目精讲。只有主动点击时，才会发送当前学习片段。</p>
           <label className="apiKeyField">
             <span>DeepSeek API Key</span>
             <input
@@ -3939,11 +4342,11 @@ export function App() {
         </section>
         <section className="settingsPanel">
           <h2>本地数据</h2>
-          <p>词本、笔记、收藏和阅读位置保存在本机。当前没有云同步。</p>
+          <p>词本、笔记、收藏、章节进度、AI 结果缓存和阅读位置保存在本机。当前没有云同步。</p>
           <button
             className="dangerButton"
             onClick={() => {
-              if (!window.confirm("清除本机词本、笔记、收藏和阅读位置？")) {
+              if (!window.confirm("清除本机词本、笔记、收藏、章节进度、AI 缓存和阅读位置？")) {
                 return;
               }
               clearLocalLearningData();
@@ -4080,6 +4483,7 @@ export function App() {
 
   function closeOverlay() {
     setActiveLookup(null);
+    setActiveAiAssist(null);
     setShowToc(false);
     setShowVocab(false);
     setShowNotes(false);
@@ -4121,6 +4525,7 @@ export function App() {
     setReaderMenuOpen(false);
     ensureOverlayHistory();
     setActiveLookup(null);
+    setActiveAiAssist(null);
     setShowVocab(false);
     setShowNotes(false);
     setSheetHeightVh(78);
@@ -4131,6 +4536,7 @@ export function App() {
     setReaderMenuOpen(false);
     ensureOverlayHistory();
     setActiveLookup(null);
+    setActiveAiAssist(null);
     setShowToc(false);
     setShowNotes(false);
     setSheetHeightVh(72);
@@ -4141,6 +4547,7 @@ export function App() {
     setReaderMenuOpen(false);
     ensureOverlayHistory();
     setActiveLookup(null);
+    setActiveAiAssist(null);
     setShowToc(false);
     setShowVocab(false);
     setSheetHeightVh(72);
@@ -4153,6 +4560,24 @@ export function App() {
       return;
     }
     selectChapterSection(nextLesson.id, nextLesson.sections[0].id);
+  }
+
+  function toggleCurrentChapterCompleted() {
+    if (!lesson) return;
+    setChapterProgressMap((progress) => setChapterCompleted(
+      progress,
+      currentBookId,
+      lesson.id,
+      !isChapterCompleted(progress, currentBookId, lesson.id)
+    ));
+  }
+
+  function continueAfterChapter() {
+    if (nextLesson) {
+      selectChapter(nextLesson.id);
+      return;
+    }
+    navigateTo("home");
   }
 
   function selectChapterSection(chapterId: string, sectionId: string) {
@@ -4297,6 +4722,7 @@ export function App() {
     setShowToc(false);
     setShowVocab(false);
     setShowNotes(false);
+    setActiveAiAssist(null);
     setSheetHeightVh(52);
     const context = resolveContextExplanation({
       query: text,
@@ -4526,7 +4952,7 @@ export function App() {
     setAiSettingsMessage("正在测试 DeepSeek 连接…");
     try {
       await testDeepSeekConnection();
-      setAiSettingsMessage("连接正常，可以进行语境核验。");
+      setAiSettingsMessage("连接正常，可以使用查词核验、选文简释和题目精讲。");
     } catch (error) {
       setAiSettingsMessage(error instanceof Error ? error.message : "连接测试失败");
     }
@@ -4756,7 +5182,7 @@ export function App() {
         "spatialStage",
         "page-reader",
         isImmersive ? "immersiveMode" : "",
-        showToc || showVocab || showNotes || activeLookup ? "panelOpen" : ""
+        showToc || showVocab || showNotes || activeLookup || activeAiAssist ? "panelOpen" : ""
       ].filter(Boolean).join(" ")}
       data-app-view="reader"
       data-book-id={currentBookId}
@@ -4873,12 +5299,41 @@ export function App() {
             </div>
           </article>
         ))}
+        <footer className="chapterCompletion" data-chapter-completed={currentChapterCompleted ? "true" : "false"}>
+          <div>
+            <p className="eyebrow">Chapter {currentLesson.chapter} complete</p>
+            <h2>{currentChapterCompleted ? "本章已读完" : "完成本章"}</h2>
+            <p>{completedChapterCount} / {currentManual.chapters.length} 章已完成</p>
+          </div>
+          <div className="chapterCompletionActions">
+            <button
+              className={currentChapterCompleted ? "chapterReadButton completed" : "chapterReadButton"}
+              aria-pressed={currentChapterCompleted}
+              onClick={toggleCurrentChapterCompleted}
+            >
+              <BookmarkCheck size={19} />
+              {currentChapterCompleted ? "取消已读" : "标记已读完"}
+            </button>
+            <button className="nextChapterButton" onClick={continueAfterChapter}>
+              <span>
+                <small>{nextLesson ? `第 ${nextLesson.chapter} 章` : "学习进度"}</small>
+                <strong>{nextLesson ? nextLesson.title[language] : "返回书库"}</strong>
+              </span>
+              <ArrowRight size={22} />
+            </button>
+          </div>
+        </footer>
       </section>
 
       <p className="readerWatermark">Felix-Zuo · non-commercial study edition</p>
 
       {selectedPhrase && (
         <div className="selectionActions">
+          {language === "en" && (
+            <button className="aiSelectionAction" onClick={askAiAboutSelection}>
+              <Sparkles size={16} /> AI 简释
+            </button>
+          )}
           {language === "en" && selectedPhrase.canLookup && (
             <button onClick={lookupSelectedPhrase}>
               查短语
@@ -4900,15 +5355,17 @@ export function App() {
           aria-label="目录"
           tabIndex={-1}
         >
-          {sheetHandle()}
-          <div className="sheetHeader">
-            <div>
-              <p className="eyebrow">manual contents</p>
-              <h2>目录</h2>
+          <div className="sheetChrome">
+            {sheetHandle()}
+            <div className="sheetHeader">
+              <div>
+                <p className="eyebrow">manual contents</p>
+                <h2>目录</h2>
+              </div>
+              <button className="closeButton" onClick={closeOverlayFromControl}>关闭</button>
             </div>
-            <button className="closeButton" onClick={closeOverlayFromControl}>关闭</button>
           </div>
-          <div className="tocList">
+          <div className="sheetScrollBody tocList" data-sheet-scroll-body>
             <div className="tocSearch">
               <input
                 type="search"
@@ -4994,16 +5451,19 @@ export function App() {
           aria-label="单词本"
           tabIndex={-1}
         >
-          {sheetHandle()}
-          <div className="sheetHeader">
-            <div>
-              <p className="eyebrow">local vocabulary</p>
-              <h2>词本</h2>
-              <small className="bookScope">{currentBookTitleZh}</small>
+          <div className="sheetChrome">
+            {sheetHandle()}
+            <div className="sheetHeader">
+              <div>
+                <p className="eyebrow">local vocabulary</p>
+                <h2>词本</h2>
+                <small className="bookScope">{currentBookTitleZh}</small>
+              </div>
+              <button className="closeButton" onClick={closeOverlayFromControl}>关闭</button>
             </div>
-            <button className="closeButton" onClick={closeOverlayFromControl}>关闭</button>
           </div>
-          <div className="vocabSummary">
+          <div className="sheetScrollBody" data-sheet-scroll-body>
+            <div className="vocabSummary">
             <span><strong>{dueTerms.length}</strong> 待复习</span>
             <span><strong>{learningCount}</strong> 学习中</span>
             <span><strong>{masteredCount}</strong> 已掌握</span>
@@ -5055,7 +5515,8 @@ export function App() {
                 </article>
               ))}
             </div>
-          )}
+            )}
+          </div>
         </section>
       )}
 
@@ -5069,16 +5530,19 @@ export function App() {
           aria-label="学习笔记"
           tabIndex={-1}
         >
-          {sheetHandle()}
-          <div className="sheetHeader">
-            <div>
-              <p className="eyebrow">study notes</p>
-              <h2>笔记</h2>
-              <small className="bookScope">{currentBookTitleZh}</small>
+          <div className="sheetChrome">
+            {sheetHandle()}
+            <div className="sheetHeader">
+              <div>
+                <p className="eyebrow">study notes</p>
+                <h2>笔记</h2>
+                <small className="bookScope">{currentBookTitleZh}</small>
+              </div>
+              <button className="closeButton" onClick={closeOverlayFromControl}>关闭</button>
             </div>
-            <button className="closeButton" onClick={closeOverlayFromControl}>关闭</button>
           </div>
-          {bookSavedNotes.length === 0 ? (
+          <div className="sheetScrollBody" data-sheet-scroll-body>
+            {bookSavedNotes.length === 0 ? (
             <p className="emptyState">暂无笔记。选中正文后点击“摘录”即可保存。</p>
           ) : (
             <div className="notesList">
@@ -5103,11 +5567,13 @@ export function App() {
                 </article>
               ))}
             </div>
-          )}
+            )}
+          </div>
         </section>
       )}
 
       {renderLookupSheet()}
+      {renderAiAssistSheet()}
     </main>
   );
 }

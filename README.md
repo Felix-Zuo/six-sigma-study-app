@@ -12,13 +12,13 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 
 | Metric | Current State |
 | --- | --- |
-| Release | `Beta 0.8.9` (`0.8.9-beta.0`, Android code `809`) |
+| Release | `Beta 0.8.10` (`0.8.10-beta.0`, Android code `810`) |
 | Runtime books | 2 catalog books: full Six Sigma manual + original import-practice workbook |
 | Six Sigma content | 33 chapters, 449 aligned study pages, 174 reader sections |
 | Preserved assets | 475 figure/table/formula PNG runtime assets; EN/ZH image counts 476/476 |
 | Dictionary | 3980 public offline entries; local Android builds add a 3550-entry private-question supplement |
 | Context glossary | 3875 English text blocks, 8591 aligned sentences, 105048 occurrence-level meanings |
-| AI context review | Optional personal DeepSeek V4 Flash key, strict structured correction records, user-confirmed reuse/export |
+| AI study assistance | Optional personal DeepSeek V4 Flash key for context review, selected-text explanation, and question coaching |
 | Practice | 1006 questions in local Android release; browse/practice/wrong/exam modes |
 | Platforms | Android APK/AAB via Capacitor, PWA runtime for browser QA |
 | Study data | `bookId`-scoped reading position, vocabulary, notes, source anchors, streaks, question progress |
@@ -66,11 +66,14 @@ When another book is selected, vocabulary, notes, and favorites are filtered to 
 - Automatic opening logo animation with the full rights/non-commercial notice moved to Settings/About.
 - English/Chinese reading mode with block-aware position restoration.
 - Deduplicated page rail, chapter progress, page search, and table-of-contents navigation.
+- Chapter-end completion controls persist a per-book read state and continue directly to the next chapter.
 - Immersive reading mode with Android back-button handling.
 - Draggable bottom-sheet lookup with half, tall, and full-height states plus scroll containment.
 - Rich offline word profiles with phonetics, pronunciation, part of speech, semicolon-separated senses, lemma/word forms, English definitions, occurrence-level meanings derived from the aligned bilingual sentence, bilingual examples, source return, and CSV export.
 - Context lookup never promotes the first broad dictionary sense to a sentence meaning. Low-confidence or unavailable alignments are labeled honestly, while six cross-block/page-break sentences are restored before lookup.
-- Optional DeepSeek V4 Flash context review sends only the current sentence, one adjacent sentence on each side, aligned Chinese, and dictionary candidates. Offline lookup remains the first response and accepted corrections can be revoked.
+- Optional DeepSeek V4 Flash assistance supports three bounded actions: verify one lookup context, explain an explicitly selected reading passage, or coach one question. Each action sends only the active learning fragment, returns a strict validated structure, and keeps offline content as the source of truth.
+- Reading explanations include a concise translation, plain-English restatement, relevant terms, and one grammar cue. Question coaching identifies the answer, concept, option-by-option reasoning, common trap, and review cue without exposing hidden model reasoning.
+- Reading/question AI results are cached locally by a deterministic request identity; reopening the same material avoids a duplicate request, and the cache never contains the API key.
 - Android stores the user's DeepSeek API key with AES-GCM backed by Android Keystore. Browser/PWA testing keeps a key in memory for the current session only; keys never enter localStorage, correction exports, logs, or Git.
 - Every generated proposal is normalized into `Context Correction Bundle v1`; exact phrase structures can reuse an accepted correction automatically, while merely similar contexts remain suggestions requiring confirmation.
 - Android pronunciation uses the device's native English text-to-speech engine; browser builds retain a Web Speech fallback.
@@ -98,15 +101,16 @@ flowchart LR
 
 More system diagrams: [docs/09-showcase-systems.md](docs/09-showcase-systems.md).
 
-## AI Context Corrections
+## AI Study Assistance
 
-The AI feature is a bounded context verifier inside the existing word sheet, not a general chat surface. Configure a personal key under **My > AI Context Review**, then use **AI Review Current Context** when the offline result needs verification. Low-confidence offline alignments can trigger the same check automatically.
+The AI feature is a set of bounded study actions rather than an open-ended chat surface. Configure a personal key under **我的 > AI 学习助教**. Use **AI 核验当前语境** inside a word sheet, select an English passage and choose **AI 简释**, or choose **AI 精讲** on a question. Requests are explicit, size-bounded, and validated before rendering.
 
 | Contract Piece | Path |
 | --- | --- |
 | Persistent/export schema | `content/schemas/context-correction-bundle.schema.json` |
 | Accepted repository records | `content/corrections/accepted-context-corrections.json` |
 | App store and exact/similar matching | `apps/reader/src/lib/contextCorrectionStore.ts` |
+| Reading/question result cache | `apps/reader/src/lib/aiStudyCache.ts` |
 | Strict DeepSeek request adapter | `apps/reader/src/lib/deepSeekAssistant.ts` |
 | Android Keystore/network bridge | `android/app/src/main/java/com/findjob/sixsigmastudy/NativeDeepSeekAssistantPlugin.java` |
 | Import and runtime merge | `scripts/import_context_corrections.py`, `scripts/apply_context_corrections.py` |

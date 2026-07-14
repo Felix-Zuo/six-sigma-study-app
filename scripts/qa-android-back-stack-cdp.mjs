@@ -81,7 +81,7 @@ async function main() {
     location.href = ${JSON.stringify(`${appUrl}?qa-android-back=1`)};
     return true;
   })()`);
-  await waitFor("reloaded native app shell", () => evaluate(`Boolean(document.querySelector(".appShell"))`));
+  await waitFor("reloaded native app shell", () => evaluate(`Boolean(document.querySelector(".appShell"))`), 45000);
   await waitFor("native primary navigation", () => evaluate(`Boolean(document.querySelector(".mainNav"))`));
   await clickByText(".mainNavItem", "首页");
   await waitFor("home", () => evaluate(`document.querySelector("main")?.dataset.appView === "home"`));

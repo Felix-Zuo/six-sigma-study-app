@@ -75,6 +75,32 @@ type ContextBlockGloss = {
 
 The model environment and Hugging Face cache live outside Git. Only the generated glossary inside `manual.json` is shipped to the app. CI validates the committed output with `npm run qa:context-glosses` and does not download or execute the models.
 
+### Chapter Completion
+
+Chapter completion is local, explicit, and isolated by book. The map is stored under `six-sigma-study:chapter-progress:v1`; marking a chapter unread removes its record rather than retaining a false entry.
+
+```ts
+type ChapterProgressMap = Record<string, Record<string, {
+  completed: true;
+  completedAt: string;
+}>>; // bookId -> chapterId -> state
+```
+
+### AI Study Result Cache
+
+Selected-text explanations and question coaching use the optional personal DeepSeek connection. The App validates fixed strict-tool output before rendering and caches at most 80 results under `six-sigma-study:ai-study-cache:v1`. A deterministic identity is derived from the bounded request payload, so the same explicit request can be reused without resending it. Cache records contain the validated result, model, timestamp, and token counts only; API keys and raw request payloads are excluded.
+
+```ts
+type AiStudyCacheRecord = {
+  id: string;
+  kind: "reading" | "question";
+  model: string;
+  generatedAt: string;
+  result: ReadingAssistResult | QuestionAssistResult;
+  usage?: { promptTokens: number; completionTokens: number };
+};
+```
+
 ### Context Correction Bundle
 
 AI output is never persisted as an arbitrary model response. The App validates the strict tool result, adds trusted local anchors and hashes, and stores one canonical `ContextCorrectionBundle` per `bookId` under `six-sigma-study:context-corrections:v1:<bookId>`.

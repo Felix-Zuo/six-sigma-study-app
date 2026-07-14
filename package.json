@@ -1,6 +1,6 @@
 {
   "name": "six-sigma-study-app",
-  "version": "0.8.9-beta.0",
+  "version": "0.8.10-beta.0",
   "private": true,
   "workspaces": [
     "apps/reader"
@@ -24,6 +24,7 @@
     "qa:ai-context-ui": "node scripts/qa-ai-context-ui-cdp.mjs",
     "qa:android-keystore": "node scripts/qa-android-deepseek-keystore-cdp.mjs",
     "qa:android-back-stack": "node scripts/qa-android-back-stack-cdp.mjs",
+    "qa:native-study-assist": "node scripts/qa-native-study-assist-cdp.mjs",
     "build:dictionary": "python scripts/build_manual_dictionary.py",
     "build:context-glosses": "python scripts/build_context_glosses.py",
     "lint:content": "python scripts/validate_content.py content/processed",

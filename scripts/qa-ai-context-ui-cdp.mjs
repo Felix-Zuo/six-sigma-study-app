@@ -113,25 +113,56 @@ async function main() {
 
   await evaluate(`(() => {
     const originalFetch = window.fetch.bind(window);
-    window.__qaDeepSeekCalls = 0;
+    window.__qaDeepSeekCalls = { context: 0, reading: 0, question: 0 };
     window.fetch = async (input, init) => {
       const url = typeof input === "string" ? input : input.url;
       if (url.includes("api.deepseek.com/beta/chat/completions")) {
-        window.__qaDeepSeekCalls += 1;
-        const result = {
-          detectedPhrase: "revert to old ways",
-          lemma: "revert",
-          partOfSpeech: "verb",
-          phrasePattern: "revert to <previous-practice>",
-          contextMeaningZh: "回到旧有做法；恢复到原来的状态",
-          sentenceTranslationZh: "六西格玛建立保障措施和策略，即使项目被视为完成，也通过控制措施确保改进持续推进，不会退回原来的做法。",
-          explanationZh: "revert to 表示回到先前的状态或做法；这里与 old ways 构成固定语义搭配。",
-          alternativesZh: ["恢复原状", "重回旧习"],
-          confidence: "high"
-        };
+        const body = JSON.parse(init?.body || "{}");
+        const toolName = body.tools?.[0]?.function?.name;
+        const userInput = JSON.parse(body.messages?.[1]?.content || "{}");
+        let result;
+        if (toolName === "submit_reading_assist") {
+          window.__qaDeepSeekCalls.reading += 1;
+          const term = (userInput.selectionEn.match(/[A-Za-z][A-Za-z-]*/) || ["process"])[0];
+          result = {
+            translationZh: "这段内容说明六西格玛控制措施会防止流程退回旧有做法。",
+            explanationZh: "作者强调改进项目完成后仍需维持控制，使新的工作方式持续生效。",
+            plainEnglish: "Six Sigma controls keep the improved process from returning to old habits.",
+            terms: [{ term, meaningZh: "当前语境中的关键表达", noteZh: "它连接了控制阶段与持续改进。" }],
+            grammarZh: "so that 引出控制措施要达到的结果。",
+            confidence: "high"
+          };
+        } else if (toolName === "submit_question_assist") {
+          window.__qaDeepSeekCalls.question += 1;
+          result = {
+            conceptZh: "DMAIC 阶段职责",
+            explanationZh: "应依据题库给定答案，识别该阶段的核心目标，而不是只看表面关键词。",
+            optionNotes: userInput.options.map((option) => ({
+              optionId: option.id,
+              verdict: userInput.correctAnswer.includes(option.id) ? "correct" : "wrong",
+              noteZh: userInput.correctAnswer.includes(option.id) ? "该选项符合本题考点。" : "该选项属于其他阶段或概念。"
+            })),
+            pitfallZh: "容易把相邻 DMAIC 阶段的活动混在一起。",
+            reviewTipZh: "按 Define、Measure、Analyze、Improve、Control 顺序复述每阶段目标。",
+            confidence: "high"
+          };
+        } else {
+          window.__qaDeepSeekCalls.context += 1;
+          result = {
+            detectedPhrase: "revert to old ways",
+            lemma: "revert",
+            partOfSpeech: "verb",
+            phrasePattern: "revert to <previous-practice>",
+            contextMeaningZh: "回到旧有做法；恢复到原来的状态",
+            sentenceTranslationZh: "六西格玛建立保障措施和策略，即使项目被视为完成，也通过控制措施确保改进持续推进，不会退回原来的做法。",
+            explanationZh: "revert to 表示回到先前的状态或做法；这里与 old ways 构成固定语义搭配。",
+            alternativesZh: ["恢复原状", "重回旧习"],
+            confidence: "high"
+          };
+        }
         return new Response(JSON.stringify({
           model: "deepseek-v4-flash",
-          choices: [{ message: { tool_calls: [{ function: { name: "submit_context_correction", arguments: JSON.stringify(result) } }] } }],
+          choices: [{ message: { tool_calls: [{ function: { name: toolName, arguments: JSON.stringify(result) } }] } }],
           usage: { prompt_tokens: 612, completion_tokens: 124 }
         }), { status: 200, headers: { "Content-Type": "application/json" } });
       }
@@ -155,7 +186,7 @@ async function main() {
     overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
   }))()`);
   await evaluate(`(() => {
-    const sheet = document.querySelector(".bottomSheet");
+    const sheet = document.querySelector(".bottomSheet [data-sheet-scroll-body]");
     const card = document.querySelector('[aria-label="AI 语境修订建议"]');
     if (sheet && card) sheet.scrollTop = Math.max(0, card.offsetTop - 84);
   })()`);
@@ -165,7 +196,7 @@ async function main() {
   await waitFor("accepted correction", () => evaluate(`Boolean(document.querySelector('[aria-label="已采用的语境修订"]'))`));
   const acceptedMeaning = await evaluate(`document.querySelector(".contextMeaningCard strong")?.textContent?.trim()`);
   await evaluate(`(() => {
-    const sheet = document.querySelector(".bottomSheet");
+    const sheet = document.querySelector(".bottomSheet [data-sheet-scroll-body]");
     const card = document.querySelector('[aria-label="已采用的语境修订"]');
     if (sheet && card) sheet.scrollTop = Math.max(0, card.offsetTop - 84);
   })()`);
@@ -179,15 +210,117 @@ async function main() {
   await waitFor("accepted correction reused", () => evaluate(`Boolean(document.querySelector('[aria-label="已采用的语境修订"]'))`));
   const reused = await evaluate(`(() => ({
     meaning: document.querySelector(".contextMeaningCard strong")?.textContent?.trim(),
-    calls: window.__qaDeepSeekCalls,
+    calls: window.__qaDeepSeekCalls.context,
     overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
   }))()`);
   await evaluate(`document.querySelector(".closeButton")?.click()`);
+
+  const selectedReadingText = await evaluate(`(() => {
+    const target = Array.from(document.querySelectorAll(".readerText")).find((item) => item.textContent.trim().length > 90);
+    if (!target) return "";
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+    return selection.toString().trim();
+  })()`);
+  await waitFor("AI selection action", () => evaluate(`Boolean(document.querySelector(".selectionActions .aiSelectionAction"))`));
+  await evaluate(`document.querySelector(".selectionActions .aiSelectionAction")?.click()`);
+  await waitFor("reading AI result", () => evaluate(`Boolean(document.querySelector('[aria-label="AI 阅读简释"] .aiAssistResult'))`));
+  const readingAssist = await evaluate(`(() => {
+    const sheet = document.querySelector('[aria-label="AI 阅读简释"]');
+    const chrome = sheet?.querySelector(".sheetChrome");
+    const body = sheet?.querySelector("[data-sheet-scroll-body]");
+    const before = chrome?.getBoundingClientRect();
+    if (body) body.scrollTop = Math.min(280, body.scrollHeight - body.clientHeight);
+    const after = chrome?.getBoundingClientRect();
+    const cache = JSON.parse(localStorage.getItem("six-sigma-study:ai-study-cache:v1") || "[]");
+    return {
+      translation: sheet?.querySelector(".aiAnswerLead strong")?.textContent?.trim(),
+      plainEnglish: sheet?.querySelector('[lang="en"]:not(blockquote)')?.textContent?.trim(),
+      termCount: sheet?.querySelectorAll(".aiTermList article").length ?? 0,
+      sheetScrollTop: sheet?.scrollTop ?? -1,
+      bodyScrollTop: body?.scrollTop ?? 0,
+      chromeStable: Boolean(before && after && Math.abs(before.top - after.top) < 1 && Math.abs(before.bottom - after.bottom) < 1),
+      bodyStartsAfterChrome: Boolean(before && body && body.getBoundingClientRect().top >= before.bottom - 1),
+      cacheKind: cache[0]?.kind,
+      cacheContainsSecret: JSON.stringify(cache).includes(${JSON.stringify(fakeSessionKey)}),
+      calls: window.__qaDeepSeekCalls.reading,
+      overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
+    };
+  })()`);
+  await sleep(420);
+  const readingShot = await capture("03-reading-ai-assist");
+  await evaluate(`document.querySelector('[aria-label="AI 阅读简释"] .closeButton')?.click()`);
+  await waitFor("reading AI closed", () => evaluate(`!document.querySelector('[aria-label="AI 阅读简释"]')`));
+
+  await evaluate(`(() => {
+    const target = Array.from(document.querySelectorAll(".readerText")).find((item) => item.textContent.trim().length > 90);
+    if (!target) return;
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.dispatchEvent(new Event("selectionchange"));
+  })()`);
+  await waitFor("cached AI selection action", () => evaluate(`Boolean(document.querySelector(".selectionActions .aiSelectionAction"))`));
+  await evaluate(`document.querySelector(".selectionActions .aiSelectionAction")?.click()`);
+  await waitFor("cached reading AI result", () => evaluate(`Boolean(document.querySelector('[aria-label="AI 阅读简释"] .aiAssistResult'))`));
+  const readingCacheReuse = await evaluate(`(() => ({
+    source: document.querySelector('[aria-label="AI 阅读简释"] .aiAssistFooter span')?.textContent?.trim(),
+    calls: window.__qaDeepSeekCalls.reading
+  }))()`);
+  await evaluate(`document.querySelector('[aria-label="AI 阅读简释"] .closeButton')?.click()`);
+  await waitFor("cached reading AI closed", () => evaluate(`!document.querySelector('[aria-label="AI 阅读简释"]')`));
+
+  await evaluate(`window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "instant" })`);
+  await waitFor("chapter completion footer", () => evaluate(`Boolean(document.querySelector('.chapterCompletion'))`));
+  await evaluate(`Array.from(document.querySelectorAll('.chapterCompletion button')).find((item) => item.textContent.includes('标记已读完'))?.click()`);
+  await waitFor("chapter completion persisted", () => evaluate(`document.querySelector('.chapterCompletion')?.dataset.chapterCompleted === 'true'`));
+  const chapterCompletion = await evaluate(`(() => ({
+    heading: document.querySelector('.chapterCompletion h2')?.textContent?.trim(),
+    next: document.querySelector('.nextChapterButton')?.textContent?.replace(/\\s+/g, ' ').trim(),
+    stored: JSON.parse(localStorage.getItem('six-sigma-study:chapter-progress:v1') || '{}')?.['six-sigma-black-belt']?.ch02?.completed,
+    overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
+  }))()`);
+  const chapterShot = await capture("04-chapter-completion");
+  await evaluate(`document.querySelector('.nextChapterButton')?.click()`);
+  await waitFor("next chapter navigation", () => evaluate(`document.querySelector('.topBar h1')?.textContent?.includes('Chapter 3')`));
+  const nextChapterHeading = await evaluate(`document.querySelector('.topBar h1')?.textContent?.trim()`);
+
   await evaluate(`Array.from(document.querySelectorAll("button")).find((item) => item.textContent.trim() === "书库")?.click()`);
   await waitFor("home navigation after reader", () => evaluate(`Boolean(document.querySelector(".mainNav"))`));
+  await evaluate(`Array.from(document.querySelectorAll(".mainNavItem")).find((item) => item.textContent.includes("刷题"))?.click()`);
+  await waitFor("question dashboard", () => evaluate(`Boolean(document.querySelector(".questionModeCards"))`));
+  await evaluate(`Array.from(document.querySelectorAll(".questionModeCards button")).find((item) => item.textContent.includes("看题"))?.click()`);
+  await waitFor("question AI button", () => evaluate(`Boolean(document.querySelector(".questionActions .aiHelpButton"))`));
+  const questionOptionCount = await evaluate(`document.querySelectorAll(".questionCard .questionOption").length`);
+  await evaluate(`document.querySelector(".questionActions .aiHelpButton")?.click()`);
+  await waitFor("question AI result", () => evaluate(`Boolean(document.querySelector('[aria-label="AI 题目精讲"] .questionAiResult'))`));
+  const questionAssist = await evaluate(`(() => {
+    const sheet = document.querySelector('[aria-label="AI 题目精讲"]');
+    const cache = JSON.parse(localStorage.getItem("six-sigma-study:ai-study-cache:v1") || "[]");
+    return {
+      answer: sheet?.querySelector(".aiAnswerLead > strong")?.textContent?.trim(),
+      concept: sheet?.querySelector(".aiAnswerLead p b")?.textContent?.trim(),
+      optionCount: sheet?.querySelectorAll(".aiOptionNotes article").length ?? 0,
+      hasPitfall: Array.from(sheet?.querySelectorAll(".aiStudyTips strong") || []).some((item) => item.textContent.includes("易错点")),
+      calls: window.__qaDeepSeekCalls.question,
+      cacheKinds: cache.map((item) => item.kind),
+      overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
+    };
+  })()`);
+  const questionShot = await capture("05-question-ai-assist");
+  await evaluate(`document.querySelector('[aria-label="AI 题目精讲"] .closeButton')?.click()`);
+  await waitFor("question AI closed", () => evaluate(`!document.querySelector('[aria-label="AI 题目精讲"]')`));
+  await evaluate(`document.querySelector('[aria-label="返回题库主页"]')?.click()`);
+  await waitFor("question dashboard return", () => evaluate(`Boolean(document.querySelector(".questionModeCards"))`));
   await evaluate(`Array.from(document.querySelectorAll(".mainNavItem")).find((item) => item.textContent.includes("我的"))?.click()`);
   await waitFor("correction export", () => evaluate(`Array.from(document.querySelectorAll(".correctionExportRow button")).some((item) => item.textContent.includes("导出 JSON"))`));
-  const settingsShot = await capture("03-ai-settings-and-export");
+  const settingsShot = await capture("06-ai-settings-and-export");
   await evaluate(`(() => {
     Object.defineProperty(navigator, "canShare", { configurable: true, value: () => false });
     Object.defineProperty(navigator, "share", { configurable: true, value: undefined });
@@ -213,19 +346,45 @@ async function main() {
     acceptedMeaning: acceptedMeaning === proposal.meaning,
     exactReuseNoSecondCall: reused.meaning === proposal.meaning && reused.calls === 1,
     reusedLayout: reused.overflow <= 1,
+    readingSelectionCaptured: selectedReadingText.length > 90,
+    readingStructuredResult: readingAssist.translation?.includes("控制措施") && readingAssist.plainEnglish?.includes("Six Sigma") && readingAssist.termCount === 1,
+    readingFixedChrome: readingAssist.sheetScrollTop === 0 && readingAssist.bodyScrollTop > 0 && readingAssist.chromeStable && readingAssist.bodyStartsAfterChrome,
+    readingCachedPrivately: readingAssist.cacheKind === "reading" && !readingAssist.cacheContainsSecret && readingCacheReuse.source?.includes("本机缓存") && readingCacheReuse.calls === 1,
+    readingLayout: readingAssist.overflow <= 1,
+    chapterCompletionPersisted: chapterCompletion.heading === "本章已读完" && chapterCompletion.stored === true,
+    chapterNextNavigation: chapterCompletion.next?.includes("第 3 章") && nextChapterHeading?.includes("Chapter 3"),
+    chapterCompletionLayout: chapterCompletion.overflow <= 1,
+    questionStructuredResult: questionAssist.answer?.length > 0 && questionAssist.concept === "DMAIC 阶段职责" && questionAssist.optionCount === questionOptionCount,
+    questionHelpAndCache: questionAssist.hasPitfall && questionAssist.calls === 1 && questionAssist.cacheKinds.includes("reading") && questionAssist.cacheKinds.includes("question"),
+    questionLayout: questionAssist.overflow <= 1,
     uniformBundle: storedBundle?.schemaVersion === "1.0.0" && storedBundle?.format === "six-sigma-context-corrections",
     acceptedRecord: record?.status === "accepted" && record?.review?.acceptedBy === "user",
     stableHashes: /^ctxcorr-[a-f0-9]{64}$/.test(record?.id ?? "") && /^[a-f0-9]{64}$/.test(record?.source?.sourceTextSha256 ?? ""),
     strictProvenance: record?.provenance?.model === "deepseek-v4-flash" && record?.provenance?.promptVersion === "context-correction-v1",
     noSecretInBundle: !JSON.stringify(storedBundle).toLowerCase().includes("api_key") && !JSON.stringify(storedBundle).includes(fakeSessionKey),
     exportedAcceptedOnly: exportedBundle.corrections?.length === 1 && exportedBundle.corrections[0].status === "accepted",
-    settingsVersion: settings.version === "版本 Beta 0.8.9",
+    settingsVersion: settings.version === "版本 Beta 0.8.10",
     settingsConfigured: settings.status === "已配置" && settings.count === "已确认修订 1",
     settingsLayout: settings.overflow <= 1
   };
   const ok = Object.values(checks).every(Boolean);
   cdp.close();
-  const result = { ok, checks, offlineMeaning, proposal, acceptedMeaning, reused, settings, downloadName, screenshots: { proposalShot, acceptedShot, settingsShot } };
+  const result = {
+    ok,
+    checks,
+    offlineMeaning,
+    proposal,
+    acceptedMeaning,
+    reused,
+    readingAssist,
+    readingCacheReuse,
+    chapterCompletion,
+    nextChapterHeading,
+    questionAssist,
+    settings,
+    downloadName,
+    screenshots: { proposalShot, acceptedShot, readingShot, chapterShot, questionShot, settingsShot }
+  };
   fs.writeFileSync(path.join(artifactDir, "report.json"), `${JSON.stringify(result, null, 2)}\n`);
   console.log(JSON.stringify(result, null, 2));
   if (!ok) process.exit(2);
