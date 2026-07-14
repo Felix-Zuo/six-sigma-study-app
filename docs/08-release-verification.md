@@ -139,6 +139,7 @@ Verified on local emulator `SixSigmaQA` / `emulator-5554`.
 - The legacy native key-chapter harness stalled during repeated emulator WebView reload/screenshot calls on three bounded attempts. A 30-second CDP call guard now prevents an unbounded individual request. This is recorded as a QA-infrastructure limit; the equivalent browser visual audit and dedicated installed-APK interaction audit passed, with no App crash or ANR in Android logs.
 - Final APK: 41,258,735 bytes, SHA-256 `C67D4AAC71FA93682A947F11C94FA2EB12F3D4779A3C7154893028A40C48AFF9`; APK Signature Scheme v2 verified with one signer; package metadata `810` / `0.8.10-beta`.
 - Final AAB: 39,009,939 bytes, SHA-256 `C8116B550F282B7B64E41F22BAB915EE0F22CAD4751AA063B0FCC9E7B4317130`; JAR signature verification passed with expected self-signed/no-timestamp warnings.
+- GitHub Actions run `29323870934` passed the public build, browser interaction, and Android debug jobs for feature commit `f26d22f`.
 
 ### Beta 0.8.9 Quiet Reading Hierarchy
 
