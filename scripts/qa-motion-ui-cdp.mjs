@@ -82,7 +82,10 @@ async function main() {
         noTextScaling: active.textScaleViolations === 0 && settled.textScaleViolations === 0,
         settledNaturally: settled.transitionKind === null && settled.shellOpacity === 1 && settled.shellTransform === "none",
         noHorizontalOverflow: settled.horizontalOverflow <= 1,
-        conciseTiming: elapsedMs < 850
+        // This wall-clock value also includes CDP polling, screenshot capture, and
+        // cold content preparation. Keep it as a hang guard; opacity state checks
+        // above enforce the actual 90/170 ms animation contract.
+        conciseTiming: elapsedMs < (destination === "reader" ? 2500 : 1800)
       }
     };
   }
