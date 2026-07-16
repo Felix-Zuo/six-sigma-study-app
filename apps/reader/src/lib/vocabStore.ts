@@ -7,6 +7,8 @@ export type SavedTerm = {
   contentVersion?: string;
   term: string;
   translation: string;
+  dictionaryMeaning: string;
+  entryKind: "word" | "phrase";
   partOfSpeech?: string;
   phonetic?: string;
   wordRoot?: string;
@@ -19,12 +21,20 @@ export type SavedTerm = {
   sectionId: string;
   blockId?: string;
   sourceText: string;
+  sourceStart?: number;
+  sourceEnd?: number;
+  sourceOccurrence?: number;
   sourceTranslation?: string;
   contextMeaning?: string;
   contextExplanation?: string;
   contextCorrectionId?: string;
   exampleText?: string;
   exampleTranslation?: string;
+  aiContextMeaning?: string;
+  aiTranslation?: string;
+  aiExplanation?: string;
+  aiModel?: string;
+  aiGeneratedAt?: string;
   savedAt: string;
   status: "new" | "learning" | "mastered";
   familiarity: number;
@@ -79,6 +89,32 @@ function cleanSavedTerm(value: unknown): string {
   return term.replace(/^[^A-Za-z0-9]+|[^A-Za-z0-9]+$/g, "") || term;
 }
 
+function safeOffset(value: unknown, sourceText: string): number | undefined {
+  return typeof value === "number" && Number.isInteger(value) && value >= 0 && value <= sourceText.length
+    ? value
+    : undefined;
+}
+
+function inferredSourceStart(sourceText: string, term: string): number | undefined {
+  const index = sourceText.toLocaleLowerCase().indexOf(term.toLocaleLowerCase());
+  return index >= 0 ? index : undefined;
+}
+
+function inferredOccurrence(sourceText: string, term: string, sourceStart: number | undefined): number | undefined {
+  if (sourceStart === undefined || !term) return undefined;
+  const source = sourceText.toLocaleLowerCase();
+  const target = term.toLocaleLowerCase();
+  let count = 0;
+  let cursor = 0;
+  while (cursor < sourceStart) {
+    const index = source.indexOf(target, cursor);
+    if (index < 0 || index >= sourceStart) break;
+    count += 1;
+    cursor = index + Math.max(1, target.length);
+  }
+  return count;
+}
+
 function scheduleIntervalDays(term: SavedTerm, outcome: "again" | "fuzzy" | "remembered"): number {
   if (outcome === "again") {
     return 1;
@@ -101,8 +137,17 @@ function normalizeSavedTerm(item: Partial<SavedTerm>): SavedTerm {
   const correctStreak = toSafeNumber(item.correctStreak, status === "mastered" ? 3 : 0);
   const sourceType = normalizeSourceType(item.sourceType);
   const term = cleanSavedTerm(item.term);
-  const translation = item.translation ?? "待完善";
+  const dictionaryMeaning = item.dictionaryMeaning || item.translation || "待完善";
+  const translation = dictionaryMeaning;
   const sourceText = item.sourceText ?? "";
+  const sourceStart = safeOffset(item.sourceStart, sourceText) ?? inferredSourceStart(sourceText, term);
+  const storedSourceEnd = safeOffset(item.sourceEnd, sourceText);
+  const sourceEnd = storedSourceEnd !== undefined && sourceStart !== undefined && storedSourceEnd >= sourceStart
+    ? storedSourceEnd
+    : sourceStart === undefined ? undefined : Math.min(sourceText.length, sourceStart + term.length);
+  const sourceOccurrence = sourceStart === undefined
+    ? undefined
+    : toSafeNumber(item.sourceOccurrence, inferredOccurrence(sourceText, term, sourceStart) ?? 0);
   const context = resolveContextExplanation({
     query: term,
     dictionaryTranslation: translation,
@@ -119,6 +164,8 @@ function normalizeSavedTerm(item: Partial<SavedTerm>): SavedTerm {
     contentVersion: item.contentVersion,
     term,
     translation,
+    dictionaryMeaning,
+    entryKind: item.entryKind === "phrase" || term.trim().includes(" ") ? "phrase" : "word",
     partOfSpeech: item.partOfSpeech,
     phonetic: item.phonetic,
     wordRoot: item.wordRoot,
@@ -131,12 +178,20 @@ function normalizeSavedTerm(item: Partial<SavedTerm>): SavedTerm {
     sectionId: item.sectionId ?? "",
     blockId: item.blockId,
     sourceText,
+    sourceStart,
+    sourceEnd,
+    sourceOccurrence,
     sourceTranslation: item.sourceTranslation,
     contextMeaning,
     contextExplanation: item.contextExplanation || context.explanation,
     contextCorrectionId: item.contextCorrectionId,
     exampleText: item.exampleText || sourceText,
     exampleTranslation: item.exampleTranslation || item.sourceTranslation,
+    aiContextMeaning: item.aiContextMeaning,
+    aiTranslation: item.aiTranslation,
+    aiExplanation: item.aiExplanation,
+    aiModel: item.aiModel,
+    aiGeneratedAt: isIsoDate(item.aiGeneratedAt) ? item.aiGeneratedAt : undefined,
     savedAt,
     status,
     familiarity: clamp(toSafeNumber(item.familiarity, status === "mastered" ? 85 : correctStreak * 18), 0, 100),
@@ -277,6 +332,8 @@ export function savedTermsToCsv(terms: SavedTerm[]): string {
     "bookTitle",
     "contentVersion",
     "translation",
+    "dictionaryMeaning",
+    "entryKind",
     "partOfSpeech",
     "phonetic",
     "wordRoot",
@@ -305,12 +362,20 @@ export function savedTermsToCsv(terms: SavedTerm[]): string {
     "sectionId",
     "blockId",
     "sourceText",
+    "sourceStart",
+    "sourceEnd",
+    "sourceOccurrence",
     "sourceTranslation",
     "contextMeaning",
     "contextExplanation",
     "contextCorrectionId",
     "exampleText",
-    "exampleTranslation"
+    "exampleTranslation",
+    "aiContextMeaning",
+    "aiTranslation",
+    "aiExplanation",
+    "aiModel",
+    "aiGeneratedAt"
   ];
   const rows = terms.map((term) => [
     term.term,
@@ -318,6 +383,8 @@ export function savedTermsToCsv(terms: SavedTerm[]): string {
     term.bookTitle,
     term.contentVersion,
     term.translation,
+    term.dictionaryMeaning,
+    term.entryKind,
     term.partOfSpeech,
     term.phonetic,
     term.wordRoot,
@@ -346,12 +413,20 @@ export function savedTermsToCsv(terms: SavedTerm[]): string {
     term.sectionId,
     term.blockId,
     term.sourceText,
+    term.sourceStart,
+    term.sourceEnd,
+    term.sourceOccurrence,
     term.sourceTranslation,
     term.contextMeaning,
     term.contextExplanation,
     term.contextCorrectionId,
     term.exampleText,
-    term.exampleTranslation
+    term.exampleTranslation,
+    term.aiContextMeaning,
+    term.aiTranslation,
+    term.aiExplanation,
+    term.aiModel,
+    term.aiGeneratedAt
   ]);
   return [headers, ...rows].map((row) => row.map(csvCell).join(",")).join("\r\n");
 }

@@ -9,6 +9,8 @@ const downloadDir = path.join(artifactDir, "downloads");
 const bookId = "six-sigma-black-belt";
 const correctionStorageKey = `six-sigma-study:context-corrections:v1:${bookId}`;
 const fakeSessionKey = "s" + "k" + "-qa-context-correction-key";
+const packageVersion = JSON.parse(fs.readFileSync(path.resolve("package.json"), "utf8")).version;
+const expectedDisplayVersion = `版本 Beta ${packageVersion.match(/^\d+\.\d+\.\d+/)?.[0] ?? packageVersion}`;
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -363,7 +365,7 @@ async function main() {
     strictProvenance: record?.provenance?.model === "deepseek-v4-flash" && record?.provenance?.promptVersion === "context-correction-v1",
     noSecretInBundle: !JSON.stringify(storedBundle).toLowerCase().includes("api_key") && !JSON.stringify(storedBundle).includes(fakeSessionKey),
     exportedAcceptedOnly: exportedBundle.corrections?.length === 1 && exportedBundle.corrections[0].status === "accepted",
-    settingsVersion: settings.version === "版本 Beta 0.8.10",
+    settingsVersion: settings.version === expectedDisplayVersion,
     settingsConfigured: settings.status === "已配置" && settings.count === "已确认修订 1",
     settingsLayout: settings.overflow <= 1
   };

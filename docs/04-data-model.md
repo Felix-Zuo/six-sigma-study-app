@@ -272,6 +272,8 @@ type SavedTerm = {
   contentVersion?: string;
   term: string;
   translation: string;
+  dictionaryMeaning: string;
+  entryKind: "word" | "phrase";
   partOfSpeech?: string;
   phonetic?: string;
   wordRoot?: string;
@@ -284,12 +286,20 @@ type SavedTerm = {
   sectionId: string;
   blockId?: string;
   sourceText: string;
+  sourceStart?: number;
+  sourceEnd?: number;
+  sourceOccurrence?: number;
   sourceTranslation?: string;
   contextMeaning?: string;
   contextExplanation?: string;
   contextCorrectionId?: string;
   exampleText?: string;
   exampleTranslation?: string;
+  aiContextMeaning?: string;
+  aiTranslation?: string;
+  aiExplanation?: string;
+  aiModel?: string;
+  aiGeneratedAt?: string;
   savedAt: string;
   status: "new" | "learning" | "mastered";
   familiarity: number;
@@ -310,9 +320,11 @@ type SavedTerm = {
 };
 ```
 
-Legacy vocabulary records without `bookId` are normalized to `six-sigma-black-belt` at load time.
+Legacy vocabulary records without `bookId` are normalized to `six-sigma-black-belt` at load time. Records from older builds also receive a canonical `dictionaryMeaning`, an inferred word/phrase kind, and character offsets when the saved source still contains the term.
 
-Lookup stores the full dictionary profile separately from the context snapshot. The dictionary profile keeps broad senses, phonetics, part of speech, lemma/word forms, and an English definition; the context snapshot keeps the occurrence-level meaning in the current manual/question sentence, a concise usage explanation, and a bilingual example. Older manual records are re-enriched from the current offline dictionary and occurrence glossary without deleting review history, replacing context text produced by the retired dictionary-first fallback.
+Lookup stores the full dictionary profile separately from the context snapshot. The dictionary profile keeps broad senses, phonetics, part of speech, lemma/word forms, and an English definition; the context snapshot keeps the occurrence-level meaning in the current manual/question sentence, a concise usage explanation, and a bilingual example. Flashcard choices always use `dictionaryMeaning`; `contextMeaning` and accepted AI fields are explanatory supplements and never become the quiz answer. A word tap resolves the longest dictionary phrase containing that occurrence before falling back to the individual word. `sourceStart`, `sourceEnd`, and `sourceOccurrence` retain the exact location inside the anchored block so source return can highlight the saved occurrence.
+
+Examples are rendered as bounded study excerpts rather than entire paragraphs. The target word or phrase is underlined, and the bilingual translation is clipped independently. Accepted lookup corrections, or an explicit AI review request, persist only the validated `aiContextMeaning`, `aiTranslation`, `aiExplanation`, model, and timestamp; the API key and raw response are never part of `SavedTerm`.
 
 Vocabulary review now uses a lightweight local spaced-repetition model inspired by SM-2, Anki, and FSRS. Review outcomes are `remembered`, `fuzzy`, and `again`; the scheduler updates `familiarity`, `lapseCount`, `correctStreak`, `intervalDays`, `easeFactor`, `lastReviewedAt`, and `nextReviewAt`. Question-sourced terms keep `sourceType = "question"` plus `sourceQuestionId`, `sourceExamId`, and `sourceDomain`.
 

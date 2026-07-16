@@ -1,6 +1,6 @@
 {
   "name": "six-sigma-study-app",
-  "version": "0.8.10-beta.0",
+  "version": "0.8.11-beta.0",
   "private": true,
   "workspaces": [
     "apps/reader"
@@ -43,6 +43,7 @@
     "qa:image-fidelity": "node scripts/qa-android-key-chapters-cdp.mjs",
     "qa:android-key-chapters": "node scripts/qa-android-key-chapters-cdp.mjs",
     "qa:vocab-flashcards": "node scripts/qa-vocab-flashcards.mjs",
+    "qa:vocab-study-ux": "node scripts/qa-vocab-study-ux-cdp.mjs",
     "qa:context-lookup": "node scripts/qa-context-lookup.mjs",
     "qa:context-glosses": "python scripts/qa_context_glosses.py",
     "qa:lexical-learning": "node scripts/qa-lexical-learning.mjs",

@@ -1,6 +1,6 @@
 # Six Sigma Study App Project State
 
-Last updated: 2026-07-14 Asia/Shanghai
+Last updated: 2026-07-16 Asia/Shanghai
 
 ## Objective
 
@@ -20,15 +20,29 @@ The final product must support full-manual offline reading, position-preserving 
 
 ## Current Evidence
 
-- Product version: `Beta 0.8.10` (`0.8.10-beta.0` in npm, Android `versionCode 810` / `versionName 0.8.10-beta`). During the current beta line, each user-facing update increments the patch version.
+- Product version: `Beta 0.8.11` (`0.8.11-beta.0` in npm, Android `versionCode 811` / `versionName 0.8.11-beta`). During the current beta line, each user-facing update increments the patch version.
 - Branch: `main`
 - Latest workspace migration validation pass: 2026-06-26 00:33 Asia/Shanghai
 - Local workspace root: `D:\0A OpenClaw\projects\6sigma`
-- Local worktree: Beta 0.8.10 study assistance and chapter-flow release verified locally and in GitHub Actions
-- Latest confirmed GitHub Actions state: CI run `29323870934` passed all build, browser-QA, and Android-debug jobs for Beta 0.8.10 feature commit `f26d22f`
+- Local worktree: Beta 0.8.11 dictionary-first phrase review verified in browser and the installed Android release; current GitHub Actions run is recorded after push
+- Latest confirmed GitHub Actions state before this release: CI run `29324041643` passed all jobs for Beta 0.8.10 commit `f5fa240`
 - Release APK after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with a simple Now Reading / Today's Study / Library / Recent Notes home hierarchy, a real source cover, one live route shell, opacity-only navigation, reduced-motion fallback, source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, book-isolated persisted reading positions and chapter-completion state, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, occurrence-level bilingual context glosses, fixed-chrome draggable lookup sheets, 3980-entry public offline learner dictionary plus an ignored 3550-entry local private-question supplement, bounded DeepSeek selected-text explanations and question coaching, local AI result reuse, due-only vocabulary review scheduling and CSV export, selected-text study notes, timed mock exams, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with a simple Now Reading / Today's Study / Library / Recent Notes home hierarchy, a real source cover, one live route shell, opacity-only navigation, reduced-motion fallback, source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, book-isolated persisted reading positions and chapter-completion state, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, longest-match phrase lookup, occurrence-level bilingual context glosses, fixed-chrome draggable lookup sheets, 3980-entry public offline learner dictionary plus an ignored 3550-entry local private-question supplement, bounded DeepSeek selected-text explanations and question coaching, persisted per-term AI study supplements, dictionary-first due-only vocabulary review scheduling and CSV export, exact source-range return, selected-text study notes, timed mock exams, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+
+## 2026-07-16 Dictionary-First Phrase Review Beta 0.8.11
+
+- Changed flashcard recall and multiple-choice answers to use the canonical offline dictionary meaning only. Occurrence-level context meaning and optional AI clarification remain separate supporting evidence and can no longer become the answer key.
+- Added longest-match dictionary lookup around the tapped occurrence, preserving entries such as `trial and error` and `Six Sigma` as complete phrases instead of silently degrading to the first token.
+- Added exact source character ranges and occurrence indexes to saved terms, CSV export, source-return highlighting, and legacy-data migration. Invalid legacy source text now stays unanchored instead of being attached to an unrelated first word.
+- Replaced long source excerpts with a bounded one-sentence study example, underlined the target word or phrase, and capped the aligned Chinese example length.
+- Persisted accepted or explicitly requested AI context meaning, translation, explanation, model, and generation time on each vocabulary record. AI remains user-triggered and uses the existing private personal-key boundary.
+- Rebuilt the review screen as a fixed-height session: only the answer body scrolls, while `不认识 / 模糊 / 认识` remains in a thumb-reachable bottom dock. Body scrolling and horizontal overflow remain zero.
+- Added `qa:vocab-study-ux` with browser and installed-Android coverage for phrase migration, canonical dictionary choices, exact positions, stale-source safety, short underlined examples, AI persistence, and rating-dock reachability. Existing learning, lexical, multi-book, maturity, AI, and Target 4 suites also pass.
+- Installed Android release verification passed with `versionCode 811` / `versionName 0.8.11-beta`; native lookup recognizes `Six Sigma`, fixed lookup chrome remains stable after a 260 px body scroll, and reading/question AI entry points plus chapter completion remain intact.
+- Final local release artifacts:
+  - APK: 41,262,203 bytes; SHA-256 `ABC1FE870ADE09712400C33D25BF812ABF4BBCECCAAB4116AEA252CFFF2BEA3E`; APK Signature Scheme v2 verified with one signer.
+  - AAB: 39,013,393 bytes; SHA-256 `231C2D35071F1612FC3284F0CFCB90163ACF7186C5F72E8EABF94B8E5DF72257`; JAR signature verification passed with expected local self-signed/no-timestamp warnings.
 
 ## 2026-07-14 Fixed Sheets, Chapter Completion, and AI Study Assistance Beta 0.8.10
 

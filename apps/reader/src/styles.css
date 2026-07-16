@@ -2724,6 +2724,200 @@ h1 {
   }
 }
 
+/* Beta 0.8.11: phrase-aware vocabulary review with a thumb-reachable rating dock. */
+.studySessionShell {
+  grid-template-rows: auto minmax(0, 1fr);
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+  padding-bottom: max(8px, env(safe-area-inset-bottom));
+}
+
+.studySessionShell .appPageHeader {
+  padding: 0 2px 12px;
+}
+
+.studySessionShell .appPageHeader h1 {
+  font-size: 27px;
+}
+
+.studySessionShell .appPageHeader > div > p:last-child {
+  display: none;
+}
+
+.studySessionShell .appPageContent {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.flashReviewPanel {
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 0;
+  height: 100%;
+  min-height: 0;
+  padding: 0 !important;
+  border: 0;
+}
+
+.flashReviewScroller {
+  min-height: 0;
+  padding: 12px 2px 18px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+.flashReviewScroller .flashCard {
+  min-height: 100%;
+  box-shadow: none;
+}
+
+.flashTermMeta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.phraseBadge {
+  padding: 3px 7px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--page-accent-strong);
+  background: var(--surface-muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.flashDictionarySummary > span,
+.flashAiSupplement > div > span {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.flashLexicalDetails {
+  margin-top: 2px;
+  color: var(--text-muted);
+}
+
+.flashLexicalDetails summary {
+  min-height: 36px;
+  padding: 8px 0;
+  color: var(--page-accent-strong);
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.flashExample {
+  display: grid;
+  gap: 7px;
+  padding: 13px 14px;
+}
+
+.flashExample p {
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.studyTargetTerm {
+  color: var(--heading);
+  font-weight: 780;
+  text-decoration-color: var(--page-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.wordToken.sourceTermHighlight {
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--page-accent) 22%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--page-accent) 18%, transparent);
+}
+
+.flashAiSupplement {
+  display: grid;
+  gap: 7px;
+  padding: 12px 0 2px;
+  border-top: 1px solid var(--border);
+}
+
+.flashAiSupplement > div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flashAiSupplement > div > span,
+.vocabAiSummary > strong {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.flashAiSupplement button {
+  min-height: 38px;
+  padding: 7px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 5px;
+  color: var(--page-accent-strong);
+  background: var(--surface);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.flashAiSupplement strong,
+.flashAiSupplement p,
+.flashAiSupplement small {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.flashAiSupplement small {
+  color: var(--text-muted);
+}
+
+.flashAiSupplement small.error {
+  color: var(--danger, #a33232);
+}
+
+.flashRatingDock {
+  z-index: 3;
+  display: grid;
+  gap: 7px;
+  padding: 10px 2px max(8px, env(safe-area-inset-bottom));
+  border-top: 1px solid var(--border);
+  background: var(--app-bg);
+  box-shadow: 0 -12px 24px color-mix(in srgb, var(--app-bg) 92%, transparent);
+}
+
+.flashRatingDock > span {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.flashRatingDock .flashRatingActions button {
+  min-height: 50px;
+}
+
+.vocabAiSummary {
+  display: grid;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 11px 12px;
+  border-left: 3px solid var(--page-accent);
+  background: var(--surface-muted);
+}
+
+.vocabAiSummary p,
+.vocabAiSummary span {
+  margin: 0;
+  line-height: 1.5;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

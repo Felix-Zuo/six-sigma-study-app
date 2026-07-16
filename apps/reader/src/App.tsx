@@ -26,6 +26,12 @@ import {
 } from "lucide-react";
 import { normalizeLookup, tokenizeEnglish } from "./lib/tokenize";
 import {
+  compactStudyExample,
+  compactStudyTranslation,
+  resolveDictionaryTarget,
+  type StudyExample
+} from "./lib/vocabStudy";
+import {
   resolveContextExplanation,
   type ContextBlockGloss,
   type ContextExplanation
@@ -207,10 +213,14 @@ type ManualData = {
 type ActiveLookup = {
   query: string;
   entry: TermEntry;
+  entryKind: "word" | "phrase";
   page: number;
   sectionId: string;
   blockId?: string;
   sourceText: string;
+  sourceStart?: number;
+  sourceEnd?: number;
+  sourceOccurrence?: number;
   sourceTranslation?: string;
   context: ContextExplanation;
   baseContext: ContextExplanation;
@@ -266,6 +276,9 @@ type SelectedPhrase = {
   page: number;
   sectionId: string;
   blockId?: string;
+  sourceText: string;
+  sourceStart?: number;
+  sourceEnd?: number;
   canLookup: boolean;
 };
 
@@ -275,6 +288,7 @@ type BookFilter = "all" | string;
 type VocabSort = "recent" | "due" | "page";
 type VocabPageMode = "plan" | "library";
 type FlashReviewStage = "prompt" | "quiz" | "answer" | "complete";
+type FlashAiStatus = "idle" | "loading" | "ready" | "error";
 type NotesSort = "updated" | "page";
 type FavoritesSort = "recent" | "page";
 type SourceAnchor = {
@@ -284,13 +298,17 @@ type SourceAnchor = {
   sectionId: string;
   blockId?: string;
   language?: Language;
+  sourceStart?: number;
+  sourceEnd?: number;
 };
 type LookupTextHandler = (
   text: string,
   page: number,
   sectionId: string,
   blockId: string | undefined,
-  sourceText: string
+  sourceText: string,
+  sourceStart?: number,
+  sourceEnd?: number
 ) => void;
 type TocSearchResult =
   | { kind: "chapter"; chapter: Lesson }
@@ -314,8 +332,8 @@ type PageGroup = {
 
 const defaultBookId = "six-sigma-black-belt";
 const defaultBookTitle = "六西格玛黑带教材";
-const productVersionLabel = "Beta 0.8.10";
-const productVersionId = "0.8.10-beta";
+const productVersionLabel = "Beta 0.8.11";
+const productVersionId = "0.8.11-beta";
 const githubProfileUrl = "https://github.com/Felix-Zuo";
 const catalogPath = "content/catalog.json";
 const bundledQuestionBankPath = "content/private/question-bank.private.json";
@@ -443,33 +461,6 @@ function buildPageGroups(sections: LessonSection[]): PageGroup[] {
   return groups.sort((a, b) => a.page - b.page);
 }
 
-function sourceContextForTerm(text: string, term: string): string {
-  const normalizedText = text.toLocaleLowerCase();
-  const normalizedTerm = term.toLocaleLowerCase();
-  const index = normalizedText.indexOf(normalizedTerm);
-  if (index < 0) {
-    return text.length > 260 ? `${text.slice(0, 240).trim()}...` : text;
-  }
-
-  const before = text.slice(0, index);
-  const after = text.slice(index + term.length);
-  const leftBoundary = Math.max(
-    before.lastIndexOf("."),
-    before.lastIndexOf("?"),
-    before.lastIndexOf("!"),
-    before.lastIndexOf(";"),
-    before.lastIndexOf("\n")
-  );
-  const rightCandidates = [after.indexOf("."), after.indexOf("?"), after.indexOf("!"), after.indexOf(";")]
-    .filter((value) => value >= 0)
-    .map((value) => index + term.length + value + 1);
-  const rightBoundary = rightCandidates.length > 0 ? Math.min(...rightCandidates) : text.length;
-  const start = leftBoundary >= 0 ? leftBoundary + 1 : Math.max(0, index - 120);
-  const end = rightBoundary > index ? rightBoundary : Math.min(text.length, index + term.length + 160);
-  const context = text.slice(start, end).trim();
-  return context.length > 320 ? `${context.slice(0, 300).trim()}...` : context;
-}
-
 function formatExamCountdown(totalSeconds: number): string {
   const safeSeconds = Math.max(0, Math.ceil(totalSeconds));
   const minutes = Math.floor(safeSeconds / 60);
@@ -492,10 +483,21 @@ function formatNextReview(term: SavedTerm): string {
   return `下次 ${date.getMonth() + 1}/${date.getDate()}`;
 }
 
-function savedTermStudyMeaning(term: SavedTerm): string {
-  return term.contextMeaning && term.contextMeaning !== "暂无可靠语境义"
-    ? term.contextMeaning
-    : term.translation;
+function savedTermDictionaryMeaning(term: SavedTerm, liveDictionaryMeaning?: string): string {
+  return liveDictionaryMeaning || term.dictionaryMeaning || term.translation;
+}
+
+function renderStudyExample(example: StudyExample): ReactNode {
+  if (example.targetStart < 0 || example.targetEnd <= example.targetStart) {
+    return example.text;
+  }
+  return (
+    <>
+      {example.text.slice(0, example.targetStart)}
+      <u className="studyTargetTerm">{example.text.slice(example.targetStart, example.targetEnd)}</u>
+      {example.text.slice(example.targetEnd)}
+    </>
+  );
 }
 
 function clamp(value: number, min: number, max: number): number {
@@ -727,12 +729,14 @@ function InlineReaderText({
             role="button"
             tabIndex={keyboardEntry && index === firstWordIndex ? 0 : -1}
             aria-label={`查询 ${token.text} 的释义`}
+            data-source-start={token.start}
+            data-source-end={token.end}
             onClick={(event) => {
               focusWordToken(event.currentTarget);
-              onLookup(token.text, page, sectionId, blockId, sourceContextForTerm(text, token.text));
+              onLookup(token.text, page, sectionId, blockId, text, token.start, token.end);
             }}
             onKeyDown={(event) => handleWordTokenKeyDown(event, () =>
-              onLookup(token.text, page, sectionId, blockId, sourceContextForTerm(text, token.text))
+              onLookup(token.text, page, sectionId, blockId, text, token.start, token.end)
             )}
           >
             {token.text}
@@ -754,7 +758,7 @@ function InlineQuestionText({
   text: string;
   language: Language;
   keyboardEntry?: boolean;
-  onLookup: (text: string, sourceText: string) => void;
+  onLookup: (text: string, sourceText: string, sourceStart?: number, sourceEnd?: number) => void;
 }) {
   const displayText = text || "";
   const tokens = useMemo(() => (language === "en" ? tokenizeEnglish(displayText) : []), [displayText, language]);
@@ -778,10 +782,10 @@ function InlineQuestionText({
             onClick={(event) => {
               event.stopPropagation();
               focusWordToken(event.currentTarget);
-              onLookup(token.text, sourceContextForTerm(displayText, token.text));
+              onLookup(token.text, displayText, token.start, token.end);
             }}
             onKeyDown={(event) => handleWordTokenKeyDown(event, () =>
-              onLookup(token.text, sourceContextForTerm(displayText, token.text))
+              onLookup(token.text, displayText, token.start, token.end)
             )}
           >
             {token.text}
@@ -850,6 +854,8 @@ export function App() {
   const [flashSessionReviewed, setFlashSessionReviewed] = useState(0);
   const [flashSessionGoal, setFlashSessionGoal] = useState(0);
   const [flashQuizSelection, setFlashQuizSelection] = useState("");
+  const [flashAiStatus, setFlashAiStatus] = useState<FlashAiStatus>("idle");
+  const [flashAiMessage, setFlashAiMessage] = useState("");
   const [pronunciationMessage, setPronunciationMessage] = useState("");
   const [questionMode, setQuestionMode] = useState<QuestionMode>("home");
   const [questionLanguage, setQuestionLanguage] = useState<Language>("zh");
@@ -882,6 +888,7 @@ export function App() {
   const overlayHistoryRef = useRef(false);
   const pendingScrollSectionRef = useRef<string | null>(null);
   const pendingScrollBlockRef = useRef<string | null>(null);
+  const pendingSourceRangeRef = useRef<{ start: number; end: number } | null>(null);
   const pendingLanguageScrollRef = useRef<PendingLanguageScroll | null>(null);
   const savedScrollLockRef = useRef(0);
   const sheetDragRef = useRef<{ startY: number; startHeight: number; currentHeight: number } | null>(null);
@@ -1109,36 +1116,53 @@ export function App() {
   const currentFlashTermId = flashSessionIds[Math.min(flashReviewIndex, Math.max(0, flashSessionIds.length - 1))];
   const currentFlashTerm = savedTerms.find((item) => item.id === currentFlashTermId);
   const currentFlashEntry = currentFlashTerm
-    ? lookupCandidates(currentFlashTerm.term).map((key) => termIndex.get(key)).find(Boolean)
+    ? normalizeLookup(currentFlashTerm.term).includes(" ")
+      ? termIndex.get(normalizeLookup(currentFlashTerm.term))
+      : lookupCandidates(currentFlashTerm.term).map((key) => termIndex.get(key)).find(Boolean)
     : undefined;
+  const currentFlashDictionaryMeaning = currentFlashTerm
+    ? savedTermDictionaryMeaning(currentFlashTerm, currentFlashEntry?.translation)
+    : "";
+  const currentFlashExample = useMemo(() => compactStudyExample(
+    currentFlashTerm?.exampleText || currentFlashTerm?.sourceText || "",
+    currentFlashTerm?.term || "",
+    currentFlashTerm?.exampleText === currentFlashTerm?.sourceText ? currentFlashTerm?.sourceStart : undefined
+  ), [currentFlashTerm]);
   const flashDictionaryReady = Boolean(
     !manualLoading && manual?.bookId === currentBookId && termIndex.size > 0
   );
   const currentFlashExampleTranslation = useMemo(() => {
-    if (!currentFlashTerm || !manual || manual.bookId !== currentFlashTerm.bookId) {
-      return currentFlashTerm?.exampleTranslation || currentFlashTerm?.sourceTranslation;
+    if (!currentFlashTerm) return undefined;
+    if (currentFlashTerm.exampleTranslation) {
+      return compactStudyTranslation(currentFlashTerm.exampleTranslation);
     }
-    if (currentFlashTerm.contextCorrectionId) {
-      return currentFlashTerm.exampleTranslation || currentFlashTerm.sourceTranslation;
+    if (!manual || manual.bookId !== currentFlashTerm.bookId) {
+      return compactStudyTranslation(currentFlashTerm.sourceTranslation);
     }
     const section = currentFlashTerm.sourceType === "manual"
       ? manual.chapters.flatMap((chapter) => chapter.sections).find((item) => item.id === currentFlashTerm.sectionId)
       : undefined;
-    return alignedBlockTranslation(
-      section,
-      currentFlashTerm.blockId,
-      currentFlashTerm.page,
-      manual.contextGlosses
-    ) || currentFlashTerm.exampleTranslation || currentFlashTerm.sourceTranslation;
-  }, [currentFlashTerm, manual]);
+    const sourceTranslation = alignedBlockTranslation(
+      section, currentFlashTerm.blockId, currentFlashTerm.page, manual.contextGlosses
+    ) || currentFlashTerm.sourceTranslation;
+    const context = resolveContextExplanation({
+      query: currentFlashTerm.term,
+      dictionaryTranslation: currentFlashDictionaryMeaning,
+      partOfSpeech: currentFlashEntry?.partOfSpeech || currentFlashTerm.partOfSpeech,
+      sourceText: currentFlashTerm.sourceText,
+      sourceTranslation,
+      contextGloss: currentFlashTerm.blockId ? manual.contextGlosses?.[currentFlashTerm.blockId] : undefined
+    });
+    return compactStudyTranslation(context.exampleTranslation || sourceTranslation);
+  }, [currentFlashDictionaryMeaning, currentFlashEntry, currentFlashTerm, manual]);
   const flashQuizOptions = useMemo(() => {
     if (!currentFlashTerm) {
       return [];
     }
-    const answer = savedTermStudyMeaning(currentFlashTerm);
+    const answer = currentFlashDictionaryMeaning;
     const pool = [
       answer,
-      ...savedTerms.map(savedTermStudyMeaning),
+      ...savedTerms.map((item) => savedTermDictionaryMeaning(item)),
       "流程能力",
       "样本数量",
       "控制要求",
@@ -1148,7 +1172,7 @@ export function App() {
     const options = [answer, ...distractors];
     const offset = [...currentFlashTerm.term].reduce((sum, char) => sum + char.charCodeAt(0), 0) % options.length;
     return [...options.slice(offset), ...options.slice(0, offset)];
-  }, [currentFlashTerm, savedTerms]);
+  }, [currentFlashDictionaryMeaning, currentFlashTerm, savedTerms]);
   const textScaleIndex = textScaleOrder.indexOf(readerPreferences.textScale);
   const pageGroups = useMemo(() => buildPageGroups(lesson?.sections ?? []), [lesson]);
   const keyboardLookupBlockId = useMemo(() => {
@@ -1251,10 +1275,20 @@ export function App() {
         if (item.bookId !== currentBookId) {
           return item;
         }
-        const entry = lookupCandidates(item.term).map((key) => termIndex.get(key)).find(Boolean);
+        const target = resolveDictionaryTarget(
+          item.term,
+          item.sourceText,
+          item.sourceStart,
+          item.sourceEnd,
+          (key) => termIndex.get(key)
+        );
+        const entry = target?.entry ?? (normalizeLookup(item.term).includes(" ")
+          ? termIndex.get(normalizeLookup(item.term))
+          : lookupCandidates(item.term).map((key) => termIndex.get(key)).find(Boolean));
         if (!entry || entry.translation === "待完善") {
           return item;
         }
+        const resolvedTerm = target?.query || item.term;
         const savedSection = item.sourceType === "manual"
           ? manual.chapters.flatMap((chapter) => chapter.sections).find((section) => section.id === item.sectionId)
           : undefined;
@@ -1262,39 +1296,39 @@ export function App() {
           || item.exampleTranslation
           || item.sourceTranslation;
         const context = resolveContextExplanation({
-          query: item.term,
+          query: resolvedTerm,
           dictionaryTranslation: entry.translation,
           partOfSpeech: entry.partOfSpeech,
           sourceText: item.exampleText || item.sourceText,
           sourceTranslation: alignedTranslation,
           contextGloss: item.blockId ? manual.contextGlosses?.[item.blockId] : undefined
         });
-        const shouldReplaceTranslation = !item.translation
-          || item.translation === "待完善"
-          || item.translation === item.contextMeaning;
-        const shouldReplaceContext = !item.contextCorrectionId && (
-          item.sourceType === "manual"
-          || !item.contextMeaning
-          || item.contextMeaning === "待完善"
-          || item.contextMeaning === item.translation
-        );
+        const shouldReplaceContext = !item.contextCorrectionId;
         const updated: SavedTerm = {
           ...item,
-          translation: shouldReplaceTranslation ? entry.translation : item.translation,
+          term: resolvedTerm,
+          translation: entry.translation,
+          dictionaryMeaning: entry.translation,
+          entryKind: target?.entryKind ?? (normalizeLookup(resolvedTerm).includes(" ") ? "phrase" : "word"),
           partOfSpeech: entry.partOfSpeech || item.partOfSpeech,
           phonetic: entry.phonetic || item.phonetic,
           wordRoot: entry.wordRoot || item.wordRoot,
           wordForms: entry.wordForms?.length ? entry.wordForms : item.wordForms,
           englishDefinition: entry.englishDefinition || item.englishDefinition,
           dictionaryExplanation: entry.explanation || item.dictionaryExplanation,
+          sourceStart: target?.sourceStart ?? item.sourceStart,
+          sourceEnd: target?.sourceEnd ?? item.sourceEnd,
+          sourceOccurrence: target?.sourceOccurrence ?? item.sourceOccurrence,
           sourceTranslation: item.contextCorrectionId ? item.sourceTranslation : alignedTranslation || item.sourceTranslation,
           contextMeaning: shouldReplaceContext ? context.meaning : item.contextMeaning,
           contextExplanation: shouldReplaceContext ? context.explanation : item.contextExplanation || context.explanation,
+          exampleText: item.contextCorrectionId ? item.exampleText : context.exampleText || item.exampleText,
           exampleTranslation: item.contextCorrectionId ? item.exampleTranslation : context.exampleTranslation || item.exampleTranslation
         };
         const fields: (keyof SavedTerm)[] = [
-          "translation", "partOfSpeech", "phonetic", "wordRoot", "wordForms", "englishDefinition",
-          "dictionaryExplanation", "sourceTranslation", "contextMeaning", "contextExplanation", "exampleTranslation"
+          "term", "translation", "dictionaryMeaning", "entryKind", "partOfSpeech", "phonetic", "wordRoot", "wordForms", "englishDefinition",
+          "dictionaryExplanation", "sourceStart", "sourceEnd", "sourceOccurrence", "sourceTranslation", "contextMeaning",
+          "contextExplanation", "exampleText", "exampleTranslation"
         ];
         const differs = fields.some((field) => JSON.stringify(updated[field]) !== JSON.stringify(item[field]));
         if (differs) {
@@ -1588,6 +1622,11 @@ export function App() {
     setFlashSessionGoal(0);
     setFlashQuizSelection("");
   }, [studyBookFilter]);
+
+  useEffect(() => {
+    setFlashAiStatus("idle");
+    setFlashAiMessage("");
+  }, [currentFlashTermId]);
 
   useEffect(() => {
     if (!flashReviewActive) {
@@ -2036,8 +2075,21 @@ export function App() {
           setHighlightBlockId(blockId);
           window.setTimeout(() => setHighlightBlockId(""), 2600);
         }
+        const sourceRange = pendingSourceRangeRef.current;
+        if (sourceRange && node instanceof HTMLElement) {
+          const tokens = [...node.querySelectorAll<HTMLElement>(".wordToken[data-source-start][data-source-end]")]
+            .filter((token) => {
+              const start = Number(token.dataset.sourceStart);
+              const end = Number(token.dataset.sourceEnd);
+              return Number.isFinite(start) && Number.isFinite(end) && start < sourceRange.end && end > sourceRange.start;
+            });
+          tokens.forEach((token) => token.classList.add("sourceTermHighlight"));
+          tokens[0]?.scrollIntoView({ block: "center", inline: "nearest" });
+          window.setTimeout(() => tokens.forEach((token) => token.classList.remove("sourceTermHighlight")), 2600);
+        }
         pendingScrollSectionRef.current = null;
         pendingScrollBlockRef.current = null;
+        pendingSourceRangeRef.current = null;
       }
     });
     return () => window.cancelAnimationFrame(handle);
@@ -2046,9 +2098,10 @@ export function App() {
   useEffect(() => {
     function handleSelectionChange() {
       const selection = window.getSelection();
-      const text = selection?.toString().trim() ?? "";
+      const rawText = selection?.toString() ?? "";
+      const text = rawText.trim();
       const anchorNode = selection?.anchorNode;
-      if (!text || !anchorNode || !readerRef.current?.contains(anchorNode)) {
+      if (!text || !anchorNode || !readerRef.current?.contains(anchorNode) || !selection?.rangeCount) {
         setSelectedPhrase(null);
         return;
       }
@@ -2059,10 +2112,11 @@ export function App() {
         return;
       }
 
-      const anchorElement =
-        anchorNode.nodeType === Node.ELEMENT_NODE
-          ? (anchorNode as Element)
-          : anchorNode.parentElement;
+      const range = selection.getRangeAt(0);
+      const rangeNode = range.startContainer;
+      const anchorElement = rangeNode.nodeType === Node.ELEMENT_NODE
+        ? (rangeNode as Element)
+        : rangeNode.parentElement;
       const sectionNode = anchorElement?.closest<HTMLElement>("[data-section-id]");
       const sectionId = sectionNode?.dataset.sectionId;
       const section = lesson?.sections.find((candidate) => candidate.id === sectionId);
@@ -2072,13 +2126,25 @@ export function App() {
       }
       const blockNode = anchorElement?.closest<HTMLElement>("[data-block-id]");
       const blockPage = Number(blockNode?.dataset.page);
+      const sameBlock = Boolean(blockNode?.contains(range.endContainer));
+      const sourceText = sameBlock ? blockNode?.textContent ?? text : text;
+      let sourceStart: number | undefined;
+      if (blockNode && sameBlock) {
+        const prefix = document.createRange();
+        prefix.selectNodeContents(blockNode);
+        prefix.setEnd(range.startContainer, range.startOffset);
+        sourceStart = prefix.toString().length + (rawText.length - rawText.trimStart().length);
+      }
 
       setSelectedPhrase({
         text,
         page: Number.isFinite(blockPage) ? blockPage : section.page,
         sectionId: section.id,
         blockId: blockNode?.dataset.blockId,
-        canLookup: language === "en" && normalized.includes(" ")
+        sourceText,
+        sourceStart,
+        sourceEnd: sourceStart === undefined ? undefined : sourceStart + text.length,
+        canLookup: language === "en" && normalized.includes(" ") && sameBlock
       });
     }
     document.addEventListener("selectionchange", handleSelectionChange);
@@ -2313,6 +2379,9 @@ export function App() {
     setReaderMenuOpen(false);
     pendingScrollSectionRef.current = anchor.sectionId;
     pendingScrollBlockRef.current = anchor.blockId ?? null;
+    pendingSourceRangeRef.current = anchor.sourceStart === undefined || anchor.sourceEnd === undefined
+      ? null
+      : { start: anchor.sourceStart, end: anchor.sourceEnd };
     if (targetBookLoaded) {
       selectSource(anchor.sectionId, anchor.blockId, anchor.page);
     }
@@ -2503,7 +2572,7 @@ export function App() {
     if (!selectedPhrase || language !== "en" || !lesson) return;
     const section = lesson.sections.find((item) => item.id === selectedPhrase.sectionId);
     const block = section?.content.en.find((item) => item.id === selectedPhrase.blockId);
-    const contextEn = boundedAiText(readableBlockText(block) || selectedPhrase.text, 2400);
+    const contextEn = boundedAiText(selectedPhrase.sourceText || readableBlockText(block) || selectedPhrase.text, 2400);
     const contextZh = boundedAiText(
       alignedBlockTranslation(section, selectedPhrase.blockId, selectedPhrase.page, manual?.contextGlosses) || "",
       2400
@@ -2592,8 +2661,14 @@ export function App() {
     }
   }
 
-  function activeLookupId(lookup: Pick<ActiveLookup, "query" | "blockId" | "sourceText" | "questionSource">): string {
-    return [lookup.questionSource ? "question" : "manual", lookup.blockId ?? "", normalizeLookup(lookup.query), lookup.sourceText].join("|");
+  function activeLookupId(lookup: Pick<ActiveLookup, "query" | "blockId" | "sourceText" | "sourceStart" | "questionSource">): string {
+    return [
+      lookup.questionSource ? "question" : "manual",
+      lookup.blockId ?? "",
+      normalizeLookup(lookup.query),
+      lookup.sourceStart ?? "",
+      lookup.sourceText
+    ].join("|");
   }
 
   function openLookup(base: Omit<ActiveLookup, "baseContext">) {
@@ -2747,7 +2822,12 @@ export function App() {
         contextExplanation: accepted.after.explanationZh,
         sourceTranslation: accepted.after.sentenceTranslationZh,
         exampleTranslation: accepted.after.sentenceTranslationZh,
-        contextCorrectionId: accepted.id
+        contextCorrectionId: accepted.id,
+        aiContextMeaning: accepted.after.contextMeaningZh,
+        aiTranslation: accepted.after.sentenceTranslationZh,
+        aiExplanation: accepted.after.explanationZh,
+        aiModel: accepted.provenance.model,
+        aiGeneratedAt: now
       } : item;
     }));
     setAiLookupState({ lookupId: aiLookupState.lookupId, status: "accepted", correction: accepted });
@@ -2770,27 +2850,45 @@ export function App() {
     setAiLookupState({ lookupId: aiLookupState.lookupId, status: "idle", message: "已撤销本处修订。" });
   }
 
-  function lookupQuestionText(text: string, question: QuestionItem, sourceText: string, sourceTranslation?: string) {
-    const entry = lookupCandidates(text).map((key) => termIndex.get(key)).find(Boolean) ?? lookupFallback(text);
+  function lookupQuestionText(
+    text: string,
+    question: QuestionItem,
+    sourceText: string,
+    sourceTranslation?: string,
+    sourceStart?: number,
+    sourceEnd?: number
+  ) {
+    const target = resolveDictionaryTarget(text, sourceText, sourceStart, sourceEnd, (key) => termIndex.get(key));
+    const query = target?.query || text.trim();
+    const phraseInput = normalizeLookup(text).includes(" ");
+    const entry = target?.entry
+      ?? (phraseInput
+        ? termIndex.get(normalizeLookup(text))
+        : lookupCandidates(text).map((key) => termIndex.get(key)).find(Boolean))
+      ?? lookupFallback(query);
     ensureOverlayHistory();
     setShowToc(false);
     setShowVocab(false);
     setShowNotes(false);
     setSheetHeightVh(52);
     const context = resolveContextExplanation({
-      query: text,
+      query,
       dictionaryTranslation: entry.translation,
       partOfSpeech: entry.partOfSpeech,
       sourceText,
       sourceTranslation
     });
     openLookup({
-      query: text,
+      query,
       entry,
+      entryKind: target?.entryKind ?? (normalizeLookup(query).includes(" ") ? "phrase" : "word"),
       page: question.page,
       sectionId: "__question__",
       blockId: question.questionId,
       sourceText,
+      sourceStart: target?.sourceStart ?? sourceStart,
+      sourceEnd: target?.sourceEnd ?? sourceEnd,
+      sourceOccurrence: target?.sourceOccurrence,
       sourceTranslation,
       context,
       questionSource: {
@@ -2810,7 +2908,8 @@ export function App() {
         text={text}
         language={questionLanguage}
         keyboardEntry={keyboardEntry}
-        onLookup={(token, sourceText) => lookupQuestionText(token, question, sourceText, sourceTranslation)}
+        onLookup={(token, sourceText, sourceStart, sourceEnd) =>
+          lookupQuestionText(token, question, sourceText, sourceTranslation, sourceStart, sourceEnd)}
       />
     );
   }
@@ -3589,96 +3688,128 @@ export function App() {
                 </div>
                 <strong>{flashSessionReviewed + 1}/{flashSessionIds.length}</strong>
               </div>
-              <article className="flashCard">
-                <p className="eyebrow">
-                  {currentFlashTerm.sourceType === "question" ? "题目来源单词" : currentFlashTerm.bookTitle}
-                </p>
-                <h2>{currentFlashTerm.term}</h2>
-                <div className="flashTermMeta">
-                  {(currentFlashEntry?.phonetic || currentFlashTerm.phonetic) && (
-                    <span className="phonetic">/{currentFlashEntry?.phonetic || currentFlashTerm.phonetic}/</span>
-                  )}
-                  {(currentFlashEntry?.partOfSpeech || currentFlashTerm.partOfSpeech) && (
-                    <span>{currentFlashEntry?.partOfSpeech || currentFlashTerm.partOfSpeech}</span>
-                  )}
-                  <button
-                    className="iconAction pronounceIconButton"
-                    aria-label={`播放 ${currentFlashTerm.term} 的英语发音`}
-                    title="播放英语发音"
-                    onClick={() => speakTerm(currentFlashTerm.term)}
-                  >
-                    <Volume2 size={20} />
-                  </button>
-                </div>
-                {pronunciationMessage && <p className="pronunciationMessage" role="status">{pronunciationMessage}</p>}
-                {flashReviewStage === "prompt" && (
-                  <div className="flashPromptActions">
-                    <p className="flashHint">先回忆它在原文里的意思。</p>
-                    <button className="primaryAction" onClick={() => setFlashReviewStage("quiz")}>想起来了</button>
-                    <button onClick={() => {
-                      setFlashQuizSelection("__unknown__");
-                      setFlashReviewStage("answer");
-                    }}>暂时想不起来</button>
-                  </div>
-                )}
-                {flashReviewStage === "quiz" && (
-                  <div className="flashQuiz">
-                    <p>它在当前语境中的意思是：</p>
-                    {flashQuizOptions.map((option) => (
-                      <button
-                        key={option}
-                        onClick={() => {
-                          setFlashQuizSelection(option);
-                          setFlashReviewStage("answer");
-                        }}
-                      >
-                        {option}
-                      </button>
-                    ))}
-                  </div>
-                )}
-                {flashReviewStage === "answer" && (
-                  <div className="flashAnswer">
-                    {flashQuizSelection !== "__unknown__" && (
-                      <p className={flashQuizSelection === savedTermStudyMeaning(currentFlashTerm) ? "answerFeedback correct" : "answerFeedback wrong"}>
-                        {flashQuizSelection === savedTermStudyMeaning(currentFlashTerm)
-                          ? "选择正确。请按真实记忆程度安排下次复习。"
-                          : "选择不符。看完语境后再评估本次记忆。"}
-                      </p>
+              <div className="flashReviewScroller" data-flash-review-scroll>
+                <article className="flashCard">
+                  <p className="eyebrow">
+                    {currentFlashTerm.sourceType === "question" ? "题目来源词语" : currentFlashTerm.bookTitle}
+                  </p>
+                  <h2>{currentFlashTerm.term}</h2>
+                  <div className="flashTermMeta">
+                    {(currentFlashEntry?.phonetic || currentFlashTerm.phonetic) && (
+                      <span className="phonetic">/{currentFlashEntry?.phonetic || currentFlashTerm.phonetic}/</span>
                     )}
-                    <section className="flashDictionarySummary">
-                      <span>常用释义</span>
-                      <p className="dictionaryTranslation">{currentFlashEntry?.translation || currentFlashTerm.translation}</p>
-                      {(currentFlashEntry?.wordRoot || currentFlashTerm.wordRoot) && (
-                        <p className="wordRootLine">原形 / 词根：{currentFlashEntry?.wordRoot || currentFlashTerm.wordRoot}</p>
-                      )}
-                      {(currentFlashEntry?.wordForms?.length || currentFlashTerm.wordForms?.length) ? (
-                        <p className="wordRootLine">词形：{(currentFlashEntry?.wordForms || currentFlashTerm.wordForms)?.join("；")}</p>
-                      ) : null}
-                    </section>
-                    <section className="contextMeaningCard compact">
-                      <span>本句中的意思</span>
-                      <p className="translation">{savedTermStudyMeaning(currentFlashTerm)}</p>
-                      <p>{currentFlashTerm.contextExplanation || "结合下面的原句理解并重新记忆。"}</p>
-                    </section>
-                    <div className="flashExample">
-                      <strong>例句</strong>
-                      <p lang="en">{currentFlashTerm.exampleText || currentFlashTerm.sourceText}</p>
-                      <p className={(currentFlashTerm.exampleTranslation || currentFlashTerm.sourceTranslation) ? "" : "translationUnavailable"}>
-                        {currentFlashExampleTranslation || "该私有题源暂未附经审核的中文译文。"}
-                      </p>
-                    </div>
-                    <div className="sourceLine">
-                      {currentFlashTerm.sourceType === "question" ? "题目" : currentFlashTerm.chapterTitle} · p. {currentFlashTerm.sourcePage ?? currentFlashTerm.page}
-                    </div>
-                    <div className="flashRatingActions" aria-label="本次记忆程度">
-                      <button onClick={() => reviewSavedTerm(currentFlashTerm.id, "again")}>不认识</button>
-                      <button onClick={() => reviewSavedTerm(currentFlashTerm.id, "fuzzy")}>模糊</button>
-                      <button className="primaryAction" onClick={() => reviewSavedTerm(currentFlashTerm.id, "remembered")}>认识</button>
-                    </div>
+                    {(currentFlashEntry?.partOfSpeech || currentFlashTerm.partOfSpeech) && (
+                      <span>{currentFlashEntry?.partOfSpeech || currentFlashTerm.partOfSpeech}</span>
+                    )}
+                    {currentFlashTerm.entryKind === "phrase" && <span className="phraseBadge">短语</span>}
+                    <button
+                      className="iconAction pronounceIconButton"
+                      aria-label={`播放 ${currentFlashTerm.term} 的英语发音`}
+                      title="播放英语发音"
+                      onClick={() => speakTerm(currentFlashTerm.term)}
+                    >
+                      <Volume2 size={20} />
+                    </button>
                   </div>
-                )}
-              </article>
+                  {pronunciationMessage && <p className="pronunciationMessage" role="status">{pronunciationMessage}</p>}
+                  {flashReviewStage === "prompt" && (
+                    <div className="flashPromptActions">
+                      <p className="flashHint">先回忆它的常用词典释义。</p>
+                      <button className="primaryAction" onClick={() => setFlashReviewStage("quiz")}>想起来了</button>
+                      <button onClick={() => {
+                        setFlashQuizSelection("__unknown__");
+                        setFlashReviewStage("answer");
+                      }}>暂时想不起来</button>
+                    </div>
+                  )}
+                  {flashReviewStage === "quiz" && (
+                    <div className="flashQuiz">
+                      <p>它的常用词典释义是：</p>
+                      {flashQuizOptions.map((option) => (
+                        <button
+                          key={option}
+                          onClick={() => {
+                            setFlashQuizSelection(option);
+                            setFlashReviewStage("answer");
+                          }}
+                        >
+                          {option}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                  {flashReviewStage === "answer" && (
+                    <div className="flashAnswer">
+                      {flashQuizSelection !== "__unknown__" && (
+                        <p className={flashQuizSelection === currentFlashDictionaryMeaning ? "answerFeedback correct" : "answerFeedback wrong"}>
+                          {flashQuizSelection === currentFlashDictionaryMeaning
+                            ? "选择正确。再按真实记忆程度安排复习。"
+                            : "选择不符。先看清词典义，再评估本次记忆。"}
+                        </p>
+                      )}
+                      <section className="flashDictionarySummary">
+                        <span>词典释义</span>
+                        <p className="dictionaryTranslation">{currentFlashDictionaryMeaning}</p>
+                        {(currentFlashEntry?.wordRoot || currentFlashTerm.wordRoot || currentFlashEntry?.wordForms?.length || currentFlashTerm.wordForms?.length) && (
+                          <details className="flashLexicalDetails">
+                            <summary>词根与词形</summary>
+                            {(currentFlashEntry?.wordRoot || currentFlashTerm.wordRoot) && (
+                              <p className="wordRootLine">原形 / 词根：{currentFlashEntry?.wordRoot || currentFlashTerm.wordRoot}</p>
+                            )}
+                            {(currentFlashEntry?.wordForms?.length || currentFlashTerm.wordForms?.length) ? (
+                              <p className="wordRootLine">词形：{(currentFlashEntry?.wordForms || currentFlashTerm.wordForms)?.join("；")}</p>
+                            ) : null}
+                          </details>
+                        )}
+                      </section>
+                      {currentFlashTerm.contextMeaning && currentFlashTerm.contextMeaning !== "暂无可靠语境义" && (
+                        <section className="contextMeaningCard compact">
+                          <span>本句中的意思</span>
+                          <p className="translation">{currentFlashTerm.contextMeaning}</p>
+                          <p>{currentFlashTerm.contextExplanation || "结合下面的原句理解。"}</p>
+                        </section>
+                      )}
+                      <div className="flashExample">
+                        <strong>短例句</strong>
+                        <p lang="en">{renderStudyExample(currentFlashExample)}</p>
+                        <p className={currentFlashExampleTranslation ? "" : "translationUnavailable"}>
+                          {currentFlashExampleTranslation || "该来源暂未附可靠中文译文。"}
+                        </p>
+                      </div>
+                      <section className="flashAiSupplement" aria-label="AI 语境补充">
+                        <div>
+                          <span><Sparkles size={16} /> AI 语境补充</span>
+                          <button
+                            onClick={() => void requestFlashAiSupplement(currentFlashTerm)}
+                            disabled={flashAiStatus === "loading"}
+                          >
+                            {currentFlashTerm.aiTranslation ? "重新核验" : flashAiStatus === "loading" ? "核验中" : "生成"}
+                          </button>
+                        </div>
+                        {currentFlashTerm.aiContextMeaning && <strong>{currentFlashTerm.aiContextMeaning}</strong>}
+                        {currentFlashTerm.aiTranslation && <p>{currentFlashTerm.aiTranslation}</p>}
+                        {currentFlashTerm.aiExplanation && <p>{currentFlashTerm.aiExplanation}</p>}
+                        {flashAiMessage && <small className={flashAiStatus === "error" ? "error" : ""}>{flashAiMessage}</small>}
+                      </section>
+                      <div className="sourceLine">
+                        {currentFlashTerm.sourceType === "question" ? "题目" : currentFlashTerm.chapterTitle}
+                        {` · p. ${currentFlashTerm.sourcePage ?? currentFlashTerm.page}`}
+                        {currentFlashTerm.sourceOccurrence !== undefined ? ` · 第 ${currentFlashTerm.sourceOccurrence + 1} 处` : ""}
+                      </div>
+                    </div>
+                  )}
+                </article>
+              </div>
+              {flashReviewStage === "answer" && (
+                <div className="flashRatingDock">
+                  <span>这次记得怎样？</span>
+                  <div className="flashRatingActions" aria-label="本次记忆程度">
+                    <button onClick={() => reviewSavedTerm(currentFlashTerm.id, "again")}>不认识</button>
+                    <button onClick={() => reviewSavedTerm(currentFlashTerm.id, "fuzzy")}>模糊</button>
+                    <button className="primaryAction" onClick={() => reviewSavedTerm(currentFlashTerm.id, "remembered")}>认识</button>
+                  </div>
+                </div>
+              )}
             </>
           )}
         </section>,
@@ -3733,7 +3864,7 @@ export function App() {
               ) : (
                 recentStudyTerms.slice(0, 4).map((item) => (
                   <article key={item.id}>
-                    <div><strong>{item.term}</strong><span>{savedTermStudyMeaning(item)}</span></div>
+                    <div><strong>{item.term}</strong><span>{savedTermDictionaryMeaning(item)}</span></div>
                     <small>{item.sourceType === "question" ? "题目" : item.chapterTitle}</small>
                   </article>
                 ))
@@ -3768,12 +3899,24 @@ export function App() {
                   <div>
                     <p className="eyebrow">{item.sourceType === "question" ? `题目 · ${item.sourceDomain ?? "综合"}` : `${item.bookTitle} · p. ${item.page}`}</p>
                     <h2>{item.term}</h2>
-                    <p>{savedTermStudyMeaning(item)}</p>
+                    <p>{savedTermDictionaryMeaning(item)}</p>
                     <details>
                       <summary>查看语境</summary>
                       <p>{item.contextExplanation}</p>
-                      <blockquote lang="en">{item.exampleText || item.sourceText}</blockquote>
-                      {(item.exampleTranslation || item.sourceTranslation) && <blockquote>{item.exampleTranslation || item.sourceTranslation}</blockquote>}
+                      <blockquote lang="en">
+                        {renderStudyExample(compactStudyExample(item.exampleText || item.sourceText, item.term))}
+                      </blockquote>
+                      {(item.exampleTranslation || item.sourceTranslation) && (
+                        <blockquote>{compactStudyTranslation(item.exampleTranslation || item.sourceTranslation)}</blockquote>
+                      )}
+                      {item.aiTranslation && (
+                        <div className="vocabAiSummary">
+                          <strong><Sparkles size={15} /> AI 语境补充</strong>
+                          {item.aiContextMeaning && <span>{item.aiContextMeaning}</span>}
+                          <p>{item.aiTranslation}</p>
+                          {item.aiExplanation && <p>{item.aiExplanation}</p>}
+                        </div>
+                      )}
                     </details>
                   </div>
                   <div className="studyItemActions">
@@ -4713,8 +4856,23 @@ export function App() {
     setIsImmersive(next);
   }
 
-  function lookupText(text: string, page: number, sectionId: string, blockId: string | undefined, sourceText: string) {
-    const entry = lookupCandidates(text).map((key) => termIndex.get(key)).find(Boolean) ?? lookupFallback(text);
+  function lookupText(
+    text: string,
+    page: number,
+    sectionId: string,
+    blockId: string | undefined,
+    sourceText: string,
+    sourceStart?: number,
+    sourceEnd?: number
+  ) {
+    const target = resolveDictionaryTarget(text, sourceText, sourceStart, sourceEnd, (key) => termIndex.get(key));
+    const query = target?.query || text.trim();
+    const phraseInput = normalizeLookup(text).includes(" ");
+    const entry = target?.entry
+      ?? (phraseInput
+        ? termIndex.get(normalizeLookup(text))
+        : lookupCandidates(text).map((key) => termIndex.get(key)).find(Boolean))
+      ?? lookupFallback(query);
     const section = lesson?.sections.find((item) => item.id === sectionId);
     const contextGloss = blockId ? manual?.contextGlosses?.[blockId] : undefined;
     const sourceTranslation = alignedBlockTranslation(section, blockId, page, manual?.contextGlosses);
@@ -4725,7 +4883,7 @@ export function App() {
     setActiveAiAssist(null);
     setSheetHeightVh(52);
     const context = resolveContextExplanation({
-      query: text,
+      query,
       dictionaryTranslation: entry.translation,
       partOfSpeech: entry.partOfSpeech,
       sourceText,
@@ -4733,12 +4891,16 @@ export function App() {
       contextGloss
     });
     openLookup({
-      query: text,
+      query,
       entry,
+      entryKind: target?.entryKind ?? (normalizeLookup(query).includes(" ") ? "phrase" : "word"),
       page,
       sectionId,
       blockId,
       sourceText,
+      sourceStart: target?.sourceStart ?? sourceStart,
+      sourceEnd: target?.sourceEnd ?? sourceEnd,
+      sourceOccurrence: target?.sourceOccurrence,
       sourceTranslation,
       context
     });
@@ -4753,7 +4915,9 @@ export function App() {
       selectedPhrase.page,
       selectedPhrase.sectionId,
       selectedPhrase.blockId,
-      sourceContextForTerm(selectedPhrase.text, selectedPhrase.text)
+      selectedPhrase.sourceText,
+      selectedPhrase.sourceStart,
+      selectedPhrase.sourceEnd
     );
     setSelectedPhrase(null);
     window.getSelection()?.removeAllRanges();
@@ -4796,6 +4960,9 @@ export function App() {
       ? allQuestions.find((item) => item.questionId === activeLookup.questionSource?.questionId)
       : undefined;
     const questionChapter = question ? Number(question.chapterId.replace(/\D+/g, "")) : Number.NaN;
+    const acceptedAi = aiLookupState.lookupId === activeLookupId(activeLookup) && aiLookupState.status === "accepted"
+      ? aiLookupState.correction
+      : undefined;
     const saved: SavedTerm = {
       id: `${normalizeLookup(activeLookup.query)}-${now.getTime()}`,
       bookId: currentBookId,
@@ -4803,6 +4970,8 @@ export function App() {
       contentVersion: manual?.version,
       term: activeLookup.query,
       translation: activeLookup.entry.translation,
+      dictionaryMeaning: activeLookup.entry.translation,
+      entryKind: activeLookup.entryKind,
       partOfSpeech: activeLookup.entry.partOfSpeech,
       phonetic: activeLookup.entry.phonetic,
       wordRoot: activeLookup.entry.wordRoot,
@@ -4815,12 +4984,20 @@ export function App() {
       sectionId: activeLookup.sectionId,
       blockId: activeLookup.blockId,
       sourceText: activeLookup.sourceText,
+      sourceStart: activeLookup.sourceStart,
+      sourceEnd: activeLookup.sourceEnd,
+      sourceOccurrence: activeLookup.sourceOccurrence,
       sourceTranslation: activeLookup.sourceTranslation,
       contextMeaning: activeLookup.context.meaning,
       contextExplanation: activeLookup.context.explanation,
       contextCorrectionId: aiLookupState.status === "accepted" ? aiLookupState.correction?.id : undefined,
       exampleText: activeLookup.context.exampleText,
       exampleTranslation: activeLookup.context.exampleTranslation,
+      aiContextMeaning: acceptedAi?.after.contextMeaningZh,
+      aiTranslation: acceptedAi?.after.sentenceTranslationZh,
+      aiExplanation: acceptedAi?.after.explanationZh,
+      aiModel: acceptedAi?.provenance.model,
+      aiGeneratedAt: acceptedAi?.review.acceptedAt || undefined,
       savedAt: now.toISOString(),
       status: "new",
       familiarity: 0,
@@ -4838,6 +5015,53 @@ export function App() {
       sourcePage: activeLookup.questionSource?.page ?? activeLookup.page
     };
     setSavedTerms((items) => [saved, ...items]);
+  }
+
+  async function requestFlashAiSupplement(term: SavedTerm) {
+    if (!deepSeekKeyStatus.configured) {
+      setFlashAiStatus("error");
+      setFlashAiMessage("请先在“我的”中配置 DeepSeek API Key。");
+      return;
+    }
+    const sourceText = term.exampleText || term.sourceText;
+    if (!sourceText.toLocaleLowerCase().includes(term.term.toLocaleLowerCase())) {
+      setFlashAiStatus("error");
+      setFlashAiMessage("当前词条缺少包含目标词的可靠例句，请回到原文重新加入。");
+      return;
+    }
+    const liveEntry = normalizeLookup(term.term).includes(" ")
+      ? termIndex.get(normalizeLookup(term.term))
+      : lookupCandidates(term.term).map((key) => termIndex.get(key)).find(Boolean);
+    setFlashAiStatus("loading");
+    setFlashAiMessage("");
+    try {
+      const analysis = await analyzeContextWithDeepSeek({
+        surface: term.term,
+        dictionarySensesZh: savedTermDictionaryMeaning(term, liveEntry?.translation),
+        dictionaryPartOfSpeech: liveEntry?.partOfSpeech || term.partOfSpeech || "unknown",
+        domain: term.sourceDomain || activeBook?.domainLabel || "Six Sigma",
+        currentSentenceEn: sourceText,
+        currentSentenceZh: term.exampleTranslation || term.sourceTranslation || "",
+        previousSentenceEn: "",
+        previousSentenceZh: "",
+        nextSentenceEn: "",
+        nextSentenceZh: ""
+      });
+      const generatedAt = new Date().toISOString();
+      setSavedTerms((items) => items.map((item) => item.id === term.id ? {
+        ...item,
+        aiContextMeaning: analysis.result.contextMeaningZh,
+        aiTranslation: analysis.result.sentenceTranslationZh,
+        aiExplanation: analysis.result.explanationZh,
+        aiModel: analysis.model,
+        aiGeneratedAt: generatedAt
+      } : item));
+      setFlashAiStatus("ready");
+      setFlashAiMessage("AI 语境补充已保存到词条。");
+    } catch (error) {
+      setFlashAiStatus("error");
+      setFlashAiMessage(error instanceof Error ? error.message : "AI 语境补充暂时不可用");
+    }
   }
 
   function reviewSavedTerm(id: string, outcome: "again" | "fuzzy" | "remembered") {

@@ -12,7 +12,7 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 
 | Metric | Current State |
 | --- | --- |
-| Release | `Beta 0.8.10` (`0.8.10-beta.0`, Android code `810`) |
+| Release | `Beta 0.8.11` (`0.8.11-beta.0`, Android code `811`) |
 | Runtime books | 2 catalog books: full Six Sigma manual + original import-practice workbook |
 | Six Sigma content | 33 chapters, 449 aligned study pages, 174 reader sections |
 | Preserved assets | 475 figure/table/formula PNG runtime assets; EN/ZH image counts 476/476 |
@@ -42,9 +42,9 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 | --- | --- | --- |
 | ![Second book](docs/assets/showcase/target4-second-book.png) | ![Table of contents](docs/assets/showcase/target4-toc.png) | ![Settings and about](docs/assets/showcase/target4-settings.png) |
 
-| Rich Vocabulary Answer | Question Training | Rich Question Word Lookup |
+| Dictionary-First Review | Question Training | Rich Question Word Lookup |
 | --- | --- | --- |
-| ![Vocabulary answer with phonetics, senses, context, and translation](docs/assets/showcase/learning-vocab-answer.png) | ![Question training dashboard](docs/assets/showcase/beta-0.8.9-question-training.png) | ![Question lookup with rich dictionary and context](docs/assets/showcase/learning-question-lookup-rich.png) |
+| ![Phrase-aware vocabulary review with a fixed rating dock](docs/assets/showcase/beta-0.8.11-vocab-review.png) | ![Question training dashboard](docs/assets/showcase/beta-0.8.9-question-training.png) | ![Question lookup with rich dictionary and context](docs/assets/showcase/learning-question-lookup-rich.png) |
 
 Beta 0.8.9 removes the folder metaphor and real-time 3D transition stage. The home screen now follows a familiar reading-product hierarchy: Now Reading, Today's Study, Library, and Recent Notes. Navigation uses one live route shell and short opacity fades, so headings and body text are never stretched, duplicated, or moved between layers. A real source cover, neutral surfaces, one restrained accent, and a stable five-item navigation bar keep attention on study content. See [design-qa.md](design-qa.md) for the review record.
 
@@ -77,7 +77,7 @@ When another book is selected, vocabulary, notes, and favorites are filtered to 
 - Android stores the user's DeepSeek API key with AES-GCM backed by Android Keystore. Browser/PWA testing keeps a key in memory for the current session only; keys never enter localStorage, correction exports, logs, or Git.
 - Every generated proposal is normalized into `Context Correction Bundle v1`; exact phrase structures can reuse an accepted correction automatically, while merely similar contexts remain suggestions requiring confirmation.
 - Android pronunciation uses the device's native English text-to-speech engine; browser builds retain a Web Speech fallback.
-- Flashcard vocabulary review with familiarity, lapse, interval, ease factor, and question-source metadata.
+- Phrase-aware flashcard review uses canonical dictionary meanings for recall, keeps context/AI explanations separate, underlines the target in a short bilingual example, records the exact source occurrence, and keeps the three memory ratings fixed within thumb reach.
 - Daily local streak target with capped catch-up workload after missed days.
 - Independent vocabulary, notes, and favorites pages with book filters, search, sorting, and source return actions.
 - Question practice workspace with Browse, Practice, Wrong Questions, Favorites, and Mock Exam modes; submitted questions stay on their explanation until the learner explicitly continues.
@@ -199,6 +199,7 @@ Public-readiness evidence: [PUBLIC_READINESS.md](PUBLIC_READINESS.md). Attributi
 | Learning modules | `npm run qa:learning-modules` | flashcards, occurrence-level context glossary, streak, question schema, question modes, question word lookup, private-bank isolation |
 | Learning UI | `npm run qa:learning-ui` | recall-first word review, contextual answer, question lookup, unknown explanation, correct auto-next |
 | Lexical learning | `npm run qa:lexical-learning`, `npm run qa:lexical-ui` | rich senses, phonetics, context disambiguation, bilingual examples, native pronunciation bridge, mobile layout |
+| Vocabulary study UX | `npm run qa:vocab-study-ux` | legacy phrase migration, dictionary-only quiz answers, exact source ranges, short underlined examples, persisted AI supplements, fixed rating dock |
 | AI context corrections | `npm run qa:context-corrections`, `npm run qa:ai-context-ui` | strict output, hashes, accepted-only export, revert regression, mobile proposal/accept/reuse flow |
 | Android WebView | `npm run qa:android-key-chapters` | Chapters 1, 7, 26, 33, lookup, alignment, image checks |
 | Release package | `npm run android:release-apk` and `npm run android:aab` | local signed APK/AAB with runtime content bundled |

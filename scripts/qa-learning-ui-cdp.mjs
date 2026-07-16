@@ -142,6 +142,7 @@ async function main() {
   }))()`);
   const vocabHomeShot = await capture("01-vocab-plan");
 
+  await waitFor("vocabulary dictionary ready", () => evaluate(`document.querySelector(".vocabStartButton")?.disabled === false`));
   await evaluate(`document.querySelector(".vocabStartButton")?.click()`);
   await waitFor("flash prompt", () => evaluate(`Boolean(document.querySelector(".flashCard .flashPromptActions"))`));
   const flashPrompt = await evaluate(`(() => ({
@@ -156,8 +157,10 @@ async function main() {
   await evaluate(`Array.from(document.querySelectorAll(".flashPromptActions button")).find((item) => item.textContent.includes("暂时想不起来"))?.click()`);
   await waitFor("flash answer", () => evaluate(`Boolean(document.querySelector(".flashAnswer .flashExample"))`));
   const flashAnswer = await evaluate(`(() => ({
-    meaning: document.querySelector(".flashAnswer .translation")?.textContent?.trim(),
+    dictionaryMeaning: document.querySelector(".flashAnswer .dictionaryTranslation")?.textContent?.trim(),
+    contextMeaning: document.querySelector(".flashAnswer .contextMeaningCard .translation")?.textContent?.trim(),
     explanation: document.querySelector(".flashAnswer .contextMeaningCard p:not(.translation)")?.textContent?.trim(),
+    underlined: document.querySelector(".flashAnswer .studyTargetTerm")?.textContent?.trim(),
     examples: document.querySelectorAll(".flashExample p").length,
     source: document.querySelector(".flashAnswer .sourceLine")?.textContent?.trim(),
     scrollY: window.scrollY,
@@ -225,7 +228,7 @@ async function main() {
   const checks = {
     vocabHome: vocabHome.dueText === "1 个待学" && vocabHome.recentTerm === "scope" && !vocabHome.answerLeaked && vocabHome.bodyOverflow <= 1,
     flashPrompt: flashPrompt.term === "scope" && flashPrompt.answerHidden && flashPrompt.navHidden && flashPrompt.scrollY === 0 && flashPrompt.panelTop < 220,
-    flashAnswer: flashAnswer.meaning === "项目范围" && flashAnswer.explanation.length > 8 && flashAnswer.examples >= 2 && flashAnswer.scrollY === 0 && flashAnswer.panelTop < 220,
+    flashAnswer: flashAnswer.dictionaryMeaning?.includes("范围") && flashAnswer.contextMeaning === "项目范围" && flashAnswer.explanation.length > 8 && flashAnswer.underlined === "scope" && flashAnswer.examples >= 2 && flashAnswer.scrollY === 0 && flashAnswer.panelTop < 220,
     reviewStored: reviewedTerm.reviewCount === 1 && reviewedTerm.lapseCount === 1 && reviewedTerm.status === "learning",
     questionHome: questionHome.modeCount === 5 && /^\d+\/[1-9]\d*$/.test(questionHome.totalText ?? "") && questionHome.bodyOverflow <= 1,
     questionLookup: lookupWord.length >= 4 && questionLookup.word?.toLowerCase() === lookupWord.toLowerCase() && questionLookup.contextMeaning && questionLookup.contextExplanation && questionLookup.hasSave && questionLookup.bodyFixed,

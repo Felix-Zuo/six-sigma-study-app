@@ -224,7 +224,7 @@ async function main() {
   })()`);
 
   const checks = {
-    lookupChromeFixed: lookup.word?.toLowerCase() === "sigma" && lookup.outerScrollTop === 0 && lookup.bodyScrollTop > 0 && lookup.chromeStable && lookup.bodyStartsAfterChrome,
+    lookupChromeFixed: lookup.word?.toLowerCase() === "six sigma" && lookup.outerScrollTop === 0 && lookup.bodyScrollTop > 0 && lookup.chromeStable && lookup.bodyStartsAfterChrome,
     lookupLayout: lookup.overflow <= 1,
     readingAiEntry: readingAi.selectedLength > 90 && readingAi.status === "需要个人 DeepSeek API Key" && readingAi.overflow <= 1,
     chapterCompletion: chapter.heading === "本章已读完" && chapter.stored === true && chapter.next?.includes("第 2 章") && chapter.overflow <= 1,

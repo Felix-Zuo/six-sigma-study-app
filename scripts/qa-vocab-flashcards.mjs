@@ -2,6 +2,7 @@ import fs from "node:fs";
 
 const app = fs.readFileSync("apps/reader/src/App.tsx", "utf8");
 const store = fs.readFileSync("apps/reader/src/lib/vocabStore.ts", "utf8");
+const study = fs.readFileSync("apps/reader/src/lib/vocabStudy.ts", "utf8");
 
 const checks = [
   ["flash review state", app.includes("flashReviewActive") && app.includes("flashReviewStage") && app.includes("flashSessionIds")],
@@ -12,10 +13,15 @@ const checks = [
   ["daily completion hook", app.includes("recordDailyCompletion(1, flashSessionGoal || undefined)")],
   ["source metadata on card", app.includes("sourceDomain") && app.includes("sourceExamId")],
   ["context snapshot", store.includes("contextMeaning") && store.includes("sourceTranslation") && store.includes("exampleText")],
+  ["dictionary meaning separated from context", store.includes("dictionaryMeaning") && app.includes("currentFlashDictionaryMeaning") && app.includes("它的常用词典释义是")],
+  ["whole phrase lookup", study.includes("resolveDictionaryTarget") && study.includes('entryKind: "phrase"') && app.includes("resolveDictionaryTarget(")],
+  ["exact source range", store.includes("sourceStart") && store.includes("sourceEnd") && store.includes("sourceOccurrence")],
+  ["short marked example", app.includes("compactStudyExample") && app.includes("studyTargetTerm")],
+  ["persisted AI supplement", store.includes("aiTranslation") && store.includes("aiExplanation") && app.includes("requestFlashAiSupplement")],
   ["independent session", app.includes("studySessionShell") && app.includes("hideNav: true")],
   [
     "answer-stage memory rating",
-    app.includes('className="flashRatingActions"') &&
+    app.includes('className="flashRatingDock"') && app.includes('className="flashRatingActions"') &&
       app.includes('reviewSavedTerm(currentFlashTerm.id, "again")') &&
       app.includes('reviewSavedTerm(currentFlashTerm.id, "fuzzy")') &&
       app.includes('reviewSavedTerm(currentFlashTerm.id, "remembered")')

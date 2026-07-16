@@ -117,7 +117,7 @@ async function main() {
   }))()`);
   const flashShot = await capture("01-constant-rich-answer");
 
-  await evaluate(`document.querySelector(".flashAnswer .primaryAction")?.click()`);
+  await evaluate(`document.querySelector(".flashRatingActions .primaryAction")?.click()`);
   await waitFor("equation prompt", () => evaluate(`document.querySelector(".flashCard h2")?.textContent?.trim() === "equation"`));
   await evaluate(`Array.from(document.querySelectorAll(".flashPromptActions button")).find((item) => item.textContent.includes("暂时想不起来"))?.click()`);
   await waitFor("equation answer", () => evaluate(`Boolean(document.querySelector(".flashAnswer"))`));
