@@ -290,6 +290,7 @@ type VocabFilter = "due" | "all";
 type BookFilter = "all" | string;
 type VocabSort = "recent" | "due" | "page";
 type VocabPageMode = "plan" | "library";
+type VocabCollectionFilter = "all" | "manual" | "question" | "mastered";
 type FlashReviewStage = "quiz" | "answer" | "complete";
 type FlashAiStatus = "idle" | "loading" | "ready" | "error";
 type FlashQuizOption = {
@@ -339,8 +340,8 @@ type PageGroup = {
 
 const defaultBookId = "six-sigma-black-belt";
 const defaultBookTitle = "六西格玛黑带教材";
-const productVersionLabel = "Beta 0.8.12";
-const productVersionId = "0.8.12-beta";
+const productVersionLabel = "Beta 0.8.13";
+const productVersionId = "0.8.13-beta";
 const githubProfileUrl = "https://github.com/Felix-Zuo";
 const catalogPath = "content/catalog.json";
 const bundledQuestionBankPath = "content/private/question-bank.private.json";
@@ -878,6 +879,8 @@ export function App() {
   const [vocabQuery, setVocabQuery] = useState("");
   const [vocabSort, setVocabSort] = useState<VocabSort>("recent");
   const [vocabPageMode, setVocabPageMode] = useState<VocabPageMode>("plan");
+  const [vocabCollectionFilter, setVocabCollectionFilter] = useState<VocabCollectionFilter>("all");
+  const [expandedVocabTermId, setExpandedVocabTermId] = useState("");
   const [notesQuery, setNotesQuery] = useState("");
   const [notesSort, setNotesSort] = useState<NotesSort>("updated");
   const [favoritesQuery, setFavoritesQuery] = useState("");
@@ -1039,7 +1042,12 @@ export function App() {
   );
   const filteredStudyTerms = useMemo(() => {
     const query = normalizeLookup(vocabQuery);
-    const source = studyScopeTerms;
+    const source = studyScopeTerms.filter((item) => {
+      if (vocabCollectionFilter === "manual") return item.sourceType === "manual";
+      if (vocabCollectionFilter === "question") return item.sourceType === "question";
+      if (vocabCollectionFilter === "mastered") return item.status === "mastered";
+      return true;
+    });
     const searched = query
       ? source.filter((item) =>
           normalizeLookup(
@@ -1057,7 +1065,7 @@ export function App() {
       }
       return Date.parse(b.savedAt) - Date.parse(a.savedAt);
     });
-  }, [studyScopeTerms, vocabQuery, vocabSort]);
+  }, [studyScopeTerms, vocabCollectionFilter, vocabQuery, vocabSort]);
   const filteredStudyNotes = useMemo(() => {
     const query = normalizeLookup(notesQuery);
     const source = savedNotes.filter((item) => studyBookFilter === "all" || item.bookId === studyBookFilter);
@@ -1687,7 +1695,7 @@ export function App() {
         // The opening can still finish when persistence is unavailable.
       }
       setView("home");
-    }, reduceMotion ? 80 : hasSeenSplash ? 520 : 2500);
+    }, reduceMotion ? 80 : hasSeenSplash ? 900 : 2600);
     return () => window.clearTimeout(timer);
   }, [view]);
 
@@ -2484,6 +2492,14 @@ export function App() {
       setView(nextView);
       window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     });
+  }
+
+  function openVocabCollection(filter: VocabCollectionFilter, term?: SavedTerm) {
+    setVocabCollectionFilter(filter);
+    setVocabQuery(term?.term ?? "");
+    setExpandedVocabTermId(term?.id ?? "");
+    setVocabPageMode("library");
+    window.requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }));
   }
 
   function openBook(bookId: string, _source?: HTMLElement | null) {
@@ -3291,7 +3307,7 @@ export function App() {
       >
         <header className="appPageHeader">
           <div>
-            <p className="eyebrow">{appViewKickers[view] ?? "学习"}</p>
+            <p className="eyebrow">Fly View · {appViewKickers[view] ?? "学习"}</p>
             <h1>{title}</h1>
             <p>{subtitle}</p>
           </div>
@@ -3642,10 +3658,12 @@ export function App() {
         data-text-scale={readerPreferences.textScale}
       >
         <section className="splashPanel" aria-label="启动画面">
-          <div className="appLogo cinematic" aria-hidden="true">6σ</div>
+          <div className="appLogo cinematic splashMark" aria-hidden="true">
+            <img src="/icons/icon.svg" alt="" />
+          </div>
           <div className="splashCopy">
-            <p className="eyebrow">Study edition</p>
-            <h1>Six Sigma Study</h1>
+            <p className="eyebrow">Fly View</p>
+            <h1>飞阅</h1>
             <p className="splashLead">仅供学习与翻译研究，禁止商业使用。</p>
             <p className="splashLead" lang="en">For study and translation reference only. Non-commercial use.</p>
           </div>
@@ -3666,7 +3684,7 @@ export function App() {
       <>
         <section className="dashboardHero spatialWorkspace" aria-label="现在阅读">
           <header className="workspaceBrand">
-            <p className="eyebrow">Six Sigma Study</p>
+            <p className="eyebrow">Fly View · 飞阅</p>
             <h1>现在阅读</h1>
           </header>
           <div className="workspacePageStack">
@@ -3976,7 +3994,7 @@ export function App() {
       <>
         <div className="vocabModeTabs" role="tablist" aria-label="单词页面">
           <button className={vocabPageMode === "plan" ? "active" : ""} onClick={() => setVocabPageMode("plan")}>学习</button>
-          <button className={vocabPageMode === "library" ? "active" : ""} onClick={() => setVocabPageMode("library")}>词库</button>
+          <button className={vocabPageMode === "library" ? "active" : ""} onClick={() => openVocabCollection("all")}>词库</button>
         </div>
         {vocabPageMode === "plan" ? (
           <>
@@ -4006,27 +4024,66 @@ export function App() {
                     : "开始今日学习"}
             </button>
             <p className="reviewPolicyNote">FSRS · 90% 目标保持率 · 薄弱词会在本轮末尾再出现</p>
-            <section className="vocabSourceSummary">
-              <div><strong>{savedTerms.filter((item) => item.sourceType === "manual").length}</strong><span>教材词语</span></div>
-              <div><strong>{savedTerms.filter((item) => item.sourceType === "question").length}</strong><span>题目词语</span></div>
-              <div><strong>{savedTerms.filter((item) => item.status === "mastered").length}</strong><span>已掌握</span></div>
+            <section className="vocabSourceSummary" aria-label="词库分类">
+              <button type="button" onClick={() => openVocabCollection("manual")} aria-label={`查看 ${studyScopeTerms.filter((item) => item.sourceType === "manual").length} 个教材词语`}>
+                <BookOpen size={18} strokeWidth={1.8} aria-hidden="true" />
+                <span className="vocabSummaryCopy"><strong>{studyScopeTerms.filter((item) => item.sourceType === "manual").length}</strong><span>教材词语</span></span>
+                <ArrowRight size={16} strokeWidth={1.8} aria-hidden="true" />
+              </button>
+              <button type="button" onClick={() => openVocabCollection("question")} aria-label={`查看 ${studyScopeTerms.filter((item) => item.sourceType === "question").length} 个题目词语`}>
+                <ClipboardCheck size={18} strokeWidth={1.8} aria-hidden="true" />
+                <span className="vocabSummaryCopy"><strong>{studyScopeTerms.filter((item) => item.sourceType === "question").length}</strong><span>题目词语</span></span>
+                <ArrowRight size={16} strokeWidth={1.8} aria-hidden="true" />
+              </button>
+              <button type="button" onClick={() => openVocabCollection("mastered")} aria-label={`查看 ${studyScopeTerms.filter((item) => item.status === "mastered").length} 个已掌握词语`}>
+                <BookmarkCheck size={18} strokeWidth={1.8} aria-hidden="true" />
+                <span className="vocabSummaryCopy"><strong>{studyScopeTerms.filter((item) => item.status === "mastered").length}</strong><span>已掌握</span></span>
+                <ArrowRight size={16} strokeWidth={1.8} aria-hidden="true" />
+              </button>
             </section>
             <section className="recentTerms">
-              <div className="sectionHeaderRow"><h2>最近加入</h2><button onClick={() => setVocabPageMode("library")}>查看全部</button></div>
+              <div className="sectionHeaderRow"><h2>最近加入</h2><button onClick={() => openVocabCollection("all")}>查看全部</button></div>
               {recentStudyTerms.length === 0 ? (
                 <p className="emptyState compact">还没有加入单词。</p>
               ) : (
                 recentStudyTerms.slice(0, 4).map((item) => (
-                  <article key={item.id}>
-                    <div><strong>{item.term}</strong><span>{savedTermDictionaryMeaning(item)}</span></div>
+                  <button className="recentTermButton" type="button" key={item.id} onClick={() => openVocabCollection("all", item)}>
+                    <span className="recentTermCopy"><strong>{item.term}</strong><span>{savedTermDictionaryMeaning(item)}</span></span>
                     <small>{item.sourceType === "question" ? "题目" : item.chapterTitle}</small>
-                  </article>
+                    <ArrowRight size={16} strokeWidth={1.8} aria-hidden="true" />
+                  </button>
                 ))
               )}
             </section>
           </>
         ) : (
           <>
+            <section className="vocabCollectionHeader" aria-live="polite">
+              <div>
+                <p className="eyebrow">分类词库</p>
+                <h2>{vocabCollectionFilter === "manual" ? "教材词语" : vocabCollectionFilter === "question" ? "题目词语" : vocabCollectionFilter === "mastered" ? "已掌握" : "全部词语"}</h2>
+              </div>
+              <strong>{filteredStudyTerms.length}</strong>
+            </section>
+            <div className="vocabCollectionTabs" role="tablist" aria-label="词库分类">
+              {([
+                ["all", "全部", studyScopeTerms.length],
+                ["manual", "教材", studyScopeTerms.filter((item) => item.sourceType === "manual").length],
+                ["question", "题目", studyScopeTerms.filter((item) => item.sourceType === "question").length],
+                ["mastered", "已掌握", studyScopeTerms.filter((item) => item.status === "mastered").length]
+              ] as const).map(([filter, label, count]) => (
+                <button
+                  type="button"
+                  role="tab"
+                  key={filter}
+                  className={vocabCollectionFilter === filter ? "active" : ""}
+                  aria-selected={vocabCollectionFilter === filter}
+                  onClick={() => openVocabCollection(filter)}
+                >
+                  <span>{label}</span><small>{count}</small>
+                </button>
+              ))}
+            </div>
             <section className="studyToolbar">
               {renderBookFilter(studyBookFilter, setStudyBookFilter)}
               <input
@@ -4048,38 +4105,51 @@ export function App() {
                   <span>英文阅读或刷题时点击词语即可加入。</span>
                   <button className="readerControlButton" onClick={() => openBook(studyBookFilter === "all" ? defaultBookId : studyBookFilter)}>去阅读</button>
                 </div>
-              ) : filteredStudyTerms.map((item) => (
-                <article key={item.id} className="studyItem vocabLibraryItem">
-                  <div>
-                    <p className="eyebrow">{item.sourceType === "question" ? `题目 · ${item.sourceDomain ?? "综合"}` : `${item.bookTitle} · p. ${item.page}`}</p>
-                    <h2>{item.term}</h2>
-                    <p>{savedTermDictionaryMeaning(item)}</p>
-                    <details>
-                      <summary>查看语境</summary>
-                      <p>{item.contextExplanation}</p>
-                      <blockquote lang="en">
-                        {renderStudyExample(compactStudyExample(item.exampleText || item.sourceText, item.term))}
-                      </blockquote>
-                      {(item.exampleTranslation || item.sourceTranslation) && (
-                        <blockquote>{compactStudyTranslation(item.exampleTranslation || item.sourceTranslation)}</blockquote>
-                      )}
-                      {item.aiTranslation && (
-                        <div className="vocabAiSummary">
-                          <strong><Sparkles size={15} /> AI 语境补充</strong>
-                          {item.aiContextMeaning && <span>{item.aiContextMeaning}</span>}
-                          <p>{item.aiTranslation}</p>
-                          {item.aiExplanation && <p>{item.aiExplanation}</p>}
-                        </div>
-                      )}
-                    </details>
-                  </div>
-                  <div className="studyItemActions">
-                    <button onClick={() => item.sourceType === "question" ? openQuestionAnchor(item.sourceQuestionId) : openSourceAnchor(item)}>
-                      {item.sourceType === "question" ? "回到题目" : "回到原文"}
+              ) : filteredStudyTerms.map((item) => {
+                const expanded = expandedVocabTermId === item.id;
+                return (
+                  <article key={item.id} className={`studyItem vocabLibraryItem${expanded ? " expanded" : ""}`}>
+                    <button
+                      type="button"
+                      className="vocabLibraryToggle"
+                      aria-expanded={expanded}
+                      onClick={() => setExpandedVocabTermId(expanded ? "" : item.id)}
+                    >
+                      <span className="vocabLibraryCopy">
+                        <span className="eyebrow">{item.sourceType === "question" ? `题目 · ${item.sourceDomain ?? "综合"}` : `${item.bookTitle} · p. ${item.page}`}</span>
+                        <strong>{item.term}</strong>
+                        <span>{savedTermDictionaryMeaning(item)}</span>
+                      </span>
+                      <ArrowRight className="vocabLibraryChevron" size={18} strokeWidth={1.8} aria-hidden="true" />
                     </button>
-                  </div>
-                </article>
-              ))}
+                    {expanded && (
+                      <div className="vocabLibraryDetails">
+                        <h3>语境与来源</h3>
+                        <p>{item.contextExplanation}</p>
+                        <blockquote lang="en">
+                          {renderStudyExample(compactStudyExample(item.exampleText || item.sourceText, item.term))}
+                        </blockquote>
+                        {(item.exampleTranslation || item.sourceTranslation) && (
+                          <blockquote>{compactStudyTranslation(item.exampleTranslation || item.sourceTranslation)}</blockquote>
+                        )}
+                        {item.aiTranslation && (
+                          <div className="vocabAiSummary">
+                            <strong><Sparkles size={15} /> AI 语境补充</strong>
+                            {item.aiContextMeaning && <span>{item.aiContextMeaning}</span>}
+                            <p>{item.aiTranslation}</p>
+                            {item.aiExplanation && <p>{item.aiExplanation}</p>}
+                          </div>
+                        )}
+                        <div className="studyItemActions">
+                          <button onClick={() => item.sourceType === "question" ? openQuestionAnchor(item.sourceQuestionId) : openSourceAnchor(item)}>
+                            {item.sourceType === "question" ? "回到题目" : "回到原文"}
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </article>
+                );
+              })}
             </section>
           </>
         )}
@@ -4631,7 +4701,7 @@ export function App() {
           {aiSettingsMessage && <p className="settingsMessage" role="status">{aiSettingsMessage}</p>}
         </section>
         <section className="settingsPanel">
-          <h2>来源与边界</h2>
+          <h2>关于飞阅</h2>
           <p>版本 {productVersionLabel}</p>
           <p>{activeBook?.licenseNotice.zh ?? fallbackCatalog.books[0].licenseNotice.zh}</p>
           <p lang="en">{activeBook?.licenseNotice.en ?? fallbackCatalog.books[0].licenseNotice.en}</p>
@@ -4679,7 +4749,7 @@ export function App() {
         data-text-scale={readerPreferences.textScale}
       >
         <section className="sectionBlock">
-          <h1>Six Sigma Study</h1>
+          <h1>飞阅</h1>
           <p className="readerText">正在加载教材...</p>
         </section>
       </main>
@@ -5422,8 +5492,8 @@ export function App() {
       if (navigator.canShare?.({ files: [file] }) && navigator.share) {
         await navigator.share({
           files: [file],
-          title: "Six Sigma Vocabulary",
-          text: "Six Sigma Study vocabulary export"
+          title: "飞阅词库",
+          text: "Fly View vocabulary export"
         });
         setVocabExportMessage("已打开分享/保存菜单。");
         return;

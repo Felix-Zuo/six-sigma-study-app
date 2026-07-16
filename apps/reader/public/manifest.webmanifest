@@ -1,18 +1,30 @@
 {
-  "name": "Six Sigma Study",
-  "short_name": "Six Sigma",
-  "description": "Bilingual Six Sigma Black Belt study reader with terminology lookup and local vocabulary.",
+  "name": "飞阅 · Fly View",
+  "short_name": "飞阅",
+  "description": "面向多教材的双语阅读、词汇复习与题目训练工具。",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#f4f6f5",
-  "theme_color": "#1f5b4f",
+  "background_color": "#f6f4ef",
+  "theme_color": "#174f45",
   "orientation": "portrait",
   "icons": [
     {
       "src": "/icons/icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ]

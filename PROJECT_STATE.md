@@ -1,10 +1,10 @@
-# Six Sigma Study App Project State
+# Fly View (飞阅) Project State
 
 Last updated: 2026-07-16 Asia/Shanghai
 
 ## Objective
 
-Build `six-sigma-study-app` into a complete, usable Android-first study app for the CSSC Six Sigma Black Belt manual.
+Build Fly View into a complete, usable Android-first bilingual study platform. The CSSC Six Sigma Black Belt manual remains the first full book, while the runtime and learning records support additional books.
 
 The final product must support full-manual offline reading, position-preserving English/Chinese switching, tap-to-lookup word explanations, phrase lookup, Six Sigma terminology explanations, and a persistent vocabulary book. PWA is acceptable as an intermediate delivery shape, but final acceptance requires a buildable Android APK or AAB.
 
@@ -20,15 +20,28 @@ The final product must support full-manual offline reading, position-preserving 
 
 ## Current Evidence
 
-- Product version: `Beta 0.8.12` (`0.8.12-beta.0` in npm, Android `versionCode 812` / `versionName 0.8.12-beta`). During the current beta line, each user-facing update increments the patch version.
+- Product version: `Beta 0.8.13` (`0.8.13-beta.0` in npm, Android `versionCode 813` / `versionName 0.8.13-beta`). During the current beta line, each user-facing update increments the patch version.
 - Branch: `main`
 - Latest workspace migration validation pass: 2026-06-26 00:33 Asia/Shanghai
 - Local workspace root: `D:\0A OpenClaw\projects\6sigma`
-- Local worktree: Beta 0.8.12 FSRS vocabulary review verified in browser, the installed Android release, and GitHub Actions
+- Local worktree: Beta 0.8.13 Fly View branding and navigable vocabulary collections verified in browser and the installed Android release; release CI is recorded after push
 - Latest confirmed GitHub Actions state: CI run `29476433910` passed build, browser-QA, phrase-aware vocabulary QA, maturity regression, and Android-debug jobs for commit `4ea4f6c`
 - Release APK after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
-- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with a simple Now Reading / Today's Study / Library / Recent Notes home hierarchy, a real source cover, one live route shell, opacity-only navigation, reduced-motion fallback, source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, book-isolated persisted reading positions and chapter-completion state, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, longest-match phrase lookup, occurrence-level bilingual context glosses, fixed-chrome draggable lookup sheets, 3980-entry public offline learner dictionary plus an ignored 3550-entry local private-question supplement, bounded DeepSeek selected-text explanations and question coaching, persisted per-term AI study supplements, dictionary-first FSRS vocabulary scheduling with same-session reinforcement and CSV export, exact source-range return, selected-text study notes, timed mock exams, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+- Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with Fly View / 飞阅 branding, a no-click branded opening, a simple Now Reading / Today's Study / Library / Recent Notes home hierarchy, a real source cover, one live route shell, opacity-only navigation, reduced-motion fallback, source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, book-isolated persisted reading positions and chapter-completion state, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, longest-match phrase lookup, occurrence-level bilingual context glosses, fixed-chrome draggable lookup sheets, 3980-entry public offline learner dictionary plus an ignored 3550-entry local private-question supplement, bounded DeepSeek selected-text explanations and question coaching, persisted per-term AI study supplements, dictionary-first FSRS vocabulary scheduling with same-session reinforcement, navigable textbook/question/mastered vocabulary collections, expandable context/source details, CSV export, exact source-range return, selected-text study notes, timed mock exams, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+
+## 2026-07-16 Fly View Vocabulary Collections Beta 0.8.13
+
+- Renamed the user-facing product to `飞阅 / Fly View` without changing the package ID or any `six-sigma-study:*` localStorage key, so installed upgrades retain existing learning data.
+- Replaced static textbook/question/mastered metrics with semantic buttons and added a four-way library selector. Each collection keeps book filtering, search, sorting, expandable context, and its exact `回到原文` or `回到题目` action.
+- Recent terms now open their exact library record. Library rows use explicit `aria-expanded` state and progressive disclosure rather than a long always-open detail surface.
+- Replaced the stale native Capacitor icon set, generated matching PWA sizes and Android density resources, and aligned the native splash with the app opening. Android package inspection reports label `飞阅`, code/name `813` / `0.8.13-beta`.
+- Visual QA at 390 x 844 passed Fly View opening, category controls, minimum 44 px touch targets, manual/question/mastered isolation, expanded details, source actions, and zero horizontal overflow. Side-by-side before/after evidence is stored under `qa/product-audit-beta-0.8.13` and selected public-safe screenshots are committed under `docs/assets/showcase`.
+- Existing `qa:learning-ui`, `qa:vocab-study-ux`, `qa:motion-ui`, `qa:target4-flow`, and all 13 `qa:maturity-regressions` scenarios remain green. Content, book import, public-isolation, source-coverage, documentation-link, build, typecheck, and the full learning-module gates also passed.
+- Installed release launched successfully on `emulator-5554`; package logs contained no Fly View crash or ANR signature.
+- Final local release artifacts:
+  - APK: 41,213,251 bytes; SHA-256 `BCA22734CF2E78E63CA4B15099D21801B9220356F008CD7C5E039EFE3CC53D6F`; APK Signature Scheme v2 verified with one signer.
+  - AAB: 38,948,354 bytes; SHA-256 `8C4F319159EEC170F49BEE39A30C4FDB5765C761A4EA01A57D85A8C8ED104EC3`; JAR signature verification passed with the expected local self-signed/no-timestamp warnings.
 
 ## 2026-07-16 FSRS Vocabulary Review Beta 0.8.12
 

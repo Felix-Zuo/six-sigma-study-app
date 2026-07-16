@@ -1,6 +1,6 @@
 # Notice
 
-Six Sigma Study App is a non-commercial bilingual study application and content-conversion platform.
+Fly View (飞阅) is a non-commercial bilingual study application and content-conversion platform.
 
 The first bundled book is a Chinese-English study edition of a Six Sigma Black Belt training manual. The CSSC training-materials page lists `CSSC Lean Six Sigma Black Belt Certification Training Manual.pdf` as a free PDF download: https://www.sixsigmacouncil.org/six-sigma-training-material/
 

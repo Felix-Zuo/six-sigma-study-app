@@ -117,6 +117,12 @@ jobs:
           QA_APP_URL: http://127.0.0.1:4183/
         run: npm run qa:vocab-study-ux
 
+      - name: Fly View vocabulary collections QA
+        env:
+          CDP_ENDPOINT: http://127.0.0.1:9338/json
+          QA_APP_URL: http://127.0.0.1:4183/
+        run: npm run qa:fly-view
+
   android-debug:
     runs-on: ubuntu-latest
     steps:

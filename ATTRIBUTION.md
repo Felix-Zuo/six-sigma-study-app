@@ -2,7 +2,7 @@
 
 ## Project
 
-- Project: Six Sigma Study App
+- Project: Fly View (飞阅)
 - Author profile: https://github.com/Felix-Zuo
 - Purpose: non-commercial bilingual study, translation organization, and portfolio demonstration of a multi-book learning app.
 

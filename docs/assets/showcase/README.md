@@ -34,5 +34,9 @@ These PNG files are copied from local QA screenshots after passing reader checks
 | `beta-0.8.3-selected-reference.png` | Selected Product Design exploration | Quiet Aperture visual target |
 | `beta-0.8.3-reference-vs-implementation.png` | Local design QA composite | Selected reference beside the final Android implementation |
 | `beta-0.8.12-fsrs-vocab-review.png` | `docs/audits/beta-0.8.12-vocab-review/qa/` | Current direct-recall, interval-preview, and reinforcement review flow |
+| `beta-0.8.13-fly-view-opening.png` | `qa/fly-view-vocab/screenshots/01-fly-view-opening.png` | Current Fly View / 飞阅 automatic opening |
+| `beta-0.8.13-fly-view-home.png` | Installed Android Beta 0.8.13 capture | Current Fly View study home |
+| `beta-0.8.13-vocab-collections.png` | `qa/fly-view-vocab/screenshots/02-vocabulary-collections.png` | Clickable textbook, question, and mastered collections |
+| `beta-0.8.13-mastered-vocabulary.png` | `qa/fly-view-vocab/screenshots/05-mastered-vocabulary-expanded.png` | Mastered collection with expanded context and source return |
 
 The `target4-*` and `learning-*` files were refreshed from the Beta 0.8.3 Android WebView run after the screenshot helpers were updated to wait for visual settling. Regenerate the underlying screenshots with the QA scripts documented in `docs/08-release-verification.md`, then copy only selected public-safe screenshots into this folder.

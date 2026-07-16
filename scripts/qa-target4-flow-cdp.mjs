@@ -174,8 +174,11 @@ async function main() {
   const opening = await evalPage(`(() => {
     const panel = document.querySelector(".splashPanel");
     const leads = Array.from(document.querySelectorAll(".splashLead")).map((item) => item.textContent.trim());
+    const logoImage = document.querySelector(".splashMark img");
     return {
-      logo: document.querySelector(".appLogo")?.textContent?.trim() ?? "",
+      brandName: document.querySelector(".splashCopy h1")?.textContent?.trim() ?? "",
+      englishBrand: document.querySelector(".splashCopy .eyebrow")?.textContent?.trim() ?? "",
+      logoImageReady: Boolean(logoImage?.complete && logoImage?.naturalWidth),
       leadCount: leads.length,
       hasEnglishLine: leads.some((line) => line.includes("For study and translation reference only")),
       hasOldButton: Boolean(panel?.querySelector(".primaryAction")),
@@ -398,6 +401,8 @@ async function main() {
   }))()`);
   await evalPage(`Array.from(document.querySelectorAll(".vocabModeTabs button")).find((item) => item.textContent.trim() === "词库")?.click()`);
   await waitFor("vocab library", () => evalPage(`document.querySelectorAll(".vocabLibraryItem").length >= 1`));
+  await evalPage(`document.querySelector(".vocabLibraryToggle")?.click()`);
+  await waitFor("expanded vocabulary source", () => evalPage(`Boolean(document.querySelector(".vocabLibraryDetails .studyItemActions button"))`));
   const vocab = await evalPage(`(() => ({
     itemCount: document.querySelectorAll(".vocabLibraryItem").length,
     hasSourceButton: Boolean(document.querySelector(".vocabLibraryItem .studyItemActions button")),
@@ -408,7 +413,9 @@ async function main() {
   const vocabShot = await capture("round1-13-vocab");
 
   const ok =
-    opening.logo.length > 0 &&
+    opening.brandName === "飞阅" &&
+    opening.englishBrand === "Fly View" &&
+    opening.logoImageReady &&
     opening.leadCount >= 2 &&
     opening.hasEnglishLine &&
     !opening.hasOldButton &&

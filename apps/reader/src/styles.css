@@ -5201,3 +5201,409 @@ html[data-transition-kind] .appShell {
     transition: none !important;
   }
 }
+
+/* Beta 0.8.13: Fly View brand and navigable vocabulary collections. */
+.splashShell {
+  background: #f6f4ef;
+}
+
+.splashShell[data-theme="dark"] {
+  background: #111916;
+}
+
+.splashPanel {
+  gap: 0;
+}
+
+.appLogo.splashMark,
+.appLogo.splashMark.cinematic {
+  width: 104px;
+  height: 104px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 22px;
+  background: transparent;
+  box-shadow: 0 18px 44px rgba(23, 79, 69, 0.18);
+  animation: flyViewMarkEnter 680ms cubic-bezier(0.22, 0.8, 0.26, 1) both !important;
+}
+
+.splashMark img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.splashCopy {
+  gap: 6px;
+  margin-top: 26px;
+  animation: flyViewCopyEnter 560ms 330ms cubic-bezier(0.22, 0.8, 0.26, 1) both !important;
+}
+
+.splashCopy .eyebrow {
+  color: #174f45;
+  font-size: 12px;
+  letter-spacing: 0;
+}
+
+.splashCopy h1 {
+  margin: 0 0 6px;
+  color: #152b27;
+  font-size: 34px;
+  font-weight: 760;
+  letter-spacing: 0;
+}
+
+.splashCopy .splashLead {
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.splashShell[data-theme="dark"] .splashCopy .eyebrow,
+.splashShell[data-theme="dark"] .splashCopy h1 {
+  color: #edf5f1;
+}
+
+.vocabSourceSummary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.vocabSourceSummary button {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  min-height: 88px;
+  padding: 12px 10px;
+  border: 0;
+  border-right: 1px solid var(--border);
+  color: var(--text);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+.vocabSourceSummary button:last-child {
+  border-right: 0;
+}
+
+.vocabSourceSummary button:hover,
+.vocabSourceSummary button:focus-visible {
+  color: var(--page-accent-strong);
+  background: var(--page-accent-soft);
+}
+
+.vocabSourceSummary button:active {
+  background: color-mix(in srgb, var(--page-accent) 14%, var(--surface));
+}
+
+.vocabSourceSummary button > svg:last-child {
+  color: var(--text-muted);
+  transition: transform 160ms ease;
+}
+
+.vocabSourceSummary button:hover > svg:last-child,
+.vocabSourceSummary button:focus-visible > svg:last-child {
+  transform: translateX(2px);
+}
+
+.vocabSummaryCopy {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.vocabSummaryCopy strong {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.vocabSummaryCopy span {
+  overflow: hidden;
+  color: var(--text-muted);
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recentTermButton {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(72px, auto) auto;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 62px;
+  padding: 11px 0;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.recentTermButton:hover,
+.recentTermButton:focus-visible {
+  color: var(--page-accent-strong);
+}
+
+.recentTermCopy {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.recentTermCopy span,
+.recentTermButton small {
+  overflow: hidden;
+  color: var(--text-muted);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recentTermButton > svg {
+  color: var(--text-muted);
+}
+
+.vocabCollectionHeader {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0 14px;
+}
+
+.vocabCollectionHeader h2,
+.vocabCollectionHeader p {
+  margin: 0;
+}
+
+.vocabCollectionHeader h2 {
+  color: var(--heading);
+  font-size: 26px;
+  line-height: 1.18;
+}
+
+.vocabCollectionHeader > strong {
+  color: var(--page-accent-strong);
+  font-size: 30px;
+  font-variant-numeric: tabular-nums;
+}
+
+.vocabCollectionTabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-muted);
+}
+
+.vocabCollectionTabs button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-width: 0;
+  min-height: 42px;
+  padding: 0 6px;
+  border: 0;
+  border-radius: 6px;
+  color: var(--text-muted);
+  background: transparent;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.vocabCollectionTabs button small {
+  color: inherit;
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.vocabCollectionTabs button.active {
+  color: var(--page-accent-strong);
+  background: var(--surface);
+  box-shadow: 0 1px 4px color-mix(in srgb, var(--panel-shadow) 42%, transparent);
+}
+
+.vocabLibraryList {
+  margin-top: 4px;
+}
+
+.studyItem.vocabLibraryItem {
+  display: block;
+  padding: 0;
+}
+
+.vocabLibraryToggle {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 92px;
+  padding: 15px 2px;
+  border: 0;
+  color: var(--text);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.vocabLibraryCopy {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+}
+
+.vocabLibraryCopy .eyebrow {
+  overflow: hidden;
+  color: var(--text-muted);
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vocabLibraryCopy > strong {
+  color: var(--heading);
+  font-size: 22px;
+  line-height: 1.15;
+}
+
+.vocabLibraryCopy > span:last-child {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.45;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.vocabLibraryChevron {
+  flex: none;
+  color: var(--text-muted);
+  transition: transform 180ms cubic-bezier(0.22, 0.8, 0.26, 1), color 160ms ease;
+}
+
+.vocabLibraryItem.expanded .vocabLibraryChevron {
+  color: var(--page-accent-strong);
+  transform: rotate(90deg);
+}
+
+.vocabLibraryDetails {
+  display: grid;
+  gap: 10px;
+  padding: 0 2px 18px;
+  animation: flyViewDetailEnter 180ms cubic-bezier(0.22, 0.8, 0.26, 1) both !important;
+}
+
+.vocabLibraryDetails h3,
+.vocabLibraryDetails p,
+.vocabLibraryDetails blockquote {
+  margin: 0;
+}
+
+.vocabLibraryDetails h3 {
+  color: var(--page-accent-strong);
+  font-size: 13px;
+}
+
+.vocabLibraryDetails blockquote {
+  padding: 11px 13px;
+  border-left: 3px solid var(--page-accent);
+  color: var(--text);
+  background: var(--surface-muted);
+  line-height: 1.55;
+}
+
+.vocabLibraryDetails .studyItemActions {
+  margin-top: 2px;
+}
+
+.vocabPlanHero,
+.vocabCollectionHeader,
+.vocabCollectionTabs,
+.studyToolbar,
+.vocabLibraryList {
+  animation: flyViewSectionEnter 220ms cubic-bezier(0.22, 0.8, 0.26, 1) both !important;
+}
+
+@keyframes flyViewMarkEnter {
+  from { opacity: 0; transform: translateY(8px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes flyViewCopyEnter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes flyViewSectionEnter {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes flyViewDetailEnter {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 420px) {
+  .vocabSourceSummary button {
+    grid-template-columns: 1fr auto;
+    gap: 5px;
+    min-height: 82px;
+    padding: 11px 8px;
+  }
+
+  .vocabSourceSummary button > svg:first-child {
+    display: none;
+  }
+
+  .vocabSummaryCopy strong {
+    font-size: 20px;
+  }
+
+  .recentTermButton {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .recentTermButton small {
+    display: none;
+  }
+
+  .vocabCollectionTabs button {
+    display: grid;
+    place-content: center;
+    gap: 0;
+    line-height: 1.2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .appLogo.splashMark,
+  .splashCopy,
+  .vocabPlanHero,
+  .vocabCollectionHeader,
+  .vocabCollectionTabs,
+  .studyToolbar,
+  .vocabLibraryList,
+  .vocabLibraryDetails {
+    animation: none !important;
+  }
+
+  .vocabSourceSummary button > svg:last-child,
+  .vocabLibraryChevron {
+    transition: none;
+  }
+}

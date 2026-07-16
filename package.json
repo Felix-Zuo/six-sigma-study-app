@@ -1,6 +1,6 @@
 {
   "name": "six-sigma-study-app",
-  "version": "0.8.12-beta.0",
+  "version": "0.8.13-beta.0",
   "private": true,
   "workspaces": [
     "apps/reader"
@@ -52,6 +52,7 @@
     "qa:question-schema": "python scripts/qa_question_schema.py",
     "qa:question-modes": "node scripts/qa-question-modes.mjs",
     "qa:learning-ui": "node scripts/qa-learning-ui-cdp.mjs",
+    "qa:fly-view": "node scripts/qa-fly-view-vocab-cdp.mjs",
     "qa:lexical-ui": "node scripts/qa-lexical-ui-cdp.mjs",
     "qa:motion-ui": "node scripts/qa-motion-ui-cdp.mjs",
     "qa:motion-continuity": "node scripts/qa-motion-continuity-cdp.mjs",

@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.findjob.sixsigmastudy',
-  appName: 'Six Sigma Study',
+  appName: '飞阅',
   webDir: 'apps/reader/dist'
 };
 

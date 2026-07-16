@@ -125,13 +125,24 @@ node scripts\qa-dictionary-cdp.mjs
 ## PWA Browser Offline QA
 
 - `node scripts\qa-pwa-offline-cdp.mjs`: passed against Vite preview on `127.0.0.1:4175` and clean headless Chrome CDP on `127.0.0.1:9333`.
-- Service worker cache: `six-sigma-study-v0.8.12`; content JSON uses network-first refresh with offline cache fallback.
+- Service worker cache: `six-sigma-study-v0.8.13`; content JSON uses network-first refresh with offline cache fallback.
 - Online cache state includes `/`, `/index.html`, hashed JS/CSS shell assets, `content/manual.json`, `manifest.webmanifest`, and all 475 figure assets.
 - Offline reload state: CDP network offline, cache-ignored reload rendered `Chapter 1: What is Six Sigma?`, 23 sections, service-worker controller present, and horizontal overflow 0.
 
 ## Android Runtime QA
 
 Verified on local emulator `SixSigmaQA` / `emulator-5554`.
+
+### Beta 0.8.13 Fly View and Vocabulary Collections
+
+- User-facing identity is now `飞阅 / Fly View` across the automatic opening, home, PWA manifest, Android label, launcher icon densities, and native splash. Package ID and local data keys remain unchanged for upgrade compatibility.
+- Textbook, question, and mastered counts are semantic buttons that open isolated library views. A four-way category selector, existing book filter/search/sort controls, explicit row expansion, and exact source-return actions remain available without a new route or storage migration.
+- `npm run qa:fly-view` passed opening brand/image checks, three semantic 82 px-high collection targets, category counts, book-aware manual/question/mastered isolation, expandable context, source actions, and zero horizontal overflow at 390 x 844.
+- `npm run qa:learning-ui`, `npm run qa:vocab-study-ux`, `npm run qa:motion-ui`, `npm run qa:target4-flow`, and the 13-case `npm run qa:maturity-regressions` suite passed after the change. Reduced motion reports zero running animations, and route QA found no text scaling, duplicate shell, 3D stage, or horizontal overflow.
+- Static gates passed: `lint:content`, `lint:books`, `qa:book-import`, `audit:public`, `docs:links`, `typecheck`, `build`, `qa:source-coverage`, and `qa:learning-modules`.
+- Installed package metadata is `versionCode 813`, `versionName 0.8.13-beta`, application label `飞阅`. The installed release launched on `emulator-5554`; recent logs contained no package crash or ANR signature.
+- Final APK: 41,213,251 bytes, SHA-256 `BCA22734CF2E78E63CA4B15099D21801B9220356F008CD7C5E039EFE3CC53D6F`; APK Signature Scheme v2 verified with one signer.
+- Final AAB: 38,948,354 bytes, SHA-256 `8C4F319159EEC170F49BEE39A30C4FDB5765C761A4EA01A57D85A8C8ED104EC3`; JAR signature verification passed with expected self-signed/no-timestamp warnings.
 
 ### Beta 0.8.12 FSRS Vocabulary Review
 

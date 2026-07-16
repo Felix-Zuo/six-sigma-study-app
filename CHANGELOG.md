@@ -1,6 +1,26 @@
 # Changelog
 
-All notable user-facing changes to Six Sigma Study App are recorded here. The project follows patch-by-patch beta releases; detailed verification evidence remains in `PROJECT_STATE.md` and `docs/08-release-verification.md`.
+All notable user-facing changes to Fly View (飞阅) are recorded here. The project follows patch-by-patch beta releases; detailed verification evidence remains in `PROJECT_STATE.md` and `docs/08-release-verification.md`.
+
+## [0.8.13-beta.0] - 2026-07-16
+
+### Added
+
+- Clickable vocabulary collections for textbook terms, question terms, mastered terms, and the complete library, with category counts and book-aware filtering.
+- Expandable vocabulary rows that keep dictionary meaning concise and reveal context, bilingual examples, optional AI supplements, and an exact source-return action on demand.
+- The Fly View / 飞阅 product identity across the opening, home, PWA metadata, Android label, launcher icons, and native splash assets.
+- Dedicated mobile CDP coverage for the opening brand, semantic collection controls, 44 px touch targets, category isolation, expanded rows, source actions, and overflow.
+
+### Changed
+
+- Recent vocabulary entries now open the corresponding expanded library record instead of acting as static text.
+- Vocabulary category changes return to the top after React commits, preventing a previous scroll-position race.
+- Motion remains limited to short opacity/translation feedback; text geometry is never scaled or stretched.
+
+### Fixed
+
+- Replaced the stale Capacitor launcher artwork that was still visible in Android builds.
+- Updated Target 4 QA to validate the real image-based opening mark and the new progressive vocabulary disclosure.
 
 ## [0.8.12-beta.0] - 2026-07-16
 

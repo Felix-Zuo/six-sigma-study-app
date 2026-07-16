@@ -1,4 +1,4 @@
-# Six Sigma Study App
+# 飞阅 (Fly View)
 
 [![CI](https://github.com/Felix-Zuo/six-sigma-study-app/actions/workflows/ci.yml/badge.svg)](https://github.com/Felix-Zuo/six-sigma-study-app/actions/workflows/ci.yml)
 
@@ -14,7 +14,7 @@ Release history is maintained in [CHANGELOG.md](CHANGELOG.md); implementation an
 
 | Metric | Current State |
 | --- | --- |
-| Release | `Beta 0.8.12` (`0.8.12-beta.0`, Android code `812`) |
+| Release | `Beta 0.8.13` (`0.8.13-beta.0`, Android code `813`) |
 | Runtime books | 2 catalog books: full Six Sigma manual + original import-practice workbook |
 | Six Sigma content | 33 chapters, 449 aligned study pages, 174 reader sections |
 | Preserved assets | 475 figure/table/formula PNG runtime assets; EN/ZH image counts 476/476 |
@@ -30,11 +30,11 @@ Release history is maintained in [CHANGELOG.md](CHANGELOG.md); implementation an
 
 | Study Home | Chinese Reader With Figure | Lookup Half Sheet |
 | --- | --- | --- |
-| ![Study home](docs/assets/showcase/beta-0.8.9-release-home.png) | ![Chinese reader with preserved figure](docs/assets/showcase/target4-reader-zh-image.png) | ![Draggable lookup sheet](docs/assets/showcase/target4-lookup-half.png) |
+| ![Fly View study home](docs/assets/showcase/beta-0.8.13-fly-view-home.png) | ![Chinese reader with preserved figure](docs/assets/showcase/target4-reader-zh-image.png) | ![Draggable lookup sheet](docs/assets/showcase/target4-lookup-half.png) |
 
-| Opening | Lookup Full Sheet | Vocabulary |
+| Fly View Opening | Lookup Full Sheet | Vocabulary Collections |
 | --- | --- | --- |
-| ![Opening animation](docs/assets/showcase/target4-opening.png) | ![Full-height lookup sheet](docs/assets/showcase/target4-lookup-full.png) | ![Vocabulary page](docs/assets/showcase/beta-0.8.9-vocabulary.png) |
+| ![Fly View opening](docs/assets/showcase/beta-0.8.13-fly-view-opening.png) | ![Full-height lookup sheet](docs/assets/showcase/target4-lookup-full.png) | ![Navigable vocabulary collections](docs/assets/showcase/beta-0.8.13-vocab-collections.png) |
 
 | Notes | Favorites | English Reader |
 | --- | --- | --- |
@@ -44,11 +44,11 @@ Release history is maintained in [CHANGELOG.md](CHANGELOG.md); implementation an
 | --- | --- | --- |
 | ![Second book](docs/assets/showcase/target4-second-book.png) | ![Table of contents](docs/assets/showcase/target4-toc.png) | ![Settings and about](docs/assets/showcase/target4-settings.png) |
 
-| FSRS Vocabulary Review | Question Training | Rich Question Word Lookup |
+| FSRS Vocabulary Review | Mastered Vocabulary | Rich Question Word Lookup |
 | --- | --- | --- |
-| ![FSRS phrase-aware vocabulary review with interval previews](docs/assets/showcase/beta-0.8.12-fsrs-vocab-review.png) | ![Question training dashboard](docs/assets/showcase/beta-0.8.9-question-training.png) | ![Question lookup with rich dictionary and context](docs/assets/showcase/learning-question-lookup-rich.png) |
+| ![FSRS phrase-aware vocabulary review with interval previews](docs/assets/showcase/beta-0.8.12-fsrs-vocab-review.png) | ![Expanded mastered vocabulary](docs/assets/showcase/beta-0.8.13-mastered-vocabulary.png) | ![Question lookup with rich dictionary and context](docs/assets/showcase/learning-question-lookup-rich.png) |
 
-Beta 0.8.9 removes the folder metaphor and real-time 3D transition stage. The home screen now follows a familiar reading-product hierarchy: Now Reading, Today's Study, Library, and Recent Notes. Navigation uses one live route shell and short opacity fades, so headings and body text are never stretched, duplicated, or moved between layers. A real source cover, neutral surfaces, one restrained accent, and a stable five-item navigation bar keep attention on study content. See [design-qa.md](design-qa.md) for the review record.
+Beta 0.8.13 introduces the Fly View / 飞阅 identity and turns the vocabulary summary into real textbook, question, and mastered collections. Navigation keeps one live route shell and short opacity/translation feedback, so headings and body text are never stretched, duplicated, or moved between layers. Neutral surfaces, one restrained accent, a stable five-item navigation bar, and progressive vocabulary details keep attention on study content. See [design-qa.md](design-qa.md) for the review record.
 
 ## Study Workflow
 

@@ -2,7 +2,7 @@
 
 ## Product
 
-Six Sigma Study App is a private mobile-first bilingual reader for the Six Sigma Black Belt manual.
+Fly View (飞阅) is an Android-first bilingual learning platform whose first complete book is the Six Sigma Black Belt manual.
 
 ## Target User
 
@@ -70,4 +70,3 @@ A Chinese-speaking learner preparing for Six Sigma Black Belt study who wants to
 - Known Six Sigma terms show curated technical explanations.
 - Saved vocabulary persists locally after refresh.
 - Chapter/page mapping remains aligned with the print edition.
-
