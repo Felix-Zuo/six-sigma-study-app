@@ -1079,6 +1079,13 @@ async function main() {
       const afterEnd = await evaluate(`Number(document.querySelector('[role="separator"]')?.getAttribute("aria-valuenow"))`);
       assert(afterArrowUp !== initial.now && afterEnd !== afterArrowUp, "ArrowUp and End did not change sheet height", { initial, afterArrowUp, afterEnd });
 
+      await evaluate(`(() => {
+        const separator = document.querySelector('section[aria-label="单词释义"] [role="separator"]');
+        separator.dispatchEvent(new KeyboardEvent("keydown", { key: "Home", bubbles: true }));
+        return true;
+      })()`);
+      await waitFor("Home sheet height", () => evaluate(`document.querySelector('[role="separator"]')?.getAttribute("aria-valuenow") === "46"`));
+
       const stickyChrome = await evaluate(`(() => {
         const sheet = document.querySelector('section[aria-label="单词释义"]');
         const scrollBody = sheet?.querySelector('[data-sheet-scroll-body]');
