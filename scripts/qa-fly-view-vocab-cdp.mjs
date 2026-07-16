@@ -95,6 +95,10 @@ async function main() {
     location.reload();
   })()`);
   await waitFor("Fly View opening", () => evaluate(`document.querySelector('[data-app-view="splash"] h1')?.textContent.trim() === "飞阅"`));
+  await waitFor("Fly View opening mark", () => evaluate(`(() => {
+    const image = document.querySelector(".splashMark img");
+    return Boolean(image?.complete && image?.naturalWidth > 0);
+  })()`));
   const splash = await evaluate(`(() => {
     const image = document.querySelector(".splashMark img");
     return {
