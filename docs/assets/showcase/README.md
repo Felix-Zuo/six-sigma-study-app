@@ -33,5 +33,6 @@ These PNG files are copied from local QA screenshots after passing reader checks
 | `target4-vocab.png` | `qa/target4-audit/screenshots/round1-13-vocab.png` | Current vocabulary page |
 | `beta-0.8.3-selected-reference.png` | Selected Product Design exploration | Quiet Aperture visual target |
 | `beta-0.8.3-reference-vs-implementation.png` | Local design QA composite | Selected reference beside the final Android implementation |
+| `beta-0.8.12-fsrs-vocab-review.png` | `docs/audits/beta-0.8.12-vocab-review/qa/` | Current direct-recall, interval-preview, and reinforcement review flow |
 
 The `target4-*` and `learning-*` files were refreshed from the Beta 0.8.3 Android WebView run after the screenshot helpers were updated to wait for visual settling. Regenerate the underlying screenshots with the QA scripts documented in `docs/08-release-verification.md`, then copy only selected public-safe screenshots into this folder.

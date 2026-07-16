@@ -8,11 +8,13 @@ The first full book is a non-commercial Chinese-English study edition of the CSS
 
 This is not an official CSSC product. The bundled manual-derived content is for personal study, Chinese translation, and bilingual reference only. Commercial use is prohibited.
 
+Release history is maintained in [CHANGELOG.md](CHANGELOG.md); implementation and verification evidence is recorded in [PROJECT_STATE.md](PROJECT_STATE.md).
+
 ## Product Snapshot
 
 | Metric | Current State |
 | --- | --- |
-| Release | `Beta 0.8.11` (`0.8.11-beta.0`, Android code `811`) |
+| Release | `Beta 0.8.12` (`0.8.12-beta.0`, Android code `812`) |
 | Runtime books | 2 catalog books: full Six Sigma manual + original import-practice workbook |
 | Six Sigma content | 33 chapters, 449 aligned study pages, 174 reader sections |
 | Preserved assets | 475 figure/table/formula PNG runtime assets; EN/ZH image counts 476/476 |
@@ -42,9 +44,9 @@ This is not an official CSSC product. The bundled manual-derived content is for 
 | --- | --- | --- |
 | ![Second book](docs/assets/showcase/target4-second-book.png) | ![Table of contents](docs/assets/showcase/target4-toc.png) | ![Settings and about](docs/assets/showcase/target4-settings.png) |
 
-| Dictionary-First Review | Question Training | Rich Question Word Lookup |
+| FSRS Vocabulary Review | Question Training | Rich Question Word Lookup |
 | --- | --- | --- |
-| ![Phrase-aware vocabulary review with a fixed rating dock](docs/assets/showcase/beta-0.8.11-vocab-review.png) | ![Question training dashboard](docs/assets/showcase/beta-0.8.9-question-training.png) | ![Question lookup with rich dictionary and context](docs/assets/showcase/learning-question-lookup-rich.png) |
+| ![FSRS phrase-aware vocabulary review with interval previews](docs/assets/showcase/beta-0.8.12-fsrs-vocab-review.png) | ![Question training dashboard](docs/assets/showcase/beta-0.8.9-question-training.png) | ![Question lookup with rich dictionary and context](docs/assets/showcase/learning-question-lookup-rich.png) |
 
 Beta 0.8.9 removes the folder metaphor and real-time 3D transition stage. The home screen now follows a familiar reading-product hierarchy: Now Reading, Today's Study, Library, and Recent Notes. Navigation uses one live route shell and short opacity fades, so headings and body text are never stretched, duplicated, or moved between layers. A real source cover, neutral surfaces, one restrained accent, and a stable five-item navigation bar keep attention on study content. See [design-qa.md](design-qa.md) for the review record.
 
@@ -77,7 +79,8 @@ When another book is selected, vocabulary, notes, and favorites are filtered to 
 - Android stores the user's DeepSeek API key with AES-GCM backed by Android Keystore. Browser/PWA testing keeps a key in memory for the current session only; keys never enter localStorage, correction exports, logs, or Git.
 - Every generated proposal is normalized into `Context Correction Bundle v1`; exact phrase structures can reuse an accepted correction automatically, while merely similar contexts remain suggestions requiring confirmation.
 - Android pronunciation uses the device's native English text-to-speech engine; browser builds retain a Web Speech fallback.
-- Phrase-aware flashcard review uses canonical dictionary meanings for recall, keeps context/AI explanations separate, underlines the target in a short bilingual example, records the exact source occurrence, and keeps the three memory ratings fixed within thumb reach.
+- Phrase-aware flashcard review uses canonical dictionary meanings for direct retrieval, keeps context/AI explanations in progressive disclosure, underlines the target in a short bilingual example, and records the exact source occurrence.
+- FSRS scheduling targets 90% retention, previews the next interval for `忘记 / 模糊 / 记得`, and returns weak cards at the end of the same session without double-counting daily progress.
 - Daily local streak target with capped catch-up workload after missed days.
 - Independent vocabulary, notes, and favorites pages with book filters, search, sorting, and source return actions.
 - Question practice workspace with Browse, Practice, Wrong Questions, Favorites, and Mock Exam modes; submitted questions stay on their explanation until the learner explicitly continues.

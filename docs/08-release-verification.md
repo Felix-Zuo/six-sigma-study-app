@@ -13,6 +13,7 @@
 | Target 4 product audit | `npm run qa:target4-flow` | opening, home, second book, settings, TOC, immersive mode, lookup half/full, exact source return, Chinese image fidelity, notes, favorites, and vocabulary pass | real-device physical long-press QA remains separate |
 | Android key chapters | `npm run qa:android-key-chapters` | Chapters 1, 7, 26, and 33 render, lookup, align, and load images | WebView/CDP is not a full physical-device matrix |
 | Lexical learning | `npm run qa:lexical-learning`; `npm run qa:lexical-ui` | structured senses, phonetics, context meanings, bilingual examples, native TTS bridge, and mobile layout pass | final voice quality depends on the device TTS voice |
+| Vocabulary review | `npm run qa:vocab-flashcards`; `npm run qa:vocab-study-ux`; `npm run qa:learning-ui` | FSRS migration, direct recall, phrase answers, interval previews, short source examples, contained scrolling, reinforcement, and summary pass | exact 不背单词 scheduling internals are private and are not claimed or copied |
 | Maturity regressions | `npm run qa:maturity-regressions`; `npm run qa:motion-ui`; `npm run qa:motion-continuity`; `npm run qa:transition-resilience` | per-book position isolation, due-only review, practice resume, safe reset, sheet boundaries/a11y, one-shell opacity navigation, Reader language fades | CDP gestures do not replace a broad physical-device matrix |
 | Public artifact isolation | `npm run qa:public-artifact`; `npm run qa:private-isolation` | normal web dist contains no private bank; Android sync cleans transient staging | local private source remains the user's responsibility |
 | Context glossary | `npm run qa:context-glosses` | 3875 blocks, 8591 sentences, 105048 meanings, page 8/9 regressions pass | 383 low-confidence sentences intentionally expose no asserted word meaning |
@@ -26,7 +27,7 @@ This document records the current evidence that the Android study app is install
 
 - Repository: `https://github.com/Felix-Zuo/six-sigma-study-app`
 - Local path: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app`
-- Latest local release validation pass when this document was updated: 2026-07-14 Asia/Shanghai
+- Latest local release validation pass when this document was updated: 2026-07-16 Asia/Shanghai
 - Release APK: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
 
@@ -56,6 +57,9 @@ npm run qa:image-fidelity
 npm run qa:sheet-gestures
 npm run qa:target4-flow
 npm run qa:learning-modules
+npm run qa:vocab-flashcards
+npm run qa:vocab-study-ux
+npm run qa:learning-ui
 npm run qa:lexical-ui
 npm run qa:motion-ui
 npm run qa:motion-continuity
@@ -121,13 +125,25 @@ node scripts\qa-dictionary-cdp.mjs
 ## PWA Browser Offline QA
 
 - `node scripts\qa-pwa-offline-cdp.mjs`: passed against Vite preview on `127.0.0.1:4175` and clean headless Chrome CDP on `127.0.0.1:9333`.
-- Service worker cache: `six-sigma-study-v0.8.10`; content JSON uses network-first refresh with offline cache fallback.
+- Service worker cache: `six-sigma-study-v0.8.12`; content JSON uses network-first refresh with offline cache fallback.
 - Online cache state includes `/`, `/index.html`, hashed JS/CSS shell assets, `content/manual.json`, `manifest.webmanifest`, and all 475 figure assets.
 - Offline reload state: CDP network offline, cache-ignored reload rendered `Chapter 1: What is Six Sigma?`, 23 sections, service-worker controller present, and horizontal overflow 0.
 
 ## Android Runtime QA
 
 Verified on local emulator `SixSigmaQA` / `emulator-5554`.
+
+### Beta 0.8.12 FSRS Vocabulary Review
+
+- Public research found that 不背单词 exposes authentic examples, phrase/collocation support, dictionary-backed definitions, and intelligent review, but does not publish an exact scheduling formula. The release therefore uses the open, testable FSRS model instead of presenting an imitation as equivalent.
+- `ts-fsrs` runs at 90% desired retention. Existing vocabulary records migrate without losing study metadata; visible Again/Hard/Good interval previews make each scheduling decision understandable.
+- The mobile flow begins with a direct dictionary-meaning choice. Answer details reveal progressively, source examples are bounded and underlined at the saved occurrence, and the rating dock remains reachable without a long page scroll.
+- Forgotten/fuzzy terms return at the end of the same session. Reinforcement attempts are bounded, do not increment daily completion, and do not reschedule the long-term card twice. A final summary separates remembered, fuzzy, and forgotten outcomes.
+- Async dictionary loading now upgrades the active fallback card in place. Phrase-aware choices and source positions survive migration, while invalid legacy offsets are removed rather than highlighting unrelated prose.
+- `npm run qa:vocab-flashcards`, `npm run qa:vocab-study-ux`, `npm run qa:learning-ui`, `npm run qa:lexical-ui`, `npm run qa:maturity-regressions`, `npm run qa:multibook-ux`, `npm run qa:ai-context-ui`, `npm run qa:target4-flow`, `npm run qa:motion-ui`, `npm run qa:motion-continuity`, and `npm run qa:transition-resilience` passed.
+- Installed Android verification passed native study-assistance and Back-stack suites. Production registers the Capacitor listener and a deduplicated document bridge; Android 16 uses the official temporary `android:enableOnBackInvokedCallback="false"` compatibility path pending a complete predictive-back migration. Because target-36 does not receive synthetic ADB `KEYCODE_BACK`, API 36 CDP automation dispatches the document `backbutton` event and records that mode explicitly.
+- Final APK: 41,272,431 bytes, SHA-256 `3A1915C3A3FCC5F8AD76C809D9E3262918FD10C9A8EDC71165AE5C2111E2865E`; APK Signature Scheme v2 verified with one signer; installed package metadata `812` / `0.8.12-beta`.
+- Final AAB: 39,023,620 bytes, SHA-256 `B69688BADE9418558D425B10AFD4C4E17A557F0907C0576EA4E146E95C5C2684`; JAR signature verification passed with expected self-signed/no-timestamp warnings.
 
 ### Beta 0.8.10 Fixed Sheets and AI Study Assistance
 

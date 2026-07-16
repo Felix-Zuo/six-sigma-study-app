@@ -68,7 +68,10 @@ async function main() {
     return true;
   })()`);
   await waitFor("language fade active", () => evaluate(`document.documentElement.dataset.transitionKind === 'language'`));
-  await sleep(60);
+  await waitFor("language surface opacity changed", () => evaluate(`(() => {
+    const surface = document.querySelector('.readerPanel');
+    return Boolean(surface && Number.parseFloat(getComputedStyle(surface).opacity) < 0.99);
+  })()`));
   const languageActive = await evaluate(uiSnapshotExpression());
   await waitFor("language changed", () => evaluate(`document.querySelector('[aria-label="切换阅读语言"]')?.textContent?.trim() !== ${JSON.stringify(languageBefore)}`));
   await waitFor("language fade settled", () => evaluate(`!document.documentElement.dataset.transitionKind`));

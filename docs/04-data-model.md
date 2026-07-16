@@ -310,6 +310,28 @@ type SavedTerm = {
   nextReviewAt: string;
   intervalDays: number;
   easeFactor: number;
+  schedulerVersion: string;
+  reviewCard: {
+    due: string;
+    stability: number;
+    difficulty: number;
+    elapsedDays: number;
+    scheduledDays: number;
+    learningSteps: number;
+    reps: number;
+    lapses: number;
+    state: number;
+    lastReview?: string;
+  };
+  reviewHistory: Array<{
+    reviewedAt: string;
+    outcome: "again" | "fuzzy" | "remembered";
+    scheduledAt: string;
+    intervalMinutes: number;
+    retrievability: number;
+    stability: number;
+    difficulty: number;
+  }>;
   masteredAt?: string;
   sourceType: "manual" | "question";
   sourceBookId?: string;
@@ -320,13 +342,13 @@ type SavedTerm = {
 };
 ```
 
-Legacy vocabulary records without `bookId` are normalized to `six-sigma-black-belt` at load time. Records from older builds also receive a canonical `dictionaryMeaning`, an inferred word/phrase kind, and character offsets when the saved source still contains the term.
+Legacy vocabulary records without `bookId` are normalized to `six-sigma-black-belt` at load time. Records from older builds also receive a canonical `dictionaryMeaning`, an inferred word/phrase kind, validated character offsets when the saved source still contains the term, and an FSRS card derived from the existing review counters and due date. Invalid source ranges are removed rather than attached to unrelated text.
 
 Lookup stores the full dictionary profile separately from the context snapshot. The dictionary profile keeps broad senses, phonetics, part of speech, lemma/word forms, and an English definition; the context snapshot keeps the occurrence-level meaning in the current manual/question sentence, a concise usage explanation, and a bilingual example. Flashcard choices always use `dictionaryMeaning`; `contextMeaning` and accepted AI fields are explanatory supplements and never become the quiz answer. A word tap resolves the longest dictionary phrase containing that occurrence before falling back to the individual word. `sourceStart`, `sourceEnd`, and `sourceOccurrence` retain the exact location inside the anchored block so source return can highlight the saved occurrence.
 
 Examples are rendered as bounded study excerpts rather than entire paragraphs. The target word or phrase is underlined, and the bilingual translation is clipped independently. Accepted lookup corrections, or an explicit AI review request, persist only the validated `aiContextMeaning`, `aiTranslation`, `aiExplanation`, model, and timestamp; the API key and raw response are never part of `SavedTerm`.
 
-Vocabulary review now uses a lightweight local spaced-repetition model inspired by SM-2, Anki, and FSRS. Review outcomes are `remembered`, `fuzzy`, and `again`; the scheduler updates `familiarity`, `lapseCount`, `correctStreak`, `intervalDays`, `easeFactor`, `lastReviewedAt`, and `nextReviewAt`. Question-sourced terms keep `sourceType = "question"` plus `sourceQuestionId`, `sourceExamId`, and `sourceDomain`.
+Vocabulary review uses `ts-fsrs` with a 90% target retention. The UI maps `again` to FSRS `Again`, `fuzzy` to `Hard`, and `remembered` to `Good`, and previews each resulting interval before submission. `reviewCard` is the authoritative scheduling state; legacy counters remain for compatibility and simple progress displays. `reviewHistory` retains the latest 100 long-term scheduling events. A forgotten or fuzzy card is also appended to the current in-memory session queue for immediate reinforcement, but that second encounter neither increments daily completion nor writes another FSRS event. Question-sourced terms keep `sourceType = "question"` plus `sourceQuestionId`, `sourceExamId`, and `sourceDomain`.
 
 ## Daily Streak
 

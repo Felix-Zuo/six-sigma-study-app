@@ -1,6 +1,6 @@
 {
   "name": "six-sigma-study-app",
-  "version": "0.8.11-beta.0",
+  "version": "0.8.12-beta.0",
   "private": true,
   "workspaces": [
     "apps/reader"

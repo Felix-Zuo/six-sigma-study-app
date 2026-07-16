@@ -36,6 +36,11 @@ async function connect() {
 async function main() {
   const cdp = await connect();
   await cdp.send("Runtime.enable");
+  const androidApiLevel = Number.parseInt(
+    execFileSync(adbPath, ["shell", "getprop", "ro.build.version.sdk"], { encoding: "utf8" }).trim(),
+    10
+  );
+  const backDispatchMode = androidApiLevel >= 36 ? "document-backbutton-bridge" : "adb-keyevent";
 
   async function evaluate(expression) {
     const result = await cdp.send("Runtime.evaluate", {
@@ -61,7 +66,11 @@ async function main() {
     throw new Error(`Timed out waiting for ${description}`);
   }
 
-  function pressBack() {
+  async function pressBack() {
+    if (androidApiLevel >= 36) {
+      await evaluate(`document.dispatchEvent(new Event("backbutton"))`);
+      return;
+    }
     execFileSync(adbPath, ["shell", "input", "keyevent", "4"], { stdio: "ignore" });
   }
 
@@ -90,7 +99,7 @@ async function main() {
   await waitFor("active native transition", () => evaluate(`
     document.documentElement.dataset.transitionKind === "navigation"
   `));
-  pressBack();
+  await pressBack();
   await waitFor("native transition cancelled by back", () => evaluate(`
     !document.documentElement.dataset.transitionKind
   `));
@@ -106,10 +115,10 @@ async function main() {
   await waitFor("question transition settled", () => evaluate(`!document.documentElement.dataset.transitionKind`));
   await evaluate(`document.querySelector(".questionContinueButton")?.click()`);
   await waitFor("question session", () => evaluate(`Boolean(document.querySelector(".questionSession .questionCard"))`));
-  pressBack();
+  await pressBack();
   await waitFor("question dashboard after Android back", () => evaluate(`Boolean(document.querySelector(".questionDashboardHero"))`));
   const questionBack = await evaluate(`document.querySelector("main")?.dataset.appView`);
-  pressBack();
+  await pressBack();
   await waitFor("home after module back", () => evaluate(`document.querySelector("main")?.dataset.appView === "home"`));
 
   await evaluate(`document.querySelector('section[aria-label="教材库"] article .primaryAction')?.click()`);
@@ -117,13 +126,13 @@ async function main() {
   await waitFor("reader transition settled", () => evaluate(`!document.documentElement.dataset.transitionKind`));
   await clickByText(".readerControlButton", "更多");
   await waitFor("reader tools", () => evaluate(`Boolean(document.querySelector(".readerMenu"))`));
-  pressBack();
+  await pressBack();
   await waitFor("reader tools closed", () => evaluate(`!document.querySelector(".readerMenu")`));
   const menuBack = await evaluate(`document.querySelector("main")?.dataset.appView`);
 
   await clickByText(".readerControlButton", "沉浸");
   await waitFor("immersive reader", () => evaluate(`Boolean(document.querySelector(".immersiveExit"))`));
-  pressBack();
+  await pressBack();
   await waitFor("immersive reader closed", () => evaluate(`!document.querySelector(".immersiveExit") && Boolean(document.querySelector(".readerChrome"))`));
   const immersiveBack = await evaluate(`document.querySelector("main")?.dataset.appView`);
 
@@ -134,7 +143,7 @@ async function main() {
   }
   await evaluate(`document.querySelector(".wordToken")?.click()`);
   await waitFor("lookup sheet", () => evaluate(`Boolean(document.querySelector('section[aria-label="单词释义"]'))`));
-  pressBack();
+  await pressBack();
   await waitFor("lookup sheet closed", () => evaluate(`!document.querySelector('section[aria-label="单词释义"]')`));
   const lookupBack = await evaluate(`({ view: document.querySelector("main")?.dataset.appView, bodyPosition: document.body.style.position })`);
 
@@ -143,7 +152,7 @@ async function main() {
     questionBack === "questions" && menuBack === "reader" && immersiveBack === "reader" &&
     lookupBack.view === "reader" && lookupBack.bodyPosition === "";
   cdp.close();
-  console.log(JSON.stringify({ ok, transitionBack, questionBack, menuBack, immersiveBack, lookupBack }, null, 2));
+  console.log(JSON.stringify({ ok, androidApiLevel, backDispatchMode, transitionBack, questionBack, menuBack, immersiveBack, lookupBack }, null, 2));
   if (!ok) process.exit(2);
 }
 

@@ -40,6 +40,7 @@ async function connect() {
 
 async function main() {
   const cdp = await connect();
+  const mark = (step) => console.log(`[qa-learning-ui] ${step}`);
   await cdp.send("Page.enable");
   await cdp.send("Runtime.enable");
   await cdp.send("Network.enable");
@@ -131,6 +132,7 @@ async function main() {
     return true;
   })()`);
   await waitFor("home", () => evaluate(`Boolean(document.querySelector(".mainNav"))`));
+  mark("seeded app state");
 
   await evaluate(`Array.from(document.querySelectorAll(".mainNavItem")).find((item) => item.textContent.includes("单词"))?.click()`);
   await waitFor("vocabulary plan", () => evaluate(`Boolean(document.querySelector(".vocabPlanHero") && !document.querySelector(".flashAnswer"))`));
@@ -141,34 +143,50 @@ async function main() {
     bodyOverflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
   }))()`);
   const vocabHomeShot = await capture("01-vocab-plan");
+  mark("captured vocabulary plan");
 
   await waitFor("vocabulary dictionary ready", () => evaluate(`document.querySelector(".vocabStartButton")?.disabled === false`));
   await evaluate(`document.querySelector(".vocabStartButton")?.click()`);
-  await waitFor("flash prompt", () => evaluate(`Boolean(document.querySelector(".flashCard .flashPromptActions"))`));
-  const flashPrompt = await evaluate(`(() => ({
+  await waitFor("direct retrieval quiz", () => evaluate(`Boolean(document.querySelector(".flashCard .flashQuiz"))`));
+  const flashQuiz = await evaluate(`(() => ({
     term: document.querySelector(".flashCard h2")?.textContent?.trim(),
+    options: Array.from(document.querySelectorAll(".flashQuiz button:not(.flashUnknownAction)"))
+      .map((item) => item.textContent.trim()),
+    legacyPromptHidden: !document.querySelector(".flashPromptActions"),
     answerHidden: !document.querySelector(".flashAnswer"),
     navHidden: !document.querySelector(".mainNav"),
     scrollY: window.scrollY,
     panelTop: Math.round(document.querySelector(".flashReviewPanel")?.getBoundingClientRect().top ?? -1)
   }))()`);
-  const promptShot = await capture("02-flash-prompt");
+  const quizShot = await capture("02-flash-quiz");
+  mark("captured direct retrieval quiz");
 
-  await evaluate(`Array.from(document.querySelectorAll(".flashPromptActions button")).find((item) => item.textContent.includes("暂时想不起来"))?.click()`);
-  await waitFor("flash answer", () => evaluate(`Boolean(document.querySelector(".flashAnswer .flashExample"))`));
+  await evaluate(`Array.from(document.querySelectorAll(".flashQuiz button:not(.flashUnknownAction)"))
+    .find((item) => item.textContent.includes("范围"))?.click()`);
+  await waitFor("flash answer", () => evaluate(`Boolean(document.querySelector(".flashAnswer .flashExample") && document.querySelector(".flashRatingDock"))`));
   const flashAnswer = await evaluate(`(() => ({
-    dictionaryMeaning: document.querySelector(".flashAnswer .dictionaryTranslation")?.textContent?.trim(),
+    dictionaryMeaning: document.querySelector(".flashDictionarySummary .dictionaryTranslation")?.textContent?.trim(),
     contextMeaning: document.querySelector(".flashAnswer .contextMeaningCard .translation")?.textContent?.trim(),
     explanation: document.querySelector(".flashAnswer .contextMeaningCard p:not(.translation)")?.textContent?.trim(),
     underlined: document.querySelector(".flashAnswer .studyTargetTerm")?.textContent?.trim(),
     examples: document.querySelectorAll(".flashExample p").length,
-    source: document.querySelector(".flashAnswer .sourceLine")?.textContent?.trim(),
+    intervalLabels: Array.from(document.querySelectorAll(".flashRatingActions button small")).map((item) => item.textContent.trim()),
+    detailsCollapsed: !document.querySelector(".flashMoreDetails")?.open,
     scrollY: window.scrollY,
     panelTop: Math.round(document.querySelector(".flashReviewPanel")?.getBoundingClientRect().top ?? -1)
   }))()`);
   const answerShot = await capture("03-flash-answer");
-  await evaluate(`Array.from(document.querySelectorAll(".flashRatingActions button")).find((item) => item.textContent.trim() === "不认识")?.click()`);
+  mark("captured dictionary answer");
+  await evaluate(`Array.from(document.querySelectorAll(".flashRatingActions button"))
+    .find((item) => item.querySelector("strong")?.textContent.trim() === "忘记")?.click()`);
+  await waitFor("same-session reinforcement", () => evaluate(`Boolean(document.querySelector(".reinforcementBadge") && document.querySelector(".flashQuiz"))`));
+  await evaluate(`Array.from(document.querySelectorAll(".flashQuiz button:not(.flashUnknownAction)"))
+    .find((item) => item.textContent.includes("范围"))?.click()`);
+  await waitFor("reinforcement answer", () => evaluate(`Boolean(document.querySelector(".flashRatingActions.reinforcement"))`));
+  await evaluate(`Array.from(document.querySelectorAll(".flashRatingActions.reinforcement button"))
+    .find((item) => item.querySelector("strong")?.textContent.trim() === "已经记住")?.click()`);
   await waitFor("review completion", () => evaluate(`Boolean(document.querySelector(".flashCompleteState"))`));
+  mark("completed review reinforcement");
   const reviewedTerm = await evaluate(`JSON.parse(localStorage.getItem("six-sigma-study:vocab:v1") ?? "[]")[0]`);
 
   await evaluate(`document.querySelector(".flashCompleteState .primaryAction")?.click()`);
@@ -182,6 +200,7 @@ async function main() {
     bodyOverflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
   }))()`);
   const questionHomeShot = await capture("04-question-home");
+  mark("captured question dashboard");
 
   await evaluate(`document.querySelector(".questionContinueButton")?.click()`);
   await waitFor("question session", () => evaluate(`Boolean(document.querySelector(".questionSession .questionCard"))`));
@@ -204,6 +223,7 @@ async function main() {
     bodyFixed: document.body.style.position === "fixed"
   }))()`);
   const lookupShot = await capture("05-question-word-lookup");
+  mark("captured question word lookup");
   await evaluate(`document.querySelector(".bottomSheet .closeButton")?.click()`);
   await waitFor("question lookup closed", () => evaluate(`!document.querySelector(".bottomSheet")`));
 
@@ -215,6 +235,7 @@ async function main() {
     stored: JSON.parse(localStorage.getItem("six-sigma-study:question-progress:v1") ?? "{}")[${JSON.stringify(initialQuestionId)}] ?? null
   }))()`);
   const unknownShot = await capture("06-question-unknown-explanation");
+  mark("captured unknown explanation");
 
   await evaluate(`Array.from(document.querySelectorAll(".questionPager button")).find((item) => item.textContent.trim() === "下一题")?.click()`);
   await waitFor("explicit next after explanation", () => evaluate(`document.querySelector(".questionCard")?.dataset.questionId !== ${JSON.stringify(initialQuestionId)}`));
@@ -224,12 +245,13 @@ async function main() {
   await waitFor("answer revealed without auto advance", () => evaluate(`Boolean(document.querySelector(".questionCard .answerPanel"))`));
   const afterSubmitQuestionId = await evaluate(`document.querySelector(".questionCard")?.dataset.questionId`);
   const advancedShot = await capture("07-question-explicit-next");
+  mark("captured stable question advance");
 
   const checks = {
     vocabHome: vocabHome.dueText === "1 个待学" && vocabHome.recentTerm === "scope" && !vocabHome.answerLeaked && vocabHome.bodyOverflow <= 1,
-    flashPrompt: flashPrompt.term === "scope" && flashPrompt.answerHidden && flashPrompt.navHidden && flashPrompt.scrollY === 0 && flashPrompt.panelTop < 220,
-    flashAnswer: flashAnswer.dictionaryMeaning?.includes("范围") && flashAnswer.contextMeaning === "项目范围" && flashAnswer.explanation.length > 8 && flashAnswer.underlined === "scope" && flashAnswer.examples >= 2 && flashAnswer.scrollY === 0 && flashAnswer.panelTop < 220,
-    reviewStored: reviewedTerm.reviewCount === 1 && reviewedTerm.lapseCount === 1 && reviewedTerm.status === "learning",
+    flashQuiz: flashQuiz.term === "scope" && flashQuiz.options.some((item) => item.includes("范围")) && flashQuiz.legacyPromptHidden && flashQuiz.answerHidden && flashQuiz.navHidden && flashQuiz.scrollY === 0 && flashQuiz.panelTop < 220,
+    flashAnswer: flashAnswer.dictionaryMeaning?.includes("范围") && flashAnswer.contextMeaning === "项目范围" && flashAnswer.explanation.length > 8 && flashAnswer.underlined === "scope" && flashAnswer.examples >= 2 && flashAnswer.intervalLabels.length === 3 && flashAnswer.intervalLabels.every(Boolean) && flashAnswer.detailsCollapsed && flashAnswer.scrollY === 0 && flashAnswer.panelTop < 220,
+    reviewStored: reviewedTerm.reviewCount === 1 && reviewedTerm.lapseCount === 1 && reviewedTerm.status === "learning" && reviewedTerm.schedulerVersion?.startsWith("fsrs-") && reviewedTerm.reviewHistory?.length === 1,
     questionHome: questionHome.modeCount === 5 && /^\d+\/[1-9]\d*$/.test(questionHome.totalText ?? "") && questionHome.bodyOverflow <= 1,
     questionLookup: lookupWord.length >= 4 && questionLookup.word?.toLowerCase() === lookupWord.toLowerCase() && questionLookup.contextMeaning && questionLookup.contextExplanation && questionLookup.hasSave && questionLookup.bodyFixed,
     unknownExplanation: unknownState.answer?.includes("答案") && unknownState.explanation?.length > 8 && unknownState.stored?.unknownCount >= 1,
@@ -242,7 +264,7 @@ async function main() {
     ok,
     checks,
     vocabHome,
-    flashPrompt,
+    flashQuiz,
     flashAnswer,
     reviewedTerm: { status: reviewedTerm.status, reviewCount: reviewedTerm.reviewCount, lapseCount: reviewedTerm.lapseCount, nextReviewAt: reviewedTerm.nextReviewAt },
     questionHome,
@@ -251,7 +273,7 @@ async function main() {
     initialQuestionId,
     nextQuestionId,
     afterSubmitQuestionId,
-    screenshots: { vocabHomeShot, promptShot, answerShot, questionHomeShot, lookupShot, unknownShot, advancedShot }
+    screenshots: { vocabHomeShot, quizShot, answerShot, questionHomeShot, lookupShot, unknownShot, advancedShot }
   }, null, 2));
   if (!ok) process.exit(2);
 }

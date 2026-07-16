@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const endpoint = process.env.CDP_ENDPOINT ?? "http://127.0.0.1:9222/json";
-const appUrl = process.env.QA_APP_URL ?? "http://127.0.0.1:5174/";
+const appUrl = process.env.QA_APP_URL ?? "http://127.0.0.1:4180/";
 const screenshotDir = process.env.QA_SCREENSHOT_DIR ?? "qa/lexical-ui/screenshots";
 const nativeWebView = process.env.QA_NATIVE_WEBVIEW === "1";
 
@@ -40,6 +40,8 @@ async function main() {
   const cdp = await connect();
   await cdp.send("Page.enable");
   await cdp.send("Runtime.enable");
+  await cdp.send("Network.enable");
+  await cdp.send("Network.clearBrowserCache");
   await cdp.send("Emulation.setDeviceMetricsOverride", { width: 390, height: 844, deviceScaleFactor: 2, mobile: true });
 
   async function evaluate(expression) {
@@ -74,6 +76,15 @@ async function main() {
     await cdp.send("Page.navigate", { url: appUrl });
   }
   await waitFor("application", () => evaluate(`Boolean(document.querySelector(".appShell"))`));
+  if (!nativeWebView) {
+    await evaluate(`(async () => {
+      const registrations = await navigator.serviceWorker?.getRegistrations?.() ?? [];
+      await Promise.all(registrations.map((registration) => registration.unregister()));
+      const cacheNames = await caches?.keys?.() ?? [];
+      await Promise.all(cacheNames.map((name) => caches.delete(name)));
+      return true;
+    })()`);
+  }
   await evaluate(`(() => {
     const now = new Date().toISOString();
     localStorage.setItem("six-sigma-study:notice-accepted:v1", "true");
@@ -105,8 +116,9 @@ async function main() {
   await evaluate(`Array.from(document.querySelectorAll(".mainNavItem")).find((item) => item.textContent.includes("单词"))?.click()`);
   await waitFor("vocab plan", () => evaluate(`Boolean(document.querySelector(".vocabStartButton:not(:disabled)"))`));
   await evaluate(`document.querySelector(".vocabStartButton")?.click()`);
-  await waitFor("constant prompt", () => evaluate(`document.querySelector(".flashCard h2")?.textContent?.trim() === "constant"`));
-  await evaluate(`Array.from(document.querySelectorAll(".flashPromptActions button")).find((item) => item.textContent.includes("暂时想不起来"))?.click()`);
+  await waitFor("constant quiz", () => evaluate(`document.querySelector(".flashCard h2")?.textContent?.trim() === "constant" && Boolean(document.querySelector(".flashQuiz"))`));
+  await evaluate(`Array.from(document.querySelectorAll(".flashQuiz button:not(.flashUnknownAction)"))
+    .find((item) => item.textContent.includes("常数"))?.click()`);
   await waitFor("constant answer", () => evaluate(`Boolean(document.querySelector(".flashAnswer"))`));
   const flash = await evaluate(`(() => ({
     phonetic: document.querySelector(".flashTermMeta .phonetic")?.textContent?.trim(),
@@ -118,8 +130,9 @@ async function main() {
   const flashShot = await capture("01-constant-rich-answer");
 
   await evaluate(`document.querySelector(".flashRatingActions .primaryAction")?.click()`);
-  await waitFor("equation prompt", () => evaluate(`document.querySelector(".flashCard h2")?.textContent?.trim() === "equation"`));
-  await evaluate(`Array.from(document.querySelectorAll(".flashPromptActions button")).find((item) => item.textContent.includes("暂时想不起来"))?.click()`);
+  await waitFor("equation quiz", () => evaluate(`document.querySelector(".flashCard h2")?.textContent?.trim() === "equation" && Boolean(document.querySelector(".flashQuiz"))`));
+  await evaluate(`Array.from(document.querySelectorAll(".flashQuiz button:not(.flashUnknownAction)"))
+    .find((item) => item.textContent.includes("等式") || item.textContent.includes("方程式"))?.click()`);
   await waitFor("equation answer", () => evaluate(`Boolean(document.querySelector(".flashAnswer"))`));
   const equation = await evaluate(`(() => ({
     phonetic: document.querySelector(".flashTermMeta .phonetic")?.textContent?.trim(),

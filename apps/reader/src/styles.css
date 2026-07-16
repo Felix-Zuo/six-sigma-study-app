@@ -2724,7 +2724,7 @@ h1 {
   }
 }
 
-/* Beta 0.8.11: phrase-aware vocabulary review with a thumb-reachable rating dock. */
+/* Beta 0.8.12: FSRS review flow with same-session reinforcement and interval previews. */
 .studySessionShell {
   grid-template-rows: auto minmax(0, 1fr);
   height: 100dvh;
@@ -2901,6 +2901,154 @@ h1 {
 
 .flashRatingDock .flashRatingActions button {
   min-height: 50px;
+}
+
+.flashRatingActions button {
+  display: grid;
+  gap: 2px;
+  place-content: center;
+  min-width: 0;
+  line-height: 1.2;
+}
+
+.flashRatingActions button strong,
+.flashRatingActions button small {
+  display: block;
+}
+
+.flashRatingActions button small {
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.flashRatingActions .primaryAction small {
+  color: color-mix(in srgb, var(--accent-text) 78%, transparent);
+}
+
+.flashRatingActions.reinforcement {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.flashCard .eyebrow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.reinforcementBadge {
+  padding: 3px 7px;
+  border: 1px solid color-mix(in srgb, var(--page-accent) 34%, var(--border));
+  border-radius: 4px;
+  color: var(--page-accent-strong);
+  background: color-mix(in srgb, var(--page-accent) 8%, var(--surface));
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.flashCard--quiz {
+  align-content: start;
+}
+
+.flashQuiz {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 6px;
+}
+
+.flashQuiz > p,
+.flashQuiz .flashUnknownAction {
+  grid-column: 1 / -1;
+}
+
+.flashQuiz button {
+  min-height: 58px;
+  padding: 9px 8px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.flashQuiz .flashUnknownAction {
+  min-height: 42px;
+  color: var(--text-muted);
+  border-style: dashed;
+  background: transparent;
+  font-size: 13px;
+}
+
+.answerFeedback {
+  margin: 0;
+  padding: 9px 11px;
+  border-left: 3px solid currentColor;
+  background: var(--surface-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.flashMoreDetails {
+  border-top: 1px solid var(--border);
+}
+
+.flashMoreDetails > summary {
+  min-height: 44px;
+  padding: 12px 0;
+  color: var(--page-accent-strong);
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.flashMoreDetailsBody {
+  display: grid;
+  gap: 10px;
+  padding-bottom: 4px;
+}
+
+.flashLexicalDetails {
+  display: grid;
+  gap: 5px;
+  padding: 10px 12px;
+  background: var(--surface-muted);
+}
+
+.flashLexicalDetails > strong {
+  color: var(--heading);
+  font-size: 12px;
+}
+
+.flashSessionResultGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-block: 1px solid var(--border);
+}
+
+.flashSessionResultGrid span {
+  display: grid;
+  gap: 2px;
+  padding: 12px 8px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.flashSessionResultGrid span + span {
+  border-left: 1px solid var(--border);
+}
+
+.flashSessionResultGrid strong {
+  color: var(--heading);
+  font-size: 22px;
+}
+
+.flashCompleteState > small {
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.reviewPolicyNote {
+  margin: -2px 0 0;
+  color: var(--text-muted);
+  font-size: 11px;
+  line-height: 1.45;
+  text-align: center;
 }
 
 .vocabAiSummary {

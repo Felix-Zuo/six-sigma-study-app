@@ -37,13 +37,16 @@ import {
   type ContextExplanation
 } from "./lib/contextLookup";
 import {
+  createInitialTermReview,
   isTermDue,
   loadSavedTerms,
   persistSavedTerms,
+  previewTermReview,
   savedTermsToCsv,
   scheduleTermReview,
   type SavedTerm
 } from "./lib/vocabStore";
+import { reviewTargetRetention, type ReviewOutcome } from "./lib/reviewScheduler";
 import { loadReaderPosition, loadReaderPositions, persistReaderPosition, type ReaderPositionMap } from "./lib/readerPositionStore";
 import { loadSavedNotes, persistSavedNotes, type SavedNote } from "./lib/noteStore";
 import { loadSavedFavorites, persistSavedFavorites, type SavedFavorite } from "./lib/favoriteStore";
@@ -287,8 +290,12 @@ type VocabFilter = "due" | "all";
 type BookFilter = "all" | string;
 type VocabSort = "recent" | "due" | "page";
 type VocabPageMode = "plan" | "library";
-type FlashReviewStage = "prompt" | "quiz" | "answer" | "complete";
+type FlashReviewStage = "quiz" | "answer" | "complete";
 type FlashAiStatus = "idle" | "loading" | "ready" | "error";
+type FlashQuizOption = {
+  value: string;
+  label: string;
+};
 type NotesSort = "updated" | "page";
 type FavoritesSort = "recent" | "page";
 type SourceAnchor = {
@@ -332,8 +339,8 @@ type PageGroup = {
 
 const defaultBookId = "six-sigma-black-belt";
 const defaultBookTitle = "六西格玛黑带教材";
-const productVersionLabel = "Beta 0.8.11";
-const productVersionId = "0.8.11-beta";
+const productVersionLabel = "Beta 0.8.12";
+const productVersionId = "0.8.12-beta";
 const githubProfileUrl = "https://github.com/Felix-Zuo";
 const catalogPath = "content/catalog.json";
 const bundledQuestionBankPath = "content/private/question-bank.private.json";
@@ -485,6 +492,35 @@ function formatNextReview(term: SavedTerm): string {
 
 function savedTermDictionaryMeaning(term: SavedTerm, liveDictionaryMeaning?: string): string {
   return liveDictionaryMeaning || term.dictionaryMeaning || term.translation;
+}
+
+function compactQuizMeaning(value: string): string {
+  const parts = value
+    .replace(/\[[^\]]+\]/g, "")
+    .split(/[；;]/)
+    .map((part) => part.replace(/^(?:prep|conj|pron|adj|adv|aux|art|num|vt|vi|n|v)\.?\s*/i, "").trim())
+    .filter((part, index, items) => part.length > 0 && items.indexOf(part) === index);
+  const selected = parts.slice(0, 2).join("；") || value.trim();
+  return selected.length > 24 ? `${selected.slice(0, 23).trim()}…` : selected;
+}
+
+function partOfSpeechFamily(value?: string): string {
+  const text = (value || "").toLocaleLowerCase();
+  if (/\b(?:noun|n\.)\b/.test(text)) return "noun";
+  if (/\b(?:verb|vt\.|vi\.|v\.)\b/.test(text)) return "verb";
+  if (/\b(?:adjective|adj\.)\b/.test(text)) return "adjective";
+  if (/\b(?:adverb|adv\.)\b/.test(text)) return "adverb";
+  if (/\b(?:preposition|prep\.)\b/.test(text)) return "preposition";
+  return "other";
+}
+
+function stableTextRank(seed: string, value: string): number {
+  let hash = 2166136261;
+  for (const char of `${seed}:${value}`) {
+    hash ^= char.charCodeAt(0);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
 }
 
 function renderStudyExample(example: StudyExample): ReactNode {
@@ -849,8 +885,12 @@ export function App() {
   const [vocabExportMessage, setVocabExportMessage] = useState("");
   const [flashReviewActive, setFlashReviewActive] = useState(false);
   const [flashReviewIndex, setFlashReviewIndex] = useState(0);
-  const [flashReviewStage, setFlashReviewStage] = useState<FlashReviewStage>("prompt");
+  const [flashReviewStage, setFlashReviewStage] = useState<FlashReviewStage>("quiz");
   const [flashSessionIds, setFlashSessionIds] = useState<string[]>([]);
+  const [flashSessionSize, setFlashSessionSize] = useState(0);
+  const [flashSessionCompletedIds, setFlashSessionCompletedIds] = useState<string[]>([]);
+  const [flashSessionRequeues, setFlashSessionRequeues] = useState<Record<string, number>>({});
+  const [flashSessionOutcomes, setFlashSessionOutcomes] = useState<Record<string, ReviewOutcome>>({});
   const [flashSessionReviewed, setFlashSessionReviewed] = useState(0);
   const [flashSessionGoal, setFlashSessionGoal] = useState(0);
   const [flashQuizSelection, setFlashQuizSelection] = useState("");
@@ -899,6 +939,7 @@ export function App() {
   const transitionCleanupRef = useRef<(() => void) | null>(null);
   const transitionOriginViewRef = useRef<AppView | null>(null);
   const nativeBackHandlerRef = useRef<(canGoBack: boolean) => void>(() => undefined);
+  const lastNativeBackDispatchRef = useRef(0);
   const readerRestoreFrameRef = useRef(0);
   const overlayPanelRef = useRef<HTMLElement | null>(null);
   const overlayReturnFocusRef = useRef<HTMLElement | null>(null);
@@ -928,6 +969,40 @@ export function App() {
     () => buildTermIndex([...(manual?.dictionary ?? []), ...bundledQuestionDictionary]),
     [bundledQuestionDictionary, manual]
   );
+  useEffect(() => {
+    if (termIndex.size === 0) return;
+    setActiveLookup((lookup) => {
+      if (!lookup || lookup.entry.translation !== "待完善") return lookup;
+      const target = resolveDictionaryTarget(
+        lookup.query,
+        lookup.sourceText,
+        lookup.sourceStart,
+        lookup.sourceEnd,
+        (key) => termIndex.get(key)
+      );
+      const entry = target?.entry
+        ?? lookupCandidates(lookup.query).map((key) => termIndex.get(key)).find(Boolean);
+      if (!entry) return lookup;
+      const baseContext = resolveContextExplanation({
+        query: target?.query || lookup.query,
+        dictionaryTranslation: entry.translation,
+        partOfSpeech: entry.partOfSpeech,
+        sourceText: lookup.sourceText,
+        sourceTranslation: lookup.sourceTranslation
+      });
+      return {
+        ...lookup,
+        query: target?.query || lookup.query,
+        entry,
+        entryKind: target?.entryKind ?? lookup.entryKind,
+        sourceStart: target?.sourceStart ?? lookup.sourceStart,
+        sourceEnd: target?.sourceEnd ?? lookup.sourceEnd,
+        sourceOccurrence: target?.sourceOccurrence ?? lookup.sourceOccurrence,
+        baseContext,
+        context: lookup.context === lookup.baseContext ? baseContext : lookup.context
+      };
+    });
+  }, [termIndex]);
   const tocResults = useMemo(() => buildTocSearchResults(manual, tocQuery), [manual, tocQuery]);
   const bookSavedTerms = useMemo(
     () => savedTerms.filter((item) => item.bookId === currentBookId),
@@ -1104,7 +1179,11 @@ export function App() {
     const now = new Date(reviewClock);
     return studyScopeTerms
       .filter((item) => isTermDue(item, now))
-      .sort((a, b) => Date.parse(a.nextReviewAt) - Date.parse(b.nextReviewAt));
+      .sort((a, b) =>
+        Date.parse(a.nextReviewAt) - Date.parse(b.nextReviewAt) ||
+        b.lapseCount - a.lapseCount ||
+        b.reviewCard.difficulty - a.reviewCard.difficulty
+      );
   }, [reviewClock, studyScopeTerms]);
   const remainingDailyGoal = Math.max(0, dailyStats.goal - dailyStats.completed);
   const plannedFlashCount = dailyStats.checkedInToday
@@ -1115,6 +1194,9 @@ export function App() {
     : dailyStats.goal;
   const currentFlashTermId = flashSessionIds[Math.min(flashReviewIndex, Math.max(0, flashSessionIds.length - 1))];
   const currentFlashTerm = savedTerms.find((item) => item.id === currentFlashTermId);
+  const currentFlashIsReinforcement = Boolean(
+    currentFlashTermId && flashSessionCompletedIds.includes(currentFlashTermId)
+  );
   const currentFlashEntry = currentFlashTerm
     ? normalizeLookup(currentFlashTerm.term).includes(" ")
       ? termIndex.get(normalizeLookup(currentFlashTerm.term))
@@ -1126,7 +1208,8 @@ export function App() {
   const currentFlashExample = useMemo(() => compactStudyExample(
     currentFlashTerm?.exampleText || currentFlashTerm?.sourceText || "",
     currentFlashTerm?.term || "",
-    currentFlashTerm?.exampleText === currentFlashTerm?.sourceText ? currentFlashTerm?.sourceStart : undefined
+    currentFlashTerm?.exampleText === currentFlashTerm?.sourceText ? currentFlashTerm?.sourceStart : undefined,
+    130
   ), [currentFlashTerm]);
   const flashDictionaryReady = Boolean(
     !manualLoading && manual?.bookId === currentBookId && termIndex.size > 0
@@ -1155,24 +1238,57 @@ export function App() {
     });
     return compactStudyTranslation(context.exampleTranslation || sourceTranslation);
   }, [currentFlashDictionaryMeaning, currentFlashEntry, currentFlashTerm, manual]);
+  const flashReviewPreviews = useMemo(
+    () => currentFlashTerm && !currentFlashIsReinforcement
+      ? previewTermReview(currentFlashTerm, new Date(reviewClock))
+      : undefined,
+    [currentFlashIsReinforcement, currentFlashTerm, reviewClock]
+  );
   const flashQuizOptions = useMemo(() => {
     if (!currentFlashTerm) {
       return [];
     }
     const answer = currentFlashDictionaryMeaning;
-    const pool = [
-      answer,
-      ...savedTerms.map((item) => savedTermDictionaryMeaning(item)),
-      "流程能力",
-      "样本数量",
-      "控制要求",
-      "客户需求"
-    ].filter((value, index, values) => value && values.indexOf(value) === index);
-    const distractors = pool.filter((value) => value !== answer).slice(0, 3);
-    const options = [answer, ...distractors];
-    const offset = [...currentFlashTerm.term].reduce((sum, char) => sum + char.charCodeAt(0), 0) % options.length;
+    const answerLabel = compactQuizMeaning(answer);
+    const targetFamily = partOfSpeechFamily(currentFlashEntry?.partOfSpeech || currentFlashTerm.partOfSpeech);
+    const targetKind = currentFlashTerm.entryKind;
+    const rawCandidates = [
+      ...Array.from(termIndex.values()).map((entry) => ({
+        value: entry.translation,
+        family: partOfSpeechFamily(entry.partOfSpeech),
+        kind: normalizeLookup(entry.term).includes(" ") ? "phrase" : "word"
+      })),
+      ...savedTerms.map((item) => ({
+        value: savedTermDictionaryMeaning(item),
+        family: partOfSpeechFamily(item.partOfSpeech),
+        kind: item.entryKind
+      })),
+      { value: "流程能力；过程表现", family: "noun", kind: "phrase" },
+      { value: "样本数量；抽样规模", family: "noun", kind: "phrase" },
+      { value: "控制要求；管控条件", family: "noun", kind: "phrase" },
+      { value: "客户需求；用户期望", family: "noun", kind: "phrase" }
+    ];
+    const uniqueCandidates = new Map<string, { value: string; label: string; family: string; kind: string }>();
+    for (const candidate of rawCandidates) {
+      const label = compactQuizMeaning(candidate.value);
+      if (!candidate.value || candidate.value === answer || label === answerLabel || uniqueCandidates.has(label)) continue;
+      uniqueCandidates.set(label, { ...candidate, label });
+    }
+    const candidates = [...uniqueCandidates.values()].sort((a, b) => {
+      const kindDelta = Number(b.kind === targetKind) - Number(a.kind === targetKind);
+      if (kindDelta !== 0) return kindDelta;
+      const familyDelta = Number(b.family === targetFamily) - Number(a.family === targetFamily);
+      if (familyDelta !== 0) return familyDelta;
+      const lengthDelta = Math.abs(a.label.length - answerLabel.length) - Math.abs(b.label.length - answerLabel.length);
+      return lengthDelta || stableTextRank(currentFlashTerm.term, a.label) - stableTextRank(currentFlashTerm.term, b.label);
+    });
+    const options: FlashQuizOption[] = [
+      { value: answer, label: answerLabel },
+      ...candidates.slice(0, 3).map(({ value, label }) => ({ value, label }))
+    ];
+    const offset = stableTextRank(currentFlashTerm.term, answerLabel) % options.length;
     return [...options.slice(offset), ...options.slice(0, offset)];
-  }, [currentFlashDictionaryMeaning, currentFlashTerm, savedTerms]);
+  }, [currentFlashDictionaryMeaning, currentFlashEntry, currentFlashTerm, savedTerms, termIndex]);
   const textScaleIndex = textScaleOrder.indexOf(readerPreferences.textScale);
   const pageGroups = useMemo(() => buildPageGroups(lesson?.sections ?? []), [lesson]);
   const keyboardLookupBlockId = useMemo(() => {
@@ -1282,6 +1398,11 @@ export function App() {
           item.sourceEnd,
           (key) => termIndex.get(key)
         );
+        const storedSourceMatches = item.sourceStart !== undefined
+          && item.sourceEnd !== undefined
+          && item.sourceStart >= 0
+          && item.sourceEnd >= item.sourceStart
+          && item.sourceText.slice(item.sourceStart, item.sourceEnd).trim().toLocaleLowerCase() === item.term.trim().toLocaleLowerCase();
         const entry = target?.entry ?? (normalizeLookup(item.term).includes(" ")
           ? termIndex.get(normalizeLookup(item.term))
           : lookupCandidates(item.term).map((key) => termIndex.get(key)).find(Boolean));
@@ -1316,9 +1437,9 @@ export function App() {
           wordForms: entry.wordForms?.length ? entry.wordForms : item.wordForms,
           englishDefinition: entry.englishDefinition || item.englishDefinition,
           dictionaryExplanation: entry.explanation || item.dictionaryExplanation,
-          sourceStart: target?.sourceStart ?? item.sourceStart,
-          sourceEnd: target?.sourceEnd ?? item.sourceEnd,
-          sourceOccurrence: target?.sourceOccurrence ?? item.sourceOccurrence,
+          sourceStart: target?.sourceStart ?? (storedSourceMatches ? item.sourceStart : undefined),
+          sourceEnd: target?.sourceEnd ?? (storedSourceMatches ? item.sourceEnd : undefined),
+          sourceOccurrence: target?.sourceOccurrence ?? (storedSourceMatches ? item.sourceOccurrence : undefined),
           sourceTranslation: item.contextCorrectionId ? item.sourceTranslation : alignedTranslation || item.sourceTranslation,
           contextMeaning: shouldReplaceContext ? context.meaning : item.contextMeaning,
           contextExplanation: shouldReplaceContext ? context.explanation : item.contextExplanation || context.explanation,
@@ -1616,8 +1737,12 @@ export function App() {
 
   useEffect(() => {
     setFlashReviewIndex(0);
-    setFlashReviewStage("prompt");
+    setFlashReviewStage("quiz");
     setFlashSessionIds([]);
+    setFlashSessionSize(0);
+    setFlashSessionCompletedIds([]);
+    setFlashSessionRequeues({});
+    setFlashSessionOutcomes({});
     setFlashSessionReviewed(0);
     setFlashSessionGoal(0);
     setFlashQuizSelection("");
@@ -1880,8 +2005,20 @@ export function App() {
     let removed = false;
     let listener: { remove: () => Promise<void> } | undefined;
 
-    CapacitorApp.addListener("backButton", ({ canGoBack }) => {
+    const dispatchNativeBack = (canGoBack: boolean) => {
+      const now = Date.now();
+      if (now - lastNativeBackDispatchRef.current < 80) return;
+      lastNativeBackDispatchRef.current = now;
       nativeBackHandlerRef.current(canGoBack);
+    };
+
+    const handleDocumentBack = () => dispatchNativeBack(window.history.length > 1);
+    document.addEventListener("backbutton", handleDocumentBack);
+
+    void CapacitorApp.toggleBackButtonHandler({ enabled: true }).catch(() => undefined);
+
+    CapacitorApp.addListener("backButton", ({ canGoBack }) => {
+      dispatchNativeBack(canGoBack);
     }).then((handle) => {
       if (removed) {
         void handle.remove();
@@ -1892,6 +2029,7 @@ export function App() {
 
     return () => {
       removed = true;
+      document.removeEventListener("backbutton", handleDocumentBack);
       void listener?.remove();
     };
   }, []);
@@ -3663,14 +3801,20 @@ export function App() {
     if (flashReviewActive) {
       return studyShell(
         "单词学习",
-        "根据回忆与语境选择自动安排复习。",
+        "主动回忆，智能安排下一次出现。",
         <section className="flashReviewPanel" aria-label="单词复习">
           {flashReviewStage === "complete" ? (
             <section className="flashCompleteState">
               <p className="eyebrow">Session complete</p>
               <h2>本轮完成</h2>
-              <strong>{flashSessionReviewed} 个词</strong>
-              <p>今日进度 {dailyStats.completed}/{dailyStats.goal}</p>
+              <strong>{flashSessionSize} 个词</strong>
+              <div className="flashSessionResultGrid" aria-label="本轮记忆结果">
+                <span><strong>{Object.values(flashSessionOutcomes).filter((item) => item === "remembered").length}</strong>记得</span>
+                <span><strong>{Object.values(flashSessionOutcomes).filter((item) => item === "fuzzy").length}</strong>模糊</span>
+                <span><strong>{Object.values(flashSessionOutcomes).filter((item) => item === "again").length}</strong>忘记</span>
+              </div>
+              <p>薄弱词已经在本轮末尾巩固，并按记忆状态安排下次复习。</p>
+              <small>FSRS · 目标保持率 {Math.round(reviewTargetRetention * 100)}%</small>
               <button className="primaryAction" onClick={() => setFlashReviewActive(false)}>返回单词主页</button>
             </section>
           ) : !currentFlashTerm ? (
@@ -3684,14 +3828,15 @@ export function App() {
               <div className="studySessionBar">
                 <button className="closeButton" onClick={() => setFlashReviewActive(false)}>退出</button>
                 <div className="sessionProgressTrack" aria-label="复习进度">
-                  <span style={{ width: `${Math.round((flashSessionReviewed / Math.max(1, flashSessionIds.length)) * 100)}%` }} />
+                  <span style={{ width: `${Math.round((flashSessionReviewed / Math.max(1, flashSessionSize)) * 100)}%` }} />
                 </div>
-                <strong>{flashSessionReviewed + 1}/{flashSessionIds.length}</strong>
+                <strong>{currentFlashIsReinforcement ? "巩固" : `${Math.min(flashSessionReviewed + 1, flashSessionSize)}/${flashSessionSize}`}</strong>
               </div>
               <div className="flashReviewScroller" data-flash-review-scroll>
-                <article className="flashCard">
+                <article className={`flashCard flashCard--${flashReviewStage}`}>
                   <p className="eyebrow">
                     {currentFlashTerm.sourceType === "question" ? "题目来源词语" : currentFlashTerm.bookTitle}
+                    {currentFlashIsReinforcement && <span className="reinforcementBadge">巩固轮</span>}
                   </p>
                   <h2>{currentFlashTerm.term}</h2>
                   <div className="flashTermMeta">
@@ -3712,63 +3857,41 @@ export function App() {
                     </button>
                   </div>
                   {pronunciationMessage && <p className="pronunciationMessage" role="status">{pronunciationMessage}</p>}
-                  {flashReviewStage === "prompt" && (
-                    <div className="flashPromptActions">
-                      <p className="flashHint">先回忆它的常用词典释义。</p>
-                      <button className="primaryAction" onClick={() => setFlashReviewStage("quiz")}>想起来了</button>
-                      <button onClick={() => {
-                        setFlashQuizSelection("__unknown__");
-                        setFlashReviewStage("answer");
-                      }}>暂时想不起来</button>
-                    </div>
-                  )}
                   {flashReviewStage === "quiz" && (
                     <div className="flashQuiz">
-                      <p>它的常用词典释义是：</p>
+                      <p>{currentFlashIsReinforcement ? "再认一次它的常用词典义：" : "选出它的常用词典义："}</p>
                       {flashQuizOptions.map((option) => (
                         <button
-                          key={option}
+                          key={option.value}
                           onClick={() => {
-                            setFlashQuizSelection(option);
+                            setFlashQuizSelection(option.value);
                             setFlashReviewStage("answer");
                           }}
                         >
-                          {option}
+                          {option.label}
                         </button>
                       ))}
+                      <button className="flashUnknownAction" onClick={() => {
+                        setFlashQuizSelection("__unknown__");
+                        setFlashReviewStage("answer");
+                      }}>不确定，查看答案</button>
                     </div>
                   )}
                   {flashReviewStage === "answer" && (
                     <div className="flashAnswer">
-                      {flashQuizSelection !== "__unknown__" && (
-                        <p className={flashQuizSelection === currentFlashDictionaryMeaning ? "answerFeedback correct" : "answerFeedback wrong"}>
-                          {flashQuizSelection === currentFlashDictionaryMeaning
-                            ? "选择正确。再按真实记忆程度安排复习。"
-                            : "选择不符。先看清词典义，再评估本次记忆。"}
-                        </p>
-                      )}
+                      <p className={`answerFeedback ${
+                        flashQuizSelection === currentFlashDictionaryMeaning ? "correct" : "wrong"
+                      }`}>
+                        {flashQuizSelection === currentFlashDictionaryMeaning
+                          ? currentFlashIsReinforcement ? "这次认对了。" : "选择正确，再按真实回忆难度安排复习。"
+                          : flashQuizSelection === "__unknown__"
+                            ? "先看答案；薄弱词会在本轮末尾再次出现。"
+                            : "这次没认准；对照答案后再评估记忆。"}
+                      </p>
                       <section className="flashDictionarySummary">
                         <span>词典释义</span>
                         <p className="dictionaryTranslation">{currentFlashDictionaryMeaning}</p>
-                        {(currentFlashEntry?.wordRoot || currentFlashTerm.wordRoot || currentFlashEntry?.wordForms?.length || currentFlashTerm.wordForms?.length) && (
-                          <details className="flashLexicalDetails">
-                            <summary>词根与词形</summary>
-                            {(currentFlashEntry?.wordRoot || currentFlashTerm.wordRoot) && (
-                              <p className="wordRootLine">原形 / 词根：{currentFlashEntry?.wordRoot || currentFlashTerm.wordRoot}</p>
-                            )}
-                            {(currentFlashEntry?.wordForms?.length || currentFlashTerm.wordForms?.length) ? (
-                              <p className="wordRootLine">词形：{(currentFlashEntry?.wordForms || currentFlashTerm.wordForms)?.join("；")}</p>
-                            ) : null}
-                          </details>
-                        )}
                       </section>
-                      {currentFlashTerm.contextMeaning && currentFlashTerm.contextMeaning !== "暂无可靠语境义" && (
-                        <section className="contextMeaningCard compact">
-                          <span>本句中的意思</span>
-                          <p className="translation">{currentFlashTerm.contextMeaning}</p>
-                          <p>{currentFlashTerm.contextExplanation || "结合下面的原句理解。"}</p>
-                        </section>
-                      )}
                       <div className="flashExample">
                         <strong>短例句</strong>
                         <p lang="en">{renderStudyExample(currentFlashExample)}</p>
@@ -3776,38 +3899,68 @@ export function App() {
                           {currentFlashExampleTranslation || "该来源暂未附可靠中文译文。"}
                         </p>
                       </div>
-                      <section className="flashAiSupplement" aria-label="AI 语境补充">
-                        <div>
-                          <span><Sparkles size={16} /> AI 语境补充</span>
-                          <button
-                            onClick={() => void requestFlashAiSupplement(currentFlashTerm)}
-                            disabled={flashAiStatus === "loading"}
-                          >
-                            {currentFlashTerm.aiTranslation ? "重新核验" : flashAiStatus === "loading" ? "核验中" : "生成"}
-                          </button>
+                      <details className="flashMoreDetails">
+                        <summary>语境、词形与 AI 补充</summary>
+                        <div className="flashMoreDetailsBody">
+                          {(currentFlashEntry?.wordRoot || currentFlashTerm.wordRoot || currentFlashEntry?.wordForms?.length || currentFlashTerm.wordForms?.length) && (
+                            <section className="flashLexicalDetails">
+                              <strong>词根与词形</strong>
+                              {(currentFlashEntry?.wordRoot || currentFlashTerm.wordRoot) && (
+                                <p className="wordRootLine">原形 / 词根：{currentFlashEntry?.wordRoot || currentFlashTerm.wordRoot}</p>
+                              )}
+                              {(currentFlashEntry?.wordForms?.length || currentFlashTerm.wordForms?.length) ? (
+                                <p className="wordRootLine">词形：{(currentFlashEntry?.wordForms || currentFlashTerm.wordForms)?.join("；")}</p>
+                              ) : null}
+                            </section>
+                          )}
+                          {currentFlashTerm.contextMeaning && currentFlashTerm.contextMeaning !== "暂无可靠语境义" && (
+                            <section className="contextMeaningCard compact">
+                              <span>本句中的意思</span>
+                              <p className="translation">{currentFlashTerm.contextMeaning}</p>
+                              <p>{currentFlashTerm.contextExplanation || "结合上面的原句理解。"}</p>
+                            </section>
+                          )}
+                          <section className="flashAiSupplement" aria-label="AI 语境补充">
+                            <div>
+                              <span><Sparkles size={16} /> AI 语境补充</span>
+                              <button
+                                onClick={() => void requestFlashAiSupplement(currentFlashTerm)}
+                                disabled={flashAiStatus === "loading"}
+                              >
+                                {currentFlashTerm.aiTranslation ? "重新核验" : flashAiStatus === "loading" ? "核验中" : "生成"}
+                              </button>
+                            </div>
+                            {currentFlashTerm.aiContextMeaning && <strong>{currentFlashTerm.aiContextMeaning}</strong>}
+                            {currentFlashTerm.aiTranslation && <p>{currentFlashTerm.aiTranslation}</p>}
+                            {currentFlashTerm.aiExplanation && <p>{currentFlashTerm.aiExplanation}</p>}
+                            {flashAiMessage && <small className={flashAiStatus === "error" ? "error" : ""}>{flashAiMessage}</small>}
+                          </section>
+                          <div className="sourceLine">
+                            {currentFlashTerm.sourceType === "question" ? "题目" : currentFlashTerm.chapterTitle}
+                            {` · p. ${currentFlashTerm.sourcePage ?? currentFlashTerm.page}`}
+                            {currentFlashTerm.sourceOccurrence !== undefined ? ` · 第 ${currentFlashTerm.sourceOccurrence + 1} 处` : ""}
+                          </div>
                         </div>
-                        {currentFlashTerm.aiContextMeaning && <strong>{currentFlashTerm.aiContextMeaning}</strong>}
-                        {currentFlashTerm.aiTranslation && <p>{currentFlashTerm.aiTranslation}</p>}
-                        {currentFlashTerm.aiExplanation && <p>{currentFlashTerm.aiExplanation}</p>}
-                        {flashAiMessage && <small className={flashAiStatus === "error" ? "error" : ""}>{flashAiMessage}</small>}
-                      </section>
-                      <div className="sourceLine">
-                        {currentFlashTerm.sourceType === "question" ? "题目" : currentFlashTerm.chapterTitle}
-                        {` · p. ${currentFlashTerm.sourcePage ?? currentFlashTerm.page}`}
-                        {currentFlashTerm.sourceOccurrence !== undefined ? ` · 第 ${currentFlashTerm.sourceOccurrence + 1} 处` : ""}
-                      </div>
+                      </details>
                     </div>
                   )}
                 </article>
               </div>
               {flashReviewStage === "answer" && (
                 <div className="flashRatingDock">
-                  <span>这次记得怎样？</span>
-                  <div className="flashRatingActions" aria-label="本次记忆程度">
-                    <button onClick={() => reviewSavedTerm(currentFlashTerm.id, "again")}>不认识</button>
-                    <button onClick={() => reviewSavedTerm(currentFlashTerm.id, "fuzzy")}>模糊</button>
-                    <button className="primaryAction" onClick={() => reviewSavedTerm(currentFlashTerm.id, "remembered")}>认识</button>
-                  </div>
+                  <span>{currentFlashIsReinforcement ? "现在能认出来吗？" : "按真实回忆难度选择"}</span>
+                  {currentFlashIsReinforcement ? (
+                    <div className="flashRatingActions reinforcement" aria-label="巩固结果">
+                      <button onClick={() => reviewSavedTerm(currentFlashTerm.id, "again")}><strong>还没记住</strong><small>稍后再出现</small></button>
+                      <button className="primaryAction" onClick={() => reviewSavedTerm(currentFlashTerm.id, "remembered")}><strong>已经记住</strong><small>结束本轮巩固</small></button>
+                    </div>
+                  ) : (
+                    <div className="flashRatingActions" aria-label="本次记忆程度">
+                      <button onClick={() => reviewSavedTerm(currentFlashTerm.id, "again")}><strong>忘记</strong><small>{flashReviewPreviews?.again.intervalLabel}</small></button>
+                      <button onClick={() => reviewSavedTerm(currentFlashTerm.id, "fuzzy")}><strong>模糊</strong><small>{flashReviewPreviews?.fuzzy.intervalLabel}</small></button>
+                      <button className="primaryAction" onClick={() => reviewSavedTerm(currentFlashTerm.id, "remembered")}><strong>记得</strong><small>{flashReviewPreviews?.remembered.intervalLabel}</small></button>
+                    </div>
+                  )}
                 </div>
               )}
             </>
@@ -3852,6 +4005,7 @@ export function App() {
                     ? "继续巩固"
                     : "开始今日学习"}
             </button>
+            <p className="reviewPolicyNote">FSRS · 90% 目标保持率 · 薄弱词会在本轮末尾再出现</p>
             <section className="vocabSourceSummary">
               <div><strong>{savedTerms.filter((item) => item.sourceType === "manual").length}</strong><span>教材词语</span></div>
               <div><strong>{savedTerms.filter((item) => item.sourceType === "question").length}</strong><span>题目词语</span></div>
@@ -5007,6 +5161,7 @@ export function App() {
       nextReviewAt: now.toISOString(),
       intervalDays: 0,
       easeFactor: 2.1,
+      ...createInitialTermReview(now),
       sourceType: activeLookup.questionSource ? "question" : "manual",
       sourceBookId: activeLookup.questionSource ? undefined : currentBookId,
       sourceQuestionId: activeLookup.questionSource?.questionId,
@@ -5064,18 +5219,48 @@ export function App() {
     }
   }
 
-  function reviewSavedTerm(id: string, outcome: "again" | "fuzzy" | "remembered") {
-    setSavedTerms((items) => items.map((item) => (item.id === id ? scheduleTermReview(item, outcome) : item)));
-    recordDailyCompletion(1, flashSessionGoal || undefined);
-    const reviewed = flashSessionReviewed + 1;
-    setFlashSessionReviewed(reviewed);
+  function advanceFlashReview(nextIds: string[]) {
+    setFlashSessionIds(nextIds);
     setFlashQuizSelection("");
-    if (reviewed >= flashSessionIds.length) {
+    setFlashAiStatus("idle");
+    setFlashAiMessage("");
+    if (flashReviewIndex + 1 >= nextIds.length) {
       setFlashReviewStage("complete");
       return;
     }
     setFlashReviewIndex((index) => index + 1);
-    setFlashReviewStage("prompt");
+    setFlashReviewStage("quiz");
+    window.requestAnimationFrame(() => {
+      const scroller = document.querySelector<HTMLElement>("[data-flash-review-scroll]");
+      if (scroller) scroller.scrollTop = 0;
+    });
+  }
+
+  function reviewSavedTerm(id: string, outcome: ReviewOutcome) {
+    const isReinforcement = flashSessionCompletedIds.includes(id);
+    const requeueCount = flashSessionRequeues[id] || 0;
+    let nextIds = flashSessionIds;
+
+    if (isReinforcement) {
+      if (outcome === "again" && requeueCount < 2) {
+        nextIds = [...flashSessionIds, id];
+        setFlashSessionRequeues((items) => ({ ...items, [id]: requeueCount + 1 }));
+      }
+      advanceFlashReview(nextIds);
+      return;
+    }
+
+    setSavedTerms((items) => items.map((item) => (item.id === id ? scheduleTermReview(item, outcome) : item)));
+    recordDailyCompletion(1, flashSessionGoal || undefined);
+    setFlashSessionCompletedIds((items) => [...items, id]);
+    setFlashSessionOutcomes((items) => ({ ...items, [id]: outcome }));
+    setFlashSessionReviewed((count) => count + 1);
+
+    if (outcome === "again" || outcome === "fuzzy") {
+      nextIds = [...flashSessionIds, id];
+      setFlashSessionRequeues((items) => ({ ...items, [id]: 1 }));
+    }
+    advanceFlashReview(nextIds);
   }
 
   function startFlashReview() {
@@ -5085,11 +5270,15 @@ export function App() {
     const ids = flashReviewTerms.slice(0, plannedFlashCount).map((item) => item.id);
     const sessionGoal = Math.min(dailyStats.goal, dailyStats.completed + ids.length);
     setFlashSessionIds(ids);
+    setFlashSessionSize(ids.length);
+    setFlashSessionCompletedIds([]);
+    setFlashSessionRequeues({});
+    setFlashSessionOutcomes({});
     setFlashSessionGoal(sessionGoal);
     setFlashReviewIndex(0);
     setFlashSessionReviewed(0);
     setFlashQuizSelection("");
-    setFlashReviewStage(ids.length > 0 ? "prompt" : "complete");
+    setFlashReviewStage(ids.length > 0 ? "quiz" : "complete");
     setFlashReviewActive(true);
   }
 

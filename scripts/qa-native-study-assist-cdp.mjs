@@ -51,6 +51,11 @@ async function connect() {
 async function main() {
   const cdp = await connect();
   await cdp.send("Runtime.enable");
+  const androidApiLevel = Number.parseInt(
+    execFileSync(adbPath, ["shell", "getprop", "ro.build.version.sdk"], { encoding: "utf8" }).trim(),
+    10
+  );
+  const backDispatchMode = androidApiLevel >= 36 ? "document-backbutton-bridge" : "adb-keyevent";
 
   async function evaluate(expression) {
     const result = await cdp.send("Runtime.evaluate", {
@@ -76,7 +81,11 @@ async function main() {
     throw new Error(`Timed out waiting for ${description}`);
   }
 
-  function pressBack() {
+  async function pressBack() {
+    if (androidApiLevel >= 36) {
+      await evaluate(`document.dispatchEvent(new Event("backbutton"))`);
+      return;
+    }
     execFileSync(adbPath, ["shell", "input", "keyevent", "4"], { stdio: "ignore" });
   }
 
@@ -160,7 +169,7 @@ async function main() {
       overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
     };
   })()`);
-  pressBack();
+  await pressBack();
   await waitFor("lookup closed by Android back", () => evaluate(`!document.querySelector('[aria-label="单词释义"]')`));
 
   const selection = await evaluate(`(() => {
@@ -182,7 +191,7 @@ async function main() {
     status: document.querySelector('[aria-label="AI 阅读简释"] .aiAssistStatus strong')?.textContent?.trim(),
     overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
   })`);
-  pressBack();
+  await pressBack();
   await waitFor("reading AI closed by Android back", () => evaluate(`!document.querySelector('[aria-label="AI 阅读简释"]')`));
 
   await evaluate(`window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "instant" })`);
@@ -211,7 +220,7 @@ async function main() {
     questionCount: document.querySelector(".questionSessionMeta")?.textContent?.replace(/\\s+/g, " ").trim(),
     overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
   })`);
-  pressBack();
+  await pressBack();
   await waitFor("question AI closed by Android back", () => evaluate(`!document.querySelector('[aria-label="AI 题目精讲"]')`));
 
   await evaluate(`(() => {
@@ -232,7 +241,7 @@ async function main() {
   };
   const ok = Object.values(checks).every(Boolean);
   cdp.close();
-  console.log(JSON.stringify({ ok, checks, lookup, readingAi, chapter, questionAi }, null, 2));
+  console.log(JSON.stringify({ ok, androidApiLevel, backDispatchMode, checks, lookup, readingAi, chapter, questionAi }, null, 2));
   if (!ok) process.exit(2);
 }
 

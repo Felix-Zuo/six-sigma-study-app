@@ -412,7 +412,7 @@ async function main() {
       await waitFor("home view and primary navigation", () => evaluate(`Boolean(
         document.querySelector('main[data-app-view="home"]') &&
         document.querySelector('nav[aria-label="主导航"]')
-      )`));
+      )`), 35000);
     }
 
     async function installFixture(overrides = {}) {
@@ -767,9 +767,25 @@ async function main() {
       assert(session.counter === "1/1", "Review session included more than the one due term", session);
       assert(!session.futureVisible, "Future vocabulary leaked into the due review session", session);
       assert(terms.some((term) => term.id === `${fixturePrefix}future-term` && Date.parse(term.nextReviewAt) > Date.now()), "Future fixture term was not retained as future", terms);
-      await clickSelector(".flashPromptActions button:last-child", "reveal due vocabulary answer");
+      const dueOptionClicked = await evaluate(`(() => {
+        const option = Array.from(document.querySelectorAll(".flashQuiz button:not(.flashUnknownAction)"))
+          .find((item) => item.textContent.includes("能力"));
+        option?.click();
+        return Boolean(option);
+      })()`);
+      assert(dueOptionClicked, "Due vocabulary dictionary option was not available");
       await waitFor("vocabulary answer stage", () => evaluate(`Boolean(document.querySelector(".flashRatingActions"))`));
       await clickSelector(".flashRatingActions button:first-child", "rate due vocabulary as unknown");
+      await waitFor("same-session reinforcement quiz", () => evaluate(`Boolean(document.querySelector(".reinforcementBadge") && document.querySelector(".flashQuiz"))`));
+      const reinforcementOptionClicked = await evaluate(`(() => {
+        const option = Array.from(document.querySelectorAll(".flashQuiz button:not(.flashUnknownAction)"))
+          .find((item) => item.textContent.includes("能力"));
+        option?.click();
+        return Boolean(option);
+      })()`);
+      assert(reinforcementOptionClicked, "Reinforcement dictionary option was not available");
+      await waitFor("same-session reinforcement answer", () => evaluate(`Boolean(document.querySelector(".flashRatingActions.reinforcement"))`));
+      await clickSelector(".flashRatingActions.reinforcement .primaryAction", "complete same-session reinforcement");
       await waitFor("limited vocabulary session completion", () => evaluate(`Boolean(document.querySelector(".flashCompleteState"))`));
       const completion = await evaluate(`(() => ({
         streak: JSON.parse(localStorage.getItem(${JSON.stringify(storageKeys.streak)}) ?? "{}"),
@@ -781,6 +797,8 @@ async function main() {
         "A due queue smaller than the base goal could not complete today's check-in", completion);
       assert(completion.reviewed?.reviewCount === 1 && completion.reviewed?.lapseCount === 1,
         "The limited due session did not persist its self-rating", completion);
+      assert(completion.reviewed?.schedulerVersion?.startsWith("fsrs-") && completion.reviewed?.reviewHistory?.length === 1,
+        "The limited due session did not persist one FSRS review event", completion.reviewed);
       return { plan, session, terms, completion };
     });
 

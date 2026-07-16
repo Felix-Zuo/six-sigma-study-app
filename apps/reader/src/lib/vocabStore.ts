@@ -1,4 +1,16 @@
 import { resolveContextExplanation } from "./contextLookup";
+import {
+  applyReviewSchedule,
+  normalizeReviewCard,
+  normalizeReviewHistory,
+  previewReviewSchedule,
+  reviewSchedulerVersion,
+  type LegacyReviewSnapshot,
+  type ReviewCardSnapshot,
+  type ReviewHistoryItem,
+  type ReviewOutcome,
+  type ReviewPreview
+} from "./reviewScheduler";
 
 export type SavedTerm = {
   id: string;
@@ -45,6 +57,9 @@ export type SavedTerm = {
   nextReviewAt: string;
   intervalDays: number;
   easeFactor: number;
+  schedulerVersion: string;
+  reviewCard: ReviewCardSnapshot;
+  reviewHistory: ReviewHistoryItem[];
   masteredAt?: string;
   sourceType: "manual" | "question";
   sourceBookId?: string;
@@ -115,20 +130,21 @@ function inferredOccurrence(sourceText: string, term: string, sourceStart: numbe
   return count;
 }
 
-function scheduleIntervalDays(term: SavedTerm, outcome: "again" | "fuzzy" | "remembered"): number {
-  if (outcome === "again") {
-    return 1;
-  }
-  if (outcome === "fuzzy") {
-    return Math.max(1, Math.min(3, Math.ceil(Math.max(1, term.intervalDays) * 0.7)));
-  }
-  if (term.correctStreak <= 0 || term.intervalDays <= 0) {
-    return 1;
-  }
-  if (term.correctStreak === 1) {
-    return 3;
-  }
-  return Math.max(4, Math.round(term.intervalDays * term.easeFactor));
+function legacySnapshot(term: Pick<
+  SavedTerm,
+  "savedAt" | "lastReviewedAt" | "nextReviewAt" | "intervalDays" | "easeFactor" |
+  "reviewCount" | "lapseCount" | "correctStreak"
+>): LegacyReviewSnapshot {
+  return {
+    savedAt: term.savedAt,
+    lastReviewedAt: term.lastReviewedAt,
+    nextReviewAt: term.nextReviewAt,
+    intervalDays: term.intervalDays,
+    easeFactor: term.easeFactor,
+    reviewCount: term.reviewCount,
+    lapseCount: term.lapseCount,
+    correctStreak: term.correctStreak
+  };
 }
 
 function normalizeSavedTerm(item: Partial<SavedTerm>): SavedTerm {
@@ -140,7 +156,10 @@ function normalizeSavedTerm(item: Partial<SavedTerm>): SavedTerm {
   const dictionaryMeaning = item.dictionaryMeaning || item.translation || "待完善";
   const translation = dictionaryMeaning;
   const sourceText = item.sourceText ?? "";
-  const sourceStart = safeOffset(item.sourceStart, sourceText) ?? inferredSourceStart(sourceText, term);
+  const storedSourceStart = safeOffset(item.sourceStart, sourceText);
+  const storedSourceMatches = storedSourceStart !== undefined
+    && sourceText.slice(storedSourceStart, storedSourceStart + term.length).toLocaleLowerCase() === term.toLocaleLowerCase();
+  const sourceStart = storedSourceMatches ? storedSourceStart : inferredSourceStart(sourceText, term);
   const storedSourceEnd = safeOffset(item.sourceEnd, sourceText);
   const sourceEnd = storedSourceEnd !== undefined && sourceStart !== undefined && storedSourceEnd >= sourceStart
     ? storedSourceEnd
@@ -157,6 +176,22 @@ function normalizeSavedTerm(item: Partial<SavedTerm>): SavedTerm {
   const contextMeaning = !item.contextMeaning || item.contextMeaning === translation
     ? context.meaning
     : item.contextMeaning;
+  const reviewCount = toSafeNumber(item.reviewCount);
+  const lapseCount = toSafeNumber(item.lapseCount);
+  const lastReviewedAt = isIsoDate(item.lastReviewedAt) ? item.lastReviewedAt : undefined;
+  const nextReviewAt = isIsoDate(item.nextReviewAt) ? item.nextReviewAt : savedAt;
+  const intervalDays = Math.max(0, toSafeNumber(item.intervalDays));
+  const easeFactor = clamp(toSafeNumber(item.easeFactor, 2.1), minEaseFactor, maxEaseFactor);
+  const reviewLegacy: LegacyReviewSnapshot = {
+    savedAt,
+    lastReviewedAt,
+    nextReviewAt,
+    intervalDays,
+    easeFactor,
+    reviewCount,
+    lapseCount,
+    correctStreak
+  };
   return {
     id: item.id ?? `term-${Date.now()}`,
     bookId: item.bookId || defaultBookId,
@@ -195,13 +230,16 @@ function normalizeSavedTerm(item: Partial<SavedTerm>): SavedTerm {
     savedAt,
     status,
     familiarity: clamp(toSafeNumber(item.familiarity, status === "mastered" ? 85 : correctStreak * 18), 0, 100),
-    reviewCount: toSafeNumber(item.reviewCount),
-    lapseCount: toSafeNumber(item.lapseCount),
+    reviewCount,
+    lapseCount,
     correctStreak,
-    lastReviewedAt: isIsoDate(item.lastReviewedAt) ? item.lastReviewedAt : undefined,
-    nextReviewAt: isIsoDate(item.nextReviewAt) ? item.nextReviewAt : savedAt,
-    intervalDays: Math.max(0, toSafeNumber(item.intervalDays)),
-    easeFactor: clamp(toSafeNumber(item.easeFactor, 2.1), minEaseFactor, maxEaseFactor),
+    lastReviewedAt,
+    nextReviewAt,
+    intervalDays,
+    easeFactor,
+    schedulerVersion: item.schedulerVersion || reviewSchedulerVersion,
+    reviewCard: normalizeReviewCard(item.reviewCard, reviewLegacy),
+    reviewHistory: normalizeReviewHistory(item.reviewHistory),
     masteredAt: isIsoDate(item.masteredAt) ? item.masteredAt : undefined,
     sourceType,
     sourceBookId: item.sourceBookId || (sourceType === "manual" ? item.bookId || defaultBookId : undefined),
@@ -244,12 +282,35 @@ export function isTermDue(term: SavedTerm, now = new Date()): boolean {
   return Date.parse(term.nextReviewAt) <= now.getTime();
 }
 
+export function createInitialTermReview(now = new Date()): Pick<
+  SavedTerm,
+  "schedulerVersion" | "reviewCard" | "reviewHistory"
+> {
+  const timestamp = now.toISOString();
+  return {
+    schedulerVersion: reviewSchedulerVersion,
+    reviewCard: normalizeReviewCard(undefined, {
+      savedAt: timestamp,
+      nextReviewAt: timestamp,
+      intervalDays: 0,
+      easeFactor: 2.1,
+      reviewCount: 0,
+      lapseCount: 0,
+      correctStreak: 0
+    }),
+    reviewHistory: []
+  };
+}
+
 export function scheduleTermReview(
   term: SavedTerm,
-  outcome: "again" | "fuzzy" | "remembered",
+  outcome: ReviewOutcome,
   now = new Date()
 ): SavedTerm {
-  const intervalDays = scheduleIntervalDays(term, outcome);
+  const scheduled = applyReviewSchedule(term.reviewCard, legacySnapshot(term), outcome, now);
+  const intervalDays = Math.max(0, scheduled.card.scheduledDays);
+  const easeFactor = clamp(1.3 + ((10 - scheduled.card.difficulty) / 9) * 1.5, minEaseFactor, maxEaseFactor);
+  const reviewHistory = [...term.reviewHistory, scheduled.history].slice(-100);
 
   if (outcome === "again") {
     return {
@@ -261,8 +322,11 @@ export function scheduleTermReview(
       correctStreak: 0,
       lastReviewedAt: now.toISOString(),
       intervalDays,
-      easeFactor: clamp(term.easeFactor - 0.18, minEaseFactor, maxEaseFactor),
-      nextReviewAt: addDays(now, intervalDays)
+      easeFactor,
+      nextReviewAt: scheduled.card.due,
+      schedulerVersion: reviewSchedulerVersion,
+      reviewCard: scheduled.card,
+      reviewHistory
     };
   }
 
@@ -275,13 +339,16 @@ export function scheduleTermReview(
       correctStreak: Math.max(0, term.correctStreak),
       lastReviewedAt: now.toISOString(),
       intervalDays,
-      easeFactor: clamp(term.easeFactor - 0.06, minEaseFactor, maxEaseFactor),
-      nextReviewAt: addDays(now, intervalDays)
+      easeFactor,
+      nextReviewAt: scheduled.card.due,
+      schedulerVersion: reviewSchedulerVersion,
+      reviewCard: scheduled.card,
+      reviewHistory
     };
   }
 
   const correctStreak = term.correctStreak + 1;
-  const status = correctStreak >= 3 ? "mastered" : "learning";
+  const status = correctStreak >= 3 && scheduled.card.stability >= 7 ? "mastered" : "learning";
   return {
     ...term,
     status,
@@ -290,32 +357,58 @@ export function scheduleTermReview(
     correctStreak,
     lastReviewedAt: now.toISOString(),
     intervalDays,
-    easeFactor: clamp(term.easeFactor + 0.05, minEaseFactor, maxEaseFactor),
-    nextReviewAt: addDays(now, intervalDays),
+    easeFactor,
+    nextReviewAt: scheduled.card.due,
+    schedulerVersion: reviewSchedulerVersion,
+    reviewCard: scheduled.card,
+    reviewHistory,
     masteredAt: status === "mastered" ? term.masteredAt ?? now.toISOString() : term.masteredAt
   };
 }
 
+export function previewTermReview(term: SavedTerm, now = new Date()): Record<ReviewOutcome, ReviewPreview> {
+  return previewReviewSchedule(term.reviewCard, legacySnapshot(term), now);
+}
+
 export function setTermStatus(term: SavedTerm, status: SavedTerm["status"], now = new Date()): SavedTerm {
   if (status === "mastered") {
+    const nextReviewAt = addDays(now, 30);
     return {
       ...term,
       status,
       familiarity: Math.max(term.familiarity, 90),
       correctStreak: Math.max(term.correctStreak, 3),
       intervalDays: 30,
-      nextReviewAt: addDays(now, 30),
+      nextReviewAt,
+      reviewCard: {
+        ...term.reviewCard,
+        due: nextReviewAt,
+        stability: Math.max(30, term.reviewCard.stability),
+        scheduledDays: 30,
+        state: 2,
+        lastReview: now.toISOString()
+      },
       masteredAt: term.masteredAt ?? now.toISOString()
     };
   }
 
+  const nextReviewAt = now.toISOString();
   return {
     ...term,
     status,
     familiarity: status === "new" ? Math.min(term.familiarity, 20) : term.familiarity,
     correctStreak: status === "new" ? 0 : term.correctStreak,
     intervalDays: status === "new" ? 0 : term.intervalDays,
-    nextReviewAt: now.toISOString(),
+    nextReviewAt,
+    reviewCard: status === "new" ? normalizeReviewCard(undefined, {
+      savedAt: now.toISOString(),
+      nextReviewAt,
+      intervalDays: 0,
+      easeFactor: 2.1,
+      reviewCount: 0,
+      lapseCount: 0,
+      correctStreak: 0
+    }) : term.reviewCard,
     masteredAt: status === "new" ? undefined : term.masteredAt
   };
 }
@@ -347,6 +440,11 @@ export function savedTermsToCsv(terms: SavedTerm[]): string {
     "correctStreak",
     "intervalDays",
     "easeFactor",
+    "schedulerVersion",
+    "reviewStability",
+    "reviewDifficulty",
+    "reviewState",
+    "reviewHistory",
     "nextReviewAt",
     "lastReviewedAt",
     "savedAt",
@@ -398,6 +496,11 @@ export function savedTermsToCsv(terms: SavedTerm[]): string {
     term.correctStreak,
     term.intervalDays,
     term.easeFactor,
+    term.schedulerVersion,
+    term.reviewCard.stability,
+    term.reviewCard.difficulty,
+    term.reviewCard.state,
+    JSON.stringify(term.reviewHistory),
     term.nextReviewAt,
     term.lastReviewedAt,
     term.savedAt,
