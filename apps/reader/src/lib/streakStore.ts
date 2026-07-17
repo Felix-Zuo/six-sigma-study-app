@@ -1,4 +1,5 @@
 export type DailyStudyStats = {
+  planVersion: number;
   day: string;
   baseGoal: number;
   goal: number;
@@ -11,7 +12,8 @@ export type DailyStudyStats = {
 };
 
 const storageKey = "six-sigma-study:daily-streak:v1";
-const defaultBaseGoal = 8;
+const currentPlanVersion = 2;
+const defaultBaseGoal = 20;
 const maxCatchUpExtra = 12;
 const dayMs = 24 * 60 * 60 * 1000;
 
@@ -38,7 +40,12 @@ function toSafeNumber(value: unknown, fallback: number): number {
 
 export function normalizeDailyStats(input: Partial<DailyStudyStats> | null | undefined, now = new Date()): DailyStudyStats {
   const today = localDayKey(now);
-  const baseGoal = Math.max(1, Math.min(40, toSafeNumber(input?.baseGoal, defaultBaseGoal)));
+  const storedPlanVersion = toSafeNumber(input?.planVersion, 0);
+  const storedBaseGoal = toSafeNumber(input?.baseGoal, defaultBaseGoal);
+  const migratingLegacyEightWordPlan = storedPlanVersion < currentPlanVersion && storedBaseGoal === 8;
+  const baseGoal = Math.max(1, Math.min(40,
+    migratingLegacyEightWordPlan ? defaultBaseGoal : storedBaseGoal
+  ));
   const storedDay = typeof input?.day === "string" ? input.day : today;
   const lastCheckInDate = typeof input?.lastCheckInDate === "string" ? input.lastCheckInDate : undefined;
   const daysSinceCheckIn = dayDiff(lastCheckInDate, today);
@@ -47,12 +54,13 @@ export function normalizeDailyStats(input: Partial<DailyStudyStats> | null | und
   const calculatedGoal = baseGoal + catchUpExtra;
   const isToday = storedDay === today;
   const checkedInToday = lastCheckInDate === today;
-  const storedGoal = toSafeNumber(input?.goal, calculatedGoal);
+  const storedGoal = migratingLegacyEightWordPlan ? calculatedGoal : toSafeNumber(input?.goal, calculatedGoal);
   const goal = isToday
     ? Math.max(1, Math.min(calculatedGoal, storedGoal))
     : calculatedGoal;
 
   return {
+    planVersion: currentPlanVersion,
     day: today,
     baseGoal,
     goal,
@@ -65,13 +73,34 @@ export function normalizeDailyStats(input: Partial<DailyStudyStats> | null | und
   };
 }
 
+export function updateDailyBaseGoal(
+  stats: DailyStudyStats,
+  requestedGoal: number,
+  now = new Date()
+): DailyStudyStats {
+  const current = normalizeDailyStats(stats, now);
+  const baseGoal = Math.max(10, Math.min(40, Math.round(requestedGoal / 10) * 10));
+  const catchUpExtra = Math.min(maxCatchUpExtra, current.missedDays * 2);
+  return normalizeDailyStats({
+    ...current,
+    planVersion: currentPlanVersion,
+    baseGoal,
+    goal: baseGoal + catchUpExtra
+  }, now);
+}
+
 export function loadDailyStats(now = new Date()): DailyStudyStats {
   try {
     const raw = window.localStorage.getItem(storageKey);
     if (!raw) {
       return normalizeDailyStats(undefined, now);
     }
-    return normalizeDailyStats(JSON.parse(raw), now);
+    const parsed = JSON.parse(raw) as Partial<DailyStudyStats>;
+    const normalized = normalizeDailyStats(parsed, now);
+    if (JSON.stringify(parsed) !== JSON.stringify(normalized)) {
+      persistDailyStats(normalized);
+    }
+    return normalized;
   } catch {
     return normalizeDailyStats(undefined, now);
   }

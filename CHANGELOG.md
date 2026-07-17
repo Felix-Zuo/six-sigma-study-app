@@ -2,6 +2,21 @@
 
 All notable user-facing changes to Fly View (飞阅) are recorded here. The project follows patch-by-patch beta releases; detailed verification evidence remains in `PROJECT_STATE.md` and `docs/08-release-verification.md`.
 
+## [0.8.15-beta.0] - 2026-07-17
+
+### Changed
+
+- Rebuilt vocabulary review as a compact, headerless mobile session with the recall prompt, one short bilingual example, and fixed memory controls in the first viewport; morphology, source, and AI details remain progressively disclosed.
+- Increased the default daily plan from 8 to 20 words, added 10/20/30/40-word goal choices, and migrated persisted eight-word plans without losing streak or completion data.
+- Made dictionary meaning the only answer source while combining overlapping valid senses into one choice and rejecting distractors that share a correct target sense.
+
+### Fixed
+
+- Corrected the reported `transit` ambiguity so only one option contains its valid transport/passage senses.
+- Repaired flattened table examples and exact cell-aligned translations, including the `manner` example, instead of proportionally pairing unrelated English and Chinese blocks.
+- Accepted one-to-six-word lemmas from AI context supplements, so phrases such as `in depth` no longer fail single-word validation.
+- Repaired stale saved examples and translations at review time, bounded examples to one sentence, and replaced low-level AI schema errors with a recoverable retry message.
+
 ## [0.8.14-beta.0] - 2026-07-17
 
 ### Fixed

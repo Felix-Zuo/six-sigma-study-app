@@ -125,30 +125,56 @@ function sentenceBoundaryAfter(text: string, index: number): number {
   return candidates.length > 0 ? index + Math.min(...candidates) + 1 : text.length;
 }
 
+function removeFlattenedTableLabel(sourceText: string, target: string): string {
+  const targetKey = target.toLocaleLowerCase();
+  const duplicate = /\b([A-Za-z][A-Za-z'-]*)\s+\1\b/gi;
+  let match: RegExpExecArray | null;
+  while ((match = duplicate.exec(sourceText))) {
+    const secondWordStart = match.index + match[0].length - match[1].length;
+    if (sourceText.slice(secondWordStart).toLocaleLowerCase().includes(targetKey)) {
+      return sourceText.slice(secondWordStart);
+    }
+  }
+  return sourceText;
+}
+
+function tidyStudySentence(value: string): string {
+  let clean = value.replace(/\s+/g, " ").trim();
+  if (/^\([^()]+\)$/.test(clean)) {
+    clean = clean.slice(1, -1).trim();
+  }
+  if (clean && /[A-Za-z0-9)]$/.test(clean)) {
+    clean = `${clean}.`;
+  }
+  return clean;
+}
+
 export function compactStudyExample(
   sourceText: string,
   target: string,
   preferredStart?: number,
   maxLength = 170
 ): StudyExample {
-  const cleanSource = sourceText.replace(/\s+/g, " ").trim();
+  const preparedSource = removeFlattenedTableLabel(sourceText, target);
+  const cleanSource = preparedSource.replace(/\s+/g, " ").trim();
   if (!cleanSource) return { text: "", targetStart: -1, targetEnd: -1 };
-  const directPreferred = validOffset(preferredStart, sourceText)
-    ? sourceText.slice(preferredStart, preferredStart + target.length).toLocaleLowerCase() === target.toLocaleLowerCase()
+  const canUsePreferredStart = preparedSource === sourceText;
+  const directPreferred = canUsePreferredStart && validOffset(preferredStart, preparedSource)
+    ? preparedSource.slice(preferredStart, preferredStart + target.length).toLocaleLowerCase() === target.toLocaleLowerCase()
       ? preferredStart
       : -1
     : -1;
   const sourceTargetStart = directPreferred >= 0
     ? directPreferred
-    : sourceText.toLocaleLowerCase().indexOf(target.toLocaleLowerCase());
+    : preparedSource.toLocaleLowerCase().indexOf(target.toLocaleLowerCase());
 
   if (sourceTargetStart < 0) {
     const text = cleanSource.length <= maxLength ? cleanSource : `${cleanSource.slice(0, maxLength - 1).trim()}…`;
     return { text, targetStart: -1, targetEnd: -1 };
   }
 
-  const sentenceStart = sentenceBoundaryBefore(sourceText, sourceTargetStart);
-  const sentenceEnd = sentenceBoundaryAfter(sourceText, sourceTargetStart + target.length);
+  const sentenceStart = sentenceBoundaryBefore(preparedSource, sourceTargetStart);
+  const sentenceEnd = sentenceBoundaryAfter(preparedSource, sourceTargetStart + target.length);
   let excerptStart = sentenceStart;
   let excerptEnd = sentenceEnd;
   if (excerptEnd - excerptStart > maxLength) {
@@ -159,13 +185,14 @@ export function compactStudyExample(
       excerptEnd = Math.min(sentenceEnd, sourceTargetStart + target.length + 34);
       excerptStart = Math.max(sentenceStart, excerptEnd - maxLength);
     }
-    while (excerptStart > sentenceStart && /[A-Za-z0-9]/.test(sourceText[excerptStart - 1] ?? "")) excerptStart += 1;
-    while (excerptEnd < sentenceEnd && /[A-Za-z0-9]/.test(sourceText[excerptEnd] ?? "")) excerptEnd -= 1;
+    while (excerptStart > sentenceStart && /[A-Za-z0-9]/.test(preparedSource[excerptStart - 1] ?? "")) excerptStart += 1;
+    while (excerptEnd < sentenceEnd && /[A-Za-z0-9]/.test(preparedSource[excerptEnd] ?? "")) excerptEnd -= 1;
   }
 
   const leadingEllipsis = excerptStart > sentenceStart;
   const trailingEllipsis = excerptEnd < sentenceEnd;
-  const raw = sourceText.slice(excerptStart, excerptEnd).replace(/\s+/g, " ").trim();
+  const excerpt = preparedSource.slice(excerptStart, excerptEnd).replace(/\s+/g, " ").trim();
+  const raw = trailingEllipsis ? excerpt : tidyStudySentence(excerpt);
   const text = `${leadingEllipsis ? "…" : ""}${raw}${trailingEllipsis ? "…" : ""}`;
   const targetStart = text.toLocaleLowerCase().indexOf(target.toLocaleLowerCase());
   return {
@@ -175,8 +202,19 @@ export function compactStudyExample(
   };
 }
 
-export function compactStudyTranslation(value: string | undefined, maxLength = 110): string | undefined {
+export function isReliableStudyTranslation(sourceText: string, value: string | undefined): boolean {
+  const clean = value?.replace(/\s+/g, " ").trim();
+  if (!clean || !/[\u3400-\u9fff]/.test(clean)) return false;
+  const englishWords = sourceText.match(/[A-Za-z]+(?:[-'][A-Za-z]+)*/g)?.length ?? 0;
+  const chineseChars = clean.match(/[\u3400-\u9fff]/g)?.length ?? 0;
+  const sentenceCount = clean.match(/[。！？!?]/g)?.length ?? 0;
+  const maxChineseChars = Math.max(24, englishWords * 4 + 8);
+  return sentenceCount <= 2 && chineseChars <= maxChineseChars;
+}
+
+export function compactStudyTranslation(value: string | undefined, maxLength = 72): string | undefined {
   const clean = value?.replace(/\s+/g, " ").trim();
   if (!clean) return undefined;
-  return clean.length <= maxLength ? clean : `${clean.slice(0, maxLength - 1).trim()}…`;
+  const sentence = clean.match(/^[^。！？!?]+[。！？!?]?/)?.[0]?.trim() || clean;
+  return sentence.length <= maxLength ? sentence : `${sentence.slice(0, maxLength - 1).trim()}…`;
 }

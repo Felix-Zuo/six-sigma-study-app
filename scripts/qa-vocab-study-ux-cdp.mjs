@@ -187,12 +187,12 @@ async function main() {
   await evaluate(`Array.from(document.querySelectorAll(".flashQuiz button")).find((item) => item.textContent.trim() === "反复试验")?.click()`);
   await waitFor("reinforcement answer", () => evaluate(`Boolean(document.querySelector(".flashRatingActions.reinforcement"))`));
   const reinforcementShot = await capture("03-same-session-reinforcement");
-  await evaluate(`Array.from(document.querySelectorAll(".flashRatingActions.reinforcement button")).find((item) => item.querySelector("strong")?.textContent.trim() === "已经记住")?.click()`);
+  await evaluate(`Array.from(document.querySelectorAll(".flashRatingActions.reinforcement button")).find((item) => item.querySelector("strong")?.textContent.trim() === "记得")?.click()`);
   await waitFor("session summary", () => evaluate(`Boolean(document.querySelector(".flashCompleteState"))`));
   const completion = await evaluate(`(() => ({
     title: document.querySelector(".flashCompleteState h2")?.textContent?.trim(),
     counts: Array.from(document.querySelectorAll(".flashSessionResultGrid span")).map((item) => item.textContent.replace(/\s+/g, "").trim()),
-    scheduler: document.querySelector(".flashCompleteState small")?.textContent?.trim(),
+    hasVerbosePolicy: /薄弱词|目标保持率|本轮末尾/.test(document.querySelector(".flashCompleteState")?.textContent ?? ""),
     daily: JSON.parse(localStorage.getItem("six-sigma-study:daily-streak:v1") ?? "null"),
     terms: JSON.parse(localStorage.getItem("six-sigma-study:vocab:v1") ?? "[]")
       .filter((item) => ["qa-legacy-trial", "qa-legacy-throughout"].includes(item.id))
@@ -242,34 +242,107 @@ async function main() {
   })()`));
   const clockSkewPersisted = await evaluate(`JSON.parse(localStorage.getItem("six-sigma-study:vocab:v1") ?? "[]").find((item) => item.id === "qa-clock-skew")`);
 
+  await evaluate(`(() => {
+    const now = new Date();
+    const today = [now.getFullYear(), String(now.getMonth() + 1).padStart(2, "0"), String(now.getDate()).padStart(2, "0")].join("-");
+    const tableSource = "Process Performance Metric(s) Current Sigma Level Attaching a decorative element to food item Decorative touch is centered on food product and stable so it won't fall off in transit 2.2 Packing product Product is sealed for freshness 3.1 Shipping of product Product reaches the right customer in a timely manner 4.3";
+    const inDepthSource = "(Sampling and extrapolation are covered in depth in the advanced chapters on statistics.)";
+    const makeTerm = (id, term, sourceText, sectionId, blockId, page, offset) => ({
+      id, bookId: "six-sigma-black-belt", bookTitle: "六西格玛黑带培训教材",
+      term, translation: "旧释义", dictionaryMeaning: "旧释义", entryKind: term.includes(" ") ? "phrase" : "word",
+      chapter: 1, chapterTitle: "Chapter 1: What is Six Sigma?", page, sectionId, blockId, sourceText,
+      sourceStart: sourceText.toLocaleLowerCase().indexOf(term), sourceEnd: sourceText.toLocaleLowerCase().indexOf(term) + term.length,
+      exampleText: sourceText, exampleTranslation: "西格玛水平能让组织从高层次了解流程表现，但领导层还应考虑成本和资源。",
+      savedAt: new Date(now.getTime() + offset).toISOString(), status: "new", familiarity: 0, reviewCount: 0,
+      lapseCount: 0, correctStreak: 0, nextReviewAt: new Date(now.getTime() + offset).toISOString(), intervalDays: 0,
+      easeFactor: 2.1, sourceType: "manual", sourceBookId: "six-sigma-black-belt", sourcePage: page
+    });
+    localStorage.setItem("six-sigma-study:vocab:v1", JSON.stringify([
+      makeTerm("qa-transit", "transit", tableSource, "sigma-level-not-final", "sigma-level-not-final-en-004", 9, 0),
+      makeTerm("qa-manner", "manner", tableSource, "sigma-level-not-final", "sigma-level-not-final-en-004", 9, 1),
+      makeTerm("qa-in-depth", "in depth", inDepthSource, "calculating-sigma-level", "calculating-sigma-level-en-003", 8, 2)
+    ]));
+    localStorage.setItem("six-sigma-study:daily-streak:v1", JSON.stringify({
+      day: today, baseGoal: 8, goal: 8, completed: 0, streak: 0, missedDays: 0,
+      checkedInToday: false, updatedAt: now.toISOString()
+    }));
+    location.reload();
+  })()`);
+  await waitFor("home after reported-regression seed", () => evaluate(`Boolean(document.querySelector(".mainNav"))`));
+  await evaluate(`Array.from(document.querySelectorAll(".mainNavItem")).find((item) => item.textContent.includes("单词"))?.click()`);
+  await waitFor("migrated daily plan", () => evaluate(`document.querySelector('[aria-label="每日学习数量"]')?.value === "20"`));
+  const migratedDailyPlan = await evaluate(`JSON.parse(localStorage.getItem("six-sigma-study:daily-streak:v1") ?? "null")`);
+  const planCopy = await evaluate(`document.querySelector(".vocabPlanHero h2")?.textContent?.trim()`);
+  await evaluate(`document.querySelector(".vocabStartButton")?.click()`);
+  await waitFor("transit quiz", () => evaluate(`document.querySelector(".flashCard h2")?.textContent?.trim() === "transit"`));
+  const transitQuiz = await evaluate(`(() => ({
+    options: Array.from(document.querySelectorAll(".flashQuiz button:not(.flashUnknownAction)")).map((item) => item.textContent.trim()),
+    noPageHeader: !document.querySelector(".appPageHeader"),
+    coreFits: document.querySelector(".flashReviewScroller").scrollHeight <= document.querySelector(".flashReviewScroller").clientHeight + 2
+  }))()`);
+  const transitShot = await capture("06-transit-unambiguous-quiz");
+  await evaluate(`Array.from(document.querySelectorAll(".flashQuiz button:not(.flashUnknownAction)")).find((item) => item.textContent.includes("经过") && item.textContent.includes("运输"))?.click()`);
+  await waitFor("transit answer", () => evaluate(`Boolean(document.querySelector(".flashAnswer"))`));
+  const transitAnswer = await evaluate(`(() => ({
+    example: document.querySelector(".flashExample p[lang='en']")?.textContent?.trim(),
+    translation: document.querySelector(".flashExample p:not([lang='en'])")?.textContent?.trim(),
+    coreFits: document.querySelector(".flashReviewScroller").scrollHeight <= document.querySelector(".flashReviewScroller").clientHeight + 2,
+    verboseCopy: /本轮末尾|目标保持率|真实回忆难度/.test(document.querySelector(".flashReviewPanel")?.textContent ?? "")
+  }))()`);
+  await evaluate(`Array.from(document.querySelectorAll(".flashRatingActions button")).find((item) => item.querySelector("strong")?.textContent.trim() === "记得")?.click()`);
+  await waitFor("manner quiz", () => evaluate(`document.querySelector(".flashCard h2")?.textContent?.trim() === "manner"`));
+  await evaluate(`Array.from(document.querySelectorAll(".flashQuiz button:not(.flashUnknownAction)")).find((item) => item.textContent.includes("样子"))?.click()`);
+  await waitFor("manner answer", () => evaluate(`Boolean(document.querySelector(".flashAnswer"))`));
+  const mannerAnswer = await evaluate(`(() => ({
+    example: document.querySelector(".flashExample p[lang='en']")?.textContent?.trim(),
+    translation: document.querySelector(".flashExample p:not([lang='en'])")?.textContent?.trim(),
+    context: document.querySelector(".flashMoreDetails .contextMeaningCard .translation")?.textContent?.trim(),
+    coreFits: document.querySelector(".flashReviewScroller").scrollHeight <= document.querySelector(".flashReviewScroller").clientHeight + 2
+  }))()`);
+  const mannerShot = await capture("07-manner-correct-bilingual-example");
+  await evaluate(`Array.from(document.querySelectorAll(".flashRatingActions button")).find((item) => item.querySelector("strong")?.textContent.trim() === "记得")?.click()`);
+  await waitFor("multi-word phrase quiz", () => evaluate(`document.querySelector(".flashCard h2")?.textContent?.trim() === "in depth"`));
+  const phraseLemmaQuiz = await evaluate(`(() => ({
+    title: document.querySelector(".flashCard h2")?.textContent?.trim(),
+    options: Array.from(document.querySelectorAll(".flashQuiz button:not(.flashUnknownAction)")).map((item) => item.textContent.trim()),
+    bodyBlank: document.body.innerText.trim().length === 0
+  }))()`);
+  const phraseLemmaShot = await capture("08-multi-word-phrase-review");
+
   const checks = {
     phraseMigrated: migrated?.term === "trial and error" && migrated?.entryKind === "phrase" && migrated?.dictionaryMeaning === "反复试验",
     exactLocationStored: migrated?.sourceStart === 17 && migrated?.sourceEnd === 32 && migrated?.sourceOccurrence === 0,
     staleSourceNotHijacked: staleSource?.term === "scope" && staleSource?.sourceStart === undefined && staleSource?.sourceOccurrence === undefined,
-    dictionaryQuizCopy: phraseQuiz.prompt === "选出它的常用词典义：" && !phraseQuiz.hasPromptStage,
+    dictionaryQuizCopy: phraseQuiz.prompt === "选择词义" && !phraseQuiz.hasPromptStage,
     phraseDictionaryOption: phraseQuiz.options.includes("反复试验") && !phraseQuiz.options.some((item) => item.includes("审判")),
-    conciseBalancedDistractors: phraseQuiz.options.length === 4 && phraseQuiz.options.every((item) => item.length <= 24 && !/^(?:n|v|adj|adv|prep)\./i.test(item)),
-    phraseAnswer: phraseAnswer.dictionary === "反复试验" && phraseAnswer.underlined === "trial and error" && phraseAnswer.exampleLength <= 170 && phraseAnswer.detailsCollapsed,
+    conciseBalancedDistractors: phraseQuiz.options.length === 4 && phraseQuiz.options.every((item) => item.length <= 34 && !/^(?:n|v|adj|adv|prep)\./i.test(item)),
+    phraseAnswer: phraseAnswer.dictionary === "反复试验" && phraseAnswer.underlined === "trial and error" && phraseAnswer.exampleLength <= 104 && phraseAnswer.detailsCollapsed,
     intervalPreviews: phraseAnswer.intervalLabels.length === 3 && phraseAnswer.intervalLabels.every(Boolean),
     ratingDock: phraseAnswer.dockVisible && phraseAnswer.dockVisibleAfterScroll && phraseAnswer.bodyScroll === 0,
     phraseLayout: phraseAnswer.horizontalOverflow <= 1,
     contextNotQuiz: !throughoutQuiz.includes("后续") && throughoutQuiz.every((item) => !item.includes("贯穿全书")),
     throughoutDictionary: throughoutAnswer.dictionary && throughoutAnswer.dictionary !== "后续" && throughoutAnswer.underlined === "throughout",
-    shortBilingualExample: throughoutAnswer.exampleLength <= 170 && throughoutAnswer.translationLength <= 110,
+    shortBilingualExample: throughoutAnswer.exampleLength <= 104 && throughoutAnswer.translationLength <= 72,
     aiPersisted: throughoutAnswer.aiMeaning === "贯穿全书；在全书各处" && throughoutAnswer.aiTranslation.some((item) => item.includes("自始至终")),
     throughoutDockAndLayout: throughoutAnswer.dockVisible && throughoutAnswer.horizontalOverflow <= 1 && nextCardScrollTop === 0,
     sameSessionReinforcement: reinforcement.progress === "巩固" && reinforcement.badge === "巩固轮" && reinforcement.options.includes("反复试验"),
     sessionSummary: completion.title === "本轮完成" && completion.counts.includes("1记得") && completion.counts.includes("1模糊") && completion.counts.includes("0忘记"),
     uniqueDailyCompletion: completion.daily?.completed === 2,
     fsrsPersisted: completion.terms.length === 2 && completion.terms.every((item) => item.schedulerVersion?.startsWith("fsrs-") && item.reviewCard?.due && item.reviewHistory?.length === 1),
-    schedulerDisclosure: completion.scheduler?.includes("目标保持率 90%"),
+    quietCompletion: completion.hasVerbosePolicy === false,
     clockSkewDoesNotBlank: !clockSkewQuiz.bodyBlank && clockSkewQuiz.optionCount === 4 && clockSkewQuiz.horizontalOverflow <= 1,
     clockSkewIntervals: clockSkewIntervals.length === 3 && clockSkewIntervals.every(Boolean),
-    clockSkewScheduleHealed: clockSkewPersisted?.reviewHistory?.length === 1 && Date.parse(clockSkewPersisted.reviewCard?.lastReview) <= Date.now() + 5_000
+    clockSkewScheduleHealed: clockSkewPersisted?.reviewHistory?.length === 1 && Date.parse(clockSkewPersisted.reviewCard?.lastReview) <= Date.now() + 5_000,
+    dailyPlanMigrated: migratedDailyPlan?.planVersion === 2 && migratedDailyPlan?.baseGoal === 20 && migratedDailyPlan?.goal === 20 && planCopy === "3 个待复习",
+    transitSingleCorrectOption: transitQuiz.options.some((item) => item.includes("经过") && item.includes("通行") && item.includes("运输")) && transitQuiz.options.filter((item) => /经过|通行|运输/.test(item)).length === 1,
+    transitTableContext: transitAnswer.example === "Decorative touch is centered on food product and stable so it won't fall off in transit." && transitAnswer.translation.includes("运输途中"),
+    compactResponsiveSession: transitQuiz.noPageHeader && transitQuiz.coreFits && transitAnswer.coreFits && mannerAnswer.coreFits && !transitAnswer.verboseCopy,
+    mannerBilingualAlignment: mannerAnswer.example === "Product reaches the right customer in a timely manner." && mannerAnswer.translation === "产品及时送达正确的客户。" && !/西格玛水平|领导层/.test(mannerAnswer.translation),
+    phraseEntryPreserved: phraseLemmaQuiz.title === "in depth" && phraseLemmaQuiz.options.includes("深入地") && !phraseLemmaQuiz.bodyBlank
   };
   const ok = Object.values(checks).every(Boolean);
   cdp.close();
-  console.log(JSON.stringify({ ok, checks, migrated, staleSource, phraseQuiz, phraseAnswer, throughoutQuiz, throughoutAnswer, nextCardScrollTop, reinforcement, completion, clockSkewQuiz, clockSkewIntervals, clockSkewPersisted, screenshots: { vocabHomeShot, quizShot, phraseShot, throughoutShot, reinforcementShot, completionShot, clockSkewShot } }, null, 2));
+  console.log(JSON.stringify({ ok, checks, migrated, staleSource, phraseQuiz, phraseAnswer, throughoutQuiz, throughoutAnswer, nextCardScrollTop, reinforcement, completion, clockSkewQuiz, clockSkewIntervals, clockSkewPersisted, migratedDailyPlan, planCopy, transitQuiz, transitAnswer, mannerAnswer, phraseLemmaQuiz, screenshots: { vocabHomeShot, quizShot, phraseShot, throughoutShot, reinforcementShot, completionShot, clockSkewShot, transitShot, mannerShot, phraseLemmaShot } }, null, 2));
   if (!ok) process.exit(2);
 }
 

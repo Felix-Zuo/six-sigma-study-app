@@ -113,7 +113,8 @@ async function main() {
   const splash = await evalPage(`(() => {
     const text = document.body.innerText;
     return {
-      logo: document.querySelector(".appLogo")?.textContent?.trim() ?? "",
+      hasLogo: Boolean(document.querySelector(".appLogo img")),
+      brand: document.querySelector(".splashCopy .eyebrow")?.textContent?.trim() ?? "",
       hasShortChinese: text.includes("仅供学习与翻译研究"),
       hasShortEnglish: text.includes("For study and translation reference only"),
       hasOldButton: Boolean(document.querySelector(".splashPanel .primaryAction")),
@@ -210,6 +211,8 @@ async function main() {
   await waitFor("vocab page", () => evalPage(`Boolean(document.querySelector(".appPageHeader h1")?.textContent?.includes("单词本") && document.querySelector(".vocabModeTabs"))`));
   await evalPage(`Array.from(document.querySelectorAll(".vocabModeTabs button")).find((item) => item.textContent?.includes("词库"))?.click()`);
   await waitFor("vocab library", () => evalPage(`Boolean(document.querySelector(".studyItem"))`));
+  await evalPage(`document.querySelector(".vocabLibraryToggle")?.click()`);
+  await waitFor("expanded vocab source action", () => evalPage(`Boolean(document.querySelector(".studyItemActions button"))`));
   const vocabPage = await evalPage(`(() => ({
     itemCount: document.querySelectorAll(".studyItem").length,
     hasReader: Boolean(document.querySelector(".readerPanel")),
@@ -260,7 +263,8 @@ async function main() {
   const favoritesShot = await capture("target3-09-favorites");
 
   const ok =
-    splash.logo === "6σ" &&
+    splash.hasLogo &&
+    splash.brand.toLowerCase() === "fly view" &&
     splash.hasShortChinese &&
     splash.hasShortEnglish &&
     !splash.hasOldButton &&

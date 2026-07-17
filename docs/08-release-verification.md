@@ -125,13 +125,23 @@ node scripts\qa-dictionary-cdp.mjs
 ## PWA Browser Offline QA
 
 - `node scripts\qa-pwa-offline-cdp.mjs`: passed against Vite preview on `127.0.0.1:4175` and clean headless Chrome CDP on `127.0.0.1:9333`.
-- Service worker cache: `six-sigma-study-v0.8.14`; content JSON uses network-first refresh with offline cache fallback.
+- Service worker cache: `six-sigma-study-v0.8.15`; content JSON uses network-first refresh with offline cache fallback.
 - Online cache state includes `/`, `/index.html`, hashed JS/CSS shell assets, `content/manual.json`, `manifest.webmanifest`, and all 475 figure assets.
 - Offline reload state: CDP network offline, cache-ignored reload rendered `Chapter 1: What is Six Sigma?`, 23 sections, service-worker controller present, and horizontal overflow 0.
 
 ## Android Runtime QA
 
 Verified on local emulator `SixSigmaQA` / `emulator-5554`.
+
+### Beta 0.8.15 Vocabulary Accuracy and Compact Review
+
+- `npm run qa:vocab-study-ux` now carries exact mobile regressions for the `transit` double-answer defect, the unrelated `manner` table translation, the `in depth` multi-word AI lemma, persisted eight-word daily-plan migration, concise one-sentence examples, and first-viewport review controls.
+- Quiz generation compares every valid answer sense against every distractor sense; table examples resolve the corresponding Chinese cell by row and column; low-confidence legacy translations are dropped rather than displayed as facts.
+- The review session is headerless and keeps only one scrollable answer body. The fixed rating dock, direct dictionary recall, optional details, 170 ms card settling, active-press feedback, and zero horizontal overflow passed at 390 x 844.
+- Static and browser verification passed before Android packaging: learning modules, content/book/public audits, documentation links, source coverage, production build, multi-book flow, AI assistance, vocabulary flow, route motion, transition interruption, and reduced-motion fallback.
+- The signed release was installed on `emulator-5554`; package metadata is `815` / `0.8.15-beta`, label `飞阅`. `qa:vocab-study-ux` passed against the installed WebView and saved native screenshots for `transit`, `manner`, and `in depth` under `qa/vocab-study-ux/android-beta-0.8.15-final`.
+- Final APK: 41,215,479 bytes, SHA-256 `4009ECABF0295144210283FF54B41D809F1BD677924F7002C164E8F86EDC5A4C`; APK Signature Scheme v2 verified with one signer.
+- Final AAB: 38,950,591 bytes, SHA-256 `D21F301C21A2927DFCA5FABF2B4764F4FDA0DA3A2E1C7845F117D1D78D9EA929`; JAR signature verification passed with expected self-signed/no-timestamp warnings.
 
 ### Beta 0.8.14 Vocabulary Review Clock Recovery
 

@@ -1,4 +1,5 @@
 import { resolveContextExplanation } from "./contextLookup";
+import { isReliableStudyTranslation } from "./vocabStudy";
 import {
   applyReviewSchedule,
   normalizeReviewCard,
@@ -156,6 +157,13 @@ function normalizeSavedTerm(item: Partial<SavedTerm>): SavedTerm {
   const dictionaryMeaning = item.dictionaryMeaning || item.translation || "待完善";
   const translation = dictionaryMeaning;
   const sourceText = item.sourceText ?? "";
+  const exampleText = item.exampleText || sourceText;
+  const storedExampleTranslation = item.exampleTranslation || item.sourceTranslation;
+  const exampleTranslation = item.contextCorrectionId || sourceType === "question"
+    ? storedExampleTranslation
+    : isReliableStudyTranslation(exampleText, storedExampleTranslation)
+      ? storedExampleTranslation
+      : undefined;
   const storedSourceStart = safeOffset(item.sourceStart, sourceText);
   const storedSourceMatches = storedSourceStart !== undefined
     && sourceText.slice(storedSourceStart, storedSourceStart + term.length).toLocaleLowerCase() === term.toLocaleLowerCase();
@@ -220,8 +228,8 @@ function normalizeSavedTerm(item: Partial<SavedTerm>): SavedTerm {
     contextMeaning,
     contextExplanation: item.contextExplanation || context.explanation,
     contextCorrectionId: item.contextCorrectionId,
-    exampleText: item.exampleText || sourceText,
-    exampleTranslation: item.exampleTranslation || item.sourceTranslation,
+    exampleText,
+    exampleTranslation,
     aiContextMeaning: item.aiContextMeaning,
     aiTranslation: item.aiTranslation,
     aiExplanation: item.aiExplanation,

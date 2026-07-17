@@ -184,7 +184,7 @@ async function main() {
     .find((item) => item.textContent.includes("范围"))?.click()`);
   await waitFor("reinforcement answer", () => evaluate(`Boolean(document.querySelector(".flashRatingActions.reinforcement"))`));
   await evaluate(`Array.from(document.querySelectorAll(".flashRatingActions.reinforcement button"))
-    .find((item) => item.querySelector("strong")?.textContent.trim() === "已经记住")?.click()`);
+    .find((item) => item.querySelector("strong")?.textContent.trim() === "记得")?.click()`);
   await waitFor("review completion", () => evaluate(`Boolean(document.querySelector(".flashCompleteState"))`));
   mark("completed review reinforcement");
   const reviewedTerm = await evaluate(`JSON.parse(localStorage.getItem("six-sigma-study:vocab:v1") ?? "[]")[0]`);
@@ -248,9 +248,9 @@ async function main() {
   mark("captured stable question advance");
 
   const checks = {
-    vocabHome: vocabHome.dueText === "1 个待学" && vocabHome.recentTerm === "scope" && !vocabHome.answerLeaked && vocabHome.bodyOverflow <= 1,
+    vocabHome: vocabHome.dueText === "1 个待复习" && vocabHome.recentTerm === "scope" && !vocabHome.answerLeaked && vocabHome.bodyOverflow <= 1,
     flashQuiz: flashQuiz.term === "scope" && flashQuiz.options.some((item) => item.includes("范围")) && flashQuiz.legacyPromptHidden && flashQuiz.answerHidden && flashQuiz.navHidden && flashQuiz.scrollY === 0 && flashQuiz.panelTop < 220,
-    flashAnswer: flashAnswer.dictionaryMeaning?.includes("范围") && flashAnswer.contextMeaning === "项目范围" && flashAnswer.explanation.length > 8 && flashAnswer.underlined === "scope" && flashAnswer.examples >= 2 && flashAnswer.intervalLabels.length === 3 && flashAnswer.intervalLabels.every(Boolean) && flashAnswer.detailsCollapsed && flashAnswer.scrollY === 0 && flashAnswer.panelTop < 220,
+    flashAnswer: flashAnswer.dictionaryMeaning?.includes("范围") && flashAnswer.contextMeaning?.includes("范围") && flashAnswer.explanation.length > 8 && flashAnswer.underlined === "scope" && flashAnswer.examples >= 2 && flashAnswer.intervalLabels.length === 3 && flashAnswer.intervalLabels.every(Boolean) && flashAnswer.detailsCollapsed && flashAnswer.scrollY === 0 && flashAnswer.panelTop < 220,
     reviewStored: reviewedTerm.reviewCount === 1 && reviewedTerm.lapseCount === 1 && reviewedTerm.status === "learning" && reviewedTerm.schedulerVersion?.startsWith("fsrs-") && reviewedTerm.reviewHistory?.length === 1,
     questionHome: questionHome.modeCount === 5 && /^\d+\/[1-9]\d*$/.test(questionHome.totalText ?? "") && questionHome.bodyOverflow <= 1,
     questionLookup: lookupWord.length >= 4 && questionLookup.word?.toLowerCase() === lookupWord.toLowerCase() && questionLookup.contextMeaning && questionLookup.contextExplanation && questionLookup.hasSave && questionLookup.bodyFixed,

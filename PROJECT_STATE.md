@@ -20,15 +20,28 @@ The final product must support full-manual offline reading, position-preserving 
 
 ## Current Evidence
 
-- Product version: `Beta 0.8.14` (`0.8.14-beta.0` in npm, Android `versionCode 814` / `versionName 0.8.14-beta`). During the current beta line, each user-facing update increments the patch version.
+- Product version: `Beta 0.8.15` (`0.8.15-beta.0` in npm, Android `versionCode 815` / `versionName 0.8.15-beta`). During the current beta line, each user-facing update increments the patch version.
 - Branch: `main`
 - Latest workspace migration validation pass: 2026-06-26 00:33 Asia/Shanghai
 - Local workspace root: `D:\0A OpenClaw\projects\6sigma`
-- Local worktree: Beta 0.8.14 vocabulary review clock-recovery implementation and release evidence complete; browser, installed-Android, and CI verification passed
-- Latest confirmed GitHub Actions state: CI run `29543807607` passed build, public-isolation/content/documentation gates, browser motion and maturity regressions, the new clock-skew vocabulary regression, Fly View collection QA, and Android-debug packaging for implementation commit `25cf763`
+- Local worktree: Beta 0.8.15 vocabulary accuracy and compact-interaction implementation, signed release artifacts, and installed-Android verification complete; CI verification is in progress
+- Latest confirmed GitHub Actions state: CI run `29543807607` passed Beta 0.8.14 build, public-isolation/content/documentation gates, browser motion and maturity regressions, clock-skew vocabulary regression, Fly View collection QA, and Android-debug packaging for implementation commit `25cf763`
 - Release APK after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
 - Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with Fly View / 飞阅 branding, a no-click branded opening, a simple Now Reading / Today's Study / Library / Recent Notes home hierarchy, a real source cover, one live route shell, opacity-only navigation, reduced-motion fallback, source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, book-isolated persisted reading positions and chapter-completion state, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, longest-match phrase lookup, occurrence-level bilingual context glosses, fixed-chrome draggable lookup sheets, 3980-entry public offline learner dictionary plus an ignored 3550-entry local private-question supplement, bounded DeepSeek selected-text explanations and question coaching, persisted per-term AI study supplements, dictionary-first FSRS vocabulary scheduling with same-session reinforcement, navigable textbook/question/mastered vocabulary collections, expandable context/source details, CSV export, exact source-range return, selected-text study notes, timed mock exams, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+
+## 2026-07-17 Vocabulary Accuracy and Compact Review Beta 0.8.15
+
+- Traced the daily eight-word limit to a hard-coded legacy default and an initialization snapshot that did not persist normalized migration state. Beta 0.8.15 migrates legacy eight-word records to plan version 2, defaults to 20 words, persists the migration immediately, and offers 10/20/30/40-word choices.
+- Traced ambiguous quizzes to two separate faults: answer text was truncated to two senses, while distractors were never compared against every valid target sense. Quiz generation now preserves a concise three-sense answer and rejects candidates with semantic atom overlap; the exact `transit` regression permits only one transport/passage answer.
+- Traced unrelated example translations to flattened English table cells and proportional English/Chinese block indexing. The reader now extracts the actual table sentence, resolves the matching Chinese row and column, and only persists reliable aligned translations. Existing saved cards repair themselves at review time; `manner` now uses one exact bilingual sentence.
+- Traced phrase AI failures to a single-token lemma regular expression. The correction parser now accepts normalized one-to-six-word phrases, verifies that the phrase belongs to the selected text, and keeps strict required-field validation.
+- Rebuilt the review session without the page header or explanatory policy paragraphs. Dictionary recall, answer feedback, one short marked bilingual example, and fixed rating controls fit the first 390 x 844 viewport; optional morphology, source, and AI material remains collapsed.
+- Browser QA passed `qa:vocab-study-ux`, `qa:learning-ui`, `qa:multibook-ux`, `qa:ai-context-ui`, `qa:motion-ui`, `qa:motion-continuity`, and `qa:transition-resilience`. Static content, learning-module, public-isolation, documentation, source-coverage, typecheck, and production-build gates also passed.
+- Installed the signed APK on `emulator-5554`; package metadata reports label `飞阅`, `versionCode 815`, and `versionName 0.8.15-beta`. The complete vocabulary-study suite passed against the installed Android WebView with the same phrase, ambiguity, alignment, migration, layout, and persistence checks.
+- Local release artifacts:
+  - APK: 41,215,479 bytes; SHA-256 `4009ECABF0295144210283FF54B41D809F1BD677924F7002C164E8F86EDC5A4C`; APK Signature Scheme v2 verified with one signer.
+  - AAB: 38,950,591 bytes; SHA-256 `D21F301C21A2927DFCA5FABF2B4764F4FDA0DA3A2E1C7845F117D1D78D9EA929`; JAR signature verification passed with expected local self-signed/no-timestamp warnings.
 
 ## 2026-07-17 Vocabulary Review Clock Recovery Beta 0.8.14
 

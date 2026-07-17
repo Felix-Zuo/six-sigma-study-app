@@ -3076,6 +3076,236 @@ h1 {
   }
 }
 
+/* Beta 0.8.15: compact vocabulary session and direct, tactile review controls. */
+.studySessionShell.headerlessSession {
+  grid-template-rows: minmax(0, 1fr);
+  padding: calc(10px + env(safe-area-inset-top)) calc(12px + env(safe-area-inset-right)) max(8px, env(safe-area-inset-bottom)) calc(12px + env(safe-area-inset-left));
+}
+
+.headerlessSession .appPageContent,
+.headerlessSession .flashReviewPanel {
+  height: 100%;
+  min-height: 0;
+}
+
+.headerlessSession .flashReviewPanel {
+  background: transparent;
+}
+
+.studySessionBar {
+  min-height: 42px;
+  padding: 0 2px 8px;
+}
+
+.studySessionBar .closeButton {
+  min-height: 38px;
+  padding: 0 4px;
+  border: 0;
+  color: var(--text-muted);
+  background: transparent;
+}
+
+.studySessionBar > strong {
+  min-width: 42px;
+  color: var(--heading);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.flashReviewScroller {
+  padding: 6px 0 10px;
+  scroll-padding-block: 8px;
+}
+
+.flashReviewScroller .flashCard {
+  min-height: auto;
+  gap: 10px;
+  padding: 18px;
+  border-color: color-mix(in srgb, var(--border) 82%, transparent);
+  animation: flashCardSettle 170ms cubic-bezier(0.2, 0.78, 0.25, 1) both !important;
+}
+
+.flashCard .eyebrow {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 10px;
+  line-height: 1.25;
+}
+
+.flashCard h2 {
+  overflow-wrap: anywhere;
+  font-size: 40px;
+  font-weight: 690;
+  line-height: 1.08;
+}
+
+.flashTermMeta {
+  min-height: 40px;
+  font-size: 13px;
+}
+
+.flashTermMeta .pronounceIconButton {
+  width: 40px;
+  height: 40px;
+  min-height: 40px;
+}
+
+.flashQuiz {
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.flashQuiz > p {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.flashQuiz button {
+  min-height: 56px;
+  padding: 9px 10px;
+  font-size: 15px;
+  transition: transform 90ms ease, border-color 140ms ease, color 140ms ease, background-color 140ms ease;
+}
+
+.flashQuiz button:active,
+.flashRatingActions button:active,
+.vocabStartButton:active,
+.dailyGoalControl select:active {
+  transform: scale(0.98);
+}
+
+.flashAnswer {
+  gap: 9px;
+}
+
+.flashAnswerStatus {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 5px;
+  min-height: 26px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: var(--answer-wrong-text);
+  background: color-mix(in srgb, var(--answer-wrong-text) 9%, var(--surface));
+  font-size: 12px;
+  font-weight: 760;
+}
+
+.flashAnswerStatus.correct {
+  color: var(--answer-correct-text);
+  background: color-mix(in srgb, var(--answer-correct-text) 9%, var(--surface));
+}
+
+.flashDictionarySummary {
+  gap: 0;
+  padding: 0 0 9px;
+}
+
+.flashDictionarySummary .dictionaryTranslation {
+  margin: 0;
+  color: var(--heading);
+  font-size: 21px;
+  font-weight: 720;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.flashExample {
+  gap: 5px;
+  padding: 10px 12px;
+  border-left-width: 3px;
+}
+
+.flashExample > strong {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.flashExample p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.flashExample p[lang="en"] {
+  color: var(--heading);
+  font-size: 15px;
+}
+
+.flashMoreDetails > summary {
+  min-height: 38px;
+  padding: 9px 0;
+}
+
+.flashRatingDock {
+  gap: 0;
+  padding: 8px 0 max(2px, env(safe-area-inset-bottom));
+  box-shadow: 0 -8px 18px color-mix(in srgb, var(--app-bg) 90%, transparent);
+}
+
+.flashRatingDock .flashRatingActions button {
+  min-height: 52px;
+  transition: transform 90ms ease, border-color 140ms ease, background-color 140ms ease;
+}
+
+.flashCompleteState {
+  align-content: center;
+  width: min(100%, 440px);
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.dailyGoalControl {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.dailyGoalControl select {
+  min-width: 58px;
+  min-height: 34px;
+  padding: 0 22px 0 9px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--heading);
+  background: var(--surface);
+  font: inherit;
+  font-weight: 760;
+}
+
+@keyframes flashCardSettle {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-height: 700px) {
+  .flashReviewScroller .flashCard {
+    gap: 7px;
+    padding: 14px;
+  }
+
+  .flashCard h2 {
+    font-size: 34px;
+  }
+
+  .flashExample p {
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flashReviewScroller .flashCard {
+    animation: none !important;
+  }
+}
+
 /* Beta 0.8.10: fixed sheet chrome, chapter completion, and bounded AI study help. */
 .bottomSheet,
 .notesPanel,

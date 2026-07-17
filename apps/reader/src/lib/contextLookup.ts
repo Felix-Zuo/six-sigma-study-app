@@ -30,6 +30,8 @@ type ContextRule = {
   meaning: string;
   explanation: string;
   when?: RegExp;
+  exampleText?: string;
+  exampleTranslation?: string;
 };
 
 const rules: Record<string, ContextRule[]> = {
@@ -144,6 +146,31 @@ const rules: Record<string, ContextRule[]> = {
       meaning: "恢复；复归；回到",
       explanation: "revert 作动词时表示恢复到先前状态，具体译法由其后的对象决定。"
     }
+  ],
+  transit: [
+    {
+      meaning: "运输途中；在运送过程中",
+      explanation: "in transit 是固定搭配，表示货物或物品正在运输途中。",
+      when: /\bin\s+transit\b/i,
+      exampleText: "Decorative touch is centered on food product and stable so it won't fall off in transit.",
+      exampleTranslation: "装饰元素位于食品中央且保持稳定，因此在运输途中不会脱落。"
+    }
+  ],
+  manner: [
+    {
+      meaning: "方式；以……方式",
+      explanation: "in a timely manner 表示以及时的方式完成某事，中文通常直接译为“及时地”。",
+      when: /\bin\s+a\s+timely\s+manner\b/i,
+      exampleText: "Product reaches the right customer in a timely manner.",
+      exampleTranslation: "产品及时送达正确的客户。"
+    }
+  ],
+  "in depth": [
+    {
+      meaning: "深入地；详细地",
+      explanation: "in depth 是副词性短语，表示对主题进行深入、详细的说明。",
+      when: /\bin\s+depth\b/i
+    }
   ]
 };
 
@@ -237,7 +264,8 @@ export function resolveContextExplanation(input: {
   const rule = candidates.find((item) => !item.when || item.when.test(input.sourceText));
   const meaning = rule?.meaning || alignedMeaning || "暂无可靠语境义";
   const alignedTranslation = alignedSentence?.translation?.trim();
-  const exampleTranslation = alignedTranslation
+  const exampleTranslation = rule?.exampleTranslation
+    || alignedTranslation
     || (rule ? selectExampleTranslation(input.sourceTranslation, meaning) : undefined);
   const translatedSentence = clippedTranslation(exampleTranslation);
   const confidence: ContextExplanation["confidence"] = rule
@@ -263,7 +291,7 @@ export function resolveContextExplanation(input: {
     needsVerification: evidence === "medium" || evidence === "unavailable",
     sourceText: input.sourceText,
     sourceTranslation: alignedTranslation || input.sourceTranslation,
-    exampleText: alignedSentence?.source || input.sourceText,
+    exampleText: rule?.exampleText || alignedSentence?.source || input.sourceText,
     exampleTranslation
   };
 }

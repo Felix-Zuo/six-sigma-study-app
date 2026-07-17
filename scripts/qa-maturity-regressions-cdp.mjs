@@ -753,7 +753,7 @@ async function main() {
         dueText: document.querySelector('section[aria-label="今日学习状态"] h2')?.textContent?.trim() ?? "",
         startText: document.querySelector(".vocabStartButton")?.textContent?.trim() ?? ""
       }))()`);
-      assert(plan.dueText === "1 个待学", "Vocabulary plan did not show exactly one due term", plan);
+      assert(plan.dueText === "1 个待复习", "Vocabulary plan did not show exactly one due term", plan);
       await clickSelector(".vocabStartButton", "start vocabulary review control");
       await waitFor("due-only vocabulary session", () => evaluate(`Boolean(document.querySelector('section[aria-label="单词复习"] .flashCard'))`));
       const session = await evaluate(`(() => ({
@@ -874,12 +874,12 @@ async function main() {
       await navigate(appUrl, "application with partially malformed vocabulary storage");
       await waitForHome();
       await clickPrimaryNav("单词");
-      await waitFor("salvaged vocabulary plan", () => evaluate(`document.querySelector(".vocabPlanHero h2")?.textContent?.trim() === "1 个待学"`));
+      await waitFor("salvaged vocabulary plan", () => evaluate(`document.querySelector(".vocabPlanHero h2")?.textContent?.trim() === "1 个待复习"`));
       const salvaged = await evaluate(`(() => ({
         dueText: document.querySelector(".vocabPlanHero h2")?.textContent?.trim() ?? "",
         runtimeErrors: Boolean(document.querySelector("vite-error-overlay"))
       }))()`);
-      assert(salvaged.dueText === "1 个待学" && !salvaged.runtimeErrors,
+      assert(salvaged.dueText === "1 个待复习" && !salvaged.runtimeErrors,
         "One malformed vocabulary item prevented valid items from loading", salvaged);
       return { preservedRaw, salvaged };
     });
@@ -982,7 +982,7 @@ async function main() {
       assert(Number(immediatelyAfterClear.streak.streak ?? 0) === 0, "Old streak remained after normal clear", immediatelyAfterClear);
       assert(immediatelyAfterClear.correctionKeys.length === 0, "Context corrections from another book remained after local-data clear", immediatelyAfterClear);
       assert(homeAfterReload.streakValue === "0" && homeAfterReload.streakLabel === "连续天数", "Old streak revived after reload", homeAfterReload);
-      assert(vocabAfterReload === "0 个待学", "Old vocabulary revived after reload", { vocabAfterReload, persistedAfterReload });
+      assert(vocabAfterReload === "0 个待复习", "Old vocabulary revived after reload", { vocabAfterReload, persistedAfterReload });
       assert(questionsAfterReload.summary.startsWith("0/") && questionsAfterReload.action.includes("开始练习"), "Old question progress revived after reload", questionsAfterReload);
       assert(!persistedAfterReload.vocab.some((item) => String(item.id).startsWith(fixturePrefix)), "Fixture vocabulary was persisted again", persistedAfterReload);
       assert(!persistedAfterReload.progress[firstQuestionId], "Fixture question progress was persisted again", persistedAfterReload);

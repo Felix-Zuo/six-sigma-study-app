@@ -138,7 +138,20 @@ function isRecord(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);
 }
 
-export function parseAiContextResult(value: unknown, sourceText: string): AiContextResult {
+function normalizedEnglishPhrase(value: string): string {
+  return normalized(value)
+    .replace(/[’‘]/g, "'")
+    .replace(/[^a-z0-9'<>-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function phrasePresentInSource(sourceText: string, phrase: string): boolean {
+  const normalizedPhrase = normalizedEnglishPhrase(phrase);
+  return Boolean(normalizedPhrase) && normalizedEnglishPhrase(sourceText).includes(normalizedPhrase);
+}
+
+export function parseAiContextResult(value: unknown, sourceText: string, surface = ""): AiContextResult {
   if (!isRecord(value)) {
     throw new Error("AI 返回内容不是结构化对象");
   }
@@ -146,7 +159,7 @@ export function parseAiContextResult(value: unknown, sourceText: string): AiCont
     "detectedPhrase", "lemma", "partOfSpeech", "phrasePattern", "contextMeaningZh",
     "sentenceTranslationZh", "explanationZh", "alternativesZh", "confidence"
   ];
-  if (Object.keys(value).some((key) => !required.includes(key)) || required.some((key) => !(key in value))) {
+  if (required.some((key) => !(key in value))) {
     throw new Error("AI 返回字段与统一格式不一致");
   }
   const strings = required.filter((key) => !["alternativesZh", "confidence"].includes(key));
@@ -159,8 +172,11 @@ export function parseAiContextResult(value: unknown, sourceText: string): AiCont
   if (!(["high", "medium", "low"] as unknown[]).includes(value.confidence)) {
     throw new Error("AI 置信度格式错误");
   }
-  const detectedPhrase = clean(value.detectedPhrase as string);
-  if (!normalized(sourceText).includes(normalized(detectedPhrase))) {
+  const proposedPhrase = clean(value.detectedPhrase as string);
+  const detectedPhrase = phrasePresentInSource(sourceText, proposedPhrase)
+    ? proposedPhrase
+    : phrasePresentInSource(sourceText, surface) ? clean(surface) : "";
+  if (!detectedPhrase) {
     throw new Error("AI 返回的短语不在当前原句中");
   }
   const contextMeaningZh = normalizeChinese(value.contextMeaningZh as string);
@@ -169,8 +185,12 @@ export function parseAiContextResult(value: unknown, sourceText: string): AiCont
   if (![contextMeaningZh, sentenceTranslationZh, explanationZh].every(hasChinese)) {
     throw new Error("AI 返回的中文释义或译文不完整");
   }
-  const lemma = normalized(value.lemma as string);
-  if (!/^[a-z]+(?:[-'][a-z]+)*$/.test(lemma)) {
+  const proposedLemma = normalizedEnglishPhrase(value.lemma as string);
+  const fallbackLemma = normalizedEnglishPhrase(surface || detectedPhrase);
+  const lemma = /^[a-z]+(?:[-'][a-z]+)*(?: [a-z]+(?:[-'][a-z]+)*){0,5}$/.test(proposedLemma)
+    ? proposedLemma
+    : fallbackLemma;
+  if (!/^[a-z]+(?:[-'][a-z]+)*(?: [a-z]+(?:[-'][a-z]+)*){0,5}$/.test(lemma)) {
     throw new Error("AI 返回的英文原形格式错误");
   }
   const alternativesZh = [...new Set((value.alternativesZh as string[]).map(normalizeChinese).filter(Boolean))].slice(0, 5);
@@ -181,7 +201,7 @@ export function parseAiContextResult(value: unknown, sourceText: string): AiCont
     detectedPhrase,
     lemma,
     partOfSpeech: normalized(value.partOfSpeech as string),
-    phrasePattern: normalized(value.phrasePattern as string),
+    phrasePattern: clean(value.phrasePattern as string).toLocaleLowerCase(),
     contextMeaningZh,
     sentenceTranslationZh,
     explanationZh,

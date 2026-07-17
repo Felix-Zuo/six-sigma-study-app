@@ -98,10 +98,12 @@ def main() -> None:
     require('maxItems' not in deepseek and 'minItems' not in deepseek, "DeepSeek strict schema contains unsupported array constraints")
     require('submit_reading_assist' in deepseek and 'submit_question_assist' in deepseek, "bounded reading/question AI tools missing")
     require('detectedPhrase 必须逐字出现在' in deepseek and 'parseAiContextResult' in deepseek, "semantic response validation missing")
+    require('lemma 可以是一个单词或小写英文短语' in deepseek and "{0,5}" in store, "multi-word lemma validation missing")
     require('acceptedCorrectionExport' in store and 'suggestion-only' in store and 'similarityThreshold' in store, "uniform correction store missing")
     require('AI 核验当前语境' in app and 'AI 简释' in app and 'AI 精讲' in app and '采用本次修订' in app and '导出 JSON' in app, "AI study UI incomplete")
     require('AES/GCM/NoPadding' in java and 'AndroidKeyStore' in java and 'PREF_CIPHERTEXT' in java, "Android Keystore encryption missing")
     require('revert to old ways' in context and '不是“进行”' in context, "reported revert regression is not fixed offline")
+    require('"in depth"' in context and 'in a timely manner' in context and '运输途中' in context, "reported phrase/table context regressions are not fixed offline")
     require('skippedPrivateQuestionCorrections' in importer and 'apply_context_corrections_to_manual(manual, merged)' in importer, "import preflight/private boundary missing")
     require('sk-' not in java, "native source must not contain an API key")
 
