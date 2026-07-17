@@ -1,6 +1,6 @@
 {
   "name": "@six-sigma-study/reader",
-  "version": "0.8.13-beta.0",
+  "version": "0.8.14-beta.0",
   "private": true,
   "type": "module",
   "scripts": {

@@ -14,7 +14,7 @@ Release history is maintained in [CHANGELOG.md](CHANGELOG.md); implementation an
 
 | Metric | Current State |
 | --- | --- |
-| Release | `Beta 0.8.13` (`0.8.13-beta.0`, Android code `813`) |
+| Release | `Beta 0.8.14` (`0.8.14-beta.0`, Android code `814`) |
 | Runtime books | 2 catalog books: full Six Sigma manual + original import-practice workbook |
 | Six Sigma content | 33 chapters, 449 aligned study pages, 174 reader sections |
 | Preserved assets | 475 figure/table/formula PNG runtime assets; EN/ZH image counts 476/476 |
@@ -48,7 +48,7 @@ Release history is maintained in [CHANGELOG.md](CHANGELOG.md); implementation an
 | --- | --- | --- |
 | ![FSRS phrase-aware vocabulary review with interval previews](docs/assets/showcase/beta-0.8.12-fsrs-vocab-review.png) | ![Expanded mastered vocabulary](docs/assets/showcase/beta-0.8.13-mastered-vocabulary.png) | ![Question lookup with rich dictionary and context](docs/assets/showcase/learning-question-lookup-rich.png) |
 
-Beta 0.8.13 introduces the Fly View / 飞阅 identity and turns the vocabulary summary into real textbook, question, and mastered collections. Navigation keeps one live route shell and short opacity/translation feedback, so headings and body text are never stretched, duplicated, or moved between layers. Neutral surfaces, one restrained accent, a stable five-item navigation bar, and progressive vocabulary details keep attention on study content. See [design-qa.md](design-qa.md) for the review record.
+Beta 0.8.14 keeps the Fly View / 飞阅 identity and navigable textbook, question, and mastered collections, while hardening the “今日学习” entry against legacy FSRS timestamps and device-clock rollback. Navigation keeps one live route shell and short opacity/translation feedback, so headings and body text are never stretched, duplicated, or moved between layers. Neutral surfaces, one restrained accent, a stable five-item navigation bar, and progressive vocabulary details keep attention on study content. See [design-qa.md](design-qa.md) for the review record.
 
 ## Study Workflow
 

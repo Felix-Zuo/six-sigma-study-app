@@ -2,6 +2,14 @@
 
 All notable user-facing changes to Fly View (飞阅) are recorded here. The project follows patch-by-patch beta releases; detailed verification evidence remains in `PROJECT_STATE.md` and `docs/08-release-verification.md`.
 
+## [0.8.14-beta.0] - 2026-07-17
+
+### Fixed
+
+- Prevented the vocabulary “今日学习” action from blanking the app when an older FSRS card contains a future `lastReview` timestamp after a device-clock rollback or legacy migration.
+- Preserved the affected term and its learning history by aligning only the scheduler clock at review time; completing the card writes back a valid current schedule.
+- Extended browser and installed-Android vocabulary QA with the exact future-review fixture, direct-recall card, interval previews, successful rating, persisted schedule repair, and zero-overflow checks.
+
 ## [0.8.13-beta.0] - 2026-07-16
 
 ### Added

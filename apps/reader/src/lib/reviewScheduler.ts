@@ -144,6 +144,45 @@ function cardFor(snapshot: ReviewCardSnapshot | undefined, legacy: LegacyReviewS
   }
 }
 
+function alignCardToReviewClock(card: Card, now: Date): Card {
+  if (!card.last_review || card.last_review.getTime() <= now.getTime()) {
+    return card;
+  }
+  // A device clock rollback can leave a persisted review in the future.
+  return TypeConvert.card({
+    due: card.due.getTime() < now.getTime() ? now : card.due,
+    stability: card.stability,
+    difficulty: card.difficulty,
+    elapsed_days: 0,
+    scheduled_days: card.scheduled_days,
+    learning_steps: card.learning_steps,
+    reps: card.reps,
+    lapses: card.lapses,
+    state: card.state,
+    last_review: now
+  } satisfies CardInput);
+}
+
+function schedulableCard(
+  snapshot: ReviewCardSnapshot | undefined,
+  legacy: LegacyReviewSnapshot,
+  now: Date
+): Card {
+  const candidate = alignCardToReviewClock(cardFor(snapshot, legacy), now);
+  try {
+    scheduler.repeat(candidate, now);
+    return candidate;
+  } catch {
+    const fallback = alignCardToReviewClock(legacyCard(legacy), now);
+    try {
+      scheduler.repeat(fallback, now);
+      return fallback;
+    } catch {
+      return createEmptyCard(now);
+    }
+  }
+}
+
 export function formatReviewInterval(intervalMinutes: number): string {
   const minutes = Math.max(1, Math.round(intervalMinutes));
   if (minutes < 60) return `${minutes} 分钟`;
@@ -215,7 +254,7 @@ export function previewReviewSchedule(
   legacy: LegacyReviewSnapshot,
   now = new Date()
 ): Record<ReviewOutcome, ReviewPreview> {
-  const card = cardFor(snapshot, legacy);
+  const card = schedulableCard(snapshot, legacy, now);
   const records = scheduler.repeat(card, now);
   const preview = (outcome: ReviewOutcome): ReviewPreview => {
     const due = outcome === "again"
@@ -239,7 +278,7 @@ export function applyReviewSchedule(
   outcome: ReviewOutcome,
   now = new Date()
 ): { card: ReviewCardSnapshot; history: ReviewHistoryItem } {
-  const card = cardFor(snapshot, legacy);
+  const card = schedulableCard(snapshot, legacy, now);
   let retrievability = 0;
   if (card.state !== State.New) {
     try {

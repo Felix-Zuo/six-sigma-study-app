@@ -200,6 +200,48 @@ async function main() {
   }))()`);
   const completionShot = await capture("04-session-summary");
 
+  await evaluate(`(() => {
+    const now = new Date();
+    const futureReview = new Date(now.getTime() + 24 * 60 * 60 * 1000).toISOString();
+    localStorage.setItem("six-sigma-study:vocab:v1", JSON.stringify([{
+      id: "qa-clock-skew", bookId: "six-sigma-black-belt", bookTitle: "六西格玛黑带培训教材",
+      term: "variation", translation: "变异；波动", dictionaryMeaning: "变异；波动", entryKind: "word",
+      chapter: 1, chapterTitle: "Chapter 1: What is Six Sigma?", page: 7,
+      sectionId: "qa-clock-section", blockId: "qa-clock-block", sourceText: "Variation occurs in every process.",
+      sourceStart: 0, sourceEnd: 9, exampleText: "Variation occurs in every process.",
+      exampleTranslation: "每个流程中都会出现变异。", savedAt: now.toISOString(), status: "learning",
+      familiarity: 20, reviewCount: 1, lapseCount: 0, correctStreak: 1,
+      nextReviewAt: now.toISOString(), intervalDays: 1, easeFactor: 2.1,
+      schedulerVersion: "legacy-clock-skew", reviewCard: {
+        due: now.toISOString(), stability: 1, difficulty: 5, elapsedDays: 0, scheduledDays: 1,
+        learningSteps: 0, reps: 1, lapses: 0, state: 2, lastReview: futureReview
+      }, reviewHistory: [], sourceType: "manual", sourceBookId: "six-sigma-black-belt", sourcePage: 7
+    }]));
+    localStorage.removeItem("six-sigma-study:daily-streak:v1");
+    location.reload();
+  })()`);
+  await waitFor("home after clock-skew seed", () => evaluate(`Boolean(document.querySelector(".mainNav"))`));
+  await evaluate(`document.querySelectorAll(".mainNavItem")[1]?.click()`);
+  await waitFor("clock-skew vocabulary plan", () => evaluate(`Boolean(document.querySelector(".vocabStartButton"))`));
+  await evaluate(`document.querySelector(".vocabStartButton")?.click()`);
+  await waitFor("clock-skew review card", () => evaluate(`document.querySelector(".flashCard h2")?.textContent?.trim().toLocaleLowerCase() === "variation"`));
+  const clockSkewQuiz = await evaluate(`(() => ({
+    bodyBlank: document.body.innerText.trim().length === 0,
+    optionCount: document.querySelectorAll(".flashQuiz button:not(.flashUnknownAction)").length,
+    horizontalOverflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
+  }))()`);
+  await evaluate(`document.querySelector(".flashUnknownAction")?.click()`);
+  await waitFor("clock-skew answer", () => evaluate(`Boolean(document.querySelector(".flashRatingDock"))`));
+  const clockSkewIntervals = await evaluate(`Array.from(document.querySelectorAll(".flashRatingActions button small")).map((item) => item.textContent.trim())`);
+  const clockSkewShot = await capture("05-clock-skew-recovery");
+  await evaluate(`Array.from(document.querySelectorAll(".flashRatingActions button")).find((item) => item.querySelector("strong")?.textContent.trim() === "记得")?.click()`);
+  await waitFor("clock-skew review completion", () => evaluate(`Boolean(document.querySelector(".flashCompleteState"))`));
+  await waitFor("clock-skew schedule persistence", () => evaluate(`(() => {
+    const term = JSON.parse(localStorage.getItem("six-sigma-study:vocab:v1") ?? "[]").find((item) => item.id === "qa-clock-skew");
+    return Boolean(term?.reviewHistory?.length === 1 && term?.reviewCard?.lastReview);
+  })()`));
+  const clockSkewPersisted = await evaluate(`JSON.parse(localStorage.getItem("six-sigma-study:vocab:v1") ?? "[]").find((item) => item.id === "qa-clock-skew")`);
+
   const checks = {
     phraseMigrated: migrated?.term === "trial and error" && migrated?.entryKind === "phrase" && migrated?.dictionaryMeaning === "反复试验",
     exactLocationStored: migrated?.sourceStart === 17 && migrated?.sourceEnd === 32 && migrated?.sourceOccurrence === 0,
@@ -220,11 +262,14 @@ async function main() {
     sessionSummary: completion.title === "本轮完成" && completion.counts.includes("1记得") && completion.counts.includes("1模糊") && completion.counts.includes("0忘记"),
     uniqueDailyCompletion: completion.daily?.completed === 2,
     fsrsPersisted: completion.terms.length === 2 && completion.terms.every((item) => item.schedulerVersion?.startsWith("fsrs-") && item.reviewCard?.due && item.reviewHistory?.length === 1),
-    schedulerDisclosure: completion.scheduler?.includes("目标保持率 90%")
+    schedulerDisclosure: completion.scheduler?.includes("目标保持率 90%"),
+    clockSkewDoesNotBlank: !clockSkewQuiz.bodyBlank && clockSkewQuiz.optionCount === 4 && clockSkewQuiz.horizontalOverflow <= 1,
+    clockSkewIntervals: clockSkewIntervals.length === 3 && clockSkewIntervals.every(Boolean),
+    clockSkewScheduleHealed: clockSkewPersisted?.reviewHistory?.length === 1 && Date.parse(clockSkewPersisted.reviewCard?.lastReview) <= Date.now() + 5_000
   };
   const ok = Object.values(checks).every(Boolean);
   cdp.close();
-  console.log(JSON.stringify({ ok, checks, migrated, staleSource, phraseQuiz, phraseAnswer, throughoutQuiz, throughoutAnswer, nextCardScrollTop, reinforcement, completion, screenshots: { vocabHomeShot, quizShot, phraseShot, throughoutShot, reinforcementShot, completionShot } }, null, 2));
+  console.log(JSON.stringify({ ok, checks, migrated, staleSource, phraseQuiz, phraseAnswer, throughoutQuiz, throughoutAnswer, nextCardScrollTop, reinforcement, completion, clockSkewQuiz, clockSkewIntervals, clockSkewPersisted, screenshots: { vocabHomeShot, quizShot, phraseShot, throughoutShot, reinforcementShot, completionShot, clockSkewShot } }, null, 2));
   if (!ok) process.exit(2);
 }
 

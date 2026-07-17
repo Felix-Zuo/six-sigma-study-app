@@ -27,7 +27,7 @@ This document records the current evidence that the Android study app is install
 
 - Repository: `https://github.com/Felix-Zuo/six-sigma-study-app`
 - Local path: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app`
-- Latest local release validation pass when this document was updated: 2026-07-16 Asia/Shanghai
+- Latest local release validation pass when this document was updated: 2026-07-17 Asia/Shanghai
 - Release APK: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
 
@@ -125,13 +125,22 @@ node scripts\qa-dictionary-cdp.mjs
 ## PWA Browser Offline QA
 
 - `node scripts\qa-pwa-offline-cdp.mjs`: passed against Vite preview on `127.0.0.1:4175` and clean headless Chrome CDP on `127.0.0.1:9333`.
-- Service worker cache: `six-sigma-study-v0.8.13`; content JSON uses network-first refresh with offline cache fallback.
+- Service worker cache: `six-sigma-study-v0.8.14`; content JSON uses network-first refresh with offline cache fallback.
 - Online cache state includes `/`, `/index.html`, hashed JS/CSS shell assets, `content/manual.json`, `manifest.webmanifest`, and all 475 figure assets.
 - Offline reload state: CDP network offline, cache-ignored reload rendered `Chapter 1: What is Six Sigma?`, 23 sections, service-worker controller present, and horizontal overflow 0.
 
 ## Android Runtime QA
 
 Verified on local emulator `SixSigmaQA` / `emulator-5554`.
+
+### Beta 0.8.14 Vocabulary Review Clock Recovery
+
+- Reproduced “今日学习” blanking with a persisted FSRS card whose `lastReview` was 24 hours ahead of the current device clock. The pre-fix browser raised `FSRSValidationError: Invalid delta_t "-1"` and left `document.body` empty.
+- Review scheduling now aligns only impossible future review timestamps to the current review clock, validates the repaired card, and falls back through legacy scheduling to a clean card only if the stored scheduler payload is otherwise unusable.
+- The expanded `npm run qa:vocab-study-ux` fixture confirms a visible four-choice review card, three interval previews, successful rating, one persisted history item, corrected `lastReview`, and zero horizontal overflow. Existing phrase migration, dictionary-first choices, short bilingual examples, fixed rating dock, same-session reinforcement, and completion checks remain green.
+- The signed release APK was installed on `emulator-5554`; the same complete vocabulary suite passed against the actual Android WebView, and an Android screen capture confirmed the repaired one-card session reached `本轮完成` without a blank screen or crash.
+- Final APK: 41,213,351 bytes, SHA-256 `675BAACBEBF704DFA61821DE76C05D50A2B93E58F6FD6380CC5EA270C5BBDB45`; APK Signature Scheme v2 verified with one signer.
+- Final AAB: 38,948,460 bytes, SHA-256 `2ED4C709DB861A317321B13BE93415CC373D513A9F2C0EA85BF31215686561DD`; JAR signature verification passed with expected self-signed/no-timestamp warnings.
 
 ### Beta 0.8.13 Fly View and Vocabulary Collections
 

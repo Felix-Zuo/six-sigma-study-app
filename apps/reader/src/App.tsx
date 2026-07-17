@@ -340,8 +340,8 @@ type PageGroup = {
 
 const defaultBookId = "six-sigma-black-belt";
 const defaultBookTitle = "六西格玛黑带教材";
-const productVersionLabel = "Beta 0.8.13";
-const productVersionId = "0.8.13-beta";
+const productVersionLabel = "Beta 0.8.14";
+const productVersionId = "0.8.14-beta";
 const githubProfileUrl = "https://github.com/Felix-Zuo";
 const catalogPath = "content/catalog.json";
 const bundledQuestionBankPath = "content/private/question-bank.private.json";

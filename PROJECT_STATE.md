@@ -1,6 +1,6 @@
 # Fly View (飞阅) Project State
 
-Last updated: 2026-07-16 Asia/Shanghai
+Last updated: 2026-07-17 Asia/Shanghai
 
 ## Objective
 
@@ -20,15 +20,25 @@ The final product must support full-manual offline reading, position-preserving 
 
 ## Current Evidence
 
-- Product version: `Beta 0.8.13` (`0.8.13-beta.0` in npm, Android `versionCode 813` / `versionName 0.8.13-beta`). During the current beta line, each user-facing update increments the patch version.
+- Product version: `Beta 0.8.14` (`0.8.14-beta.0` in npm, Android `versionCode 814` / `versionName 0.8.14-beta`). During the current beta line, each user-facing update increments the patch version.
 - Branch: `main`
 - Latest workspace migration validation pass: 2026-06-26 00:33 Asia/Shanghai
 - Local workspace root: `D:\0A OpenClaw\projects\6sigma`
-- Local worktree: Beta 0.8.13 Fly View branding and navigable vocabulary collections verified in browser, the installed Android release, and GitHub Actions
+- Local worktree: Beta 0.8.14 vocabulary review clock-recovery fix passed browser and installed-Android verification; awaiting final commit and CI
 - Latest confirmed GitHub Actions state: CI run `29515804792` passed build, public-isolation/content/documentation gates, browser motion and maturity regressions, phrase-aware vocabulary QA, Fly View collection QA, and Android-debug packaging for final implementation commit `c69a83d`
 - Release APK after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\apk\release\app-release.apk`
 - Release AAB after migration: `D:\0A OpenClaw\projects\6sigma\six-sigma-study-app\android\app\build\outputs\bundle\release\app-release.aab`
 - Current product state: React/Vite reader reading all 33 chapters from runtime `manual.json`, with Fly View / 飞阅 branding, a no-click branded opening, a simple Now Reading / Today's Study / Library / Recent Notes home hierarchy, a real source cover, one live route shell, opacity-only navigation, reduced-motion fallback, source-TOC-guided section anchors, block-level page anchors, block-aware position-preserving language toggle, book-isolated persisted reading positions and chapter-completion state, local table-of-contents search, persisted dark mode and three-step reader font sizing, always-clickable English word tokenization, longest-match phrase lookup, occurrence-level bilingual context glosses, fixed-chrome draggable lookup sheets, 3980-entry public offline learner dictionary plus an ignored 3550-entry local private-question supplement, bounded DeepSeek selected-text explanations and question coaching, persisted per-term AI study supplements, dictionary-first FSRS vocabulary scheduling with same-session reinforcement, navigable textbook/question/mastered vocabulary collections, expandable context/source details, CSV export, exact source-range return, selected-text study notes, timed mock exams, extracted DOCX figure/table image assets, PWA manifest/service-worker offline caching with network-first content JSON updates, native Android service-worker cleanup to avoid stale app caches, and locally signed release APK/AAB builds.
+
+## 2026-07-17 Vocabulary Review Clock Recovery Beta 0.8.14
+
+- Reproduced the reported blank screen with a real persisted-card failure: an FSRS card whose `lastReview` was one day ahead of the current device time caused `FSRSValidationError: Invalid delta_t "-1"` during the first review render.
+- Added scheduler-level clock alignment and a bounded legacy/new-card fallback. No vocabulary record or study history is deleted; once the learner rates the card, a valid current `lastReview`, due date, and history entry are persisted.
+- Extended `qa:vocab-study-ux` with the future-review fixture. It now verifies that “今日学习” renders a four-choice card instead of a blank page, shows all three interval previews, accepts a rating, heals the saved schedule, and retains zero horizontal overflow.
+- Installed the signed release on `emulator-5554` and ran the full vocabulary-study CDP suite against the actual Android WebView. All checks passed, including the exact clock-skew fixture, phrase migration, dictionary-first recall, fixed controls, same-session reinforcement, persistence, and completion.
+- Final local release artifacts:
+  - APK: 41,213,351 bytes; SHA-256 `675BAACBEBF704DFA61821DE76C05D50A2B93E58F6FD6380CC5EA270C5BBDB45`; APK Signature Scheme v2 verified with one signer.
+  - AAB: 38,948,460 bytes; SHA-256 `2ED4C709DB861A317321B13BE93415CC373D513A9F2C0EA85BF31215686561DD`; JAR signature verification passed with expected local self-signed/no-timestamp warnings.
 
 ## 2026-07-16 Fly View Vocabulary Collections Beta 0.8.13
 
