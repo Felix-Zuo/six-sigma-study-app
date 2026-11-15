@@ -1,3 +1,5 @@
+import { safePersist } from "./storageHealth";
+
 export type ReaderPosition = {
   bookId?: string;
   bookTitle?: string;
@@ -67,7 +69,7 @@ export function loadReaderPosition(bookId?: string): ReaderPosition {
   return values.sort((a, b) => Date.parse(b.updatedAt ?? "") - Date.parse(a.updatedAt ?? ""))[0] ?? {};
 }
 
-export function persistReaderPosition(position: ReaderPosition): void {
+export function persistReaderPosition(position: ReaderPosition): boolean {
   const bookId = position.bookId ?? defaultBookId;
   const positions = loadReaderPositions();
   const nextPosition = normalizePosition(
@@ -79,7 +81,7 @@ export function persistReaderPosition(position: ReaderPosition): void {
     },
     bookId
   );
-  try {
+  const persisted = safePersist(() => {
     window.localStorage.setItem(
       storageKey,
       JSON.stringify({
@@ -91,11 +93,12 @@ export function persistReaderPosition(position: ReaderPosition): void {
         updatedAt: new Date().toISOString()
       })
     );
+  }, "阅读位置保存失败，下次可能无法恢复到当前位置。请备份后重试。");
+  if (persisted) {
     lastKnownPositions = {
       ...positions,
       [bookId]: nextPosition
     };
-  } catch {
-    // Position persistence should not block core reading.
   }
+  return persisted;
 }

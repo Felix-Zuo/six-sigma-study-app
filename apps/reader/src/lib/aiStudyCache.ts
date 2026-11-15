@@ -1,4 +1,6 @@
 import type { QuestionAssistResult, ReadingAssistResult } from "./deepSeekAssistant";
+import { safePersist } from "./storageHealth";
+import { deepSeekModel, deepSeekStudyPromptVersion } from "./deepSeekAssistant";
 
 export type AiStudyCacheRecord =
   | {
@@ -88,14 +90,24 @@ function loadRecords(): AiStudyCacheRecord[] {
   }
 }
 
-export function createAiStudyCacheId(kind: "reading" | "question", sourceId: string, content: string): string {
+export function createAiStudyCacheId(
+  kind: "reading" | "question",
+  sourceId: string,
+  content: string,
+  identity: { model?: string; promptVersion?: string; contentVersion?: string } = {}
+): string {
   let hash = 2166136261;
-  const input = `${kind}\u0000${sourceId}\u0000${content}`;
+  const version = JSON.stringify([
+    identity.model ?? deepSeekModel,
+    identity.promptVersion ?? deepSeekStudyPromptVersion,
+    identity.contentVersion ?? "content-hashed"
+  ]);
+  const input = `${kind}\u0000${sourceId}\u0000${version}\u0000${content}`;
   for (let index = 0; index < input.length; index += 1) {
     hash ^= input.charCodeAt(index);
     hash = Math.imul(hash, 16777619);
   }
-  return `${kind}:${sourceId}:${(hash >>> 0).toString(16).padStart(8, "0")}`;
+  return `v2:${kind}:${sourceId}:${(hash >>> 0).toString(16).padStart(8, "0")}`;
 }
 
 export function findAiStudyCache(id: string, kind: "reading"): Extract<AiStudyCacheRecord, { kind: "reading" }> | undefined;
@@ -104,21 +116,17 @@ export function findAiStudyCache(id: string, kind: "reading" | "question"): AiSt
   return loadRecords().find((item) => item.id === id && item.kind === kind);
 }
 
-export function persistAiStudyCache(record: AiStudyCacheRecord): void {
-  try {
+export function persistAiStudyCache(record: AiStudyCacheRecord): boolean {
+  return safePersist(() => {
     const next = [record, ...loadRecords().filter((item) => item.id !== record.id)].slice(0, maxRecords);
     window.localStorage.setItem(storageKey, JSON.stringify(next));
-  } catch {
-    // AI assistance still works when local caching is unavailable.
-  }
+  }, "AI 结果可继续阅读，但本次缓存保存失败。请复制需要保留的内容。");
 }
 
-export function clearAiStudyCache(): void {
-  try {
+export function clearAiStudyCache(): boolean {
+  return safePersist(() => {
     window.localStorage.removeItem(storageKey);
-  } catch {
-    // Local reset can continue even when WebView storage is unavailable.
-  }
+  }, "AI 缓存尚未成功清除，请稍后重试。");
 }
 
 export const aiStudyCacheStorageKey = storageKey;

@@ -3,6 +3,8 @@ import { parseAiContextResult, sha256Hex, type AiContextResult } from "./context
 
 export const deepSeekModel = "deepseek-v4-flash";
 export const deepSeekPromptVersion = "context-correction-v1";
+export const deepSeekStudyPromptVersion = "study-assistance-v2";
+const browserRequestTimeoutMs = 60000;
 
 export type DeepSeekContextInput = {
   surface: string;
@@ -409,11 +411,30 @@ function parseQuestionResult(value: unknown, input: DeepSeekQuestionInput): Ques
   };
 }
 
+export async function readDeepSeekResponse(
+  endpoint: "https://api.deepseek.com/beta/chat/completions" | "https://api.deepseek.com/models",
+  init: RequestInit,
+  timeoutMs = browserRequestTimeoutMs
+): Promise<{ ok: boolean; status: number; text: string }> {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const response = await fetch(endpoint, { ...init, signal: controller.signal, redirect: "error" });
+    // Keep the deadline active while reading the body, not just until headers.
+    return { ok: response.ok, status: response.status, text: await response.text() };
+  } catch (error) {
+    if (controller.signal.aborted) throw new Error("DeepSeek 请求超时，请检查网络后重试");
+    throw error;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 async function browserRequest(body: unknown): Promise<{ responseJson: string; responseSha256: string }> {
   if (!browserSessionApiKey) {
     throw new Error("请先在“我的”中配置 DeepSeek API Key");
   }
-  const response = await fetch("https://api.deepseek.com/beta/chat/completions", {
+  const response = await readDeepSeekResponse("https://api.deepseek.com/beta/chat/completions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -421,7 +442,7 @@ async function browserRequest(body: unknown): Promise<{ responseJson: string; re
     },
     body: JSON.stringify(body)
   });
-  const responseJson = await response.text();
+  const responseJson = response.text;
   if (!response.ok) {
     let detail = `HTTP ${response.status}`;
     try {
@@ -483,7 +504,7 @@ export async function testDeepSeekConnection(): Promise<void> {
   if (!browserSessionApiKey) {
     throw new Error("请先输入 API Key");
   }
-  const response = await fetch("https://api.deepseek.com/models", {
+  const response = await readDeepSeekResponse("https://api.deepseek.com/models", {
     headers: { Authorization: `Bearer ${browserSessionApiKey}` }
   });
   if (!response.ok) {
@@ -534,6 +555,18 @@ async function runStudyRequest<T>(
     }
   }
   throw new Error(errorMessage(lastError));
+}
+
+/** Uses the same personal-key channel as the existing reading assistance. */
+export async function requestStudyAssistantTool<T>(
+  body: unknown,
+  expectedTool: "submit_study_chat",
+  parseResult: (value: unknown) => T
+): Promise<T> {
+  // Chat/collection requests are not retried automatically: a long user message
+  // should not be charged twice just because an output needs user correction.
+  const response = await performRequest(body);
+  return parseResult(parseToolResponse(response.responseJson, expectedTool).argumentsValue);
 }
 
 export function explainReadingWithDeepSeek(input: DeepSeekReadingInput): Promise<DeepSeekStudyAnalysis<ReadingAssistResult>> {

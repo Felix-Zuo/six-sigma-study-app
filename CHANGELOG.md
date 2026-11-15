@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.9.0-beta.0] - 2026-11-16
+
+- Added personal articles, expressions and memos collected directly from the study chat or desktop publishing bridge, with existing bilingual reader and vocabulary integration.
+- Added explicit learning memory, persistent chat history, private authenticated material synchronization, conflict preservation, complete local backup/restore and native Android file export.
+- Rebuilt mobile home, navigation, collection, chat and reading controls with Radix dialogs, reduced-motion-aware transitions and a consistent visual system.
+- Added signed APK update checks, authenticated streaming download, SHA-256/size/signer/version verification and Android installation handoff.
+- Fixed cross-sentence correction reuse, silent persistence failures, single-language material loading, unsaved editor back handling and stale cache identities.
+- Updated vulnerable dependencies within their compatible release lines; added API, synchronization, storage, AI and updater regression coverage.
+
 All notable user-facing changes to Fly View (飞阅) are recorded here. The project follows patch-by-patch beta releases; detailed verification evidence remains in `PROJECT_STATE.md` and `docs/08-release-verification.md`.
 
 ## [0.8.15-beta.0] - 2026-07-17

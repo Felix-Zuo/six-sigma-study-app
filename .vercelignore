@@ -1,0 +1,12 @@
+.git
+android
+qa
+.qa
+.tmp
+tmp
+node_modules
+**/*.private.json
+apps/reader/public/content/private
+**/*.log
+.env*
+tests

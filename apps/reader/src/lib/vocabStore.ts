@@ -1,4 +1,5 @@
 import { resolveContextExplanation } from "./contextLookup";
+import { safePersist } from "./storageHealth";
 import { isReliableStudyTranslation } from "./vocabStudy";
 import {
   applyReviewSchedule,
@@ -278,12 +279,10 @@ export function loadSavedTerms(): SavedTerm[] {
   }
 }
 
-export function persistSavedTerms(terms: SavedTerm[]): void {
-  try {
+export function persistSavedTerms(terms: SavedTerm[]): boolean {
+  return safePersist(() => {
     window.localStorage.setItem(storageKey, JSON.stringify(terms));
-  } catch {
-    // Study data is local-first; failing to persist should not crash reading.
-  }
+  }, "词本或复习记录保存失败，当前修改尚未保存。请备份后重试。");
 }
 
 export function isTermDue(term: SavedTerm, now = new Date()): boolean {

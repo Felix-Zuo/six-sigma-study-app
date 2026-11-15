@@ -424,6 +424,15 @@ async function main() {
     }
 
     async function clickPrimaryNav(label) {
+      // 0.9 keeps the same destinations, with question practice on Study home.
+      if (label === "刷题") {
+        await clickPrimaryNav("首页");
+        await waitForHome();
+        const clicked = await evaluate(`(() => {const button=Array.from(document.querySelectorAll('.fv-quick-links button')).find(item=>item.textContent.includes('题库训练'));button?.click();return Boolean(button);})()`);
+        assert(clicked, "Home question-training entry was not found");
+        return;
+      }
+      label = ({ "首页": "学习", "单词": "复习" })[label] ?? label;
       const result = await evaluate(`(() => {
         const label = ${JSON.stringify(label)};
         const nav = document.querySelector('nav[aria-label="主导航"]');
@@ -437,13 +446,14 @@ async function main() {
     }
 
     async function clickBook(title) {
+      await clickPrimaryNav("材料");
+      await waitFor("materials route", () => evaluate(`document.querySelector('[data-app-view]')?.dataset.appView === 'library'`));
       const result = await evaluate(`(() => {
         const title = ${JSON.stringify(title)};
-        const library = document.querySelector('section[aria-label="教材库"]');
-        const card = Array.from(library?.querySelectorAll("article") ?? [])
-          .find((item) => item.querySelector("h2")?.textContent?.trim() === title);
-        const button = card?.querySelector("button.primaryAction");
-        if (!button) return { clicked: false, available: Array.from(library?.querySelectorAll("article h2") ?? []).map((item) => item.textContent?.trim()) };
+        const library = document.querySelector('.fv-book-section');
+        const button = Array.from(library?.querySelectorAll('.fv-book-row') ?? [])
+          .find((item) => item.querySelector('strong')?.textContent?.trim() === title);
+        if (!button) return { clicked: false, available: Array.from(library?.querySelectorAll('strong') ?? []).map((item) => item.textContent?.trim()) };
         button.click();
         return { clicked: true };
       })()`);
@@ -485,7 +495,7 @@ async function main() {
 
     async function backToLibrary() {
       await clickSelector('[aria-label="返回书库"]', "back-to-library control");
-      await waitForHome();
+      await waitFor("materials route", () => evaluate(`document.querySelector('[data-app-view]')?.dataset.appView === 'library'`));
     }
 
     async function runCase(name, fn) {
@@ -678,6 +688,8 @@ async function main() {
         };
       })()`);
       assert(beforeImmersive.blockId && Number.isFinite(beforeImmersive.ratio), "Could not capture the pre-immersive reading anchor", beforeImmersive);
+      // The 0.9 compact toolbar exposes immersive mode inside Reading Tools.
+      await clickSelector('[aria-label="打开阅读工具"]', "reader tools before immersive mode");
       await clickSelector('[aria-label="进入沉浸阅读"]', "enter immersive reading control");
       await waitFor("immersive reader", () => evaluate(`document.querySelector('main[data-app-view="reader"]')?.classList.contains("immersiveMode")`));
       await sleep(800);
@@ -958,13 +970,13 @@ async function main() {
       await cdp.send("Page.reload", { ignoreCache: true });
       await waitForHome();
       const homeAfterReload = await evaluate(`(() => ({
-        streakValue: document.querySelector(".metricGrid button:nth-child(3) strong")?.textContent?.trim() ?? "",
-        streakLabel: document.querySelector(".metricGrid button:nth-child(3) span")?.textContent?.trim() ?? "",
+        materialSummary: document.querySelector(".fv-daily button:nth-child(2)")?.textContent?.trim() ?? "",
         currentNav: document.querySelector('nav[aria-label="主导航"] [aria-current="page"] strong')?.textContent?.trim() ?? ""
       }))()`);
       await clickPrimaryNav("单词");
       await waitFor("empty vocabulary plan after reload", () => evaluate(`Boolean(document.querySelector(".vocabPlanHero"))`));
       const vocabAfterReload = await evaluate(`document.querySelector(".vocabPlanHero h2")?.textContent?.trim() ?? ""`);
+      const streakAfterReload = await evaluate(`Array.from(document.querySelectorAll(".vocabPlanHero p")).map(item=>item.textContent?.trim()).find(text=>text?.startsWith("连续学习")) ?? ""`);
       await clickPrimaryNav("刷题");
       await waitFor("question dashboard after reload", () => evaluate(`Boolean(document.querySelector(".questionContinueButton"))`));
       const questionsAfterReload = await evaluate(`(() => ({
@@ -981,7 +993,9 @@ async function main() {
       assert(Object.keys(immediatelyAfterClear.progress).length === 0, "Question progress remained after normal clear", immediatelyAfterClear);
       assert(Number(immediatelyAfterClear.streak.streak ?? 0) === 0, "Old streak remained after normal clear", immediatelyAfterClear);
       assert(immediatelyAfterClear.correctionKeys.length === 0, "Context corrections from another book remained after local-data clear", immediatelyAfterClear);
-      assert(homeAfterReload.streakValue === "0" && homeAfterReload.streakLabel === "连续天数", "Old streak revived after reload", homeAfterReload);
+      // Zero streak is now shown on Review; home shows category guidance instead.
+      assert(homeAfterReload.materialSummary.includes("面试") && !homeAfterReload.materialSummary.includes("已连续学习") && streakAfterReload === "连续学习 0 天", "Old streak revived after reload", { homeAfterReload, streakAfterReload });
+      assert(Number(persistedAfterReload.streak.streak ?? 0) === 0, "Old streak persisted again after navigation", persistedAfterReload);
       assert(vocabAfterReload === "0 个待复习", "Old vocabulary revived after reload", { vocabAfterReload, persistedAfterReload });
       assert(questionsAfterReload.summary.startsWith("0/") && questionsAfterReload.action.includes("开始练习"), "Old question progress revived after reload", questionsAfterReload);
       assert(!persistedAfterReload.vocab.some((item) => String(item.id).startsWith(fixturePrefix)), "Fixture vocabulary was persisted again", persistedAfterReload);
@@ -1188,7 +1202,7 @@ async function main() {
       })()`);
       assert(dom.view === "home", "Landmark checks did not run on home", dom);
       assert(accessibleH1.length === 1, "Home did not expose exactly one accessible H1", { accessibleH1, dom });
-      assert(dom.primaryNavCount === 1 && dom.currentCount === 1 && dom.currentLabels[0] === "首页", "Primary navigation did not expose exactly one current page", dom);
+      assert(dom.primaryNavCount === 1 && dom.currentCount === 1 && dom.currentLabels[0] === "学习", "Primary navigation did not expose exactly one current page", dom);
       return { accessibleH1, ...dom };
     });
 

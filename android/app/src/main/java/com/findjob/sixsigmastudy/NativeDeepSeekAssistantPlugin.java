@@ -207,6 +207,7 @@ public class NativeDeepSeekAssistantPlugin extends Plugin {
 
     private String executeRequest(String method, String endpoint, String body, String apiKey) throws Exception {
         HttpURLConnection connection = (HttpURLConnection) new URL(endpoint).openConnection();
+        connection.setInstanceFollowRedirects(false);
         connection.setRequestMethod(method);
         connection.setConnectTimeout(CONNECT_TIMEOUT_MS);
         connection.setReadTimeout(READ_TIMEOUT_MS);

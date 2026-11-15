@@ -1,4 +1,5 @@
 import type { ContextExplanation } from "./contextLookup";
+import { safePersist } from "./storageHealth";
 
 export type CorrectionStatus = "proposed" | "accepted" | "rejected" | "revoked" | "superseded";
 export type CorrectionSourceType = "manual" | "question";
@@ -237,20 +238,16 @@ export function loadContextCorrectionBundle(bookId: string, contentVersion: stri
   return { schemaVersion, format: bundleFormat, bookId, contentVersion, exportedAt: new Date().toISOString(), corrections: [] };
 }
 
-export function persistContextCorrectionBundle(bundle: ContextCorrectionBundle): void {
-  try {
+export function persistContextCorrectionBundle(bundle: ContextCorrectionBundle): boolean {
+  return safePersist(() => {
     window.localStorage.setItem(`${storageKeyPrefix}:${bundle.bookId}`, JSON.stringify({ ...bundle, exportedAt: new Date().toISOString() }));
-  } catch {
-    // Corrections are optional enhancements and must not crash the reader.
-  }
+  }, "语境修订保存失败，当前确认结果尚未保存。请导出修订包后重试。");
 }
 
-export function clearContextCorrectionBundle(bookId: string): void {
-  try {
+export function clearContextCorrectionBundle(bookId: string): boolean {
+  return safePersist(() => {
     window.localStorage.removeItem(`${storageKeyPrefix}:${bookId}`);
-  } catch {
-    // Clearing optional local corrections must not block other data cleanup.
-  }
+  }, "语境修订尚未成功清除，请稍后重试。");
 }
 
 export async function createProposedCorrection(input: CorrectionAnchorInput, result: AiContextResult, provenance: {
@@ -369,8 +366,10 @@ export function findAcceptedCorrection(
     (normalized(item.lexical.surface) === surface || normalized(item.lexical.lemma) === surface) &&
     (bundle.bookId === input.bookId || item.source.sourceType === "question")
   );
+  // A sentence translation is only reusable for that same sentence. A phrase
+  // occurring elsewhere may have another sense and belongs in suggestions.
   return candidates.find((item) => item.source.blockId === (input.blockId ?? null) && normalized(item.source.sourceText) === source)
-    ?? candidates.find((item) => source.includes(normalized(item.lexical.phrase)));
+    ?? candidates.find((item) => normalized(item.source.sourceText) === source);
 }
 
 export function findSimilarCorrection(

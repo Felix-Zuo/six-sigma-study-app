@@ -1,3 +1,5 @@
+import { safePersist } from "./storageHealth";
+
 export type SavedNote = {
   id: string;
   bookId: string;
@@ -61,10 +63,8 @@ export function loadSavedNotes(): SavedNote[] {
   }
 }
 
-export function persistSavedNotes(notes: SavedNote[]): void {
-  try {
+export function persistSavedNotes(notes: SavedNote[]): boolean {
+  return safePersist(() => {
     window.localStorage.setItem(storageKey, JSON.stringify(notes));
-  } catch {
-    // Keep the reading flow usable even when local storage is unavailable.
-  }
+  }, "笔记保存失败，当前修改尚未保存。请备份后重试。");
 }

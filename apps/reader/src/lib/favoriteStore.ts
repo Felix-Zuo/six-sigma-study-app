@@ -1,3 +1,5 @@
+import { safePersist } from "./storageHealth";
+
 export type SavedFavorite = {
   id: string;
   bookId: string;
@@ -59,10 +61,8 @@ export function loadSavedFavorites(): SavedFavorite[] {
   }
 }
 
-export function persistSavedFavorites(favorites: SavedFavorite[]): void {
-  try {
+export function persistSavedFavorites(favorites: SavedFavorite[]): boolean {
+  return safePersist(() => {
     window.localStorage.setItem(storageKey, JSON.stringify(favorites));
-  } catch {
-    // Bookmarks should fail softly in privacy-restricted WebView contexts.
-  }
+  }, "收藏保存失败，当前修改尚未保存。请备份后重试。");
 }

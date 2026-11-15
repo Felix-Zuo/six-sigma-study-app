@@ -51,6 +51,13 @@ jobs:
       - name: Learning modules QA
         run: npm run qa:learning-modules
 
+      - name: Personal API and assistant contracts
+        run: |
+          node scripts/qa-personal-api.mjs
+          node scripts/qa-study-chat.mjs
+          node scripts/qa-app-updates.mjs
+          node scripts/qa-sw-navigation.mjs
+
       - name: Documentation link check
         run: npm run docs:links
 
@@ -122,6 +129,21 @@ jobs:
           CDP_ENDPOINT: http://127.0.0.1:9338/json
           QA_APP_URL: http://127.0.0.1:4183/
         run: npm run qa:fly-view
+
+      - name: Personal storage and sync browser regressions
+        run: |
+          node tests/personal-library.test.mjs
+          node tests/personal-sync.test.mjs
+
+      - name: Fly View 0.9 complete personal learning flow
+        run: node tests/fly-view-090.browser.mjs
+
+      - name: Upload personal learning screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fly-view-090-browser-evidence
+          path: .qa/090
 
   android-debug:
     runs-on: ubuntu-latest

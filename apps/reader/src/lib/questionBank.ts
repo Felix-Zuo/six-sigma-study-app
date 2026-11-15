@@ -1,3 +1,5 @@
+import { safePersist } from "./storageHealth";
+
 export type QuestionSourceType = "public-sample" | "original-practice" | "user-private";
 export type QuestionType = "single" | "multiple" | "true_false" | "case";
 export type QuestionDifficulty = "easy" | "medium" | "hard";
@@ -184,16 +186,14 @@ export function loadUserQuestionBank(): QuestionBankPayload | null {
   }
 }
 
-export function persistUserQuestionBank(bank: QuestionBankPayload | null): void {
-  try {
+export function persistUserQuestionBank(bank: QuestionBankPayload | null): boolean {
+  return safePersist(() => {
     if (!bank) {
       window.localStorage.removeItem(questionBankStorageKey);
       return;
     }
     window.localStorage.setItem(questionBankStorageKey, JSON.stringify(bank));
-  } catch {
-    // Importing a private bank is optional; storage failure should not break public samples.
-  }
+  }, "私有题库保存失败，请保留原始题库文件并重试。");
 }
 
 function normalizeProgress(item: Partial<QuestionProgress>, questionId: string): QuestionProgress {
@@ -239,12 +239,10 @@ export function loadQuestionProgress(): Record<string, QuestionProgress> {
   }
 }
 
-export function persistQuestionProgress(progress: Record<string, QuestionProgress>): void {
-  try {
+export function persistQuestionProgress(progress: Record<string, QuestionProgress>): boolean {
+  return safePersist(() => {
     window.localStorage.setItem(questionProgressStorageKey, JSON.stringify(progress));
-  } catch {
-    // Local-only progress can fail softly.
-  }
+  }, "做题进度保存失败，本次答题记录尚未保存。请备份后重试。");
 }
 
 export function progressForQuestion(progress: Record<string, QuestionProgress>, questionId: string): QuestionProgress {
@@ -338,12 +336,10 @@ export function loadExamResults(): ExamResult[] {
   }
 }
 
-export function persistExamResults(results: ExamResult[]): void {
-  try {
+export function persistExamResults(results: ExamResult[]): boolean {
+  return safePersist(() => {
     window.localStorage.setItem(examResultsStorageKey, JSON.stringify(results));
-  } catch {
-    // Exam history is local convenience data.
-  }
+  }, "考试记录保存失败，本次成绩尚未保存。请备份后重试。");
 }
 
 export const questionBankKeys = {

@@ -41,18 +41,18 @@ async function main() {
     })()`);
   }
 
-  const firstClick = await clickIn('nav[aria-label="主导航"]', "单词");
+  const firstClick = await clickIn('nav[aria-label="主导航"]', "复习");
   await sleep(32);
-  const interruptClick = await clickIn('nav[aria-label="主导航"]', "刷题");
-  await waitFor("interrupted destination", () => evaluate(`document.querySelector('[data-app-view]')?.getAttribute('data-app-view') === 'questions'`));
+  const interruptClick = await clickIn('nav[aria-label="主导航"]', "材料");
+  await waitFor("interrupted destination", () => evaluate(`document.querySelector('[data-app-view]')?.getAttribute('data-app-view') === 'library'`));
   await waitFor("interrupted transition settled", () => evaluate(`!document.documentElement.dataset.transitionKind`));
   await waitForVisualIdle(evaluate, { description: "interrupted transition visual idle" });
   const interrupted = await evaluate(uiSnapshotExpression());
   const interruptedShot = await capture("01-interrupted-navigation-settled");
 
-  await clickIn('nav[aria-label="主导航"]', "首页");
+  await clickIn('nav[aria-label="主导航"]', "学习");
   await waitFor("home restored", () => evaluate(`document.querySelector('[data-app-view]')?.getAttribute('data-app-view') === 'home' && !document.documentElement.dataset.transitionKind`));
-  const openBook = await clickIn(".workspaceContinue", "继续阅读") || await clickIn(".workspaceContinue", "开始阅读");
+  const openBook = await clickIn(".fv-continue", "从上次停下的位置继续");
   await waitFor("reader ready", () => evaluate(`document.querySelector('[data-app-view]')?.getAttribute('data-app-view') === 'reader' && !document.documentElement.dataset.transitionKind`));
   const languageBefore = await evaluate(`document.querySelector('[aria-label="切换阅读语言"]')?.textContent?.trim() ?? null`);
   await evaluate(`(() => {
@@ -88,10 +88,10 @@ async function main() {
   await cdp.send("Emulation.setEmulatedMedia", {
     features: [{ name: "prefers-reduced-motion", value: "reduce" }]
   });
-  await clickIn('[aria-label="返回书库"]', "书库");
-  await waitFor("reduced home", () => evaluate(`document.querySelector('[data-app-view]')?.getAttribute('data-app-view') === 'home'`));
+  await clickIn('[aria-label="返回书库"]', "返回书库");
+  await waitFor("reduced library", () => evaluate(`document.querySelector('[data-app-view]')?.getAttribute('data-app-view') === 'library'`));
   const reducedStartedAt = Date.now();
-  const reducedClick = await clickIn('nav[aria-label="主导航"]', "单词");
+  const reducedClick = await clickIn('nav[aria-label="主导航"]', "复习");
   await waitFor("reduced destination", () => evaluate(`document.querySelector('[data-app-view]')?.getAttribute('data-app-view') === 'vocab' && !document.documentElement.dataset.transitionKind`));
   const reduced = await evaluate(`(() => ({
     snapshot: ${uiSnapshotExpression()},
@@ -103,7 +103,7 @@ async function main() {
 
   const checks = {
     interruptionLeavesOneStablePage:
-      firstClick && interruptClick && interrupted.view === "questions" && interrupted.transitionKind === null &&
+      firstClick && interruptClick && interrupted.view === "library" && interrupted.transitionKind === null &&
       interrupted.shellCount === 1 && interrupted.shellOpacity === 1 && interrupted.shellTransform === "none",
     noLegacyStageSurvives:
       interrupted.cinematicStageCount === 0 && interrupted.canvasCount === 0 &&

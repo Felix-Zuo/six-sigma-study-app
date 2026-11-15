@@ -91,17 +91,19 @@ async function main() {
   }
 
   const routes = [];
-  routes.push(await verifyRoute("home-to-vocabulary", () => click(".workspaceEdgeNav", "单词"), "vocab"));
-  routes.push(await verifyRoute("vocabulary-to-questions", () => click('nav[aria-label="主导航"]', "刷题"), "questions"));
-  routes.push(await verifyRoute("questions-to-home", () => click('nav[aria-label="主导航"]', "首页"), "home"));
-  routes.push(await verifyRoute("home-to-reader", () => click(".workspaceContinue"), "reader"));
-  routes.push(await verifyRoute("reader-to-home", () => click('[aria-label="返回书库"]'), "home"));
+  // 0.9 moves the library to its own route and question training to home.
+  // Preserve the same transition/geometry assertions through current controls.
+  routes.push(await verifyRoute("home-to-vocabulary", () => click(".fv-daily", "词汇复习"), "vocab"));
+  routes.push(await verifyRoute("vocabulary-to-library", () => click('nav[aria-label="主导航"]', "材料"), "library"));
+  routes.push(await verifyRoute("library-to-home", () => click('nav[aria-label="主导航"]', "学习"), "home"));
+  routes.push(await verifyRoute("home-to-reader", () => click(".fv-continue"), "reader"));
+  routes.push(await verifyRoute("reader-to-library", () => click('[aria-label="返回书库"]'), "library"));
 
   await cdp.send("Emulation.setEmulatedMedia", {
     features: [{ name: "prefers-reduced-motion", value: "reduce" }]
   });
   const reducedStartedAt = Date.now();
-  const reducedClicked = await click('nav[aria-label="主导航"]', "单词");
+  const reducedClicked = await click('nav[aria-label="主导航"]', "复习");
   await waitFor("reduced destination", () => evaluate(`document.querySelector('[data-app-view]')?.getAttribute('data-app-view') === 'vocab'`));
   await waitForVisualIdle(evaluate, { description: "reduced destination visual idle" });
   const reduced = await evaluate(`(() => ({

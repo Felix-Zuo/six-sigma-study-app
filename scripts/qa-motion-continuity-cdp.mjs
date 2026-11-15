@@ -29,8 +29,12 @@ async function main() {
   await waitFor("home", () => evaluate(`document.querySelector('[data-app-view]')?.getAttribute('data-app-view') === 'home'`));
   await waitForVisualIdle(evaluate, { description: "home visual idle" });
 
+  // System books live in Materials in 0.9; keep exercising a scrolled source.
+  await evaluate(`Array.from(document.querySelectorAll('.mainNavItem')).find(item=>item.textContent.includes('材料'))?.click()`);
+  await waitFor("materials", () => evaluate(`document.querySelector('[data-app-view]')?.dataset.appView === 'library' && !document.documentElement.dataset.transitionKind`));
+
   const source = await evaluate(`(() => {
-    const card = document.querySelector('.studyBookCard');
+    const card = document.querySelector('.fv-book-row');
     card?.scrollIntoView({ block: 'center', behavior: 'instant' });
     const rect = card?.getBoundingClientRect();
     return {
@@ -41,7 +45,7 @@ async function main() {
   })()`);
   const beforeShot = await capture("01-home-scrolled-source");
   const clicked = await evaluate(`(() => {
-    const button = document.querySelector('.studyBookCard .primaryAction');
+    const button = document.querySelector('.fv-book-row');
     button?.click();
     return Boolean(button);
   })()`);

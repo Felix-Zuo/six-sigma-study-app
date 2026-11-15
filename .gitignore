@@ -65,3 +65,7 @@ content/processed/*
 Thumbs.db
 .idea/
 .vscode/
+
+# Deployment metadata and private local service configuration
+.vercel/
+.release-stage/

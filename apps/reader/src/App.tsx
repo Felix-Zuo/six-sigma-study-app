@@ -1,6 +1,13 @@
 import { type CSSProperties, type KeyboardEvent, type PointerEvent, type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { flushSync } from "react-dom";
 import { App as CapacitorApp } from "@capacitor/app";
+import { MessageCircle, Library } from "lucide-react";
+import { StudyHome, StudyChat, PersonalLibraryView, MemoryManager } from "./components/PersonalWorkspace";
+import { CloudLibraryPanel } from "./components/CloudLibraryPanel";
+import { UpdateCenter } from "./components/UpdateCenter";
+import { SERVICE_URL, startPersonalLibraryAutoSync } from "./lib/personalSync";
+import { checkAppRelease } from "./lib/appUpdates";
+import { listPersonalMaterials, materialToBookManifest, materialToManual, personalLibraryChangedEvent, type PersonalMaterial } from "./lib/personalLibrary";
 import {
   ArrowLeft,
   ArrowRight,
@@ -127,7 +134,7 @@ import {
 type Language = "en" | "zh";
 type ThemeMode = "light" | "dark";
 type TextScale = "standard" | "large" | "xlarge";
-type AppView = "splash" | "home" | "reader" | "vocab" | "questions" | "notes" | "favorites" | "settings";
+type AppView = "splash" | "home" | "library" | "chat" | "reader" | "vocab" | "questions" | "notes" | "favorites" | "settings";
 type LocalizedText = Record<Language, string>;
 type QuestionMode = "home" | "browse" | "practice" | "wrong" | "favorite" | "exam";
 type QuestionFilter = "all" | string;
@@ -349,8 +356,8 @@ type PageGroup = {
 
 const defaultBookId = "six-sigma-black-belt";
 const defaultBookTitle = "六西格玛黑带教材";
-const productVersionLabel = "Beta 0.8.15";
-const productVersionId = "0.8.15-beta";
+const productVersionLabel = "Beta 0.9.0";
+const productVersionId = "0.9.0-beta";
 const githubProfileUrl = "https://github.com/Felix-Zuo";
 const catalogPath = "content/catalog.json";
 const bundledQuestionBankPath = "content/private/question-bank.private.json";
@@ -361,6 +368,8 @@ const readerPreferencesKey = "six-sigma-study:reader-preferences:v1";
 const textScaleOrder: TextScale[] = ["standard", "large", "xlarge"];
 const appViewKickers: Partial<Record<AppView, string>> = {
   home: "学习空间",
+  library: "我的材料",
+  chat: "学习助教",
   vocab: "词汇",
   questions: "训练",
   notes: "摘录",
@@ -883,6 +892,25 @@ function InlineQuestionText({
 }
 
 export function App() {
+  const [personalMaterials, setPersonalMaterials] = useState<PersonalMaterial[]>([]);
+  const [personalReady, setPersonalReady] = useState(false);
+  const [sharedDictionary,setSharedDictionary] = useState<TermEntry[]>([]);
+  const [storageWarning, setStorageWarning] = useState("");
+  const [pairingCode, setPairingCode] = useState("");
+  const [updateAvailable, setUpdateAvailable] = useState("");
+  const refreshPersonal = () => { void listPersonalMaterials().then(setPersonalMaterials).catch(error => setStorageWarning(error.message)).finally(() => setPersonalReady(true)); };
+  useEffect(() => {
+    refreshPersonal();
+    void fetch("content/dictionary.json").then(r=>r.ok?r.json():[]).then(entries=>setSharedDictionary(Array.isArray(entries)?entries:[])).catch(()=>undefined);
+    const onStorageError = (event: Event) => setStorageWarning((event as CustomEvent<{message:string}>).detail.message);
+    const stopSync = startPersonalLibraryAutoSync(refreshPersonal);
+    window.addEventListener(personalLibraryChangedEvent, refreshPersonal);
+    window.addEventListener("fly-view-storage-error", onStorageError);
+    void checkAppRelease(SERVICE_URL).then(release => { if(release.versionCode > 900) setUpdateAvailable(release.version); }).catch(() => undefined);
+    const listener = CapacitorApp.addListener("appUrlOpen", ({url}) => { if(url.startsWith("flyview://connect")){setPairingCode(url);setView("settings");} });
+    void CapacitorApp.getLaunchUrl().then(result => { if(result?.url.startsWith("flyview://connect")){setPairingCode(result.url);setView("settings");} });
+    return () => { stopSync();window.removeEventListener(personalLibraryChangedEvent,refreshPersonal);window.removeEventListener("fly-view-storage-error",onStorageError);void listener.then(handle=>handle.remove()); };
+  }, []);
   const initialPositionRef = useRef(loadReaderPosition());
   const [readerPositions, setReaderPositions] = useState<ReaderPositionMap>(() => loadReaderPositions());
   const [catalog, setCatalog] = useState<CatalogData | null>(null);
@@ -903,6 +931,7 @@ export function App() {
   const [deepSeekKeyStatus, setDeepSeekKeyStatus] = useState<DeepSeekKeyStatus>({ configured: false, storage: "session-only" });
   const [deepSeekKeyDraft, setDeepSeekKeyDraft] = useState("");
   const [aiSettingsMessage, setAiSettingsMessage] = useState("");
+  const [autoAiLookup,setAutoAiLookup] = useState(false);
   const [contextCorrectionBundle, setContextCorrectionBundle] = useState<ContextCorrectionBundle>(() =>
     loadContextCorrectionBundle(defaultBookId, "0.2.0")
   );
@@ -1007,17 +1036,15 @@ export function App() {
     chapterProgress: JSON.stringify(chapterProgressMap)
   });
 
-  const activeBook = useMemo(() => {
-    const source = catalog ?? fallbackCatalog;
-    return source.books.find((book) => book.bookId === activeBookId) ?? source.books[0];
-  }, [activeBookId, catalog]);
+  const studyBooks = useMemo<BookManifest[]>(() => [...personalMaterials.map(materialToBookManifest), ...(catalog ?? fallbackCatalog).books], [catalog,personalMaterials]);
+  const activeBook = useMemo(() => studyBooks.find((book) => book.bookId === activeBookId) ?? studyBooks.find(book=>book.bookId===defaultBookId) ?? studyBooks[0], [activeBookId,studyBooks]);
   const currentBookId = activeBook?.bookId ?? defaultBookId;
   const currentBookTitleZh = getBookTitle(activeBook, "zh");
   const lesson = manual?.chapters.find((chapter) => chapter.id === activeChapterId) ?? manual?.chapters[0];
   const activeSection = lesson?.sections.find((section) => section.id === activeSectionId) ?? lesson?.sections[0];
   const termIndex = useMemo(
-    () => buildTermIndex([...(manual?.dictionary ?? []), ...bundledQuestionDictionary]),
-    [bundledQuestionDictionary, manual]
+    () => buildTermIndex([...sharedDictionary, ...bundledQuestionDictionary, ...(manual?.dictionary ?? [])]),
+    [bundledQuestionDictionary, manual, sharedDictionary]
   );
   useEffect(() => {
     if (termIndex.size === 0) return;
@@ -1078,7 +1105,6 @@ export function App() {
     const source = vocabFilter === "due" ? dueTerms : bookSavedTerms;
     return [...source].sort((a, b) => Date.parse(a.nextReviewAt) - Date.parse(b.nextReviewAt));
   }, [bookSavedTerms, dueTerms, vocabFilter]);
-  const studyBooks = useMemo(() => (catalog ?? fallbackCatalog).books, [catalog]);
   const studyScopeTerms = useMemo(
     () => savedTerms.filter((item) => studyBookFilter === "all" || item.bookId === studyBookFilter),
     [savedTerms, studyBookFilter]
@@ -1409,7 +1435,7 @@ export function App() {
         setCatalog(data);
         const savedBookId = loadInitialBookId(initialPositionRef.current.bookId);
         const nextBook = data.books.find((book) => book.bookId === savedBookId) ?? data.books[0];
-        setActiveBookId(nextBook.bookId);
+        setActiveBookId(savedBookId.startsWith("personal-") ? savedBookId : nextBook.bookId);
       })
       .catch(() => {
         setCatalog(fallbackCatalog);
@@ -1556,7 +1582,7 @@ export function App() {
   }, [currentBookId, manual, termIndex]);
 
   useEffect(() => {
-    if (!activeBook) {
+    if (!activeBook || !personalReady) {
       return;
     }
 
@@ -1569,13 +1595,15 @@ export function App() {
     } catch {
       // Local storage can be unavailable in constrained WebView modes.
     }
-    fetch(activeBook.contentPath)
+    (activeBook.contentPath.startsWith("personal:")
+      ? Promise.resolve(personalMaterials.find(m => `personal-${m.id}` === activeBook.bookId)).then(m => { if(!m) throw new Error("材料尚未同步，请在材料库重试。"); return materialToManual(m) as ManualData; })
+      : fetch(activeBook.contentPath)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`manual load failed: ${response.status}`);
         }
         return response.json() as Promise<ManualData>;
-      })
+      }))
       .then((data) => {
         if (cancelled || requestedBookId !== activeBook.bookId) {
           return;
@@ -1602,9 +1630,9 @@ export function App() {
         setManual(enriched);
         setActiveChapterId(initialChapter.id);
         setActiveSectionId(initialSection.id);
-        if (canRestore && savedPosition.language) {
-          setLanguage(savedPosition.language);
-        }
+        const desiredLanguage = canRestore && savedPosition.language ? savedPosition.language : language;
+        const availableLanguage = initialSection.content[desiredLanguage].length ? desiredLanguage : desiredLanguage === "en" ? "zh" : "en";
+        setLanguage(availableLanguage);
         const restoredPage = canRestore ? savedPosition.page ?? initialSection.page : initialSection.page;
         setCurrentPage(Math.min(enriched.pageCount, Math.max(1, restoredPage)));
         setActiveBlockId(canRestore ? savedPosition.blockId ?? "" : "");
@@ -1621,7 +1649,7 @@ export function App() {
     return () => {
       cancelled = true;
     };
-  }, [activeBook]);
+  }, [activeBook, personalReady]);
 
   useEffect(() => {
     if (view !== "reader" || !manual || manual.bookId !== currentBookId) {
@@ -1650,8 +1678,7 @@ export function App() {
     if (snapshot === persistenceSnapshotsRef.current.terms) {
       return;
     }
-    persistenceSnapshotsRef.current.terms = snapshot;
-    persistSavedTerms(savedTerms);
+    if (persistSavedTerms(savedTerms) !== false) persistenceSnapshotsRef.current.terms = snapshot;
   }, [savedTerms]);
 
   useEffect(() => {
@@ -1668,8 +1695,7 @@ export function App() {
     if (snapshot === persistenceSnapshotsRef.current.contextCorrections) {
       return;
     }
-    persistenceSnapshotsRef.current.contextCorrections = snapshot;
-    persistContextCorrectionBundle(contextCorrectionBundle);
+    if (persistContextCorrectionBundle(contextCorrectionBundle) !== false) persistenceSnapshotsRef.current.contextCorrections = snapshot;
   }, [contextCorrectionBundle]);
 
   useEffect(() => {
@@ -1696,8 +1722,7 @@ export function App() {
     if (snapshot === persistenceSnapshotsRef.current.notes) {
       return;
     }
-    persistenceSnapshotsRef.current.notes = snapshot;
-    persistSavedNotes(savedNotes);
+    if (persistSavedNotes(savedNotes) !== false) persistenceSnapshotsRef.current.notes = snapshot;
   }, [savedNotes]);
 
   useEffect(() => {
@@ -1705,8 +1730,7 @@ export function App() {
     if (snapshot === persistenceSnapshotsRef.current.favorites) {
       return;
     }
-    persistenceSnapshotsRef.current.favorites = snapshot;
-    persistSavedFavorites(savedFavorites);
+    if (persistSavedFavorites(savedFavorites) !== false) persistenceSnapshotsRef.current.favorites = snapshot;
   }, [savedFavorites]);
 
   useEffect(() => {
@@ -1714,8 +1738,7 @@ export function App() {
     if (snapshot === persistenceSnapshotsRef.current.chapterProgress) {
       return;
     }
-    persistenceSnapshotsRef.current.chapterProgress = snapshot;
-    persistChapterProgress(chapterProgressMap);
+    if (persistChapterProgress(chapterProgressMap) !== false) persistenceSnapshotsRef.current.chapterProgress = snapshot;
   }, [chapterProgressMap]);
 
   useEffect(() => {
@@ -1723,8 +1746,7 @@ export function App() {
     if (snapshot === persistenceSnapshotsRef.current.daily) {
       return;
     }
-    persistenceSnapshotsRef.current.daily = snapshot;
-    persistDailyStats(dailyStats);
+    if (persistDailyStats(dailyStats) !== false) persistenceSnapshotsRef.current.daily = snapshot;
   }, [dailyStats]);
 
   useEffect(() => {
@@ -1732,8 +1754,7 @@ export function App() {
     if (snapshot === persistenceSnapshotsRef.current.questionBank) {
       return;
     }
-    persistenceSnapshotsRef.current.questionBank = snapshot;
-    persistUserQuestionBank(userQuestionBank);
+    if (persistUserQuestionBank(userQuestionBank) !== false) persistenceSnapshotsRef.current.questionBank = snapshot;
   }, [userQuestionBank]);
 
   useEffect(() => {
@@ -1741,8 +1762,7 @@ export function App() {
     if (snapshot === persistenceSnapshotsRef.current.questionProgress) {
       return;
     }
-    persistenceSnapshotsRef.current.questionProgress = snapshot;
-    persistQuestionProgress(questionProgress);
+    if (persistQuestionProgress(questionProgress) !== false) persistenceSnapshotsRef.current.questionProgress = snapshot;
   }, [questionProgress]);
 
   useEffect(() => {
@@ -1750,8 +1770,7 @@ export function App() {
     if (snapshot === persistenceSnapshotsRef.current.examResults) {
       return;
     }
-    persistenceSnapshotsRef.current.examResults = snapshot;
-    persistExamResults(examResults);
+    if (persistExamResults(examResults) !== false) persistenceSnapshotsRef.current.examResults = snapshot;
   }, [examResults]);
 
   useEffect(() => {
@@ -2048,6 +2067,8 @@ export function App() {
   }, []);
 
   nativeBackHandlerRef.current = (canGoBack) => {
+    const editorClose = document.querySelector<HTMLButtonElement>('.fv-dialog [aria-label="关闭编辑"]');
+    if (editorClose) { editorClose.click(); return; }
     const transitionKind = document.documentElement.dataset.transitionKind;
     if (transitionKind) {
       const originView = transitionOriginViewRef.current;
@@ -2943,7 +2964,7 @@ export function App() {
     }
     const similar = findSimilarCorrection(contextCorrectionBundle, correctionInput);
     setAiLookupState({ lookupId, status: "idle", similar });
-    if (base.context.needsVerification && deepSeekKeyStatus.configured) {
+    if (autoAiLookup && base.context.needsVerification && deepSeekKeyStatus.configured) {
       window.setTimeout(() => void verifyLookupWithAi(lookup, true), 0);
     }
   }
@@ -3045,7 +3066,7 @@ export function App() {
     const accepted: ContextCorrectionRecord = {
       ...source,
       status: "accepted",
-      after: useSimilar && aiLookupState.similar ? aiLookupState.similar.correction.after : source.after,
+      after: useSimilar && aiLookupState.similar ? { ...source.after, contextMeaningZh: aiLookupState.similar.correction.after.contextMeaningZh } : source.after,
       review: { acceptedBy: "user", acceptedAt: now },
       provenance: useSimilar && aiLookupState.similar ? {
         ...source.provenance,
@@ -3407,6 +3428,7 @@ export function App() {
             </div>
           </header>
         )}
+        {storageWarning && <div className="fv-error fv-storage-warning" role="alert"><span>{storageWarning}。请先备份学习数据后重试。</span><button onClick={() => { setStorageWarning(""); navigateTo("settings"); }}>打开数据管理</button></div>}
         <div className="appPageContent">{body}</div>
         {!activeLookup && !activeAiAssist && !options.hideNav && renderMainNav()}
         {(activeLookup || activeAiAssist) && <div className="overlayBackdrop" aria-hidden="true" onClick={closeOverlayFromControl} />}
@@ -3720,11 +3742,11 @@ export function App() {
 
   function renderMainNav() {
     const items: { view: AppView; label: string; detail?: string; icon: ReactNode }[] = [
-      { view: "home", label: "首页", detail: `${studyBooks.length}`, icon: <Home size={18} strokeWidth={2} /> },
-      { view: "vocab", label: "单词", detail: `${allDueTerms.length}`, icon: <BookOpen size={18} strokeWidth={2} /> },
-      { view: "questions", label: "刷题", detail: `${allQuestions.length}`, icon: <ClipboardCheck size={18} strokeWidth={2} /> },
-      { view: "notes", label: "笔记", detail: `${savedNotes.length}`, icon: <NotebookPen size={18} strokeWidth={2} /> },
-      { view: "settings", label: "我的", icon: <UserRound size={18} strokeWidth={2} /> }
+      { view: "home", label: "学习", icon: <Home size={21} /> },
+      { view: "library", label: "材料", icon: <Library size={21} /> },
+      { view: "chat", label: "助教", icon: <MessageCircle size={21} /> },
+      { view: "vocab", label: "复习", detail: `${allDueTerms.length}`, icon: <BookOpen size={21} /> },
+      { view: "settings", label: "我的", icon: <UserRound size={21} /> }
     ];
     return (
       <nav className="mainNav" aria-label="主导航">
@@ -3767,148 +3789,37 @@ export function App() {
     );
   }
 
-  if (view === "home") {
-    const books = studyBooks;
-    const recentPosition = loadReaderPosition();
-    const recentBook = books.find((book) => book.bookId === recentPosition.bookId) ?? books[0];
-    const recentProgress = recentBook ? progressForBook(recentBook) : { percent: 0, label: "尚未开始" };
-    const recentNotes = savedNotes.slice(0, 2);
-    return studyShell(
-      "学习工作台",
-      "从上次停下的位置继续。",
-      <>
-        <section className="dashboardHero spatialWorkspace" aria-label="现在阅读">
-          <header className="workspaceBrand">
-            <p className="eyebrow">Fly View · 飞阅</p>
-            <h1>现在阅读</h1>
-          </header>
-          <div className="workspacePageStack">
-            <article className="workspaceFocus">
-              <div className={`bookCover continueCover${recentBook?.coverImage ? " hasImage" : ""}`} aria-hidden="true">
-                {recentBook?.coverImage
-                  ? <img src={recentBook.coverImage} alt="" />
-                  : <span>{recentBook?.cover ?? "6σ"}</span>}
-              </div>
-              <div className="continueReadingBody">
-                <div className="workspaceFocusTop">
-                  <p className="eyebrow">继续阅读</p>
-                  <h3>{recentBook?.title.zh ?? "六西格玛黑带培训教材"}</h3>
-                  <p>{recentBook?.subtitle?.zh ?? "中英对照学习版"}</p>
-                </div>
-                <div className="workspaceProgressCopy">
-                  <strong>{recentProgress.label}</strong>
-                  <span>{recentBook?.chapterCount ?? 0} 章</span>
-                </div>
-                <div className="workspaceProgressPath" aria-label={`教材进度 ${recentProgress.percent}%`}>
-                  <span style={{ width: `${recentProgress.percent}%` }} />
-                </div>
-                <button className="primaryAction workspaceContinue" onClick={(event) => openBook(recentBook?.bookId ?? defaultBookId, event.currentTarget)}>
-                  <span>{recentProgress.page ? "继续阅读" : "开始阅读"}</span>
-                  <ArrowRight size={20} strokeWidth={1.8} />
-                </button>
-              </div>
-            </article>
-          </div>
-        </section>
-        <section className="homeLearningSection" aria-labelledby="today-learning-title">
-          <div className="sectionHeader">
-            <h2 id="today-learning-title">今日学习</h2>
-          </div>
-          <section className="metricGrid" aria-label="学习概览">
-            <button onClick={(event) => navigateTo("vocab", event.currentTarget)}>
-              <strong>{dailyStats.completed}/{dailyStats.goal}</strong>
-              <span>今日目标</span>
-            </button>
-            <button onClick={(event) => navigateTo("questions", event.currentTarget)}>
-              <strong>{allQuestions.length}</strong>
-              <span>题库</span>
-            </button>
-            <button onClick={(event) => navigateTo("notes", event.currentTarget)}>
-              <strong>{dailyStats.streak}</strong>
-              <span>连续天数</span>
-            </button>
-          </section>
-          <nav className="workspaceEdgeNav" aria-label="学习入口">
-            <button onClick={(event) => navigateTo("vocab", event.currentTarget)}>
-              <BookOpen size={20} strokeWidth={1.8} />
-              <span>单词</span>
-            </button>
-            <button onClick={(event) => navigateTo("questions", event.currentTarget)}>
-              <ClipboardCheck size={20} strokeWidth={1.8} />
-              <span>刷题</span>
-            </button>
-            <button onClick={(event) => navigateTo("notes", event.currentTarget)}>
-              <NotebookPen size={20} strokeWidth={1.8} />
-              <span>笔记</span>
-            </button>
-            <button onClick={(event) => navigateTo("favorites", event.currentTarget)}>
-              <BookmarkCheck size={20} strokeWidth={1.8} />
-              <span>收藏</span>
-            </button>
-          </nav>
-        </section>
-        <div className="sectionHeader libraryHeader">
-          <h2>教材</h2>
-          <span>{books.length} 本</span>
-        </div>
-        <section className="bookGrid libraryShelf" aria-label="教材库">
-          {books.map((book) => {
-            const bookTerms = savedTerms.filter((item) => item.bookId === book.bookId);
-            const bookNotes = savedNotes.filter((item) => item.bookId === book.bookId);
-            const bookFavorites = savedFavorites.filter((item) => item.bookId === book.bookId);
-            const progress = progressForBook(book);
-            return (
-              <article key={book.bookId} className="bookCard studyBookCard">
-                <div className={`bookCover${book.coverImage ? " hasImage" : ""}`} aria-hidden="true">
-                  {book.coverImage ? <img src={book.coverImage} alt="" /> : <span>{book.cover ?? "6σ"}</span>}
-                </div>
-                <div className="bookCardBody">
-                  <p className="eyebrow">{book.bookId === "agent-import-sample" ? "练习样例" : book.subtitle?.zh ?? "中英对照学习版"}</p>
-                  <h2>{book.title.zh}</h2>
-                  <p>{book.title.en}</p>
-                  <div className="bookProgress">
-                    <span style={{ width: `${progress.percent}%` }} />
-                  </div>
-                  <div className="bookStats">
-                    <span>{progress.label}</span>
-                    <span>{book.chapterCount} 章</span>
-                    <span>{bookTerms.length} 词</span>
-                    <span>{bookNotes.length} 笔记</span>
-                    <span>{bookFavorites.length} 收藏</span>
-                  </div>
-                  <button className="primaryAction" onClick={(event) => openBook(book.bookId, event.currentTarget)}>
-                    {progress.page ? "继续阅读" : "开始学习"}
-                  </button>
-                </div>
-              </article>
-            );
-          })}
-        </section>
-        <section className="recentPanel" aria-label="最近笔记">
-          <div className="sectionHeader">
-            <h2>最近笔记</h2>
-            <button onClick={(event) => navigateTo("notes", event.currentTarget)}>全部</button>
-          </div>
-          {recentNotes.length === 0 ? (
-            <p className="emptyState compact">还没有笔记。阅读时选中文本即可摘录。</p>
-          ) : (
-            recentNotes.map((note) => (
-              <button
-                key={note.id}
-                className="compactStudyItem"
-                onClick={() => openSourceAnchor(note)}
-              >
-                <strong>{note.text}</strong>
-                <span>{note.bookTitle} · p. {note.page}</span>
-              </button>
-            ))
-          )}
-        </section>
-        {loadError && <p className="loadWarning">教材预载失败：{loadError}</p>}
-        <p className="homeWatermark">Felix-Zuo · non-commercial study edition</p>
-      </>
-    );
+  function addMaterialTerms(material: PersonalMaterial) {
+    const bookId = `personal-${material.id}`;
+    const current = new Set(savedTerms.map(term => term.id));
+    const timestamp = new Date().toISOString();
+    const terms: SavedTerm[] = material.terms.filter(term => !current.has(`${bookId}:${normalizeLookup(term.term)}`)).map(term => ({
+      id: `${bookId}:${normalizeLookup(term.term)}`, bookId, bookTitle: material.title, contentVersion: `personal-${material.revision}`,
+      term: term.term, translation: term.meaningZh, dictionaryMeaning: term.meaningZh, entryKind: term.term.trim().includes(" ") ? "phrase" : "word",
+      chapter: 1, chapterTitle: material.title, page: 1, sectionId: `${bookId}-ch01-s01`, blockId: `${bookId}-ch01-s01-en-body`,
+      sourceText: material.textEn || material.textZh, exampleText: term.exampleEn, savedAt: timestamp,
+      status: "new", familiarity: 0, reviewCount: 0, lapseCount: 0, correctStreak: 0, nextReviewAt: timestamp,
+      intervalDays: 0, easeFactor: 2.1, sourceType: "manual", ...createInitialTermReview()
+    }));
+    const next = [...terms, ...savedTerms];
+    if (!persistSavedTerms(next)) return;
+    setSavedTerms(next);
   }
+
+  if (view === "home") {
+    const recentPosition = loadReaderPosition();
+    const recentBook = studyBooks.find(book => book.bookId === recentPosition.bookId) ?? activeBook;
+    return studyShell("学习空间", "", <>
+      {updateAvailable && <button className="fv-status" onClick={() => navigateTo("settings")}>新版本 {updateAvailable} 已就绪，点击查看更新 →</button>}
+      <StudyHome materials={personalMaterials} due={allDueTerms.length} completed={dailyStats.completed} goal={dailyStats.goal} streak={dailyStats.streak} bookTitle={recentBook?.title.zh ?? defaultBookTitle} onContinue={() => openBook(recentBook?.bookId ?? defaultBookId)} onNavigate={navigateTo}/>
+    </>, {hideHeader:true});
+  }
+  if (view === "library") {
+    return studyShell("把好内容，留在这里。", "文章、表达与备忘，都是你的学习材料。", <PersonalLibraryView materials={personalMaterials} onOpen={openBook} onChanged={refreshPersonal} onTerms={addMaterialTerms}>
+      <section className="fv-book-section"><div className="fv-section-heading"><h2>系统教材</h2><span>BOOKS & RESOURCES</span></div>{(catalog ?? fallbackCatalog).books.map(book => <button key={book.bookId} className="fv-book-row" onClick={() => openBook(book.bookId)}><BookOpen size={24}/><span><strong>{book.title.zh}</strong><small>{book.chapterCount} 章 · 中英双语阅读</small></span><ArrowRight size={18}/></button>)}</section>
+    </PersonalLibraryView>);
+  }
+  if (view === "chat") return studyShell("聊过的，也能学会。", "把好表达变成自己的学习材料。", <StudyChat materials={personalMaterials} onChanged={refreshPersonal} onOpen={openBook} onTerms={addMaterialTerms} onSettings={() => navigateTo("settings")}/>);
 
   if (view === "vocab") {
     if (flashReviewActive) {
@@ -4750,6 +4661,9 @@ export function App() {
       "我的",
       "显示偏好、来源说明和本地学习数据管理。",
       <>
+        <CloudLibraryPanel onChanged={refreshPersonal} initialPairingCode={pairingCode}/>
+        <UpdateCenter endpoint={SERVICE_URL} currentVersionCode={900} currentVersion="0.9.0-beta"/>
+        <MemoryManager/>
         <section className="settingsPanel">
           <h2>显示</h2>
           <div className="settingsRow">
@@ -4772,7 +4686,8 @@ export function App() {
             </div>
             <KeyRound size={20} />
           </div>
-          <p>用于查词核验、选文简释和题目精讲。只有主动点击时，才会发送当前学习片段。</p>
+          <p>用于查词核验、选文简释和题目精讲。点击助教或 AI 功能时发送相关片段与已启用记忆。查词自动核验可在下方单独开启。</p>
+          <label className="settingsRow"><span>自动核验不确定的词义（消耗 AI 用量）</span><input type="checkbox" checked={autoAiLookup} onChange={e=>setAutoAiLookup(e.target.checked)}/></label>
           <label className="apiKeyField">
             <span>DeepSeek API Key</span>
             <input
@@ -4810,7 +4725,7 @@ export function App() {
         </section>
         <section className="settingsPanel">
           <h2>本地数据</h2>
-          <p>词本、笔记、收藏、章节进度、AI 结果缓存和阅读位置保存在本机。当前没有云同步。</p>
+          <p>词本、笔记、收藏、章节进度、AI 结果缓存和阅读位置保存在本机。个人材料可通过上方的个人空间同步；其他学习记录可完整备份与恢复。</p>
           <button
             className="dangerButton"
             onClick={() => {
@@ -5774,6 +5689,7 @@ export function App() {
         "appShell",
         "spatialStage",
         "page-reader",
+        "appFrame",
         isImmersive ? "immersiveMode" : "",
         showToc || showVocab || showNotes || activeLookup || activeAiAssist ? "panelOpen" : ""
       ].filter(Boolean).join(" ")}
@@ -5791,7 +5707,7 @@ export function App() {
             <h1>{currentLesson.title[language]}</h1>
           </div>
           <div className="headerActions">
-            <button className="readerControlButton" onClick={(event) => navigateTo("home", event.currentTarget)} aria-label="返回书库">书库</button>
+            <button className="readerControlButton" onClick={(event) => navigateTo("library", event.currentTarget)} aria-label="返回书库"><ArrowLeft size={19}/></button>
             <button className="tocButton" onClick={openToc} aria-label="打开目录">
               目录
             </button>
@@ -5804,22 +5720,6 @@ export function App() {
             </button>
             <button
               className="readerControlButton"
-              onClick={toggleCurrentFavorite}
-              aria-label="收藏当前内容"
-              title="收藏当前位置"
-            >
-              {currentFavoriteId() ? "已藏" : "收藏"}
-            </button>
-            <button
-              className="readerControlButton"
-              onClick={() => setImmersiveMode(true)}
-              aria-label="进入沉浸阅读"
-              title="沉浸阅读"
-            >
-              沉浸
-            </button>
-            <button
-              className="readerControlButton"
               onClick={() => setReaderMenuOpen((open) => !open)}
               aria-label="打开阅读工具"
             >
@@ -5827,6 +5727,8 @@ export function App() {
             </button>
             {readerMenuOpen && (
               <div className="readerMenu" role="group" aria-label="阅读工具">
+                <button onClick={toggleCurrentFavorite} aria-label="收藏当前内容">{currentFavoriteId()?"取消收藏":"收藏当前位置"}</button>
+                <button onClick={()=>{setReaderMenuOpen(false);setImmersiveMode(true);}} aria-label="进入沉浸阅读">沉浸阅读</button>
                 <button onClick={() => updateTextScale(-1)} disabled={textScaleIndex === 0}>A-</button>
                 <button onClick={() => updateTextScale(1)} disabled={textScaleIndex === textScaleOrder.length - 1}>A+</button>
                 <button onClick={toggleTheme}>{readerPreferences.theme === "dark" ? "亮色" : "深色"}</button>
@@ -5857,7 +5759,7 @@ export function App() {
           </div>
         </div>
 
-        <nav ref={chapterRailRef} className="chapterRail" aria-label="章节页码">
+        <nav ref={chapterRailRef} className="chapterRail" aria-label="章节页码" style={{display:pageGroups.length>1?undefined:"none"}}>
           {pageGroups.map((group) => (
             <button
               key={`${group.sectionId}-${group.page}`}

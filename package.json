@@ -1,6 +1,6 @@
 {
   "name": "six-sigma-study-app",
-  "version": "0.8.15-beta.0",
+  "version": "0.9.0-beta.0",
   "private": true,
   "workspaces": [
     "apps/reader"
@@ -60,14 +60,24 @@
     "qa:maturity-regressions": "node scripts/qa-maturity-regressions-cdp.mjs",
     "qa:private-isolation": "python scripts/qa_private_question_bank_isolation.py",
     "qa:public-artifact": "python scripts/qa_public_artifact.py",
-    "qa:learning-modules": "npm run qa:vocab-flashcards && npm run qa:context-lookup && npm run qa:context-glosses && npm run qa:lexical-learning && npm run qa:dictionary-boundaries && npm run qa:streak && npm run qa:question-schema && npm run qa:question-modes && npm run qa:private-isolation && npm run qa:public-artifact && npm run qa:context-corrections"
+    "qa:learning-modules": "npm run qa:vocab-flashcards && npm run qa:context-lookup && npm run qa:context-glosses && npm run qa:lexical-learning && npm run qa:dictionary-boundaries && npm run qa:streak && npm run qa:question-schema && npm run qa:question-modes && npm run qa:private-isolation && npm run qa:public-artifact && npm run qa:context-corrections",
+    "qa:personal-storage": "node tests/personal-library.test.mjs",
+    "qa:personal-sync": "node tests/personal-sync.test.mjs",
+    "qa:study-chat": "node scripts/qa-study-chat.mjs",
+    "qa:personal-api": "node scripts/qa-personal-api.mjs",
+    "qa:app-updates": "node scripts/qa-app-updates.mjs"
   },
   "devDependencies": {
     "@capacitor/android": "^8.4.1",
     "@capacitor/cli": "^8.4.1",
-    "@capacitor/core": "^8.4.1"
+    "@capacitor/core": "^8.4.1",
+    "fake-indexeddb": "^6.2.8"
   },
   "dependencies": {
-    "@capacitor/app": "^8.1.0"
+    "@capacitor/app": "^8.1.0",
+    "@vercel/blob": "^2.9.0"
+  },
+  "overrides": {
+    "zod": "^4.6.6"
   }
 }

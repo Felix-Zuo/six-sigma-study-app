@@ -1,5 +1,7 @@
 # 飞阅 (Fly View)
 
+**Beta 0.9.0 personal learning update:** chat collection, private material sync, editable learning memory, redesigned mobile navigation, reliable backup/restore and verified private APK updates. See [0.9 release design and boundaries](docs/fly-view-090.md) and [personal sync deployment](docs/personal-sync.md). The 0.8 feature inventory below remains the baseline for the existing textbook modules.
+
 [![CI](https://github.com/Felix-Zuo/six-sigma-study-app/actions/workflows/ci.yml/badge.svg)](https://github.com/Felix-Zuo/six-sigma-study-app/actions/workflows/ci.yml)
 
 A local-first Android/PWA bilingual textbook study platform that turns legally usable technical manuals into aligned reading, tap-to-lookup vocabulary, notes, and review workflows.

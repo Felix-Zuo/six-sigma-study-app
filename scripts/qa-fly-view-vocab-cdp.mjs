@@ -132,11 +132,11 @@ async function main() {
   })()`);
   await waitFor("home", () => evaluate(`document.querySelector('[data-app-view]')?.getAttribute('data-app-view') === 'home'`));
   const homeBrand = await evaluate(`(() => ({
-    brand: document.querySelector(".workspaceBrand .eyebrow")?.textContent?.trim(),
+    brand: document.querySelector(".fv-brand")?.textContent?.trim(),
     title: document.title,
     overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
   }))()`);
-  await evaluate(`Array.from(document.querySelectorAll(".mainNavItem")).find((item) => item.textContent.includes("单词"))?.click()`);
+  await evaluate(`Array.from(document.querySelectorAll(".mainNavItem")).find((item) => item.textContent.includes("复习"))?.click()`);
   await waitFor("vocabulary plan", () => evaluate(`Boolean(document.querySelector(".vocabPlanHero"))`));
   const plan = await evaluate(`(() => ({
     labels: Array.from(document.querySelectorAll(".vocabSourceSummary button")).map((button) => button.textContent.replace(/\\s+/g, " ").trim()),
@@ -190,7 +190,7 @@ async function main() {
 
   const checks = {
     openingBrand: splash.title === "飞阅" && splash.english === "Fly View" && splash.imageReady && splash.imageAlt === "" && splash.overflow <= 1,
-    homeBrand: homeBrand.brand === "Fly View · 飞阅" && homeBrand.title === "飞阅 · Fly View" && homeBrand.overflow <= 1,
+    homeBrand: homeBrand.brand?.includes("FLY VIEW") && homeBrand.title === "飞阅 · Fly View" && homeBrand.overflow <= 1,
     semanticCollectionControls: plan.tags.length === 3 && plan.tags.every((tag) => tag === "BUTTON") && plan.aria.every(Boolean),
     collectionCountsVisible: plan.labels.some((label) => label.includes("2") && label.includes("教材词语")) && plan.labels.some((label) => label.includes("1") && label.includes("题目词语")) && plan.labels.some((label) => label.includes("1") && label.includes("已掌握")),
     touchTargets: plan.targets.every(({ width, height }) => width >= 44 && height >= 44) && plan.overflow <= 1,

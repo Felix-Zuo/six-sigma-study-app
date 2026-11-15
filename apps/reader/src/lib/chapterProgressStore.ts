@@ -1,3 +1,5 @@
+import { safePersist } from "./storageHealth";
+
 export type ChapterCompletion = {
   completed: boolean;
   completedAt?: string;
@@ -54,12 +56,10 @@ export function loadChapterProgress(): ChapterProgressMap {
   }
 }
 
-export function persistChapterProgress(progress: ChapterProgressMap): void {
-  try {
+export function persistChapterProgress(progress: ChapterProgressMap): boolean {
+  return safePersist(() => {
     window.localStorage.setItem(storageKey, JSON.stringify(progress));
-  } catch {
-    // Completion is useful metadata and must not block reading.
-  }
+  }, "章节进度保存失败，当前进度尚未保存。请备份后重试。");
 }
 
 export function setChapterCompleted(

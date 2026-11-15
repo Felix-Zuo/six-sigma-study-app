@@ -119,7 +119,7 @@ async function main() {
   })()`);
 
   await waitFor("home", () => evaluate(`Boolean(document.querySelector(".mainNav"))`));
-  await evaluate(`Array.from(document.querySelectorAll(".mainNavItem")).find((item) => item.textContent.includes("单词"))?.click()`);
+  await evaluate(`Array.from(document.querySelectorAll(".mainNavItem")).find((item) => item.textContent.includes("复习"))?.click()`);
   await waitFor("phrase migration", () => evaluate(`Array.from(document.querySelectorAll(".recentTerms strong")).some((item) => item.textContent?.trim() === "trial and error")`));
   await waitFor("stale source cleanup", () => evaluate(`(() => {
     const item = JSON.parse(localStorage.getItem("six-sigma-study:vocab:v1") ?? "[]").find((entry) => entry.id === "qa-stale-source-term");
@@ -221,7 +221,7 @@ async function main() {
     location.reload();
   })()`);
   await waitFor("home after clock-skew seed", () => evaluate(`Boolean(document.querySelector(".mainNav"))`));
-  await evaluate(`document.querySelectorAll(".mainNavItem")[1]?.click()`);
+  await evaluate(`Array.from(document.querySelectorAll(".mainNavItem")).find((item) => item.textContent.includes("复习"))?.click()`);
   await waitFor("clock-skew vocabulary plan", () => evaluate(`Boolean(document.querySelector(".vocabStartButton"))`));
   await evaluate(`document.querySelector(".vocabStartButton")?.click()`);
   await waitFor("clock-skew review card", () => evaluate(`document.querySelector(".flashCard h2")?.textContent?.trim().toLocaleLowerCase() === "variation"`));
@@ -269,7 +269,7 @@ async function main() {
     location.reload();
   })()`);
   await waitFor("home after reported-regression seed", () => evaluate(`Boolean(document.querySelector(".mainNav"))`));
-  await evaluate(`Array.from(document.querySelectorAll(".mainNavItem")).find((item) => item.textContent.includes("单词"))?.click()`);
+  await evaluate(`Array.from(document.querySelectorAll(".mainNavItem")).find((item) => item.textContent.includes("复习"))?.click()`);
   await waitFor("migrated daily plan", () => evaluate(`document.querySelector('[aria-label="每日学习数量"]')?.value === "20"`));
   const migratedDailyPlan = await evaluate(`JSON.parse(localStorage.getItem("six-sigma-study:daily-streak:v1") ?? "null")`);
   const planCopy = await evaluate(`document.querySelector(".vocabPlanHero h2")?.textContent?.trim()`);

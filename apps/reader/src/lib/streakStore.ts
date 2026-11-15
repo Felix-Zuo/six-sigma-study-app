@@ -1,3 +1,5 @@
+import { safePersist } from "./storageHealth";
+
 export type DailyStudyStats = {
   planVersion: number;
   day: string;
@@ -106,12 +108,10 @@ export function loadDailyStats(now = new Date()): DailyStudyStats {
   }
 }
 
-export function persistDailyStats(stats: DailyStudyStats): void {
-  try {
+export function persistDailyStats(stats: DailyStudyStats): boolean {
+  return safePersist(() => {
     window.localStorage.setItem(storageKey, JSON.stringify(stats));
-  } catch {
-    // Offline study remains usable if private browsing blocks storage.
-  }
+  }, "今日学习记录保存失败，完成数量尚未保存。请备份后重试。");
 }
 
 export function recordDailyReviewCompletion(

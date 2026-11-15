@@ -1,10 +1,11 @@
-const CACHE_NAME = "six-sigma-study-v0.8.15";
+const CACHE_NAME = "six-sigma-study-v0.9.0";
 const CORE_ASSETS = [
   "/manifest.webmanifest",
   "/icons/icon.svg",
   "/icons/icon-192.png",
   "/icons/icon-512.png",
   "/content/catalog.json",
+  "/content/dictionary.json",
   "/content/manual.json",
   "/content/assets/asset-manifest.json"
 ];
@@ -79,26 +80,42 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches
       .keys()
-      .then((keys) => Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))))
+      .then((keys) => Promise.all(keys.filter((key) => key.startsWith("six-sigma-study-") && key !== CACHE_NAME).map((key) => caches.delete(key))))
       .then(() => self.clients.claim())
   );
 });
 
 self.addEventListener("fetch", (event) => {
   const request = event.request;
+  if (new URL(request.url).pathname.startsWith("/api/") || request.headers.has("Authorization")) return;
   if (request.method !== "GET") {
     return;
   }
 
   if (request.mode === "navigate") {
+    const navigationUrl = new URL(request.url);
+    const isApplicationShell = navigationUrl.origin === self.location.origin
+      && ["/", "/index.html"].includes(navigationUrl.pathname);
+    // Standalone pages (including the private pairing entry) must never replace
+    // the offline reader shell or fall back to a different page's contents.
+    if (!isApplicationShell) return;
     event.respondWith(
       fetch(request)
-        .then((response) => {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put("/", copy));
+        .then(async (response) => {
+          const contentType = response.headers.get("content-type") || "";
+          if (response.ok && !response.redirected && contentType.includes("text/html")) {
+            try {
+              const cache = await caches.open(CACHE_NAME);
+              await cache.put("/", response.clone());
+              await cache.put("/index.html", response.clone());
+            } catch {
+              // A cache quota failure must not turn an available online page
+              // into a failed navigation. The previous offline shell survives.
+            }
+          }
           return response;
         })
-        .catch(() => caches.match("/") || caches.match("/index.html"))
+        .catch(async () => (await caches.match("/")) || (await caches.match("/index.html")) || Response.error())
     );
     return;
   }

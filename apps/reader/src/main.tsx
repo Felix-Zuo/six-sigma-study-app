@@ -3,6 +3,7 @@ import { Capacitor } from "@capacitor/core";
 import { createRoot } from "react-dom/client";
 import { App } from "./App";
 import "./styles.css";
+import "./personal.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
