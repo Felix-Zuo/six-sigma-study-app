@@ -20,7 +20,7 @@
 
 `GET /api/materials?limit=10&cursor=...`
 
-返回 `{ materials, hasMore, cursor? }`。`limit` 范围 1–20，默认 10。客户端应持续翻页至 `hasMore:false`；每次同步从第一页开始，避免新素材插入时遗漏。返回每条素材的当前版本，包括带 `deletedAt` 的删除墓碑。也支持 `GET /api/materials?id=<素材ID>` 查询单条。
+返回 `{ materials, hasMore, cursor? }`。`limit` 范围 1–20，默认每页 4 篇。客户端持续翻页至 `hasMore:false`。每次同步从第一页开始，避免新素材插入时遗漏。返回每条素材的当前版本，包括带 `deletedAt` 的删除墓碑。也支持 `GET /api/materials?id=<素材ID>` 查询单条。
 
 `POST /api/materials`
 

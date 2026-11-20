@@ -92,7 +92,8 @@ export function createPersonalRepository(store) {
       await finishCommit(winner, current.head);
       return { material, revision: material.revision, idempotent: !claim.created };
     },
-    async list({ cursor, limit = 10 } = {}) {
+    // Keep default pages within the mobile client's per-request time budget.
+    async list({ cursor, limit = 4 } = {}) {
       if (!Number.isSafeInteger(limit) || limit < 1 || limit > 20 || (cursor !== undefined && (typeof cursor !== "string" || cursor.length > 4096))) {
         throw new ApiError(400, "invalid_page", "同步分页参数无效。");
       }

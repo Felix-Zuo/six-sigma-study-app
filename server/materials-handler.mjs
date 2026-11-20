@@ -20,7 +20,7 @@ export function createMaterialsHandler({ env = process.env, storeFactory = creat
         return jsonResponse({ materials: material ? [material] : [], hasMore: false }, 200, headers);
       }
       const cursor = url.searchParams.get("cursor") || undefined;
-      const limit = url.searchParams.has("limit") ? Number(url.searchParams.get("limit")) : 10;
+      const limit = url.searchParams.has("limit") ? Number(url.searchParams.get("limit")) : undefined;
       return jsonResponse(await repository.list({ cursor, limit }), 200, headers);
     } catch (error) { return errorResponse(error, headers); }
   };
