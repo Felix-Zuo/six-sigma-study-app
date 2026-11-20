@@ -1,4 +1,15 @@
 /** Private learning data stays on this device unless the user exports or syncs it. */
+export type PersonalMaterialTerm = {
+  term: string;
+  meaningZh: string;
+  /** A reusable example, not necessarily the sentence in the source material. */
+  exampleEn?: string;
+  sourceSentence?: string;
+  contextMeaning?: string;
+  usageTip?: string;
+  exampleZh?: string;
+};
+export const personalTermCardFields = ["sourceSentence", "contextMeaning", "usageTip", "exampleZh"] as const;
 export type PersonalMaterial = {
   id: string;
   title: string;
@@ -6,7 +17,7 @@ export type PersonalMaterial = {
   kind: "article" | "expression" | "memo";
   textEn: string;
   textZh: string;
-  terms: Array<{ term: string; meaningZh: string; exampleEn?: string }>;
+  terms: PersonalMaterialTerm[];
   summary: string;
   createdAt: string;
   updatedAt: string;
@@ -103,7 +114,11 @@ export function validatePersonalMaterial(value: unknown): PersonalMaterial {
     terms: item.terms.map((entry) => {
       const term = record(entry);
       return { term: string(term.term, "单词", 200, false), meaningZh: string(term.meaningZh, "释义", 2_000, false),
-        ...(term.exampleEn === undefined ? {} : { exampleEn: string(term.exampleEn, "例句", 5_000) }) };
+        ...(term.exampleEn === undefined ? {} : { exampleEn: string(term.exampleEn, "例句", 5_000) }),
+        ...(term.sourceSentence === undefined ? {} : { sourceSentence: string(term.sourceSentence, "原文句子", 5_000) }),
+        ...(term.contextMeaning === undefined ? {} : { contextMeaning: string(term.contextMeaning, "语境释义", 2_000) }),
+        ...(term.usageTip === undefined ? {} : { usageTip: string(term.usageTip, "用法提示", 5_000) }),
+        ...(term.exampleZh === undefined ? {} : { exampleZh: string(term.exampleZh, "例句翻译", 5_000) }) };
     }),
     summary: string(item.summary, "摘要", 20_000), createdAt: date(item.createdAt), updatedAt: date(item.updatedAt),
     revision: item.revision as number, source: choice(item.source, ["chat", "desktop"], "来源"),
@@ -122,6 +137,17 @@ function validateMessage(value: unknown): PersonalChatMessage {
     content: string(item.content, "消息", 100_000, false), createdAt: date(item.createdAt) };
 }
 function same(left: unknown, right: unknown): boolean { return JSON.stringify(left) === JSON.stringify(right); }
+
+/** Only omitted 0.9 card fields may be filled in; existing values and all user content must agree. */
+export function isPersonalMaterialCardEnrichment(local: PersonalMaterial, remote: PersonalMaterial): boolean {
+  if (local.terms.length !== remote.terms.length) return false;
+  const projected = { ...remote, terms: remote.terms.map((term, index) => {
+    const copy = { ...term };
+    for (const field of personalTermCardFields) if (local.terms[index][field] === undefined) delete copy[field];
+    return copy;
+  }) };
+  return same(local, projected);
+}
 
 function openDatabase(): Promise<IDBDatabase> {
   if (database) return database;
@@ -254,6 +280,13 @@ export async function applyRemoteMaterials(input: PersonalMaterial[]): Promise<R
           store.put({ ...existing, dirty: false, baseRevision: remote.revision });
           tx.objectStore("conflicts").delete(remote.id);
           result.unchanged.push(remote.id);
+        } else if (existing && !existing.dirty && remote.revision === existing.material.revision
+          && isPersonalMaterialCardEnrichment(existing.material, remote)) {
+          // A 0.9 client could persist a clean projection of this exact revision.
+          // Fill only the new metadata after upgrade, without inventing a conflict.
+          store.put({ id: remote.id, material: remote, dirty: false, baseRevision: remote.revision } satisfies StoredMaterial);
+          tx.objectStore("conflicts").delete(remote.id);
+          result.applied.push(remote.id);
         } else if (existing && remote.revision < existing.material.revision && !existing.dirty) {
           result.unchanged.push(remote.id);
         } else if (existing && (existing.dirty || remote.revision === existing.material.revision)) {
@@ -306,14 +339,16 @@ export async function listPendingMaterials(): Promise<PendingMaterial[]> {
   return (await all<StoredMaterial>("materials")).filter((item) => item.dirty)
     .map((item) => ({ ...item.material, baseRevision: item.baseRevision }));
 }
-export async function acknowledgeMaterialsSynced(records: Array<{ id: string; revision: number }>): Promise<void> {
-  for (const item of records) {
+export async function acknowledgeMaterialsSynced(records: Array<{ id: string; revision: number; material?: PersonalMaterial }>): Promise<void> {
+  const acknowledgements = records.map((item) => {
     identifier(item.id);
     if (!Number.isSafeInteger(item.revision) || item.revision < 1) throw new PersonalLibraryError("同步确认版本无效。");
-  }
+    if (item.material && (item.material.id !== item.id || item.material.revision !== item.revision)) throw new PersonalLibraryError("同步确认材料无效。");
+    return { ...item, ...(item.material ? { material: validatePersonalMaterial(item.material) } : {}) };
+  });
   return transaction(["materials", "conflicts"], "readwrite", (tx, done) => {
     const store = tx.objectStore("materials");
-    for (const item of records) {
+    for (const item of acknowledgements) {
       const request = store.get(item.id);
       request.onsuccess = () => {
         const existing = request.result as StoredMaterial | undefined;
@@ -321,7 +356,9 @@ export async function acknowledgeMaterialsSynced(records: Array<{ id: string; re
         // again while the upload was in flight. Only an exact current ack clears dirty.
         if (existing && item.revision > existing.baseRevision && item.revision <= existing.material.revision) {
           const stillDirty = item.revision < existing.material.revision;
-          store.put({ ...existing, dirty: stillDirty, baseRevision: item.revision });
+          const material = !stillDirty && item.material && isPersonalMaterialCardEnrichment(existing.material, item.material)
+            ? item.material : existing.material;
+          store.put({ ...existing, material, dirty: stillDirty, baseRevision: item.revision });
           if (!stillDirty) tx.objectStore("conflicts").delete(item.id);
         }
       };
@@ -471,6 +508,13 @@ export function materialToManual(input: PersonalMaterial) {
   const dictionary = [...new Map(material.terms.map((term) => [normalizeTerm(term.term), term])).entries()]
     .filter(([key]) => key)
     .map(([key, term]) => ({ term: term.term, translation: term.meaningZh, lookupKeys: [key],
+      ...(term.exampleEn === undefined ? {} : { exampleEn: term.exampleEn }),
+      ...(term.sourceSentence === undefined ? {} : { sourceSentence: term.sourceSentence }),
+      ...(term.contextMeaning === undefined ? {} : { contextMeaning: term.contextMeaning }),
+      ...(term.usageTip === undefined ? {} : { usageTip: term.usageTip }),
+      ...(term.exampleZh === undefined ? {} : { exampleZh: term.exampleZh }),
+      // Keep separate source-anchored cards even when their dictionary key agrees.
+      phraseCards: material.terms.filter((card) => normalizeTerm(card.term) === key),
       explanation: [`来自个人素材《${material.title}》`, term.meaningZh, term.exampleEn ? `例句：${term.exampleEn}` : ""].filter(Boolean).join("。"),
       isSixSigmaTerm: false }));
   return {

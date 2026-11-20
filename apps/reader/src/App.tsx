@@ -8,6 +8,8 @@ import { UpdateCenter } from "./components/UpdateCenter";
 import { SERVICE_URL, startPersonalLibraryAutoSync } from "./lib/personalSync";
 import { checkAppRelease } from "./lib/appUpdates";
 import { listPersonalMaterials, materialToBookManifest, materialToManual, personalLibraryChangedEvent, type PersonalMaterial } from "./lib/personalLibrary";
+import { findPhraseCardAtRange, findPhraseCardRanges, type PhraseCardRange } from "./lib/phraseCards";
+import { PhraseUsage } from "./components/PhraseUsage";
 import {
   ArrowLeft,
   ArrowRight,
@@ -230,6 +232,7 @@ type ManualData = {
 };
 
 type ActiveLookup = {
+  phraseCard?: PersonalMaterial["terms"][number];
   query: string;
   entry: TermEntry;
   entryKind: "word" | "phrase";
@@ -356,8 +359,8 @@ type PageGroup = {
 
 const defaultBookId = "six-sigma-black-belt";
 const defaultBookTitle = "六西格玛黑带教材";
-const productVersionLabel = "Beta 0.9.0";
-const productVersionId = "0.9.0-beta";
+const productVersionLabel = "Beta 0.9.1";
+const productVersionId = "0.9.1-beta";
 const githubProfileUrl = "https://github.com/Felix-Zuo";
 const catalogPath = "content/catalog.json";
 const bundledQuestionBankPath = "content/private/question-bank.private.json";
@@ -663,6 +666,16 @@ function buildTermIndex(entries: TermEntry[]) {
   return index;
 }
 
+function authoredContext(card: PersonalMaterial["terms"][number]): ContextExplanation {
+  const sourceText = card.sourceSentence || "";
+  return {
+    meaning: card.contextMeaning || card.meaningZh,
+    explanation: card.usageTip || "",
+    confidence: "curated", evidence: "curated", needsVerification: false,
+    sourceText, exampleText: sourceText
+  };
+}
+
 function lookupFallback(term: string): TermEntry {
   return {
     term,
@@ -783,6 +796,7 @@ function handleWordTokenKeyDown(event: KeyboardEvent<HTMLSpanElement>, activate:
 }
 
 function InlineReaderText({
+  phraseRanges,
   text,
   page,
   sectionId,
@@ -791,6 +805,7 @@ function InlineReaderText({
   keyboardEntry = false,
   onLookup
 }: {
+  phraseRanges?: readonly PhraseCardRange[];
   text: string;
   page: number;
   sectionId: string;
@@ -806,6 +821,18 @@ function InlineReaderText({
     return tokenizeEnglish(text);
   }, [language, text]);
 
+  const marked = useMemo(() => {
+    const marks = new Map<number, string>();
+    if (!phraseRanges?.length) return marks;
+    let index = 0;
+    for (const token of tokens) {
+      while (index < phraseRanges.length && phraseRanges[index].end <= token.start) index++;
+      const range = phraseRanges[index];
+      if (range && range.start <= token.start && token.end <= range.end) marks.set(token.start, range.text);
+    }
+    return marks;
+  }, [phraseRanges, tokens]);
+
   if (language !== "en") {
     return <>{text}</>;
   }
@@ -818,10 +845,10 @@ function InlineReaderText({
         token.kind === "word" ? (
           <span
             key={token.id}
-            className="wordToken"
+            className={marked.has(token.start) ? "wordToken fv-phrase-mark" : "wordToken"}
             role="button"
             tabIndex={keyboardEntry && index === firstWordIndex ? 0 : -1}
-            aria-label={`查询 ${token.text} 的释义`}
+            aria-label={marked.has(token.start) ? `查看表达 ${marked.get(token.start)} 的用法` : `查询 ${token.text} 的释义`}
             data-source-start={token.start}
             data-source-end={token.end}
             onClick={(event) => {
@@ -835,7 +862,7 @@ function InlineReaderText({
             {token.text}
           </span>
         ) : (
-          <span key={token.id}>{token.text}</span>
+          <span key={token.id} className={marked.has(token.start) ? "fv-phrase-mark" : undefined}>{token.text}</span>
         )
       )}
     </span>
@@ -906,7 +933,7 @@ export function App() {
     const stopSync = startPersonalLibraryAutoSync(refreshPersonal);
     window.addEventListener(personalLibraryChangedEvent, refreshPersonal);
     window.addEventListener("fly-view-storage-error", onStorageError);
-    void checkAppRelease(SERVICE_URL).then(release => { if(release.versionCode > 900) setUpdateAvailable(release.version); }).catch(() => undefined);
+    void checkAppRelease(SERVICE_URL).then(release => { if(release.versionCode > 901) setUpdateAvailable(release.version); }).catch(() => undefined);
     const listener = CapacitorApp.addListener("appUrlOpen", ({url}) => { if(url.startsWith("flyview://connect")){setPairingCode(url);setView("settings");} });
     void CapacitorApp.getLaunchUrl().then(result => { if(result?.url.startsWith("flyview://connect")){setPairingCode(result.url);setView("settings");} });
     return () => { stopSync();window.removeEventListener(personalLibraryChangedEvent,refreshPersonal);window.removeEventListener("fly-view-storage-error",onStorageError);void listener.then(handle=>handle.remove()); };
@@ -1039,13 +1066,23 @@ export function App() {
   const studyBooks = useMemo<BookManifest[]>(() => [...personalMaterials.map(materialToBookManifest), ...(catalog ?? fallbackCatalog).books], [catalog,personalMaterials]);
   const activeBook = useMemo(() => studyBooks.find((book) => book.bookId === activeBookId) ?? studyBooks.find(book=>book.bookId===defaultBookId) ?? studyBooks[0], [activeBookId,studyBooks]);
   const currentBookId = activeBook?.bookId ?? defaultBookId;
+  const personalBook = personalMaterials.find(item => `personal-${item.id}` === currentBookId);
+  const phraseRanges = useMemo(() => personalBook
+    ? findPhraseCardRanges(personalBook.textEn, personalBook.terms.filter(t => t.sourceSentence && t.contextMeaning && t.usageTip))
+    : [], [personalBook]);
   const currentBookTitleZh = getBookTitle(activeBook, "zh");
   const lesson = manual?.chapters.find((chapter) => chapter.id === activeChapterId) ?? manual?.chapters[0];
   const activeSection = lesson?.sections.find((section) => section.id === activeSectionId) ?? lesson?.sections[0];
-  const termIndex = useMemo(
-    () => buildTermIndex([...sharedDictionary, ...bundledQuestionDictionary, ...(manual?.dictionary ?? [])]),
-    [bundledQuestionDictionary, manual, sharedDictionary]
-  );
+  const termIndex = useMemo(() => {
+    // A gloss written for a specific sentence must not define the phrase everywhere else.
+    const generalEntries = personalBook
+      ? personalBook.terms.filter(term => !term.sourceSentence).map(term => ({
+          term: term.term, translation: term.meaningZh, lookupKeys: [normalizeLookup(term.term)],
+          explanation: term.exampleEn || term.meaningZh
+        }))
+      : manual?.dictionary ?? [];
+    return buildTermIndex([...sharedDictionary, ...bundledQuestionDictionary, ...generalEntries]);
+  }, [bundledQuestionDictionary, manual, personalBook, sharedDictionary]);
   useEffect(() => {
     if (termIndex.size === 0) return;
     setActiveLookup((lookup) => {
@@ -1275,6 +1312,9 @@ export function App() {
     : dailyStats.goal;
   const currentFlashTermId = flashSessionIds[Math.min(flashReviewIndex, Math.max(0, flashSessionIds.length - 1))];
   const currentFlashTerm = savedTerms.find((item) => item.id === currentFlashTermId);
+  const flashCard = currentFlashTerm && personalMaterials.find(m => `personal-${m.id}` === currentFlashTerm.bookId)
+    ?.terms.find(t => t.sourceSentence && t.contextMeaning && t.usageTip &&
+      t.sourceSentence === currentFlashTerm.exampleText && normalizeLookup(t.term) === normalizeLookup(currentFlashTerm.term));
   const currentFlashIsReinforcement = Boolean(
     currentFlashTermId && flashSessionCompletedIds.includes(currentFlashTermId)
   );
@@ -1284,10 +1324,11 @@ export function App() {
       : lookupCandidates(currentFlashTerm.term).map((key) => termIndex.get(key)).find(Boolean)
     : undefined;
   const currentFlashDictionaryMeaning = currentFlashTerm
-    ? savedTermDictionaryMeaning(currentFlashTerm, currentFlashEntry?.translation)
+    ? flashCard?.meaningZh ?? savedTermDictionaryMeaning(currentFlashTerm, currentFlashEntry?.translation)
     : "";
   const currentFlashContext = useMemo(() => {
     if (!currentFlashTerm) return undefined;
+    if (flashCard && !currentFlashTerm.contextCorrectionId) return authoredContext(flashCard);
     const sourceText = currentFlashTerm.exampleText || currentFlashTerm.sourceText;
     const section = currentFlashTerm.sourceType === "manual" && manual?.bookId === currentFlashTerm.bookId
       ? manual.chapters.flatMap((chapter) => chapter.sections).find((item) => item.id === currentFlashTerm.sectionId)
@@ -1307,7 +1348,7 @@ export function App() {
       sourceTranslation,
       contextGloss: currentFlashTerm.blockId ? manual?.contextGlosses?.[currentFlashTerm.blockId] : undefined
     });
-  }, [currentFlashDictionaryMeaning, currentFlashEntry, currentFlashTerm, manual]);
+  }, [currentFlashDictionaryMeaning, currentFlashEntry, currentFlashTerm, flashCard, manual]);
   const currentFlashExample = useMemo(() => compactStudyExample(
     currentFlashContext?.exampleText || currentFlashTerm?.exampleText || currentFlashTerm?.sourceText || "",
     currentFlashTerm?.term || "",
@@ -1495,6 +1536,9 @@ export function App() {
         if (item.bookId !== currentBookId) {
           return item;
         }
+        // A saved authored sentence must not be reinterpreted using a generic dictionary entry.
+        if (phraseRanges.some(({card}) => card.sourceSentence === item.exampleText &&
+          normalizeLookup(card.term) === normalizeLookup(item.term))) return item;
         const target = resolveDictionaryTarget(
           item.term,
           item.sourceText,
@@ -1579,7 +1623,7 @@ export function App() {
       });
       return changed ? next : items;
     });
-  }, [currentBookId, manual, termIndex]);
+  }, [currentBookId, manual, termIndex, phraseRanges]);
 
   useEffect(() => {
     if (!activeBook || !personalReady) {
@@ -3514,11 +3558,18 @@ export function App() {
           )}
         </section>
           {pronunciationMessage && <p className="pronunciationMessage" role="status">{pronunciationMessage}</p>}
-        <section className="contextMeaningCard">
+        {activeLookup.phraseCard ? <>
+          <section className="fv-phrase-context">
+            <h3>在这句话里</h3>
+            <p>{activeLookup.context.meaning}</p>
+            <blockquote lang="en">{activeLookup.phraseCard.sourceSentence}</blockquote>
+          </section>
+          <PhraseUsage card={activeLookup.phraseCard} onSpeak={speakTerm} />
+        </> : <section className="contextMeaningCard">
           <span>本句中的意思</span>
           <strong>{activeLookup.context.meaning}</strong>
           <p>{activeLookup.context.explanation}</p>
-        </section>
+        </section>}
         {lookupState.status === "accepted" && lookupState.correction && (
           <section className="aiCorrectionCard accepted" aria-label="已采用的语境修订">
             <div className="aiCorrectionHeading">
@@ -3584,13 +3635,13 @@ export function App() {
         )}
         {activeLookup.entry.isSixSigmaTerm && <span className="termBadge">{activeBook?.domainLabel ?? "教材术语"}</span>}
         {activeLookup.questionSource && <span className="termBadge">题目来源 · {activeLookup.questionSource.chapterId}</span>}
-        <div className="exampleBox">
+        {!activeLookup.phraseCard && <div className="exampleBox">
           <strong>{activeLookup.questionSource ? "题目例句" : "教材例句"}</strong>
           <p lang="en">{activeLookup.context.exampleText}</p>
           <p className={activeLookup.context.exampleTranslation ? "" : "translationUnavailable"}>
             {activeLookup.context.exampleTranslation || "该私有题源暂未附经审核的中文译文。"}
           </p>
-        </div>
+        </div>}
           {activeLookup.questionSource ? (
           <button
             className="sourceButton"
@@ -3791,13 +3842,19 @@ export function App() {
 
   function addMaterialTerms(material: PersonalMaterial) {
     const bookId = `personal-${material.id}`;
-    const current = new Set(savedTerms.map(term => term.id));
+    const current = new Set(savedTerms.map(term => `${term.bookId}:${normalizeLookup(term.term)}`));
     const timestamp = new Date().toISOString();
-    const terms: SavedTerm[] = material.terms.filter(term => !current.has(`${bookId}:${normalizeLookup(term.term)}`)).map(term => ({
+    const terms: SavedTerm[] = material.terms.filter(term => {
+      const key = `${bookId}:${normalizeLookup(term.term)}`;
+      if (current.has(key)) return false;
+      current.add(key);
+      return true;
+    }).map(term => ({
       id: `${bookId}:${normalizeLookup(term.term)}`, bookId, bookTitle: material.title, contentVersion: `personal-${material.revision}`,
       term: term.term, translation: term.meaningZh, dictionaryMeaning: term.meaningZh, entryKind: term.term.trim().includes(" ") ? "phrase" : "word",
       chapter: 1, chapterTitle: material.title, page: 1, sectionId: `${bookId}-ch01-s01`, blockId: `${bookId}-ch01-s01-en-body`,
-      sourceText: material.textEn || material.textZh, exampleText: term.exampleEn, savedAt: timestamp,
+      sourceText: term.sourceSentence || material.textEn || material.textZh, exampleText: term.sourceSentence || term.exampleEn,
+      contextMeaning: term.contextMeaning, contextExplanation: term.usageTip, savedAt: timestamp,
       status: "new", familiarity: 0, reviewCount: 0, lapseCount: 0, correctStreak: 0, nextReviewAt: timestamp,
       intervalDays: 0, easeFactor: 2.1, sourceType: "manual", ...createInitialTermReview()
     }));
@@ -3815,7 +3872,7 @@ export function App() {
     </>, {hideHeader:true});
   }
   if (view === "library") {
-    return studyShell("把好内容，留在这里。", "文章、表达与备忘，都是你的学习材料。", <PersonalLibraryView materials={personalMaterials} onOpen={openBook} onChanged={refreshPersonal} onTerms={addMaterialTerms}>
+    return studyShell("材料库", "", <PersonalLibraryView materials={personalMaterials} onOpen={openBook} onChanged={refreshPersonal} onTerms={addMaterialTerms}>
       <section className="fv-book-section"><div className="fv-section-heading"><h2>系统教材</h2><span>BOOKS & RESOURCES</span></div>{(catalog ?? fallbackCatalog).books.map(book => <button key={book.bookId} className="fv-book-row" onClick={() => openBook(book.bookId)}><BookOpen size={24}/><span><strong>{book.title.zh}</strong><small>{book.chapterCount} 章 · 中英双语阅读</small></span><ArrowRight size={18}/></button>)}</section>
     </PersonalLibraryView>);
   }
@@ -3920,6 +3977,7 @@ export function App() {
                       <details className="flashMoreDetails">
                         <summary>更多</summary>
                         <div className="flashMoreDetailsBody">
+                          {flashCard && <PhraseUsage card={flashCard} onSpeak={speakTerm} />}
                           {(currentFlashEntry?.wordRoot || currentFlashTerm.wordRoot || currentFlashEntry?.wordForms?.length || currentFlashTerm.wordForms?.length) && (
                             <section className="flashLexicalDetails">
                               <strong>词根与词形</strong>
@@ -4662,7 +4720,7 @@ export function App() {
       "显示偏好、来源说明和本地学习数据管理。",
       <>
         <CloudLibraryPanel onChanged={refreshPersonal} initialPairingCode={pairingCode}/>
-        <UpdateCenter endpoint={SERVICE_URL} currentVersionCode={900} currentVersion="0.9.0-beta"/>
+        <UpdateCenter endpoint={SERVICE_URL} currentVersionCode={901} currentVersion="0.9.1-beta"/>
         <MemoryManager/>
         <section className="settingsPanel">
           <h2>显示</h2>
@@ -5105,24 +5163,27 @@ export function App() {
     sourceStart?: number,
     sourceEnd?: number
   ) {
-    const target = resolveDictionaryTarget(text, sourceText, sourceStart, sourceEnd, (key) => termIndex.get(key));
-    const query = target?.query || text.trim();
+    const range = personalBook?.textEn === sourceText && sourceStart !== undefined
+      ? findPhraseCardAtRange(phraseRanges, sourceStart, sourceEnd) : undefined;
+    const target = range ? undefined : resolveDictionaryTarget(text, sourceText, sourceStart, sourceEnd, (key) => termIndex.get(key));
+    const query = range?.text || target?.query || text.trim();
     const phraseInput = normalizeLookup(text).includes(" ");
-    const entry = target?.entry
+    const entry: TermEntry = range ? {term: range.text, translation: range.card.meaningZh,
+      explanation: range.card.usageTip || "", lookupKeys: [normalizeLookup(range.text)]} : target?.entry
       ?? (phraseInput
         ? termIndex.get(normalizeLookup(text))
         : lookupCandidates(text).map((key) => termIndex.get(key)).find(Boolean))
       ?? lookupFallback(query);
     const section = lesson?.sections.find((item) => item.id === sectionId);
     const contextGloss = blockId ? manual?.contextGlosses?.[blockId] : undefined;
-    const sourceTranslation = alignedBlockTranslation(section, blockId, page, manual?.contextGlosses, sourceText);
+    const sourceTranslation = range ? undefined : alignedBlockTranslation(section, blockId, page, manual?.contextGlosses, sourceText);
     ensureOverlayHistory();
     setShowToc(false);
     setShowVocab(false);
     setShowNotes(false);
     setActiveAiAssist(null);
-    setSheetHeightVh(52);
-    const context = resolveContextExplanation({
+    setSheetHeightVh(range ? 76 : 52);
+    const context = range ? authoredContext(range.card) : resolveContextExplanation({
       query,
       dictionaryTranslation: entry.translation,
       partOfSpeech: entry.partOfSpeech,
@@ -5131,6 +5192,7 @@ export function App() {
       contextGloss
     });
     openLookup({
+      phraseCard: range?.card,
       query,
       entry,
       entryKind: target?.entryKind ?? (normalizeLookup(query).includes(" ") ? "phrase" : "word"),
@@ -5138,8 +5200,8 @@ export function App() {
       sectionId,
       blockId,
       sourceText,
-      sourceStart: target?.sourceStart ?? sourceStart,
-      sourceEnd: target?.sourceEnd ?? sourceEnd,
+      sourceStart: range?.start ?? target?.sourceStart ?? sourceStart,
+      sourceEnd: range?.end ?? target?.sourceEnd ?? sourceEnd,
       sourceOccurrence: target?.sourceOccurrence,
       sourceTranslation,
       context
@@ -5546,6 +5608,7 @@ export function App() {
     return (
       <InlineReaderText
         text={text}
+        phraseRanges={personalBook?.textEn === text ? phraseRanges : undefined}
         page={page}
         sectionId={sectionId}
         blockId={blockId}
@@ -5789,6 +5852,8 @@ export function App() {
           >
             <div className="sectionMeta">p. {section.page}</div>
             <h2 className="sectionTitle">{section.title[language]}</h2>
+            {language === "en" && phraseRanges.length > 0 &&
+              <p className="fv-phrase-hint">点带下划线的表达，查看原句里的意思和日常用法。</p>}
             <div className={language === "zh" ? "sectionBody zhText" : "sectionBody"}>
               {blocksForLanguage(section).map((block) => renderBlock(block, section))}
             </div>

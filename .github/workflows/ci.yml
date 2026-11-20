@@ -57,6 +57,8 @@ jobs:
           node scripts/qa-study-chat.mjs
           node scripts/qa-app-updates.mjs
           node scripts/qa-sw-navigation.mjs
+          node scripts/qa-phrase-cards.mjs
+          node tests/material-classification.test.mjs
 
       - name: Documentation link check
         run: npm run docs:links
@@ -134,9 +136,13 @@ jobs:
         run: |
           node tests/personal-library.test.mjs
           node tests/personal-sync.test.mjs
+          node tests/material-library.test.mjs
 
       - name: Fly View 0.9 complete personal learning flow
         run: node tests/fly-view-090.browser.mjs
+
+      - name: Personal expression cards in the reader and vocabulary review
+        run: node tests/fly-view-091-phrases.browser.mjs
 
       - name: Upload personal learning screenshots
         if: always()

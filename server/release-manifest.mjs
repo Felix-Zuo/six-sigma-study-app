@@ -1,15 +1,13 @@
 // Verified private APK; public metadata contains no credentials.
 export const releaseManifest = {
-  "version": "0.9.0-beta",
-  "versionCode": 900,
+  "version": "0.9.1-beta",
+  "versionCode": 901,
   "notes": [
-    "新增聊天收录与分类材料库，文章直接进入双语阅读。",
-    "新增可管理的学习记忆、个人空间同步与备份恢复。",
-    "重构手机首页、导航和阅读工具栏，修复存储与语境复用问题。",
-    "新增经过完整性及签名校验的应用内更新。"
+    "点按原文中标出的表达，查看本句的意思、用法和新的双语例句。",
+    "材料库新增学习方向与细分类别，可按雅思阅读题型、口语 Part 和面试场景筛选。"
   ],
   "apkUrl": "https://fly-view-personal.vercel.app/api/download",
-  "sha256": "9bc6adc1c6eeb9058267c0b19b94f2ca06f2f4930ce03e4c6fcbfd4bd19df3b6",
-  "size": 41832129,
-  "publishedAt": "2026-11-15T18:58:49.776Z"
+  "sha256": "cdbc14124d469467a183277a16cef76a8877e150074c22af3801fcb8f0a90843",
+  "size": 41839685,
+  "publishedAt": "2026-11-20T19:23:23.990Z"
 };

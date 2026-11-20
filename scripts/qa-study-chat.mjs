@@ -95,6 +95,12 @@ const collectInput = { ...input, mode: "collect", messages: [...input.messages, 
 const collected = chat.parseStudyChatResult(payload, collectInput);
 assert.equal(collected.material.textEn, material.sourceText);
 assert.equal(collected.material.category, "work");
+const card = {term:"coordinate", meaningZh:"协调", sourceSentence:material.sourceText,
+  contextMeaning:"在说明自己如何安排供应商的工作。", usageTip:"coordinate + 人或具体工作。",
+  exampleEn:"Can you coordinate the pickup?", exampleZh:"你能协调接人的安排吗？"};
+const collectCard = (term) => chat.parseStudyChatResult({...payload, materials: [{...material, terms:[term]}]}, collectInput);
+assert.deepEqual(collectCard(card).material.terms[0], card);
+assert.throws(() => collectCard({...card,sourceSentence:"I coordinate another group."}), /原句/);
 assert.throws(() => chat.parseStudyChatResult(payload, { ...collectInput, messages: [
   { role: "user", content: material.sourceText }, { role: "assistant", content: "已了解。" },
   { role: "user", content: "A different complete article for today's review." }

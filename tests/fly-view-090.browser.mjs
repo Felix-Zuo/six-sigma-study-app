@@ -186,7 +186,9 @@ try {
   checks.push({ name: "invalid-ai-source-retained-and-chat-reply-save-entry", passed: true });
 
   phase = "legacy textbook and desktop";
-  await nav("材料", "library"); await click(".fv-book-row"); await view("reader");
+  await nav("材料", "library"); await button("系统教材", ".fv-library-scope");
+  await until("textbook catalog", () => evaluate("Boolean(document.querySelector('.fv-book-row'))"));
+  await click(".fv-book-row"); await view("reader");
   await until("legacy manual content", () => evaluate("document.querySelector('.readerPanel')?.textContent.includes('Six Sigma') && document.querySelector('.readerPanel').textContent.length>100"));
   assert.ok(await evaluate("document.querySelector('.topBar').textContent.includes('Six Sigma') || document.querySelector('.topBar').textContent.includes('六西格玛')"));
   const legacyGeometry = await evaluate("({width:document.documentElement.clientWidth,scrollWidth:document.documentElement.scrollWidth,elements:Array.from(document.querySelectorAll('body *')).map(e=>({tag:e.tagName,cls:typeof e.className==='string'?e.className:'',left:e.getBoundingClientRect().left,right:e.getBoundingClientRect().right,width:e.getBoundingClientRect().width})).filter(e=>e.left<0||e.right>document.documentElement.clientWidth+.1)})");

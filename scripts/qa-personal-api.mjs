@@ -153,6 +153,41 @@ new Function("require", "module", "exports", compiled)(() => ({}), client, clien
 assert.deepEqual(validatePersonalMaterial(first), client.exports.validatePersonalMaterial(first));
 assert.deepEqual(validatePersonalMaterial(tombstone), client.exports.validatePersonalMaterial(tombstone));
 
+// Older clients round-trip only the three original term fields. The server must
+// preserve valid card data, and retry against the same immutable base every time.
+const richTerm = { ...first.terms[0], sourceSentence: first.textEn, contextMeaning: "这里指待检样品", usageTip: "check 后接需要核对的对象", exampleZh: "请检查样品。" };
+const rich = { ...fixture("expression-card"), terms: [richTerm] };
+assert.deepEqual(validatePersonalMaterial(rich), client.exports.validatePersonalMaterial(rich));
+for (const [field, max] of [["sourceSentence", 5000], ["contextMeaning", 2000], ["usageTip", 5000], ["exampleZh", 5000]]) {
+  for (const bad of [123, null, "a".repeat(max + 1)]) {
+    const invalid = { ...rich, terms: [{ ...richTerm, [field]: bad }] };
+    assert.throws(() => validatePersonalMaterial(invalid));
+    assert.throws(() => client.exports.validatePersonalMaterial(invalid));
+  }
+}
+const cardMock = mockBlob();
+const cards = createPersonalRepository(createBlobObjectStore({ sdk: cardMock.sdk, env }));
+await cards.put({ material: rich, baseRevision: 0 });
+const legacy = { ...rich, revision: 2, title: "旧版修改标题", terms: [{ term: richTerm.term, meaningZh: richTerm.meaningZh, exampleEn: richTerm.exampleEn }] };
+const acceptedLegacy = await cards.put({ material: legacy, baseRevision: 1 });
+assert.deepEqual(acceptedLegacy.material.terms, rich.terms, "Legacy update erased applicable card fields");
+assert.deepEqual(acceptedLegacy.material.title, legacy.title);
+assert.equal(client.exports.isPersonalMaterialCardEnrichment(legacy, acceptedLegacy.material), true);
+const third = { ...acceptedLegacy.material, revision: 3, terms: [{ ...richTerm, usageTip: "新版用法提示" }] };
+await cards.put({ material: third, baseRevision: 2 });
+const delayed = await cards.put({ material: legacy, baseRevision: 1 });
+assert.equal(delayed.idempotent, true);
+assert.equal(delayed.material.terms[0].usageTip, richTerm.usageTip);
+assert.equal((await cards.get(rich.id)).terms[0].usageTip, third.terms[0].usageTip);
+const editedElsewhere = { ...third, revision: 4, textEn: `${third.textEn} We continue tomorrow.`, terms: legacy.terms };
+assert.deepEqual((await cards.put({ material: editedElsewhere, baseRevision: 3 })).material.terms, third.terms, "An unrelated paragraph edit lost its surviving sentence card");
+const cleared = { ...editedElsewhere, revision: 5, terms: [{ ...legacy.terms[0], usageTip: "" }] };
+const clearResult = (await cards.put({ material: cleared, baseRevision: 4 })).material;
+assert.equal(clearResult.terms[0].usageTip, "");
+assert.equal(clearResult.terms[0].sourceSentence, richTerm.sourceSentence);
+const replacedSource = { ...cleared, revision: 6, textEn: "A sample can refer to a music recording.", terms: legacy.terms };
+assert.deepEqual((await cards.put({ material: replacedSource, baseRevision: 5 })).material.terms, legacy.terms, "A different source inherited stale sentence metadata");
+
 const manifest = { version: "0.9.0", versionCode: 900, notes: ["通用测试更新"], apkUrl: `${endpoint}/api/download`,
   sha256: createHash("sha256").update("test-apk").digest("hex"), size: 8, publishedAt: now };
 const releaseHandler = createReleaseHandler({ env, manifest });
@@ -163,7 +198,7 @@ assert.equal((await createReleaseHandler({ env, manifest: { ...manifest, apkUrl:
 let downloadReads = 0; let emitted = 0;
 const apkSize = 6 * 1024 * 1024;
 const downloadHandler = createDownloadHandler({ env, getBlob: async (pathname, options) => {
-  downloadReads++; assert.equal(pathname, "releases/fly-view-0.9.0.apk"); assert.equal(options.access, "private");
+  downloadReads++; assert.equal(pathname, "releases/fly-view-0.9.1.apk"); assert.equal(options.access, "private");
   return { statusCode: 200, blob: { size: apkSize }, stream: new ReadableStream({ pull(controller) {
     if (emitted >= apkSize) { controller.close(); return; }
     const chunk = new Uint8Array(Math.min(65536, apkSize - emitted)); emitted += chunk.byteLength; controller.enqueue(chunk);

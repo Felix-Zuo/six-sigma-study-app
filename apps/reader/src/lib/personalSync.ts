@@ -2,7 +2,7 @@ import { App as CapacitorApp } from "@capacitor/app";
 import { Capacitor } from "@capacitor/core";
 import { clearSavedConnection, getSavedConnection, saveSavedConnection, type SavedConnection } from "./appUpdates";
 import { acknowledgeMaterialsSynced, applyRemoteMaterials, listMaterialConflicts, listPendingMaterials,
-  personalLibraryChangedEvent, validatePersonalMaterial, type MaterialConflict, type PersonalMaterial } from "./personalLibrary";
+  personalLibraryChangedEvent, validatePersonalMaterial, isPersonalMaterialCardEnrichment, type MaterialConflict, type PersonalMaterial } from "./personalLibrary";
 
 export const SERVICE_URL = "https://fly-view-personal.vercel.app";
 export const personalSyncStatusEvent = "fly-view-personal-sync-status";
@@ -134,8 +134,8 @@ async function runSync(): Promise<PersonalSyncResult> {
       if (response.status === 409) {
         await applyRemoteMaterials([remote]);
       } else {
-        if (remote.revision !== material.revision || JSON.stringify(remote) !== JSON.stringify(validatePersonalMaterial(material))) throw new PersonalSyncError("invalid-response", "云端保存结果与本机版本不一致，材料尚未标记为已同步。");
-        await acknowledgeMaterialsSynced([{ id: material.id, revision: material.revision }]);
+        if (remote.revision !== material.revision || !isPersonalMaterialCardEnrichment(validatePersonalMaterial(material), remote)) throw new PersonalSyncError("invalid-response", "云端保存结果与本机版本不一致，材料尚未标记为已同步。");
+        await acknowledgeMaterialsSynced([{ id: material.id, revision: material.revision, material: remote }]);
         result.uploaded++;
       }
     }

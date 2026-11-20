@@ -1,4 +1,6 @@
 import { deepSeekModel, requestStudyAssistantTool } from "./deepSeekAssistant";
+import type { PersonalMaterialTerm } from "./personalLibrary";
+import { findPhraseCardRanges } from "./phraseCards";
 
 export type StudyChatMessage = { role: "user" | "assistant"; content: string };
 export type StudyChatInput = {
@@ -12,7 +14,7 @@ export type ChatMaterial = {
   kind: "article" | "expression" | "memo";
   textEn: string;
   textZh: string;
-  terms: Array<{ term: string; meaningZh: string; exampleEn?: string }>;
+  terms: PersonalMaterialTerm[];
   summary: string;
 };
 export type ChatResult = {
@@ -21,7 +23,7 @@ export type ChatResult = {
   memories?: Array<{ text: string }>;
 };
 
-export const studyChatPromptVersion = "study-chat-v1";
+export const studyChatPromptVersion = "study-chat-v2";
 const maxMessageCharacters = 12000;
 const maxConversationCharacters = 48000;
 const categories = ["interview", "ielts", "work", "general"] as const;
@@ -92,8 +94,12 @@ const materialSchema = {
       description: "最多 12 条原文中确实出现、值得复习的词语",
       items: {
         type: "object", additionalProperties: false,
-        required: ["term", "meaningZh", "exampleEn"],
-        properties: { term: { type: "string" }, meaningZh: { type: "string" }, exampleEn: { type: "string" } }
+        required: ["term", "meaningZh", "sourceSentence", "contextMeaning", "usageTip", "exampleEn", "exampleZh"],
+        properties: {
+          term: { type: "string" }, meaningZh: { type: "string" },
+          sourceSentence: { type: "string" }, contextMeaning: { type: "string" },
+          usageTip: { type: "string" }, exampleEn: { type: "string" }, exampleZh: { type: "string" }
+        }
       }
     },
     summary: { type: "string" }
@@ -119,7 +125,7 @@ export function createStudyChatRequest(input: StudyChatInput) {
             ? "当前为收录模式。用户在最后一条消息中粘贴了待收录的完整原文；只整理这最后一条消息，不能使用较早用户消息或助教回复。若最后一条只是操作指令、要求处理上文而没有具体原文，请追问并返回空 materials。一次最多整理一份材料。"
             : "当前为普通对话模式。只回答和辅导，materials 必须为空数组；用户想收录时可提示使用整理收录。",
           "收录时 sourceText 必须等于最后一条用户消息的完整内容，不能省略段落、标题、句子。textEn/textZh 中对应原文的那一侧必须保留完整原文，另一侧忠实翻译。不要在原文中添加评论、改写或未经证实的事实。",
-          "category 依据材料用途选择 interview/ielts/work/general；kind 为 article/expression/memo。terms 只从原文或其译文选词，exampleEn 用材料中的原句；无合适例句就填空字符串。",
+          "category 依据材料用途选择 interview/ielts/work/general；kind 为 article/expression/memo。优先从 textEn 精选值得开口使用的固定表达，每条 term 是原文连续 1 至 6 词。sourceSentence 逐字摘录含它的原句；contextMeaning 解释说话人在这里想传达什么；usageTip 给可替换的句式或搭配。exampleEn 和 exampleZh 是另一生活场景的自然双语例句。没有合适表达时 terms 留空。",
           "只有当用户明确要求记住个人目标、偏好或本人事实时，才返回最多 3 条简短 memories 建议；不把练习材料、推测、密钥或第三人信息记为用户事实。用户要求忘记时不返回新记忆。",
           "只调用 submit_study_chat，不能输出额外字段；materials 和 memories 无建议时返回空数组。"
         ].join("\n")
@@ -186,16 +192,29 @@ export function parseStudyChatResult(value: unknown, input: StudyChatInput): Cha
     if (!Array.isArray(item.terms) || item.terms.length > 12) throw new Error("素材词汇格式无效");
     const terms = item.terms.map((entry) => {
       if (!record(entry)) throw new Error("素材词汇格式无效");
-      exactKeys(entry, ["term", "meaningZh", "exampleEn"], "词汇");
+      exactKeys(entry, ["term", "meaningZh", "exampleEn", "sourceSentence", "contextMeaning", "usageTip", "exampleZh"], "词汇");
       const term = text(entry.term, "词语", 120);
       if (!`${textEn}\n${textZh}`.toLocaleLowerCase().includes(term.toLocaleLowerCase())) {
         throw new Error("整理结果包含材料中不存在的词语");
       }
       const exampleEn = text(entry.exampleEn, "例句", 1200, true);
+      const meaningZh = text(entry.meaningZh, "词义", 500);
+      if (entry.sourceSentence !== undefined) {
+        const card = {
+          term, meaningZh, exampleEn,
+          sourceSentence: text(entry.sourceSentence, "原句", 1800),
+          contextMeaning: text(entry.contextMeaning, "语境义", 800),
+          usageTip: text(entry.usageTip, "用法", 800),
+          exampleZh: text(entry.exampleZh, "例句翻译", 1200)
+        };
+        if (!exampleEn || !textEn.includes(card.sourceSentence) || !findPhraseCardRanges(textEn, [card]).length)
+          throw new Error("表达卡没有对应的原句，请重试");
+        return card;
+      }
       if (exampleEn && !normalizedSource(textEn).includes(normalizedSource(exampleEn))) {
         throw new Error("整理结果包含并非来自材料的例句");
       }
-      return { term, meaningZh: text(entry.meaningZh, "词义", 500), ...(exampleEn ? { exampleEn } : {}) };
+      return { term, meaningZh, ...(exampleEn ? { exampleEn } : {}) };
     });
     result.material = {
       title: text(item.title, "标题", 160),

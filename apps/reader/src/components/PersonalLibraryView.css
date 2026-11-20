@@ -1,0 +1,67 @@
+.fv-library-browser { min-width: 0; gap: 18px; }
+.fv-library-browser button { touch-action: manipulation; }
+.fv-library-browser button:focus-visible,
+.fv-library-browser input:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.fv-library-scope { display: flex; gap: 5px; padding: 5px; background: var(--surface-muted, #eeece6); border: 1px solid var(--border); border-radius: 15px; }
+.fv-library-scope > button { flex: 1; min-width: 0; min-height: 44px; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 8px; border: 0; border-radius: 10px; background: transparent; color: var(--text-muted); font-size: 12px; font-weight: 600; }
+.fv-library-scope > button[aria-pressed="true"] { background: var(--surface); color: var(--heading); box-shadow: 0 1px 4px #00000008; }
+.fv-library-scope small { font-size: 10px; font-weight: 500; opacity: .75; }
+.fv-library-browser .fv-library-tools { align-items: center; gap: 8px; }
+.fv-library-browser .fv-search { padding-right: 4px; min-height: 48px; }
+.fv-library-browser .fv-search > svg { flex-shrink: 0; }
+.fv-library-browser .fv-search input { font-size: 13px; padding: 13px 0; }
+.fv-library-browser .fv-search input::-webkit-search-cancel-button { appearance: none; }
+.fv-library-browser .fv-search button { flex-shrink: 0; display: grid; place-items: center; width: 40px; min-height: 44px; border: 0; background: transparent; color: var(--text-muted); }
+.fv-library-browser .fv-library-tools > .fv-icon { width: 48px; height: 48px; }
+.fv-library-navigation { display: grid; gap: 12px; min-width: 0; }
+.fv-library-navigation-heading { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 11px; color: var(--text-muted); }
+.fv-library-navigation-heading > button { border: 0; background: transparent; min-height: 44px; padding: 8px 0 8px 16px; font-size: 12px; color: var(--text-muted); }
+.fv-library-navigation-heading > button[aria-pressed="true"] { color: var(--accent-strong); font-weight: 700; }
+.fv-library-navigation-heading > button span { margin-left: 5px; font-size: 10px; font-variant-numeric: tabular-nums; }
+.fv-library-directions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.fv-library-directions > button { min-width: 0; min-height: 70px; padding: 12px; border: 1px solid var(--border); border-radius: 13px; background: var(--surface); color: var(--text); text-align: left; }
+.fv-library-directions > button[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); }
+.fv-library-directions > button > span { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.fv-library-directions strong { font-size: 13px; font-weight: 650; }
+.fv-library-directions small { font-size: 11px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.fv-library-directions em { display: block; margin-top: 7px; color: var(--text-muted); font-size: 10px; font-style: normal; line-height: 1.5; }
+.fv-library-directions[data-compact="true"] > button { min-height: 44px; padding-block: 10px; }
+.fv-library-directions[data-compact="true"] em { display: none; }
+.fv-library-facets, .fv-library-topics > div { display: flex; flex-wrap: wrap; gap: 5px; }
+.fv-library-facets > button, .fv-library-topics button { min-height: 44px; padding: 9px 11px; background: transparent; border: 1px solid var(--border); border-radius: 22px; color: var(--text-muted); font-size: 11px; line-height: 1.45; }
+.fv-library-facets > button[aria-pressed="true"] { background: var(--heading); color: var(--surface); border-color: var(--heading); }
+.fv-library-facets small, .fv-library-topics small { margin-left: 6px; font-size: 10px; opacity: .7; font-variant-numeric: tabular-nums; }
+.fv-library-topics { padding: 12px; border-left: 2px solid var(--accent); background: var(--surface); border-radius: 0 12px 12px 0; display: grid; gap: 8px; }
+.fv-library-topics > span { font-size: 10px; color: var(--text-muted); }
+.fv-library-topics button { border-color: transparent; padding: 8px 9px; }
+.fv-library-topics button[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent-strong); font-weight: 650; }
+.fv-library-result-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-width: 0; }
+.fv-library-result-heading p { display: grid; gap: 5px; margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.fv-library-result-heading strong { font-size: 12px; font-weight: 600; color: var(--heading); }
+.fv-library-result-heading p > span { color: var(--text-muted); font-size: 10px; }
+.fv-library-result-heading > button { flex-shrink: 0; min-height: 44px; padding: 9px 0 9px 9px; font-size: 11px; color: var(--text-muted); background: transparent; border: 0; text-decoration: underline; text-underline-offset: 4px; }
+.fv-library-browser .fv-material-card { min-width: 0; }
+.fv-library-browser .fv-material-main { padding: 18px 18px 10px; }
+.fv-library-browser .fv-material-meta { flex-wrap: wrap; row-gap: 6px; }
+.fv-library-browser .fv-material-meta > span { line-height: 1.6; white-space: normal; }
+.fv-library-browser .fv-material-main h2 { padding-right: 0; margin-top: 12px; font-size: 18px; overflow-wrap: anywhere; }
+.fv-library-browser .fv-material-main p { overflow-wrap: anywhere; }
+.fv-library-browser .fv-material-actions { flex-wrap: wrap; padding: 0 10px 8px; }
+.fv-library-browser .fv-material-actions > button { min-height: 44px; }
+.fv-library-browser .fv-material-actions > .fv-delete { min-width: 44px; }
+.fv-library-browser .fv-empty { padding: 30px 18px; }
+.fv-library-browser .fv-empty p { line-height: 1.8; }
+.fv-library-browser .fv-empty .fv-primary { margin-inline: auto; }
+.fv-library-books { min-width: 0; }
+.fv-library-books > .fv-book-section { margin-top: 2px; }
+.fv-library-books .fv-book-row { min-width: 0; }
+.fv-library-books .fv-book-row > span { min-width: 0; overflow-wrap: anywhere; }
+.fv-library-books .fv-book-row > svg { flex-shrink: 0; }
+@media (min-width: 680px) {
+  .fv-library-directions { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 360px) {
+  .fv-library-directions > button { padding: 10px; }
+  .fv-library-directions em { font-size: 9px; }
+  .fv-library-browser .fv-material-main { padding-inline: 15px; }
+}

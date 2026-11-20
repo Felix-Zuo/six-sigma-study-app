@@ -17,7 +17,7 @@ type Phase = "idle" | "checking" | "available" | "current" | "downloading" | "ve
 
 const sizeLabel = (size: number) => `${(size / 1024 / 1024).toFixed(1)} MB`;
 
-export function UpdateCenter({ endpoint, currentVersionCode = 900, currentVersion = "0.9.0-beta" }: UpdateCenterProps) {
+export function UpdateCenter({ endpoint, currentVersionCode = 901, currentVersion = "0.9.1-beta" }: UpdateCenterProps) {
   const android = isAndroidUpdater();
   const [installed, setInstalled] = useState({ version: currentVersion, versionCode: currentVersionCode });
   const [release, setRelease] = useState<AppRelease | null>(null);

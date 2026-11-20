@@ -31,8 +31,11 @@ window.fetch = async (input, options = {}) => {
     const existing = cloud.get(payload.material.id);
     if ((existing?.revision ?? 0) !== payload.baseRevision) return json({ material: existing }, 409);
     assert(payload.material.revision > payload.baseRevision, "revision did not advance");
-    cloud.set(payload.material.id, payload.material);
-    return json({ material: payload.material, revision: payload.material.revision, idempotent: false });
+    const material = behavior === "enrich" && payload.material.id === "card-sync"
+      ? { ...payload.material, terms: payload.material.terms.map((term) => ({ ...term, sourceSentence: payload.material.textEn, contextMeaning: "这里指需要核对的计划", usageTip: "check 后接名词", exampleZh: "我们核对计划。" })) }
+      : payload.material;
+    cloud.set(material.id, material);
+    return json({ material, revision: material.revision, idempotent: false });
   }
   if (behavior === "loop") return json({ materials: [], hasMore: true, cursor: "same" });
   const entries = [...cloud.values()].sort((a, b) => a.id.localeCompare(b.id));
@@ -146,6 +149,17 @@ await test("local saves auto-sync and unresolved conflicts do not create request
     assert(calls.length === settledCalls, "persistent conflict caused repeated automatic sync");
     assert((await library.listPendingMaterials()).some((item) => item.id === local.id), "conflict discarded unsynced local edit");
   } finally { stop(); window.setTimeout = originalTimeout; }
+});
+
+await test("server-preserved card fields enrich the upload acknowledgement without a false conflict", async () => {
+  const original = await library.savePersonalMaterial(fixture("card-sync", { terms: [{ term: "plan", meaningZh: "计划", exampleEn: "We check the plan." }] }));
+  behavior = "enrich";
+  let result;
+  try { result = await sync.syncPersonalLibrary(); } finally { behavior = "normal"; }
+  const stored = (await library.listPersonalMaterials()).find((item) => item.id === original.id);
+  assert(stored.terms[0].contextMeaning === "这里指需要核对的计划", "acknowledgement omitted enriched fields");
+  assert(!(await library.listPendingMaterials()).some((item) => item.id === original.id), "enriched upload remains dirty");
+  assert(!result.conflicts.some((item) => item.id === original.id), "metadata-only acknowledgement created a conflict");
 });
 
 window.fetch = nativeFetch;

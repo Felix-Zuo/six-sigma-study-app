@@ -2,6 +2,7 @@ import fs from "node:fs";
 
 const store = fs.readFileSync("apps/reader/src/lib/streakStore.ts", "utf8");
 const app = fs.readFileSync("apps/reader/src/App.tsx", "utf8");
+const home = fs.readFileSync("apps/reader/src/components/PersonalWorkspace.tsx", "utf8");
 
 const checks = [
   ["storage key", store.includes("six-sigma-study:daily-streak:v1")],
@@ -11,7 +12,8 @@ const checks = [
   ["catch-up cap", store.includes("maxCatchUpExtra = 12")],
   ["missed days", store.includes("missedDays") && store.includes("daysSinceCheckIn - 1")],
   ["auto check-in", store.includes("checkedInToday: true") && store.includes("lastCheckInDate: current.day")],
-  ["home status", app.includes("今日目标") && app.includes("连续天数")],
+  ["home status", app.includes("goal={dailyStats.goal}") && app.includes("streak={dailyStats.streak}") &&
+    home.includes("{completed}<small> / {goal}") && home.includes("已连续学习 ${streak} 天")],
   ["vocab status", app.includes("开始今日学习") && app.includes("今日已完成")]
 ];
 

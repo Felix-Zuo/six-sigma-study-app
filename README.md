@@ -1,6 +1,6 @@
 # 飞阅 (Fly View)
 
-**Beta 0.9.0 personal learning update:** chat collection, private material sync, editable learning memory, redesigned mobile navigation, reliable backup/restore and verified private APK updates. See [0.9 release design and boundaries](docs/fly-view-090.md) and [personal sync deployment](docs/personal-sync.md). The 0.8 feature inventory below remains the baseline for the existing textbook modules.
+**Beta 0.9.1** adds tappable, sentence-specific expression cards and a searchable personal library organized by learning goal. See the [release history](CHANGELOG.md), [personal learning design](docs/fly-view-090.md) and [personal sync deployment](docs/personal-sync.md).
 
 [![CI](https://github.com/Felix-Zuo/six-sigma-study-app/actions/workflows/ci.yml/badge.svg)](https://github.com/Felix-Zuo/six-sigma-study-app/actions/workflows/ci.yml)
 

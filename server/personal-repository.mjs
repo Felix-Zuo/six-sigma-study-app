@@ -1,4 +1,4 @@
-import { ApiError, MAX_PAGE_BYTES, identifier, materialDigest, validatePersonalMaterial, validateSubmission } from "./personal-material.mjs";
+import { ApiError, MAX_PAGE_BYTES, identifier, materialDigest, preserveApplicableTermCards, validatePersonalMaterial, validateSubmission } from "./personal-material.mjs";
 
 const headPath = (id) => `personal-heads/${identifier(id)}.json`;
 const claimPath = (id, base) => `personal/${identifier(id)}/claims/b${base}.json`;
@@ -46,13 +46,21 @@ export function createPersonalRepository(store) {
   return {
     async get(id) { return (await latest(identifier(id))).value.material; },
     async put(input) {
-      const { material, baseRevision } = validateSubmission(input);
+      let { material, baseRevision } = validateSubmission(input);
       const id = material.id;
       const initial = { schemaVersion: 1, id, revision: 0, digest: null, material: null };
       // This empty index is written before the first commit, so every committed
       // material remains discoverable even if the writer stops immediately.
       await store.createJson(headPath(id), initial);
       const current = await latest(id);
+      // Merge against the immutable acknowledged base, not the newest head.
+      // This keeps a delayed 0.9 retry deterministic after later edits arrive.
+      const baseSnapshot = baseRevision > 0 && current.value.revision !== baseRevision
+        ? await store.readJson(snapshotPath({ id, revision: baseRevision })) : null;
+      const base = current.value.revision === baseRevision ? current.value.material
+        : baseSnapshot ? validatePersonalMaterial(baseSnapshot.value) : null;
+      if (base && (base.id !== id || base.revision !== baseRevision)) throw unavailable();
+      material = validateSubmission({ material: preserveApplicableTermCards(material, base), baseRevision }).material;
       const digest = materialDigest(material);
       if (current.value.material && current.value.digest === digest) {
         await finishCommit(current.value, current.head);

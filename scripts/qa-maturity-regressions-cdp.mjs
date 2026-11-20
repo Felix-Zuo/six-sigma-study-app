@@ -448,6 +448,8 @@ async function main() {
     async function clickBook(title) {
       await clickPrimaryNav("材料");
       await waitFor("materials route", () => evaluate(`document.querySelector('[data-app-view]')?.dataset.appView === 'library'`));
+      await evaluate(`Array.from(document.querySelectorAll('.fv-library-scope button')).find(item=>item.textContent.includes('系统教材'))?.click()`);
+      await waitFor("system textbooks", () => evaluate(`Boolean(document.querySelector('.fv-book-row'))`));
       const result = await evaluate(`(() => {
         const title = ${JSON.stringify(title)};
         const library = document.querySelector('.fv-book-section');

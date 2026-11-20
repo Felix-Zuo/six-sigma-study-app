@@ -69,6 +69,16 @@ async function main() {
     return file.replaceAll("\\", "/");
   }
 
+  async function startReadyReview(description) {
+    // The plan renders before its book and dictionary finish loading. A click
+    // on the disabled button is intentionally ignored by the application.
+    await waitFor(`${description} ready`, () => evaluate(`(() => {
+      const button = document.querySelector(".vocabStartButton");
+      return Boolean(button && !button.disabled && button.getAttribute("aria-busy") !== "true");
+    })()`));
+    await evaluate(`document.querySelector(".vocabStartButton")?.click()`);
+  }
+
   await cdp.send("Page.navigate", { url: appUrl });
   await waitFor("application", () => evaluate(`Boolean(document.querySelector(".appShell"))`));
   await evaluate(`(async () => {
@@ -129,7 +139,7 @@ async function main() {
   const staleSource = await evaluate(`JSON.parse(localStorage.getItem("six-sigma-study:vocab:v1") ?? "[]").find((item) => item.id === "qa-stale-source-term")`);
   const vocabHomeShot = await capture("00-vocab-home");
 
-  await evaluate(`document.querySelector(".vocabStartButton")?.click()`);
+  await startReadyReview("initial vocabulary review");
   await waitFor("phrase dictionary quiz", () => evaluate(`document.querySelector(".flashCard h2")?.textContent?.trim() === "trial and error" && Boolean(document.querySelector(".flashQuiz"))`));
   const phraseQuiz = await evaluate(`(() => ({
     prompt: document.querySelector(".flashQuiz p")?.textContent?.trim(),
@@ -220,10 +230,10 @@ async function main() {
     localStorage.removeItem("six-sigma-study:daily-streak:v1");
     location.reload();
   })()`);
-  await waitFor("home after clock-skew seed", () => evaluate(`Boolean(document.querySelector(".mainNav"))`));
+  await waitFor("home after clock-skew seed", () => evaluate(`document.querySelector('[data-app-view]')?.dataset.appView === 'home'`));
   await evaluate(`Array.from(document.querySelectorAll(".mainNavItem")).find((item) => item.textContent.includes("复习"))?.click()`);
   await waitFor("clock-skew vocabulary plan", () => evaluate(`Boolean(document.querySelector(".vocabStartButton"))`));
-  await evaluate(`document.querySelector(".vocabStartButton")?.click()`);
+  await startReadyReview("clock-skew vocabulary review");
   await waitFor("clock-skew review card", () => evaluate(`document.querySelector(".flashCard h2")?.textContent?.trim().toLocaleLowerCase() === "variation"`));
   const clockSkewQuiz = await evaluate(`(() => ({
     bodyBlank: document.body.innerText.trim().length === 0,
@@ -268,12 +278,12 @@ async function main() {
     }));
     location.reload();
   })()`);
-  await waitFor("home after reported-regression seed", () => evaluate(`Boolean(document.querySelector(".mainNav"))`));
+  await waitFor("home after reported-regression seed", () => evaluate(`document.querySelector('[data-app-view]')?.dataset.appView === 'home'`));
   await evaluate(`Array.from(document.querySelectorAll(".mainNavItem")).find((item) => item.textContent.includes("复习"))?.click()`);
   await waitFor("migrated daily plan", () => evaluate(`document.querySelector('[aria-label="每日学习数量"]')?.value === "20"`));
   const migratedDailyPlan = await evaluate(`JSON.parse(localStorage.getItem("six-sigma-study:daily-streak:v1") ?? "null")`);
   const planCopy = await evaluate(`document.querySelector(".vocabPlanHero h2")?.textContent?.trim()`);
-  await evaluate(`document.querySelector(".vocabStartButton")?.click()`);
+  await startReadyReview("reported-regression vocabulary review");
   await waitFor("transit quiz", () => evaluate(`document.querySelector(".flashCard h2")?.textContent?.trim() === "transit"`));
   const transitQuiz = await evaluate(`(() => ({
     options: Array.from(document.querySelectorAll(".flashQuiz button:not(.flashUnknownAction)")).map((item) => item.textContent.trim()),

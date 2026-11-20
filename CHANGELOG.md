@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.9.1-beta.0] - 2026-11-21
+
+- Tap an underlined expression in a personal lesson to read its meaning in that sentence, see when to use it and practise with a second bilingual example. Saved expressions retain this guidance in vocabulary review.
+- Browse personal materials by learning goal and topic, or search for a phrase and its Chinese meaning. System textbooks have a dedicated tab.
+- Chat collection and private sync now preserve sentence-specific expression cards, including during updates from older clients.
+
 ## [0.9.0-beta.0] - 2026-11-16
 
 - Added personal articles, expressions and memos collected directly from the study chat or desktop publishing bridge, with existing bilingual reader and vocabulary integration.

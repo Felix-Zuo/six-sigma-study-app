@@ -32,6 +32,12 @@ async function main() {
   // System books live in Materials in 0.9; keep exercising a scrolled source.
   await evaluate(`Array.from(document.querySelectorAll('.mainNavItem')).find(item=>item.textContent.includes('材料'))?.click()`);
   await waitFor("materials", () => evaluate(`document.querySelector('[data-app-view]')?.dataset.appView === 'library' && !document.documentElement.dataset.transitionKind`));
+  await evaluate(`Array.from(document.querySelectorAll('.fv-library-scope button')).find(item=>item.textContent.includes('系统教材'))?.click()`);
+  await waitFor("system textbooks", () => evaluate(`Boolean(document.querySelector('.fv-book-row'))`));
+  // The dedicated catalog is short. A compact viewport keeps this a real
+  // scrolled-source regression without adding fake content or relaxing assertions.
+  await cdp.send("Emulation.setDeviceMetricsOverride", { width: 390, height: 360, deviceScaleFactor: 1, mobile: true });
+  await sleep(80);
 
   const source = await evaluate(`(() => {
     const card = document.querySelector('.fv-book-row');
@@ -40,6 +46,7 @@ async function main() {
     return {
       found: Boolean(card),
       scrollY,
+      viewportHeight: innerHeight,
       rect: rect ? { top: rect.top, bottom: rect.bottom, width: rect.width, height: rect.height } : null
     };
   })()`);
@@ -60,7 +67,7 @@ async function main() {
 
   const checks = {
     scrolledSourceVisible:
-      source.found && source.scrollY > 0 && source.rect?.bottom > 0 && source.rect?.top < 844,
+      source.found && source.scrollY > 0 && source.rect?.bottom > 0 && source.rect?.top < source.viewportHeight,
     clickAccepted: clicked,
     destinationOwnsSingleShell:
       active.snapshot.view === "reader" && active.snapshot.shellCount === 1 && settled.snapshot.shellCount === 1,
@@ -87,6 +94,7 @@ async function main() {
     restore(${JSON.stringify(preferencesKey)}, ${JSON.stringify(storageBackup.preferences)});
     return true;
   })()`);
+  await cdp.send("Emulation.setDeviceMetricsOverride", { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
   cdp.close();
 
   const result = {

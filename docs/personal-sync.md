@@ -9,7 +9,7 @@
 - `BLOB_STORE_ID`：连接到此项目的 Private Blob store。SDK 默认使用该变量及 Vercel OIDC；本地维护如需访问 Blob，应使用独立授权配置，不能把 Blob 凭据交给客户端。
 - `FLY_VIEW_ALLOWED_ORIGINS`：可选，逗号分隔的额外网页 origin。默认允许正式网页、`capacitor://localhost`、Android 和本地开发使用的 `http(s)://localhost` / `http(s)://127.0.0.1`。
 - `FLY_VIEW_RELEASE_JSON`：可选的已验证安装包 manifest JSON；未设置时读取 `server/release-manifest.mjs` 的 `releaseManifest`。未发布 manifest 时返回 404。
-- `FLY_VIEW_APK_PATH`：默认 `releases/fly-view-0.9.0.apk`。只能由服务器配置决定，客户端不能指定 Blob 路径。
+- 安装包默认路径由 `server/release-info.mjs` 的 `pathname` 决定，服务器可通过 `FLY_VIEW_APK_PATH` 覆盖。
 - `FLY_VIEW_PUBLIC_ORIGIN`：可选的正式发布 origin，用于校验 manifest。默认使用上述正式地址。
 
 入口采用 Vercel Node.js Web Standard `fetch` 导出。应用部署配置应保留 `api/*.mjs` 和导入的 `server/*.mjs`，下载函数应具有足够的执行时间。安装包上传直接使用 Blob SDK/CLI，不经过小文件 JSON 接口。

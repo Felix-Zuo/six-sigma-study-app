@@ -227,6 +227,37 @@ await test("all legacy persistence failures return false and emit a usable UI ev
   assert(legacy.loadSavedNotes()[0].note === "Keep me", "legacy read normalization regressed");
 });
 
+await test("0.9 clean projections receive only missing expression-card metadata without conflicts", async () => {
+  const old = fixture("card-upgrade");
+  const term = { ...old.terms[0], sourceSentence: old.textEn, contextMeaning: "核对工作计划", usageTip: "check 后接要核对的对象", exampleZh: "我核对计划。" };
+  const rich = { ...old, terms: [term] };
+  await library.applyRemoteMaterials([old]);
+  const applied = await library.applyRemoteMaterials([rich]);
+  assert(applied.applied.includes(old.id) && applied.conflicts.length === 0, "metadata-only upgrade became a conflict");
+  const stored = (await library.listPersonalMaterials()).find((item) => item.id === old.id);
+  assert(JSON.stringify(stored.terms) === JSON.stringify(rich.terms), "rich card did not persist");
+  const dictionary = library.materialToManual(stored).dictionary[0];
+  for (const field of ["sourceSentence", "contextMeaning", "usageTip", "exampleEn", "exampleZh"]) assert(dictionary[field] === term[field], `manual omitted ${field}`);
+  assert(dictionary.phraseCards[0].usageTip === term.usageTip, "manual lost source-specific card");
+  const changed = await library.applyRemoteMaterials([{ ...rich, title: "Changed same-version title" }]);
+  assert(changed.conflicts.length === 1, "substantive same-version difference was silently merged");
+  const dirty = await library.savePersonalMaterial(fixture("card-upgrade-dirty"));
+  const conflict = await library.applyRemoteMaterials([{ ...dirty, terms: [term] }]);
+  assert(conflict.conflicts.length === 1, "dirty card projection lost conflict protection");
+});
+
+await test("acknowledgement fills preserved card fields atomically without erasing later edits", async () => {
+  const old = await library.savePersonalMaterial(fixture("card-ack"));
+  const rich = { ...old, terms: [{ ...old.terms[0], sourceSentence: old.textEn, usageTip: "核对计划的表达" }] };
+  await library.acknowledgeMaterialsSynced([{ id: old.id, revision: old.revision, material: rich }]);
+  assert((await library.listPersonalMaterials()).find((item) => item.id === old.id).terms[0].usageTip === rich.terms[0].usageTip, "ack discarded server-preserved fields");
+  const first = await library.savePersonalMaterial(fixture("card-ack-race"));
+  const later = await library.savePersonalMaterial({ ...first, title: "Edited during upload" });
+  await library.acknowledgeMaterialsSynced([{ id: first.id, revision: first.revision, material: { ...first, terms: rich.terms } }]);
+  const pending = (await library.listPendingMaterials()).find((item) => item.id === first.id);
+  assert(pending?.title === later.title && pending.baseRevision === first.revision, "ack erased a newer local edit");
+});
+
 await test("full backup restores on an empty device without credentials or lost records", async () => {
   const backup = await library.exportLearningBackup();
   const db = await new Promise((resolve, reject) => { const request = indexedDB.open(library.personalLibraryDatabaseName); request.onsuccess = () => resolve(request.result); request.onerror = () => reject(request.error); });
