@@ -1,6 +1,7 @@
 import fs from "node:fs";
 
 const app = fs.readFileSync("apps/reader/src/App.tsx", "utf8");
+const home = fs.readFileSync("apps/reader/src/components/PersonalWorkspace.tsx", "utf8");
 const questionStore = fs.readFileSync("apps/reader/src/lib/questionBank.ts", "utf8");
 const sample = JSON.parse(fs.readFileSync("samples/question-bank/public-sample.questions.json", "utf8"));
 
@@ -8,7 +9,11 @@ const sampleHasSingle = sample.questions.some((question) => question.questionTyp
 const sampleHasMultiple = sample.questions.some((question) => question.questionType === "multiple");
 
 const checks = [
-  ["main nav questions", app.includes('{ view: "questions", label: "刷题"')],
+  // Since 0.9, question training is reached from the learning home shortcuts.
+  // Keep verifying both the visible entry and its connection to the question route.
+  ["home question training entry", home.includes("onClick={()=>onNavigate('questions')}")
+    && home.includes("题库训练") && app.includes("<StudyHome ")
+    && app.includes("onNavigate={navigateTo}") && app.includes('if (view === "questions")')],
   ["five modes", ["看题", "顺序练习", "错题", "收藏题", "模拟考试"].every((label) => app.includes(label))],
   ["question dashboard", app.includes("questionDashboardHero") && app.includes("questionModeCards") && app.includes("专项练习")],
   ["independent question session", app.includes("questionSessionTopbar") && app.includes("hideNav: true")],
