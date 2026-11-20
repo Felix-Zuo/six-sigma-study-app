@@ -40,15 +40,26 @@ export function createBlobObjectStore({ sdk = blobSdk, env = process.env, signal
   return {
     readJson, createJson,
     async replaceJson(pathname, value, etag) {
+      if (!etag) throw new Error("Missing Blob version for conditional update");
+      let expected = etag;
+      if (etag.startsWith("W/")) {
+        // A compressed GET may expose a weak representation ETag. HEAD gives
+        // us the storage version needed by If-Match. Keep the comparison to
+        // the originally read version even if another device just changed it.
+        const metadata = await sdk.head(pathname, auth);
+        if (!metadata.etag || metadata.etag.startsWith("W/")) throw new Error("Missing strong Blob version");
+        if (metadata.etag !== etag.slice(2)) return { replaced: false, etag: metadata.etag };
+        expected = metadata.etag;
+      }
       try {
         const result = await sdk.put(pathname, JSON.stringify(value), {
-          ...auth, access: "private", addRandomSuffix: false, allowOverwrite: true, ifMatch: etag,
+          ...auth, access: "private", addRandomSuffix: false, allowOverwrite: true, ifMatch: expected,
           contentType: "application/json", cacheControlMaxAge: 60
         });
         return { replaced: true, etag: result.etag };
       } catch (error) {
         const current = await readJson(pathname);
-        if (current && current.etag !== etag) return { replaced: false, etag: current.etag };
+        if (current?.etag && current.etag.replace(/^W\//, "") !== expected) return { replaced: false, etag: current.etag };
         throw error;
       }
     },

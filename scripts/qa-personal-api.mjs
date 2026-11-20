@@ -31,8 +31,9 @@ function mockBlob() {
       const entry = records.get(pathname);
       if (!entry) return null;
       return { statusCode: 200, stream: new Response(entry.body).body,
-        blob: { size: Buffer.byteLength(entry.body), etag: entry.etag } };
+        blob: { size: Buffer.byteLength(entry.body), etag: `W/${entry.etag}` } };
     },
+    async head(pathname) { return { etag: records.get(pathname)?.etag }; },
     async put(pathname, body, options) {
       stats.writes++;
       assert.equal(options.access, "private"); assert.equal(options.addRandomSuffix, false);
@@ -43,7 +44,7 @@ function mockBlob() {
         assert.ok(options.ifMatch, "Every mutable head update must have a compare-and-swap condition");
         if (existing?.etag !== options.ifMatch) throw new Error("precondition failed");
       }
-      const etag = `etag-${++sequence}`;
+      const etag = `"etag-${++sequence}"`;
       records.set(pathname, { body, etag });
       return { etag };
     },
@@ -61,6 +62,16 @@ function mockBlob() {
 }
 const mock = mockBlob();
 const store = createBlobObjectStore({ sdk: mock.sdk, env });
+{
+  const pathname = "cas-example.json";
+  await store.createJson(pathname, { version: 1 });
+  const original = await store.readJson(pathname);
+  assert.ok(original.etag.startsWith("W/"));
+  assert.equal((await store.replaceJson(pathname, { version: 2 }, original.etag)).replaced, true);
+  assert.equal((await store.replaceJson(pathname, { version: 3 }, original.etag)).replaced, false);
+  assert.equal((await store.readJson(pathname)).value.version, 2);
+  mock.stats.reads = 0;
+}
 const repository = createPersonalRepository(store);
 const handler = createMaterialsHandler({ env, storeFactory: () => store });
 const request = (method, body, suffix = "", authorization = `Bearer ${token}`, origin = "https://localhost") => new Request(`${endpoint}/api/materials${suffix}`, {
